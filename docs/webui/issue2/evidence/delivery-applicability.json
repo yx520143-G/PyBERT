@@ -1,0 +1,94 @@
+{
+  "code_commit": "f67f07d54332143d10340b3fd56fedf63d5aab26",
+  "numeric_report": "numeric-20261024-050800/report.json",
+  "source_applicability": {
+    "src\\pybert\\web\\__init__.py": {
+      "numeric_run_sha256": "3e7b84c5ac35bb3b6d277c3b5cff7c6cee9c976c9a56de4aca1f0b2ce3369855",
+      "delivery_sha256": "3e7b84c5ac35bb3b6d277c3b5cff7c6cee9c976c9a56de4aca1f0b2ce3369855",
+      "identical": true
+    },
+    "src\\pybert\\web\\config.py": {
+      "numeric_run_sha256": "6e47c5c5f09de4161fc41738f2c5aaa6db34a792755080ad084d490df59d59b4",
+      "delivery_sha256": "6e47c5c5f09de4161fc41738f2c5aaa6db34a792755080ad084d490df59d59b4",
+      "identical": true
+    },
+    "src\\pybert\\web\\data.py": {
+      "numeric_run_sha256": "3cfc36f7150eb234b625ceb24ae64601cffc6555bfb293096b09be694758b0e8",
+      "delivery_sha256": "3cfc36f7150eb234b625ceb24ae64601cffc6555bfb293096b09be694758b0e8",
+      "identical": true
+    },
+    "src\\pybert\\web\\server.py": {
+      "numeric_run_sha256": "59baed9aa94bcc18749a75551ca6be45901507659a06debe794deb60b5822dda",
+      "delivery_sha256": "59baed9aa94bcc18749a75551ca6be45901507659a06debe794deb60b5822dda",
+      "identical": true
+    },
+    "src\\pybert\\web\\tasks.py": {
+      "numeric_run_sha256": "cdb5a666861994ad43e065f0a82bb0849fd4dd7f56e49a3be773826b14f12389",
+      "delivery_sha256": "5d9c704f1329ee61645be3133bed736fc5261567d2de29d7df11fdd31454300e",
+      "identical": false
+    },
+    "src\\pybert\\web\\worker.py": {
+      "numeric_run_sha256": "fe3595d9085f20d3967f8a3507ad875d36b9e68a4b7a6073fec7c59d08b95b57",
+      "delivery_sha256": "fe3595d9085f20d3967f8a3507ad875d36b9e68a4b7a6073fec7c59d08b95b57",
+      "identical": true
+    },
+    "src\\pybert\\models\\bert.py": {
+      "numeric_run_sha256": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302",
+      "delivery_sha256": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302",
+      "identical": true
+    }
+  },
+  "nonmatching_sources": {
+    "src/pybert/web/tasks.py": "After numeric capture: close joined process handles, bound recent task logs to32 (current+two successes retained), resolve removal paths inside owned temporary root; request serialization before directory creation. Final25 native/IPC tests cover this manager; no physical engine/analysis changes."
+  },
+  "ui_after_numeric": "Observer/commit queue, Undo lock, SaveAs Escape reset, readonly input reload, layout. Chrome records are separate from numerical evidence.",
+  "tests": [
+    {
+      "file": "web-contract-af20605.xml",
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "compatibility.xml",
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "raw_schema_version": 2,
+  "old_raw_schema_readable": true,
+  "frozen_files_still_match": true,
+  "wheel_static_files": [
+    "pybert/web/static/app.js",
+    "pybert/web/static/catalog.js",
+    "pybert/web/static/gui-map.js",
+    "pybert/web/static/index.html",
+    "pybert/web/static/settings.js",
+    "pybert/web/static/styles.css",
+    "pybert/web/static/workbench.css",
+    "pybert/web/static/workbench.js"
+  ],
+  "save_as_escape_download_absent": true,
+  "gui_native_and_current_warnings": {
+    "native-gui-reference": {
+      "missing_dfe": 2,
+      "grid_mapper_none": 8
+    },
+    "native-gui-smoke": {
+      "missing_dfe": 2,
+      "grid_mapper_none": 8
+    }
+  },
+  "queue_followup": {
+    "commit": "f67f07d54332143d10340b3fd56fedf63d5aab26",
+    "evidence": "ordered-patch-observer.json",
+    "scope": "UI queue only; no physics changed"
+  },
+  "final_chrome_runs": [
+    "968883ce-1c46-4204-93e4-e4484040f721",
+    "4df0395c-2ba0-4345-91c7-b7573c776d4c"
+  ]
+}

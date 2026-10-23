@@ -1,0 +1,21 @@
+{
+  "queue": [
+    {
+      "field": "f_max",
+      "value": 200
+    },
+    {
+      "field": "nspui",
+      "value": 64
+    },
+    {
+      "field": "f_max",
+      "value": 300
+    }
+  ],
+  "dimension_edits_retained": true,
+  "native_correct_f_max": 300.0,
+  "native_wrong_order_f_max": 160.0,
+  "simulation_performed": false,
+  "passed": true
+}

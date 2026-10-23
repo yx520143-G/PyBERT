@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "error": "dict() got multiple values for keyword argument 'warnings'",
+  "error_type": "TypeError",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 77, in run_worker\n    collect(p, observations, directory, identity, cancelled)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\web\\data.py\", line 163, in collect\n    manifest = dict(schema_version=SCHEMA_VERSION, **identity, native_sha=NATIVE_SHA, prototype_sha=PROTOTYPE_SHA,\n                    adapter_sha=adapter_sha(), status=\"succeeded\", datasets=datasets, plots=plots, summary=summary,\n                    window=window, resources=[], warnings=identity.get(\"warnings\", []),\n                    packages={name: importlib.metadata.version(name) for name in\n                              (\"pipbert\", \"numpy\", \"scipy\", \"traits\", \"pyibis-ami\", \"pychopmarg\")})\nTypeError: dict() got multiple values for keyword argument 'warnings'\n",
+  "cancel_observed": false,
+  "cancel_requested": false
+}

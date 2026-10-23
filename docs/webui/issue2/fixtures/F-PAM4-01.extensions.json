@@ -1,0 +1,22 @@
+{
+  "runtime_extensions": {},
+  "input_hash": "fc9712ee438369093b9a5e188c180605d46b015c548e7270eee4d3e4feb83c1a",
+  "resources": [],
+  "window": {
+    "nui": 7500,
+    "eye_uis": 5080,
+    "ignore_samps": 77440,
+    "ignore_until_s": 4.84e-07,
+    "ui_s": 2e-10
+  },
+  "eye": {
+    "height": 1000,
+    "width": 64,
+    "display_noise": false
+  },
+  "waveform_projection": {
+    "default": "last 20 UI",
+    "max_points": 4096,
+    "rule": "evenly spaced integer indices including endpoints"
+  }
+}

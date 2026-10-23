@@ -1,0 +1,332 @@
+{
+  "code_commit": "f67f07d54332143d10340b3fd56fedf63d5aab26",
+  "viewport": {
+    "clientHeight": 720,
+    "clientWidth": 1265,
+    "devicePixelRatio": 1,
+    "innerHeight": 720,
+    "innerWidth": 1280
+  },
+  "files": [
+    {
+      "file": "01-nrz-dfe-spectrum.png",
+      "sha256": "ca158081f1e82a40992790459c6d7c25dfeaefa1f38f3d78beda63537673e357",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce jitter.spec"
+    },
+    {
+      "file": "02-rxffe-frequency.png",
+      "sha256": "a2bdba4320e8ad9691665af46fc2ac062f383001dabfd1b12592bf4def9e59c7",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce response ffe_H single"
+    },
+    {
+      "file": "03-rxffe-waveform.png",
+      "sha256": "90363ed3cb9c95af8d179c343abbb028f0bcc1201b68bc9c0cbfd56a9fc72465",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce wave.ffe_out"
+    },
+    {
+      "file": "04-nrz-dfe-eye.png",
+      "sha256": "d6d395f3f1f3dd6cd1107930b00cffa3b1e2050e8560d1fb5c1f081b17c95765",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce eye.dfe"
+    },
+    {
+      "file": "05-cdr-adaptation.png",
+      "sha256": "f1fa9edc5d8a885f01a56dd554303117c78821b4f9f905a69f1704562c70b464",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce CDR UI estimates"
+    },
+    {
+      "file": "06-pam4-dfe-eye.png",
+      "sha256": "2d16cc8fefbf8fbab1b0419bc2af9081593af0a420df4482f8071f728d054728",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "PAM4 4df0395c eye.dfe"
+    },
+    {
+      "file": "07-two-run-comparison.png",
+      "sha256": "4772c31f80e49e1099a2f02e6d67646a8a346d87529629dcbcb541ba7bbc6efa",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce / PAM4 4df0395c comparison"
+    },
+    {
+      "file": "08-failed-task-retains-runs.png",
+      "sha256": "59a6b2075931aed2fbf02315228f8890a81e8582344aa6b96f3948cab16e24c9",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "09-cancelled-task-retains-run.png",
+      "sha256": "0d87989273cec2c7fe02b8c4e08905ec530e083a7d6105b453ba8f4b249cc57b",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "10-config-save.png",
+      "sha256": "04dc97b1ce1eed331798565723d54da93fef7d33c75ff82f973d7e7fc0074b04",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "11-load-rejected-preserves-state.png",
+      "sha256": "f7d391812e232e3abd4572cd4ce47e0be34da2a723f0852ee102942a56ea0ac3",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "12-current-focus-run.png",
+      "sha256": "81f0493d5370b666fa68c6a985f50eaba562eae683344c0aded4ceb57a3419a9",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "13-abort-requested.png",
+      "sha256": "04b1767a7c5d79f55312ec03f1525211ea2a605828180245bedb7806ce67e386",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "14-abort-observed-exited.png",
+      "sha256": "e55932fbeabf7aa4f080b8255ba8d783d5751683788eedfb244b6741a38241cd",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "15-ntaps-three-before-commit-fix.png",
+      "sha256": "4606b3af810813364356f192b90b7700f6e58b9ac5cd609459d440c6cb76531d",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "rejected_premature_frame",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "15-ntaps-three.png",
+      "sha256": "e5d65fcd4eb26453f43c0e79e632ef8e467e96da724bde6cdf0fef40aa46c4f5",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_configuration_display",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "16-ntaps-zero.png",
+      "sha256": "bb346a823a1cbe6fc31accdba8c933153c748dda92119c809638f9c7bd2d9aff",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_configuration_display",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "17-save-as-escape.png",
+      "sha256": "8371bb3af90aaa8783dba844172fb2ffc1bf5aef0c993a3638ffb1b4b6fd4746",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "18-help-version.png",
+      "sha256": "af21f5a6378dc3b1f6feeb03e555576db4845eb6b7a4114a4658e5b29bd23ba7",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "Help/About f67f07d"
+    },
+    {
+      "file": "19-dfe-adaptation.png",
+      "sha256": "aeed8bd940d5342e1df55360bb1bd366ec246fc614108564c33f423fc427931f",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce DFE adaptation 5 taps"
+    },
+    {
+      "file": "20-dfe-jitter-dist.png",
+      "sha256": "f4c38599f01a680015881a9ecc0de46017c9f189d7e4e6644ac710fe0e6b344f",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce jitter.dist"
+    },
+    {
+      "file": "21-dfe-jitter-info.png",
+      "sha256": "6acd288630c9f16452b4fd7194a70a2e21769c8ce30fea3252fe4e78f9ce8ed2",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce jitter.info"
+    },
+    {
+      "file": "22-rx-input-eye.png",
+      "sha256": "c1ae3953272ab1fbefaefa3e4fbc885ceaf4b1c2e458167805a491853f28ad7b",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "passed_final_frame",
+      "supports": "NRZ968883ce eye.rx_in"
+    },
+    {
+      "file": "historical-04-nrz-dfe-eye.png",
+      "sha256": "efb9f158904ef8b661b42b10df0b16446fa654bece64fde6c8835f46bcd60628",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "historical-05-cdr-adaptation.png",
+      "sha256": "680c5748d518f3982b5ef6503b512431a058fbd2630ea27ca8923ce3b0cb8459",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "historical-18-help-version.png",
+      "sha256": "60b3313fbd6b03753b857db7fb8217460618bae0574ffe91bbcc97a3921d2235",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "historical_context_not_sole_proof",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "premature-01-nrz-dfe-spectrum.png",
+      "sha256": "b0b5b3182f303bcd0d4324c93ad82cc286db383b707cf31fe95edf7ab6facc90",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "rejected_premature_frame",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "premature-02-rxffe-frequency.png",
+      "sha256": "1f83b75f44f48e178ba40e9fcdbd77ce51c921049a4b7b5aef78eb78f9737058",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "rejected_premature_frame",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "premature-03-rxffe-waveform.png",
+      "sha256": "ef83123157d6ef9854cbd25d6c172016adf613b9f1b1bf7681f95f3b71024ed9",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "rejected_premature_frame",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "premature-06-pam4-dfe-eye.png",
+      "sha256": "ba4922c0135d70160297d6360e2ff7f02dea92f45eebbb70a97df4de725ffa00",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "rejected_premature_frame",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "premature-07-two-run-comparison.png",
+      "sha256": "ea95183e5d9efdb3e053a055172640383c0e182562ef4b32bf8607d863b9754f",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "rejected_premature_frame",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    },
+    {
+      "file": "premature-refresh-05-cdr-adaptation.png",
+      "sha256": "d6d395f3f1f3dd6cd1107930b00cffa3b1e2050e8560d1fb5c1f081b17c95765",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "status": "rejected_premature_frame",
+      "supports": "See INDEX.md and operation JSON; no claimed plot pass from filename"
+    }
+  ]
+}

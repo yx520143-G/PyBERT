@@ -1,0 +1,8 @@
+{
+  "native_status": "Ready.",
+  "window_title": "PyBERT",
+  "visible": true,
+  "qt_widget": "_StickyDialog",
+  "reference": false,
+  "observer_attribute_error_count": 10
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "frozen_before_first_calculation": true,
+  "files": {
+    "constructed-defaults.json": "858b0408a5b32aa48a88464545cbe841a1e52b454a4fe745463c67a5f7194124",
+    "environment.json": "5192b4809e97001d4da45c9f28f1f4d8d4ac3cc8191c36920af15eab279c9f03",
+    "F-NRZ-01.extensions.json": "e3d1b1b0ca4ae9f1b2fe85e832b2cf20de448a9bbdf81adcfc1a638f8cf4a87f",
+    "F-NRZ-01.json": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+    "F-NRZ-01.yaml": "ec0fc1f150c8498636734e46182afbd4c2c45e26b9543826576ef054fee43f1c",
+    "F-PAM4-01.extensions.json": "660f4a7c0133d394aaf4f767d94398399ff24a9dedf28fb2f179bf95641aa4c3",
+    "F-PAM4-01.json": "e78555943d3eed9aeb3bb6012e9105a69fca1874e5e2ea2acf75ad67109e1899",
+    "F-PAM4-01.yaml": "97a34929fa37036538e0097730dcd09974310541b1e5caae087fca2051ca371d",
+    "integration.json": "d4183ce41abf9812d159aa02887488971257d466ffee917cf43edade9e981a6c",
+    "tolerances.json": "fe3a4e0c30ff8cb607219a51e94f8c806b5efcb8f616c931cf55ccdb477cc378"
+  }
+}

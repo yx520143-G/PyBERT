@@ -1,0 +1,17 @@
+{
+  "raw_schema_version": 2,
+  "added_field": {
+    "id": "start_ix",
+    "producer": "PyBERT.calc_chnl_h.start_ix",
+    "unit": "sample index",
+    "comparison": "exact integer",
+    "source": "1bc905d:src/pybert/pybert.py:1597"
+  },
+  "parent_freeze_sha256": "934dac3effe4c0f399e41edacee8ffa563f3f2fa574a5ab812f5a4181d412e2a",
+  "fixture_and_tolerance_files_unchanged": true,
+  "before_v2_calculation": true,
+  "sources": {
+    "src\\pybert\\web\\data.py": "3cfc36f7150eb234b625ceb24ae64601cffc6555bfb293096b09be694758b0e8",
+    "src\\pybert\\web\\__init__.py": "3e7b84c5ac35bb3b6d277c3b5cff7c6cee9c976c9a56de4aca1f0b2ce3369855"
+  }
+}

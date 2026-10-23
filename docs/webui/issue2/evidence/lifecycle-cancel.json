@@ -1,0 +1,55 @@
+{
+  "mode": "cancel",
+  "task": {
+    "task_id": "372e0638-c49d-4224-baa2-8ece1cbc15c0",
+    "operation": "run",
+    "state": "cancelled",
+    "phase": "cancelled",
+    "cancel_requested": true,
+    "cancel_observed": true,
+    "worker_exited": true,
+    "logs": [],
+    "created_at": 1792788741.3630643,
+    "request_hash": "8178835cf1312a4d47336bef5a0c074837008b152315a5c50f597838053395f2",
+    "exitcode": 0,
+    "finished_at": 1792788758.6112,
+    "error": "Simulation aborted by User.",
+    "error_type": "RuntimeError",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 66, in run_worker\n    my_run_simulation(p, initial_run=True, update_plots=False, aborted_sim=cancelled,\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                      observations=observations)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 661, in my_run_simulation\n    _check_sim_status()\n    ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 120, in _check_sim_status\n    raise RuntimeError(\"Simulation aborted by User.\")\nRuntimeError: Simulation aborted by User.\n"
+  },
+  "requested": {
+    "task_id": "372e0638-c49d-4224-baa2-8ece1cbc15c0",
+    "operation": "run",
+    "state": "cancel_requested",
+    "phase": "Running DFE/CDR...",
+    "cancel_requested": true,
+    "cancel_observed": false,
+    "worker_exited": false,
+    "logs": [],
+    "created_at": 1792788741.3630643,
+    "request_hash": "8178835cf1312a4d47336bef5a0c074837008b152315a5c50f597838053395f2"
+  },
+  "phases": [
+    "validating",
+    "Running channel...",
+    "Running Tx...",
+    "Running CTLE...",
+    "Running FFE...",
+    "Running DFE/CDR...",
+    "worker finishing; waiting for exit",
+    "cancelled"
+  ],
+  "busy_conflicts": [
+    true,
+    true
+  ],
+  "successful_runs_before": [
+    "ab47f770-788d-4d22-82f2-5ab6e1fa010e",
+    "d3c665c1-5780-46ef-8a3e-6f6252439c01"
+  ],
+  "successful_runs_after": [
+    "ab47f770-788d-4d22-82f2-5ab6e1fa010e",
+    "d3c665c1-5780-46ef-8a3e-6f6252439c01"
+  ],
+  "passed": true
+}

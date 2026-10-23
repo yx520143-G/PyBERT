@@ -1,0 +1,94 @@
+C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+Exception occurred in traits notification handler for object: <pybert.pybert.PyBERT object at 0x000001EC439D6930>, trait: dfe_tap_tuners, old value: [<pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039FD0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A030>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A090>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A0F0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A150>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A1B0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A210>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A270>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A2D0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A330>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A390>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A3F0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A450>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A4B0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A510>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A570>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A5D0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A630>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A690>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D03A6F0>], new value: [<pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039850>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D0398B0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039910>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039970>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D0399D0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039A30>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039A90>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039AF0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039B50>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039BB0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039C10>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039C70>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039CD0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039D30>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039D90>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039DF0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039E50>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039EB0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039F10>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D039F70>]
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\src\pybert\pybert.py", line 1090, in _dfe_tap_tuners_changed
+    self.dfe.limits = limits
+    ^^^^^^^^
+AttributeError: 'PyBERT' object has no attribute 'dfe'. Did you mean: 'ffe'?
+Exception occurred in traits notification handler for object: <chaco.grid_mapper.GridMapper object at 0x000001EC4DF3A390>, trait: x_high_pos, old value: 1.0, new value: 0.0
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\chaco\grid_mapper.py", line 217, in _x_high_pos_changed
+    self._xmapper.high_pos = self.x_high_pos
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'high_pos' and no __dict__ for setting new attributes
+Exception occurred in traits notification handler for object: <chaco.grid_mapper.GridMapper object at 0x000001EC4DF3A390>, trait: y_high_pos, old value: 1.0, new value: 0.0
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\chaco\grid_mapper.py", line 223, in _y_high_pos_changed
+    self._ymapper.high_pos = self.y_high_pos
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'high_pos' and no __dict__ for setting new attributes
+Exception occurred in traits notification handler for object: <chaco.grid_mapper.GridMapper object at 0x000001EC4DFCEF90>, trait: x_high_pos, old value: 1.0, new value: 0.0
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\chaco\grid_mapper.py", line 217, in _x_high_pos_changed
+    self._xmapper.high_pos = self.x_high_pos
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'high_pos' and no __dict__ for setting new attributes
+Exception occurred in traits notification handler for object: <chaco.grid_mapper.GridMapper object at 0x000001EC4DFCEF90>, trait: y_high_pos, old value: 1.0, new value: 0.0
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\chaco\grid_mapper.py", line 223, in _y_high_pos_changed
+    self._ymapper.high_pos = self.y_high_pos
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'high_pos' and no __dict__ for setting new attributes
+Exception occurred in traits notification handler for object: <chaco.grid_mapper.GridMapper object at 0x000001EC4E057A70>, trait: x_high_pos, old value: 1.0, new value: 0.0
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\chaco\grid_mapper.py", line 217, in _x_high_pos_changed
+    self._xmapper.high_pos = self.x_high_pos
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'high_pos' and no __dict__ for setting new attributes
+Exception occurred in traits notification handler for object: <chaco.grid_mapper.GridMapper object at 0x000001EC4E057A70>, trait: y_high_pos, old value: 1.0, new value: 0.0
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\chaco\grid_mapper.py", line 223, in _y_high_pos_changed
+    self._ymapper.high_pos = self.y_high_pos
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'high_pos' and no __dict__ for setting new attributes
+Exception occurred in traits notification handler for object: <chaco.grid_mapper.GridMapper object at 0x000001EC4E168530>, trait: x_high_pos, old value: 1.0, new value: 0.0
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\chaco\grid_mapper.py", line 217, in _x_high_pos_changed
+    self._xmapper.high_pos = self.x_high_pos
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'high_pos' and no __dict__ for setting new attributes
+Exception occurred in traits notification handler for object: <chaco.grid_mapper.GridMapper object at 0x000001EC4E168530>, trait: y_high_pos, old value: 1.0, new value: 0.0
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\chaco\grid_mapper.py", line 223, in _y_high_pos_changed
+    self._ymapper.high_pos = self.y_high_pos
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'high_pos' and no __dict__ for setting new attributes
+Exception occurred in traits notification handler for object: <pybert.pybert.PyBERT object at 0x000001EC4E949CD0>, trait: dfe_tap_tuners, old value: [<pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D50D0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5970>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5850>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5730>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5670>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5910>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5610>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5790>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D56D0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D59D0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5A30>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5A90>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5AF0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5B50>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5BB0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5C10>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5C70>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5CD0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5D30>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5D90>], new value: [<pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D286810>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D1EE630>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D1EE1B0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D1EE210>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D112090>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D111C10>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D111C70>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D110A10>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D1105F0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D110290>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4D1102F0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4CF85F10>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4CF85E50>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D4F50>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D53D0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5490>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D52B0>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5370>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5010>, <pybert.models.tx_tap.TxTapTuner object at 0x000001EC4E9D5070>]
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\.venv\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue2-native\serial-bus-simulator\src\pybert\pybert.py", line 1090, in _dfe_tap_tuners_changed
+    self.dfe.limits = limits
+    ^^^^^^^^
+AttributeError: 'PyBERT' object has no attribute 'dfe'. Did you mean: 'ffe'?

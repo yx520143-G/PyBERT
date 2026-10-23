@@ -1,0 +1,9 @@
+{
+  "ntaps": "3",
+  "npre": "2",
+  "enabled": 3,
+  "slots": 100,
+  "status": "DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it.",
+  "passed": true,
+  "commit": "Save flush"
+}

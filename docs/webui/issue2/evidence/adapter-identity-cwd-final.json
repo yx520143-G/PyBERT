@@ -1,0 +1,8 @@
+{
+  "module_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\web\\data.py",
+  "process_cwd": "E:\\serial-bus-simulator",
+  "cwd_repository_sha": "b9c56fe76bafb901d58dd53cda54e2ad5093fe6c",
+  "adapter_sha": "f67f07d54332143d10340b3fd56fedf63d5aab26",
+  "expected": "f67f07d54332143d10340b3fd56fedf63d5aab26",
+  "passed": true
+}

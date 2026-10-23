@@ -1,0 +1,2 @@
+# Preserve byte-level audit hashes, including the original Windows newlines.
+** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,100 @@
+"""A fresh spawn process per native operation, with explicit cancellation observation."""
+
+import contextlib
+import json
+import traceback
+from pathlib import Path
+
+from pybert.models.bert import my_run_simulation
+from pybert.web.config import input_hash, load_config, new_engine, normalize, snapshot, warnings
+from pybert.web.data import collect
+
+
+class Stream:
+    def __init__(self, emit):
+        self.emit = emit
+
+    def write(self, text):
+        if text.strip():
+            self.emit("log", text=text.rstrip())
+
+    def flush(self):
+        pass
+
+
+def run_worker(task_id, operation, request, directory, cancel_event, connection):
+    """Only the parent publishes terminal state, after this function exits and joins."""
+    observed = False
+
+    def emit(kind, **values):
+        connection.send(dict(task_id=task_id, kind=kind, **values))
+
+    def cancelled():
+        nonlocal observed
+        if cancel_event.is_set():
+            if not observed:
+                observed = True
+                emit("cancel_observed")
+            return True
+        return False
+
+    terminal = {}
+    try:
+        with contextlib.redirect_stdout(Stream(emit)), contextlib.redirect_stderr(Stream(emit)):
+            if cancelled():
+                raise RuntimeError("Cancelled before validation")
+            if operation == "normalize":
+                result = normalize(request)
+                if cancelled():
+                    raise RuntimeError("Cancelled after normalization")
+                terminal = {"status": "succeeded", "result": result}
+            else:
+                p = new_engine()
+                p.observe(lambda e: emit("phase", phase=str(e.new)), "status")
+                p.observe(lambda e: emit("log", text=e.new[len(e.old) :].rstrip()), "console_log")
+                config = request["config"]
+                if input_hash(config) != request["input_hash"]:
+                    raise ValueError("Input hash does not match complete requested snapshot.")
+                load_config(p, config, snapshot(p))
+                effective = snapshot(p)
+                if input_hash(effective) != request["input_hash"]:
+                    raise ValueError("Effective input differs from frozen snapshot; normalize before Run.")
+                if cancelled():
+                    raise RuntimeError("Cancelled before simulation")
+                emit("phase", phase="running")
+                observations = {}
+                my_run_simulation(
+                    p, initial_run=True, update_plots=False, aborted_sim=cancelled, observations=observations
+                )
+                # Native early returns and partial producers cannot become successful runs.
+                if p.status != "Ready." or set(observations) != {"source", "chnl", "tx", "ctle", "dfe"}:
+                    raise RuntimeError(f"Native producer did not complete: {p.status}")
+                if cancelled():
+                    raise RuntimeError("Cancelled after simulation")
+                emit("phase", phase="building native analyses")
+                identity = {
+                    "run_id": task_id,
+                    "draft_revision": request.get("draft_revision", 0),
+                    "input_hash_schema": "native-json-v1-integral-floats",
+                    "requested_input": config,
+                    "effective_input": effective,
+                    "input_hash": request["input_hash"],
+                    "resource_hash": input_hash({}),
+                    "warnings": warnings(effective),
+                }
+                collect(p, observations, directory, identity, cancelled)
+                if cancelled():
+                    raise RuntimeError("Cancelled before publication")
+                terminal = {"status": "succeeded", "result": {"run_id": task_id}}
+    except Exception as err:
+        terminal = {
+            "status": "cancelled" if observed else "failed",
+            "error": str(err),
+            "error_type": type(err).__name__,
+            "traceback": traceback.format_exc(),
+        }
+    finally:
+        terminal.update(cancel_observed=observed, cancel_requested=cancel_event.is_set())
+        Path(directory, "terminal.json").write_text(json.dumps(terminal, indent=2), encoding="utf-8")
+        emit("terminal", **terminal)
+        connection.close()

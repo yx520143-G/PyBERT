@@ -82,7 +82,8 @@ gFc             = 1.0e6  # Corner frequency of high-pass filter used to model ca
 
 # pylint: disable=too-many-locals,protected-access,too-many-branches,too-many-statements
 def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True,
-                      aborted_sim: Optional[Callable[[], bool]] = None):
+                      aborted_sim: Optional[Callable[[], bool]] = None,
+                      observations: Optional[dict[str, Any]] = None):
     """
     Runs the simulation.
 
@@ -100,6 +101,8 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             Default: True
         aborted_sim: a function that is used to tell the simulation that the user
             has requested to stop/abort the simulation.
+        observations: Optional caller-owned collection of the actual local analysis
+            inputs/axes. Collection does not change any calculation or GUI state.
 
     Raises:
         RuntimeError: If the simulation is aborted by the user or cannot continue.
@@ -830,6 +833,21 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             symmetric = abs(before + after) < 0.1 * max(abs(ideal_signal))
             xing_mask = symmetric[ideal_xings > xing_min_t]
 
+        if observations is not None:
+            observations["source"] = dict(x=x, ideal_signal=ideal_signal, ideal_xings=ideal_xings,
+                                          ideal_xings_jit=ideal_xings_jit, xing_mask=xing_mask,
+                                          ui=ui, nspui=nspui, nui=nui, eye_uis=eye_uis,
+                                          pattern_len=pattern_len, rel_thresh=rel_thresh,
+                                          decision_scaler=decision_scaler, mod_type=mod_type,
+                                          xing_min_t=xing_min_t)
+
+        def capture_jitter(point):
+            if observations is not None:
+                observations[point] = dict(ofst=ofst, actual_xings=actual_xings,
+                                           actual_xings_jit=actual_xings_jit, t_jitter=t_jitter,
+                                           bin_centers=bin_centers, spectrum_freqs=spectrum_freqs,
+                                           tie=tie, tie_ind=tie_ind, valid=True)
+
         # - channel output
         ofst = (argmax(sig.correlate(chnl_out, x)) - len_x_m1) * Ts
         actual_xings = find_crossings(t, chnl_out, decision_scaler, mod_type=mod_type)
@@ -856,6 +874,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             dj_pos,
             dj_neg,
         ) = calc_jitter(ui, eye_uis, pattern_len, ideal_xings_jit, actual_xings_jit, rel_thresh, xing_mask=xing_mask)
+        capture_jitter("chnl")
         self.t_jitter  = t_jitter
         self.isi_chnl  = isi
         self.dcd_chnl  = dcd
@@ -905,6 +924,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             dj_pos,
             dj_neg,
         ) = calc_jitter(ui, eye_uis, pattern_len, ideal_xings_jit, actual_xings_jit, rel_thresh, xing_mask=xing_mask)
+        capture_jitter("tx")
         self.isi_tx  = isi
         self.dcd_tx  = dcd
         self.pj_tx   = pj
@@ -953,6 +973,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             dj_pos,
             dj_neg,
         ) = calc_jitter(ui, eye_uis, pattern_len, ideal_xings_jit, actual_xings_jit, rel_thresh, xing_mask=xing_mask)
+        capture_jitter("ctle")
         self.isi_ctle  = isi
         self.dcd_ctle  = dcd
         self.pj_ctle   = pj
@@ -999,6 +1020,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             dj_neg,
         ) = calc_jitter(
             ui, eye_uis, pattern_len, ideal_xings_jit, actual_xings_jit, rel_thresh, dbg_obj=self, xing_mask=xing_mask)
+        capture_jitter("dfe")
         self.isi_dfe  = isi
         self.dcd_dfe  = dcd
         self.pj_dfe   = pj

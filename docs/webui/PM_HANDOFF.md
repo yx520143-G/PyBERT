@@ -1,5 +1,17 @@
 # WebUI 开发交接
 
+## 2026-10-24 当前调度（覆盖下方历史安排）
+
+最新人类授权与 GitHub #1 的 `PLAN_CLOSED` 已闭环。PM 为 Astra / xhigh chat `01a16a69-8a11-71a0-8620-5d157b897926`；#2 唯一开发 owner 为本 chat 的 gpt-6.1-sol / xhigh。当前只占 #2，队列为 #2 → #3 → #4 → #5 → #8 → #9 → #10。
+
+独立工作区 `C:/Users/yx/.codex/worktrees/pybert-issue2-native/serial-bus-simulator`，分支 `codex/pybert-issue2-native`，完整 parent 为 PR #7 head `8542f10f4c137f79b3200638f5ee59d36202526a`。实现 [PR #11](https://github.com/yx520143-G/PyBERT/pull/11) 叠加到 `codex/pybert-signal-chain-webui`，#7 未被本 owner 修改或合并。主工作区的原分支及未跟踪目录保留。
+
+交付和实际证据入口：[WebUI #2 实施与验收](issue2/README.md)。最终产品代码 `f67f07d54332143d10340b3fd56fedf63d5aab26` 已通过两轴固定版本代码复核；25项Web契约、35项兼容检查、冻结数值/独立期望检查及本票Chrome证据各自留档。原生GUI既有异常、初次接入失败和过早截图均保留。
+
+本交付提交完成后，owner 停止常规写入并将ownership返还PM，等待PM固定最终HEAD核对证据和集成；具体finding仍由同一owner修复，不提前领取#3。#2仍open，不能把Draft/可审查PR等同于合并或父票全部完成。#7与#11进入master的顺序由PM收口。
+
+以下为此前GUI基线任务的历史记录，其中旧模型/七页签/#2暂停不再作为当前调度依据。
+
 2026-10-23：用户授权由当前协调者担任 PM，开始派发开发；执行者统一使用 **Astra / max / Fast**。2026-10-24 最新指令为“#1完成之后先别做#2”，取代此前“继续收尾并推进 #2”的派发安排。当前只收尾 #1 的 GUI 设计基线，#2–#5 均不启动，等待新的用户授权。
 
 ## 当前派发
