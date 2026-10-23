@@ -211,6 +211,7 @@
   $('help').addEventListener('click',() => $('help-dialog').showModal()); $('close-help').addEventListener('click',() => $('help-dialog').close());
   $('quit').addEventListener('click',() => { disconnected=true; controls(); $('task-state').textContent='Disconnected. You may close this tab; backend tasks continue.'; });
   async function init() {
+    controls();
     let saved = null;
     try { if (ui.hasSavedDraft()) saved = ui.getDraft(); } catch { /* existing draft status shows storage failure */ }
     for (const key of ['rlm','rx_use_clocks','ami_opt_trials']) if (settings.fields[key]) settings.fields[key].readonly = 'Runtime/optimization extension is outside #2; retained separately, not exported into native YAML.';
