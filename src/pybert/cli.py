@@ -56,3 +56,15 @@ def mcp():
         build_server().run()
     except ImportError as err:
         raise click.ClickException("MCP support requires: pip install 'pipbert[mcp]'") from err
+
+
+@cli.command(context_settings={"help_option_names": ['-h', '--help']})
+@click.option("--port", default=8765, type=click.IntRange(1, 65535), show_default=True)
+def web(port):
+    """Start the local signal-chain workbench on 127.0.0.1."""
+    try:
+        import uvicorn
+        from pybert.web.server import create_app
+    except ImportError as err:
+        raise click.ClickException("Web support requires: uv sync --extra web") from err
+    uvicorn.run(create_app(), host="127.0.0.1", port=port)
