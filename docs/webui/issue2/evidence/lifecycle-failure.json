@@ -1,0 +1,36 @@
+{
+  "mode": "failure",
+  "task": {
+    "task_id": "ec19c8bb-7680-4dbb-a342-db598ec015f6",
+    "operation": "run",
+    "state": "failed",
+    "phase": "failed",
+    "cancel_requested": false,
+    "cancel_observed": false,
+    "worker_exited": true,
+    "logs": [],
+    "created_at": 1792788700.4096901,
+    "request_hash": "deliberately-wrong-hash",
+    "exitcode": 0,
+    "finished_at": 1792788703.699879,
+    "error": "Input hash does not match complete requested snapshot.",
+    "error_type": "ValueError",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 57, in run_worker\n    raise ValueError(\"Input hash does not match complete requested snapshot.\")\nValueError: Input hash does not match complete requested snapshot.\n"
+  },
+  "requested": null,
+  "phases": [
+    "validating",
+    "worker finishing; waiting for exit",
+    "failed"
+  ],
+  "busy_conflicts": [],
+  "successful_runs_before": [
+    "ab47f770-788d-4d22-82f2-5ab6e1fa010e",
+    "d3c665c1-5780-46ef-8a3e-6f6252439c01"
+  ],
+  "successful_runs_after": [
+    "ab47f770-788d-4d22-82f2-5ab6e1fa010e",
+    "d3c665c1-5780-46ef-8a3e-6f6252439c01"
+  ],
+  "passed": true
+}

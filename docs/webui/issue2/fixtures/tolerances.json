@@ -1,0 +1,46 @@
+{
+  "exact": [
+    "input_hash",
+    "shape",
+    "indices",
+    "bits",
+    "decisions",
+    "counts",
+    "bool",
+    "availability",
+    "eye"
+  ],
+  "voltage_response_complex": {
+    "rtol": 1e-10,
+    "atol": 1e-12
+  },
+  "time_jitter_spectrum": {
+    "rtol": 1e-10,
+    "atol": 1e-18
+  },
+  "t_ns_chnl": {
+    "rtol": 1e-10,
+    "atol": 1e-09
+  },
+  "ui_ests_ps": {
+    "rtol": 1e-10,
+    "atol": 1e-06
+  },
+  "frequency_Hz": {
+    "rtol": 1e-12,
+    "atol": 1e-06
+  },
+  "pdf_per_s": {
+    "rtol": 1e-10,
+    "atol": "1e-12/UI"
+  },
+  "display": {
+    "rtol": 1e-10,
+    "atol": 1e-10
+  },
+  "nonfinite": "invalid; report mask and native failure, never numeric pass",
+  "excluded": [
+    "performance",
+    "log timestamps"
+  ]
+}

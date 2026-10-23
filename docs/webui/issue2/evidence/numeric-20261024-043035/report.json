@@ -1,0 +1,28 @@
+{
+  "execution_freeze_sha256": "934dac3effe4c0f399e41edacee8ffa563f3f2fa574a5ab812f5a4181d412e2a",
+  "fixtures": [
+    {
+      "fixture": "F-NRZ-01",
+      "input_hash": "1f742041f87d930863c9b3ffd7be4d375b3ee13cc59e39bf1c03ad4807e94651",
+      "passed": false,
+      "error": "f_max: integer required.",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\tools\\verify_web_numerics.py\", line 146, in main\n    native_reference(config, direct)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\tools\\verify_web_numerics.py\", line 58, in native_reference\n    load_config(p, config, snapshot(p))\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\web\\config.py\", line 134, in load_config\n    validate(config, defaults)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\web\\config.py\", line 74, in validate\n    raise ValueError(f\"{key}: integer required.\")\nValueError: f_max: integer required.\n"
+    },
+    {
+      "fixture": "F-PAM4-01",
+      "input_hash": "fc9712ee438369093b9a5e188c180605d46b015c548e7270eee4d3e4feb83c1a",
+      "passed": false,
+      "error": "f_max: integer required.",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\tools\\verify_web_numerics.py\", line 146, in main\n    native_reference(config, direct)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\tools\\verify_web_numerics.py\", line 58, in native_reference\n    load_config(p, config, snapshot(p))\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\web\\config.py\", line 134, in load_config\n    validate(config, defaults)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\src\\pybert\\web\\config.py\", line 74, in validate\n    raise ValueError(f\"{key}: integer required.\")\nValueError: f_max: integer required.\n"
+    }
+  ],
+  "actual_sources": {
+    "src\\pybert\\web\\__init__.py": "d989cb28c193149109ed069b82869aed374bd6793619e8528a632b84750b83be",
+    "src\\pybert\\web\\config.py": "038aa003d829416cd280c75f5770ef9e8fbd4179a3003152d4d3874808032278",
+    "src\\pybert\\web\\data.py": "37002911de72dbf739ef18c714a613cacc70022c76f0b3d7a2aa7878b5e69e11",
+    "src\\pybert\\web\\server.py": "9ea1c24c1b52fef607c6ab52be8d21ef86b02cd25aeb870467d2e1f1b917e832",
+    "src\\pybert\\web\\tasks.py": "06d34ebe48c2901fe85db18d482b28a63f08a0c970599e8e8208baaa95bb3d15",
+    "src\\pybert\\web\\worker.py": "641bba56d11462c6f6e5e4cac804eda9230874863cf22ccb0072dc04a11fb5c0",
+    "src\\pybert\\models\\bert.py": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302"
+  }
+}

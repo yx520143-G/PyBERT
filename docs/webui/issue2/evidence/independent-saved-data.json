@@ -1,0 +1,2397 @@
+{
+  "method": "Rehydrate saved raw data; call exact native update_results, no simulation.",
+  "hash_schema": "v1 canonical JSON: sorted keys, integral float represented as integer; booleans remain boolean",
+  "previous_hash_schema": "legacy JSON distinguished 40 from 40.0; old frozen files retained unchanged",
+  "fixtures": [
+    {
+      "fixture": "F-NRZ-01",
+      "legacy_frozen_input_hash": "1f742041f87d930863c9b3ffd7be4d375b3ee13cc59e39bf1c03ad4807e94651",
+      "canonical_input_hash": "6e54735ef018afc6d0a79e61b4995f8c16d5550a9ae17b6be5e97bc98401c5fd",
+      "yaml_sha256": "ec0fc1f150c8498636734e46182afbd4c2c45e26b9543826576ef054fee43f1c",
+      "checks": [
+        {
+          "check": "chnl_H_raw.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_H_raw.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_trimmed_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_trimmed_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_out_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_out_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display chnl_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display chnl_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display chnl_p",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display chnl_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_out_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_out_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_out_p",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_out_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            960
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            960
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_out_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_out_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_out_p",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_out_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_out_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_out_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_out_p",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_out_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native helper display ffe_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native helper display ffe_out_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display jitter_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display jitter_ext_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display jitter_spectrum_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            5079
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display jitter_ind_spectrum_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            5079
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display thresh_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            5079
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI PDF axis ps",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI spec axis MHz",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            5079
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI rx_in eye counts",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            1000,
+            64
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "rx_in pixel to voltage mapping",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            1000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "rx_in native GUI eye x ps",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 2.842170943040401e-14,
+          "shape": [
+            64
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI dfe eye counts",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            1000,
+            64
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe pixel to voltage mapping",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            1000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe native GUI eye x ps",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 2.842170943040401e-14,
+          "shape": [
+            64
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl own bin_centers",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl own spectrum_freqs",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            5080
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl own t_jitter",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            5119
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx own bin_centers",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx own spectrum_freqs",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            5080
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx own t_jitter",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            5116
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle own bin_centers",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle own spectrum_freqs",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            5080
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle own t_jitter",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            5116
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe own bin_centers",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe own spectrum_freqs",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            5080
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe own t_jitter",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            5115
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_out cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx single native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle single native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            960
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe single native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe single native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ideal_signal projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ideal_signal projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_out projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_out projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "rx_in projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "rx_in projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "summary n_errs_dfe",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary chnl_dly_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary rel_power",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary initial_level_v",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary final_level_v",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter isi",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter dcd",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter pj",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter rj",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter pjDD",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter rjDD",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter mu_pos",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter mu_neg",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter dj_pos",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter dj_neg",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "Viterbi unavailable; not numeric zero",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "fixture": "F-PAM4-01",
+      "legacy_frozen_input_hash": "fc9712ee438369093b9a5e188c180605d46b015c548e7270eee4d3e4feb83c1a",
+      "canonical_input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6",
+      "yaml_sha256": "97a34929fa37036538e0097730dcd09974310541b1e5caae087fca2051ca371d",
+      "checks": [
+        {
+          "check": "chnl_H_raw.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_H_raw.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_trimmed_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_trimmed_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_out_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_out_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out_H.real",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out_H.imag",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [
+            4001
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display chnl_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display chnl_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display chnl_p",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display chnl_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_out_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_out_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_out_p",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display tx_out_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            3200
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            3200
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_out_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_out_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_out_p",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display ctle_out_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_out_h",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_out_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_out_p",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display dfe_out_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native helper display ffe_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native helper display ffe_out_H",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            4000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display jitter_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display jitter_ext_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display jitter_spectrum_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            2539
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display jitter_ind_spectrum_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            2539
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI display thresh_dfe",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            2539
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI PDF axis ps",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI spec axis MHz",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            2539
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI rx_in eye counts",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            1000,
+            64
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "rx_in pixel to voltage mapping",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            1000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "rx_in native GUI eye x ps",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 5.684341886080802e-14,
+          "shape": [
+            64
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "native GUI dfe eye counts",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            1000,
+            64
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe pixel to voltage mapping",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 0.0,
+          "shape": [
+            1000
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe native GUI eye x ps",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-10,
+          "max_abs": 5.684341886080802e-14,
+          "shape": [
+            64
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl own bin_centers",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl own spectrum_freqs",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            2540
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl own t_jitter",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            2560
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx own bin_centers",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx own spectrum_freqs",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            2540
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx own t_jitter",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            2559
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle own bin_centers",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle own spectrum_freqs",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            2540
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle own t_jitter",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            2559
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe own bin_centers",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            101
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe own spectrum_freqs",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            2540
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe own t_jitter",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            2558
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx_out cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out cumulative native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "tx single native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle single native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            3200
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe single native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe single native ns axis",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ideal_signal projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ideal_signal projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_out projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "chnl_out projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "rx_in projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "rx_in projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ctle_out projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "ffe_out projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out projection x ns",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "dfe_out projection values",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            640
+          ],
+          "first_bad": null
+        },
+        {
+          "check": "summary n_errs_dfe",
+          "passed": true,
+          "rtol": 0,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary chnl_dly_s",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary rel_power",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary initial_level_v",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary final_level_v",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-12,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter isi",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter dcd",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter pj",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter rj",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter pjDD",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter rjDD",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter mu_pos",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter mu_neg",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter dj_pos",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "summary jitter dj_neg",
+          "passed": true,
+          "rtol": 1e-10,
+          "atol": 1e-18,
+          "max_abs": 0.0,
+          "shape": [],
+          "first_bad": null
+        },
+        {
+          "check": "Viterbi unavailable; not numeric zero",
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ]
+}
