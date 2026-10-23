@@ -1,0 +1,160 @@
+"""Independent conductor excitation checks for native multi-lane Touchstone import."""
+
+import numpy as np
+import pytest
+import skrf
+
+from pybert.utility.sparam import import_freq, import_fext
+
+
+def physical_network(lanes, numbering="interleaved", crosslane=True):
+    """Two ordinary conductors per lane, with explicit near/far endpoint identities."""
+    f = np.array([10e6, 100e6, 500e6, 1e9, 3e9, 8e9])
+    s = np.zeros((len(f), 4 * lanes, 4 * lanes), complex)
+    z0 = np.zeros((len(f), 4 * lanes))
+    pairs = []
+    for k in range(lanes):
+        near, far = (4 * k, 4 * k + 2), (4 * k + 1, 4 * k + 3)
+        pairs.append((near, far))
+        forward = (0.88 - 0.08 * k) * np.exp(-2j * np.pi * f * (0.1 + 0.03 * k) * 1e-9)
+        reverse = (0.83 - 0.07 * k) * np.exp(-2j * np.pi * f * (0.13 + 0.02 * k) * 1e-9)
+        for positive, negative in (near, far):
+            s[:, positive, positive] = 0.02 + 0.003j * (k + 1)
+            s[:, negative, negative] = 0.03 - 0.002j * (k + 1)
+            s[:, positive, negative] = 0.006 + 0.001j
+            s[:, negative, positive] = 0.004 - 0.002j
+        for source, destination in zip(near, far):
+            s[:, destination, source] = forward
+            s[:, source, destination] = reverse
+        z0[:, list(near)] = 40 + 5 * k
+        z0[:, list(far)] = 55 + 7 * k
+    if crosslane:
+        for j in range(lanes):
+            for k in range(lanes):
+                if j == k:
+                    continue
+                near, far = pairs[j][0], pairs[k][1]
+                g = (
+                    (-1) ** (j + k)
+                    * (0.012 + 0.003 * j + 0.004 * k)
+                    * np.exp(-2j * np.pi * f * (0.02 + 0.01 * j + 0.015 * k) * 1e-9)
+                )
+                for i, (source, destination) in enumerate(
+                    (
+                        (near[0], far[0]),
+                        (near[1], far[0]),
+                        (near[0], far[1]),
+                        (near[1], far[1]),
+                    )
+                ):
+                    s[:, destination, source] = (1, -0.2, 0.1, 0.8)[i] * g
+                    s[:, source, destination] = (1.1, -0.3, 0.05, 0.9)[
+                        i
+                    ] * g.conjugate()
+    # Relabel the same physical conductors; the oracle retains their identities.
+    order = []
+    for k in range(lanes):
+        group = numbering == "grouped" or numbering == "mixed" and k % 2
+        order.extend(
+            [4 * k, 4 * k + 2, 4 * k + 1, 4 * k + 3]
+            if group
+            else range(4 * k, 4 * k + 4)
+        )
+    inverse = {old: new for new, old in enumerate(order)}
+    pairs = [
+        (tuple(inverse[p] for p in near), tuple(inverse[p] for p in far))
+        for near, far in pairs
+    ]
+    return skrf.Network(f=f, s=s[:, order, :][:, :, order], z0=z0[:, order]), pairs
+
+
+def differential_oracle(net, input_pair, output_pair):
+    """Drive +1/sqrt(2), -1/sqrt(2) waves; measure the same output difference."""
+    modes = []
+    for positive, negative in (input_pair, output_pair):
+        wave = np.zeros(net.nports)
+        wave[positive], wave[negative] = 1 / np.sqrt(2), -1 / np.sqrt(2)
+        modes.append(wave)
+    expected = np.empty((len(net.f), 2, 2), complex)
+    for row, measure in enumerate(modes):
+        for column, excitation in enumerate(modes):
+            expected[:, row, column] = np.einsum(
+                "i,fij,j->f", measure, net.s, excitation
+            )
+    impedance = np.stack(
+        [net.z0[:, a] + net.z0[:, b] for a, b in (input_pair, output_pair)], axis=1
+    )
+    return expected, impedance
+
+
+def write_physical(tmp_path, lanes, numbering, crosslane=True):
+    net, pairs = physical_network(lanes, numbering, crosslane)
+    path = tmp_path / f"physical.s{4 * lanes}p"
+    net.write_touchstone(str(path), write_z0=True, form="ri")
+    reloaded = skrf.Network(str(path))
+    np.testing.assert_array_equal(reloaded.z0, net.z0)
+    return path, reloaded, pairs
+
+
+@pytest.mark.parametrize("lanes", [2, 3])
+@pytest.mark.parametrize(
+    "numbering,renumber",
+    [("interleaved", False), ("interleaved", True), ("grouped", True), ("mixed", True)],
+)
+def test_every_victim_complex_s_and_z0(tmp_path, lanes, numbering, renumber):
+    path, net, pairs = write_physical(tmp_path, lanes, numbering)
+    for victim, (near, far) in enumerate(pairs):
+        expected, z0 = differential_oracle(net, near, far)
+        actual = import_freq(str(path), renumber=renumber, lane=victim)
+        np.testing.assert_allclose(actual.s, expected, rtol=2e-12, atol=2e-12)
+        np.testing.assert_array_equal(actual.z0, z0)
+
+
+@pytest.mark.parametrize("lanes", [2, 3])
+@pytest.mark.parametrize(
+    "numbering,renumber",
+    [("interleaved", False), ("interleaved", True), ("grouped", True), ("mixed", True)],
+)
+@pytest.mark.parametrize("crosslane", [False, True])
+def test_every_fext_complex_s_z0_and_zero_isolation(
+    tmp_path, lanes, numbering, renumber, crosslane
+):
+    path, net, pairs = write_physical(tmp_path, lanes, numbering, crosslane)
+    for victim in range(lanes):
+        actual = import_fext(str(path), net.f, victim, renumber=renumber)
+        aggressors = [j for j in range(lanes) if j != victim]
+        assert len(actual) == len(aggressors)
+        for result, aggressor in zip(actual, aggressors):
+            expected, z0 = differential_oracle(
+                net, pairs[aggressor][0], pairs[victim][1]
+            )
+            np.testing.assert_allclose(result.s, expected, rtol=2e-12, atol=2e-12)
+            np.testing.assert_array_equal(result.z0, z0)
+            if not crosslane:
+                np.testing.assert_array_equal(result.s[:, 1, 0], 0)
+                np.testing.assert_array_equal(result.s[:, 0, 1], 0)
+
+
+def test_renumber_false_keeps_literal_numbering(tmp_path):
+    path, net, _ = write_physical(tmp_path, 2, "grouped")
+    expected, z0 = differential_oracle(net, (0, 2), (1, 3))
+    actual = import_freq(str(path), lane=0, renumber=False)
+    np.testing.assert_allclose(actual.s, expected, rtol=2e-12, atol=2e-12)
+    np.testing.assert_array_equal(actual.z0, z0)
+
+
+def test_fext_renumber_only_inspects_source_lane_throughs(tmp_path, monkeypatch):
+    import pybert.utility.sparam as module
+
+    path, net, _ = write_physical(tmp_path, 3, "mixed")
+    throughs = [net.subnetwork(list(range(4 * k, 4 * k + 4))).s for k in range(3)]
+    original = module.thru_is_1to3
+
+    def source_lane_only(candidate):
+        assert any(np.array_equal(candidate.s, through) for through in throughs), (
+            "FEXT must not use a cross-path through heuristic"
+        )
+        return original(candidate)
+
+    monkeypatch.setattr(module, "thru_is_1to3", source_lane_only)
+    import_fext(str(path), net.f, 0, renumber=True)

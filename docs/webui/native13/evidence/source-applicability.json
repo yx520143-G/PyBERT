@@ -1,0 +1,80 @@
+{
+  "base": "9a33d08458aa00782e90169c699857b8b19455a2",
+  "head_at_audit": "b87c80ce2f8c32b0394651d0e7a11067c821af61",
+  "scope": "8/12-port caller port selection, related docs and physical regression only",
+  "unchanged_AST": {
+    "cap_mag": true,
+    "mon_mag": true,
+    "sdd_21": true,
+    "thru_is_1to3": true,
+    "se2mm": true,
+    "interp_s2p": true,
+    "H_2_s2p": true,
+    "import_channel": true,
+    "pulse_response": true,
+    "import_freq VITA branch": true,
+    "import_freq 4-port branch": true,
+    "import_freq 2-port branch": true
+  },
+  "applicability": {
+    "red_source_snapshot_matches_execution_hash": true,
+    "diagnostic_source_snapshot_matches_before_and_after": true,
+    "physical_test_AST_unchanged_after_formatting": true,
+    "diagnostic_AST_unchanged_after_formatting": true,
+    "production_matches_after_diagnostic_source_hash": true,
+    "same_real_M_resource_bytes": true
+  },
+  "tests": {
+    "red-baseline": {
+      "sha256": "91192e6606b078fac6a0d0446c3aa71700c586519304f4d160e6b18b6e944802",
+      "tests": "26",
+      "failures": "19",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.248"
+    },
+    "green-physical": {
+      "sha256": "939425d52bf0e4ce5a20f40948b5ef8123bdf5da3c23700b5e352443efb74070",
+      "tests": "26",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.641"
+    },
+    "green-regression": {
+      "sha256": "1a68fb72123dc006c97f05debb88498830d0dfb5cc77685052b915ef62ae7379",
+      "tests": "49",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.994"
+    }
+  },
+  "sources": {
+    "src\\pybert\\utility\\sparam.py": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+    "tests\\test_multilane_sparam.py": "0a47e46ce267a355430009c134bfa5f8f6d4e8105916ed01df393d5025d8fa5d",
+    "tests\\test_multilane_physical.py": "5a0c3b308a98ea967bb53a64c0615bc7291f99854cdfe87a6855d2fdd4cfca70",
+    "tests\\test_singlelane_physical.py": "f81fec084b22b628a4ede2af1cfafb4f95bb25da0b4620a127b10988a8a4b73c",
+    "tools\\diagnose_native_multilane.py": "b4f342e890fa0037bd90542cd37a869c3fc26362cbec147e04ab5b890470351e",
+    "tools\\audit_native_multilane.py": "40d1237eea1671925caf514c9e721b059b4cb81624a1cf56dc7e46f5c67eaf0e"
+  },
+  "evidence": {
+    "real-M-before.json": "9f8ab062901956e7ce7a7e59152044ce94c4e4ff8a0fd218a953da9fb69aeba5",
+    "real-M-after.json": "aa5b64e830883899bd53c9efc5ca47220138993b5a14cc00eb4837c618b08ce2",
+    "red-physical-test-source.py.txt": "fdba73821e23ba5057d68c05caa75bf9a9828861ffe93fb6ca8e99b62ee709fb",
+    "diagnostic-source-v1.py.txt": "096c38c4a36b88432c06de34ba41b9c5bee9ce6df774c2519c9fa22851026267"
+  },
+  "static_checks": {
+    "ruff_select": "E4,E7,E9,F",
+    "ruff_exit_code": 0,
+    "ruff_targets": [
+      "src/pybert/utility/sparam.py",
+      "tests/test_multilane_physical.py",
+      "tests/test_singlelane_physical.py",
+      "tools/diagnose_native_multilane.py"
+    ],
+    "compileall_same_targets_exit_code": 0
+  },
+  "cost": "helper-only diagnostics and 49 relevant tests; no time-domain simulation or COM",
+  "passed": true
+}

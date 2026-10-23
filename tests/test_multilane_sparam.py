@@ -6,11 +6,10 @@ returns the correct FEXT transfer functions for aggressor lanes.
 
 Port ordering convention (N-port, L = N/4 lanes):
     Lane k occupies ports [4k, 4k+1, 4k+2, 4k+3] (0-indexed), representing
-    (+A, +B, −A, −B) respectively.  ``import_freq`` re-orders them to
-    (+A, −A, +B, −B) before calling ``sdd_21()``.
+    (+A, +B, −A, −B) respectively, already the interleaved order for ``sdd_21()``.
 
 FEXT path from aggressor j to victim k uses aggressor input ports (4j, 4j+2)
-and victim output ports (4k+1, 4k+3), assembled as (TX+, TX−, RX+, RX−).
+and victim output ports (4k+1, 4k+3), assembled as (TX+, RX+, TX−, RX−).
 """
 
 import tempfile
@@ -47,13 +46,9 @@ def _build_multilane_network(lane_s2p_list: list[skrf.Network]) -> skrf.Network:
         global port 4k+2 → −A conductor
         global port 4k+3 → −B conductor
 
-    ``import_freq`` extracts subnetwork([4k, 4k+2, 4k+1, 4k+3]) → ports (+A, −A, +B, −B)
-    then calls ``sdd_21()``, which computes:
-        Sdd21 = 0.5 * (sub_s[1,0] - sub_s[1,2] - sub_s[3,0] + sub_s[3,2])
-    where indices refer to (0=+A, 1=−A, 2=+B, 3=−B) in the subnetwork.
-
-    Setting S[−B, +A] = −2·T means sub_s[3,0] = −2·T, giving Sdd21 = T exactly.
-    This is the simplest SE construction that produces a known, checkable Sdd21.
+    Two equal, independent conductors carry the supplied 2-port network from A to B.
+    A balanced differential excitation therefore produces the same 2-port S matrix.
+    This replaces the old single ``-2*T`` matrix entry that fitted the incorrect reorder.
     """
     L = len(lane_s2p_list)
     N = 4 * L
@@ -66,11 +61,11 @@ def _build_multilane_network(lane_s2p_list: list[skrf.Network]) -> skrf.Network:
     for k, lane in enumerate(lane_s2p_list):
         # Ports for this lane: +A=4k, +B=4k+1, −A=4k+2, −B=4k+3
         p_pA, p_pB, p_mA, p_mB = 4 * k, 4 * k + 1, 4 * k + 2, 4 * k + 3
-        s21 = lane.s[:, 1, 0]
-        # S[−B, +A] = −2·T  →  sub_s[3, 0] = −2·T  →  Sdd21 = T
-        s[:, p_mB, p_pA] = -2 * s21
-        # reciprocal direction
-        s[:, p_pA, p_mB] = -2 * lane.s[:, 0, 1]
+        for a, b in ((p_pA, p_pB), (p_mA, p_mB)):
+            s[:, a, a] = lane.s[:, 0, 0]
+            s[:, a, b] = lane.s[:, 0, 1]
+            s[:, b, a] = lane.s[:, 1, 0]
+            s[:, b, b] = lane.s[:, 1, 1]
 
     return skrf.Network(f=freqs, s=s, z0=z0)
 
@@ -82,35 +77,20 @@ def _build_multilane_network_with_fext(
     """
     Assemble L lanes and optional FEXT paths into a 4L-port single-ended Network.
 
-    ``lane_s2p_list[k]`` is the thru-path for lane k (built as in
-    ``_build_multilane_network``).
-
-    ``fext_matrix[(j, k)]`` is the desired Sdd21 for the FEXT path from aggressor j
-    to victim k.  The SE element set is ``s[4k+3, 4j] = -2·T_fext``, which makes
-    the extracted Sdd21 equal to T_fext (same derivation as for the thru paths).
+    Each lane uses two equal A-to-B conductors. ``fext_matrix[(j, k)]`` couples
+    aggressor j's +A/-A to victim k's +B/-B with the supplied 2-port transfer.
+    Expected differential values follow from those physical conductor identities.
     """
-    L = len(lane_s2p_list)
-    N = 4 * L
-    n_freqs = lane_s2p_list[0].f.size
-    freqs = lane_s2p_list[0].f
+    ntwk = _build_multilane_network(lane_s2p_list)
+    s = ntwk.s
 
-    s = np.zeros((n_freqs, N, N), dtype=complex)
-    z0 = np.full((n_freqs, N), 50.0)
-
-    # Thru paths.
-    for k, lane in enumerate(lane_s2p_list):
-        p_pA, p_mB = 4 * k, 4 * k + 3
-        s[:, p_mB, p_pA] = -2 * lane.s[:, 1, 0]
-        s[:, p_pA, p_mB] = -2 * lane.s[:, 0, 1]
-
-    # FEXT paths: from aggressor j input (+A=4j) to victim k output (-B=4k+3).
+    # FEXT paths between corresponding conductors at the named physical ends.
     for (j, k), fext_ntwk in fext_matrix.items():
-        p_Aj = 4 * j        # aggressor j +A input
-        p_Bk = 4 * k + 3   # victim k -B output
-        s[:, p_Bk, p_Aj] = -2 * fext_ntwk.s[:, 1, 0]
-        s[:, p_Aj, p_Bk] = -2 * fext_ntwk.s[:, 0, 1]
+        for a, b in ((4 * j, 4 * k + 1), (4 * j + 2, 4 * k + 3)):
+            s[:, b, a] = fext_ntwk.s[:, 1, 0]
+            s[:, a, b] = fext_ntwk.s[:, 0, 1]
 
-    return skrf.Network(f=freqs, s=s, z0=z0)
+    return ntwk
 
 
 @pytest.fixture(scope="module")
@@ -136,8 +116,8 @@ class TestImportFreqMultilane:
         # sdd_21 of a matched differential pair with equal-amplitude, opposite-sign
         # conductors gives Sdd21 = S21 of either conductor.
         np.testing.assert_allclose(
-            np.abs(result.s[:, 1, 0]),
-            np.abs(lane0.s[:, 1, 0]),
+            result.s,
+            lane0.s,
             rtol=1e-6,
             err_msg="Lane 0 Sdd21 magnitude does not match reference",
         )
@@ -153,8 +133,8 @@ class TestImportFreqMultilane:
 
         result = import_freq(path, lane=1)
         np.testing.assert_allclose(
-            np.abs(result.s[:, 1, 0]),
-            np.abs(lane1.s[:, 1, 0]),
+            result.s,
+            lane1.s,
             rtol=1e-6,
             err_msg="Lane 1 Sdd21 magnitude does not match reference",
         )
@@ -169,8 +149,8 @@ class TestImportFreqMultilane:
 
         result = import_freq(path, lane=2)
         np.testing.assert_allclose(
-            np.abs(result.s[:, 1, 0]),
-            np.abs(lanes[2].s[:, 1, 0]),
+            result.s,
+            lanes[2].s,
             rtol=1e-6,
             err_msg="Lane 2 Sdd21 magnitude does not match reference",
         )
@@ -234,8 +214,8 @@ class TestImportFext:
         result = import_fext(path, freqs, victim_lane=0)
         assert len(result) == 1
         np.testing.assert_allclose(
-            np.abs(result[0].s[:, 1, 0]),
-            np.abs(fext_ref.s[:, 1, 0]),
+            result[0].s,
+            fext_ref.s,
             rtol=1e-6,
             err_msg="FEXT Sdd21 magnitude does not match reference",
         )
