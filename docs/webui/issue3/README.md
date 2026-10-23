@@ -33,7 +33,7 @@ identity 请求只改 NRZ 的 Ntaps=1/Npre=0、index0=1 与其余 tap disabled�
 
 ## 数值与契约证据
 
-[最终数值报告](evidence/numeric-20261024-061108/report.json) 对当前 Python 源码的九项 execution source hash 全部匹配。期望直接对完整保存数组调用 native `find_crossings/calc_jitter/calc_eye/make_bathtub`，没有调用 adapter 的 FFE/eye/CDR builder 生成期望。CDR FFT real/imag 分别比较；原数组的期望使用独立副本，能检查 in-place 修改。
+[最终数值报告](evidence/numeric-20261024-061108/report.json) 的八项 execution source hash（7 个 `src/pybert/web/*.py` 文件及 `tools/verify_web_analysis.py`）与当前源码全部匹配。期望直接对完整保存数组调用 native `find_crossings/calc_jitter/calc_eye/make_bathtub`，没有调用 adapter 的 FFE/eye/CDR builder 生成期望。CDR FFT real/imag 分别比较；原数组的期望使用独立副本，能检查 in-place 修改。
 
 | case | raw 数值＋typed metadata 检查 | display 检查 | 结果 |
 | --- | ---: | ---: | --- |
