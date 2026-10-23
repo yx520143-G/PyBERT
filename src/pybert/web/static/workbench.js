@@ -121,6 +121,7 @@
     $('run-log').textContent = (selected.logs || []).join('\n');
     const id = pickPlot();
     $('plot').classList.toggle('text-mode',['overview','jitter.info','compare'].includes(id));
+    if (['overview','jitter.info','compare'].includes(id)) $('plot').style.height='auto';
     if (!id) return empty('No matching observation at this node. Choose an explicit Point.');
     if (id === 'overview') {
       empty(`Run ${selected.run_id} · ${selected.effective_input.mod_type} · ${selected.input_hash.slice(0,12)}`);
