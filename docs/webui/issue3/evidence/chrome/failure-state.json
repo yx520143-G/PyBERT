@@ -1,0 +1,5 @@
+{
+  "live": "Current task: 193d929b-22ff-46bd-aaa1-6fcf0aa693b7 · cancel requested=false, observed=false, exited=true",
+  "run": "F-PAM4-01",
+  "task": "run 193d929b · failed · failed · Input hash does not match complete requested snapshot."
+}

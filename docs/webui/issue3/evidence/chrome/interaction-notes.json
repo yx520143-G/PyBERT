@@ -1,0 +1,5 @@
+{
+  "correction": "interactions.json first record run field used DOM id attribute selected-run, not the selected value. Actual run was F-PAM4-01 as independently recorded in screenshot-index and frames. Original interaction record is retained.",
+  "zoom": "Zoom in and rectangle operations selected ranges without curves; reset restored axes, then Zoom out preserved visible curves in frame20.",
+  "source_of_run_identity": "capture-state-index.json, screenshot-index.json and actual lifecycle report"
+}

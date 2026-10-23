@@ -1,0 +1,18 @@
+{
+  "parent_freeze_sha256": "457a66a4af98087eb5ad6ac4dfcfa103787d1bcb3cd035eab0133b272da12c5a",
+  "window_correction_sha256": "5d06cc3b4ad6f2ef6cd7aea5d7723ce81b679c588551b764aa3a4403064a681e",
+  "method": "Saved full raw; independent direct native helper expectations, no shared analysis builder for expected values",
+  "fixtures": [],
+  "execution_sources": {
+    "src\\pybert\\web\\__init__.py": "7375370164273cec896d7eca0265b87f3e109a9a86e0f980b5b3896380606554",
+    "src\\pybert\\web\\analysis.py": "7c75b58f40a322d3b8defd04661be8fa475e82e04d1d49a4c99325fa32abf1a9",
+    "src\\pybert\\web\\config.py": "d742f08e64878fed1b71d6a44a4594eb8f9ef0b137751719302672606218005b",
+    "src\\pybert\\web\\data.py": "d8f6a06e50af6cd252064e95c7cd4e5ee67f0bebca5d8f9a3641631f2726b7ef",
+    "src\\pybert\\web\\server.py": "bd96fc49eca6f3aae1daf471fb50271e18fed3cfda4b54edd1e1b444bbb050b4",
+    "src\\pybert\\web\\tasks.py": "23e773f28edb73af50ec400711e8eddb0f874027abc63977815db3f8be10afae",
+    "src\\pybert\\web\\worker.py": "b22c54df41f33b3955d5e6e973779a9a611e4452dde24d45dbf266952221027c",
+    "tools\\verify_web_analysis.py": "b2a53ae8d294074a45f73c0e9456e9e12ead59206c0d5720e393220b6184e213"
+  },
+  "passed": false,
+  "exception": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\tools\\verify_web_analysis.py\", line 144, in main\n    result = verify(arrays, manifest, original)\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\tools\\verify_web_analysis.py\", line 50, in verify\n    check(f\"original unchanged: {key}\", arrays[key], value, 0, 0)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\tools\\verify_web_analysis.py\", line 40, in check\n    difference = abs(a - b) if shape else np.asarray([])\n                     ~~^~~\nTypeError: numpy boolean subtract, the `-` operator, is not supported, use the bitwise_xor, the `^` operator, or the logical_xor function instead.\n"
+}

@@ -1,0 +1,402 @@
+{
+  "product_code_commit": "e9c73c5fa2de2e23b4f2b3c5a7a6e1b1a6825779",
+  "joint_freeze": {
+    "frozen-manifest.json": {
+      "sha256": "457a66a4af98087eb5ad6ac4dfcfa103787d1bcb3cd035eab0133b272da12c5a",
+      "commit_blob_matches": true
+    },
+    "window-correction-v2.json": {
+      "sha256": "5d06cc3b4ad6f2ef6cd7aea5d7723ce81b679c588551b764aa3a4403064a681e",
+      "commit_blob_matches": true
+    },
+    "identity-effective-v3.json": {
+      "sha256": "ca18eb3234b414bb3cc05b9a055270de972805cc0c55ab4f42dba2fea54edd73",
+      "commit_blob_matches": true
+    }
+  },
+  "issue2_freeze_unchanged": true,
+  "original_ten_file_checks": {
+    "constructed-defaults.json": true,
+    "environment.json": true,
+    "F-NRZ-01.extensions.json": true,
+    "F-NRZ-01.json": true,
+    "F-NRZ-01.yaml": true,
+    "F-PAM4-01.extensions.json": true,
+    "F-PAM4-01.json": true,
+    "F-PAM4-01.yaml": true,
+    "integration.json": true,
+    "tolerances.json": true
+  },
+  "unchanged_native_sources": true,
+  "web_sources": {
+    "src\\pybert\\web\\analysis.py": "5ed9e9c7172cfa15915cd61d8f7b506f4c36e54c0f6eab04745c63598d2b94fa",
+    "src\\pybert\\web\\config.py": "d742f08e64878fed1b71d6a44a4594eb8f9ef0b137751719302672606218005b",
+    "src\\pybert\\web\\data.py": "af53466d80b117085c9d9828e0fb87d0a9d2f56e2bb652dfed616d89f9a9379c",
+    "src\\pybert\\web\\server.py": "bd96fc49eca6f3aae1daf471fb50271e18fed3cfda4b54edd1e1b444bbb050b4",
+    "src\\pybert\\web\\tasks.py": "23e773f28edb73af50ec400711e8eddb0f874027abc63977815db3f8be10afae",
+    "src\\pybert\\web\\worker.py": "b22c54df41f33b3955d5e6e973779a9a611e4452dde24d45dbf266952221027c",
+    "src\\pybert\\web\\__init__.py": "7375370164273cec896d7eca0265b87f3e109a9a86e0f980b5b3896380606554",
+    "src\\pybert\\web\\static\\app.js": "e727c3b284f089eafb6af8dbd4c209511a97604fa8fb0d920d7c0b33e95b16f8",
+    "src\\pybert\\web\\static\\catalog.js": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+    "src\\pybert\\web\\static\\gui-map.js": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+    "src\\pybert\\web\\static\\index.html": "bcc431244d7565e13817772987cfa1e5ab595715fb76cc09bfe343ff374b861c",
+    "src\\pybert\\web\\static\\settings.js": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+    "src\\pybert\\web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "src\\pybert\\web\\static\\workbench.css": "358817f13da2975000ba5d89f532c453d4ef4dc5228ccbd9534b1fa50135da2a",
+    "src\\pybert\\web\\static\\workbench.js": "6fdc20e12d3e09e81154ed9d65453cbd294b7156b0751c3371b273faf09f4bd1"
+  },
+  "numeric_report": {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-061108/report.json",
+    "sha256": "f9c867b104f7c506b2c358b96460cea8178418de8994bd4e0ed34297ab66112c",
+    "execution_sources_match": {
+      "src\\pybert\\web\\__init__.py": true,
+      "src\\pybert\\web\\analysis.py": true,
+      "src\\pybert\\web\\config.py": true,
+      "src\\pybert\\web\\data.py": true,
+      "src\\pybert\\web\\server.py": true,
+      "src\\pybert\\web\\tasks.py": true,
+      "src\\pybert\\web\\worker.py": true,
+      "tools\\verify_web_analysis.py": true
+    },
+    "cases": [
+      {
+        "fixture": "F-NRZ-01",
+        "raw_and_metadata_checks": 824,
+        "display_checks": 71,
+        "max_abs_raw": 0,
+        "max_abs_display": 0,
+        "passed": true
+      },
+      {
+        "fixture": "F-PAM4-01",
+        "raw_and_metadata_checks": 827,
+        "display_checks": 71,
+        "max_abs_raw": 0,
+        "max_abs_display": 0,
+        "passed": true
+      },
+      {
+        "fixture": "F-NRZ-IDENTITY",
+        "raw_and_metadata_checks": 513,
+        "display_checks": 71,
+        "max_abs_raw": 0,
+        "max_abs_display": 0,
+        "passed": true
+      }
+    ]
+  },
+  "tests": {
+    "analysis-boundaries.xml": {
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "contracts.xml": {
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "mcp-compatibility.xml": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+  "modules": {
+    "pybert.web.analysis": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\src\\pybert\\web\\analysis.py",
+    "pybert.pybert": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\src\\pybert\\pybert.py",
+    "pychopmarg": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\__init__.py",
+    "pyibisami": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\__init__.py",
+    "numpy": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+    "scipy": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\.venv\\Lib\\site-packages\\scipy\\__init__.py"
+  },
+  "raw_local_files": 18,
+  "raw_local_bytes": 587927522,
+  "screenshots": [
+    {
+      "path": "evidence/chrome/01-pam4-ffe-eye.jpg",
+      "sha256": "97bb109428884b7e30f777af7ab889157f367911a53f0047cf28bd0f6a79373e",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 99008
+    },
+    {
+      "path": "evidence/chrome/02-pam4-ffe-eye-complete.jpg",
+      "sha256": "b8f0ae2d670cf016fc018cdc3336f7c11871161262a7cee621d38f9848d68546",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 90485
+    },
+    {
+      "path": "evidence/chrome/03-pam4-five-point-distribution.jpg",
+      "sha256": "8c9043014247c215c7f2e612ec43b1d84145a82c74853ff4d95efd1da5a2ed41",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 78906
+    },
+    {
+      "path": "evidence/chrome/04-final-pam4-five-point-distribution.jpg",
+      "sha256": "354331b4e9f73a62477798e9745edab7d0b2514b76dd178d3439c7cba59890df",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 67039
+    },
+    {
+      "path": "evidence/chrome/05-final-pam4-ffe-spectrum.jpg",
+      "sha256": "26bc746ad56dad84a459af250861035728e91c0fddf7db1f743651b87784c303",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 100388
+    },
+    {
+      "path": "evidence/chrome/06-final-pam4-ffe-spectrum-complete.jpg",
+      "sha256": "6c6b9c0df770bf84f6d4fc1fcd34625c7f9f46edafc89ea1edd94f4a918a884c",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 87142
+    },
+    {
+      "path": "evidence/chrome/07-final-two-run-ffe-eyes.jpg",
+      "sha256": "bcb44f912e820b3cb1d65c45137e050aadf4b635612fd98626755bea05e7a259",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 84846
+    },
+    {
+      "path": "evidence/chrome/08-final-two-run-ffe-eyes-count-scale.jpg",
+      "sha256": "1e7d89037a2b8a3f8184e3ae1c0bdc68465fad9b415b489744ee5496f14a434d",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 79914
+    },
+    {
+      "path": "evidence/chrome/09-final-channel-three-frequency.jpg",
+      "sha256": "ba6b1f4c41f5d37b08f5b310e9e67c6886178ef8d677d40a588b9513b026eb33",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 66332
+    },
+    {
+      "path": "evidence/chrome/10-final-channel-clean-eye.jpg",
+      "sha256": "518fb78b6fc341a04b83091a890360b1bd91595ea61967ddef7153f1da847601",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 97000
+    },
+    {
+      "path": "evidence/chrome/11-final-channel-display-noise-eye.jpg",
+      "sha256": "fdb940122291900bf6dc773fe2f568c14bdcb61bdf3ad1339adc1e65638d1232",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 102096
+    },
+    {
+      "path": "evidence/chrome/12-final-ffe-bathtub.jpg",
+      "sha256": "8233c3787b593fe7f697f7db4982a0efc41ab04a6d4c635620a7d64c3fe095c5",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 61969
+    },
+    {
+      "path": "evidence/chrome/13-final-cdr-histogram.jpg",
+      "sha256": "b74cc59be1908ceb10275772d90f2da3c97562d2f7b3e8fa2361cafe889db981",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 61760
+    },
+    {
+      "path": "evidence/chrome/14-final-cdr-legacy-spectrum.jpg",
+      "sha256": "81a400db350a3f13113b455fc4a38fc9dadca674a54ee7757ffbd959e59f6c50",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 76257
+    },
+    {
+      "path": "evidence/chrome/15-final-jitter-info-validity.jpg",
+      "sha256": "cc50a0eee24f26be7ae677c01ba53d677ea28d85449772048b2e8be6be42d6d1",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 52567
+    },
+    {
+      "path": "evidence/chrome/16-final-jitter-info-table.jpg",
+      "sha256": "c862ac0268ba27ae5d67008ea21fbdf0797c0037fbcf560be26264e1302bcf01",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 103653
+    },
+    {
+      "path": "evidence/chrome/17-final-gui-crosswalk-frequency-route.jpg",
+      "sha256": "1e6fd7ebc4f08cfbe3feefa811f0ec2eb7c60195d9c46a4f0398e15d54e359de",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 66277
+    },
+    {
+      "path": "evidence/chrome/18-final-channel-zoom.jpg",
+      "sha256": "95e812d2629ee7470d2c74192aff880b6629d979c6be23638176f55e67e34475",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 64834
+    },
+    {
+      "path": "evidence/chrome/19-final-channel-region-zoom.jpg",
+      "sha256": "f1e9cf84ffca83eee7c1b09f75e8e573d5a9f54597bc3163603004de9f8aeb7c",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 60253
+    },
+    {
+      "path": "evidence/chrome/20-final-channel-zoom-out.jpg",
+      "sha256": "cb44e8d57ce79c8a42d2c8d3b7c510efea4cda971e098398c90a0b5ce47e1063",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 60612
+    },
+    {
+      "path": "evidence/chrome/21-final-failed-task-old-result.jpg",
+      "sha256": "4a65b210d48e9145f612b9cbeab419a63fa26c30c86e5cfc50c2f6f11bf2a61b",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 80208
+    },
+    {
+      "path": "evidence/chrome/22-final-cancelled-task-old-result.jpg",
+      "sha256": "d2037cd928a1acaecb8480369fdc9794a026ece2039ef119250c34f0d51a9c78",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 79668
+    },
+    {
+      "path": "evidence/chrome/23-final-old-schema-unavailable.jpg",
+      "sha256": "8d838ce041de21c6baaff474ec0e70d3b71daa100722bd649f4cc4c7a71ecd05",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 58980
+    },
+    {
+      "path": "evidence/chrome/24-final-old-schema-rx-eye-preserved.jpg",
+      "sha256": "a1df1035dfb13525dbfed99cde381882b040aa6adf5bc5fede196b41bd7c975f",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 81635
+    },
+    {
+      "path": "evidence/chrome/25-final-old-schema-dfe-info-preserved.jpg",
+      "sha256": "37baf133009955daf607e519374aec75bcaf3c45ffe1bdb6f3603469368685cd",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 84950
+    },
+    {
+      "path": "evidence/chrome/26-final-old-schema-channel-frequency-preserved.jpg",
+      "sha256": "c32cade3203b42cc933ca46cba2f123bc3e7e930d026c9467a6063d79a995bc7",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 61951
+    },
+    {
+      "path": "evidence/chrome/27-final-old-new-channel-frequency-comparison.jpg",
+      "sha256": "ad64bced9d2c56261653847321992c38a5c104eadf7c8caf1610ae5f8e50b489",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 69061
+    },
+    {
+      "path": "evidence/chrome/provisional-ffe-axis-clipped.jpg",
+      "sha256": "0116534594b7277c2d07fbd8333d97a5a4b06cab03714f60814f44ffaefcd22d",
+      "format": "JPEG",
+      "pixel_size": [
+        1265,
+        712
+      ],
+      "bytes": 97142
+    }
+  ],
+  "no_additional_main_simulation": "Only identity task 80ecab74-7bd7-4cf9-8871-71752657ab2f. Later runs reuse its saved raw. Lifecycle cancellation was before native simulation."
+}

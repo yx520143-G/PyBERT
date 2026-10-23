@@ -1,0 +1,16 @@
+{
+  "active_task_id": null,
+  "current_task_id": "321f4ca9-49be-4219-9587-2d2af6efa74c",
+  "runs": [
+    {
+      "run_id": "F-NRZ-01",
+      "input_hash": "6e54735ef018afc6d0a79e61b4995f8c16d5550a9ae17b6be5e97bc98401c5fd"
+    },
+    {
+      "run_id": "F-PAM4-01",
+      "input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6"
+    }
+  ],
+  "server_pid": 22928,
+  "ownership": "Issue 3 owner test-only hydration server; no active worker"
+}
