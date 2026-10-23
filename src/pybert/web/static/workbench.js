@@ -193,6 +193,7 @@
     await Plotly.newPlot('plot',data,layout,{responsive:true,displaylogo:false});
     if (token !== renderToken) return;
     $('analysis-info').innerHTML = `<p>DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling. Zoom/pan and double-click reset do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.</p>${charts.map(p => `<details><summary>${esc(p.run_id)} · ${esc(p.plot_id)} · ${esc(p.run.effective_input.mod_type)} · input ${p.run.input_hash.slice(0,12)}</summary><pre>${esc(JSON.stringify({window:p.run.window,metadata:p.metadata,source:p.run.observations?.[p.plot_id.split('.')[1]],native_sha:p.run.native_sha,adapter_sha:p.run.adapter_sha},null,2))}</pre></details>`).join('')}`;
+    if ($('work-area').classList.contains('viewer-expanded')) $('analysis').scrollIntoView({block:'start',behavior:'instant'});
   }
   async function chooseRun(id) {
     const result = id ? await api(`runs/${id}`) : null;
