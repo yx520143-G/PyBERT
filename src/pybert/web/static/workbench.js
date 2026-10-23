@@ -5,7 +5,7 @@
   const clone = settings.clone;
   const tables = {tx_taps: ['enabled', 'value', 'min_val', 'max_val'], rx_taps: ['enabled', 'value', 'min_val', 'max_val'], tx_tap_tuners: ['enabled', 'pos', 'min_val', 'max_val', 'step'], ffe_tap_tuners: ['enabled', 'pos', 'min_val', 'max_val', 'step'], dfe_tap_tuners: ['enabled', 'min_val', 'max_val']};
   let base = null, captured = null, patches = [], normalized = null, revision = 0, normalizedRevision = -1;
-  let activeTask = null, currentTask = null, runs = [], selected = null, normalizing = null, timer = null, disconnected = false, logicalName = '', renderToken = 0;
+  let activeTask = null, currentTask = null, runs = [], selected = null, normalizing = null, timer = null, pendingValidation = false, disconnected = false, logicalName = '', renderToken = 0;
   const esc = v => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const equal = (a,b) => JSON.stringify(a) === JSON.stringify(b);
   async function api(path, body) {
@@ -43,14 +43,15 @@
   }
   function localError() {
     const draft = ui.getDraft();
-    return Object.keys(settings.fields).map(key => settings.fieldError(key,draft)).find(Boolean) || Object.keys(tables).map(key => settings.tableError(key,draft)).find(Boolean);
+    const changingTapCount = patches.some(patch => patch.field === 'rx_n_taps');
+    return Object.keys(settings.fields).map(key => settings.fieldError(key,draft,{deferObserver:key==='rx_n_pre' && changingTapCount})).find(Boolean) || Object.keys(tables).map(key => settings.tableError(key,draft)).find(Boolean);
   }
   function controls() {
     const locked = !base || !!normalizing || disconnected;
     for (const id of ['run','save-config','save-as','load-config']) $(id).disabled = locked || !!activeTask;
     $('abort').disabled = !activeTask || disconnected;
     $('inspector').inert = !!normalizing;
-    for (const id of ['reset-draft','reset-stage','tx-mode','rx-mode','reset-modes']) $(id).disabled = !!normalizing;
+    for (const id of ['reset-draft','reset-stage','tx-mode','rx-mode','reset-modes','undo-reset']) $(id).disabled = !!normalizing;
     $('stale').textContent = selected ? (normalizedRevision !== revision || selected.input_hash !== normalized?.input_hash ? 'Older input · draft changed' : 'Matches validated input') : '';
   }
   async function normalizeDraft() {
@@ -58,6 +59,7 @@
     if (activeTask) throw new Error('Native slot busy; input validation is pending.');
     document.activeElement?.blur();
     record();
+    pendingValidation = false;
     const error = localError();
     if (error) throw new Error(error);
     const expectedRevision = revision;
@@ -75,6 +77,9 @@
     } finally { normalizing = null; controls(); }
   }
   function inputError(error) { $('input-status').textContent = `Input: ${error.message}`; controls(); }
+  function validateWhenIdle() {
+    if (pendingValidation && !activeTask && !normalizing) normalizeDraft().catch(inputError);
+  }
   function persistNative() {
     try { localStorage.setItem('pybert-native-snapshot-v1',JSON.stringify({schema:1,config:base,name:logicalName})); }
     catch { /* The prototype draft-status independently reports storage failures. */ }
@@ -83,8 +88,9 @@
     revision++; controls();
     if (event.detail.commit) {
       record();
+      pendingValidation = true;
       clearTimeout(timer);
-      timer = setTimeout(() => { if (!activeTask && !normalizing) normalizeDraft().catch(inputError); }, 200);
+      timer = setTimeout(validateWhenIdle, 200);
     } else $('input-status').textContent = activeTask ? 'Draft edited; native validation pending until worker exit.' : 'Draft edited; commit the field to validate.';
   });
   function pickPlot() {
@@ -165,6 +171,7 @@
         $('selected-run').value = id || ''; await chooseRun(id);
       }
       controls();
+      validateWhenIdle();
     } catch (error) { $('task-state').textContent = `Service unavailable: ${error.message}`; }
     setTimeout(poll,1000);
   }
@@ -206,11 +213,12 @@
   }
   async function save(as) {
     clearTimeout(timer);
-    try { await normalizeDraft(); if (as || !logicalName) { $('save-name').value = logicalName || 'pybert.yaml'; $('name-dialog').showModal(); } else download(logicalName); }
+    try { await normalizeDraft(); if (as || !logicalName) { $('save-name').value = logicalName || 'pybert.yaml'; $('name-dialog').returnValue = 'cancel'; $('name-dialog').showModal(); } else download(logicalName); }
     catch (error) { inputError(error); }
   }
   $('save-config').addEventListener('click',() => save(false)); $('save-as').addEventListener('click',() => save(true));
   $('name-dialog').addEventListener('close',() => { if ($('name-dialog').returnValue === 'save') download($('save-name').value); });
+  $('name-dialog').addEventListener('cancel',() => { $('name-dialog').returnValue = 'cancel'; });
   $('help').addEventListener('click',() => $('help-dialog').showModal()); $('close-help').addEventListener('click',() => $('help-dialog').close());
   $('quit').addEventListener('click',() => { disconnected=true; controls(); $('task-state').textContent='Disconnected. You may close this tab; backend tasks continue.'; });
   async function init() {
@@ -227,7 +235,7 @@
     $('config-name').textContent=logicalName || 'Untitled';
     ui.replaceDraft(saved ? {...toDraft(base),...saved} : toDraft(base));
     captured = clone(base); record();
-    if (saved && patches.length) { revision++; normalizedRevision=-1; }
+    if (saved && patches.length) { revision++; normalizedRevision=-1; pendingValidation=true; }
     $('input-status').textContent = defaults.warnings.join(' '); controls();
     await poll();
   }

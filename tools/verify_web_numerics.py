@@ -34,15 +34,22 @@ def freeze():
     assert all(digest(FIXTURES / key) == value for key, value in frozen["files"].items())
     native = subprocess.check_output(["git", "show", f"{NATIVE_SHA}:src/pybert/models/bert.py"], cwd=ROOT)
     (EVIDENCE / "native-bert.py.txt").write_bytes(native)
-    payload = {"parent_manifest_sha256": digest(FIXTURES / "frozen-manifest.json"),
-                   "native_sha": NATIVE_SHA, "original_bert_sha256": hashlib.sha256(native).hexdigest(),
-                   "implementation_base": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
-                   "execution_sources": {str(p.relative_to(ROOT)): digest(p) for p in
-                                      [*sorted((ROOT / "src/pybert/web").glob("*.py")), ROOT / "src/pybert/models/bert.py"]},
-                   "packages": {d.metadata["Name"]: d.version for d in importlib.metadata.distributions()},
-                   "python": sys.executable, "catalog": CATALOG, "frozen_before_calculation": True,
-                   "tolerances_sha256": digest(FIXTURES / "tolerances.json"),
-                   "note": "追加冻结，不替换原fixture/seed/window/tolerance；每次执行另记实际源码hash。"}
+    payload = {
+        "parent_manifest_sha256": digest(FIXTURES / "frozen-manifest.json"),
+        "native_sha": NATIVE_SHA,
+        "original_bert_sha256": hashlib.sha256(native).hexdigest(),
+        "implementation_base": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+        "execution_sources": {
+            str(p.relative_to(ROOT)): digest(p)
+            for p in [*sorted((ROOT / "src/pybert/web").glob("*.py")), ROOT / "src/pybert/models/bert.py"]
+        },
+        "packages": {d.metadata["Name"]: d.version for d in importlib.metadata.distributions()},
+        "python": sys.executable,
+        "catalog": CATALOG,
+        "frozen_before_calculation": True,
+        "tolerances_sha256": digest(FIXTURES / "tolerances.json"),
+        "note": "追加冻结，不替换原fixture/seed/window/tolerance；每次执行另记实际源码hash。",
+    }
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     print("execution-freeze", digest(path), flush=True)
 
@@ -62,15 +69,43 @@ def native_reference(config, directory):
     points = iter(("chnl", "tx", "ctle", "dfe"))
 
     def profile(frame, event, result):
-        if event == "return" and frame.f_code.co_name == "calc_jitter" and frame.f_back.f_code.co_name == "my_run_simulation":
+        if (
+            event == "return"
+            and frame.f_code.co_name == "calc_jitter"
+            and frame.f_back.f_code.co_name == "my_run_simulation"
+        ):
             local = frame.f_back.f_locals
-            observations["source"] = {k: local[k] for k in
-                                      ("x", "ideal_signal", "ideal_xings", "ideal_xings_jit", "xing_mask", "ui", "nspui", "nui", "eye_uis", "pattern_len", "rel_thresh", "decision_scaler", "mod_type", "xing_min_t")}
+            observations["source"] = {
+                k: local[k]
+                for k in (
+                    "x",
+                    "ideal_signal",
+                    "ideal_xings",
+                    "ideal_xings_jit",
+                    "xing_mask",
+                    "ui",
+                    "nspui",
+                    "nui",
+                    "eye_uis",
+                    "pattern_len",
+                    "rel_thresh",
+                    "decision_scaler",
+                    "mod_type",
+                    "xing_min_t",
+                )
+            }
             point = next(points)
-            observations[point] = {"ofst": local["ofst"], "actual_xings": local["actual_xings"],
-                                       "actual_xings_jit": local["actual_xings_jit"], "t_jitter": result[1],
-                                       "bin_centers": result[15], "spectrum_freqs": result[12], "tie": result[0],
-                                       "tie_ind": result[8], "valid": True}
+            observations[point] = {
+                "ofst": local["ofst"],
+                "actual_xings": local["actual_xings"],
+                "actual_xings_jit": local["actual_xings_jit"],
+                "t_jitter": result[1],
+                "bin_centers": result[15],
+                "spectrum_freqs": result[12],
+                "tie": result[0],
+                "tie_ind": result[8],
+                "valid": True,
+            }
 
     sys.setprofile(profile)
     try:
@@ -78,8 +113,13 @@ def native_reference(config, directory):
     finally:
         sys.setprofile(None)
     assert p.status == "Ready.", p.status
-    identity = {"run_id": "direct-reference", "draft_revision": 0, "requested_input": config,
-                    "effective_input": effective, "input_hash": input_hash(config)}
+    identity = {
+        "run_id": "direct-reference",
+        "draft_revision": 0,
+        "requested_input": config,
+        "effective_input": effective,
+        "input_hash": input_hash(config),
+    }
     return collect(p, observations, directory, identity)
 
 
@@ -89,7 +129,11 @@ def compare(reference, candidate, ui):
         assert set(a.files) == set(b.files)
         for key in a.files:
             x, y = a[key], b[key]
-            exact = x.dtype.kind in "biu" or any(v in key for v in (".counts", "decisions", "bit_errs", "waveform_indices")) or key in ("bits", "clocks", "lockeds")
+            exact = (
+                x.dtype.kind in "biu"
+                or any(v in key for v in (".counts", "decisions", "bit_errs", "waveform_indices"))
+                or key in ("bits", "clocks", "lockeds")
+            )
             rtol, atol = 1e-10, 1e-12
             category = "voltage_response_complex"
             if key.startswith("display."):
@@ -102,7 +146,13 @@ def compare(reference, candidate, ui):
                 category, rtol, atol = "frequency_Hz", 1e-12, 1e-6
             elif key.startswith(("jitter_ext_", "jitter_")) and "spectrum" not in key:
                 category, atol = "pdf_per_s", 1e-12 / ui
-            elif key in ("t", "t_irfft", "clock_times") or any(s in key for s in ("spectrum_", "thresh_", ".ofst", "xings", ".t_jitter", ".tie", ".bin_centers")) or key.split("_")[0] in ("isi", "dcd", "pj", "rj", "pjDD", "rjDD", "mu", "dj"):
+            elif (
+                key in ("t", "t_irfft", "clock_times")
+                or any(
+                    s in key for s in ("spectrum_", "thresh_", ".ofst", "xings", ".t_jitter", ".tie", ".bin_centers")
+                )
+                or key.split("_")[0] in ("isi", "dcd", "pj", "rj", "pjDD", "rjDD", "mu", "dj")
+            ):
                 category, atol = "time_jitter_spectrum", 1e-18
             finite = bool(np.isfinite(x).all() and np.isfinite(y).all())
             same_shape = x.shape == y.shape
@@ -118,12 +168,24 @@ def compare(reference, candidate, ui):
                     max_rel = float(np.max(difference / np.maximum(np.abs(x), np.finfo(float).tiny)))
                     if not good.all():
                         first_bad = np.argwhere(~good)[0].tolist()
-            report.append({"dataset": key, "category": "exact" if exact else category, "rtol": 0 if exact else rtol,
-                               "atol": 0 if exact else atol, "shape_reference": list(x.shape), "shape_worker": list(y.shape),
-                               "finite_count_reference": int(np.isfinite(x).sum()), "finite_count_worker": int(np.isfinite(y).sum()),
-                               "nonfinite_mask_reference": np.flatnonzero(~np.isfinite(x)).tolist(),
-                               "nonfinite_mask_worker": np.flatnonzero(~np.isfinite(y)).tolist(),
-                               "max_absolute_error": max_abs, "max_relative_error": max_rel, "first_failure_index": first_bad, "passed": passed})
+            report.append(
+                {
+                    "dataset": key,
+                    "category": "exact" if exact else category,
+                    "rtol": 0 if exact else rtol,
+                    "atol": 0 if exact else atol,
+                    "shape_reference": list(x.shape),
+                    "shape_worker": list(y.shape),
+                    "finite_count_reference": int(np.isfinite(x).sum()),
+                    "finite_count_worker": int(np.isfinite(y).sum()),
+                    "nonfinite_mask_reference": np.flatnonzero(~np.isfinite(x)).tolist(),
+                    "nonfinite_mask_worker": np.flatnonzero(~np.isfinite(y)).tolist(),
+                    "max_absolute_error": max_abs,
+                    "max_relative_error": max_rel,
+                    "first_failure_index": first_bad,
+                    "passed": passed,
+                }
+            )
     return report
 
 
@@ -134,8 +196,14 @@ def main():
     out = EVIDENCE / ("numeric-" + time.strftime("%Y%m%d-%H%M%S"))
     out.mkdir()
     tasks = Tasks(out / "workers")
-    report = {"execution_freeze_sha256": digest(EVIDENCE / "execution-freeze.json"), "fixtures": [],
-              "actual_sources": {str(p.relative_to(ROOT)): digest(p) for p in [*sorted((ROOT / "src/pybert/web").glob("*.py")), ROOT / "src/pybert/models/bert.py"]}}
+    report = {
+        "execution_freeze_sha256": digest(EVIDENCE / "execution-freeze.json"),
+        "fixtures": [],
+        "actual_sources": {
+            str(p.relative_to(ROOT)): digest(p)
+            for p in [*sorted((ROOT / "src/pybert/web").glob("*.py")), ROOT / "src/pybert/models/bert.py"]
+        },
+    }
     for name in ("F-NRZ-01", "F-PAM4-01"):
         print(name, "direct native reference", flush=True)
         config = json.loads((FIXTURES / f"{name}.json").read_text(encoding="utf-8"))
@@ -156,9 +224,15 @@ def main():
             a = json.loads((direct / "manifest.json").read_text(encoding="utf-8"))
             b = json.loads((tasks.directory(task["task_id"]) / "manifest.json").read_text(encoding="utf-8"))
             entry["summary_reference"], entry["summary_worker"] = a["summary"], b["summary"]
-            entry["passed"] = all(row["passed"] for row in entry["arrays"]) and a["input_hash"] == b["input_hash"] and a["window"] == b["window"] and a["datasets"] == b["datasets"]
+            entry["passed"] = (
+                all(row["passed"] for row in entry["arrays"])
+                and a["input_hash"] == b["input_hash"]
+                and a["window"] == b["window"]
+                and a["datasets"] == b["datasets"]
+            )
         except Exception as err:
             import traceback
+
             entry.update(error=str(err), traceback=traceback.format_exc())
         report["fixtures"].append(entry)
         (out / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")

@@ -22,22 +22,31 @@ def create_app(tasks=None):
     @app.exception_handler(BusyError)
     async def busy(_request, err):
         from fastapi.responses import JSONResponse
+
         return JSONResponse(status_code=409, content={"detail": str(err)})
 
     @app.exception_handler(ValueError)
     async def invalid(_request, err):
         from fastapi.responses import JSONResponse
+
         return JSONResponse(status_code=422, content={"detail": str(err)})
 
     @app.exception_handler(KeyError)
     async def unavailable(_request, err):
         from fastapi.responses import JSONResponse
+
         return JSONResponse(status_code=404, content={"detail": str(err)})
 
     @app.get("/api/version")
     def version():
-        return {"schema_version": SCHEMA_VERSION, "version": __version__, "adapter_sha": adapter_sha(),
-                    "native_sha": NATIVE_SHA, "prototype_sha": PROTOTYPE_SHA, "fork": "yx520143-G/PyBERT"}
+        return {
+            "schema_version": SCHEMA_VERSION,
+            "version": __version__,
+            "adapter_sha": adapter_sha(),
+            "native_sha": NATIVE_SHA,
+            "prototype_sha": PROTOTYPE_SHA,
+            "fork": "yx520143-G/PyBERT",
+        }
 
     @app.post("/api/normalize")
     def normalize(request: dict):
@@ -76,7 +85,10 @@ def create_app(tasks=None):
     @app.get("/plotly.js")
     def plotly():
         from fastapi.responses import Response
-        return Response(get_plotlyjs(), media_type="application/javascript", headers={"Cache-Control": "public, max-age=3600"})
+
+        return Response(
+            get_plotlyjs(), media_type="application/javascript", headers={"Cache-Control": "public, max-age=3600"}
+        )
 
     app.mount("/", StaticFiles(directory=Path(__file__).parent / "static", html=True), name="workbench")
     return app

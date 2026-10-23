@@ -501,6 +501,17 @@
       edited({ render: true });
     }
   });
+  $('settings-panel').addEventListener('focusout', event => {
+    const target = event.target;
+    if (target.matches('[data-setting]') && !['checkbox', 'radio', 'select-one'].includes(target.type)) editField(target, true);
+    if (target.matches('[data-tap-table]') && target.type === 'number') edited();
+  });
+  $('settings-panel').addEventListener('keydown', event => {
+    if (event.key === 'Enter' && event.target.matches('input[data-setting], input[data-tap-table]')) {
+      event.preventDefault();
+      event.target.blur();
+    }
+  });
   window.addEventListener('hashchange', () => { const id = location.hash.slice(1); if (stageById(id) && id !== state.stageId) selectStage(id); });
   function guiEntry(key) {
     if (['btn_disable', 'btn_enable'].includes(key)) key = 'dfe_tap_tuners';

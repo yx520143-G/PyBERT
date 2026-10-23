@@ -34,18 +34,36 @@ class Tasks:
         with self.lock:
             if self.active is not None:
                 raise BusyError("The native engine slot is busy; normalization is pending until the worker exits.")
+            request_text = json.dumps(request, indent=2, allow_nan=False)
             task_id = str(uuid.uuid4())
             directory = self.root / task_id
             directory.mkdir()
-            (directory / "request.json").write_text(json.dumps(request, indent=2, allow_nan=False), encoding="utf-8")
+            (directory / "request.json").write_text(request_text, encoding="utf-8")
             cancel = self.context.Event()
             receive, send = self.context.Pipe(duplex=False)
-            process = self.context.Process(target=self.worker, args=(task_id, operation, request, str(directory), cancel, send))
-            task = {"task_id": task_id, "operation": operation, "state": "validating", "phase": "validating",
-                        "cancel_requested": False, "cancel_observed": False, "worker_exited": False,
-                        "logs": [], "created_at": time.time(), "request_hash": request.get("input_hash")}
+            process = self.context.Process(
+                target=self.worker, args=(task_id, operation, request, str(directory), cancel, send)
+            )
+            task = {
+                "task_id": task_id,
+                "operation": operation,
+                "state": "validating",
+                "phase": "validating",
+                "cancel_requested": False,
+                "cancel_observed": False,
+                "worker_exited": False,
+                "logs": [],
+                "created_at": time.time(),
+                "request_hash": request.get("input_hash"),
+            }
             event = threading.Event()
-            self.tasks[task_id] = {"data": task, "process": process, "cancel": cancel, "done": event, "directory": directory}
+            self.tasks[task_id] = {
+                "data": task,
+                "process": process,
+                "cancel": cancel,
+                "done": event,
+                "directory": directory,
+            }
             self.active = self.current = task_id
             process.start()
             send.close()
@@ -59,7 +77,7 @@ class Tasks:
         open_pipe = True
         while p.is_alive() or open_pipe:
             try:
-                readable = open_pipe and receive.poll(.05)
+                readable = open_pipe and receive.poll(0.05)
             except (OSError, EOFError):
                 open_pipe = False
                 readable = False
@@ -89,15 +107,24 @@ class Tasks:
                 if not open_pipe:
                     break
             elif not open_pipe:
-                p.join(.05)
+                p.join(0.05)
         p.join()
         receive.close()
         with self.lock:
             if p.exitcode != 0 or terminal is None:
-                terminal = {"status": "failed", "error": f"Worker exited {p.exitcode} without a valid terminal envelope.",
-                                "cancel_observed": task["cancel_observed"]}
-            task.update(state=terminal["status"], phase=terminal["status"], worker_exited=True,
-                        exitcode=p.exitcode, finished_at=time.time(), cancel_observed=terminal.get("cancel_observed", False))
+                terminal = {
+                    "status": "failed",
+                    "error": f"Worker exited {p.exitcode} without a valid terminal envelope.",
+                    "cancel_observed": task["cancel_observed"],
+                }
+            task.update(
+                state=terminal["status"],
+                phase=terminal["status"],
+                worker_exited=True,
+                exitcode=p.exitcode,
+                finished_at=time.time(),
+                cancel_observed=terminal.get("cancel_observed", False),
+            )
             for key in ("error", "error_type", "traceback", "result"):
                 if key in terminal:
                     task[key] = terminal[key]
@@ -108,14 +135,32 @@ class Tasks:
                 else:
                     manifest = json.loads(path.read_text(encoding="utf-8"))
                     manifest["logs"] = list(task["logs"])
-                    manifest["cancellation"] = {k: task[k] for k in ("cancel_requested", "cancel_observed", "worker_exited")}
+                    manifest["cancellation"] = {
+                        k: task[k] for k in ("cancel_requested", "cancel_observed", "worker_exited")
+                    }
                     path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
                     self.runs.append(task_id)
                     while len(self.runs) > 2:
                         old = self.runs.pop(0)
-                        shutil.rmtree(self.tasks[old]["directory"])
+                        self._remove_directory(self.tasks[old]["directory"])
             self.active = None
             entry["done"].set()
+            p.close()
+            # Keep the current task and both successful results, plus bounded recent logs.
+            for old in list(self.tasks):
+                if len(self.tasks) <= 32:
+                    break
+                if old not in self.runs and old != self.current and self.tasks[old]["done"].is_set():
+                    retired = self.tasks.pop(old)
+                    if retired["directory"].exists():
+                        self._remove_directory(retired["directory"])
+
+    def _remove_directory(self, directory):
+        target = directory.resolve()
+        root = self.root.resolve()
+        if target == root or not target.is_relative_to(root):
+            raise ValueError("Task directory is outside the managed temporary result root.")
+        shutil.rmtree(target)
 
     def cancel(self, task_id):
         with self.lock:
@@ -153,5 +198,10 @@ class Tasks:
     def index(self):
         with self.lock:
             rows = [json.loads((self.directory(r) / "manifest.json").read_text(encoding="utf-8")) for r in self.runs]
-            return {"active_task_id": self.active, "current_task_id": self.current,
-                        "runs": [{key: row[key] for key in ("run_id", "input_hash", "effective_input", "summary")} for row in rows]}
+            return {
+                "active_task_id": self.active,
+                "current_task_id": self.current,
+                "runs": [
+                    {key: row[key] for key in ("run_id", "input_hash", "effective_input", "summary")} for row in rows
+                ],
+            }

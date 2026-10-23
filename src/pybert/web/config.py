@@ -20,16 +20,62 @@ TABLES = {
     "dfe_tap_tuners": (20, ("enabled", "min_val", "max_val")),
 }
 RESOURCE_FIELDS = tuple(f"{side}_{kind}_file" for side in ("tx", "rx") for kind in ("ibis", "ami", "dll"))
-POSITIVE = ("bit_rate", "vod", "nspui", "nbits", "eye_bits", "f_max", "f_step", "Z0", "v0", "w0",
-            "rs", "rin", "rx_bw", "peak_freq", "decision_scaler", "n_ave", "n_lock_ave", "lock_sustain", "sum_bw")
-NONNEGATIVE = ("seed", "rn", "pn_mag", "pn_freq", "cout", "cin", "l_ch", "Rdc", "R0", "Theta0",
-               "gain", "delta_t_ui", "alpha", "rel_lock_tol", "thresh")
-INTEGERS = ("nbits", "seed", "nspui", "eye_bits", "lane_sel", "rx_n_taps", "rx_n_pre",
-            "rx_viterbi_symbols", "n_ave", "n_lock_ave", "lock_sustain")
+POSITIVE = (
+    "bit_rate",
+    "vod",
+    "nspui",
+    "nbits",
+    "eye_bits",
+    "f_max",
+    "f_step",
+    "Z0",
+    "v0",
+    "w0",
+    "rs",
+    "rin",
+    "rx_bw",
+    "peak_freq",
+    "decision_scaler",
+    "n_ave",
+    "n_lock_ave",
+    "lock_sustain",
+    "sum_bw",
+)
+NONNEGATIVE = (
+    "seed",
+    "rn",
+    "pn_mag",
+    "pn_freq",
+    "cout",
+    "cin",
+    "l_ch",
+    "Rdc",
+    "R0",
+    "Theta0",
+    "gain",
+    "delta_t_ui",
+    "alpha",
+    "rel_lock_tol",
+    "thresh",
+)
+INTEGERS = (
+    "nbits",
+    "seed",
+    "nspui",
+    "eye_bits",
+    "lane_sel",
+    "rx_n_taps",
+    "rx_n_pre",
+    "rx_viterbi_symbols",
+    "n_ave",
+    "n_lock_ave",
+    "lock_sustain",
+)
 
 
 def input_hash(config):
     """Hash the complete input, independently of YAML formatting and metadata dates."""
+
     def canonical(value):
         if isinstance(value, dict):
             return {key: canonical(v) for key, v in value.items()}
@@ -38,7 +84,10 @@ def input_hash(config):
         if isinstance(value, float) and value.is_integer():
             return int(value)
         return value
-    return hashlib.sha256(json.dumps(canonical(config), sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+
+    return hashlib.sha256(
+        json.dumps(canonical(config), sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
+    ).hexdigest()
 
 
 def new_engine():
@@ -71,7 +120,7 @@ def validate(config, defaults, complete=True):
                     raise ValueError(f"{key}: invalid native tap tuple.")
                 if any(type(v) not in (int, float) or not math.isfinite(v) for v in row[1:]):
                     raise ValueError(f"{key}: finite numeric tap values required.")
-                lo, hi = (row[2:4] if "value" in columns or "pos" in columns else row[1:3])
+                lo, hi = row[2:4] if "value" in columns or "pos" in columns else row[1:3]
                 if lo > hi or ("step" in columns and row[-1] <= 0):
                     raise ValueError(f"{key}: invalid bounds/step.")
         elif isinstance(expected, bool):
@@ -84,7 +133,9 @@ def validate(config, defaults, complete=True):
                 raise ValueError(f"{key}: integer required.")
         elif isinstance(expected, str) and not isinstance(value, str):
             raise ValueError(f"{key}: string required.")
-        elif isinstance(expected, list) and (not isinstance(value, list) or not all(isinstance(v, str) for v in value)):
+        elif isinstance(expected, list) and (
+            not isinstance(value, list) or not all(isinstance(v, str) for v in value)
+        ):
             raise ValueError(f"{key}: list of paths required.")
     for key in POSITIVE:
         if c[key] <= 0:
@@ -100,12 +151,26 @@ def validate(config, defaults, complete=True):
         raise ValueError("Even NspUI >= 2 and even PAM-4 bit counts are required.")
     if c["f_step"] * 1e6 > c["f_max"] * 1e9:
         raise ValueError("fStep exceeds fMax.")
-    for key, values in {"mod_type": ("NRZ", "PAM-4"), "tx_sel": ("native",), "rx_sel": ("native",),
-                        "tx_eq_sel": ("Native",), "rx_eq_sel": ("Native",), "inter_sel": ("native",)}.items():
+    for key, values in {
+        "mod_type": ("NRZ", "PAM-4"),
+        "tx_sel": ("native",),
+        "rx_sel": ("native",),
+        "tx_eq_sel": ("Native",),
+        "rx_eq_sel": ("Native",),
+        "inter_sel": ("native",),
+    }.items():
         if c[key] not in values:
             raise ValueError(f"{key}={c[key]} is not supported in #2; see #4/#10.")
-    for key in ("include_fext", "pkg_enable", "enable_com", "rx_use_viterbi", "tx_use_ami", "rx_use_ami",
-                "tx_use_ts4", "rx_use_ts4"):
+    for key in (
+        "include_fext",
+        "pkg_enable",
+        "enable_com",
+        "rx_use_viterbi",
+        "tx_use_ami",
+        "rx_use_ami",
+        "tx_use_ts4",
+        "rx_use_ts4",
+    ):
         if c[key]:
             raise ValueError(f"{key}: active capability is not supported in #2.")
     if c["impulse_length"] != 0:
@@ -127,8 +192,10 @@ class ConfigLoader(yaml.SafeLoader):
 
 
 ConfigLoader.add_constructor("tag:yaml.org,2002:python/tuple", lambda loader, node: loader.construct_sequence(node))
-ConfigLoader.add_constructor("tag:yaml.org,2002:python/object:pybert.configuration.PyBertCfg",
-                             lambda loader, node: loader.construct_mapping(node, deep=True))
+ConfigLoader.add_constructor(
+    "tag:yaml.org,2002:python/object:pybert.configuration.PyBertCfg",
+    lambda loader, node: loader.construct_mapping(node, deep=True),
+)
 
 
 def parse_yaml(text):
@@ -185,16 +252,23 @@ def normalize(request):
     else:
         raise ValueError(f"Unknown normalize mode {mode}.")
     config = snapshot(engine)
-    return {"config": config, "input_hash": input_hash(config), "input_hash_schema": "native-json-v1-integral-floats",
-            "yaml": yaml_text(config), "warnings": warnings(config)}
+    return {
+        "config": config,
+        "input_hash": input_hash(config),
+        "input_hash_schema": "native-json-v1-integral-floats",
+        "yaml": yaml_text(config),
+        "warnings": warnings(config),
+    }
 
 
 def warnings(config):
     rows = config["dfe_tap_tuners"]
     prefix = next((i for i, row in enumerate(rows) if not row[0]), len(rows))
-    messages = [f"DFE consumes the continuous enabled prefix: {prefix} taps.",
-                "Rx Cac is retained; the native producer does not consume it.",
-                "RLM belongs to optimization; ordinary Run does not consume it."]
+    messages = [
+        f"DFE consumes the continuous enabled prefix: {prefix} taps.",
+        "Rx Cac is retained; the native producer does not consume it.",
+        "RLM belongs to optimization; ordinary Run does not consume it.",
+    ]
     if any(row[0] for row in rows[prefix:]):
         messages.append("Enabled DFE rows after the first disabled row are retained but not consumed.")
     if not config["ctle_enable"]:

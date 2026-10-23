@@ -145,7 +145,7 @@
     return '';
   }
 
-  function fieldError(key, values) {
+  function fieldError(key, values, { deferObserver = false } = {}) {
     const field = fields[key];
     if (!field || disabledReason(key, values)) return '';
     const value = values[key];
@@ -156,7 +156,7 @@
       if (field.max !== undefined && value > field.max) return `最大值为 ${field.max}${field.unit ? ` ${field.unit}` : ''}。`;
     }
     if (key === 'eye_bits' && typeof values.nbits === 'number' && value > values.nbits) return 'EyeBits 不能超过 Nbits；请调整分析窗口或测试长度。';
-    if (key === 'rx_n_pre' && typeof values.rx_n_taps === 'number' && value > Math.max(0, values.rx_n_taps - 1)) return 'Npre 应小于总 tap 数；总数为 0 时 Npre 为 0。';
+    if (key === 'rx_n_pre' && !deferObserver && typeof values.rx_n_taps === 'number' && value > Math.max(0, values.rx_n_taps - 1)) return 'Npre 应小于总 tap 数；总数为 0 时 Npre 为 0。';
     if (key === 'lane_sel' && multiLane(values) && value > (/\.s12p$/i.test(values.ch_file.trim()) ? 2 : 1)) return '该文件的 victim lane 索引超出范围。';
     if (key === 'max_mag_tune' && typeof values.min_mag_tune === 'number' && value < values.min_mag_tune) return '最大 boost 不能小于最小 boost。';
     if (key === 'step_mag_tune' && value <= 0) return '搜索步长应大于 0。';

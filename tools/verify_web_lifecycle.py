@@ -14,9 +14,11 @@ OUT = ROOT / "docs/webui/issue2/evidence"
 
 
 def api(path, body=None):
-    request = urllib.request.Request("http://127.0.0.1:8765/api/"+path,
-                                     data=None if body is None else json.dumps(body).encode(),
-                                     headers={"Content-Type":"application/json"})
+    request = urllib.request.Request(
+        "http://127.0.0.1:8765/api/" + path,
+        data=None if body is None else json.dumps(body).encode(),
+        headers={"Content-Type": "application/json"},
+    )
     with urllib.request.urlopen(request) as response:
         return json.load(response)
 
@@ -26,47 +28,70 @@ def main():
     config = json.loads((ROOT / "docs/webui/issue2/fixtures/F-NRZ-01.json").read_text())
     before = api("state")
     assert before["active_task_id"] is None
-    config = api("normalize",{"mode": "load","config": config})["config"]
+    config = api("normalize", {"mode": "load", "config": config})["config"]
     expected_hash = input_hash(config)
     if mode == "cancel":
         config["nbits"] = 100000
-        config = api("normalize",{"mode": "load","config": config})["config"]
+        config = api("normalize", {"mode": "load", "config": config})["config"]
         expected_hash = input_hash(config)
-    request = {"config": config,"input_hash": "deliberately-wrong-hash" if mode == "failure" else expected_hash,"draft_revision": 0}
+    request = {
+        "config": config,
+        "input_hash": "deliberately-wrong-hash" if mode == "failure" else expected_hash,
+        "draft_revision": 0,
+    }
     # 完整输入在本次数值任务前保存，取消用例只验生命周期，不做数值资格声明。
-    (OUT / f"lifecycle-{mode}-input.json").write_text(json.dumps(request,indent=2),encoding="utf-8")
-    task = api("runs",request)
+    (OUT / f"lifecycle-{mode}-input.json").write_text(json.dumps(request, indent=2), encoding="utf-8")
+    task = api("runs", request)
     task_id = task["task_id"]
     phases = []
     conflicts = []
-    deadline = time.monotonic()+120
+    deadline = time.monotonic() + 120
     requested = None
     while True:
-        assert time.monotonic()<deadline
+        assert time.monotonic() < deadline
         task = api(f"tasks/{task_id}")
         if not phases or phases[-1] != task["phase"]:
             phases.append(task["phase"])
         if mode == "cancel" and task["phase"] == "Running DFE/CDR..." and requested is None:
-            requested = api(f"tasks/{task_id}/cancel",{})
-            for path,body in (("normalize",{"mode": "load","config": config}),("runs",request)):
+            requested = api(f"tasks/{task_id}/cancel", {})
+            for path, body in (("normalize", {"mode": "load", "config": config}), ("runs", request)):
                 try:
-                    api(path,body)
+                    api(path, body)
                     conflicts.append(False)
                 except urllib.error.HTTPError as err:
-                    conflicts.append(err.code==409)
+                    conflicts.append(err.code == 409)
         if task["worker_exited"]:
             break
-        time.sleep(.05)
+        time.sleep(0.05)
     after = api("state")
     retained = [r["run_id"] for r in before["runs"]] == [r["run_id"] for r in after["runs"]]
-    passed = task["state"] == ("failed" if mode=="failure" else "cancelled") and retained and after["active_task_id"] is None
+    passed = (
+        task["state"] == ("failed" if mode == "failure" else "cancelled")
+        and retained
+        and after["active_task_id"] is None
+    )
     if mode == "cancel":
-        passed = passed and requested is not None and requested["state"]=="cancel_requested" and not requested["worker_exited"] and task["cancel_observed"] and all(conflicts) and len(conflicts)==2
-    report = {"mode": mode,"task": task,"requested": requested,"phases": phases,"busy_conflicts": conflicts,
-                  "successful_runs_before": [r["run_id"] for r in before["runs"]],
-                  "successful_runs_after": [r["run_id"] for r in after["runs"]],"passed": passed}
-    (OUT / f"lifecycle-{mode}.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
-    print(json.dumps({"mode": mode,"passed": passed,"state": task["state"],"task_id": task_id,"phases": phases}))
+        passed = (
+            passed
+            and requested is not None
+            and requested["state"] == "cancel_requested"
+            and not requested["worker_exited"]
+            and task["cancel_observed"]
+            and all(conflicts)
+            and len(conflicts) == 2
+        )
+    report = {
+        "mode": mode,
+        "task": task,
+        "requested": requested,
+        "phases": phases,
+        "busy_conflicts": conflicts,
+        "successful_runs_before": [r["run_id"] for r in before["runs"]],
+        "successful_runs_after": [r["run_id"] for r in after["runs"]],
+        "passed": passed,
+    }
+    (OUT / f"lifecycle-{mode}.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    print(json.dumps({"mode": mode, "passed": passed, "state": task["state"], "task_id": task_id, "phases": phases}))
     assert passed
 
 
