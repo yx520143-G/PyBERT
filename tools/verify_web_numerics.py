@@ -34,15 +34,15 @@ def freeze():
     assert all(digest(FIXTURES / key) == value for key, value in frozen["files"].items())
     native = subprocess.check_output(["git", "show", f"{NATIVE_SHA}:src/pybert/models/bert.py"], cwd=ROOT)
     (EVIDENCE / "native-bert.py.txt").write_bytes(native)
-    payload = dict(parent_manifest_sha256=digest(FIXTURES / "frozen-manifest.json"),
-                   native_sha=NATIVE_SHA, original_bert_sha256=hashlib.sha256(native).hexdigest(),
-                   implementation_base=subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
-                   execution_sources={str(p.relative_to(ROOT)): digest(p) for p in
+    payload = {"parent_manifest_sha256": digest(FIXTURES / "frozen-manifest.json"),
+                   "native_sha": NATIVE_SHA, "original_bert_sha256": hashlib.sha256(native).hexdigest(),
+                   "implementation_base": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+                   "execution_sources": {str(p.relative_to(ROOT)): digest(p) for p in
                                       [*sorted((ROOT / "src/pybert/web").glob("*.py")), ROOT / "src/pybert/models/bert.py"]},
-                   packages={d.metadata["Name"]: d.version for d in importlib.metadata.distributions()},
-                   python=sys.executable, catalog=CATALOG, frozen_before_calculation=True,
-                   tolerances_sha256=digest(FIXTURES / "tolerances.json"),
-                   note="追加冻结，不替换原fixture/seed/window/tolerance；每次执行另记实际源码hash。")
+                   "packages": {d.metadata["Name"]: d.version for d in importlib.metadata.distributions()},
+                   "python": sys.executable, "catalog": CATALOG, "frozen_before_calculation": True,
+                   "tolerances_sha256": digest(FIXTURES / "tolerances.json"),
+                   "note": "追加冻结，不替换原fixture/seed/window/tolerance；每次执行另记实际源码hash。"}
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     print("execution-freeze", digest(path), flush=True)
 
@@ -67,10 +67,10 @@ def native_reference(config, directory):
             observations["source"] = {k: local[k] for k in
                                       ("x", "ideal_signal", "ideal_xings", "ideal_xings_jit", "xing_mask", "ui", "nspui", "nui", "eye_uis", "pattern_len", "rel_thresh", "decision_scaler", "mod_type", "xing_min_t")}
             point = next(points)
-            observations[point] = dict(ofst=local["ofst"], actual_xings=local["actual_xings"],
-                                       actual_xings_jit=local["actual_xings_jit"], t_jitter=result[1],
-                                       bin_centers=result[15], spectrum_freqs=result[12], tie=result[0],
-                                       tie_ind=result[8], valid=True)
+            observations[point] = {"ofst": local["ofst"], "actual_xings": local["actual_xings"],
+                                       "actual_xings_jit": local["actual_xings_jit"], "t_jitter": result[1],
+                                       "bin_centers": result[15], "spectrum_freqs": result[12], "tie": result[0],
+                                       "tie_ind": result[8], "valid": True}
 
     sys.setprofile(profile)
     try:
@@ -78,8 +78,8 @@ def native_reference(config, directory):
     finally:
         sys.setprofile(None)
     assert p.status == "Ready.", p.status
-    identity = dict(run_id="direct-reference", draft_revision=0, requested_input=config,
-                    effective_input=effective, input_hash=input_hash(config))
+    identity = {"run_id": "direct-reference", "draft_revision": 0, "requested_input": config,
+                    "effective_input": effective, "input_hash": input_hash(config)}
     return collect(p, observations, directory, identity)
 
 
@@ -118,12 +118,12 @@ def compare(reference, candidate, ui):
                     max_rel = float(np.max(difference / np.maximum(np.abs(x), np.finfo(float).tiny)))
                     if not good.all():
                         first_bad = np.argwhere(~good)[0].tolist()
-            report.append(dict(dataset=key, category="exact" if exact else category, rtol=0 if exact else rtol,
-                               atol=0 if exact else atol, shape_reference=list(x.shape), shape_worker=list(y.shape),
-                               finite_count_reference=int(np.isfinite(x).sum()), finite_count_worker=int(np.isfinite(y).sum()),
-                               nonfinite_mask_reference=np.flatnonzero(~np.isfinite(x)).tolist(),
-                               nonfinite_mask_worker=np.flatnonzero(~np.isfinite(y)).tolist(),
-                               max_absolute_error=max_abs, max_relative_error=max_rel, first_failure_index=first_bad, passed=passed))
+            report.append({"dataset": key, "category": "exact" if exact else category, "rtol": 0 if exact else rtol,
+                               "atol": 0 if exact else atol, "shape_reference": list(x.shape), "shape_worker": list(y.shape),
+                               "finite_count_reference": int(np.isfinite(x).sum()), "finite_count_worker": int(np.isfinite(y).sum()),
+                               "nonfinite_mask_reference": np.flatnonzero(~np.isfinite(x)).tolist(),
+                               "nonfinite_mask_worker": np.flatnonzero(~np.isfinite(y)).tolist(),
+                               "max_absolute_error": max_abs, "max_relative_error": max_rel, "first_failure_index": first_bad, "passed": passed})
     return report
 
 
@@ -141,11 +141,11 @@ def main():
         config = json.loads((FIXTURES / f"{name}.json").read_text(encoding="utf-8"))
         direct = out / name
         direct.mkdir()
-        entry = dict(fixture=name, input_hash=input_hash(config), passed=False)
+        entry = {"fixture": name, "input_hash": input_hash(config), "passed": False}
         try:
             native_reference(config, direct)
             print(name, "spawn worker", flush=True)
-            task = tasks.start("run", dict(config=config, input_hash=input_hash(config)))
+            task = tasks.start("run", {"config": config, "input_hash": input_hash(config)})
             tasks.tasks[task["task_id"]]["done"].wait()
             final = tasks.get(task["task_id"])
             entry["task"] = final

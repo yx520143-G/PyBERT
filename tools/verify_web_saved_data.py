@@ -3,6 +3,7 @@
 import hashlib
 import importlib.util
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -11,7 +12,7 @@ from pybert.utility import safe_log10
 from pybert.web.config import input_hash, load_config, new_engine, snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ROOT / "docs/webui/issue2/evidence/numeric-20261024-043542"
+BASE = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "docs/webui/issue2/evidence/numeric-20261024-043542"
 FIXTURES = ROOT / "docs/webui/issue2/fixtures"
 
 
@@ -19,10 +20,10 @@ def main():
     spec = importlib.util.spec_from_file_location("pybert.models.independent_native", BASE / "F-NRZ-01/native_bert.py")
     native = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(native)
-    report = dict(method="Rehydrate saved raw data; call exact native update_results, no simulation.",
-                  hash_schema="v1 canonical JSON: sorted keys, integral float represented as integer; booleans remain boolean",
-                  previous_hash_schema="legacy JSON distinguished 40 from 40.0; old frozen files retained unchanged",
-                  fixtures=[])
+    report = {"method": "Rehydrate saved raw data; call exact native update_results, no simulation.",
+                  "hash_schema": "v1 canonical JSON: sorted keys, integral float represented as integer; booleans remain boolean",
+                  "previous_hash_schema": "legacy JSON distinguished 40 from 40.0; old frozen files retained unchanged",
+                  "fixtures": []}
     source_report = json.loads((BASE / "report.json").read_text(encoding="utf-8"))
     for item in source_report["fixtures"]:
         name = item["fixture"]
@@ -34,14 +35,14 @@ def main():
         load_config(p, config, snapshot(p))
         checks = []
 
-        def check(label, actual, expected, rtol=1e-10, atol=1e-10):
+        def check(label, actual, expected, rtol=1e-10, atol=1e-10, checks=checks):
             a,b = np.asarray(actual),np.asarray(expected)
             same_shape = a.shape == b.shape
             finite = np.isfinite(a).all() and np.isfinite(b).all()
             good = np.isclose(a,b,rtol=rtol,atol=atol) if same_shape else np.array(False)
-            checks.append(dict(check=label,passed=bool(same_shape and finite and good.all()),
-                               rtol=rtol,atol=atol,max_abs=float(np.max(np.abs(a-b))) if same_shape and a.size else 0,
-                               shape=list(a.shape),first_bad=np.argwhere(~good)[0].tolist() if same_shape and not good.all() else None))
+            checks.append({"check": label,"passed": bool(same_shape and finite and good.all()),
+                               "rtol": rtol,"atol": atol,"max_abs": float(np.max(np.abs(a-b))) if same_shape and a.size else 0,
+                               "shape": list(a.shape),"first_bad": np.argwhere(~good)[0].tolist() if same_shape and not good.all() else None})
 
         with np.load(path / "arrays.npz") as arrays, np.load(BASE / name / "arrays.npz") as original:
             for key in arrays.files:
@@ -87,18 +88,22 @@ def main():
             for field in ("ideal_signal","chnl_out","rx_in","ctle_out","ffe_out","dfe_out"):
                 check(f"{field} projection x ns",arrays[f"display.wave.{field}.x"],arrays["t"][ix]*1e9,0,0)
                 check(f"{field} projection values",arrays[f"display.wave.{field}.y"],arrays[field][ix],0,0)
+            if "cdr_indices" in arrays:
+                check("CDR recorded time projection",arrays["display.cdr.x"],arrays["t"][arrays["cdr_indices"]]*1e9,0,0)
+                check("CDR estimates projection",arrays["display.cdr.y"],arrays["ui_ests"][arrays["cdr_indices"]],0,0)
+                checks.append({"check": "context voltage units","passed": all(manifest["datasets"][f"context.source.{k}"]["unit"]=="V" for k in ("x","ideal_signal","decision_scaler"))})
         for key in ("n_errs_dfe","chnl_dly_s","rel_power","initial_level_v","final_level_v"):
             check(f"summary {key}",manifest["summary"][key],reference["summary"][key],0 if key=="n_errs_dfe" else 1e-10,
                   0 if key=="n_errs_dfe" else 1e-18 if key=="chnl_dly_s" else 1e-12)
         for key,value in manifest["summary"]["dfe_jitter_s"].items():
             check(f"summary jitter {key}",value,reference["summary"]["dfe_jitter_s"][key],1e-10,1e-18)
-        checks.append(dict(check="Viterbi unavailable; not numeric zero",passed=manifest["summary"]["n_errs_viterbi"] is None and manifest["summary"]["viterbi_availability"]=="not run"))
+        checks.append({"check": "Viterbi unavailable; not numeric zero","passed": manifest["summary"]["n_errs_viterbi"] is None and manifest["summary"]["viterbi_availability"]=="not run"})
         extension = json.loads((FIXTURES / f"{name}.extensions.json").read_text(encoding="utf-8"))
-        entry = dict(fixture=name,legacy_frozen_input_hash=extension["input_hash"],canonical_input_hash=input_hash(config),
-                     yaml_sha256=hashlib.sha256((FIXTURES/f"{name}.yaml").read_bytes()).hexdigest(),checks=checks,
-                     passed=all(c["passed"] for c in checks))
+        entry = {"fixture": name,"legacy_frozen_input_hash": extension["input_hash"],"canonical_input_hash": input_hash(config),
+                     "yaml_sha256": hashlib.sha256((FIXTURES/f"{name}.yaml").read_bytes()).hexdigest(),"checks": checks,
+                     "passed": all(c["passed"] for c in checks)}
         report["fixtures"].append(entry)
-    out = ROOT / "docs/webui/issue2/evidence/independent-saved-data.json"
+    out = ROOT / f"docs/webui/issue2/evidence/independent-saved-data-{BASE.name}.json"
     out.write_text(json.dumps(report,indent=2),encoding="utf-8")
     print([(f["fixture"],f["passed"],len(f["checks"])) for f in report["fixtures"]])
     assert all(f["passed"] for f in report["fixtures"])

@@ -32,12 +32,12 @@ def main():
     (OUT / "constructed-defaults.json").write_text(json.dumps(defaults, indent=2), encoding="utf-8")
     for name, modulation in (("F-NRZ-01", "NRZ"), ("F-PAM4-01", "PAM-4")):
         p = new_engine()
-        for key, value in dict(bit_rate=10, mod_type=modulation, pattern="PRBS-7", seed=1, nspui=32,
-                               nbits=15000, eye_bits=10160, vod=1, rn=.01, pn_mag=.01, pn_freq=11,
-                               f_max=40, f_step=10, impulse_length=0, use_window=False,
-                               rx_n_taps=15, rx_n_pre=5, ctle_enable=True, peak_freq=5,
-                               rx_bw=12, peak_mag=1.7, gain=.1, n_ave=100, decision_scaler=.5,
-                               use_agc=True, sum_ideal=True, cdr_type="Bang-Bang").items():
+        for key, value in {"bit_rate": 10, "mod_type": modulation, "pattern": "PRBS-7", "seed": 1, "nspui": 32,
+                               "nbits": 15000, "eye_bits": 10160, "vod": 1, "rn": .01, "pn_mag": .01, "pn_freq": 11,
+                               "f_max": 40, "f_step": 10, "impulse_length": 0, "use_window": False,
+                               "rx_n_taps": 15, "rx_n_pre": 5, "ctle_enable": True, "peak_freq": 5,
+                               "rx_bw": 12, "peak_mag": 1.7, "gain": .1, "n_ave": 100, "decision_scaler": .5,
+                               "use_agc": True, "sum_ideal": True, "cdr_type": "Bang-Bang"}.items():
             setattr(p, key, value)
         for tap, enabled, value in zip(p.tx_taps, [False, True, True, False, False, False], [0, -.02, -.05, 0, 0, 0]):
             tap.enabled, tap.value = enabled, value
@@ -70,8 +70,8 @@ def main():
     prototype_files = git("diff", "--name-only", "457f444b0a6e705532579d4242596d60c9dfa153", PROTOTYPE_SHA).splitlines()
     integration = {"native": NATIVE_SHA, "prototype": PROTOTYPE_SHA, "implementation_base": git("rev-parse", "HEAD"),
                    "branch": git("branch", "--show-current"), "remote": git("remote", "get-url", "origin"),
-                   "native_is_ancestor": subprocess.run(["git", "merge-base", "--is-ancestor", NATIVE_SHA, "HEAD"], cwd=ROOT).returncode == 0,
-                   "prototype_is_ancestor": subprocess.run(["git", "merge-base", "--is-ancestor", PROTOTYPE_SHA, "HEAD"], cwd=ROOT).returncode == 0,
+                   "native_is_ancestor": subprocess.run(["git", "merge-base", "--is-ancestor", NATIVE_SHA, "HEAD"], cwd=ROOT, check=False).returncode == 0,
+                   "prototype_is_ancestor": subprocess.run(["git", "merge-base", "--is-ancestor", PROTOTYPE_SHA, "HEAD"], cwd=ROOT, check=False).returncode == 0,
                    "prototype_files": {path: sha(ROOT / path) for path in prototype_files},
                    "fix_commit_files": git("diff-tree", "--no-commit-id", "--name-only", "-r", PROTOTYPE_SHA).splitlines(),
                    "note": "PR7 Draft/open; stacked implementation base codex/pybert-signal-chain-webui; PM owns integration order."}

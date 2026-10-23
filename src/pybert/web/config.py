@@ -53,7 +53,7 @@ def snapshot(engine):
 def validate(config, defaults, complete=True):
     """Reject unsupported active paths before any resource observer can load them."""
     if not isinstance(config, dict):
-        raise ValueError("Configuration must be an object.")
+        raise ValueError("Configuration must be an object.")  # noqa: TRY004 - HTTP input validation contract
     unknown = set(config) - set(defaults)
     if unknown:
         raise ValueError(f"Unsupported configuration fields/runtime extensions: {sorted(unknown)}")
@@ -134,7 +134,7 @@ ConfigLoader.add_constructor("tag:yaml.org,2002:python/object:pybert.configurati
 def parse_yaml(text):
     value = yaml.load(text, Loader=ConfigLoader)
     if not isinstance(value, dict):
-        raise ValueError("Expected native PyBertCfg YAML.")
+        raise ValueError("Expected native PyBertCfg YAML.")  # noqa: TRY004 - HTTP input validation contract
     return {k: v for k, v in value.items() if k not in ("version", "date_created")}
 
 
@@ -185,7 +185,8 @@ def normalize(request):
     else:
         raise ValueError(f"Unknown normalize mode {mode}.")
     config = snapshot(engine)
-    return {"config": config, "input_hash": input_hash(config), "yaml": yaml_text(config), "warnings": warnings(config)}
+    return {"config": config, "input_hash": input_hash(config), "input_hash_schema": "native-json-v1-integral-floats",
+            "yaml": yaml_text(config), "warnings": warnings(config)}
 
 
 def warnings(config):

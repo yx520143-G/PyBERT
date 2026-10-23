@@ -94,8 +94,8 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
     start = max(0, len(p.t) - 20 * p.nspui)
     indices = np.unique(np.linspace(start, len(p.t) - 1, min(4096, len(p.t) - start), dtype=int))
     add("waveform_indices", indices, "sample index", kind="display")
-    labels = dict(ideal_signal="Ideal reference", chnl_out="Channel-only diagnostic", rx_in="Native Rx input (+Tx, noise)",
-                  ctle_out="CTLE output", ffe_out="Rx FFE output", dfe_out="DFE summing-node output")
+    labels = {"ideal_signal": "Ideal reference", "chnl_out": "Channel-only diagnostic", "rx_in": "Native Rx input (+Tx, noise)",
+                  "ctle_out": "CTLE output", "ffe_out": "Rx FFE output", "dfe_out": "DFE summing-node output"}
     plots["waveforms"] = {"title": "Outputs · last 20 UI", "projection": "waveform_indices", "traces": []}
     for key in WAVEFORMS:
         trace = line(f"wave.{key}", p.t[indices] * 1e9, arrays[key][indices], labels[key], "ns", "V")
@@ -148,7 +148,7 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
                    y_max=float(y_max), y_scale=float(y_scale), y_offset=y_offset,
                    clock_fallback=point == "dfe" and not actual_clock)
         datasets[zkey]["clock_basis"] = "recovered clock_times" if actual_clock else "nominal fold"
-        plots[f"eye.{point}"] = dict(title=f"{point} eye · {datasets[zkey]['clock_basis']}", heatmap=dict(x=xkey, y=ykey, z=zkey), traces=[])
+        plots[f"eye.{point}"] = {"title": f"{point} eye · {datasets[zkey]['clock_basis']}", "heatmap": {"x": xkey, "y": ykey, "z": zkey}, "traces": []}
         if cancelled():
             raise RuntimeError("Cancelled during native eye generation")
     plots["adaptation"] = {"title": "DFE adaptation · record index", "traces": []}
@@ -159,11 +159,11 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
     plots["cdr"] = {"title": "CDR UI estimates", "projection": "cdr_indices",
                     "traces": [line("cdr", p.t[cdr_indices] * 1e9, p.ui_ests[cdr_indices], "Native UI estimates", "ns", "ps")]}
     stats = {key: float(getattr(p, f"{key}_dfe")) for key in JITTER_STATS}
-    summary = dict(n_errs_dfe=int(p.n_errs_dfe), n_errs_viterbi=None, viterbi_availability="not run",
-                   chnl_dly_s=float(p.chnl_dly), rel_power=float(p.rel_power), dfe_jitter_s=stats,
-                   initial_level_v=identity["effective_input"]["decision_scaler"], final_level_v=float(p.decision_scaler),
-                   performance_Msamples_per_min={k: float(getattr(p, f"{k}_perf")) * 60e-6 for k in
-                                                ("channel", "tx", "ctle", "ffe", "dfe", "jitter", "total")})
+    summary = {"n_errs_dfe": int(p.n_errs_dfe), "n_errs_viterbi": None, "viterbi_availability": "not run",
+                   "chnl_dly_s": float(p.chnl_dly), "rel_power": float(p.rel_power), "dfe_jitter_s": stats,
+                   "initial_level_v": identity["effective_input"]["decision_scaler"], "final_level_v": float(p.decision_scaler),
+                   "performance_Msamples_per_min": {k: float(getattr(p, f"{k}_perf")) * 60e-6 for k in
+                                                ("channel", "tx", "ctle", "ffe", "dfe", "jitter", "total")}}
     manifest = dict(schema_version=SCHEMA_VERSION, **{k: v for k, v in identity.items() if k != "warnings"}, native_sha=NATIVE_SHA, prototype_sha=PROTOTYPE_SHA,
                     adapter_sha=adapter_sha(), status="succeeded", datasets=datasets, plots=plots, summary=summary,
                     window=window, resources=[], warnings=identity.get("warnings", []),
@@ -181,12 +181,12 @@ def plot_payload(directory, plot_id):
     manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
     plot = manifest["plots"][plot_id]
     with np.load(directory / "arrays.npz", allow_pickle=False) as arrays:
-        traces = [dict(type="scatter", mode="lines", name=trace["name"], x=arrays[trace["x"]].tolist(),
-                       y=arrays[trace["y"]].tolist()) for trace in plot["traces"]]
+        traces = [{"type": "scatter", "mode": "lines", "name": trace["name"], "x": arrays[trace["x"]].tolist(),
+                       "y": arrays[trace["y"]].tolist()} for trace in plot["traces"]]
         if "heatmap" in plot:
             m = plot["heatmap"]
-            traces = [dict(type="heatmap", x=arrays[m["x"]].tolist(), y=arrays[m["y"]].tolist(),
-                           z=arrays[m["z"]].tolist(), colorscale="Viridis", colorbar={"title": "count"})]
+            traces = [{"type": "heatmap", "x": arrays[m["x"]].tolist(), "y": arrays[m["y"]].tolist(),
+                           "z": arrays[m["z"]].tolist(), "colorscale": "Viridis", "colorbar": {"title": "count"}}]
     first = plot["traces"][0] if plot["traces"] else {"xunit": "ps", "yunit": "V"}
-    return dict(run_id=manifest["run_id"], plot_id=plot_id, data=traces, title=plot["title"],
-                xunit=first["xunit"], yunit=first["yunit"], logx=first.get("logx", False))
+    return {"run_id": manifest["run_id"], "plot_id": plot_id, "data": traces, "title": plot["title"],
+                "xunit": first["xunit"], "yunit": first["yunit"], "logx": first.get("logx", False)}

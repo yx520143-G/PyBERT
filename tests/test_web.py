@@ -2,11 +2,11 @@
 
 import json
 import time
-from pathlib import Path
 
 import pytest
+import yaml
 
-from pybert.web.config import input_hash, load_config, new_engine, normalize, snapshot
+from pybert.web.config import input_hash, new_engine, normalize, snapshot
 from pybert.web.tasks import BusyError, Tasks
 from pybert.web.worker import run_worker
 
@@ -17,7 +17,7 @@ def wait_for(task, manager, timeout=30):
 
 
 def terminal_then_delay(task_id, operation, request, directory, cancel, pipe):
-    pipe.send(dict(task_id=task_id, kind="terminal", status="succeeded", result={}, cancel_observed=False))
+    pipe.send({"task_id": task_id, "kind": "terminal", "status": "succeeded", "result": {}, "cancel_observed": False})
     time.sleep(.8)
     pipe.close()
 
@@ -28,8 +28,8 @@ def missing_terminal(task_id, operation, request, directory, cancel, pipe):
 
 def observed_cancel(task_id, operation, request, directory, cancel, pipe):
     cancel.wait(10)
-    pipe.send(dict(task_id=task_id, kind="cancel_observed"))
-    pipe.send(dict(task_id=task_id, kind="terminal", status="cancelled", cancel_observed=True))
+    pipe.send({"task_id": task_id, "kind": "cancel_observed"})
+    pipe.send({"task_id": task_id, "kind": "terminal", "status": "cancelled", "cancel_observed": True})
     time.sleep(.3)
     pipe.close()
 
@@ -38,11 +38,11 @@ def test_native_observer_patch_and_full_load():
     p = new_engine()
     config = snapshot(p)
     original = [row[1] for row in config["rx_taps"]]
-    result = normalize(dict(mode="patch", config=config, patches=[dict(field="rx_n_pre", value=6)]))
+    result = normalize({"mode": "patch", "config": config, "patches": [{"field": "rx_n_pre", "value": 6}]})
     p.rx_n_pre = 6
     assert result["config"]["rx_taps"] == snapshot(p)["rx_taps"]
     assert [row[1] for row in result["config"]["rx_taps"]] != original
-    loaded = normalize(dict(mode="load", config=result["config"]))
+    loaded = normalize({"mode": "load", "config": result["config"]})
     assert loaded["input_hash"] == result["input_hash"]
     assert loaded["config"]["rx_taps"] == result["config"]["rx_taps"]
 
@@ -50,7 +50,7 @@ def test_native_observer_patch_and_full_load():
 @pytest.mark.parametrize("count,pre", [(0,0),(1,0),(100,99)])
 def test_ffe_dimensions(count, pre):
     config = snapshot(new_engine())
-    result = normalize(dict(mode="patch", config=config, patches=[dict(field="rx_n_taps",value=count),dict(field="rx_n_pre",value=pre)]))
+    result = normalize({"mode": "patch", "config": config, "patches": [{"field": "rx_n_taps","value": count},{"field": "rx_n_pre","value": pre}]})
     assert len(result["config"]["rx_taps"]) == 100
     assert sum(row[0] for row in result["config"]["rx_taps"]) == count
     assert result["config"]["rx_n_pre"] == pre
@@ -62,29 +62,29 @@ def test_ffe_dimensions(count, pre):
                                     {"runtime_extensions":{"rlm":.9}}])
 def test_invalid_and_unsupported_inputs(patch):
     with pytest.raises(ValueError):
-        normalize(dict(mode="load",config=snapshot(new_engine()) | patch))
+        normalize({"mode": "load","config": snapshot(new_engine()) | patch})
 
 
 def test_inactive_paths_do_not_load(monkeypatch):
     config = snapshot(new_engine()) | {"ctle_enable":False,"ctle_sel":"File","ctle_file":"missing.dat",
                                       "tx_ibis_file":"missing.ibs","rx_dll_file":"missing.dll"}
-    result = normalize(dict(mode="load",config=config))
+    result = normalize({"mode": "load","config": config})
     assert result["config"]["tx_ibis_file"] == "missing.ibs"
     assert result["config"]["ctle_sel"] == "File"
 
 
 def test_yaml_round_trip_and_reject_object():
-    a = normalize(dict(mode="defaults"))
-    b = normalize(dict(mode="load",yaml=a["yaml"]))
+    a = normalize({"mode": "defaults"})
+    b = normalize({"mode": "load","yaml": a["yaml"]})
     assert a["input_hash"] == b["input_hash"]
-    with pytest.raises(Exception):
-        normalize(dict(mode="load",yaml="!!python/object/apply:os.system ['bad']"))
+    with pytest.raises(yaml.constructor.ConstructorError):
+        normalize({"mode": "load","yaml": "!!python/object/apply:os.system ['bad']"})
 
 
 def test_dfe_hole_and_input_level_preserved():
     config = snapshot(new_engine())
     config["dfe_tap_tuners"][1][0] = False
-    result = normalize(dict(mode="load",config=config))
+    result = normalize({"mode": "load","config": config})
     assert result["config"]["dfe_tap_tuners"][2][0]
     assert "1 taps" in result["warnings"][0]
     assert any("not consumed" in message for message in result["warnings"])
@@ -123,19 +123,19 @@ def test_missing_envelope_is_failure_even_if_cancel_requested(tmp_path):
 
 def test_normalize_uses_real_spawn(tmp_path):
     manager = Tasks(tmp_path)
-    result = manager.normalize(dict(mode="defaults"))
+    result = manager.normalize({"mode": "defaults"})
     assert result["input_hash"] == input_hash(result["config"])
     assert manager.get(manager.current)["worker_exited"]
 
 
 def test_native_preflight_return_cannot_succeed(tmp_path, monkeypatch):
     import multiprocessing
-    import pybert.web.worker as worker
+    from pybert.web import worker
     monkeypatch.setattr(worker,"my_run_simulation", lambda p, **kwargs: setattr(p,"status","ERROR: preflight return"))
     manager = multiprocessing.get_context("spawn")
     receive,send = manager.Pipe(duplex=False)
-    config = normalize(dict(mode="load",config=snapshot(new_engine())))["config"]
-    run_worker("early-return","run",dict(config=config,input_hash=input_hash(config)),str(tmp_path),manager.Event(),send)
+    config = normalize({"mode": "load","config": snapshot(new_engine())})["config"]
+    run_worker("early-return","run",{"config": config,"input_hash": input_hash(config)},str(tmp_path),manager.Event(),send)
     terminal = json.loads((tmp_path / "terminal.json").read_text())
     assert terminal["status"] == "failed" and "did not complete" in terminal["error"]
     assert not (tmp_path / "manifest.json").exists()

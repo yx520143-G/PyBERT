@@ -36,8 +36,8 @@ def create_app(tasks=None):
 
     @app.get("/api/version")
     def version():
-        return dict(schema_version=SCHEMA_VERSION, version=__version__, adapter_sha=adapter_sha(),
-                    native_sha=NATIVE_SHA, prototype_sha=PROTOTYPE_SHA, fork="yx520143-G/PyBERT")
+        return {"schema_version": SCHEMA_VERSION, "version": __version__, "adapter_sha": adapter_sha(),
+                    "native_sha": NATIVE_SHA, "prototype_sha": PROTOTYPE_SHA, "fork": "yx520143-G/PyBERT"}
 
     @app.post("/api/normalize")
     def normalize(request: dict):

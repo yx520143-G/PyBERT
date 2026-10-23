@@ -37,14 +37,15 @@ class Tasks:
             task_id = str(uuid.uuid4())
             directory = self.root / task_id
             directory.mkdir()
+            (directory / "request.json").write_text(json.dumps(request, indent=2, allow_nan=False), encoding="utf-8")
             cancel = self.context.Event()
             receive, send = self.context.Pipe(duplex=False)
             process = self.context.Process(target=self.worker, args=(task_id, operation, request, str(directory), cancel, send))
-            task = dict(task_id=task_id, operation=operation, state="validating", phase="validating",
-                        cancel_requested=False, cancel_observed=False, worker_exited=False,
-                        logs=[], created_at=time.time(), request_hash=request.get("input_hash"))
+            task = {"task_id": task_id, "operation": operation, "state": "validating", "phase": "validating",
+                        "cancel_requested": False, "cancel_observed": False, "worker_exited": False,
+                        "logs": [], "created_at": time.time(), "request_hash": request.get("input_hash")}
             event = threading.Event()
-            self.tasks[task_id] = dict(data=task, process=process, cancel=cancel, done=event, directory=directory)
+            self.tasks[task_id] = {"data": task, "process": process, "cancel": cancel, "done": event, "directory": directory}
             self.active = self.current = task_id
             process.start()
             send.close()
@@ -93,8 +94,8 @@ class Tasks:
         receive.close()
         with self.lock:
             if p.exitcode != 0 or terminal is None:
-                terminal = dict(status="failed", error=f"Worker exited {p.exitcode} without a valid terminal envelope.",
-                                cancel_observed=task["cancel_observed"])
+                terminal = {"status": "failed", "error": f"Worker exited {p.exitcode} without a valid terminal envelope.",
+                                "cancel_observed": task["cancel_observed"]}
             task.update(state=terminal["status"], phase=terminal["status"], worker_exited=True,
                         exitcode=p.exitcode, finished_at=time.time(), cancel_observed=terminal.get("cancel_observed", False))
             for key in ("error", "error_type", "traceback", "result"):
@@ -152,5 +153,5 @@ class Tasks:
     def index(self):
         with self.lock:
             rows = [json.loads((self.directory(r) / "manifest.json").read_text(encoding="utf-8")) for r in self.runs]
-            return dict(active_task_id=self.active, current_task_id=self.current,
-                        runs=[{key: row[key] for key in ("run_id", "input_hash", "effective_input", "summary")} for row in rows])
+            return {"active_task_id": self.active, "current_task_id": self.current,
+                        "runs": [{key: row[key] for key in ("run_id", "input_hash", "effective_input", "summary")} for row in rows]}

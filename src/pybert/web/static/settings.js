@@ -28,7 +28,7 @@
     ctle_enable: toggle(true), ctle_sel: select('Native', ['Native', 'File']), ctle_file: file('.csv'),
     peak_freq: number(5, 'GHz'), rx_bw: number(12, 'GHz'), peak_mag: number(1.7, 'dB'),
     rx_n_taps: number(15, '', { integer: true, min: 0, max: 100, hint: '此编辑器按源码预建的 100 个槽位提供 0–100 个 tap。底层 Python 字段未统一限制上界。' }),
-    rx_n_pre: number(5, '', { integer: true, min: 0, max: 99, hint: '本地草稿按数组索引保留权重，改变 Npre 只预览位置标签；不执行 PyBERT 的 tap 移位回调。' }),
+    rx_n_pre: number(5, '', { integer: true, min: 0, max: 99, hint: '提交后由原生 observer 重排完整 100 槽 tap；运行中编辑将在 worker 退出后校验。完整 YAML 加载恢复保存的数组，不重复移位。' }),
     gain: number(0.1), n_ave: number(100), decision_scaler: number(0.5, 'V'),
     sum_ideal: toggle(true), sum_bw: number(12, 'GHz'),
     cdr_type: select('Bang-Bang', ['Bang-Bang', 'Mueller-Muller']),
@@ -78,8 +78,8 @@
     tx_tap_tuners: ['tx_tap_tuners'], ffe_tap_tuners: ['ffe_tap_tuners'], dfe_tap_tuners: ['dfe_tap_tuners']
   };
   const tableInfo = {
-    tx_taps: { title: 'Native Tx FFE taps', stage: 'tx', columns: ['enabled', 'value'], note: '逐项配置非主游标权重。Cursor 由 PyBERT 在运行时计算；此处不生成响应。' },
-    rx_taps: { title: 'Native Rx FFE taps', stage: 'rxffe', columns: ['enabled', 'value'], note: '完整显示 100 个槽位；Ntaps 更新启用前缀，也可逐行编辑 Enabled。固定 FIR 权重按数组索引保存，不执行训练或 Native 构造回调。' },
+    tx_taps: { title: 'Native Tx FFE taps', stage: 'tx', columns: ['enabled', 'value'], note: '逐项配置非主游标权重。Cursor 由 PyBERT 在运行时计算；右侧响应属于所选成功 run。' },
+    rx_taps: { title: 'Native Rx FFE taps', stage: 'rxffe', columns: ['enabled', 'value'], note: '完整保存 100 槽。Ntaps/Npre 提交由原生 observer 处理；固定 FIR 不参与 DFE 训练。输入值与所选 run 的训练结果分离。' },
     dfe_tap_tuners: { title: 'DFE taps 与自适应范围', stage: 'dfe', columns: ['enabled', 'min_val', 'max_val', 'value'], readonly: ['value'], note: '原 GUI 的 Enabled 可逐行编辑；引擎只使用从 Tap1 开始到首个禁用 tap 的连续前缀。Value 是只读优化结果，当前未提供。' },
     tx_tap_tuners: { title: 'Tx FFE 搜索空间', stage: 'optimizer', columns: ['enabled', 'min_val', 'max_val', 'step', 'value'], note: '这是 Optimizer 的搜索设置。Value 在原 GUI 可编辑，与 Tx EQ 的实际权重分开保存。' },
     ffe_tap_tuners: { title: 'Rx FFE 搜索范围', stage: 'rxffe', columns: ['enabled', 'min_val', 'max_val', 'step', 'value'], readonly: ['enabled', 'value'], note: '完整显示 100 个槽位。Enabled 只读并随 Ntaps 更新；Value 是只读优化结果，当前未提供。' }

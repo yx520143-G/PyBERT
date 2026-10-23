@@ -26,7 +26,7 @@
     const config = clone(base);
     for (const key of Object.keys(config)) {
       if (tables[key]) config[key] = draft[key].map((row,i) => tables[key].map((column,j) => row[column] ?? config[key][i][j]));
-      else if (key in settings.fields) config[key] = clone(draft[key]);
+      else if (key in settings.fields && !settings.fields[key].readonly && settings.fields[key].kind !== 'unavailable') config[key] = clone(draft[key]);
     }
     return config;
   }
@@ -111,6 +111,7 @@
     $('run-log-id').textContent = `Selected successful run: ${selected.run_id}`;
     $('run-log').textContent = (selected.logs || []).join('\n');
     const id = pickPlot();
+    $('plot').classList.toggle('text-mode',['overview','jitter.info','compare'].includes(id));
     if (!id) return empty('This observation is unavailable in #2 at this node. Rx input and DFE eyes are supported; additional eye/jitter points are tracked in #3.');
     if (id === 'overview') {
       empty(`Run ${selected.run_id} · ${selected.effective_input.mod_type} · ${selected.input_hash.slice(0,12)}`);
@@ -139,7 +140,9 @@
     $('analysis-info').textContent = `Run ${plot.run_id} · ${id} · ${selected.effective_input.mod_type}. ${id.startsWith('dfe') ? 'DFE response is a final-weight equivalent FIR, not a nonlinear transfer function.' : ''}`;
   }
   async function chooseRun(id) {
-    selected = id ? await api(`runs/${id}`) : null;
+    const result = id ? await api(`runs/${id}`) : null;
+    if ($('selected-run').value !== (id || '')) return;
+    selected = result;
     controls(); await renderAnalysis();
   }
   async function poll() {
