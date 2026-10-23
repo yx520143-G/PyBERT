@@ -1,0 +1,89 @@
+{
+  "phase": "before",
+  "base": "9a33d08458aa00782e90169c699857b8b19455a2",
+  "head_at_execution": "9a33d08458aa00782e90169c699857b8b19455a2",
+  "source_hashes": {
+    "src\\pybert\\utility\\sparam.py": "4f4955a304aaa330ae2a1b5e98dc7cf1ddf541027d6e3f046df10b8d3dd50c84",
+    "tests\\test_multilane_physical.py": "fdba73821e23ba5057d68c05caa75bf9a9828861ffe93fb6ca8e99b62ee709fb",
+    "tools\\diagnose_native_multilane.py": "096c38c4a36b88432c06de34ba41b9c5bee9ce6df774c2519c9fa22851026267"
+  },
+  "python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-native13-ports\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+  "modules": {
+    "pybert": "C:\\Users\\yx\\.codex\\worktrees\\pybert-native13-ports\\serial-bus-simulator\\src\\pybert\\__init__.py",
+    "pychopmarg": "C:\\Users\\yx\\.codex\\worktrees\\pybert-native13-ports\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\__init__.py",
+    "pyibisami": "C:\\Users\\yx\\.codex\\worktrees\\pybert-native13-ports\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\__init__.py",
+    "skrf": "C:\\Users\\yx\\.codex\\worktrees\\pybert-native13-ports\\serial-bus-simulator\\.venv\\Lib\\site-packages\\skrf\\__init__.py",
+    "numpy": "C:\\Users\\yx\\.codex\\worktrees\\pybert-native13-ports\\serial-bus-simulator\\.venv\\Lib\\site-packages\\numpy\\__init__.py"
+  },
+  "versions": {
+    "pipbert": "11.1.0",
+    "scikit-rf": "2.0.1",
+    "numpy": "2.5.1"
+  },
+  "resource": {
+    "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p",
+    "local": "C:\\Users\\yx\\.codex\\worktrees\\pybert-native13-ports\\serial-bus-simulator\\docs\\webui\\native13\\local\\TwoLaneModel.s8p",
+    "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+    "bytes": 330007,
+    "origin": "SignalIntegrity Test/TestSignalIntegrity/TestStatisticalNoise/TwoLaneModel.s8p; GPL-3-or-later, local evaluation; existing model, no hardware qualification"
+  },
+  "diagnostic_zero_crosslane": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-native13-ports\\serial-bus-simulator\\docs\\webui\\native13\\local\\diagnostic-only-zero-crosslane.s8p",
+    "sha256": "844eee536d6c3991d478dd0520ff85cf8d8d9e10f97c8dd95290a5f29dd7bb16",
+    "acceptance_resource_substitution": false
+  },
+  "raw": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-native13-ports\\serial-bus-simulator\\docs\\webui\\native13\\local\\real-M-before.npz",
+    "sha256": "deb321e649dc35b04cc6efe1b92aad9cf7da852e8f9cfc91ff0310f8cc27941c",
+    "bytes": 89131
+  },
+  "main_simulation_performed": false,
+  "com_performed": false,
+  "oracle": "independent physical differential wave excitation difference, all four complex S and pair-sum z0",
+  "rows": [
+    {
+      "victim": 0,
+      "aggressor": 1,
+      "near_pair_0based": [
+        0,
+        2
+      ],
+      "far_pair_0based": [
+        1,
+        3
+      ],
+      "victim_max_abs_actual_s21": 0.01886374635707194,
+      "victim_max_abs_expected_s21": 0.9866371803355182,
+      "victim_complex_allclose": false,
+      "fext_complex_allclose": false,
+      "fext_max_abs_actual_s21": 0.08650814328619873,
+      "fext_max_abs_expected_s21": 0.037524804721059866,
+      "zero_crosslane_native_fext_max_abs_s21": 0.08637375992859225,
+      "zero_crosslane_native_fext_exact_zero": false,
+      "z0_victim_equal_pair_sums": true,
+      "z0_fext_equal_pair_sums": true
+    },
+    {
+      "victim": 1,
+      "aggressor": 0,
+      "near_pair_0based": [
+        4,
+        6
+      ],
+      "far_pair_0based": [
+        5,
+        7
+      ],
+      "victim_max_abs_actual_s21": 0.14883556066607156,
+      "victim_max_abs_expected_s21": 0.985224463540313,
+      "victim_complex_allclose": false,
+      "fext_complex_allclose": false,
+      "fext_max_abs_actual_s21": 0.0795863113834513,
+      "fext_max_abs_expected_s21": 0.04870507987391056,
+      "zero_crosslane_native_fext_max_abs_s21": 0.07947754988996367,
+      "zero_crosslane_native_fext_exact_zero": false,
+      "z0_victim_equal_pair_sums": true,
+      "z0_fext_equal_pair_sums": true
+    }
+  ]
+}

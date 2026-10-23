@@ -1,0 +1,8 @@
+{
+  "stage": "initial source applicability audit",
+  "error_type": "KeyError",
+  "error": "tests/test_multilane_physical.py",
+  "reason": "Windows report source keys use backslashes; the audit initially queried slash-separated keys",
+  "resolution": "normalize path separators when reading provenance keys; original reports preserved",
+  "numerical_tests_or_helper_recalculation": false
+}

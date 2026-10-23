@@ -38,6 +38,8 @@ def main():
         unchanged[f"import_freq {ports}-port branch"] = ast.dump(before) == ast.dump(after)
     before = json.loads((OUT / "real-M-before.json").read_text(encoding="utf-8"))
     after = json.loads((OUT / "real-M-after.json").read_text(encoding="utf-8"))
+    for report in (before, after):
+        report["source_hashes"] = {key.replace("\\", "/"): value for key, value in report["source_hashes"].items()}
     red_source = OUT / "red-physical-test-source.py.txt"
     diagnostic_source = OUT / "diagnostic-source-v1.py.txt"
     test = ROOT / "tests/test_multilane_physical.py"

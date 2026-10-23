@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="19" skipped="0" tests="26" time="1.248" timestamp="2026-10-24T07:38:10.291276+08:00" hostname="DESKTOP-CC2I92B"><testcase classname="tests.test_multilane_physical" name="test_every_victim_complex_s_and_z0[interleaved-False-2]" time="0.021"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (-0.8349774707595782+0.009154324124691342j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [0, 0, 1]: (0.006+0.001j) (ACTUAL), (0.8299723119657555-0.006779481559690808j) (DESIRED)&#10; [0, 1, 0]: (0.004-0.002j) (ACTUAL), (0.8799826295534005-0.005529166689691876j) (DESIRED)&#10; [0, 1, 1]: (-0.8249774707595782+0.004154324124691343j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (-0.8327481206425619+0.06448793239368326j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10;Max absolute difference among violations: 0.88067715&#10;Max relative difference among violations: 42.70206694&#10; ACTUAL: array([[[-0.834977+0.009154j,  0.006   +0.001j   ],&#10;        [ 0.004   -0.002j   , -0.824977+0.004154j]],&#10;...&#10; DESIRED: array([[[ 0.02    +0.001j   ,  0.829972-0.006779j],&#10;        [ 0.879983-0.005529j,  0.02    +0.001j   ]],&#10;...">tests\test_multilane_physical.py:82: in test_every_victim_complex_s_and_z0
+    np.testing.assert_allclose(actual.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (-0.8349774707595782+0.009154324124691342j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [0, 0, 1]: (0.006+0.001j) (ACTUAL), (0.8299723119657555-0.006779481559690808j) (DESIRED)
+E    [0, 1, 0]: (0.004-0.002j) (ACTUAL), (0.8799826295534005-0.005529166689691876j) (DESIRED)
+E    [0, 1, 1]: (-0.8249774707595782+0.004154324124691343j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (-0.8327481206425619+0.06448793239368326j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E   Max absolute difference among violations: 0.88067715
+E   Max relative difference among violations: 42.70206694
+E    ACTUAL: array([[[-0.834977+0.009154j,  0.006   +0.001j   ],
+E           [ 0.004   -0.002j   , -0.824977+0.004154j]],
+E   ...
+E    DESIRED: array([[[ 0.02    +0.001j   ,  0.829972-0.006779j],
+E           [ 0.879983-0.005529j,  0.02    +0.001j   ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_victim_complex_s_and_z0[interleaved-False-3]" time="0.012"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (-0.8349774707595782+0.009154324124691342j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [0, 0, 1]: (0.006+0.001j) (ACTUAL), (0.8299723119657555-0.006779481559690808j) (DESIRED)&#10; [0, 1, 0]: (0.004-0.002j) (ACTUAL), (0.8799826295534005-0.005529166689691876j) (DESIRED)&#10; [0, 1, 1]: (-0.8249774707595782+0.004154324124691343j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (-0.8327481206425619+0.06448793239368326j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10;Max absolute difference among violations: 0.88067715&#10;Max relative difference among violations: 42.70206694&#10; ACTUAL: array([[[-0.834977+0.009154j,  0.006   +0.001j   ],&#10;        [ 0.004   -0.002j   , -0.824977+0.004154j]],&#10;...&#10; DESIRED: array([[[ 0.02    +0.001j   ,  0.829972-0.006779j],&#10;        [ 0.879983-0.005529j,  0.02    +0.001j   ]],&#10;...">tests\test_multilane_physical.py:82: in test_every_victim_complex_s_and_z0
+    np.testing.assert_allclose(actual.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (-0.8349774707595782+0.009154324124691342j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [0, 0, 1]: (0.006+0.001j) (ACTUAL), (0.8299723119657555-0.006779481559690808j) (DESIRED)
+E    [0, 1, 0]: (0.004-0.002j) (ACTUAL), (0.8799826295534005-0.005529166689691876j) (DESIRED)
+E    [0, 1, 1]: (-0.8249774707595782+0.004154324124691343j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (-0.8327481206425619+0.06448793239368326j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E   Max absolute difference among violations: 0.88067715
+E   Max relative difference among violations: 42.70206694
+E    ACTUAL: array([[[-0.834977+0.009154j,  0.006   +0.001j   ],
+E           [ 0.004   -0.002j   , -0.824977+0.004154j]],
+E   ...
+E    DESIRED: array([[[ 0.02    +0.001j   ,  0.829972-0.006779j],
+E           [ 0.879983-0.005529j,  0.02    +0.001j   ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_victim_complex_s_and_z0[interleaved-True-2]" time="0.014" /><testcase classname="tests.test_multilane_physical" name="test_every_victim_complex_s_and_z0[interleaved-True-3]" time="0.019" /><testcase classname="tests.test_multilane_physical" name="test_every_victim_complex_s_and_z0[grouped-True-2]" time="0.013" /><testcase classname="tests.test_multilane_physical" name="test_every_victim_complex_s_and_z0[grouped-True-3]" time="0.020" /><testcase classname="tests.test_multilane_physical" name="test_every_victim_complex_s_and_z0[mixed-True-2]" time="0.013" /><testcase classname="tests.test_multilane_physical" name="test_every_victim_complex_s_and_z0[mixed-True-3]" time="0.019" /><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[False-interleaved-False-2]" time="0.011"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.005999999999999999+0.0009999999999999996j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 0]: (0.004-0.002j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 1]: (0.03-0.003j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.01077033&#10;Max relative difference among violations: 0.53784459&#10; ACTUAL: array([[[0.02 +0.0045j, 0.006+0.001j ],&#10;        [0.004-0.002j , 0.03 -0.003j ]],&#10;...&#10; DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],&#10;        [0.  +0.j    , 0.02+0.001j ]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.005999999999999999+0.0009999999999999996j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 0]: (0.004-0.002j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 1]: (0.03-0.003j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.01077033
+E   Max relative difference among violations: 0.53784459
+E    ACTUAL: array([[[0.02 +0.0045j, 0.006+0.001j ],
+E           [0.004-0.002j , 0.03 -0.003j ]],
+E   ...
+E    DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],
+E           [0.  +0.j    , 0.02+0.001j ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[False-interleaved-False-3]" time="0.015"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.005999999999999999+0.0009999999999999996j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 0]: (0.004-0.002j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 1]: (0.03-0.003j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.01077033&#10;Max relative difference among violations: 0.53784459&#10; ACTUAL: array([[[0.02 +0.0045j, 0.006+0.001j ],&#10;        [0.004-0.002j , 0.03 -0.003j ]],&#10;...&#10; DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],&#10;        [0.  +0.j    , 0.02+0.001j ]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.005999999999999999+0.0009999999999999996j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 0]: (0.004-0.002j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 1]: (0.03-0.003j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.01077033
+E   Max relative difference among violations: 0.53784459
+E    ACTUAL: array([[[0.02 +0.0045j, 0.006+0.001j ],
+E           [0.004-0.002j , 0.03 -0.003j ]],
+E   ...
+E    DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],
+E           [0.  +0.j    , 0.02+0.001j ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[False-interleaved-True-2]" time="0.011"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.005999999999999999+0.0009999999999999996j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 0]: (0.004-0.002j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 1]: (0.03-0.003j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.01077033&#10;Max relative difference among violations: 0.53784459&#10; ACTUAL: array([[[0.02 +0.0045j, 0.006+0.001j ],&#10;        [0.004-0.002j , 0.03 -0.003j ]],&#10;...&#10; DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],&#10;        [0.  +0.j    , 0.02+0.001j ]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.005999999999999999+0.0009999999999999996j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 0]: (0.004-0.002j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 1]: (0.03-0.003j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.01077033
+E   Max relative difference among violations: 0.53784459
+E    ACTUAL: array([[[0.02 +0.0045j, 0.006+0.001j ],
+E           [0.004-0.002j , 0.03 -0.003j ]],
+E   ...
+E    DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],
+E           [0.  +0.j    , 0.02+0.001j ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[False-interleaved-True-3]" time="0.015"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.005999999999999999+0.0009999999999999996j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 0]: (0.004-0.002j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 1]: (0.03-0.003j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.01077033&#10;Max relative difference among violations: 0.53784459&#10; ACTUAL: array([[[0.02 +0.0045j, 0.006+0.001j ],&#10;        [0.004-0.002j , 0.03 -0.003j ]],&#10;...&#10; DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],&#10;        [0.  +0.j    , 0.02+0.001j ]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.005999999999999999+0.0009999999999999996j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 0]: (0.004-0.002j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 1]: (0.03-0.003j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.01077033
+E   Max relative difference among violations: 0.53784459
+E    ACTUAL: array([[[0.02 +0.0045j, 0.006+0.001j ],
+E           [0.004-0.002j , 0.03 -0.003j ]],
+E   ...
+E    DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],
+E           [0.  +0.j    , 0.02+0.001j ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[False-grouped-True-2]" time="0.011"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.7949692790842788-0.0069711033844401275j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 0]: (0.8399779711457394-0.0060318033736125945j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.83999963&#10;Max relative difference among violations: 0.25463288&#10; ACTUAL: array([[[ 0.025   +0.002j   ,  0.794969-0.006971j],&#10;        [ 0.839978-0.006032j,  0.025   +0.002j   ]],&#10;...&#10; DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],&#10;        [0.  +0.j    , 0.02+0.001j ]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.7949692790842788-0.0069711033844401275j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 0]: (0.8399779711457394-0.0060318033736125945j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.83999963
+E   Max relative difference among violations: 0.25463288
+E    ACTUAL: array([[[ 0.025   +0.002j   ,  0.794969-0.006971j],
+E           [ 0.839978-0.006032j,  0.025   +0.002j   ]],
+E   ...
+E    DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],
+E           [0.  +0.j    , 0.02+0.001j ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[False-grouped-True-3]" time="0.015"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.7949692790842788-0.0069711033844401275j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 0]: (0.8399779711457394-0.0060318033736125945j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.83999963&#10;Max relative difference among violations: 0.25463288&#10; ACTUAL: array([[[ 0.025   +0.002j   ,  0.794969-0.006971j],&#10;        [ 0.839978-0.006032j,  0.025   +0.002j   ]],&#10;...&#10; DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],&#10;        [0.  +0.j    , 0.02+0.001j ]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.7949692790842788-0.0069711033844401275j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 0]: (0.8399779711457394-0.0060318033736125945j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.83999963
+E   Max relative difference among violations: 0.25463288
+E    ACTUAL: array([[[ 0.025   +0.002j   ,  0.794969-0.006971j],
+E           [ 0.839978-0.006032j,  0.025   +0.002j   ]],
+E   ...
+E    DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],
+E           [0.  +0.j    , 0.02+0.001j ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[False-mixed-True-2]" time="0.011"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.3829831231014009-0.003081362604594722j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 0]: (0.401986656369039-0.004267220028766655j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.40223268&#10;Max relative difference among violations: 0.25463288&#10; ACTUAL: array([[[ 0.02    +0.0045j  ,  0.382983-0.003081j],&#10;        [ 0.401987-0.004267j,  0.025   +0.002j   ]],&#10;...&#10; DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],&#10;        [0.  +0.j    , 0.02+0.001j ]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.3829831231014009-0.003081362604594722j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 0]: (0.401986656369039-0.004267220028766655j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.40223268
+E   Max relative difference among violations: 0.25463288
+E    ACTUAL: array([[[ 0.02    +0.0045j  ,  0.382983-0.003081j],
+E           [ 0.401987-0.004267j,  0.025   +0.002j   ]],
+E   ...
+E    DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],
+E           [0.  +0.j    , 0.02+0.001j ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[False-mixed-True-3]" time="0.015"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.3829831231014009-0.003081362604594722j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 0]: (0.401986656369039-0.004267220028766655j) (ACTUAL), 0j (DESIRED)&#10; [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.40223268&#10;Max relative difference among violations: 0.25463288&#10; ACTUAL: array([[[ 0.02    +0.0045j  ,  0.382983-0.003081j],&#10;        [ 0.401987-0.004267j,  0.025   +0.002j   ]],&#10;...&#10; DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],&#10;        [0.  +0.j    , 0.02+0.001j ]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.3829831231014009-0.003081362604594722j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 0]: (0.401986656369039-0.004267220028766655j) (ACTUAL), 0j (DESIRED)
+E    [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.019999999999999997+0.0045j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.40223268
+E   Max relative difference among violations: 0.25463288
+E    ACTUAL: array([[[ 0.02    +0.0045j  ,  0.382983-0.003081j],
+E           [ 0.401987-0.004267j,  0.025   +0.002j   ]],
+E   ...
+E    DESIRED: array([[[0.02+0.0015j, 0.  +0.j    ],
+E           [0.  +0.j    , 0.02+0.001j ]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[True-interleaved-False-2]" time="0.011"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.004875001998594299+0.001003534289642365j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)&#10; [0, 1, 0]: (0.0025000026647923994-0.002005654863427784j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)&#10; [0, 1, 1]: (0.042749977349264605-0.0029985862841430534j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.0230987&#10;Max relative difference among violations: 1.38993209&#10; ACTUAL: array([[[0.03575 +0.004501j, 0.004875+0.001004j],&#10;        [0.0025  -0.002006j, 0.04275 -0.002999j]],&#10;...&#10; DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],&#10;        [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.004875001998594299+0.001003534289642365j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)
+E    [0, 1, 0]: (0.0025000026647923994-0.002005654863427784j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)
+E    [0, 1, 1]: (0.042749977349264605-0.0029985862841430534j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.0230987
+E   Max relative difference among violations: 1.38993209
+E    ACTUAL: array([[[0.03575 +0.004501j, 0.004875+0.001004j],
+E           [0.0025  -0.002006j, 0.04275 -0.002999j]],
+E   ...
+E    DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],
+E           [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[True-interleaved-False-3]" time="0.016"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.004875001998594299+0.001003534289642365j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)&#10; [0, 1, 0]: (0.0025000026647923994-0.002005654863427784j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)&#10; [0, 1, 1]: (0.042749977349264605-0.0029985862841430534j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.0230987&#10;Max relative difference among violations: 1.38993209&#10; ACTUAL: array([[[0.03575 +0.004501j, 0.004875+0.001004j],&#10;        [0.0025  -0.002006j, 0.04275 -0.002999j]],&#10;...&#10; DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],&#10;        [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.004875001998594299+0.001003534289642365j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)
+E    [0, 1, 0]: (0.0025000026647923994-0.002005654863427784j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)
+E    [0, 1, 1]: (0.042749977349264605-0.0029985862841430534j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.0230987
+E   Max relative difference among violations: 1.38993209
+E    ACTUAL: array([[[0.03575 +0.004501j, 0.004875+0.001004j],
+E           [0.0025  -0.002006j, 0.04275 -0.002999j]],
+E   ...
+E    DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],
+E           [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[True-interleaved-True-2]" time="0.011"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.004875001998594299+0.001003534289642365j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)&#10; [0, 1, 0]: (0.0025000026647923994-0.002005654863427784j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)&#10; [0, 1, 1]: (0.042749977349264605-0.0029985862841430534j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.0230987&#10;Max relative difference among violations: 1.38993209&#10; ACTUAL: array([[[0.03575 +0.004501j, 0.004875+0.001004j],&#10;        [0.0025  -0.002006j, 0.04275 -0.002999j]],&#10;...&#10; DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],&#10;        [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.004875001998594299+0.001003534289642365j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)
+E    [0, 1, 0]: (0.0025000026647923994-0.002005654863427784j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)
+E    [0, 1, 1]: (0.042749977349264605-0.0029985862841430534j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.0230987
+E   Max relative difference among violations: 1.38993209
+E    ACTUAL: array([[[0.03575 +0.004501j, 0.004875+0.001004j],
+E           [0.0025  -0.002006j, 0.04275 -0.002999j]],
+E   ...
+E    DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],
+E           [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[True-interleaved-True-3]" time="0.016"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.004875001998594299+0.001003534289642365j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)&#10; [0, 1, 0]: (0.0025000026647923994-0.002005654863427784j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)&#10; [0, 1, 1]: (0.042749977349264605-0.0029985862841430534j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.0230987&#10;Max relative difference among violations: 1.38993209&#10; ACTUAL: array([[[0.03575 +0.004501j, 0.004875+0.001004j],&#10;        [0.0025  -0.002006j, 0.04275 -0.002999j]],&#10;...&#10; DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],&#10;        [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.004875001998594299+0.001003534289642365j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)
+E    [0, 1, 0]: (0.0025000026647923994-0.002005654863427784j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)
+E    [0, 1, 1]: (0.042749977349264605-0.0029985862841430534j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.0230987
+E   Max relative difference among violations: 1.38993209
+E    ACTUAL: array([[[0.03575 +0.004501j, 0.004875+0.001004j],
+E           [0.0025  -0.002006j, 0.04275 -0.002999j]],
+E   ...
+E    DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],
+E           [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[True-grouped-True-2]" time="0.011"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.7929442842214057-0.0069756743979156235j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)&#10; [0, 1, 0]: (0.8391279736822265-0.00602969850853356j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)&#10; [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.85339944&#10;Max relative difference among violations: 59.88768002&#10; ACTUAL: array([[[ 0.025   +0.002j   ,  0.792944-0.006976j],&#10;        [ 0.839128-0.00603j ,  0.025   +0.002j   ]],&#10;...&#10; DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],&#10;        [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.7929442842214057-0.0069756743979156235j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)
+E    [0, 1, 0]: (0.8391279736822265-0.00602969850853356j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)
+E    [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.85339944
+E   Max relative difference among violations: 59.88768002
+E    ACTUAL: array([[[ 0.025   +0.002j   ,  0.792944-0.006976j],
+E           [ 0.839128-0.00603j ,  0.025   +0.002j   ]],
+E   ...
+E    DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],
+E           [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[True-grouped-True-3]" time="0.016"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.7929442842214057-0.0069756743979156235j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)&#10; [0, 1, 0]: (0.8391279736822265-0.00602969850853356j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)&#10; [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.85339944&#10;Max relative difference among violations: 59.88768002&#10; ACTUAL: array([[[ 0.025   +0.002j   ,  0.792944-0.006976j],&#10;        [ 0.839128-0.00603j ,  0.025   +0.002j   ]],&#10;...&#10; DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],&#10;        [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.7929442842214057-0.0069756743979156235j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)
+E    [0, 1, 0]: (0.8391279736822265-0.00602969850853356j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)
+E    [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.85339944
+E   Max relative difference among violations: 59.88768002
+E    ACTUAL: array([[[ 0.025   +0.002j   ,  0.792944-0.006976j],
+E           [ 0.839128-0.00603j ,  0.025   +0.002j   ]],
+E   ...
+E    DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],
+E           [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[True-mixed-True-2]" time="0.011"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.3833581224352028-0.0030806557466662486j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)&#10; [0, 1, 0]: (0.40273665503664274-0.0042686337446236015j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)&#10; [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.41704534&#10;Max relative difference among violations: 29.26633947&#10; ACTUAL: array([[[ 0.03575 +0.004501j,  0.383358-0.003081j],&#10;        [ 0.402737-0.004269j,  0.025   +0.002j   ]],&#10;...&#10; DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],&#10;        [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.3833581224352028-0.0030806557466662486j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)
+E    [0, 1, 0]: (0.40273665503664274-0.0042686337446236015j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)
+E    [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.41704534
+E   Max relative difference among violations: 29.26633947
+E    ACTUAL: array([[[ 0.03575 +0.004501j,  0.383358-0.003081j],
+E           [ 0.402737-0.004269j,  0.025   +0.002j   ]],
+E   ...
+E    DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],
+E           [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_every_fext_complex_s_z0_and_zero_isolation[True-mixed-True-3]" time="0.016"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10; [0, 0, 1]: (0.3833581224352028-0.0030806557466662486j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)&#10; [0, 1, 0]: (0.40273665503664274-0.0042686337446236015j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)&#10; [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)&#10; [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)&#10;Max absolute difference among violations: 0.41704534&#10;Max relative difference among violations: 29.26633947&#10; ACTUAL: array([[[ 0.03575 +0.004501j,  0.383358-0.003081j],&#10;        [ 0.402737-0.004269j,  0.025   +0.002j   ]],&#10;...&#10; DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],&#10;        [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],&#10;...">tests\test_multilane_physical.py:97: in test_every_fext_complex_s_z0_and_zero_isolation
+    np.testing.assert_allclose(result.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.03574997201967981+0.004501413715856946j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E    [0, 0, 1]: (0.3833581224352028-0.0030806557466662486j) (ACTUAL), (-0.016874970021085504-3.180860678128691e-05j) (DESIRED)
+E    [0, 1, 0]: (0.40273665503664274-0.0042686337446236015j) (ACTUAL), (-0.014249974684472203+2.6860601281975616e-05j) (DESIRED)
+E    [0, 1, 1]: (0.025+0.0020000000000000005j) (ACTUAL), (0.019999999999999997+0.0010000000000000002j) (DESIRED)
+E    [1, 0, 0]: (0.03574720204999775+0.004514136329786557j) (ACTUAL), (0.019999999999999997+0.0015j) (DESIRED)
+E   Max absolute difference among violations: 0.41704534
+E   Max relative difference among violations: 29.26633947
+E    ACTUAL: array([[[ 0.03575 +0.004501j,  0.383358-0.003081j],
+E           [ 0.402737-0.004269j,  0.025   +0.002j   ]],
+E   ...
+E    DESIRED: array([[[ 0.02    +1.500000e-03j, -0.016875-3.180861e-05j],
+E           [-0.01425 +2.686060e-05j,  0.02    +1.000000e-03j]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_renumber_false_keeps_literal_numbering" time="0.010"><failure message="AssertionError: &#10;Not equal to tolerance rtol=2e-12, atol=2e-12&#10;&#10;Mismatched elements: 24 / 24 (100%)&#10;First 5 mismatches are at indices:&#10; [0, 0, 0]: (0.02+0.001j) (ACTUAL), (-0.834977470759578+0.00915432412469134j) (DESIRED)&#10; [0, 0, 1]: (0.8299723119657557-0.006779481559690809j) (ACTUAL), (0.005999999999999999+0.0009999999999999998j) (DESIRED)&#10; [0, 1, 0]: (0.8799826295534007-0.005529166689691878j) (ACTUAL), (0.003999999999999999-0.0019999999999999996j) (DESIRED)&#10; [0, 1, 1]: (0.02+0.001j) (ACTUAL), (-0.824977470759578+0.004154324124691342j) (DESIRED)&#10; [1, 0, 0]: (0.02+0.001j) (ACTUAL), (-0.8327481206425618+0.06448793239368325j) (DESIRED)&#10;Max absolute difference among violations: 0.88067715&#10;Max relative difference among violations: 196.92539695&#10; ACTUAL: array([[[ 0.02    +0.001j   ,  0.829972-0.006779j],&#10;        [ 0.879983-0.005529j,  0.02    +0.001j   ]],&#10;...&#10; DESIRED: array([[[-0.834977+0.009154j,  0.006   +0.001j   ],&#10;        [ 0.004   -0.002j   , -0.824977+0.004154j]],&#10;...">tests\test_multilane_physical.py:108: in test_renumber_false_keeps_literal_numbering
+    np.testing.assert_allclose(actual.s,expected,rtol=2e-12,atol=2e-12)
+E   AssertionError: 
+E   Not equal to tolerance rtol=2e-12, atol=2e-12
+E   
+E   Mismatched elements: 24 / 24 (100%)
+E   First 5 mismatches are at indices:
+E    [0, 0, 0]: (0.02+0.001j) (ACTUAL), (-0.834977470759578+0.00915432412469134j) (DESIRED)
+E    [0, 0, 1]: (0.8299723119657557-0.006779481559690809j) (ACTUAL), (0.005999999999999999+0.0009999999999999998j) (DESIRED)
+E    [0, 1, 0]: (0.8799826295534007-0.005529166689691878j) (ACTUAL), (0.003999999999999999-0.0019999999999999996j) (DESIRED)
+E    [0, 1, 1]: (0.02+0.001j) (ACTUAL), (-0.824977470759578+0.004154324124691342j) (DESIRED)
+E    [1, 0, 0]: (0.02+0.001j) (ACTUAL), (-0.8327481206425618+0.06448793239368325j) (DESIRED)
+E   Max absolute difference among violations: 0.88067715
+E   Max relative difference among violations: 196.92539695
+E    ACTUAL: array([[[ 0.02    +0.001j   ,  0.829972-0.006779j],
+E           [ 0.879983-0.005529j,  0.02    +0.001j   ]],
+E   ...
+E    DESIRED: array([[[-0.834977+0.009154j,  0.006   +0.001j   ],
+E           [ 0.004   -0.002j   , -0.824977+0.004154j]],
+E   ...</failure></testcase><testcase classname="tests.test_multilane_physical" name="test_fext_renumber_only_inspects_source_lane_throughs" time="0.015" /></testsuite></testsuites>
