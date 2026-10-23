@@ -1,0 +1,36 @@
+{
+  "product_code_commit": "83b75154a52a11a06506a4416503326c95ae02d8",
+  "analysis_version": 2,
+  "red_reproduction": {
+    "prior_code_commit": "7ee0d17004d2e7de57b7224b7340b65df4e85401",
+    "command": "uv run --frozen --extra web pytest tests/test_web_analysis.py -q -k metadata --tb=short",
+    "result": "2 failed, 11 deselected",
+    "symptoms": [
+      "display point was None instead of chnl",
+      "CDR window lacked full_record scope; inherited eye window"
+    ]
+  },
+  "original_reports_unchanged": 7,
+  "original_raw_18_unchanged": true,
+  "final_report": "numeric-20261024-065914/report.json",
+  "regression_tests": "metadata-boundaries-v2.xml",
+  "original_metadata_defects": "061108 numeric arrays remain the baseline; its missing semantic source/observation and common eye-window assertion are superseded, not accepted as final metadata verification.",
+  "intermediate_reports_retained": [
+    "numeric-20261024-065537/report.json",
+    "numeric-20261024-065710/report.json"
+  ],
+  "semantics": [
+    "Explicit observation and immediate source fields for every new display projection; meaningful point defaults for source/global and retained projections.",
+    "CDR histogram and FFT/axes/display cover every ui_ests sample from zero, not the eye tail; histogram sum equals source length.",
+    "Legacy DFE spectrum Y sources include raw amplitude and context.source.ui normalization.",
+    "clock_times is an event-time record with actual first/last events, including a possible final prediction beyond waveform end."
+  ],
+  "review": {
+    "reviewer": "analysis_review",
+    "head": "83b75154a52a11a06506a4416503326c95ae02d8",
+    "result": "Both P2 findings and two same-scope details closed; no new findings. Read-only, no simulation or Chrome by reviewer."
+  },
+  "chrome": "chrome/metadata-v2-checks.json",
+  "new_main_simulations": 0,
+  "deferred_nonblocking": "Duplicate calc_eye remains unchanged; no performance timing claim."
+}

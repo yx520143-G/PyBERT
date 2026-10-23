@@ -1,5 +1,5 @@
 {
-  "product_code_commit": "e9c73c5fa2de2e23b4f2b3c5a7a6e1b1a6825779",
+  "product_code_commit": "83b75154a52a11a06506a4416503326c95ae02d8",
   "joint_freeze": {
     "frozen-manifest.json": {
       "sha256": "457a66a4af98087eb5ad6ac4dfcfa103787d1bcb3cd035eab0133b272da12c5a",
@@ -29,9 +29,9 @@
   },
   "unchanged_native_sources": true,
   "web_sources": {
-    "src\\pybert\\web\\analysis.py": "5ed9e9c7172cfa15915cd61d8f7b506f4c36e54c0f6eab04745c63598d2b94fa",
+    "src\\pybert\\web\\analysis.py": "6cf618bdd59661f73d8e1b02ce746f5958853b5c39d1fc24f7de699e0384c5d8",
     "src\\pybert\\web\\config.py": "d742f08e64878fed1b71d6a44a4594eb8f9ef0b137751719302672606218005b",
-    "src\\pybert\\web\\data.py": "af53466d80b117085c9d9828e0fb87d0a9d2f56e2bb652dfed616d89f9a9379c",
+    "src\\pybert\\web\\data.py": "2d15d8b02c7772d7c0fc4874cf15bcf20867447e090a43d2f34aaca8dde50a10",
     "src\\pybert\\web\\server.py": "bd96fc49eca6f3aae1daf471fb50271e18fed3cfda4b54edd1e1b444bbb050b4",
     "src\\pybert\\web\\tasks.py": "23e773f28edb73af50ec400711e8eddb0f874027abc63977815db3f8be10afae",
     "src\\pybert\\web\\worker.py": "b22c54df41f33b3955d5e6e973779a9a611e4452dde24d45dbf266952221027c",
@@ -43,11 +43,11 @@
     "src\\pybert\\web\\static\\settings.js": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
     "src\\pybert\\web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
     "src\\pybert\\web\\static\\workbench.css": "358817f13da2975000ba5d89f532c453d4ef4dc5228ccbd9534b1fa50135da2a",
-    "src\\pybert\\web\\static\\workbench.js": "6fdc20e12d3e09e81154ed9d65453cbd294b7156b0751c3371b273faf09f4bd1"
+    "src\\pybert\\web\\static\\workbench.js": "f0151805c6dd60e30ff3b53b78fca1b6262c73d19d2b201b42fcc22847507215"
   },
   "numeric_report": {
-    "path": "docs/webui/issue3/evidence/numeric-20261024-061108/report.json",
-    "sha256": "f9c867b104f7c506b2c358b96460cea8178418de8994bd4e0ed34297ab66112c",
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065914/report.json",
+    "sha256": "759e784c3185c06e04ac2a7a7f341ec38fdcd872e035eacb0d08aea129eb7630",
     "execution_sources_match": {
       "src\\pybert\\web\\__init__.py": true,
       "src\\pybert\\web\\analysis.py": true,
@@ -61,27 +61,45 @@
     "cases": [
       {
         "fixture": "F-NRZ-01",
-        "raw_and_metadata_checks": 824,
+        "raw_and_metadata_checks": 1345,
         "display_checks": 71,
         "max_abs_raw": 0,
         "max_abs_display": 0,
-        "passed": true
+        "passed": true,
+        "prior_projection_unchanged": {
+          "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\docs\\webui\\issue3\\evidence\\numeric-20261024-061108\\F-NRZ-01\\arrays.npz",
+          "sha256": "8213d4cba66df53fa8c64a2f1c6d0dc87ffe08bc3f31c3649ae538cc3d183a3e",
+          "arrays": 431,
+          "passed": true
+        }
       },
       {
         "fixture": "F-PAM4-01",
-        "raw_and_metadata_checks": 827,
+        "raw_and_metadata_checks": 1349,
         "display_checks": 71,
         "max_abs_raw": 0,
         "max_abs_display": 0,
-        "passed": true
+        "passed": true,
+        "prior_projection_unchanged": {
+          "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\docs\\webui\\issue3\\evidence\\numeric-20261024-061108\\F-PAM4-01\\arrays.npz",
+          "sha256": "ab9bd6ea78c55dc11a2b06cbd578d3a446477eb77678cb54abad0a9b60501630",
+          "arrays": 432,
+          "passed": true
+        }
       },
       {
         "fixture": "F-NRZ-IDENTITY",
-        "raw_and_metadata_checks": 513,
+        "raw_and_metadata_checks": 1034,
         "display_checks": 71,
         "max_abs_raw": 0,
         "max_abs_display": 0,
-        "passed": true
+        "passed": true,
+        "prior_projection_unchanged": {
+          "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\docs\\webui\\issue3\\evidence\\numeric-20261024-061108\\F-NRZ-IDENTITY\\arrays.npz",
+          "sha256": "c8ed6e2573d7832e1ee368d41cd1dd6ebe77374b2de8ebea45b94adb67ec6443",
+          "arrays": 431,
+          "passed": true
+        }
       }
     ]
   },
@@ -103,6 +121,12 @@
       "failures": 0,
       "errors": 0,
       "skipped": 0
+    },
+    "metadata-boundaries-v2.xml": {
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
     }
   },
   "python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
@@ -114,8 +138,8 @@
     "numpy": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
     "scipy": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\.venv\\Lib\\site-packages\\scipy\\__init__.py"
   },
-  "raw_local_files": 18,
-  "raw_local_bytes": 587927522,
+  "raw_local_files": 29,
+  "raw_local_bytes": 960502583,
   "screenshots": [
     {
       "path": "evidence/chrome/01-pam4-ffe-eye.jpg",
@@ -386,6 +410,26 @@
         712
       ],
       "bytes": 69061
+    },
+    {
+      "path": "evidence/chrome/28-final-ffe-pdf-source-metadata.jpg",
+      "sha256": "c03d31b00eb3b2572963ca84020a904ae4004a82e52a66a667888300316ae8fb",
+      "format": "JPEG",
+      "pixel_size": [
+        2560,
+        1313
+      ],
+      "bytes": 147830
+    },
+    {
+      "path": "evidence/chrome/29-final-cdr-full-record-metadata.jpg",
+      "sha256": "550c60680c31460c5c12f8ef1add470bb69d66d91d907eca1eed655471458951",
+      "format": "JPEG",
+      "pixel_size": [
+        2560,
+        1313
+      ],
+      "bytes": 147881
     },
     {
       "path": "evidence/chrome/provisional-ffe-axis-clipped.jpg",

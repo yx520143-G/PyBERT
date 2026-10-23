@@ -1,6 +1,6 @@
 # #3 真实 Chrome 图像索引
 
-桌面 Chrome，CSS viewport 1280×720，100% zoom。工具输出原始 JPEG 为1265×712，所有 jpg 保留原 bytes；机器索引 [screenshot-index.json](screenshot-index.json) 记录选择状态/标题/hash/viewport，交付适用表另外记录每张图片真实格式、像素、bytes/hash。owner 在观察实际 run/analysis/title 稳定后采集，逐张目视并用 view_image 回读所采纳文件。
+桌面 Chrome，100% zoom。01–27及provisional使用 CSS viewport 1280×720，工具输出原始 JPEG 为1265×712；28/29不设临时 viewport，使用当前2560×1313，原帧同尺寸。所有 jpg 保留原 bytes；机器索引 [screenshot-index.json](screenshot-index.json) 记录选择状态/标题/hash/viewport，交付适用表另外记录每张图片真实格式、像素、bytes/hash。owner 在观察实际 run/analysis/title 稳定后采集，逐张目视并用 view_image 回读所采纳文件。
 
 显示 case `F-PAM4-01`/`F-NRZ-01` 来自保留的完整原生 raw 与本票冻结分析；test-only hydration 没有重新运行主仿真或交付产品 archive import。实际 identity 数值 task 和失败/取消 task ID 另见 README/生命周期 report。
 
@@ -27,10 +27,14 @@
 | [25](25-final-old-schema-dfe-info-preserved.jpg) | schema2 保存的 DFE Info、fit validity unknown 与其他点不可用说明；表内可滚动 | `b2bdb229` |
 | [26](26-final-old-schema-channel-frequency-preserved.jpg) | schema2 保存的 actual-termination Channel H，标题明确三源视图不可用 | `e9c73c5` |
 | [27](27-final-old-new-channel-frequency-comparison.jpg) | 旧/新 Channel H 比较；通用标题下旧数据的限制说明仍保留在图例 | `e9c73c5` |
+| [28](28-final-ffe-pdf-source-metadata.jpg) | v2 PAM4 FFE PDF及展开的eye/jitter末段窗口；具体ID/source由metadata-v2-checks.json中实际DOM读取与断言支持，未声称图片包含全部JSON | `83b7515` |
+| [29](29-final-cdr-full-record-metadata.jpg) | v2 PAM4 CDR histogram及展开的full_record来源窗口；完整240000样本/ID/source见同一DOM检查记录 | `83b7515` |
 
 `68c1b4c→7c4cf9f` 仅增加文本分析时清除旧 inline 图高度的一行修复；前者的科学图表/render 数据与后者相同，后者的 Jitter Info 已单独重拍。`aeb49cc→68c1b4c` 只改多 eye 面板高度与共用 count 色标，06 单 spectrum 不受影响；170145b 的04 PDF 不受后续 auto-scroll/eye facet/text height 修改影响。没有声称早期图片逐字节执行了最终所有 JS。
 
 `7c4cf9f→b2bdb229→e9c73c5` 只补旧 schema2 的 Info/Channel H 展示与限制标签，不改 schema3 科学数组或上述已采纳的新分析图。25/26/27 是对应分支的新增实拍。机器索引区分原始采集状态与最终采纳/排除判定；原帧未重绘。
+
+`e9c73c5→83b7515` 修正display身份/source及CDR完整记录窗口，API/viewer显示来源metadata；原28张图片不作为修正后metadata通过的证据。065914已逐项确认所有科学/显示数组与061108完全相等；本轮28/29补拍来源窗口，[metadata-v2-checks.json](metadata-v2-checks.json)保存PAM4 FFE PDF、CDR histogram/spectrum三次实际DOM读取与具体ID/source/window断言，console error/warn为空。
 
 ## 保留但不用于所称最终图表通过的原件
 

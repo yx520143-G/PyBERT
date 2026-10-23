@@ -19,7 +19,7 @@ def digest(path):
 
 
 def main():
-    report_path = DOC / "evidence/numeric-20261024-061108/report.json"
+    report_path = DOC / "evidence/numeric-20261024-065914/report.json"
     report = json.loads(report_path.read_text(encoding="utf-8"))
     freeze = DOC / "fixtures/frozen-manifest.json"
     frozen = json.loads(freeze.read_text(encoding="utf-8"))
@@ -53,7 +53,8 @@ def main():
             execution_sources_match={key:digest(ROOT / key) == value for key,value in report["execution_sources"].items()},
             cases=[dict(fixture=f["fixture"],raw_and_metadata_checks=len(f["raw_checks"]),display_checks=len(f["display_checks"]),
                         max_abs_raw=max(c.get("max_abs") or 0 for c in f["raw_checks"]),
-                        max_abs_display=max(c.get("max_abs") or 0 for c in f["display_checks"]),passed=f["passed"]) for f in report["fixtures"]]),
+                        max_abs_display=max(c.get("max_abs") or 0 for c in f["display_checks"]),passed=f["passed"],
+                        prior_projection_unchanged=f["prior_projection_unchanged"]) for f in report["fixtures"]]),
         tests=tests,python=sys.executable,
         modules={name:importlib.import_module(name).__file__ for name in ("pybert.web.analysis","pybert.pybert","pychopmarg","pyibisami","numpy","scipy")},
         raw_local_files=len(raw),raw_local_bytes=sum(r["bytes"] for r in raw),screenshots=screenshots,

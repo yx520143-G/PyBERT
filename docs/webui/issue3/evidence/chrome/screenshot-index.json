@@ -905,5 +905,49 @@
     "capture_source": null,
     "view_image_checked": false,
     "reason": "provisional clipped axes"
+  },
+  {
+    "file": "28-final-ffe-pdf-source-metadata.jpg",
+    "capture_source": "83b75154a52a11a06506a4416503326c95ae02d8",
+    "run": "F-PAM4-01",
+    "kind": "jitter.dist",
+    "point": "ffe",
+    "title": "Rx FFE output · new helper observation · dist",
+    "viewport": [
+      2560,
+      1313
+    ],
+    "sha256": "c03d31b00eb3b2572963ca84020a904ae4004a82e52a66a667888300316ae8fb",
+    "bytes": 147830,
+    "format": "JPEG",
+    "pixel_size": [
+      2560,
+      1313
+    ],
+    "disposition": "accepted",
+    "view_image_checked": true,
+    "scope": "selected plot and expanded source window; full observation/source assertions in metadata-v2-checks.json"
+  },
+  {
+    "file": "29-final-cdr-full-record-metadata.jpg",
+    "capture_source": "83b75154a52a11a06506a4416503326c95ae02d8",
+    "run": "F-PAM4-01",
+    "kind": "cdr.histogram",
+    "point": "ffe",
+    "title": "CDR clock period · 100-bin histogram",
+    "viewport": [
+      2560,
+      1313
+    ],
+    "sha256": "550c60680c31460c5c12f8ef1add470bb69d66d91d907eca1eed655471458951",
+    "bytes": 147881,
+    "format": "JPEG",
+    "pixel_size": [
+      2560,
+      1313
+    ],
+    "disposition": "accepted",
+    "view_image_checked": true,
+    "scope": "selected plot and expanded source window; full observation/source assertions in metadata-v2-checks.json"
   }
 ]

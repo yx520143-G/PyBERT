@@ -30,6 +30,16 @@
     "sha256": "ab9bd6ea78c55dc11a2b06cbd578d3a446477eb77678cb54abad0a9b60501630"
   },
   {
+    "path": "docs/webui/issue3/evidence/local/chrome-cache-20261024-070016/F-NRZ-01/arrays.npz",
+    "bytes": 40997303,
+    "sha256": "8213d4cba66df53fa8c64a2f1c6d0dc87ffe08bc3f31c3649ae538cc3d183a3e"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/local/chrome-cache-20261024-070016/F-PAM4-01/arrays.npz",
+    "bytes": 21396301,
+    "sha256": "ab9bd6ea78c55dc11a2b06cbd578d3a446477eb77678cb54abad0a9b60501630"
+  },
+  {
     "path": "docs/webui/issue3/evidence/numeric-20261024-060028/F-NRZ-01/arrays.npz",
     "bytes": 40997303,
     "sha256": "8213d4cba66df53fa8c64a2f1c6d0dc87ffe08bc3f31c3649ae538cc3d183a3e"
@@ -86,6 +96,51 @@
   },
   {
     "path": "docs/webui/issue3/evidence/numeric-20261024-061108/F-PAM4-01/arrays.npz",
+    "bytes": 21396301,
+    "sha256": "ab9bd6ea78c55dc11a2b06cbd578d3a446477eb77678cb54abad0a9b60501630"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065537/F-NRZ-01/arrays.npz",
+    "bytes": 40997303,
+    "sha256": "8213d4cba66df53fa8c64a2f1c6d0dc87ffe08bc3f31c3649ae538cc3d183a3e"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065537/F-NRZ-IDENTITY/arrays.npz",
+    "bytes": 41000215,
+    "sha256": "c8ed6e2573d7832e1ee368d41cd1dd6ebe77374b2de8ebea45b94adb67ec6443"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065537/F-PAM4-01/arrays.npz",
+    "bytes": 21396301,
+    "sha256": "ab9bd6ea78c55dc11a2b06cbd578d3a446477eb77678cb54abad0a9b60501630"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065710/F-NRZ-01/arrays.npz",
+    "bytes": 40997303,
+    "sha256": "8213d4cba66df53fa8c64a2f1c6d0dc87ffe08bc3f31c3649ae538cc3d183a3e"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065710/F-NRZ-IDENTITY/arrays.npz",
+    "bytes": 41000215,
+    "sha256": "c8ed6e2573d7832e1ee368d41cd1dd6ebe77374b2de8ebea45b94adb67ec6443"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065710/F-PAM4-01/arrays.npz",
+    "bytes": 21396301,
+    "sha256": "ab9bd6ea78c55dc11a2b06cbd578d3a446477eb77678cb54abad0a9b60501630"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065914/F-NRZ-01/arrays.npz",
+    "bytes": 40997303,
+    "sha256": "8213d4cba66df53fa8c64a2f1c6d0dc87ffe08bc3f31c3649ae538cc3d183a3e"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065914/F-NRZ-IDENTITY/arrays.npz",
+    "bytes": 41000215,
+    "sha256": "c8ed6e2573d7832e1ee368d41cd1dd6ebe77374b2de8ebea45b94adb67ec6443"
+  },
+  {
+    "path": "docs/webui/issue3/evidence/numeric-20261024-065914/F-PAM4-01/arrays.npz",
     "bytes": 21396301,
     "sha256": "ab9bd6ea78c55dc11a2b06cbd578d3a446477eb77678cb54abad0a9b60501630"
   }

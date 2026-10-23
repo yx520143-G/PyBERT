@@ -1,0 +1,10 @@
+{
+  "active_task_id": null,
+  "current_task_id": "3ca7d28a-85a3-4195-b463-32548b6eb8c9",
+  "server_pid": 58272,
+  "runs": [
+    "F-NRZ-01",
+    "F-PAM4-01"
+  ],
+  "ownership": "Issue 3 owner metadata-v2 test-only server; no active worker"
+}

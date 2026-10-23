@@ -11,7 +11,7 @@ owner 已完成实现、限定数值验证、fresh review 修复和桌面 Chrome
 - 同 run 多点图表、两成功 run 的所选图表比较，使用各自物理 x 坐标，不按 index 叠加；eye 面板保留独立坐标并共用 count 色标。Expand viewer 提供完整图轴/图例；原 GUI 反查直接进入对应分析。
 - schema3 在发布前一次构建全部分析与 availability/reason。schema2 已有 Rx input/DFE eye、DFE Dist/Spec/Info 和 Channel actual-termination H 继续可读；旧 Info 的拟合有效性为 unknown，旧 Channel 的三源视图缺失在单图与比较图图例中均明确标注。缺少新分析明确提示版本/数据不可用，切图不计算。
 
-服务仍由 `uv sync --extra web`、`uv run --extra web pybert web` 启动。API schema1/raw schema3；`analysis_version=1`。原 worker/normalize 的单槽 spawn、合作取消与父进程 join/退出规则沿用 #2。完整档案/Load Results 仍属于 #5。
+服务仍由 `uv sync --extra web`、`uv run --extra web pybert web` 启动。API schema1/raw schema3；`analysis_version=2`。原 worker/normalize 的单槽 spawn、合作取消与父进程 join/退出规则沿用 #2。完整档案/Load Results 仍属于 #5。
 
 ## 固定来源与联合冻结契约
 
@@ -19,7 +19,7 @@ owner 已完成实现、限定数值验证、fresh review 修复和桌面 Chrome
 | --- | --- |
 | base/master | `35a3b60351836431e4f96136b61708515ec5f77c` |
 | 原生语义 | `1bc905d577d2f3bd9471421cfbf3d422d4e6080e` |
-| 产品代码提交 | `e9c73c5fa2de2e23b4f2b3c5a7a6e1b1a6825779`；后续交付提交只增加工具/证据/文档 |
+| 产品代码提交 | `83b75154a52a11a06506a4416503326c95ae02d8`；后续交付提交只更新审计工具/证据/文档 |
 | 本票初始冻结 | [frozen-manifest](fixtures/frozen-manifest.json)，SHA256 `457a66a4af98087eb5ad6ac4dfcfa103787d1bcb3cd035eab0133b272da12c5a` |
 | 计算前窗口更正 | [window-correction-v2](fixtures/window-correction-v2.json)，SHA256 `5d06cc3b4ad6f2ef6cd7aea5d7723ce81b679c588551b764aa3a4403064a681e` |
 | 控制仿真前 effective 冻结 | [identity-effective-v3](fixtures/identity-effective-v3.json)，SHA256 `ca18eb3234b414bb3cc05b9a055270de972805cc0c55ab4f42dba2fea54edd73` |
@@ -33,23 +33,28 @@ identity 请求只改 NRZ 的 Ntaps=1/Npre=0、index0=1 与其余 tap disabled�
 
 ## 数值与契约证据
 
-[最终数值报告](evidence/numeric-20261024-061108/report.json) 的八项 execution source hash（7 个 `src/pybert/web/*.py` 文件及 `tools/verify_web_analysis.py`）与当前源码全部匹配。期望直接对完整保存数组调用 native `find_crossings/calc_jitter/calc_eye/make_bathtub`，没有调用 adapter 的 FFE/eye/CDR builder 生成期望。CDR FFT real/imag 分别比较；原数组的期望使用独立副本，能检查 in-place 修改。
+[最终数值报告](evidence/numeric-20261024-065914/report.json) 的八项 execution source hash（7 个 `src/pybert/web/*.py` 文件及 `tools/verify_web_analysis.py`）与当前源码全部匹配。期望直接对完整保存数组调用 native `find_crossings/calc_jitter/calc_eye/make_bathtub`，没有调用 adapter 的 FFE/eye/CDR builder 生成期望。CDR FFT real/imag 分别比较；原数组的期望使用独立副本，能检查 in-place 修改。
 
 | case | raw 数值＋typed metadata 检查 | display 检查 | 结果 |
 | --- | ---: | ---: | --- |
-| F-NRZ-01，保存 raw 派生 | 824 | 71 | 全过；max abs/rel=0 |
-| F-PAM4-01，保存 raw 派生 | 827 | 71 | 全过；max abs/rel=0 |
-| F-NRZ-IDENTITY，复用控制 raw | 513 | 71 | 全过；max abs/rel=0，28项 CTLE/FFE/上下文/物理 RNG 相等 |
+| F-NRZ-01，保存 raw 派生 | 1345 | 71 | 全过；max abs/rel=0 |
+| F-PAM4-01，保存 raw 派生 | 1349 | 71 | 全过；max abs/rel=0 |
+| F-NRZ-IDENTITY，复用控制 raw | 1034 | 71 | 全过；max abs/rel=0，28项 CTLE/FFE/上下文/物理 RNG 相等 |
 
-raw 一栏包含逐字段身份/shape/dtype/window/版本检查，不表示有 824 个独立数值数组。PDF、时间/频轴、complex、eye/histogram counts、bathtub 正值相对误差/零值/floor 等仍按计算前冻结的分类门槛检查，未放宽容差。PAM4 的 native DD covariance 警告保留；新增 FFE 的 rjDD/mu_pos/mu_neg 单独显示 unavailable/raw reference，pjDD 与 bounded dj_pos/dj_neg 不连带失效。原四点旧 raw 缺拟合诊断，明确标 unknown，不反推成功。
+raw 一栏包含逐字段身份/shape/dtype/window/版本检查，不表示有 1345 个独立数值数组。PDF、时间/频轴、complex、eye/histogram counts、bathtub 正值相对误差/零值/floor 等仍按计算前冻结的分类门槛检查，未放宽容差。PAM4 的 native DD covariance 警告保留；新增 FFE 的 rjDD/mu_pos/mu_neg 单独显示 unavailable/raw reference，pjDD 与 bounded dj_pos/dj_neg 不连带失效。原四点旧 raw 缺拟合诊断，明确标 unknown，不反推成功。
 
-唯一新增主仿真是 [060157 报告](evidence/numeric-20261024-060157/report.json) 的 identity task `80ecab74-7bd7-4cf9-8871-71752657ab2f`，succeeded、worker_exited=true、exitcode=0。后续 060425/061108 复用其保存 raw，仅补受影响的分析/显示/独立期望核验，没有再次运行主仿真。
+PM Spec review 发现 v1 的显示投影缺观察点/source 关系，且完整 CDR 被错误标注为眼图末段；061108 的公共 window 断言也没有识别该错误。原报告保留，metadata 通过结论由 065914 取代。v2 显式检查具体 ID 与直接源字段（含旧 DFE spectrum 的 UI 依赖）；CDR histogram/FFT/axis/display 使用完整 `ui_ests` 的 `[0,N)`，PAM4 为240000样本、0–1.5μs，histogram 总计数等于 N。`clocks/lockeds` 是完整 t 轨迹；`clock_times` 是独立事件时间轴，记录实际首末事件，末个预测 clock 可超过 t 末端。API 来源 metadata 与 viewer 使用图表自己的窗口；eye/jitter 继续使用原末段窗口。
+
+065914 还逐项确认 NRZ/PAM4/identity 的431/432/431个数组与061108完全相等。065537/065710 是修复中间报告，均保留而不作为最终源码适用证据；本轮只重建 metadata/helper/display，没有新增主仿真。
+
+唯一新增主仿真是 [060157 报告](evidence/numeric-20261024-060157/report.json) 的 identity task `80ecab74-7bd7-4cf9-8871-71752657ab2f`，succeeded、worker_exited=true、exitcode=0。后续各轮复用其保存 raw，仅补受影响的分析/metadata/显示/独立期望核验，没有再次运行主仿真。
 
 - [contracts.xml](evidence/contracts.xml)：35 passed（25项原 Web 契约＋当时10项 analysis 边界），含真实 spawn/退出/忙状态。
 - [analysis-boundaries.xml](evidence/analysis-boundaries.xml)：11 passed（原10项复测＋finite input 的 CDR normalization overflow）；无 crossing、短窗口、非有限/零 scale、nominal fold、零分母明确拒绝。
+- [metadata-boundaries-v2.xml](evidence/metadata-boundaries-v2.xml)：13 passed，包含原11项和两个先红后绿的 metadata 回归；明确验证具体观察点/source、完整 CDR 与超出 waveform 末端的 clock event 范围。
 - [function-boundaries](evidence/function-boundaries.json)：9项通过；保存 raw 的函数级副本上检验 FFE 无 crossing、可用的原四点、CDR zero、DFE nominal fallback/counts 和分析组 callback 取消。它不是浏览器或进程取消证据。
 - [MCP compatibility](evidence/mcp-compatibility.xml)：4 passed；配置 round-trip/未知字段/工具注册。[entrypoint smoke](evidence/entrypoint-smoke.json)：原 GUI view 可导入、无仿真构造 Ready、CLI sim --help 退出0。原 GUI/CLI/MCP/物理 producer 源码相对 base 未改；本票没有重新做完整原生 GUI 交互或 CLI 数值矩阵。
-- 目标文件 `ruff --select E4,E7,E9,F`、compileall 通过；[最终静态检查](evidence/final-static-checks.json) 记录具体命令。证据目录的 `-text` 保留原始 CRLF bytes，暂存 diff 检查使用 `cr-at-eol` 识别行尾并通过，没有改写冻结原件。完整风格规则的 C408（dict literal 偏好）仍会报告现有 dict(...) 风格；没有把此检查写成完整 style lint 通过，也未为其重排相邻代码。
+- 目标文件 `ruff --select E4,E7,E9,F`、compileall 通过；[原静态检查](evidence/final-static-checks.json) 与 [v2静态检查](evidence/metadata-static-checks-v2.json) 记录具体命令。证据目录的 `-text` 保留原始 CRLF bytes，暂存 diff 检查使用 `cr-at-eol` 识别行尾并通过，没有改写冻结原件。完整风格规则的 C408（dict literal 偏好）仍会报告现有 dict(...) 风格；没有把此检查写成完整 style lint 通过，也未为其重排相邻代码。
 
 早期 [060028](evidence/numeric-20261024-060028/report.json) 为比较工具对 bool 减法的 TypeError；[060045](evidence/numeric-20261024-060045/report.json) 在 identity effective hash 预检停止，未运行该控制主仿真。原报告、其已写 raw、后续完整轮和源码适用关系均保留；不把早期失败重命名成通过。
 
@@ -59,7 +64,7 @@ raw 一栏包含逐字段身份/shape/dtype/window/版本检查，不表示有 8
 - [真实取消](evidence/lifecycle-cancel-20261024-062247/report.json)：`cec1177a-0f8d-45a1-ad6a-47e88c7df4f0`，在 validation 前请求并被 worker 观察，随后真实退出/join；退出前 normalize/Run 均409。没有新增数值仿真，也不据此宣称中断了单次 SciPy helper。
 - 两项均逐字节核对两成功结果的 raw hash 和完整 manifest 不变，旧所选结果仍保留。请求、task ID、日志、取消请求/观察/退出及原失败均有独立记录。
 
-[Chrome INDEX](evidence/chrome/INDEX.md) 逐图限定支持范围与采集版本。测试使用真实桌面 Chrome、CSS viewport 1280×720；工具原帧为 JPEG、图像1265×712，原 bytes 保存并以 `view_image` 回读检查，未转成 PNG 冒充原帧。控件选择、稳定 run/标题核对、采集分别进行。早期图轴裁切、全局 SVG 描边、过小比较面板和旧 table 高度的原帧都保留并排除在相应最终通过证据之外。
+[Chrome INDEX](evidence/chrome/INDEX.md) 逐图限定支持范围与采集版本。测试使用真实桌面 Chrome；原01–27及provisional为CSS viewport 1280×720、JPEG1265×712，v2的28/29使用当前2560×1313且不设置临时viewport。原 bytes 保存并以 `view_image` 回读检查，未转成 PNG 冒充原帧。控件选择、稳定 run/标题核对、采集分别进行。早期图轴裁切、全局 SVG 描边、过小比较面板和旧 table 高度的原帧都保留并排除在相应最终通过证据之外。
 
 为遵守“已有 raw 能派生则不重跑”，Chrome 的两个 case 通过 [test-only hydration 工具](../../../tools/serve_web_analysis_evidence.py) 放入独立临时 `Tasks` 缓存：`F-NRZ-01`/`F-PAM4-01` 是固定 case 的显示身份，不是假称本票新点击 Run 的 task ID。正例来自完整 #2 原生成功 raw，经本票 helper 统一派生；legacy 检查另外消费未扩展的真实 schema2 raw。此工具不是产品 Load Results/磁盘档案功能。生产启动仍使用 `pybert web`，不自动载入这些测试材料。
 
@@ -67,6 +72,8 @@ raw 一栏包含逐字段身份/shape/dtype/window/版本检查，不表示有 8
 
 [fresh review](evidence/review.md) 的 DD 有效性、GUI 反查 route 和 CDR 除法后 finite 三项已修复；route fall-through 又经同一只读 reviewer 确认闭环。最终兼容性自查补回旧 schema2 Info/Channel H，reviewer 提出的比较图限制说明丢失也已通过图例与 metadata 修复并确认。Chrome 另外发现的 SVG 描边/图例、eye count 色标/面板尺寸、表格高度问题由 owner 修复。
 
+PM 后续两项 P2 的原因、回归命令和修复见 [metadata-correction-v2](evidence/metadata-correction-v2.json)。原 reviewer 已只读核对固定代码83b7515和065914，确认两项及追加细节均闭环；本轮 Chrome 的 FFE PDF/CDR histogram/spectrum 来源实测见 [metadata-v2-checks](evidence/chrome/metadata-v2-checks.json) 与28/29原帧。非阻断的重复 calc_eye 意见未在本轮重构。
+
 不改原四点顺序或物理算法，不扩至文件/AMI/COM/优化/Viterbi 等后续票。PAM4 jitter 仍是 symmetric 0V crossing 边界；DD 是参考拟合，bathtub 使用 separated Rj 与 bounded jitter，不是完整电压裕量/BER、MATLAB COM correlation 或 IEEE 资格结论。
 
-本票 raw 仅保留在本机 ignored NPZ，逐项 hash/bytes 见 [raw-files-local](evidence/raw-files-local.json)。此时18份共587,927,522 bytes，包含失败、旧投影和服务测试缓存；未清理 #2 或本票原件，不把临时结果称为完整档案。
+本票 raw 仅保留在本机 ignored NPZ，逐项 hash/bytes 见 [raw-files-local](evidence/raw-files-local.json)。原18份共587,927,522 bytes逐项 hash 未变；新增修复验证投影与服务缓存也全部保留，当前总量以适用表为准。未清理 #2 或本票原件，不把临时结果称为完整档案。
