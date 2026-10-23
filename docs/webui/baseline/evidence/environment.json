@@ -1,0 +1,62 @@
+{
+  "source_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+  "os": "Windows-10-10.0.19045-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "E:\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+  "pybert_file": "E:\\serial-bus-simulator\\src\\pybert\\__init__.py",
+  "versions": {
+    "pipbert": "11.1.0",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "traits": "7.1.0",
+    "traitsui": "8.0.0",
+    "pyface": "8.0.0",
+    "chaco": "6.1.1",
+    "enable": "6.1.0",
+    "pyside6": "6.10.2",
+    "scikit-rf": "2.0.1",
+    "pyibis-ami": "10.0.0",
+    "pychopmarg": "3.4.0"
+  },
+  "environment": {
+    "ETS_TOOLKIT": null,
+    "QT_API": null,
+    "QT_QPA_PLATFORM": null,
+    "QT_SCALE_FACTOR": null,
+    "QT_ENABLE_HIGHDPI_SCALING": null,
+    "PYTHONPATH": null
+  },
+  "window_handle_observed": 2558336,
+  "window_rect_px": [
+    591,
+    234,
+    1969,
+    1205
+  ],
+  "window_size_px": [
+    1378,
+    971
+  ],
+  "client_size_px": [
+    1362,
+    932
+  ],
+  "window_dpi": 96,
+  "primary_screen_px": [
+    2560,
+    1440
+  ],
+  "capture_method": "screenshot skill take_screenshot.ps1 / Graphics.CopyFromScreen / actual HWND",
+  "input_method": "@oai/sky documented Windows API; keyboard input and UIA state",
+  "uv_executable": "C:\\Users\\yx\\AppData\\Roaming\\Python\\Python312\\Scripts\\uv.exe",
+  "uv_version": "0.11.23",
+  "future_web_acceptance": {
+    "browser": "Google Chrome",
+    "version": "155.0.8059.85",
+    "viewport_css_px": [
+      1280,
+      720
+    ],
+    "zoom_percent": 100
+  }
+}

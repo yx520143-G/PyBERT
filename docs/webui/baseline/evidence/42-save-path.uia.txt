@@ -1,0 +1,607 @@
+Window: "PyBERT", App: python.exe.
+	0 窗口 (settable, string) PyBERT Secondary Actions: Raise ID: QApplication._StickyDialog
+		330 对话框 Dialog Secondary Actions: Raise
+			331 窗格
+				332 工具栏 命令模块 ID: FolderBandModuleInner
+					333 按钮 帮助(&H) Description: 获取帮助。 ID: HelpButton
+					334 拆分按钮 视图 Description: 更改你的视图。 ID: ViewControl
+						335 按钮 视图滑块 Description: 更多选项 ID: SplitMenuButton
+					336 按钮 组织​​ Description: 组织该文件夹的内容。 ID: {7DDC1264-7E4D-4F74-BBC0-D191987C8D0F}
+					337 按钮 新建​​文件夹​​ Description: 新建文件夹。 ID: {E44616AD-6DF1-4B94-85A4-E465AE8A19DB}
+				338 窗格 控制项宿主 ID: ProperTreeHost
+					339 树 树视图 ID: 100
+						340 滚动条 (settable, float) 垂直滚动条 Value: 70 ID: NonClientVerticalScrollBar
+							341 按钮 上一行 ID: UpButton
+							342 按钮 向上翻页 ID: UpPageButton
+							343 缩略图 位置 ID: ScrollbarThumb
+							344 按钮 向下翻页 ID: DownPageButton
+							345 按钮 下一行 ID: DownButton
+						346 树项目 (selectable, settable, string) 快速访问 Value: 快速访问
+							347 树项目 (selectable, settable, string) 桌面 (已固定) Value: 桌面 (已固定)
+							348 树项目 (selectable, settable, string) 下载 (已固定) Value: 下载 (已固定)
+							349 树项目 (selectable, settable, string) 文档 (已固定) Value: 文档 (已固定)
+							350 树项目 (selectable, settable, string) 图片 (已固定) Value: 图片 (已固定)
+							351 树项目 (selectable, settable, string) docs Value: docs
+							352 树项目 (selectable, settable, string) outputs Value: outputs
+							353 树项目 (selectable, settable, string) pm-340-physical-input-transfer Value: pm-340-physical-input-transfer
+							354 树项目 (selectable, settable, string) VIAVI 入职 Value: VIAVI 入职
+						355 树项目 (selectable, settable, string) 桌面 Value: 桌面
+							356 树项目 (selectable, settable, string) 此电脑 Value: 此电脑
+								357 树项目 (selectable, settable, string) 3D 对象 Value: 3D 对象
+								358 树项目 (selectable, settable, string) 视频 Value: 视频
+								359 树项目 (selectable, settable, string) 图片 Value: 图片
+								360 树项目 (selectable, settable, string) 文档 Value: 文档
+								361 树项目 (selectable, settable, string) 下载 Value: 下载
+								362 树项目 (selectable, settable, string) 音乐 Value: 音乐
+								363 树项目 (selectable, settable, string) 桌面 Value: 桌面
+								364 树项目 (selectable, settable, string) 本地磁盘 (C:) Value: 本地磁盘 (C:)
+								365 树项目 (selectable, settable, string) storage (E:) Value: storage (E:)
+								366 树项目 (selectable, settable, string) Windows RE tools (R:) Value: Windows RE tools (R:)
+							367 树项目 (selectable, settable, string) 网络 Value: 网络
+				368 窗格 Shell 文件夹视图 ID: listview
+					369 列表 项目视图
+						370 标头 标题
+							371 拆分按钮 名称 ID: System.ItemNameDisplay
+								372 按钮 筛选器下拉列表 ID: DropDown
+							373 拆分按钮 修改日期 ID: System.DateModified
+								374 按钮 筛选器下拉列表 ID: DropDown
+							375 拆分按钮 类型 ID: System.ItemTypeText
+								376 按钮 筛选器下拉列表 ID: DropDown
+							377 拆分按钮 大小 ID: System.Size
+								378 按钮 筛选器下拉列表 ID: DropDown
+						379 列表项目 (selectable, settable, string) .claude Value: .claude ID: 0
+							380 图像
+							381 编辑 (settable, string) 名称 Value: .claude ID: System.ItemNameDisplay
+							382 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							383 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							384 编辑 大小 ID: System.Size
+						385 列表项目 (selectable, settable, string) .git Value: .git ID: 1
+							386 图像
+							387 编辑 (settable, string) 名称 Value: .git ID: System.ItemNameDisplay
+							388 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎23:41 ID: System.DateModified
+							389 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							390 编辑 大小 ID: System.Size
+						391 列表项目 (selectable, settable, string) .github Value: .github ID: 2
+							392 图像
+							393 编辑 (settable, string) 名称 Value: .github ID: System.ItemNameDisplay
+							394 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							395 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							396 编辑 大小 ID: System.Size
+						397 列表项目 (selectable, settable, string) .pytest_cache Value: .pytest_cache ID: 3
+							398 图像
+							399 编辑 (settable, string) 名称 Value: .pytest_cache ID: System.ItemNameDisplay
+							400 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:50 ID: System.DateModified
+							401 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							402 编辑 大小 ID: System.Size
+						403 列表项目 (selectable, settable, string) .venv Value: .venv ID: 4
+							404 图像
+							405 编辑 (settable, string) 名称 Value: .venv ID: System.ItemNameDisplay
+							406 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:48 ID: System.DateModified
+							407 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							408 编辑 大小 ID: System.Size
+						409 列表项目 (selectable, settable, string) docs Value: docs ID: 5
+							410 图像
+							411 编辑 (settable, string) 名称 Value: docs ID: System.ItemNameDisplay
+							412 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎22:58 ID: System.DateModified
+							413 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							414 编辑 大小 ID: System.Size
+						415 列表项目 (selectable, settable, string) examples Value: examples ID: 6
+							416 图像
+							417 编辑 (settable, string) 名称 Value: examples ID: System.ItemNameDisplay
+							418 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							419 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							420 编辑 大小 ID: System.Size
+						421 列表项目 (selectable, settable, string) local Value: local ID: 7
+							422 图像
+							423 编辑 (settable, string) 名称 Value: local ID: System.ItemNameDisplay
+							424 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:49 ID: System.DateModified
+							425 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							426 编辑 大小 ID: System.Size
+						427 列表项目 (selectable, settable, string) misc Value: misc ID: 8
+							428 图像
+							429 编辑 (settable, string) 名称 Value: misc ID: System.ItemNameDisplay
+							430 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							431 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							432 编辑 大小 ID: System.Size
+						433 列表项目 (selectable, settable, string) models Value: models ID: 9
+							434 图像
+							435 编辑 (settable, string) 名称 Value: models ID: System.ItemNameDisplay
+							436 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							437 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							438 编辑 大小 ID: System.Size
+						439 列表项目 (selectable, settable, string) PyAMI Value: PyAMI ID: 10
+							440 图像
+							441 编辑 (settable, string) 名称 Value: PyAMI ID: System.ItemNameDisplay
+							442 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							443 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							444 编辑 大小 ID: System.Size
+						445 列表项目 (selectable, settable, string) PyChOpMarg Value: PyChOpMarg ID: 11
+							446 图像
+							447 编辑 (settable, string) 名称 Value: PyChOpMarg ID: System.ItemNameDisplay
+							448 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:43 ID: System.DateModified
+							449 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							450 编辑 大小 ID: System.Size
+						451 列表项目 (selectable, settable, string) source Value: source ID: 12
+							452 图像
+							453 编辑 (settable, string) 名称 Value: source ID: System.ItemNameDisplay
+							454 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎22:17 ID: System.DateModified
+							455 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							456 编辑 大小 ID: System.Size
+						457 列表项目 (selectable, settable, string) src Value: src ID: 13
+							458 图像
+							459 编辑 (settable, string) 名称 Value: src ID: System.ItemNameDisplay
+							460 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:47 ID: System.DateModified
+							461 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							462 编辑 大小 ID: System.Size
+						463 列表项目 (selectable, settable, string) tests Value: tests ID: 14
+							464 图像
+							465 编辑 (settable, string) 名称 Value: tests ID: System.ItemNameDisplay
+							466 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:49 ID: System.DateModified
+							467 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							468 编辑 大小 ID: System.Size
+						469 列表项目 (selectable, settable, string) type_stubs Value: type_stubs ID: 15
+							470 图像
+							471 编辑 (settable, string) 名称 Value: type_stubs ID: System.ItemNameDisplay
+							472 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							473 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							474 编辑 大小 ID: System.Size
+						475 列表项目 (selectable, settable, string) .pre-commit-config.yaml Value: .pre-commit-config.yaml ID: 16
+							476 图像
+							477 编辑 (settable, string) 名称 Value: .pre-commit-config.yaml ID: System.ItemNameDisplay
+							478 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							479 编辑 类型 Value: Yaml 源文件 ID: System.ItemTypeText
+							480 编辑 大小 Value: 1 KB ID: System.Size
+						481 列表项目 (selectable, settable, string) .readthedocs.yaml Value: .readthedocs.yaml ID: 17
+							482 图像
+							483 编辑 (settable, string) 名称 Value: .readthedocs.yaml ID: System.ItemNameDisplay
+							484 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							485 编辑 类型 Value: Yaml 源文件 ID: System.ItemTypeText
+							486 编辑 大小 Value: 1 KB ID: System.Size
+						487 列表项目 (selectable, settable, string) _config.yml Value: _config.yml ID: 18
+							488 图像
+							489 编辑 (settable, string) 名称 Value: _config.yml ID: System.ItemNameDisplay
+							490 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							491 编辑 类型 Value: Yaml 源文件 ID: System.ItemTypeText
+							492 编辑 大小 Value: 1 KB ID: System.Size
+				493 文本 文件名: Description: 文件名: ID: SaveDialogLabel
+				494 组合框 (settable, string) 文件名: Value: E:\serial-bus-simulator\docs\webui\baseline\evidence\table-submission.yaml ID: FileNameControlHost
+					495 编辑 (settable, string) 文件名: Value: E:\serial-bus-simulator\docs\webui\baseline\evidence\table-submission.yaml ID: 1001
+					496 按钮 打开 ID: DropDown
+				497 文本 保存类型: Description: 保存类型: ID: SaveDialogLabel
+				498 组合框 (settable, string) 保存类型: Value: Yaml Config (*.yaml *.yml) ID: FileTypeControlHost
+					499 文本 (settable, string) Value: Yaml Config (*.yaml *.yml)
+					500 按钮 打开 ID: DropDown
+				501 树 保存字段 ID: SaveDialogPreviewMetadataInner
+				502 树 应用程序控件 ID: AppControlsModuleInner
+			503 工具栏
+				504 按钮 隐藏文件夹
+			505 按钮 保存(S) ID: 1
+			506 按钮 取消 ID: 2
+			507 缩略图 (settable, float) Value: 0
+			508 窗格 ID: 40965
+				509 窗格
+					510 工具栏 导航按钮
+						511 按钮 (disabled) 后退 (Alt + 向左键)
+						512 按钮 (disabled) 前进 (Alt + 向右键)
+						513 按钮 (disabled) 最近浏览的位置
+				514 窗格
+					515 工具栏 向上一级区段工具栏
+						516 按钮 上移到“storage (E:)”(Alt + 向上键)
+				517 窗格 ID: 41477
+					518 进度栏 Value: 0
+						519 窗格
+							520 工具栏 地址: E:\serial-bus-simulator ID: 1001
+								521 拆分按钮 所有位置
+								522 拆分按钮 此电脑
+								523 拆分按钮 storage (E:)
+								524 拆分按钮 ‎serial-bus-simulator
+						525 工具栏 地址区段工具栏
+							526 按钮 上一个位置
+							527 按钮 刷新“serial-bus-simulator”(F5)
+				528 窗格
+				529 窗格
+					530 窗格
+						531 窗格
+							532 编辑 (settable, string) 搜索框 Description: 在 serial-bus-simulator 中搜索 ID: SearchEditBox
+							533 按钮 搜索 ID: SearchBoxSearchButton
+				534 窗格
+			535 标题栏 (settable, string) Value: Dialog
+				536 菜单栏 系统 ID: MenuBar
+					537 菜单项目 系统
+				538 按钮 关闭
+		1 标题栏 (settable, string) Value: PyBERT
+			2 菜单栏 系统 ID: MenuBar
+				3 菜单项目 系统
+			4 按钮 最小化
+			5 按钮 最大化
+			6 按钮 关闭
+		7 窗口 (settable, string) Secondary Actions: Raise ID: QApplication._StickyDialog.QMainWindow
+			8 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget
+				9 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget
+					163 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget
+						164 组 (settable, string) Tx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox
+							165 文本 Tx eq sel: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							166 组 (settable, string) Tx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget
+								167 单选按钮 (selectable, settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QRadioButton
+								168 单选按钮 (selectable, settable, string) Ibis-ami ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QRadioButton
+							169 组 (settable, string) Tx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget
+								170 文本 Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QLabel
+								171 表格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									172 窗格 (selectable, settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									173 标头 (selectable, settable, string) Name ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									174 标头 (selectable, settable, string) Enabled ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									175 标头 (selectable, settable, string) Value ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									176 项 (selectable, settable, string) Pre-tap3 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									177 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									178 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									179 项 (selectable, settable, string) Pre-tap2 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									180 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									181 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									182 项 (selectable, settable, string) Pre-tap1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									183 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									184 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									185 项 (selectable, settable, string) Post-tap1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									186 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									187 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									188 项 (selectable, settable, string) Post-tap2 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									189 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									190 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									191 项 (selectable, settable, string) Post-tap3 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									192 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									193 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+						194 组 (settable, string) Rx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox
+							195 文本 Rx eq sel: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							196 组 (settable, string) Rx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget
+								197 单选按钮 (selectable, settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QRadioButton
+								198 单选按钮 (selectable, settable, string) Ibis-ami ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QRadioButton
+							199 组 (settable, string) Rx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget
+								200 文本 Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QLabel
+								201 组 (settable, string) CTLE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox
+									202 文本 Enable: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									203 复选框 (settable, string) CTLE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QCheckBox
+									204 文本 Ctle sel: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									205 组 (settable, string) CTLE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget
+										206 单选按钮 (selectable, settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QRadioButton
+										207 单选按钮 (selectable, settable, string) File ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QRadioButton
+									208 组 (settable, string) CTLE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget
+										209 文本 CTLE fp: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										210 编辑 (settable, string) Value: 5.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLineEdit
+										211 文本 GHz ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										212 文本 Bandwidth: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										213 编辑 (settable, string) Value: 12.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLineEdit
+										214 文本 GHz ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										215 文本 CTLE boost: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										216 编辑 (settable, string) Value: 1.7 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLineEdit
+										217 文本 dB ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+								218 组 (settable, string) CDR ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox
+									219 文本 Type: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									220 组合框 (settable, string) CDR Value: Bang-Bang ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QComboBox
+									221 文本 Delta-t: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									222 编辑 (settable, string) CDR Value: 0.001 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									223 文本 UI ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									224 文本 Alpha: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									225 编辑 (settable, string) CDR Value: 0.01 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									226 文本 Lock Nave. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									227 编辑 (settable, string) CDR Value: 500 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									228 文本 Lock Tol. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									229 编辑 (settable, string) CDR Value: 0.1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									230 文本 Lock Sus. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									231 编辑 (settable, string) CDR Value: 500 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+								232 组 (settable, string) FFE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox
+									233 文本 Ntaps: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									234 编辑 (settable, string) FFE Value: 15 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									235 文本 Npre: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									236 编辑 (settable, string) FFE Value: 5 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									237 表格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										238 窗格 (selectable, settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										239 标头 (selectable, settable, string) Name ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										240 标头 (selectable, settable, string) Enabled ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										241 标头 (selectable, settable, string) Value ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										242 项 (selectable, settable, string) Pre-tap5 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										243 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										244 项 (selectable, settable, string) +0.020 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										245 项 (selectable, settable, string) Pre-tap4 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										246 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										247 项 (selectable, settable, string) +0.030 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										248 项 (selectable, settable, string) Pre-tap3 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										249 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										250 项 (selectable, settable, string) +1.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										251 项 (selectable, settable, string) Pre-tap2 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										252 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										253 项 (selectable, settable, string) +0.040 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										254 项 (selectable, settable, string) Pre-tap1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										255 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										256 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										257 项 (selectable, settable, string) Cursor ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										258 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										259 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										260 项 (selectable, settable, string) Post-tap1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										261 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										262 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										263 项 (selectable, settable, string) Post-tap2 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										264 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										265 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										266 项 (selectable, settable, string) Post-tap3 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										267 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										268 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										269 项 (selectable, settable, string) Post-tap4 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										270 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										271 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										272 项 (selectable, settable, string) Post-tap5 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										273 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										274 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										275 项 (selectable, settable, string) Post-tap6 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										276 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										277 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										278 项 (selectable, settable, string) Post-tap7 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										279 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										280 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										281 项 (selectable, settable, string) Post-tap8 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										282 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										283 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										284 项 (selectable, settable, string) Post-tap9 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										285 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										286 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										287 项 (selectable, settable, string) Post-tap10 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										288 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										289 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										290 项 (selectable, settable, string) Post-tap11 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										291 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										292 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										293 项 (selectable, settable, string) Post-tap12 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										294 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										295 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										296 项 (selectable, settable, string) Post-tap13 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										297 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										298 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										299 项 (selectable, settable, string) Post-tap14 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										300 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										301 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										302 项 (selectable, settable, string) Post-tap15 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										303 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										304 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+								305 组 (settable, string) DFE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox
+									306 文本 Use Optimizer tab to further configure. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									307 文本 Gain: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									308 编辑 (settable, string) DFE Value: 0.1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									309 文本 Nave. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									310 编辑 (settable, string) DFE Value: 100 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									311 文本 Level: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									312 编辑 (settable, string) DFE Value: 0.300 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									313 文本 V ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									314 文本 Use AGC: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									315 复选框 (settable, string) DFE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QCheckBox
+									316 文本 (disabled) Bandwidth: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									317 编辑 (disabled, settable, string) DFE Value: 12.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									318 文本 GHz ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									319 文本 Ideal: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									320 复选框 (settable, string) DFE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QCheckBox
+				147 选项卡 (settable, string) Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					148 选项卡项目 (selectable, settable, string) Config. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					149 选项卡项目 (selectable, settable, string) Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					150 选项卡项目 (selectable, settable, string) Optimizer ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					151 选项卡项目 (selectable, settable, string) Responses ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					152 选项卡项目 (selectable, settable, string) Results ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					153 选项卡项目 (selectable, settable, string) Jitter ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					154 选项卡项目 (selectable, settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+			155 状态栏 ID: QApplication._StickyDialog.QMainWindow.QStatusBar
+				156 文本 Ready. | Perf. (Msmpls./min.): 10.5 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 5.0 DCD= 0.0 Pj= 6.0 ( 0.0) Rj= 1.2 ( 2.1) | COM: -999.00 dB ID: QApplication._StickyDialog.QMainWindow.QStatusBar.QLabel
+		157 菜单栏 (settable, string) ID: QApplication._StickyDialog.QMenuBar
+			158 菜单项目 (settable, string) File ID: QApplication._StickyDialog.QMenuBar.QAction
+			159 菜单项目 (settable, string) View ID: QApplication._StickyDialog.QMenuBar.QAction
+			160 菜单项目 (settable, string) Simulation ID: QApplication._StickyDialog.QMenuBar.QAction
+			161 菜单项目 (settable, string) Optimization ID: QApplication._StickyDialog.QMenuBar.QAction
+			162 菜单项目 (settable, string) Help ID: QApplication._StickyDialog.QMenuBar.QAction
+		330 对话框 Dialog Secondary Actions: Raise
+			331 窗格
+				332 工具栏 命令模块 ID: FolderBandModuleInner
+					333 按钮 帮助(&H) Description: 获取帮助。 ID: HelpButton
+					334 拆分按钮 视图 Description: 更改你的视图。 ID: ViewControl
+						335 按钮 视图滑块 Description: 更多选项 ID: SplitMenuButton
+					336 按钮 组织​​ Description: 组织该文件夹的内容。 ID: {7DDC1264-7E4D-4F74-BBC0-D191987C8D0F}
+					337 按钮 新建​​文件夹​​ Description: 新建文件夹。 ID: {E44616AD-6DF1-4B94-85A4-E465AE8A19DB}
+				338 窗格 控制项宿主 ID: ProperTreeHost
+					339 树 树视图 ID: 100
+						340 滚动条 (settable, float) 垂直滚动条 Value: 70 ID: NonClientVerticalScrollBar
+							341 按钮 上一行 ID: UpButton
+							342 按钮 向上翻页 ID: UpPageButton
+							343 缩略图 位置 ID: ScrollbarThumb
+							344 按钮 向下翻页 ID: DownPageButton
+							345 按钮 下一行 ID: DownButton
+						346 树项目 (selectable, settable, string) 快速访问 Value: 快速访问
+							347 树项目 (selectable, settable, string) 桌面 (已固定) Value: 桌面 (已固定)
+							348 树项目 (selectable, settable, string) 下载 (已固定) Value: 下载 (已固定)
+							349 树项目 (selectable, settable, string) 文档 (已固定) Value: 文档 (已固定)
+							350 树项目 (selectable, settable, string) 图片 (已固定) Value: 图片 (已固定)
+							351 树项目 (selectable, settable, string) docs Value: docs
+							352 树项目 (selectable, settable, string) outputs Value: outputs
+							353 树项目 (selectable, settable, string) pm-340-physical-input-transfer Value: pm-340-physical-input-transfer
+							354 树项目 (selectable, settable, string) VIAVI 入职 Value: VIAVI 入职
+						355 树项目 (selectable, settable, string) 桌面 Value: 桌面
+							356 树项目 (selectable, settable, string) 此电脑 Value: 此电脑
+								357 树项目 (selectable, settable, string) 3D 对象 Value: 3D 对象
+								358 树项目 (selectable, settable, string) 视频 Value: 视频
+								359 树项目 (selectable, settable, string) 图片 Value: 图片
+								360 树项目 (selectable, settable, string) 文档 Value: 文档
+								361 树项目 (selectable, settable, string) 下载 Value: 下载
+								362 树项目 (selectable, settable, string) 音乐 Value: 音乐
+								363 树项目 (selectable, settable, string) 桌面 Value: 桌面
+								364 树项目 (selectable, settable, string) 本地磁盘 (C:) Value: 本地磁盘 (C:)
+								365 树项目 (selectable, settable, string) storage (E:) Value: storage (E:)
+								366 树项目 (selectable, settable, string) Windows RE tools (R:) Value: Windows RE tools (R:)
+							367 树项目 (selectable, settable, string) 网络 Value: 网络
+				368 窗格 Shell 文件夹视图 ID: listview
+					369 列表 项目视图
+						370 标头 标题
+							371 拆分按钮 名称 ID: System.ItemNameDisplay
+								372 按钮 筛选器下拉列表 ID: DropDown
+							373 拆分按钮 修改日期 ID: System.DateModified
+								374 按钮 筛选器下拉列表 ID: DropDown
+							375 拆分按钮 类型 ID: System.ItemTypeText
+								376 按钮 筛选器下拉列表 ID: DropDown
+							377 拆分按钮 大小 ID: System.Size
+								378 按钮 筛选器下拉列表 ID: DropDown
+						379 列表项目 (selectable, settable, string) .claude Value: .claude ID: 0
+							380 图像
+							381 编辑 (settable, string) 名称 Value: .claude ID: System.ItemNameDisplay
+							382 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							383 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							384 编辑 大小 ID: System.Size
+						385 列表项目 (selectable, settable, string) .git Value: .git ID: 1
+							386 图像
+							387 编辑 (settable, string) 名称 Value: .git ID: System.ItemNameDisplay
+							388 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎23:41 ID: System.DateModified
+							389 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							390 编辑 大小 ID: System.Size
+						391 列表项目 (selectable, settable, string) .github Value: .github ID: 2
+							392 图像
+							393 编辑 (settable, string) 名称 Value: .github ID: System.ItemNameDisplay
+							394 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							395 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							396 编辑 大小 ID: System.Size
+						397 列表项目 (selectable, settable, string) .pytest_cache Value: .pytest_cache ID: 3
+							398 图像
+							399 编辑 (settable, string) 名称 Value: .pytest_cache ID: System.ItemNameDisplay
+							400 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:50 ID: System.DateModified
+							401 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							402 编辑 大小 ID: System.Size
+						403 列表项目 (selectable, settable, string) .venv Value: .venv ID: 4
+							404 图像
+							405 编辑 (settable, string) 名称 Value: .venv ID: System.ItemNameDisplay
+							406 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:48 ID: System.DateModified
+							407 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							408 编辑 大小 ID: System.Size
+						409 列表项目 (selectable, settable, string) docs Value: docs ID: 5
+							410 图像
+							411 编辑 (settable, string) 名称 Value: docs ID: System.ItemNameDisplay
+							412 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎22:58 ID: System.DateModified
+							413 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							414 编辑 大小 ID: System.Size
+						415 列表项目 (selectable, settable, string) examples Value: examples ID: 6
+							416 图像
+							417 编辑 (settable, string) 名称 Value: examples ID: System.ItemNameDisplay
+							418 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							419 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							420 编辑 大小 ID: System.Size
+						421 列表项目 (selectable, settable, string) local Value: local ID: 7
+							422 图像
+							423 编辑 (settable, string) 名称 Value: local ID: System.ItemNameDisplay
+							424 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:49 ID: System.DateModified
+							425 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							426 编辑 大小 ID: System.Size
+						427 列表项目 (selectable, settable, string) misc Value: misc ID: 8
+							428 图像
+							429 编辑 (settable, string) 名称 Value: misc ID: System.ItemNameDisplay
+							430 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							431 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							432 编辑 大小 ID: System.Size
+						433 列表项目 (selectable, settable, string) models Value: models ID: 9
+							434 图像
+							435 编辑 (settable, string) 名称 Value: models ID: System.ItemNameDisplay
+							436 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							437 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							438 编辑 大小 ID: System.Size
+						439 列表项目 (selectable, settable, string) PyAMI Value: PyAMI ID: 10
+							440 图像
+							441 编辑 (settable, string) 名称 Value: PyAMI ID: System.ItemNameDisplay
+							442 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							443 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							444 编辑 大小 ID: System.Size
+						445 列表项目 (selectable, settable, string) PyChOpMarg Value: PyChOpMarg ID: 11
+							446 图像
+							447 编辑 (settable, string) 名称 Value: PyChOpMarg ID: System.ItemNameDisplay
+							448 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:43 ID: System.DateModified
+							449 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							450 编辑 大小 ID: System.Size
+						451 列表项目 (selectable, settable, string) source Value: source ID: 12
+							452 图像
+							453 编辑 (settable, string) 名称 Value: source ID: System.ItemNameDisplay
+							454 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎22:17 ID: System.DateModified
+							455 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							456 编辑 大小 ID: System.Size
+						457 列表项目 (selectable, settable, string) src Value: src ID: 13
+							458 图像
+							459 编辑 (settable, string) 名称 Value: src ID: System.ItemNameDisplay
+							460 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:47 ID: System.DateModified
+							461 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							462 编辑 大小 ID: System.Size
+						463 列表项目 (selectable, settable, string) tests Value: tests ID: 14
+							464 图像
+							465 编辑 (settable, string) 名称 Value: tests ID: System.ItemNameDisplay
+							466 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:49 ID: System.DateModified
+							467 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							468 编辑 大小 ID: System.Size
+						469 列表项目 (selectable, settable, string) type_stubs Value: type_stubs ID: 15
+							470 图像
+							471 编辑 (settable, string) 名称 Value: type_stubs ID: System.ItemNameDisplay
+							472 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							473 编辑 类型 Value: 文件夹 ID: System.ItemTypeText
+							474 编辑 大小 ID: System.Size
+						475 列表项目 (selectable, settable, string) .pre-commit-config.yaml Value: .pre-commit-config.yaml ID: 16
+							476 图像
+							477 编辑 (settable, string) 名称 Value: .pre-commit-config.yaml ID: System.ItemNameDisplay
+							478 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							479 编辑 类型 Value: Yaml 源文件 ID: System.ItemTypeText
+							480 编辑 大小 Value: 1 KB ID: System.Size
+						481 列表项目 (selectable, settable, string) .readthedocs.yaml Value: .readthedocs.yaml ID: 17
+							482 图像
+							483 编辑 (settable, string) 名称 Value: .readthedocs.yaml ID: System.ItemNameDisplay
+							484 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							485 编辑 类型 Value: Yaml 源文件 ID: System.ItemTypeText
+							486 编辑 大小 Value: 1 KB ID: System.Size
+						487 列表项目 (selectable, settable, string) _config.yml Value: _config.yml ID: 18
+							488 图像
+							489 编辑 (settable, string) 名称 Value: _config.yml ID: System.ItemNameDisplay
+							490 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎20:42 ID: System.DateModified
+							491 编辑 类型 Value: Yaml 源文件 ID: System.ItemTypeText
+							492 编辑 大小 Value: 1 KB ID: System.Size
+				493 文本 文件名: Description: 文件名: ID: SaveDialogLabel
+				494 组合框 (settable, string) 文件名: Value: E:\serial-bus-simulator\docs\webui\baseline\evidence\table-submission.yaml ID: FileNameControlHost
+					495 编辑 (settable, string) 文件名: Value: E:\serial-bus-simulator\docs\webui\baseline\evidence\table-submission.yaml ID: 1001
+					496 按钮 打开 ID: DropDown
+				497 文本 保存类型: Description: 保存类型: ID: SaveDialogLabel
+				498 组合框 (settable, string) 保存类型: Value: Yaml Config (*.yaml *.yml) ID: FileTypeControlHost
+					499 文本 (settable, string) Value: Yaml Config (*.yaml *.yml)
+					500 按钮 打开 ID: DropDown
+				501 树 保存字段 ID: SaveDialogPreviewMetadataInner
+				502 树 应用程序控件 ID: AppControlsModuleInner
+			503 工具栏
+				504 按钮 隐藏文件夹
+			505 按钮 保存(S) ID: 1
+			506 按钮 取消 ID: 2
+			507 缩略图 (settable, float) Value: 0
+			508 窗格 ID: 40965
+				509 窗格
+					510 工具栏 导航按钮
+						511 按钮 (disabled) 后退 (Alt + 向左键)
+						512 按钮 (disabled) 前进 (Alt + 向右键)
+						513 按钮 (disabled) 最近浏览的位置
+				514 窗格
+					515 工具栏 向上一级区段工具栏
+						516 按钮 上移到“storage (E:)”(Alt + 向上键)
+				517 窗格 ID: 41477
+					518 进度栏 Value: 0
+						519 窗格
+							520 工具栏 地址: E:\serial-bus-simulator ID: 1001
+								521 拆分按钮 所有位置
+								522 拆分按钮 此电脑
+								523 拆分按钮 storage (E:)
+								524 拆分按钮 ‎serial-bus-simulator
+						525 工具栏 地址区段工具栏
+							526 按钮 上一个位置
+							527 按钮 刷新“serial-bus-simulator”(F5)
+				528 窗格
+				529 窗格
+					530 窗格
+						531 窗格
+							532 编辑 (settable, string) 搜索框 Description: 在 serial-bus-simulator 中搜索 ID: SearchEditBox
+							533 按钮 搜索 ID: SearchBoxSearchButton
+				534 窗格
+			535 标题栏 (settable, string) Value: Dialog
+				536 菜单栏 系统 ID: MenuBar
+					537 菜单项目 系统
+				538 按钮 关闭
+
+Document text: ```
+12.0
+```

@@ -1,0 +1,37 @@
+Window: "PyBERT", App: python.exe.
+	0 窗口 (settable, string) PyBERT Secondary Actions: Raise ID: QApplication._StickyDialog
+		1 标题栏 (settable, string) Value: PyBERT
+			2 菜单栏 系统 ID: MenuBar
+				163 菜单项目 系统
+			4 按钮 最小化
+			5 按钮 最大化
+			6 按钮 关闭
+		7 窗口 (settable, string) Secondary Actions: Raise ID: QApplication._StickyDialog.QMainWindow
+			8 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget
+				9 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget
+					660 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget
+						661 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget
+							668 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget
+								669 文本 PyBERT User's Guide Note to developers This is NOT for you. Instead, open 'pybert/doc/_build/html/index.html' in a browser. PyBERT User Help Options Hover over any user-settable value in the Config. tab, for help message. Peruse the General Tips & Help by Tab sections, below. Visit the PyBERT FAQ at: https://github.com/capn-freako/PyBERT/wiki/pybert_faq. Send e-mail to David Banas at capn.freako@gmail.com. General Tips Main Window Status Bar The status bar, at the bottom of the window, gives the following information, from left to right:. (Note: the individual pieces of information are separated by vertical bar, or 'pipe', characters.) Current state of, and/or activity engaged in by, the program. Simulator performance, in mega-samples per minute. A 'sample' corresponds to a single value in the signal vector being processed. The observed delay in the channel; can be used as a sanity check, if you know your channel. The number of bit errors detected in the last successful simulation run. The average power dissipated by the transmitter, assuming perfect matching to the channel ,no reflections, and a 50-Ohm system impedance. The jitter breakdown for the last run, taken at DFE output. (Parenthesized numbers are Dual-Dirac equivalents.)) Help by Tab Config. This tab allows you to configure the simulation. Hover over any user configurable element for a help message. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QLabel
+						664 选项卡 (settable, string) User's Guide ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							665 选项卡项目 (selectable, settable, string) Performance ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							666 选项卡项目 (selectable, settable, string) User's Guide ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							667 选项卡项目 (selectable, settable, string) Console ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+				147 选项卡 (settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					148 选项卡项目 (selectable, settable, string) Config. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					149 选项卡项目 (selectable, settable, string) Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					150 选项卡项目 (selectable, settable, string) Optimizer ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					151 选项卡项目 (selectable, settable, string) Responses ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					152 选项卡项目 (selectable, settable, string) Results ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					153 选项卡项目 (selectable, settable, string) Jitter ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					154 选项卡项目 (selectable, settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+			155 状态栏 ID: QApplication._StickyDialog.QMainWindow.QStatusBar
+				156 文本 Ready. | Perf. (Msmpls./min.): 10.5 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 5.0 DCD= 0.0 Pj= 6.0 ( 0.0) Rj= 1.2 ( 2.1) | COM: -999.00 dB ID: QApplication._StickyDialog.QMainWindow.QStatusBar.QLabel
+		157 菜单栏 (settable, string) ID: QApplication._StickyDialog.QMenuBar
+			158 菜单项目 (settable, string) File ID: QApplication._StickyDialog.QMenuBar.QAction
+			159 菜单项目 (settable, string) View ID: QApplication._StickyDialog.QMenuBar.QAction
+			160 菜单项目 (settable, string) Simulation ID: QApplication._StickyDialog.QMenuBar.QAction
+			161 菜单项目 (settable, string) Optimization ID: QApplication._StickyDialog.QMenuBar.QAction
+			162 菜单项目 (settable, string) Help ID: QApplication._StickyDialog.QMenuBar.QAction
+
+The focused UI element is 660 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.

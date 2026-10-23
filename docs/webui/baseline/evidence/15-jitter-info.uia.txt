@@ -1,0 +1,37 @@
+Window: "PyBERT", App: python.exe.
+	0 窗口 (settable, string) PyBERT Secondary Actions: Raise ID: QApplication._StickyDialog
+		1 标题栏 (settable, string) Value: PyBERT
+			2 菜单栏 系统 ID: MenuBar
+				163 菜单项目 系统
+			4 按钮 最小化
+			5 按钮 最大化
+			6 按钮 关闭
+		7 窗口 (settable, string) Secondary Actions: Raise ID: QApplication._StickyDialog.QMainWindow
+			8 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget
+				9 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget
+					648 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget
+						649 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget
+							658 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget
+								659 文本 Jitter Rejection by Equalization Component Tx Preemphasis Jitter Component Input (ps) Output (ps) Rejection (dB) ISI 26.601 26.706 -0.0 DCD 0.001 0.067 -19.2 Pj 0.000 4.197 n/a Rj 0.000 1.273 n/a CTLE (+ AMI DFE) Jitter Component Input (ps) Output (ps) Rejection (dB) ISI 26.706 23.981 0.5 DCD 0.067 0.058 0.6 Pj 4.197 2.557 2.2 Rj 1.273 0.663 2.8 DFE Jitter Component Input (ps) Output (ps) Rejection (dB) ISI 23.981 4.963 6.8 DCD 0.058 0.031 2.7 Pj 2.557 5.956 -3.7 Rj 0.663 1.217 -2.6 TOTAL Jitter Component Input (ps) Output (ps) Rejection (dB) ISI 26.601 4.963 7.3 DCD 0.001 0.031 -15.9 Pj 4.197 5.956 -1.5 Rj 1.273 1.217 0.2 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QLabel
+						652 选项卡 (settable, string) Jitter Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							653 选项卡项目 (selectable, settable, string) Jitter Dist. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							654 选项卡项目 (selectable, settable, string) Jitter Spec. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							655 选项卡项目 (selectable, settable, string) Jitter Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+				147 选项卡 (settable, string) Jitter ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					148 选项卡项目 (selectable, settable, string) Config. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					149 选项卡项目 (selectable, settable, string) Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					150 选项卡项目 (selectable, settable, string) Optimizer ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					151 选项卡项目 (selectable, settable, string) Responses ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					152 选项卡项目 (selectable, settable, string) Results ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					153 选项卡项目 (selectable, settable, string) Jitter ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					154 选项卡项目 (selectable, settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+			155 状态栏 ID: QApplication._StickyDialog.QMainWindow.QStatusBar
+				156 文本 Ready. | Perf. (Msmpls./min.): 10.5 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 5.0 DCD= 0.0 Pj= 6.0 ( 0.0) Rj= 1.2 ( 2.1) | COM: -999.00 dB ID: QApplication._StickyDialog.QMainWindow.QStatusBar.QLabel
+		157 菜单栏 (settable, string) ID: QApplication._StickyDialog.QMenuBar
+			158 菜单项目 (settable, string) File ID: QApplication._StickyDialog.QMenuBar.QAction
+			159 菜单项目 (settable, string) View ID: QApplication._StickyDialog.QMenuBar.QAction
+			160 菜单项目 (settable, string) Simulation ID: QApplication._StickyDialog.QMenuBar.QAction
+			161 菜单项目 (settable, string) Optimization ID: QApplication._StickyDialog.QMenuBar.QAction
+			162 菜单项目 (settable, string) Help ID: QApplication._StickyDialog.QMenuBar.QAction
+
+The focused UI element is 648 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.

@@ -1,0 +1,11 @@
+{
+  "baseline_file": "numeric-mouse-run-failure.txt",
+  "current_file": "launch-stderr.txt",
+  "baseline_bytes": 2015,
+  "current_bytes": 2015,
+  "baseline_is_prefix": true,
+  "new_stderr_bytes": 0,
+  "baseline_sha256": "60cf32b5a2e565c3d9f08b2bea15bf790ee659b183537f92371f8f127f2658e3",
+  "current_sha256": "60cf32b5a2e565c3d9f08b2bea15bf790ee659b183537f92371f8f127f2658e3",
+  "limitation": "No new stderr alone does not prove success; correlate GUI Console completion."
+}

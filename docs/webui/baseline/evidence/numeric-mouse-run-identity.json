@@ -1,0 +1,46 @@
+{
+  "source_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+  "evidence_kind": "prior GUI export plus observed subsequent GUI edits; not a native frozen run snapshot",
+  "operation_source": "user physical mouse; agent post-operation screenshot/UIA and stderr collection",
+  "prior_gui_export": "table-submission.yaml",
+  "prior_gui_export_sha256": "13aba3b581daf6a2381a69db6384828cdeced6d3ac42cb74eae95d703902dda7",
+  "observed_input_changes_since_export": {
+    "nbits": 4000,
+    "eye_bits": 4000
+  },
+  "known_values": {
+    "seed": 1,
+    "rn": 0.01,
+    "pn_mag": 0.01,
+    "rx_taps_values_0_1_3": [
+      0.02,
+      0.03,
+      0.04
+    ]
+  },
+  "first_click_input_identity": "prior GUI export with the two observed nbits/eye_bits overrides",
+  "limitations": [
+    "GUI does not freeze or expose a run ID/input snapshot.",
+    "Two exception traces (Thread-1 and Thread-2) were observed. Exact mouse action count and second-run AGC input are not independently frozen.",
+    "Do not treat prior startup plots or Running DFE/CDR status as a success result."
+  ],
+  "observed_outcome": "ValueError in calc_ber; thread terminated; GUI status remained Running DFE/CDR...",
+  "error_details": {
+    "len_bits_ref": 3994,
+    "len_bits_tst": 4000,
+    "bit_dly": 6,
+    "len_bits": 4000
+  },
+  "evidence": [
+    "45-mouse-run-before.uia.txt",
+    "47-user-numeric-run-after.uia.txt",
+    "48-user-numeric-run-status.uia.txt",
+    "numeric-mouse-run-failure.txt"
+  ],
+  "independent_next_sample": {
+    "nbits": 4000,
+    "eye_bits": 3000,
+    "rx_pre_tap5_active_editor": 0.05,
+    "run_not_yet_observed": true
+  }
+}

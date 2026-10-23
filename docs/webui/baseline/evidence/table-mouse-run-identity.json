@@ -1,0 +1,50 @@
+{
+  "source_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+  "evidence_kind": "GUI preparation, user mouse action report, agent post-operation observation and native export",
+  "operation_source": "user physical mouse; user reported: 已点击 Run，表格显示 +0.050",
+  "before_observation": {
+    "file": "51-table-mouse-run-before.uia.txt",
+    "nbits": 4000,
+    "eye_bits": 3000,
+    "rx_pre_tap5_active_editor_text": "0.05",
+    "enter_or_tab_not_pressed": true
+  },
+  "after_observation": {
+    "file": "52-user-table-run-after.uia.txt",
+    "rx_pre_tap5_display": "+0.050",
+    "editor_closed": true,
+    "status": "Ready."
+  },
+  "console_completion_timestamps_utc": [
+    "2026-10-23T16:01:27.975318+00:00",
+    "2026-10-23T16:01:50.456489+00:00"
+  ],
+  "console_completion_records_observed": 2,
+  "stderr_delta_check": "table-mouse-run-stderr-check.json",
+  "post_gui_export": {
+    "file": "table-mouse-run-post.yaml",
+    "sha256": "e249cc9bcd5af0cf53fc9b0c93f624e6ab38b5557359f8861b507dc5de1ad0fa",
+    "nbits": "4000",
+    "eye_bits": "3000",
+    "rx_taps_first_value": "0.05",
+    "decision_scaler": "0.3019818488973055"
+  },
+  "observed_outcome": "Ordinary simulation returned normally according to two completion logs and GUI post-state; no new stderr relative to earlier failure record.",
+  "limitations": [
+    "GUI does not expose a run ID or immutable input snapshot.",
+    "Two completion records were observed; do not claim a single Run or a uniquely paired mouse event.",
+    "Post-operation export is not either run input; AGC input was not frozen independently for each invocation.",
+    "No per-run raw array comparison was performed; this does not qualify Web or numerical equivalence."
+  ],
+  "preserved_independent_failure": "numeric-mouse-run-failure.txt",
+  "evidence": [
+    "51-table-mouse-run-before.uia.txt",
+    "52-user-table-run-after.uia.txt",
+    "53-user-table-run-console.uia.txt",
+    "table-mouse-run-console.txt",
+    "table-mouse-run-stderr-check.json",
+    "54-post-config-save-path.uia.txt",
+    "55-post-config-saved.uia.txt",
+    "table-mouse-run-post.yaml"
+  ]
+}

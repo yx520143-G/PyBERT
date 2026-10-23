@@ -1,0 +1,58 @@
+{
+  "source": "GUI File / Save Config. As... export; parsed with yaml.BaseLoader (no Python object construction)",
+  "nbits": "6000",
+  "eye_bits": "6000",
+  "rx_n_taps": "15",
+  "rx_n_pre": "5",
+  "rx_taps_count": 100,
+  "rx_taps_first_six": [
+    [
+      "true",
+      "0.02",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "0.03",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "1.0",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "0.04",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "0.0",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "0.0",
+      "-1.0",
+      "1.0"
+    ]
+  ],
+  "tx_taps_count": 6,
+  "ffe_tap_tuners_count": 100,
+  "dfe_tap_tuners_count": 20,
+  "decision_scaler": "0.30014859348604045",
+  "conditions": {
+    "mod_type": "NRZ",
+    "ctle_enable": "true",
+    "cdr_type": "Bang-Bang",
+    "sum_ideal": "true",
+    "pkg_enable": "false",
+    "rx_use_viterbi": "false"
+  }
+}

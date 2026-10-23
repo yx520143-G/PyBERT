@@ -1,0 +1,35 @@
+E:\serial-bus-simulator\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+E:\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+E:\serial-bus-simulator\.venv\Lib\site-packages\chaco\plots\lineplot.py:297: UserWarning: Chaco.LinePlot: len(value) 960 - len(index) 640 = 320
+
+  warnings.warn(
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "C:\Users\yx\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "E:\serial-bus-simulator\src\pybert\threads\sim.py", line 32, in run
+    my_run_simulation(
+  File "E:\serial-bus-simulator\src\pybert\models\bert.py", line 642, in my_run_simulation
+    n_errs_dfe, bit_errs_dfe = calc_ber(bits_out_dfe)
+                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\serial-bus-simulator\src\pybert\models\bert.py", line 632, in calc_ber
+    raise ValueError("\n\t".join(
+ValueError: calc_ber():
+	len(bits_ref): 3994; len(bits_tst): 4000
+	bit_dly: 6; len(bits): 4000
+Exception in thread Thread-2:
+Traceback (most recent call last):
+  File "C:\Users\yx\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "E:\serial-bus-simulator\src\pybert\threads\sim.py", line 32, in run
+    my_run_simulation(
+  File "E:\serial-bus-simulator\src\pybert\models\bert.py", line 642, in my_run_simulation
+    n_errs_dfe, bit_errs_dfe = calc_ber(bits_out_dfe)
+                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\serial-bus-simulator\src\pybert\models\bert.py", line 632, in calc_ber
+    raise ValueError("\n\t".join(
+ValueError: calc_ber():
+	len(bits_ref): 3994; len(bits_tst): 4000
+	bit_dly: 6; len(bits): 4000

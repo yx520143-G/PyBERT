@@ -1,0 +1,168 @@
+Window: "PyBERT", App: python.exe.
+	0 窗口 (settable, string) PyBERT Secondary Actions: Raise ID: QApplication._StickyDialog
+		1 标题栏 (settable, string) Value: PyBERT
+			2 菜单栏 系统 ID: MenuBar
+				163 菜单项目 系统
+			4 按钮 最小化
+			5 按钮 最大化
+			6 按钮 关闭
+		7 窗口 (settable, string) Secondary Actions: Raise ID: QApplication._StickyDialog.QMainWindow
+			8 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget
+				9 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget
+					675 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget
+						676 组 (settable, string) Simulation Control ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox
+							677 组 (settable, string) Simulation Control ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox
+								678 文本 Bit Rate: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								679 编辑 (settable, string) Rate & Modulation Value: 10.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+								680 文本 Gbps ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								681 文本 Samps. per UI: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								682 编辑 (settable, string) Rate & Modulation Value: 32 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+								683 文本 Modulation: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								684 组合框 (settable, string) Rate & Modulation Value: NRZ ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QComboBox
+								685 文本 (disabled) RLM: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								686 编辑 (disabled, settable, string) Rate & Modulation Value: 0.95 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+							687 组 (settable, string) Simulation Control ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox
+								688 文本 Pattern: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								689 组合框 (settable, string) Test Pattern Value: PRBS-7 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QComboBox
+								690 组 (settable, string) Test Pattern ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+								691 文本 Seed: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								692 编辑 (settable, string) Test Pattern Value: 1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+								693 文本 Nbits: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								694 编辑 (settable, string) Test Pattern Value: 8000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+								695 文本 EyeBits: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								696 编辑 (settable, string) Test Pattern Value: 8000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+							697 组 (settable, string) Simulation Control ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox
+								698 文本 Vod: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								699 编辑 (settable, string) Tx Level & Noise Value: 1.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+								700 文本 V ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								701 文本 Rn: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								702 编辑 (settable, string) Tx Level & Noise Value: 0.01 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+								703 文本 V ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								704 文本 Pn: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								705 编辑 (settable, string) Tx Level & Noise Value: 0.01 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+								706 文本 V ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								707 文本 f(Pn): ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								708 编辑 (settable, string) Tx Level & Noise Value: 11 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLineEdit
+								709 文本 MHz ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+							710 组 (settable, string) Simulation Control ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox
+								711 文本 Debug: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								712 复选框 (settable, string) Misc. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QCheckBox
+								713 文本 (disabled) Compute COM: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								714 复选框 (disabled, settable, string) Misc. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QCheckBox
+								715 文本 (disabled) Include FEXT: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								716 复选框 (disabled, settable, string) Misc. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QCheckBox
+						717 组 (settable, string) Analysis Parameters ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox
+							718 文本 Impulse Response Length: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							719 编辑 (settable, string) Analysis Parameters Value: 0.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLineEdit
+							720 文本 ns ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							721 文本 Pj Threshold: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							722 编辑 (settable, string) Analysis Parameters Value: 3.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLineEdit
+							723 文本 sigma ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							724 文本 fMax: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							725 编辑 (settable, string) Analysis Parameters Value: 40 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLineEdit
+							726 文本 GHz ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							727 文本 fStep: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							728 编辑 (settable, string) Analysis Parameters Value: 10 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLineEdit
+							729 文本 MHz ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+						730 组 (settable, string) Channel ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox
+							731 组 (settable, string) Channel ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox
+								732 文本 Tx sel: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								733 组 (settable, string) Tx ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+									734 单选按钮 (selectable, settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QRadioButton
+									735 单选按钮 (selectable, settable, string) Ibis ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QRadioButton
+								736 组 (settable, string) Tx ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+									737 文本 Tx_Rs: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									738 编辑 (settable, string) Value: 100 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLineEdit
+									739 文本 Ohms ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									740 文本 Tx_Cout: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									741 编辑 (settable, string) Value: 0.5 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLineEdit
+									742 文本 pF ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+								743 组 (settable, string) Tx ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+							744 组 (settable, string) Channel ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox
+								745 文本 Model: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								746 组 (settable, string) Interconnect ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+									747 单选按钮 (selectable, settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QRadioButton
+									748 单选按钮 (selectable, settable, string) Single ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QRadioButton
+									749 单选按钮 (selectable, settable, string) Multiple ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QRadioButton
+								750 组 (settable, string) Interconnect ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+								751 文本 (disabled) Fix port numbering: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								752 复选框 (disabled, settable, string) Interconnect ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QCheckBox
+								753 文本 (disabled) Apply window: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								754 复选框 (disabled, settable, string) Interconnect ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QCheckBox
+								755 组 (settable, string) Interconnect ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox
+									756 文本 Length: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									757 编辑 (settable, string) Native Value: 0.5 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLineEdit
+									758 文本 m ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									759 文本 Loss Tan. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									760 编辑 (settable, string) Native Value: 0.02 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLineEdit
+									761 文本 Z0: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									762 编辑 (settable, string) Native Value: 100 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLineEdit
+									763 文本 Ohms ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									764 文本 v_rel: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									765 编辑 (settable, string) Native Value: 0.67 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLineEdit
+									766 文本 c ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									767 文本 Rdc: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									768 编辑 (settable, string) Native Value: 0.1876 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLineEdit
+									769 文本 Ohms ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									770 文本 w0: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									771 编辑 (settable, string) Native Value: 10000000.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLineEdit
+									772 文本 rads./s ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									773 文本 R0: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									774 编辑 (settable, string) Native Value: 1.452 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLineEdit
+									775 文本 Ohms ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									776 组 (settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QWidget
+								777 组 (settable, string) Interconnect ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox
+									778 文本 Enable: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									779 复选框 (settable, string) Tx/Rx Device Models (P802.3dj Annex 178A) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QCheckBox
+									780 文本 (disabled) Group: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									781 组合框 (disabled, settable, string) Tx/Rx Device Models (P802.3dj Annex 178A) Value: KR ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QComboBox
+									782 文本 (disabled) Tx case: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									783 编辑 (disabled, settable, string) Tx/Rx Device Models (P802.3dj Annex 178A) Value: A1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLineEdit
+									784 文本 (disabled) Rx case: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									785 编辑 (disabled, settable, string) Tx/Rx Device Models (P802.3dj Annex 178A) Value: A1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLineEdit
+									786 文本 (disabled) Partial host: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QLabel
+									787 复选框 (disabled, settable, string) Tx/Rx Device Models (P802.3dj Annex 178A) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QGroupBox.QCheckBox
+								788 组 (settable, string) Interconnect ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+							789 组 (settable, string) Channel ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox
+								790 文本 Rx sel: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QLabel
+								791 组 (settable, string) Rx ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+									792 单选按钮 (selectable, settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QRadioButton
+									793 单选按钮 (selectable, settable, string) Ibis ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QRadioButton
+								794 组 (settable, string) Rx ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+									795 文本 Rx_Rin: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									796 编辑 (settable, string) Value: 100 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLineEdit
+									797 文本 Ohms ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									798 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QWidget
+									799 文本 Rx_Cin: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									800 编辑 (settable, string) Value: 0.5 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLineEdit
+									801 文本 pF ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									802 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QWidget
+									803 文本 Rx_Cac: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									804 编辑 (settable, string) Value: 1.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLineEdit
+									805 文本 uF ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									806 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QWidget
+									807 文本 Use Viterbi: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									808 复选框 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QCheckBox
+									809 文本 (disabled) Trellis Depth: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLabel
+									810 编辑 (disabled, settable, string) Value: 4 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget.QLineEdit
+								811 组 (settable, string) Rx ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QGroupBox.QWidget
+				147 选项卡 (settable, string) Config. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					148 选项卡项目 (selectable, settable, string) Config. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					149 选项卡项目 (selectable, settable, string) Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					150 选项卡项目 (selectable, settable, string) Optimizer ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					151 选项卡项目 (selectable, settable, string) Responses ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					152 选项卡项目 (selectable, settable, string) Results ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					153 选项卡项目 (selectable, settable, string) Jitter ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					154 选项卡项目 (selectable, settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+			155 状态栏 ID: QApplication._StickyDialog.QMainWindow.QStatusBar
+				156 文本 Ready. | Perf. (Msmpls./min.): 10.5 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 5.0 DCD= 0.0 Pj= 6.0 ( 0.0) Rj= 1.2 ( 2.1) | COM: -999.00 dB ID: QApplication._StickyDialog.QMainWindow.QStatusBar.QLabel
+		157 菜单栏 (settable, string) ID: QApplication._StickyDialog.QMenuBar
+			158 菜单项目 (settable, string) File ID: QApplication._StickyDialog.QMenuBar.QAction
+			159 菜单项目 (settable, string) View ID: QApplication._StickyDialog.QMenuBar.QAction
+			160 菜单项目 (settable, string) Simulation ID: QApplication._StickyDialog.QMenuBar.QAction
+			161 菜单项目 (settable, string) Optimization ID: QApplication._StickyDialog.QMenuBar.QAction
+			162 菜单项目 (settable, string) Help ID: QApplication._StickyDialog.QMenuBar.QAction
+
+Document text: ```
+4
+```
