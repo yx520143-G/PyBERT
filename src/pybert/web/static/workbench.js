@@ -34,9 +34,8 @@
     if (!base) return;
     const next = toNative(ui.getDraft());
     for (const key of Object.keys(next)) if (!equal(next[key], captured[key])) {
-      const boundary = patches.findLastIndex(p => ['rx_n_pre','rx_n_taps'].includes(p.field));
-      const existing = patches.findLastIndex(p => p.field === key);
-      if (!['rx_n_pre','rx_n_taps'].includes(key) && existing > boundary) patches[existing].value = clone(next[key]);
+      const previous = patches.at(-1);
+      if (!['rx_n_pre','rx_n_taps'].includes(key) && previous?.field === key) previous.value = clone(next[key]);
       else patches.push({field:key,value:clone(next[key])});
     }
     captured = next;

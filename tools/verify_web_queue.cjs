@@ -1,0 +1,22 @@
+/* Use the shipped record() handler; intermediate edits must retain their observer order. */
+const fs=require('node:fs');
+const path=require('node:path');
+const vm=require('node:vm');
+const assert=require('node:assert/strict');
+const fixture=JSON.parse(fs.readFileSync(path.join(__dirname,'../docs/webui/issue2/fixtures/F-NRZ-01.json'),'utf8'));
+const element=()=>({addEventListener(){}});
+const window={addEventListener(){},PYBERT_WORKBENCH:{getDraft(){return window.testDraft;}}};
+const context=vm.createContext({window,document:{getElementById:element,addEventListener(){}},setTimeout,clearTimeout});
+vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/pybert/web/static/settings.js'),'utf8'),context);
+let source=fs.readFileSync(path.join(__dirname,'../src/pybert/web/static/workbench.js'),'utf8');
+assert(source.includes('  init().catch(inputError);'));
+source=source.replace('  init().catch(inputError);',`window.queueTest={start(config){base=config;window.testDraft=toDraft(config);captured=toNative(window.testDraft);patches=[];},edit(field,value){window.testDraft[field]=value;record();},result(){return clone(patches);}};`);
+vm.runInContext(source,context);
+window.queueTest.start(fixture);
+for (const [field,value] of [['f_max',200],['nspui',64],['f_max',300]]) window.queueTest.edit(field,value);
+const queue=window.queueTest.result();
+assert.equal(JSON.stringify(queue),JSON.stringify([{field:'f_max',value:200},{field:'nspui',value:64},{field:'f_max',value:300}]));
+window.queueTest.start(fixture);
+window.queueTest.edit('rx_n_pre',0);window.queueTest.edit('rx_n_pre',5);
+assert.equal(window.queueTest.result().length,2);
+process.stdout.write(JSON.stringify({queue,dimension_edits_retained:true}));
