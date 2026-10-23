@@ -92,19 +92,22 @@
       timer = setTimeout(validateWhenIdle, 200);
     } else $('input-status').textContent = activeTask ? 'Draft edited; native validation pending until worker exit.' : 'Draft edited; commit the field to validate.';
   });
-  function pickPlot() {
+  function observation() {
+    return $('analysis-point').value === 'node' ? ({channel:'chnl',tx:'tx',noise:'tx',ctle:'ctle',rxffe:'ffe',dfe:'dfe',cdr:'dfe',agc:'dfe',analysis:'dfe'})[ui.getStage()] : $('analysis-point').value;
+  }
+  function pickPlot(chosenPoint = observation()) {
     const stage = ui.getStage(), kind = $('analysis-kind').value;
-    const point = ({source:'ideal_signal',noise:'rx_in',tx:'rx_in',channel:'chnl_out',ctle:'ctle_out',rxffe:'ffe_out',dfe:'dfe_out',agc:'dfe_out',cdr:'dfe_out'})[stage];
+    const point = ({chnl:'chnl_out',tx:'rx_in',ctle:'ctle_out',ffe:'ffe_out',dfe:'dfe_out'})[chosenPoint];
     if (kind === 'response') {
-      let response = ({channel:'chnl',tx:'tx',ctle:'ctle',rxffe:'ffe',dfe:'dfe'})[stage];
+      let response = chosenPoint;
       if (!response) return null;
+      if (response === 'chnl' && $('response-type').value === 'H') return 'channel.frequency';
       if ($('response-scope').value === 'cumulative' && response !== 'chnl') response += '_out';
       return `${response}_${$('response-type').value}`;
     }
-    if (kind === 'wave') return stage === 'analysis' ? 'waveforms' : point ? `wave.${point}` : null;
-    if (kind === 'eye') return ['tx','noise'].includes(stage) ? 'eye.rx_in' : ['dfe','cdr','agc'].includes(stage) ? 'eye.dfe' : null;
-    if (kind.startsWith('jitter.')) return ['dfe','analysis','cdr'].includes(stage) ? kind : null;
-    if (kind === 'adaptation' || kind === 'cdr') return kind;
+    if (kind === 'wave') return point ? `wave.${point}` : stage === 'source' ? 'wave.ideal_signal' : null;
+    if (kind === 'eye') return chosenPoint ? `eye.${chosenPoint}${chosenPoint === 'chnl' && $('channel-noise').checked ? '.gui_noise' : ''}` : null;
+    if (kind.startsWith('jitter.') && kind !== 'jitter.info') return chosenPoint ? `jitter.${chosenPoint}.${kind.split('.')[1]}` : null;
     return kind;
   }
   function empty(message) { Plotly.purge('plot'); $('plot').innerHTML = `<p class="empty-result">${esc(message)}</p>`; }
@@ -112,20 +115,33 @@
     const token = ++renderToken;
     $('analysis-info').innerHTML = '';
     $('response-type').hidden = $('response-scope').hidden = $('analysis-kind').value !== 'response';
+    $('channel-noise-label').hidden = $('analysis-kind').value !== 'eye';
     if (!selected) return empty('No successful native run. Run the engine to inspect real data.');
     $('run-log-id').textContent = `Selected successful run: ${selected.run_id}`;
     $('run-log').textContent = (selected.logs || []).join('\n');
     const id = pickPlot();
     $('plot').classList.toggle('text-mode',['overview','jitter.info','compare'].includes(id));
-    if (!id) return empty('This observation is unavailable in #2 at this node. Rx input and DFE eyes are supported; additional eye/jitter points are tracked in #3.');
+    if (['overview','jitter.info','compare'].includes(id)) $('plot').style.height='auto';
+    if (!id) return empty('No matching observation at this node. Choose an explicit Point.');
     if (id === 'overview') {
       empty(`Run ${selected.run_id} · ${selected.effective_input.mod_type} · ${selected.input_hash.slice(0,12)}`);
       $('analysis-info').innerHTML = `<pre>${esc(JSON.stringify({summary:selected.summary,window:selected.window,warnings:selected.warnings,native_sha:selected.native_sha,adapter_sha:selected.adapter_sha},null,2))}</pre>`;
       return;
     }
     if (id === 'jitter.info') {
-      empty('DFE crossing-jitter statistics · ISI/DCD/PJ peak-to-peak, RJ sigma; dual-Dirac estimates are reference only.');
-      $('analysis-info').innerHTML = `<table><tr><th>Metric</th><th>ps</th></tr>${Object.entries(selected.summary.dfe_jitter_s).map(([key,value]) => `<tr><td>${esc(key)}</td><td>${(value*1e12).toPrecision(8)}</td></tr>`).join('')}</table><p>Native CTLE→DFE comparison includes Rx FFE. Crossing jitter does not certify voltage eye margin or BER.</p>`;
+      if (!selected.observations) {
+        empty(`Legacy DFE crossing-jitter summary · raw schema ${selected.raw_schema_version}. Other observations, fit validity and rejection segments are unavailable; no calculation started.`);
+        $('analysis-info').innerHTML = `<table><tr><th>Stored DFE metric</th><th>ps · raw reference</th></tr>${Object.entries(selected.summary.dfe_jitter_s || {}).map(([key,value]) => `<tr><td>${esc(key)}</td><td>${(value*1e12).toPrecision(8)}${['rjDD','mu_pos','mu_neg'].includes(key)?' · fit validity unknown':''}</td></tr>`).join('')}</table>`;
+        return;
+      }
+      empty('Crossing jitter · ISI/DCD/PJ peak-to-peak, RJ sigma; dual-Dirac is reference only, not bathtub parameters.');
+      const info = Object.values(selected.observations), metrics = ['isi','dcd','pj','rj','pjDD','rjDD','mu_pos','mu_neg','dj_pos','dj_neg'];
+      function statistic(p,key) {
+        if (p.statistics_s[key] == null) return esc(p.reason);
+        const raw=(p.statistics_s[key]*1e12).toPrecision(8);
+        return ['rjDD','mu_pos','mu_neg'].includes(key) && p.dual_dirac_fit?.availability !== 'available' ? `${esc(p.dual_dirac_fit?.availability || 'unknown')} · raw reference ${raw}` : raw;
+      }
+      $('analysis-info').innerHTML = `<table><tr><th>Metric (ps)</th>${info.map(p => `<th>${esc(p.label)}</th>`).join('')}</tr>${metrics.map(key => `<tr><td>${key}</td>${info.map(p => `<td>${statistic(p,key)}</td>`).join('')}</tr>`).join('')}</table><p>PAM4: only symmetric transitions about 0V inform the crossing statistics. Data-independent PDF is not a tail extrapolation. Bathtubs use separated RJ and bounded dj_pos/dj_neg; this is a timing estimate.</p>${info.map(p => `<p>${esc(p.label)} · DD fit ${esc(p.dual_dirac_fit?.availability || 'unknown')}: ${esc(p.dual_dirac_fit?.reason || 'finite native fit covariance')}.</p>`).join('')}<table><tr><th>Segment</th><th>Metric</th><th>Rejection ratio</th></tr>${selected.jitter_rejection.map(r => `<tr><td>${esc(r.segment)} (${r.source}→${r.target})</td><td>${r.metric}</td><td>${r.availability === 'available' ? r.raw_ratio.toPrecision(7) : esc(r.reason)}</td></tr>`).join('')}</table>`;
       return;
     }
     if (id === 'compare') {
@@ -137,12 +153,62 @@
       $('analysis-info').innerHTML = `<table><tr><th></th><th>A ${esc(a.run_id.slice(0,8))}</th><th>B ${esc(b.run_id.slice(0,8))}</th></tr>${['n_errs_dfe','chnl_dly_s','rel_power','initial_level_v','final_level_v'].map(key => `<tr><td>${key}</td><td>${a.summary[key]}</td><td>${b.summary[key]}</td></tr>`).join('')}</table><p>Input differences: ${esc(differences.join(', ') || 'None')}</p><pre>${esc(JSON.stringify(differences.map(key => ({field:key,A:a.effective_input[key],B:b.effective_input[key]})),null,2))}</pre><p>A window ${esc(JSON.stringify(a.window))}<br>B window ${esc(JSON.stringify(b.window))}</p>`;
       return;
     }
-    if (!selected.plots[id]) return empty('This dataset is unavailable for this run.');
-    const plot = await api(`runs/${selected.run_id}/plots/${id}`);
-    if (token !== renderToken || plot.run_id !== selected.run_id) return;
+    const compare = $('compare-mode').value, kind = $('analysis-kind').value;
+    const pointKinds = ['response','wave','eye','jitter.dist','jitter.spec','jitter.bathtub'];
+    const points = compare === 'points' && pointKinds.includes(kind) ? ['chnl','tx','ctle','ffe','dfe'] : [observation()];
+    let sources = [selected];
+    if (compare === 'runs') {
+      const other = runs.find(r => r.run_id !== selected.run_id);
+      if (!other) return empty('Two successful runs are required for chart comparison.');
+      sources.push(await api(`runs/${other.run_id}`));
+    }
+    if (token !== renderToken) return;
+    const requests = sources.flatMap(run => points.map(point => {
+      let id=pickPlot(point);
+      if (!run.analysis_version) {
+        if (id === 'channel.frequency') id='chnl_H';
+        if (id === 'eye.tx') id='eye.rx_in';
+        if (id === 'jitter.dfe.dist') id='jitter.dist';
+        if (id === 'jitter.dfe.spec') id='jitter.spec';
+      }
+      return {run,id};
+    }));
+    const missing = requests.filter(r => !r.run.plots[r.id]);
+    if (missing.length) return empty(`Analysis unavailable for ${missing.map(r => `${r.run.run_id.slice(0,8)} / ${r.id} (raw schema ${r.run.raw_schema_version})`).join(', ')}. Saved runs are immutable; switching views does not calculate missing datasets.`);
+    const charts = await Promise.all(requests.map(async r => {
+      const plot=await api(`runs/${r.run.run_id}/plots/${r.id}`);
+      if (!r.run.analysis_version && r.id === 'chnl_H') {
+        plot.title='Legacy Channel actual termination · raw schema 2; three-source view unavailable';
+        plot.data.forEach(trace => { trace.name='Legacy actual termination · three-source view unavailable'; });
+        plot.metadata={...plot.metadata,legacy_note:plot.title,source_field:'chnl_H'};
+      }
+      return {...plot,run:r.run};
+    }));
+    if (token !== renderToken) return;
+    const unavailable = charts.filter(p => p.availability === 'unavailable');
+    if (unavailable.length) return empty(unavailable.map(p => `${p.run_id.slice(0,8)} · ${p.title}: ${p.reason}`).join(' | '));
+    const first = charts[0], heatmap = first.data[0]?.type === 'heatmap';
+    if (charts.some(p => p.xunit !== first.xunit || p.yunit !== first.yunit || p.logx !== first.logx || (p.data[0]?.type === 'heatmap') !== heatmap)) return empty('Incompatible units, axis scales or dataset types; no index-based overlay is allowed.');
     $('plot').innerHTML = '';
-    await Plotly.newPlot('plot',plot.data,{title:{text:plot.title,font:{size:14}},margin:{l:65,r:30,t:50,b:50},xaxis:{title:{text:plot.xunit},type:plot.logx?'log':'linear'},yaxis:{title:{text:plot.yunit}},legend:{orientation:'h',y:-.22},paper_bgcolor:'#fff',plot_bgcolor:'#f7f9fc',font:{family:'Arial',size:11}},{responsive:true,displaylogo:false});
-    $('analysis-info').textContent = `Run ${plot.run_id} · ${id} · ${selected.effective_input.mod_type}. ${id.startsWith('dfe') ? 'DFE response is a final-weight equivalent FIR, not a nonlinear transfer function.' : ''}`;
+    const facets = heatmap && charts.length > 1, rows = facets ? Math.ceil(charts.length/2) : 1;
+    $('plot').style.height = `${facets ? rows*300+130 : $('work-area').classList.contains('viewer-expanded') ? 430 : 310}px`;
+    const layout = {title:{text:charts.length === 1 ? first.title : `${compare === 'runs' ? 'Two runs' : 'Same run · all points'} · ${kind}`,font:{size:13}},margin:{l:65,r:35,t:60,b:100},xaxis:{title:{text:first.xunit},type:first.logx?'log':'linear'},yaxis:{title:{text:first.yunit}},legend:{orientation:'h',y:-.3,font:{size:10}},paper_bgcolor:'#fff',plot_bgcolor:'#f7f9fc',font:{family:'Arial',size:11},annotations:[]};
+    if (facets) { layout.margin.r=70; layout.coloraxis={colorscale:'Viridis',colorbar:{title:{text:'count'}}}; }
+    const data = charts.flatMap((p,i) => {
+      const suffix = i ? String(i+1) : '', x = `x${suffix}`, y = `y${suffix}`;
+      if (facets) {
+        const col = i%2, row = Math.floor(i/2);
+        layout[`xaxis${suffix}`] = {domain:[col*.53,col*.53+.43],anchor:y,title:{text:p.xunit}};
+        layout[`yaxis${suffix}`] = {domain:[1-(row+1)/rows+.11/rows,1-row/rows-.08/rows],anchor:x,title:{text:p.yunit}};
+        layout.annotations.push({text:`${p.run_id.slice(0,8)} · ${requests[i].id}`,x:col*.53+.22,y:1-row/rows,xref:'paper',yref:'paper',showarrow:false,font:{size:10}});
+      }
+      const label=compare === 'runs' ? p.run_id.slice(0,8) : ({chnl:'Channel',tx:'Rx input',ctle:'CTLE',ffe:'Rx FFE',dfe:'DFE'})[requests[i].id.split('.')[1]];
+      return p.data.map(trace => ({...trace,name:charts.length>1 && label ? `${label} · ${trace.name || requests[i].id}` : trace.name,...(facets ? {xaxis:x,yaxis:y,coloraxis:'coloraxis'} : {})}));
+    });
+    await Plotly.newPlot('plot',data,layout,{responsive:true,displaylogo:false});
+    if (token !== renderToken) return;
+    $('analysis-info').innerHTML = `<p>DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling. Zoom/pan and double-click reset do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.</p>${charts.map(p => `<details><summary>${esc(p.run_id)} · ${esc(p.plot_id)} · ${esc(p.run.effective_input.mod_type)} · input ${p.run.input_hash.slice(0,12)}</summary><pre>${esc(JSON.stringify({window:p.metadata.window || p.run.window,metadata:p.metadata,source:p.run.observations?.[p.plot_id.split('.')[1]],native_sha:p.run.native_sha,adapter_sha:p.run.adapter_sha},null,2))}</pre></details>`).join('')}`;
+    if ($('work-area').classList.contains('viewer-expanded')) $('analysis').scrollIntoView({block:'start',behavior:'instant'});
   }
   async function chooseRun(id) {
     const result = id ? await api(`runs/${id}`) : null;
@@ -185,7 +251,14 @@
   });
   $('abort').addEventListener('click',async () => { if (activeTask) { const task = await api(`tasks/${activeTask}/cancel`,{}); $('task-state').textContent = `${task.task_id} · ${task.state}; awaiting worker exit`; } });
   $('selected-run').addEventListener('change',() => chooseRun($('selected-run').value).catch(inputError));
-  for (const id of ['analysis-kind','response-type','response-scope']) $(id).addEventListener('change',() => renderAnalysis().catch(inputError));
+  for (const id of ['analysis-kind','response-type','response-scope','analysis-point','compare-mode','channel-noise']) $(id).addEventListener('change',() => renderAnalysis().catch(inputError));
+  $('expand-viewer').addEventListener('click',() => { const expanded=$('work-area').classList.toggle('viewer-expanded'); $('expand-viewer').textContent=expanded?'Restore settings':'Expand viewer'; renderAnalysis().catch(inputError); });
+  window.addEventListener('pybert-analysis-navigation',event => {
+    $('analysis-kind').value=event.detail.kind; $('analysis-point').value='node';
+    $('compare-mode').value=event.detail.compare || 'none';
+    if (event.detail.response) $('response-type').value=event.detail.response;
+    renderAnalysis().catch(inputError);
+  });
   document.addEventListener('click',event => { if (event.target.closest('[data-stage]')) renderAnalysis().catch(inputError); });
   window.addEventListener('hashchange',() => renderAnalysis().catch(inputError));
   $('load-config').addEventListener('click',() => $('config-file').click());

@@ -1,0 +1,8 @@
+{
+  "gui_view_imported": true,
+  "native_constructor_status": "Ready.",
+  "cli_sim_help_exitcode": 0,
+  "cli_stdout": "Usage: cli sim [OPTIONS] CONFIG_FILE\n\n  Run a simulation without opening the GUI.\n\n  Will load the CONFIG_FILE from the given filepath, run the simulation and then\n  save the results into a file with the same name but a different extension as\n  the configuration file.\n\nOptions:\n  -r, --results PATH  Override the results filename.\n  -h, --help          Show this message and exit.\n",
+  "simulation_performed": false,
+  "python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue3-analysis\\serial-bus-simulator\\.venv\\Scripts\\python.exe"
+}

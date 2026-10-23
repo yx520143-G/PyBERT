@@ -1,0 +1,53 @@
+{
+  "checks": {
+    "ffe_no_crossing": true,
+    "ffe_eye_no_crossing": true,
+    "ffe_bathtub_unavailable": true,
+    "cdr_zero_unavailable": true,
+    "dfe_fallback": true,
+    "dfe_fallback_counts": true,
+    "four_native_jitters_unchanged": true,
+    "json_finite": true,
+    "cancel_at_group_boundary": true
+  },
+  "passed": true,
+  "source_sha256": "7462b24f5eb3fea06dcdff26978ebd8bd95f26ef6c52f8febe95abf238b1453f",
+  "injected_fields": [
+    "ffe_out: constant",
+    "clock_times: empty",
+    "ui_ests: zero"
+  ],
+  "scope": "Function-level copies only, no main simulation, no existing run changed",
+  "optional_unavailable": {
+    "jitter.ffe.dist": {
+      "title": "Rx FFE output \u00b7 new helper observation \u00b7 dist",
+      "traces": [],
+      "availability": "unavailable",
+      "reason": "ValueError: Rx FFE has no crossings in the frozen jitter window"
+    },
+    "jitter.ffe.spec": {
+      "title": "Rx FFE output \u00b7 new helper observation \u00b7 spec",
+      "traces": [],
+      "availability": "unavailable",
+      "reason": "ValueError: Rx FFE has no crossings in the frozen jitter window"
+    },
+    "jitter.ffe.bathtub": {
+      "title": "Rx FFE output \u00b7 new helper observation \u00b7 bathtub",
+      "traces": [],
+      "availability": "unavailable",
+      "reason": "ValueError: Rx FFE has no crossings in the frozen jitter window"
+    },
+    "eye.ffe": {
+      "title": "Rx FFE output \u00b7 new helper observation eye",
+      "traces": [],
+      "availability": "unavailable",
+      "reason": "No waveform crossing for nominal eye alignment"
+    },
+    "cdr.spectrum": {
+      "title": "CDR clock period \u00b7 legacy log10 ratio",
+      "traces": [],
+      "availability": "unavailable",
+      "reason": "Zero fundamental normalization or nonfinite clock spectrum"
+    }
+  }
+}

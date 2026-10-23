@@ -1,0 +1,443 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "file": "28-final-ffe-pdf-source-metadata.jpg",
+      "capture_source": "83b75154a52a11a06506a4416503326c95ae02d8",
+      "kind": "jitter.dist",
+      "metadata": {
+        "adapter_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+        "metadata": {
+          "datasets": {
+            "display.pdf.ffe.jitter.x": {
+              "availability": "available",
+              "axis": null,
+              "clock_basis": "native",
+              "display_noise": false,
+              "dtype": "float64",
+              "engine_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+              "field": "display.pdf.ffe.jitter.x",
+              "input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6",
+              "kind": "display",
+              "nonfinite_count": 0,
+              "observation_id": "rx_ffe_output",
+              "point": "ffe",
+              "producer": "native helper",
+              "producer_version": 2,
+              "raw_schema_version": 3,
+              "reason": null,
+              "run_id": "F-PAM4-01",
+              "shape": [
+                101
+              ],
+              "source_fields": [
+                "context.ffe.bin_centers"
+              ],
+              "unit": "ps",
+              "window": {
+                "eye_uis": 5080,
+                "ignore_samps": 77440,
+                "ignore_until_s": 4.84e-7,
+                "nui": 7500
+              }
+            },
+            "display.pdf.ffe.jitter.y": {
+              "availability": "available",
+              "axis": "display.pdf.ffe.jitter.x",
+              "clock_basis": "native",
+              "display_noise": false,
+              "dtype": "float64",
+              "engine_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+              "field": "display.pdf.ffe.jitter.y",
+              "input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6",
+              "kind": "display",
+              "nonfinite_count": 0,
+              "observation_id": "rx_ffe_output",
+              "point": "ffe",
+              "producer": "native helper",
+              "producer_version": 2,
+              "raw_schema_version": 3,
+              "reason": null,
+              "run_id": "F-PAM4-01",
+              "shape": [
+                101
+              ],
+              "source_fields": [
+                "jitter_ffe"
+              ],
+              "unit": "1/ps",
+              "window": {
+                "eye_uis": 5080,
+                "ignore_samps": 77440,
+                "ignore_until_s": 4.84e-7,
+                "nui": 7500
+              }
+            },
+            "display.pdf.ffe.jitter_ext.x": {
+              "availability": "available",
+              "axis": null,
+              "clock_basis": "native",
+              "display_noise": false,
+              "dtype": "float64",
+              "engine_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+              "field": "display.pdf.ffe.jitter_ext.x",
+              "input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6",
+              "kind": "display",
+              "nonfinite_count": 0,
+              "observation_id": "rx_ffe_output",
+              "point": "ffe",
+              "producer": "native helper",
+              "producer_version": 2,
+              "raw_schema_version": 3,
+              "reason": null,
+              "run_id": "F-PAM4-01",
+              "shape": [
+                101
+              ],
+              "source_fields": [
+                "context.ffe.bin_centers"
+              ],
+              "unit": "ps",
+              "window": {
+                "eye_uis": 5080,
+                "ignore_samps": 77440,
+                "ignore_until_s": 4.84e-7,
+                "nui": 7500
+              }
+            },
+            "display.pdf.ffe.jitter_ext.y": {
+              "availability": "available",
+              "axis": "display.pdf.ffe.jitter_ext.x",
+              "clock_basis": "native",
+              "display_noise": false,
+              "dtype": "float64",
+              "engine_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+              "field": "display.pdf.ffe.jitter_ext.y",
+              "input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6",
+              "kind": "display",
+              "nonfinite_count": 0,
+              "observation_id": "rx_ffe_output",
+              "point": "ffe",
+              "producer": "native helper",
+              "producer_version": 2,
+              "raw_schema_version": 3,
+              "reason": null,
+              "run_id": "F-PAM4-01",
+              "shape": [
+                101
+              ],
+              "source_fields": [
+                "jitter_ext_ffe"
+              ],
+              "unit": "1/ps",
+              "window": {
+                "eye_uis": 5080,
+                "ignore_samps": 77440,
+                "ignore_until_s": 4.84e-7,
+                "nui": 7500
+              }
+            }
+          },
+          "window": {
+            "eye_uis": 5080,
+            "ignore_samps": 77440,
+            "ignore_until_s": 4.84e-7,
+            "nui": 7500
+          }
+        },
+        "native_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+        "source": {
+          "availability": "available",
+          "bathtub_dataset": "bathtub.ffe.probability",
+          "configuration_state": "active",
+          "context_prefix": "context.ffe.",
+          "crossing_boundary": "PAM4: symmetric transitions about 0V; not all three voltage eyes",
+          "dual_dirac_fit": {
+            "availability": "unavailable",
+            "reason": "Native dual-Dirac tail fit missing, failed, or has nonfinite covariance; reference raw retained"
+          },
+          "label": "Rx FFE output · new helper observation",
+          "observation_id": "rx_ffe_output",
+          "origin": "new native helper observation",
+          "reason": null,
+          "source_waveform": "ffe_out",
+          "statistics_s": {
+            "dcd": 1.2206412893753892e-12,
+            "dj_neg": -1.7286782940685227e-11,
+            "dj_pos": 2.6752508055028583e-11,
+            "isi": 3.6296734915831053e-11,
+            "mu_neg": -6.462348535570529e-27,
+            "mu_pos": 9.64130191884576e-12,
+            "pj": 8.022106698135113e-12,
+            "pjDD": 2.0202020202020203e-11,
+            "rj": 1.8985288373975626e-12,
+            "rjDD": 6.4163266813581315e-12
+          },
+          "window": {
+            "eye_uis": 5080,
+            "ignore_samps": 77440,
+            "ignore_until_s": 4.84e-7,
+            "nui": 7500
+          }
+        },
+        "window": {
+          "eye_uis": 5080,
+          "ignore_samps": 77440,
+          "ignore_until_s": 4.84e-7,
+          "nui": 7500
+        }
+      },
+      "point": "ffe",
+      "run": "F-PAM4-01",
+      "title": "Rx FFE output · new helper observation · dist",
+      "viewport": [
+        2560,
+        1313
+      ],
+      "sha256": "c03d31b00eb3b2572963ca84020a904ae4004a82e52a66a667888300316ae8fb",
+      "bytes": 147830
+    },
+    {
+      "file": "29-final-cdr-full-record-metadata.jpg",
+      "capture_source": "83b75154a52a11a06506a4416503326c95ae02d8",
+      "kind": "cdr.histogram",
+      "metadata": {
+        "adapter_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+        "metadata": {
+          "datasets": {
+            "display.cdr.histogram.x": {
+              "availability": "available",
+              "axis": null,
+              "clock_basis": "native",
+              "display_noise": false,
+              "dtype": "float64",
+              "engine_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+              "field": "display.cdr.histogram.x",
+              "input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6",
+              "kind": "display",
+              "nonfinite_count": 0,
+              "observation_id": "cdr_clock",
+              "point": "cdr",
+              "producer": "native helper",
+              "producer_version": 2,
+              "raw_schema_version": 3,
+              "reason": null,
+              "run_id": "F-PAM4-01",
+              "shape": [
+                100
+              ],
+              "source_fields": [
+                "cdr.histogram.centers"
+              ],
+              "unit": "ps",
+              "window": {
+                "ignore_samps": 0,
+                "ignore_until_s": 0,
+                "sample_count": 240000,
+                "scope": "full_record",
+                "source_field": "ui_ests",
+                "start_index": 0,
+                "start_s": 0,
+                "stop_index": 240000,
+                "stop_s_exclusive": 0.0000015,
+                "time_axis": "t"
+              }
+            },
+            "display.cdr.histogram.y": {
+              "availability": "available",
+              "axis": "display.cdr.histogram.x",
+              "clock_basis": "native",
+              "display_noise": false,
+              "dtype": "int64",
+              "engine_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+              "field": "display.cdr.histogram.y",
+              "input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6",
+              "kind": "display",
+              "nonfinite_count": 0,
+              "observation_id": "cdr_clock",
+              "point": "cdr",
+              "producer": "native helper",
+              "producer_version": 2,
+              "raw_schema_version": 3,
+              "reason": null,
+              "run_id": "F-PAM4-01",
+              "shape": [
+                100
+              ],
+              "source_fields": [
+                "cdr.histogram.counts"
+              ],
+              "unit": "count",
+              "window": {
+                "ignore_samps": 0,
+                "ignore_until_s": 0,
+                "sample_count": 240000,
+                "scope": "full_record",
+                "source_field": "ui_ests",
+                "start_index": 0,
+                "start_s": 0,
+                "stop_index": 240000,
+                "stop_s_exclusive": 0.0000015,
+                "time_axis": "t"
+              }
+            }
+          },
+          "window": {
+            "ignore_samps": 0,
+            "ignore_until_s": 0,
+            "sample_count": 240000,
+            "scope": "full_record",
+            "source_field": "ui_ests",
+            "start_index": 0,
+            "start_s": 0,
+            "stop_index": 240000,
+            "stop_s_exclusive": 0.0000015,
+            "time_axis": "t"
+          }
+        },
+        "native_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+        "window": {
+          "ignore_samps": 0,
+          "ignore_until_s": 0,
+          "sample_count": 240000,
+          "scope": "full_record",
+          "source_field": "ui_ests",
+          "start_index": 0,
+          "start_s": 0,
+          "stop_index": 240000,
+          "stop_s_exclusive": 0.0000015,
+          "time_axis": "t"
+        }
+      },
+      "point": "ffe",
+      "run": "F-PAM4-01",
+      "title": "CDR clock period · 100-bin histogram",
+      "viewport": [
+        2560,
+        1313
+      ],
+      "sha256": "550c60680c31460c5c12f8ef1add470bb69d66d91d907eca1eed655471458951",
+      "bytes": 147881
+    },
+    {
+      "capture_source": "83b75154a52a11a06506a4416503326c95ae02d8",
+      "scope": "DOM source metadata assertion; no additional screenshot",
+      "kind": "cdr.spectrum",
+      "metadata": {
+        "adapter_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+        "metadata": {
+          "datasets": {
+            "display.cdr.spectrum.x": {
+              "availability": "available",
+              "axis": null,
+              "clock_basis": "native",
+              "display_noise": false,
+              "dtype": "float64",
+              "engine_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+              "field": "display.cdr.spectrum.x",
+              "input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6",
+              "kind": "display",
+              "nonfinite_count": 0,
+              "observation_id": "cdr_clock",
+              "point": "cdr",
+              "producer": "native helper",
+              "producer_version": 2,
+              "raw_schema_version": 3,
+              "reason": null,
+              "run_id": "F-PAM4-01",
+              "shape": [
+                120000
+              ],
+              "source_fields": [
+                "cdr.spectrum.relative_frequency"
+              ],
+              "unit": "f*UI",
+              "window": {
+                "ignore_samps": 0,
+                "ignore_until_s": 0,
+                "sample_count": 240000,
+                "scope": "full_record",
+                "source_field": "ui_ests",
+                "start_index": 0,
+                "start_s": 0,
+                "stop_index": 240000,
+                "stop_s_exclusive": 0.0000015,
+                "time_axis": "t"
+              }
+            },
+            "display.cdr.spectrum.y": {
+              "availability": "available",
+              "axis": "display.cdr.spectrum.x",
+              "clock_basis": "native",
+              "display_noise": false,
+              "dtype": "float64",
+              "engine_sha": "b2d868e4e786aabd9f1b61f549b30cb8c8b5a282",
+              "field": "display.cdr.spectrum.y",
+              "input_hash": "a6f0b0d01ce35222b102534c8b02c0a0fa9a6849b81f2acf347d435157a9f2d6",
+              "kind": "display",
+              "nonfinite_count": 0,
+              "observation_id": "cdr_clock",
+              "point": "cdr",
+              "producer": "native helper",
+              "producer_version": 2,
+              "raw_schema_version": 3,
+              "reason": null,
+              "run_id": "F-PAM4-01",
+              "shape": [
+                120000
+              ],
+              "source_fields": [
+                "cdr.spectrum.raw"
+              ],
+              "unit": "legacy log10 ratio",
+              "window": {
+                "ignore_samps": 0,
+                "ignore_until_s": 0,
+                "sample_count": 240000,
+                "scope": "full_record",
+                "source_field": "ui_ests",
+                "start_index": 0,
+                "start_s": 0,
+                "stop_index": 240000,
+                "stop_s_exclusive": 0.0000015,
+                "time_axis": "t"
+              }
+            }
+          },
+          "window": {
+            "ignore_samps": 0,
+            "ignore_until_s": 0,
+            "sample_count": 240000,
+            "scope": "full_record",
+            "source_field": "ui_ests",
+            "start_index": 0,
+            "start_s": 0,
+            "stop_index": 240000,
+            "stop_s_exclusive": 0.0000015,
+            "time_axis": "t"
+          }
+        },
+        "native_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+        "window": {
+          "ignore_samps": 0,
+          "ignore_until_s": 0,
+          "sample_count": 240000,
+          "scope": "full_record",
+          "source_field": "ui_ests",
+          "start_index": 0,
+          "start_s": 0,
+          "stop_index": 240000,
+          "stop_s_exclusive": 0.0000015,
+          "time_axis": "t"
+        }
+      },
+      "run": "F-PAM4-01",
+      "title": "CDR clock period · legacy log10 ratio (no ×10/20)",
+      "viewport": [
+        2560,
+        1313
+      ]
+    }
+  ],
+  "console": []
+}

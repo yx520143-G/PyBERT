@@ -1,0 +1,953 @@
+[
+  {
+    "file": "01-pam4-ffe-eye.jpg",
+    "sha256": "97bb109428884b7e30f777af7ab889157f367911a53f0047cf28bd0f6a79373e",
+    "bytes": 99008,
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "retained_excluded",
+    "capture_source": null,
+    "view_image_checked": false,
+    "reason": "clipped axes"
+  },
+  {
+    "file": "02-pam4-ffe-eye-complete.jpg",
+    "sha256": "b8f0ae2d670cf016fc018cdc3336f7c11871161262a7cee621d38f9848d68546",
+    "bytes": 90485,
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "retained_excluded",
+    "capture_source": null,
+    "view_image_checked": false,
+    "reason": "before SVG stroke fix"
+  },
+  {
+    "file": "03-pam4-five-point-distribution.jpg",
+    "sha256": "8c9043014247c215c7f2e612ec43b1d84145a82c74853ff4d95efd1da5a2ed41",
+    "bytes": 78906,
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "retained_excluded",
+    "capture_source": null,
+    "view_image_checked": false,
+    "reason": "outlined legend before SVG stroke fix"
+  },
+  {
+    "file": "04-final-pam4-five-point-distribution.jpg",
+    "sha256": "354331b4e9f73a62477798e9745edab7d0b2514b76dd178d3439c7cba59890df",
+    "bytes": 67039,
+    "compare": "points",
+    "kind": "jitter.dist",
+    "legends": [
+      "Channel · Total PDF",
+      "Channel · Data-independent PDF",
+      "Rx input · Total PDF",
+      "Rx input · Data-independent PDF",
+      "CTLE · Total PDF",
+      "CTLE · Data-independent PDF",
+      "Rx FFE · Total PDF",
+      "Rx FFE · Data-independent PDF",
+      "DFE · Total PDF",
+      "DFE · Data-independent PDF"
+    ],
+    "point": "ffe",
+    "rect": {
+      "bottom": 531,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 101,
+      "width": 1069,
+      "x": 181,
+      "y": 101
+    },
+    "run": "F-PAM4-01",
+    "title": "Same run · all points · jitter.dist",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "170145b",
+    "view_image_checked": true
+  },
+  {
+    "file": "05-final-pam4-ffe-spectrum.jpg",
+    "sha256": "26bc746ad56dad84a459af250861035728e91c0fddf7db1f743651b87784c303",
+    "bytes": 100388,
+    "compare": "none",
+    "kind": "jitter.spec",
+    "legends": [
+      "Total TIE amplitude",
+      "Independent TIE amplitude",
+      "Pj threshold"
+    ],
+    "point": "ffe",
+    "rect": {
+      "bottom": 911,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 481,
+      "width": 1069,
+      "x": 181,
+      "y": 481
+    },
+    "run": "F-PAM4-01",
+    "title": "Rx FFE output · new helper observation · spec",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "retained_excluded",
+    "capture_source": null,
+    "view_image_checked": false,
+    "reason": "clipped spectrum axes"
+  },
+  {
+    "file": "06-final-pam4-ffe-spectrum-complete.jpg",
+    "sha256": "6c6b9c0df770bf84f6d4fc1fcd34625c7f9f46edafc89ea1edd94f4a918a884c",
+    "bytes": 87142,
+    "compare": "none",
+    "kind": "jitter.spec",
+    "legends": [
+      "Total TIE amplitude",
+      "Independent TIE amplitude",
+      "Pj threshold"
+    ],
+    "point": "ffe",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "Rx FFE output · new helper observation · spec",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "aeb49cc",
+    "view_image_checked": true
+  },
+  {
+    "file": "07-final-two-run-ffe-eyes.jpg",
+    "sha256": "bcb44f912e820b3cb1d65c45137e050aadf4b635612fd98626755bea05e7a259",
+    "bytes": 84846,
+    "compare": "runs",
+    "kind": "eye",
+    "legends": [],
+    "point": "ffe",
+    "rect": {
+      "bottom": 591,
+      "height": 270,
+      "left": 181,
+      "right": 1250,
+      "top": 321,
+      "width": 1069,
+      "x": 181,
+      "y": 321
+    },
+    "run": "F-PAM4-01",
+    "title": "Two runs · eye",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "retained_excluded",
+    "capture_source": null,
+    "view_image_checked": false,
+    "reason": "small eye panels without shared count coloraxis"
+  },
+  {
+    "file": "08-final-two-run-ffe-eyes-count-scale.jpg",
+    "sha256": "1e7d89037a2b8a3f8184e3ae1c0bdc68465fad9b415b489744ee5496f14a434d",
+    "bytes": 79914,
+    "compare": "runs",
+    "kind": "eye",
+    "legends": [],
+    "point": "ffe",
+    "rect": {
+      "bottom": 591,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 161,
+      "width": 1069,
+      "x": 181,
+      "y": 161
+    },
+    "run": "F-PAM4-01",
+    "title": "Two runs · eye",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "68c1b4c",
+    "view_image_checked": true
+  },
+  {
+    "file": "09-final-channel-three-frequency.jpg",
+    "sha256": "ba6b1f4c41f5d37b08f5b310e9e67c6886178ef8d677d40a588b9513b026eb33",
+    "bytes": 66332,
+    "compare": "none",
+    "kind": "response",
+    "legends": [
+      "Raw · perfect termination",
+      "Actual termination",
+      "Trimmed impulse FFT"
+    ],
+    "point": "chnl",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "Channel frequency · three native sources",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "68c1b4c",
+    "view_image_checked": true
+  },
+  {
+    "file": "10-final-channel-clean-eye.jpg",
+    "sha256": "518fb78b6fc341a04b83091a890360b1bd91595ea61967ddef7153f1da847601",
+    "bytes": 97000,
+    "compare": "none",
+    "kind": "eye",
+    "legends": [],
+    "point": "chnl",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "Channel-only diagnostic eye · nominal waveform crossing fold",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "68c1b4c",
+    "view_image_checked": true
+  },
+  {
+    "file": "11-final-channel-display-noise-eye.jpg",
+    "sha256": "fdb940122291900bf6dc773fe2f568c14bdcb61bdf3ad1339adc1e65638d1232",
+    "bytes": 102096,
+    "compare": "none",
+    "kind": "eye",
+    "legends": [],
+    "point": "chnl",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "Channel-only diagnostic eye · GUI-compatible σ=1mV",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "68c1b4c",
+    "view_image_checked": true
+  },
+  {
+    "file": "12-final-ffe-bathtub.jpg",
+    "sha256": "8233c3787b593fe7f697f7db4982a0efc41ab04a6d4c635620a7d64c3fe095c5",
+    "bytes": 61969,
+    "compare": "none",
+    "kind": "jitter.bathtub",
+    "legends": [],
+    "point": "ffe",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "Rx FFE output · new helper observation · bathtub",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "68c1b4c",
+    "view_image_checked": true
+  },
+  {
+    "file": "13-final-cdr-histogram.jpg",
+    "sha256": "b74cc59be1908ceb10275772d90f2da3c97562d2f7b3e8fa2361cafe889db981",
+    "bytes": 61760,
+    "compare": "none",
+    "kind": "cdr.histogram",
+    "legends": [],
+    "point": "ffe",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "CDR clock period · 100-bin histogram",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "68c1b4c",
+    "view_image_checked": true
+  },
+  {
+    "file": "14-final-cdr-legacy-spectrum.jpg",
+    "sha256": "81a400db350a3f13113b455fc4a38fc9dadca674a54ee7757ffbd959e59f6c50",
+    "bytes": 76257,
+    "compare": "none",
+    "kind": "cdr.spectrum",
+    "legends": [],
+    "point": "ffe",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "CDR clock period · legacy log10 ratio (no ×10/20)",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "68c1b4c",
+    "view_image_checked": true
+  },
+  {
+    "file": "15-final-jitter-info-validity.jpg",
+    "sha256": "cc50a0eee24f26be7ae677c01ba53d677ea28d85449772048b2e8be6be42d6d1",
+    "bytes": 52567,
+    "compare": "none",
+    "kind": "jitter.info",
+    "legends": [],
+    "point": "ffe",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "Crossing jitter · ISI/DCD/PJ peak-to-peak, RJ sigma; dual-Dirac is reference only, not bathtub parameters.",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "retained_excluded",
+    "capture_source": null,
+    "view_image_checked": false,
+    "reason": "old text-mode height leaves excess whitespace"
+  },
+  {
+    "file": "16-final-jitter-info-table.jpg",
+    "sha256": "c862ac0268ba27ae5d67008ea21fbdf0797c0037fbcf560be26264e1302bcf01",
+    "bytes": 103653,
+    "compare": "none",
+    "kind": "jitter.info",
+    "legends": [],
+    "point": "node",
+    "rect": {
+      "bottom": 437.390625,
+      "height": 40.390625,
+      "left": 181,
+      "right": 1250,
+      "top": 397,
+      "width": 1069,
+      "x": 181,
+      "y": 397
+    },
+    "run": "F-PAM4-01",
+    "title": "Crossing jitter · ISI/DCD/PJ peak-to-peak, RJ sigma; dual-Dirac is reference only, not bathtub parameters.",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "7c4cf9f",
+    "view_image_checked": true
+  },
+  {
+    "file": "17-final-gui-crosswalk-frequency-route.jpg",
+    "sha256": "1e6fd7ebc4f08cfbe3feefa811f0ec2eb7c60195d9c46a4f0398e15d54e359de",
+    "bytes": 66277,
+    "compare": "none",
+    "kind": "response",
+    "legends": [
+      "Raw · perfect termination",
+      "Actual termination",
+      "Trimmed impulse FFT"
+    ],
+    "point": "node",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "Channel frequency · three native sources",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "7c4cf9f",
+    "view_image_checked": true
+  },
+  {
+    "file": "18-final-channel-zoom.jpg",
+    "sha256": "95e812d2629ee7470d2c74192aff880b6629d979c6be23638176f55e67e34475",
+    "bytes": 64834,
+    "compare": "none",
+    "kind": "response",
+    "legends": [
+      "Raw · perfect termination",
+      "Actual termination",
+      "Trimmed impulse FFT"
+    ],
+    "point": "node",
+    "rect": {
+      "bottom": 777,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 347,
+      "width": 1069,
+      "x": 181,
+      "y": 347
+    },
+    "run": "F-PAM4-01",
+    "title": "Channel frequency · three native sources",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "retained_excluded",
+    "capture_source": null,
+    "view_image_checked": false,
+    "reason": "zoomed to empty range and clipped axes"
+  },
+  {
+    "file": "19-final-channel-region-zoom.jpg",
+    "sha256": "f1e9cf84ffca83eee7c1b09f75e8e573d5a9f54597bc3163603004de9f8aeb7c",
+    "bytes": 60253,
+    "compare": "none",
+    "kind": "response",
+    "legends": [
+      "Raw · perfect termination",
+      "Actual termination",
+      "Trimmed impulse FFT"
+    ],
+    "point": "node",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "Channel frequency · three native sources",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "retained_excluded",
+    "capture_source": null,
+    "view_image_checked": false,
+    "reason": "rectangle selected empty range"
+  },
+  {
+    "file": "20-final-channel-zoom-out.jpg",
+    "sha256": "cb44e8d57ce79c8a42d2c8d3b7c510efea4cda971e098398c90a0b5ce47e1063",
+    "bytes": 60612,
+    "compare": "none",
+    "kind": "response",
+    "legends": [
+      "Raw · perfect termination",
+      "Actual termination",
+      "Trimmed impulse FFT"
+    ],
+    "point": "node",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-PAM4-01",
+    "title": "Channel frequency · three native sources",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "7c4cf9f",
+    "view_image_checked": true
+  },
+  {
+    "file": "21-final-failed-task-old-result.jpg",
+    "sha256": "4a65b210d48e9145f612b9cbeab419a63fa26c30c86e5cfc50c2f6f11bf2a61b",
+    "bytes": 80208,
+    "compare": "none",
+    "kind": "response",
+    "legends": [
+      "Raw · perfect termination",
+      "Actual termination",
+      "Trimmed impulse FFT"
+    ],
+    "point": "node",
+    "rect": {
+      "bottom": 915,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 485,
+      "width": 1069,
+      "x": 181,
+      "y": 485
+    },
+    "run": "F-PAM4-01",
+    "title": "Channel frequency · three native sources",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "7c4cf9f",
+    "view_image_checked": true,
+    "scope": "task/selected-run state only; not full plot readability"
+  },
+  {
+    "file": "22-final-cancelled-task-old-result.jpg",
+    "sha256": "d2037cd928a1acaecb8480369fdc9794a026ece2039ef119250c34f0d51a9c78",
+    "bytes": 79668,
+    "compare": "none",
+    "kind": "response",
+    "legends": [
+      "Raw · perfect termination",
+      "Actual termination",
+      "Trimmed impulse FFT"
+    ],
+    "point": "node",
+    "rect": {
+      "bottom": 915,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 485,
+      "width": 1069,
+      "x": 181,
+      "y": 485
+    },
+    "run": "F-PAM4-01",
+    "title": "Channel frequency · three native sources",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "7c4cf9f",
+    "view_image_checked": true,
+    "scope": "task/selected-run state only; not full plot readability"
+  },
+  {
+    "file": "23-final-old-schema-unavailable.jpg",
+    "sha256": "8d838ce041de21c6baaff474ec0e70d3b71daa100722bd649f4cc4c7a71ecd05",
+    "bytes": 58980,
+    "compare": "none",
+    "kind": "eye",
+    "legends": [],
+    "point": "ffe",
+    "rect": {
+      "bottom": 657,
+      "height": 310,
+      "left": 181,
+      "right": 1250,
+      "top": 347,
+      "width": 1069,
+      "x": 181,
+      "y": 347
+    },
+    "run": "F-NRZ-01",
+    "title": "Analysis unavailable for F-NRZ-01 / eye.ffe (raw schema 2). Saved runs are immutable; switching views does not calculate missing datasets.",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "7c4cf9f",
+    "view_image_checked": true
+  },
+  {
+    "file": "24-final-old-schema-rx-eye-preserved.jpg",
+    "sha256": "a1df1035dfb13525dbfed99cde381882b040aa6adf5bc5fede196b41bd7c975f",
+    "bytes": 81635,
+    "compare": "none",
+    "kind": "eye",
+    "legends": [],
+    "point": "tx",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-NRZ-01",
+    "title": "rx_in eye · nominal fold",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "7c4cf9f",
+    "view_image_checked": true
+  },
+  {
+    "file": "25-final-old-schema-dfe-info-preserved.jpg",
+    "sha256": "37baf133009955daf607e519374aec75bcaf3c45ffe1bdb6f3603469368685cd",
+    "bytes": 84950,
+    "compare": "none",
+    "kind": "jitter.info",
+    "legends": [],
+    "point": "node",
+    "rect": {
+      "bottom": 437.390625,
+      "height": 40.390625,
+      "left": 181,
+      "right": 1250,
+      "top": 397,
+      "width": 1069,
+      "x": 181,
+      "y": 397
+    },
+    "run": "F-NRZ-01",
+    "title": "Legacy DFE crossing-jitter summary · raw schema 2. Other observations, fit validity and rejection segments are unavailable; no calculation started.",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "b2bdb229",
+    "view_image_checked": true
+  },
+  {
+    "file": "26-final-old-schema-channel-frequency-preserved.jpg",
+    "sha256": "c32cade3203b42cc933ca46cba2f123bc3e7e930d026c9467a6063d79a995bc7",
+    "bytes": 61951,
+    "compare": "none",
+    "kind": "response",
+    "legends": [],
+    "point": "chnl",
+    "rect": {
+      "bottom": 611,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 181,
+      "width": 1069,
+      "x": 181,
+      "y": 181
+    },
+    "run": "F-NRZ-01",
+    "title": "Legacy Channel actual termination · raw schema 2; three-source view unavailable",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "e9c73c5",
+    "view_image_checked": true
+  },
+  {
+    "file": "27-final-old-new-channel-frequency-comparison.jpg",
+    "sha256": "ad64bced9d2c56261653847321992c38a5c104eadf7c8caf1610ae5f8e50b489",
+    "bytes": 69061,
+    "compare": "runs",
+    "kind": "response",
+    "legends": [
+      "F-NRZ-01 · Legacy actual termination · three-source view unavailable",
+      "F-PAM4-0 · Raw · perfect termination",
+      "F-PAM4-0 · Actual termination",
+      "F-PAM4-0 · Trimmed impulse FFT"
+    ],
+    "point": "chnl",
+    "rect": {
+      "bottom": 591,
+      "height": 430,
+      "left": 181,
+      "right": 1250,
+      "top": 161,
+      "width": 1069,
+      "x": 181,
+      "y": 161
+    },
+    "run": "F-NRZ-01",
+    "title": "Two runs · response",
+    "viewport": [
+      1280,
+      720
+    ],
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "accepted",
+    "capture_source": "e9c73c5",
+    "view_image_checked": true
+  },
+  {
+    "file": "provisional-ffe-axis-clipped.jpg",
+    "sha256": "0116534594b7277c2d07fbd8333d97a5a4b06cab03714f60814f44ffaefcd22d",
+    "bytes": 97142,
+    "format": "JPEG",
+    "pixel_size": [
+      1265,
+      712
+    ],
+    "disposition": "retained_excluded",
+    "capture_source": null,
+    "view_image_checked": false,
+    "reason": "provisional clipped axes"
+  },
+  {
+    "file": "28-final-ffe-pdf-source-metadata.jpg",
+    "capture_source": "83b75154a52a11a06506a4416503326c95ae02d8",
+    "run": "F-PAM4-01",
+    "kind": "jitter.dist",
+    "point": "ffe",
+    "title": "Rx FFE output · new helper observation · dist",
+    "viewport": [
+      2560,
+      1313
+    ],
+    "sha256": "c03d31b00eb3b2572963ca84020a904ae4004a82e52a66a667888300316ae8fb",
+    "bytes": 147830,
+    "format": "JPEG",
+    "pixel_size": [
+      2560,
+      1313
+    ],
+    "disposition": "accepted",
+    "view_image_checked": true,
+    "scope": "selected plot and expanded source window; full observation/source assertions in metadata-v2-checks.json"
+  },
+  {
+    "file": "29-final-cdr-full-record-metadata.jpg",
+    "capture_source": "83b75154a52a11a06506a4416503326c95ae02d8",
+    "run": "F-PAM4-01",
+    "kind": "cdr.histogram",
+    "point": "ffe",
+    "title": "CDR clock period · 100-bin histogram",
+    "viewport": [
+      2560,
+      1313
+    ],
+    "sha256": "550c60680c31460c5c12f8ef1add470bb69d66d91d907eca1eed655471458951",
+    "bytes": 147881,
+    "format": "JPEG",
+    "pixel_size": [
+      2560,
+      1313
+    ],
+    "disposition": "accepted",
+    "view_image_checked": true,
+    "scope": "selected plot and expanded source window; full observation/source assertions in metadata-v2-checks.json"
+  }
+]

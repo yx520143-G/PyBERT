@@ -1,0 +1,62 @@
+[
+  {
+    "command": [
+      "C:\\Users\\yx\\AppData\\Roaming\\Python\\Python312\\Scripts\\uv.exe",
+      "run",
+      "--frozen",
+      "--extra",
+      "web",
+      "--with",
+      "ruff",
+      "ruff",
+      "check",
+      "--select",
+      "E4,E7,E9,F",
+      "src/pybert/web",
+      "tools/verify_web_analysis.py",
+      "tools/audit_web_analysis_delivery.py",
+      "tests/test_web_analysis.py"
+    ],
+    "exitcode": 0,
+    "stdout": "All checks passed!\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\yx\\AppData\\Roaming\\Python\\Python312\\Scripts\\uv.exe",
+      "run",
+      "--frozen",
+      "--extra",
+      "web",
+      "python",
+      "-m",
+      "compileall",
+      "-q",
+      "src/pybert/web",
+      "tools/verify_web_analysis.py",
+      "tools/audit_web_analysis_delivery.py",
+      "tests/test_web_analysis.py"
+    ],
+    "exitcode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\yx\\AppData\\Roaming\\Python\\Python312\\Scripts\\uv.exe",
+      "run",
+      "--frozen",
+      "--extra",
+      "web",
+      "git",
+      "-c",
+      "core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exitcode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]
