@@ -129,7 +129,11 @@
       return;
     }
     if (id === 'jitter.info') {
-      if (!selected.observations) return empty(`Analysis unavailable: old raw schema ${selected.raw_schema_version}; this run has no complete Jitter Info. No new calculation was started.`);
+      if (!selected.observations) {
+        empty(`Legacy DFE crossing-jitter summary · raw schema ${selected.raw_schema_version}. Other observations, fit validity and rejection segments are unavailable; no calculation started.`);
+        $('analysis-info').innerHTML = `<table><tr><th>Stored DFE metric</th><th>ps · raw reference</th></tr>${Object.entries(selected.summary.dfe_jitter_s || {}).map(([key,value]) => `<tr><td>${esc(key)}</td><td>${(value*1e12).toPrecision(8)}${['rjDD','mu_pos','mu_neg'].includes(key)?' · fit validity unknown':''}</td></tr>`).join('')}</table>`;
+        return;
+      }
       empty('Crossing jitter · ISI/DCD/PJ peak-to-peak, RJ sigma; dual-Dirac is reference only, not bathtub parameters.');
       const info = Object.values(selected.observations), metrics = ['isi','dcd','pj','rj','pjDD','rjDD','mu_pos','mu_neg','dj_pos','dj_neg'];
       function statistic(p,key) {
@@ -162,6 +166,7 @@
     const requests = sources.flatMap(run => points.map(point => {
       let id=pickPlot(point);
       if (!run.analysis_version) {
+        if (id === 'channel.frequency') id='chnl_H';
         if (id === 'eye.tx') id='eye.rx_in';
         if (id === 'jitter.dfe.dist') id='jitter.dist';
         if (id === 'jitter.dfe.spec') id='jitter.spec';
@@ -170,7 +175,11 @@
     }));
     const missing = requests.filter(r => !r.run.plots[r.id]);
     if (missing.length) return empty(`Analysis unavailable for ${missing.map(r => `${r.run.run_id.slice(0,8)} / ${r.id} (raw schema ${r.run.raw_schema_version})`).join(', ')}. Saved runs are immutable; switching views does not calculate missing datasets.`);
-    const charts = await Promise.all(requests.map(async r => ({...await api(`runs/${r.run.run_id}/plots/${r.id}`),run:r.run})));
+    const charts = await Promise.all(requests.map(async r => {
+      const plot=await api(`runs/${r.run.run_id}/plots/${r.id}`);
+      if (!r.run.analysis_version && r.id === 'chnl_H') plot.title='Legacy Channel actual termination · raw schema 2; three-source view unavailable';
+      return {...plot,run:r.run};
+    }));
     if (token !== renderToken) return;
     const unavailable = charts.filter(p => p.availability === 'unavailable');
     if (unavailable.length) return empty(unavailable.map(p => `${p.run_id.slice(0,8)} · ${p.title}: ${p.reason}`).join(' | '));
