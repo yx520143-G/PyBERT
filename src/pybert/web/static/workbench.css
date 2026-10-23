@@ -22,3 +22,8 @@ dialog { max-width:740px; max-height:80vh; border:1px solid #cbd5e1; border-radi
 #chain-map { padding:5px 4px; }.chain-node,.chain-node.noise { min-height:47px; }.chain-node .node-top { display:none; }.mode-toolbar { min-height:22px; }.support-cell { min-height:23px; }.mode-note { min-height:0; }.stage-overview,.inspector[data-view=settings] .stage-overview { margin-bottom:0; }.settings-group-heading { padding:8px 10px; }
 #plot { height:250px; }#settings-panel,#parameter-panel,#mapping-panel { max-height:calc(100vh - 430px); }
 #plot.text-mode { height:auto; min-height:0; }#plot.text-mode>p { padding:10px 12px; margin:0; }
+.result-toolbar { flex-wrap:wrap; }.result-toolbar label { display:flex; align-items:center; gap:4px; }
+#expand-viewer { border:1px solid #cbd5e1; border-radius:4px; padding:5px; font-size:10px; background:white; }
+#analysis-info { max-height:150px; }#analysis-info details { margin:4px 0; overflow-wrap:anywhere; }
+#work-area.viewer-expanded { grid-template-columns:1fr; }#work-area.viewer-expanded>.inspector { display:none; }
+#work-area.viewer-expanded #analysis-info { max-height:230px; }

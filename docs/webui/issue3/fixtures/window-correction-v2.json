@@ -1,0 +1,27 @@
+{
+  "schema": 2,
+  "parent_sha256": "457a66a4af98087eb5ad6ac4dfcfa103787d1bcb3cd035eab0133b272da12c5a",
+  "corrected_before_analysis": true,
+  "reason": "PAM4 UI is 200ps at 10Gb/s; initial supplemental window contained a bit-rate transcription error. No helper or simulation had run.",
+  "windows": {
+    "F-NRZ-01": {
+      "nui": 15000,
+      "eye_uis": 10160,
+      "ignore_samps": 154880,
+      "ignore_until_s": 4.84e-07,
+      "ui_s": 1e-10,
+      "Ts_s": 3.125e-12,
+      "source_manifest_sha256": "e50c833a41854071a86dab5485933d59c9f8b68c4d73d7b69ce886fefce3ad16"
+    },
+    "F-PAM4-01": {
+      "nui": 7500,
+      "eye_uis": 5080,
+      "ignore_samps": 77440,
+      "ignore_until_s": 4.84e-07,
+      "ui_s": 2e-10,
+      "Ts_s": 6.25e-12,
+      "source_manifest_sha256": "f86f14a85600db9b630d6f9cc036acdcadbe3bd849deb5b63c8c7d95e8fd39ff"
+    }
+  },
+  "inherited_contract": "All other inputs, tolerance, display-noise and bounded scope remain in parent."
+}

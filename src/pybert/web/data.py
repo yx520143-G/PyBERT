@@ -52,7 +52,8 @@ CATALOG = {
         "source.ui/nspui/nui/eye_uis/pattern_len/rel_thresh/decision_scaler/mod_type/xing_min_t",
         "each_point.ofst/actual_xings/actual_xings_jit/t_jitter/bin_centers/spectrum_freqs/tie/tie_ind/valid",
     ],
-    "eyes": ["rx_in", "dfe"],
+    "eyes": ["chnl", "tx", "ctle", "ffe", "dfe", "chnl.gui_noise"],
+    "analysis": ["new RxFFE native helpers", "per-point jitter and bathtub", "CDR histogram/legacy spectrum"],
     "display_only": [
         "response dB (native safe_log10)",
         "jitter /ps and ps",
@@ -339,6 +340,9 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
         },
     )
     directory = Path(directory)
+    from pybert.web.analysis import extend_analysis
+
+    extend_analysis(arrays, manifest, cancelled)
     np.savez_compressed(directory / "arrays.npz", **arrays)
     (directory / "manifest.json").write_text(json.dumps(manifest, indent=2, allow_nan=False), encoding="utf-8")
     return manifest
@@ -349,6 +353,8 @@ def plot_payload(directory, plot_id):
     directory = Path(directory)
     manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
     plot = manifest["plots"][plot_id]
+    if plot.get("availability") == "unavailable":
+        return dict(run_id=manifest["run_id"], plot_id=plot_id, data=[], **plot)
     with np.load(directory / "arrays.npz", allow_pickle=False) as arrays:
         traces = [
             {
@@ -381,4 +387,6 @@ def plot_payload(directory, plot_id):
         "xunit": first["xunit"],
         "yunit": first["yunit"],
         "logx": first.get("logx", False),
+        "metadata": plot.get("metadata", {}),
+        "availability": "available",
     }

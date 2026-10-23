@@ -395,6 +395,13 @@
   document.addEventListener('click', event => {
     const guiButton = event.target.closest('[data-gui-key]');
     if (guiButton) {
+      const route = window.PYBERT_GUI.items.find(item => item.key === guiButton.dataset.guiKey)?.analysis;
+      if (route) {
+        $('gui-crosswalk').open = false;
+        selectStage(route.stage);
+        window.dispatchEvent(new CustomEvent('pybert-analysis-navigation',{detail:route}));
+        return;
+      }
       const entry = guiEntry(guiButton.dataset.guiKey);
       if (entry) {
         $('gui-crosswalk').open = false;
@@ -522,8 +529,8 @@
     $('gui-index').innerHTML = `<p class="gui-intro">按原 GUI 的分组定位 ${window.PYBERT_GUI.items.length} 个命名控件。按钮可直达设置或参考说明；“未接入”不代表已经运行或完成迁移。<a href="gui-audit.zh-CN.md">查看本次核对记录 ↗</a></p>${[...groups].map(([path, items]) => `<details class="gui-section"><summary>${escape(path)}<span>${items.length} 项</span></summary><div class="gui-rows">${items.map(item => {
       const entry = guiEntry(item.key);
       const field = settings.fields[item.key];
-      const status = field?.readonly ? '能力限制 / 只读' : settings.fields[item.key] || settings.tableInfo[item.key] || item.key.startsWith('btn_') ? '输入 · Run 前校验' : '参考 · 后续票';
-      return `<div class="gui-row"><div><strong>${escape(item.label)}</strong><code>${item.key}</code></div><span class="gui-status">${status}</span>${entry ? `<button type="button" class="text-button" data-gui-key="${item.key}">${entry.stage.name} →</button>` : '<span>未接入</span>'}<a class="source-link" href="${window.PYBERT_CATALOG.root}src/pybert/gui/view.py#L${item.line}" target="_blank" rel="noopener noreferrer">源码 ↗</a></div>`;
+      const status = item.analysis ? '真实分析 · 所选 run' : field?.readonly ? '能力限制 / 只读' : settings.fields[item.key] || settings.tableInfo[item.key] || item.key.startsWith('btn_') ? '输入 · Run 前校验' : '参考 · 后续票';
+      return `<div class="gui-row"><div><strong>${escape(item.label)}</strong><code>${item.key}</code></div><span class="gui-status">${status}</span>${item.analysis || entry ? `<button type="button" class="text-button" data-gui-key="${item.key}">${item.analysis ? '查看分析' : entry.stage.name} →</button>` : '<span>未接入</span>'}<a class="source-link" href="${window.PYBERT_CATALOG.root}src/pybert/gui/view.py#L${item.line}" target="_blank" rel="noopener noreferrer">源码 ↗</a></div>`;
     }).join('')}</div></details>`).join('')}<details class="gui-section"><summary>菜单与状态栏<span>操作范围</span></summary><div class="gui-menu-list">${window.PYBERT_GUI.menus.map(menu => `<p><strong>${menu.name}</strong> · ${menu.items.join(' / ')}</p>`).join('')}<p>Debug Mode uses the native debug field. Run / Abort, native YAML Load / Save, logs and help are connected. Persistent result archives: #5. Tune / Use / Reset EQ: #8. Restore defaults is a separate draft action.</p><p>Current task state and selected successful run are separate. Run overview reports native performance, delay, DFE bit errors, power and jitter. COM is tracked in #4.</p></div></details>`;
   }
   window.PYBERT_WORKBENCH = {
