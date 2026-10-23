@@ -321,9 +321,15 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
         dataset["point"] = dataset.get("point") or field_points.get(key, "simulation")
         if key.startswith("axis.") and key[5:] in datasets:
             dataset["point"] = datasets[key[5:]]["point"]
-        if key in ("clocks", "clock_times", "lockeds"):
+        if key in ("clocks", "lockeds"):
             dataset.update(window=dict(clock_window, source_field=key, stop_index=len(arrays[key]),
                                        sample_count=len(arrays[key])))
+        if key == "clock_times":
+            events = arrays[key]
+            dataset.update(window=dict(scope="full_record", record_kind="event_times", source_field=key,
+                time_axis=key, start_index=0, stop_index=len(events), sample_count=len(events), event_count=len(events),
+                ignore_samps=0, ignore_until_s=0., start_s=float(events[0]) if len(events) else None,
+                stop_s_inclusive=float(events[-1]) if len(events) else None))
         if key == "ui_ests" or key == "cdr_indices" or key.startswith(("cdr.", "display.cdr.")):
             dataset.update(point="cdr", window=clock_window)
         if key == "cdr_indices":

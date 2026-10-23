@@ -125,6 +125,15 @@ def verify(arrays, manifest, old_arrays=None):
             and w.get("sample_count") == source_count and w.get("ignore_samps") == 0
             and w.get("ignore_until_s") == t[0] and w.get("start_s") == t[0]
             and w.get("stop_s_exclusive") == t[-1] + (t[1] - t[0])) if cdr else w == manifest["window"]
+        if key == "clock_times":
+            events = arrays[key]
+            valid_window = (w.get("scope") == "full_record" and w.get("record_kind") == "event_times"
+                and w.get("source_field") == key and w.get("time_axis") == key and w.get("start_index") == 0
+                and w.get("stop_index") == len(events) and w.get("event_count") == len(events)
+                and w.get("sample_count") == len(events) and w.get("ignore_samps") == 0
+                and w.get("start_s") == (float(events[0]) if len(events) else None)
+                and w.get("stop_s_inclusive") == (float(events[-1]) if len(events) else None)
+                and "stop_s_exclusive" not in w)
         raw_checks.append(dict(check=f"actual source window {key}",passed=bool(valid_window)))
 
     def metadata(key, point, observation_id, sources):

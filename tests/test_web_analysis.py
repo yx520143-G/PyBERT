@@ -14,7 +14,7 @@ def metadata_analysis(monkeypatch):
     t = np.arange(256) * 1e-12
     window = dict(nui=32, eye_uis=16, ignore_samps=128, ignore_until_s=128e-12)
     arrays = dict(t=t, f=np.arange(5) * 1e9, ui_ests=np.r_[np.full(128, 8.), np.tile([8., 8.1], 64)],
-                  clocks=np.zeros(256), lockeds=np.ones(256), clock_times=np.asarray([]))
+                  clocks=np.zeros(256), lockeds=np.ones(256), clock_times=np.r_[0., np.arange(136, 273, 16) * 1e-12])
     arrays.update({"context.source.ui":np.asarray(8e-12), "context.source.nspui":np.asarray(8)})
     for key in ("chnl_H_raw", "chnl_H", "chnl_trimmed_H"):
         arrays[key] = np.ones(5, dtype=complex)
@@ -68,6 +68,11 @@ def test_cdr_metadata_uses_complete_record_not_eye_window(metadata_analysis, tmp
             assert dataset["window"]["sample_count"] == len(arrays[key])
             assert dataset["window"]["ignore_samps"] == 0
             assert dataset["observation_id"] == "cdr_clock"
+            if key == "clock_times":
+                assert dataset["window"]["record_kind"] == "event_times"
+                assert dataset["window"]["time_axis"] == "clock_times"
+                assert dataset["window"]["stop_s_inclusive"] == arrays[key][-1] > arrays["t"][-1]
+                assert "stop_s_exclusive" not in dataset["window"]
         if key.startswith(("cdr.", "display.cdr.")):
             window = dataset["window"]
             assert window["scope"] == "full_record"
