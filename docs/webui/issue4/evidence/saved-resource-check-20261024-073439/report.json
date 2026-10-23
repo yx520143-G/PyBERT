@@ -1,0 +1,6719 @@
+{
+  "source_report": "docs\\webui\\issue4\\evidence\\numeric-20261024-073225\\report.json",
+  "source_report_sha256": "68106e6ef58305ce535b61a596d2848fae64984218b122d8af41d49006c7b9ab",
+  "main_simulation_performed": false,
+  "method": "same saved raw bytes; annotate interference identity/windows and run independent expectations",
+  "actual_sources": {
+    "tools\\verify_web_resources.py": "0be64af35e74004579878baaf7b0fd8e442246f9c831e808f537bdab65adec33",
+    "src\\pybert\\web\\resource_data.py": "4710dd6b90c0cd173030992cdc8d30d42434c1a6ad59761f2bfe252302bfbdd4",
+    "tools\\verify_web_analysis.py": "fcda25d623b649f7227956ae33544f96b38724ecde2ecab01234ce8299033f3f"
+  },
+  "cases": [
+    {
+      "case": "F4-SINGLE-NRZ",
+      "passed": true,
+      "direct_raw_unchanged": true,
+      "worker_raw_unchanged": true,
+      "independent_saved_data": {
+        "analysis_raw": [
+          {
+            "check": "direct helper: context.ffe.tie",
+            "passed": true,
+            "shape": [
+              5114
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: context.ffe.t_jitter",
+            "passed": true,
+            "shape": [
+              5114
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: isi_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: dcd_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: pj_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: rj_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: pjDD_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: rjDD_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: context.ffe.tie_ind",
+            "passed": true,
+            "shape": [
+              5114
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: thresh_ffe",
+            "passed": true,
+            "shape": [
+              5080
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: jitter_spectrum_ffe",
+            "passed": true,
+            "shape": [
+              5080
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: jitter_ind_spectrum_ffe",
+            "passed": true,
+            "shape": [
+              5080
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: context.ffe.spectrum_freqs",
+            "passed": true,
+            "shape": [
+              5080
+            ],
+            "rtol": 1e-12,
+            "atol": 1e-06,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: jitter_ffe",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 0.01,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: jitter_ext_ffe",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 0.01,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: context.ffe.bin_centers",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: mu_pos_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: mu_neg_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: dj_pos_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct helper: dj_neg_ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct context: ofst",
+            "passed": true,
+            "shape": [],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct context: actual_xings",
+            "passed": true,
+            "shape": [
+              7552
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct context: actual_xings_jit",
+            "passed": true,
+            "shape": [
+              5114
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-18,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "separate frozen display noise",
+            "passed": true,
+            "shape": [
+              480000
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct eye counts chnl",
+            "passed": true,
+            "shape": [
+              1000,
+              64
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_max chnl",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_scale chnl",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct eye counts tx",
+            "passed": true,
+            "shape": [
+              1000,
+              64
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_max tx",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_scale tx",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct eye counts ctle",
+            "passed": true,
+            "shape": [
+              1000,
+              64
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_max ctle",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_scale ctle",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct eye counts ffe",
+            "passed": true,
+            "shape": [
+              1000,
+              64
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_max ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_scale ffe",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct eye counts dfe",
+            "passed": true,
+            "shape": [
+              1000,
+              64
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_max dfe",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_scale dfe",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct eye counts chnl.gui_noise",
+            "passed": true,
+            "shape": [
+              1000,
+              64
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_max chnl.gui_noise",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y_scale chnl.gui_noise",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct bathtub chnl",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-08,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "bathtub floor mask chnl",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct bathtub tx",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-08,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "bathtub floor mask tx",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct bathtub ctle",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-08,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "bathtub floor mask ctle",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct bathtub ffe",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-08,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "bathtub floor mask ffe",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "direct bathtub dfe",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-08,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "bathtub floor mask dfe",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "clock histogram counts",
+            "passed": true,
+            "shape": [
+              100
+            ],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "clock histogram covers every UI estimate",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "clock histogram edges ps",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-06,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "clock raw complex FFT real",
+            "passed": true,
+            "shape": [
+              240001
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-06,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "clock raw complex FFT imag",
+            "passed": true,
+            "shape": [
+              240001
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-06,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "clock frequency Hz",
+            "passed": true,
+            "shape": [
+              240001
+            ],
+            "rtol": 1e-12,
+            "atol": 1e-06,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "clock frequency f*UI",
+            "passed": true,
+            "shape": [
+              240000
+            ],
+            "rtol": 1e-12,
+            "atol": 1e-16,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "typed identity start_ix",
+            "passed": true
+          },
+          {
+            "check": "actual source window start_ix",
+            "passed": true
+          },
+          {
+            "check": "typed identity t",
+            "passed": true
+          },
+          {
+            "check": "actual source window t",
+            "passed": true
+          },
+          {
+            "check": "typed identity f",
+            "passed": true
+          },
+          {
+            "check": "actual source window f",
+            "passed": true
+          },
+          {
+            "check": "typed identity t_ns_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window t_ns_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity t_irfft",
+            "passed": true
+          },
+          {
+            "check": "actual source window t_irfft",
+            "passed": true
+          },
+          {
+            "check": "typed identity bits",
+            "passed": true
+          },
+          {
+            "check": "actual source window bits",
+            "passed": true
+          },
+          {
+            "check": "typed identity symbols",
+            "passed": true
+          },
+          {
+            "check": "actual source window symbols",
+            "passed": true
+          },
+          {
+            "check": "typed identity noise",
+            "passed": true
+          },
+          {
+            "check": "actual source window noise",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_slicer_samps",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_slicer_samps",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_slicer_decisions",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_slicer_decisions",
+            "passed": true
+          },
+          {
+            "check": "typed identity bit_errs_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window bit_errs_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity adaptation",
+            "passed": true
+          },
+          {
+            "check": "actual source window adaptation",
+            "passed": true
+          },
+          {
+            "check": "typed identity ui_ests",
+            "passed": true
+          },
+          {
+            "check": "actual source window ui_ests",
+            "passed": true
+          },
+          {
+            "check": "typed identity clocks",
+            "passed": true
+          },
+          {
+            "check": "actual source window clocks",
+            "passed": true
+          },
+          {
+            "check": "typed identity clock_times",
+            "passed": true
+          },
+          {
+            "check": "actual source window clock_times",
+            "passed": true
+          },
+          {
+            "check": "typed identity lockeds",
+            "passed": true
+          },
+          {
+            "check": "actual source window lockeds",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_scalar_values",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_scalar_values",
+            "passed": true
+          },
+          {
+            "check": "typed identity chnl_H_raw",
+            "passed": true
+          },
+          {
+            "check": "actual source window chnl_H_raw",
+            "passed": true
+          },
+          {
+            "check": "typed identity chnl_trimmed_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window chnl_trimmed_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity ideal_signal",
+            "passed": true
+          },
+          {
+            "check": "actual source window ideal_signal",
+            "passed": true
+          },
+          {
+            "check": "typed identity chnl_out",
+            "passed": true
+          },
+          {
+            "check": "actual source window chnl_out",
+            "passed": true
+          },
+          {
+            "check": "typed identity rx_in",
+            "passed": true
+          },
+          {
+            "check": "actual source window rx_in",
+            "passed": true
+          },
+          {
+            "check": "typed identity ctle_out",
+            "passed": true
+          },
+          {
+            "check": "actual source window ctle_out",
+            "passed": true
+          },
+          {
+            "check": "typed identity ffe_out",
+            "passed": true
+          },
+          {
+            "check": "actual source window ffe_out",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_out",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_out",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.chnl_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.chnl_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity chnl_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window chnl_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.chnl_h.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.chnl_h.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.chnl_h.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.chnl_h.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.chnl_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.chnl_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity chnl_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window chnl_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.chnl_s.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.chnl_s.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.chnl_s.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.chnl_s.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.chnl_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.chnl_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity chnl_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window chnl_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.chnl_p.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.chnl_p.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.chnl_p.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.chnl_p.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity chnl_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window chnl_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.chnl_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.chnl_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.chnl_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.chnl_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.tx_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.tx_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity tx_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window tx_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_h.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_h.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_h.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_h.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.tx_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.tx_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity tx_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window tx_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_s.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_s.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_s.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_s.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.tx_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.tx_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity tx_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window tx_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_p.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_p.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_p.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_p.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity tx_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window tx_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.tx_out_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.tx_out_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity tx_out_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window tx_out_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_out_h.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_out_h.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_out_h.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_out_h.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.tx_out_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.tx_out_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity tx_out_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window tx_out_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_out_s.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_out_s.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_out_s.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_out_s.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.tx_out_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.tx_out_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity tx_out_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window tx_out_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_out_p.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_out_p.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_out_p.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_out_p.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity tx_out_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window tx_out_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_out_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_out_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tx_out_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tx_out_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ctle_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ctle_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity ctle_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window ctle_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_h.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_h.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_h.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_h.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ctle_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ctle_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity ctle_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window ctle_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_s.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_s.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_s.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_s.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ctle_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ctle_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity ctle_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window ctle_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_p.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_p.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_p.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_p.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity ctle_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window ctle_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ctle_out_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ctle_out_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity ctle_out_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window ctle_out_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_out_h.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_out_h.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_out_h.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_out_h.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ctle_out_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ctle_out_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity ctle_out_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window ctle_out_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_out_s.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_out_s.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_out_s.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_out_s.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ctle_out_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ctle_out_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity ctle_out_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window ctle_out_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_out_p.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_out_p.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_out_p.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_out_p.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity ctle_out_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window ctle_out_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_out_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_out_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ctle_out_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ctle_out_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ffe_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ffe_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity ffe_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window ffe_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_h.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_h.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_h.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_h.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ffe_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ffe_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity ffe_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window ffe_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_s.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_s.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_s.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_s.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ffe_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ffe_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity ffe_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window ffe_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_p.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_p.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_p.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_p.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity ffe_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window ffe_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ffe_out_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ffe_out_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity ffe_out_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window ffe_out_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_out_h.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_out_h.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_out_h.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_out_h.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ffe_out_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ffe_out_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity ffe_out_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window ffe_out_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_out_s.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_out_s.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_out_s.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_out_s.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.ffe_out_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.ffe_out_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity ffe_out_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window ffe_out_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_out_p.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_out_p.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_out_p.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_out_p.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity ffe_out_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window ffe_out_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_out_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_out_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.ffe_out_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.ffe_out_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.dfe_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.dfe_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_h.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_h.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_h.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_h.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.dfe_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.dfe_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_s.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_s.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_s.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_s.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.dfe_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.dfe_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_p.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_p.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_p.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_p.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.dfe_out_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.dfe_out_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_out_h",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_out_h",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_out_h.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_out_h.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_out_h.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_out_h.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.dfe_out_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.dfe_out_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_out_s",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_out_s",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_out_s.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_out_s.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_out_s.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_out_s.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity axis.dfe_out_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window axis.dfe_out_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_out_p",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_out_p",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_out_p.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_out_p.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_out_p.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_out_p.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity dfe_out_H",
+            "passed": true
+          },
+          {
+            "check": "actual source window dfe_out_H",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_out_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_out_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.dfe_out_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.dfe_out_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity waveform_indices",
+            "passed": true
+          },
+          {
+            "check": "actual source window waveform_indices",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.ideal_signal.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.ideal_signal.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.ideal_signal.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.ideal_signal.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.chnl_out.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.chnl_out.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.chnl_out.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.chnl_out.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.rx_in.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.rx_in.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.rx_in.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.rx_in.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.ctle_out.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.ctle_out.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.ctle_out.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.ctle_out.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.ffe_out.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.ffe_out.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.ffe_out.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.ffe_out.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.dfe_out.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.dfe_out.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.dfe_out.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.dfe_out.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.ideal_signal",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.ideal_signal",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.ideal_xings",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.ideal_xings",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.ideal_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.ideal_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.ui",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.ui",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.nspui",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.nspui",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.nui",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.nui",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.eye_uis",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.eye_uis",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.pattern_len",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.pattern_len",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.rel_thresh",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.rel_thresh",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.decision_scaler",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.decision_scaler",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.mod_type",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.mod_type",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.xing_min_t",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.xing_min_t",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.noise_total",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.noise_total",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.source.fext_count",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.source.fext_count",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.chnl.ofst",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.chnl.ofst",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.chnl.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.chnl.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.chnl.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.chnl.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.chnl.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.chnl.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.chnl.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.chnl.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.chnl.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.chnl.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.chnl.tie",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.chnl.tie",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.chnl.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.chnl.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.chnl.valid",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.chnl.valid",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.tx.ofst",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.tx.ofst",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.tx.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.tx.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.tx.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.tx.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.tx.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.tx.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.tx.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.tx.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.tx.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.tx.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.tx.tie",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.tx.tie",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.tx.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.tx.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.tx.valid",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.tx.valid",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ctle.ofst",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ctle.ofst",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ctle.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ctle.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ctle.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ctle.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ctle.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ctle.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ctle.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ctle.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ctle.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ctle.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ctle.tie",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ctle.tie",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ctle.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ctle.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ctle.valid",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ctle.valid",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.dfe.ofst",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.dfe.ofst",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.dfe.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.dfe.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.dfe.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.dfe.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.dfe.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.dfe.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.dfe.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.dfe.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.dfe.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.dfe.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.dfe.tie",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.dfe.tie",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.dfe.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.dfe.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.dfe.valid",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.dfe.valid",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.x.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.x.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.x.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.x.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.noise_total.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.noise_total.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.noise_total.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.noise_total.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.noise_base.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.noise_base.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.wave.noise_base.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.wave.noise_base.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity isi_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window isi_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity dcd_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window dcd_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity pj_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window pj_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity rj_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window rj_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity pjDD_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window pjDD_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity rjDD_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window rjDD_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_pos_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_pos_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_neg_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_neg_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_pos_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_pos_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_neg_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_neg_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ext_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ext_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_spectrum_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_spectrum_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ind_spectrum_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ind_spectrum_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity thresh_chnl",
+            "passed": true
+          },
+          {
+            "check": "actual source window thresh_chnl",
+            "passed": true
+          },
+          {
+            "check": "typed identity isi_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window isi_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity dcd_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window dcd_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity pj_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window pj_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity rj_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window rj_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity pjDD_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window pjDD_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity rjDD_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window rjDD_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_pos_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_pos_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_neg_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_neg_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_pos_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_pos_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_neg_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_neg_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ext_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ext_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_spectrum_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_spectrum_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ind_spectrum_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ind_spectrum_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity thresh_tx",
+            "passed": true
+          },
+          {
+            "check": "actual source window thresh_tx",
+            "passed": true
+          },
+          {
+            "check": "typed identity isi_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window isi_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity dcd_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window dcd_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity pj_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window pj_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity rj_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window rj_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity pjDD_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window pjDD_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity rjDD_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window rjDD_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_pos_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_pos_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_neg_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_neg_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_pos_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_pos_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_neg_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_neg_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ext_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ext_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_spectrum_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_spectrum_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ind_spectrum_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ind_spectrum_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity thresh_ctle",
+            "passed": true
+          },
+          {
+            "check": "actual source window thresh_ctle",
+            "passed": true
+          },
+          {
+            "check": "typed identity isi_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window isi_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity dcd_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window dcd_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity pj_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window pj_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity rj_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window rj_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity pjDD_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window pjDD_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity rjDD_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window rjDD_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_pos_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_pos_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_neg_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_neg_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_pos_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_pos_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_neg_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_neg_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ext_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ext_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_spectrum_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_spectrum_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ind_spectrum_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ind_spectrum_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity thresh_dfe",
+            "passed": true
+          },
+          {
+            "check": "actual source window thresh_dfe",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.jitter_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.jitter_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.jitter_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.jitter_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.jitter_ext_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.jitter_ext_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.jitter_ext_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.jitter_ext_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.jitter_spectrum_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.jitter_spectrum_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.jitter_spectrum_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.jitter_spectrum_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.jitter_ind_spectrum_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.jitter_ind_spectrum_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.jitter_ind_spectrum_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.jitter_ind_spectrum_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.thresh_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.thresh_dfe.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.thresh_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.thresh_dfe.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.rx_in.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.rx_in.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.rx_in.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.rx_in.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.rx_in.counts",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.rx_in.counts",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.dfe.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.dfe.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.dfe.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.dfe.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.dfe.counts",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.dfe.counts",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap1.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap1.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap1.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap1.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap2.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap2.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap2.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap2.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap3.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap3.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap3.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap3.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap4.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap4.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap4.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap4.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap5.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap5.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.tap5.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.tap5.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity cdr_indices",
+            "passed": true
+          },
+          {
+            "check": "actual source window cdr_indices",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.cdr.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.cdr.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.cdr.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.cdr.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ffe.ofst",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ffe.ofst",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ffe.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ffe.actual_xings",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ffe.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ffe.actual_xings_jit",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ffe.tie",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ffe.tie",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ffe.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ffe.t_jitter",
+            "passed": true
+          },
+          {
+            "check": "typed identity isi_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window isi_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity dcd_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window dcd_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity pj_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window pj_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity rj_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window rj_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity pjDD_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window pjDD_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity rjDD_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window rjDD_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ffe.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ffe.tie_ind",
+            "passed": true
+          },
+          {
+            "check": "typed identity thresh_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window thresh_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_spectrum_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_spectrum_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ind_spectrum_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ind_spectrum_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ffe.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ffe.spectrum_freqs",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity jitter_ext_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window jitter_ext_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity context.ffe.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "actual source window context.ffe.bin_centers",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_pos_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_pos_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity mu_neg_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window mu_neg_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_pos_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_pos_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity dj_neg_ffe",
+            "passed": true
+          },
+          {
+            "check": "actual source window dj_neg_ffe",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.channel.chnl_H_raw.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.channel.chnl_H_raw.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.channel.chnl_H_raw.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.channel.chnl_H_raw.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.channel.chnl_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.channel.chnl_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.channel.chnl_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.channel.chnl_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.channel.chnl_trimmed_H.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.channel.chnl_trimmed_H.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.channel.chnl_trimmed_H.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.channel.chnl_trimmed_H.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.channel_noise",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.channel_noise",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.chnl.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.chnl.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.chnl.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.chnl.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.chnl.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.chnl.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.chnl.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.chnl.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.chnl.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.chnl.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.chnl.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.chnl.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.chnl.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.chnl.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.chnl.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.chnl.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.chnl.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.chnl.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.chnl.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.chnl.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity bathtub.chnl.probability",
+            "passed": true
+          },
+          {
+            "check": "actual source window bathtub.chnl.probability",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.chnl.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.chnl.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.chnl.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.chnl.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.chnl.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.chnl.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.chnl.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.chnl.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.chnl.counts",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.chnl.counts",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.chnl.gui_noise.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.chnl.gui_noise.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.chnl.gui_noise.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.chnl.gui_noise.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.chnl.gui_noise.counts",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.chnl.gui_noise.counts",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.tx.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.tx.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.tx.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.tx.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.tx.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.tx.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.tx.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.tx.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.tx.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.tx.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.tx.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.tx.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.tx.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.tx.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.tx.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.tx.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.tx.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.tx.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.tx.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.tx.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity bathtub.tx.probability",
+            "passed": true
+          },
+          {
+            "check": "actual source window bathtub.tx.probability",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.tx.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.tx.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.tx.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.tx.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.tx.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.tx.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.tx.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.tx.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.tx.counts",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.tx.counts",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.ctle.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.ctle.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.ctle.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.ctle.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.ctle.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.ctle.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.ctle.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.ctle.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ctle.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ctle.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ctle.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ctle.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ctle.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ctle.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ctle.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ctle.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ctle.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ctle.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ctle.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ctle.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity bathtub.ctle.probability",
+            "passed": true
+          },
+          {
+            "check": "actual source window bathtub.ctle.probability",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.ctle.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.ctle.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.ctle.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.ctle.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.ctle.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.ctle.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.ctle.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.ctle.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.ctle.counts",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.ctle.counts",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.ffe.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.ffe.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.ffe.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.ffe.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.ffe.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.ffe.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.ffe.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.ffe.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ffe.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ffe.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ffe.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ffe.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ffe.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ffe.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ffe.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ffe.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ffe.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ffe.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.ffe.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.ffe.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity bathtub.ffe.probability",
+            "passed": true
+          },
+          {
+            "check": "actual source window bathtub.ffe.probability",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.ffe.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.ffe.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.ffe.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.ffe.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.ffe.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.ffe.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.ffe.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.ffe.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity eye.ffe.counts",
+            "passed": true
+          },
+          {
+            "check": "actual source window eye.ffe.counts",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.dfe.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.dfe.jitter.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.dfe.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.dfe.jitter.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.dfe.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.dfe.jitter_ext.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.pdf.dfe.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.pdf.dfe.jitter_ext.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.dfe.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.dfe.jitter_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.dfe.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.dfe.jitter_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.dfe.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.dfe.jitter_ind_spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.dfe.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.dfe.jitter_ind_spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.dfe.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.dfe.thresh.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.spec.dfe.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.spec.dfe.thresh.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity bathtub.dfe.probability",
+            "passed": true
+          },
+          {
+            "check": "actual source window bathtub.dfe.probability",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.dfe.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.dfe.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.bathtub.dfe.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.bathtub.dfe.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity cdr.histogram.edges",
+            "passed": true
+          },
+          {
+            "check": "actual source window cdr.histogram.edges",
+            "passed": true
+          },
+          {
+            "check": "typed identity cdr.histogram.centers",
+            "passed": true
+          },
+          {
+            "check": "actual source window cdr.histogram.centers",
+            "passed": true
+          },
+          {
+            "check": "typed identity cdr.histogram.counts",
+            "passed": true
+          },
+          {
+            "check": "actual source window cdr.histogram.counts",
+            "passed": true
+          },
+          {
+            "check": "typed identity cdr.spectrum.raw",
+            "passed": true
+          },
+          {
+            "check": "actual source window cdr.spectrum.raw",
+            "passed": true
+          },
+          {
+            "check": "typed identity cdr.spectrum.frequency_Hz",
+            "passed": true
+          },
+          {
+            "check": "actual source window cdr.spectrum.frequency_Hz",
+            "passed": true
+          },
+          {
+            "check": "typed identity cdr.spectrum.relative_frequency",
+            "passed": true
+          },
+          {
+            "check": "actual source window cdr.spectrum.relative_frequency",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.cdr.histogram.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.cdr.histogram.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.cdr.histogram.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.cdr.histogram.y",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.cdr.spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.cdr.spectrum.x",
+            "passed": true
+          },
+          {
+            "check": "typed identity display.cdr.spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "actual source window display.cdr.spectrum.y",
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.chnl.jitter.x",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "context.chnl.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.chnl.jitter.y",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "jitter_chnl"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.chnl.jitter_ext.x",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "context.chnl.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.chnl.jitter_ext.y",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "jitter_ext_chnl"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.chnl.jitter_spectrum.x",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "context.chnl.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.chnl.jitter_spectrum.y",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "jitter_spectrum_chnl",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.chnl.jitter_ind_spectrum.x",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "context.chnl.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.chnl.jitter_ind_spectrum.y",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "jitter_ind_spectrum_chnl",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.chnl.thresh.x",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "context.chnl.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.chnl.thresh.y",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "thresh_chnl",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.chnl.x",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "context.chnl.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.chnl.y",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "bathtub.chnl.probability"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.tx.jitter.x",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "context.tx.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.tx.jitter.y",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "jitter_tx"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.tx.jitter_ext.x",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "context.tx.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.tx.jitter_ext.y",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "jitter_ext_tx"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.tx.jitter_spectrum.x",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "context.tx.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.tx.jitter_spectrum.y",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "jitter_spectrum_tx",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.tx.jitter_ind_spectrum.x",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "context.tx.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.tx.jitter_ind_spectrum.y",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "jitter_ind_spectrum_tx",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.tx.thresh.x",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "context.tx.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.tx.thresh.y",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "thresh_tx",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.tx.x",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "context.tx.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.tx.y",
+            "expected_point": "tx",
+            "expected_observation_id": "rx_input",
+            "expected_source_fields": [
+              "bathtub.tx.probability"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.ctle.jitter.x",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "context.ctle.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.ctle.jitter.y",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "jitter_ctle"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.ctle.jitter_ext.x",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "context.ctle.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.ctle.jitter_ext.y",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "jitter_ext_ctle"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ctle.jitter_spectrum.x",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "context.ctle.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ctle.jitter_spectrum.y",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "jitter_spectrum_ctle",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ctle.jitter_ind_spectrum.x",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "context.ctle.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ctle.jitter_ind_spectrum.y",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "jitter_ind_spectrum_ctle",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ctle.thresh.x",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "context.ctle.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ctle.thresh.y",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "thresh_ctle",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.ctle.x",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "context.ctle.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.ctle.y",
+            "expected_point": "ctle",
+            "expected_observation_id": "ctle_output",
+            "expected_source_fields": [
+              "bathtub.ctle.probability"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.ffe.jitter.x",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "context.ffe.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.ffe.jitter.y",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "jitter_ffe"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.ffe.jitter_ext.x",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "context.ffe.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.ffe.jitter_ext.y",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "jitter_ext_ffe"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ffe.jitter_spectrum.x",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "context.ffe.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ffe.jitter_spectrum.y",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "jitter_spectrum_ffe",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ffe.jitter_ind_spectrum.x",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "context.ffe.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ffe.jitter_ind_spectrum.y",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "jitter_ind_spectrum_ffe",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ffe.thresh.x",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "context.ffe.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.ffe.thresh.y",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "thresh_ffe",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.ffe.x",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "context.ffe.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.ffe.y",
+            "expected_point": "ffe",
+            "expected_observation_id": "rx_ffe_output",
+            "expected_source_fields": [
+              "bathtub.ffe.probability"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.dfe.jitter.x",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "context.dfe.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.dfe.jitter.y",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "jitter_dfe"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.dfe.jitter_ext.x",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "context.dfe.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.pdf.dfe.jitter_ext.y",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "jitter_ext_dfe"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.dfe.jitter_spectrum.x",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "context.dfe.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.dfe.jitter_spectrum.y",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "jitter_spectrum_dfe",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.dfe.jitter_ind_spectrum.x",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "context.dfe.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.dfe.jitter_ind_spectrum.y",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "jitter_ind_spectrum_dfe",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.dfe.thresh.x",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "context.dfe.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.spec.dfe.thresh.y",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "thresh_dfe",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.dfe.x",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "context.dfe.bin_centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.bathtub.dfe.y",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "bathtub.dfe.probability"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.channel.chnl_H_raw.x",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "f"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.channel.chnl_H_raw.y",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "chnl_H_raw"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.channel.chnl_H.x",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "f"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.channel.chnl_H.y",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "chnl_H"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.channel.chnl_trimmed_H.x",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "f"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.channel.chnl_trimmed_H.y",
+            "expected_point": "chnl",
+            "expected_observation_id": "channel_only",
+            "expected_source_fields": [
+              "chnl_trimmed_H"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.jitter_spectrum_dfe.x",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "context.dfe.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.jitter_spectrum_dfe.y",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "jitter_spectrum_dfe",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.jitter_ind_spectrum_dfe.x",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "context.dfe.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.jitter_ind_spectrum_dfe.y",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "jitter_ind_spectrum_dfe",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.thresh_dfe.x",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "context.dfe.spectrum_freqs"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.thresh_dfe.y",
+            "expected_point": "dfe",
+            "expected_observation_id": "dfe_output",
+            "expected_source_fields": [
+              "thresh_dfe",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity ui_ests",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "ui_ests"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity clocks",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "clocks"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity clock_times",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "clock_times"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity lockeds",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "lockeds"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity cdr_indices",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "t"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.cdr.x",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "t",
+              "cdr_indices"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.cdr.y",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "ui_ests",
+              "cdr_indices"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity cdr.histogram.edges",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "ui_ests"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity cdr.histogram.centers",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "cdr.histogram.edges"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity cdr.histogram.counts",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "ui_ests"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity cdr.spectrum.raw",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "ui_ests"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity cdr.spectrum.frequency_Hz",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "ui_ests",
+              "t"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity cdr.spectrum.relative_frequency",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "cdr.spectrum.frequency_Hz",
+              "context.source.ui"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.cdr.histogram.x",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "cdr.histogram.centers"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.cdr.histogram.y",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "cdr.histogram.counts"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.cdr.spectrum.x",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "cdr.spectrum.relative_frequency"
+            ],
+            "passed": true
+          },
+          {
+            "check": "semantic source identity display.cdr.spectrum.y",
+            "expected_point": "cdr",
+            "expected_observation_id": "cdr_clock",
+            "expected_source_fields": [
+              "cdr.spectrum.raw"
+            ],
+            "passed": true
+          },
+          {
+            "check": "rejection source/ratio Channel-only\u2192Rx input isi",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio Channel-only\u2192Rx input dcd",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection unavailable Channel-only\u2192Rx input pj",
+            "passed": true
+          },
+          {
+            "check": "rejection unavailable Channel-only\u2192Rx input rj",
+            "passed": true
+          },
+          {
+            "check": "rejection source/ratio Rx input\u2192CTLE isi",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio Rx input\u2192CTLE dcd",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio Rx input\u2192CTLE pj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio Rx input\u2192CTLE rj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio CTLE\u2192DFE (includes Rx FFE) isi",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio CTLE\u2192DFE (includes Rx FFE) dcd",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio CTLE\u2192DFE (includes Rx FFE) pj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio CTLE\u2192DFE (includes Rx FFE) rj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio TOTAL isi",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio TOTAL dcd",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio TOTAL pj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio TOTAL rj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio CTLE\u2192Rx FFE \u00b7 new isi",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio CTLE\u2192Rx FFE \u00b7 new dcd",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio CTLE\u2192Rx FFE \u00b7 new pj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio CTLE\u2192Rx FFE \u00b7 new rj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio Rx FFE\u2192DFE \u00b7 new isi",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio Rx FFE\u2192DFE \u00b7 new dcd",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio Rx FFE\u2192DFE \u00b7 new pj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "rejection source/ratio Rx FFE\u2192DFE \u00b7 new rj",
+            "passed": true,
+            "shape": [],
+            "rtol": 0,
+            "atol": 0,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          }
+        ],
+        "analysis_display": [
+          {
+            "check": "eye x chnl",
+            "passed": true,
+            "shape": [
+              64
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y chnl",
+            "passed": true,
+            "shape": [
+              1000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye x tx",
+            "passed": true,
+            "shape": [
+              64
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y tx",
+            "passed": true,
+            "shape": [
+              1000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye x ctle",
+            "passed": true,
+            "shape": [
+              64
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y ctle",
+            "passed": true,
+            "shape": [
+              1000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye x ffe",
+            "passed": true,
+            "shape": [
+              64
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y ffe",
+            "passed": true,
+            "shape": [
+              1000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye x dfe",
+            "passed": true,
+            "shape": [
+              64
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y dfe",
+            "passed": true,
+            "shape": [
+              1000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye x chnl.gui_noise",
+            "passed": true,
+            "shape": [
+              64
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "eye y chnl.gui_noise",
+            "passed": true,
+            "shape": [
+              1000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF chnl jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins chnl jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF chnl jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins chnl jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum chnl jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis chnl jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum chnl jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis chnl jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum chnl thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis chnl thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display bathtub chnl",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF tx jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins tx jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF tx jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins tx jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum tx jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis tx jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum tx jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis tx jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum tx thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis tx thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display bathtub tx",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF ctle jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins ctle jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF ctle jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins ctle jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum ctle jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis ctle jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum ctle jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis ctle jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum ctle thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis ctle thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display bathtub ctle",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF ffe jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins ffe jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF ffe jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins ffe jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum ffe jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis ffe jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum ffe jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis ffe jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum ffe thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis ffe thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display bathtub ffe",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF dfe jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins dfe jitter",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF dfe jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display PDF bins dfe jitter_ext",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum dfe jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis dfe jitter_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum dfe jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis dfe jitter_ind_spectrum",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum dfe thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display spectrum axis dfe thresh",
+            "passed": true,
+            "shape": [
+              5079
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "display bathtub dfe",
+            "passed": true,
+            "shape": [
+              101
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "clock legacy log10 display",
+            "passed": true,
+            "shape": [
+              240000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "channel frequency chnl_H_raw",
+            "passed": true,
+            "shape": [
+              4000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "channel frequency chnl_H",
+            "passed": true,
+            "shape": [
+              4000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          },
+          {
+            "check": "channel frequency chnl_trimmed_H",
+            "passed": true,
+            "shape": [
+              4000
+            ],
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "validity_masks_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "first_bad": null
+          }
+        ],
+        "additional_display": [
+          {
+            "check": "chnl_h display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "chnl_h display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "chnl_s display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "chnl_s display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "chnl_p display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "chnl_p display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "chnl_H display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "chnl_H display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_h display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_h display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_s display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_s display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_p display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_p display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_H display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_H display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_out_h display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_out_h display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_out_s display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_out_s display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_out_p display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_out_p display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_out_H display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "tx_out_H display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_h display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_h display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_s display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_s display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_p display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_p display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_H display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_H display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_out_h display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_out_h display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_out_s display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_out_s display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_out_p display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_out_p display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_out_H display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ctle_out_H display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_h display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_h display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_s display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_s display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_p display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_p display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_H display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_H display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_out_h display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_out_h display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_out_s display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_out_s display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_out_p display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_out_p display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_out_H display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "ffe_out_H display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_h display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_h display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_s display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_s display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_p display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_p display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_H display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_H display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_out_h display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_out_h display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_out_s display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_out_s display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_out_p display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_out_p display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_out_H display values",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "dfe_out_H display axis",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "actual source x projection",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "base noise projection",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "total interference projection",
+            "passed": true,
+            "rtol": 1e-10,
+            "atol": 1e-10
+          },
+          {
+            "check": "no FEXT: total equals self.noise",
+            "passed": true,
+            "rtol": 0,
+            "atol": 0
+          }
+        ],
+        "passed": true
+      },
+      "original_raw_comparison_passed": true,
+      "original_nonperformance_summary_equal": true
+    }
+  ]
+}

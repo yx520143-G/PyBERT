@@ -11,6 +11,8 @@ import uuid
 from pathlib import Path
 
 from pybert.web.worker import run_worker
+from pybert.web.resources import Resources
+from pybert.web.config import input_hash, parse_yaml
 
 
 class BusyError(RuntimeError):
@@ -29,13 +31,26 @@ class Tasks:
         self.tasks = {}
         self.runs = []
         self.defaults = None
+        self.resources = Resources(self.root / "resources")
+        self.coms = []
 
-    def start(self, operation, request):
+    def start(self, operation, request, task_id=None):
         with self.lock:
             if self.active is not None:
                 raise BusyError("The native engine slot is busy; normalization is pending until the worker exits.")
+            request = copy.deepcopy(request)
+            task_id = task_id or str(uuid.uuid4())
+            if operation == "run":
+                rows = self.resources.for_run(request["config"], request.get("resource_bindings", {}))
+                request["frozen_resources"] = rows
+                request["resource_hash"] = input_hash([{k: row[k] for k in ("field", "index", "sha256")} for row in rows])
+                if request["config"]["enable_com"]:
+                    request["deferred_com"] = {"com_id": str(uuid.uuid4()), "parent_run_id": task_id}
+            elif operation == "com" and "frozen_resources" not in request:
+                request["frozen_resources"] = [self.resources.freeze(request.get("thru_resource_id"), "com_thru", request.get("thru_reference", ""))]
+                if request.get("config_resource_id"):
+                    request["frozen_resources"].append(self.resources.freeze(request["config_resource_id"], "com_cfg_file", request.get("config_reference", "")))
             request_text = json.dumps(request, indent=2, allow_nan=False)
-            task_id = str(uuid.uuid4())
             directory = self.root / task_id
             directory.mkdir()
             (directory / "request.json").write_text(request_text, encoding="utf-8")
@@ -55,6 +70,7 @@ class Tasks:
                 "logs": [],
                 "created_at": time.time(),
                 "request_hash": request.get("input_hash"),
+                "parent_run_id": request.get("parent_run_id"),
             }
             event = threading.Event()
             self.tasks[task_id] = {
@@ -63,6 +79,7 @@ class Tasks:
                 "cancel": cancel,
                 "done": event,
                 "directory": directory,
+                "request": request,
             }
             self.active = self.current = task_id
             process.start()
@@ -95,7 +112,7 @@ class Tasks:
                         task["phase"] = "worker finishing; waiting for exit"
                     elif message["kind"] == "phase":
                         task["phase"] = message["phase"]
-                        if not task["cancel_requested"] and task["operation"] == "run":
+                        if not task["cancel_requested"] and task["operation"] in ("run", "com"):
                             task["state"] = "running"
                     elif message["kind"] == "log":
                         task["logs"].append(message["text"])
@@ -146,11 +163,23 @@ class Tasks:
             self.active = None
             entry["done"].set()
             p.close()
+            if task["state"] == "succeeded" and task["operation"] == "com":
+                self.coms.append(task_id)
+            plan = entry["request"].get("deferred_com")
+            if task["state"] == "succeeded" and task["operation"] == "run" and plan:
+                rows = copy.deepcopy(entry["request"]["frozen_resources"])
+                for row in rows:
+                    if row["field"] == "ch_file":
+                        row["field"] = "com_thru"
+                # Parent process is already joined/closed, core manifest published once.
+                self.start("com", {"parent_run_id": task_id, "frozen_resources": rows,
+                                   "parameter_source": "spreadsheet" if any(r["field"] == "com_cfg_file" for r in rows) else "IEEE_8023dj defaults"},
+                           task_id=plan["com_id"])
             # Keep the current task and both successful results, plus bounded recent logs.
             for old in list(self.tasks):
                 if len(self.tasks) <= 32:
                     break
-                if old not in self.runs and old != self.current and self.tasks[old]["done"].is_set():
+                if old not in self.runs and old not in self.coms and old != self.current and self.tasks[old]["done"].is_set():
                     retired = self.tasks.pop(old)
                     if retired["directory"].exists():
                         self._remove_directory(retired["directory"])
@@ -179,6 +208,10 @@ class Tasks:
         with self.lock:
             if request.get("mode") == "defaults" and self.defaults is not None:
                 return copy.deepcopy(self.defaults)
+        request = copy.deepcopy(request)
+        if request.get("base_directory"):
+            config = parse_yaml(request["yaml"]) if "yaml" in request else request["config"]
+            request["resource_bindings"] = self.resources.bind_base(config, request["base_directory"])
         task = self.start("normalize", request)
         self.tasks[task["task_id"]]["done"].wait()
         result = self.get(task["task_id"])
@@ -202,6 +235,8 @@ class Tasks:
                 "active_task_id": self.active,
                 "current_task_id": self.current,
                 "runs": [
-                    {key: row[key] for key in ("run_id", "input_hash", "effective_input", "summary")} for row in rows
+                    {key: row[key] for key in ("run_id", "input_hash", "effective_input", "summary", "resource_hash")} for row in rows
                 ],
+                "com_tasks": [copy.deepcopy(entry["data"]) for entry in self.tasks.values() if entry["data"]["operation"] == "com"],
+                "resources": list(copy.deepcopy(self.resources.items).values()),
             }

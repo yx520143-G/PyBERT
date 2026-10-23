@@ -28,3 +28,10 @@ dialog { max-width:740px; max-height:80vh; border:1px solid #cbd5e1; border-radi
 #work-area.viewer-expanded { grid-template-columns:1fr; }#work-area.viewer-expanded>.inspector { display:none; }
 #work-area.viewer-expanded #analysis-info { max-height:230px; }
 #plot svg { stroke:none; stroke-width:0; }
+#resource-dialog { width: min(960px, 94vw); max-height: 88vh; overflow: auto; }
+#resource-dialog label { display: block; margin: 10px 0; }
+#resource-dialog input:not([type=checkbox]), #resource-dialog select { max-width: 100%; width: 65%; }
+#resource-dialog pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 240px; overflow: auto; }
+#resource-dialog code { overflow-wrap: anywhere; font-size: 10px; }
+.resource-row { display: flex; align-items: center; gap: 6px; margin: 8px 0; }
+.resource-row span { flex: 1; min-width: 0; overflow-wrap: anywhere; }

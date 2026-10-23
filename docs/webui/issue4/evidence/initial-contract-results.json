@@ -1,0 +1,11 @@
+{
+  "stage": "initial #2 contract check before updating superseded #4 expectations",
+  "command": "uv run --extra web pytest tests/test_web.py -k 'not spawn' --tb=short -q",
+  "result": {"passed": 22, "failed": 2, "deselected": 1},
+  "failures": [
+    {"test": "test_invalid_and_unsupported_inputs[include_fext]", "reason": "#2 rejected all FEXT during normalize; #4 preserves settings and checks active resource eligibility before execution"},
+    {"test": "test_inactive_paths_do_not_load", "reason": "test set ctle_sel=File alongside explicit use_ctle_file=false; #4 now rejects this conflict, test must specify matching true"}
+  ],
+  "numerical_simulation_performed": false,
+  "original_failure_preserved": true
+}

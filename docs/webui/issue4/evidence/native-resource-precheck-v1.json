@@ -1,0 +1,192 @@
+{
+  "execution_freeze_sha256": "e63f467d2c844ffe005ed772bc85a68bbe5398039df4ebbecec5d97e36ae7e70",
+  "kind": "native resource-helper precheck only; no time-domain/COM calculation",
+  "reports": [
+    {
+      "resource": "A",
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+      "victim": 0,
+      "actual_subnetwork_to_sdd_21_0based": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "renumber": false,
+      "native_thru_is_1to3_diagnostic": false,
+      "selected_actual_through_pairs_0based": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "sdd_21_formula_note": "native se2mm scale0.5; Sdd21=0.5*(S21-S23-S41+S43) on supplied subnetwork",
+      "frequency_coverage_hz": [
+        0.0,
+        40000000000.0
+      ],
+      "requested_grid_hz": [
+        0.0,
+        40000000000.0,
+        4001
+      ],
+      "native_boundary_policy": "interp_s2p: s11/s22 polar extrapolation capped |S|<=1; s12/s21 polar interpolation with 0 outside measured/model coverage (including DC below fmin); z0 from extrapolated network",
+      "above_coverage_samples": 0,
+      "above_coverage_max_abs_s21": null,
+      "below_coverage_samples": 0,
+      "below_coverage_max_abs_s21": null,
+      "cascade_rule": "each segment import_freq->interp_s2p on this grid first, then networks[0] ** networks[1] in listed order; no segment time waveform producer"
+    },
+    {
+      "resource": "B",
+      "sha256": "e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e",
+      "victim": 0,
+      "actual_subnetwork_to_sdd_21_0based": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "renumber": false,
+      "native_thru_is_1to3_diagnostic": false,
+      "selected_actual_through_pairs_0based": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "sdd_21_formula_note": "native se2mm scale0.5; Sdd21=0.5*(S21-S23-S41+S43) on supplied subnetwork",
+      "frequency_coverage_hz": [
+        50000000.0,
+        15000000000.0
+      ],
+      "requested_grid_hz": [
+        0.0,
+        40000000000.0,
+        4001
+      ],
+      "native_boundary_policy": "interp_s2p: s11/s22 polar extrapolation capped |S|<=1; s12/s21 polar interpolation with 0 outside measured/model coverage (including DC below fmin); z0 from extrapolated network",
+      "above_coverage_samples": 2500,
+      "above_coverage_max_abs_s21": 0.0,
+      "below_coverage_samples": 5,
+      "below_coverage_max_abs_s21": 0.0,
+      "cascade_rule": "each segment import_freq->interp_s2p on this grid first, then networks[0] ** networks[1] in listed order; no segment time waveform producer"
+    },
+    {
+      "resource": "M",
+      "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+      "victim": 0,
+      "actual_subnetwork_to_sdd_21_0based": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "renumber": false,
+      "native_thru_is_1to3_diagnostic": true,
+      "selected_actual_through_pairs_0based": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "sdd_21_formula_note": "native se2mm scale0.5; Sdd21=0.5*(S21-S23-S41+S43) on supplied subnetwork",
+      "frequency_coverage_hz": [
+        0.0,
+        80000000000.0
+      ],
+      "requested_grid_hz": [
+        0.0,
+        40000000000.0,
+        4001
+      ],
+      "native_boundary_policy": "interp_s2p: s11/s22 polar extrapolation capped |S|<=1; s12/s21 polar interpolation with 0 outside measured/model coverage (including DC below fmin); z0 from extrapolated network",
+      "above_coverage_samples": 0,
+      "above_coverage_max_abs_s21": null,
+      "below_coverage_samples": 0,
+      "below_coverage_max_abs_s21": null,
+      "cascade_rule": "each segment import_freq->interp_s2p on this grid first, then networks[0] ** networks[1] in listed order; no segment time waveform producer",
+      "actual_native_fext": [
+        {
+          "aggressor_lane": 1,
+          "victim_lane": 0,
+          "subnetwork_to_sdd_21_0based": [
+            4,
+            6,
+            1,
+            3
+          ],
+          "differential_max_abs_s21": 0.04214838638577284,
+          "nonzero": true,
+          "renumber_for_crosslane": false
+        }
+      ]
+    },
+    {
+      "resource": "M",
+      "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+      "victim": 1,
+      "actual_subnetwork_to_sdd_21_0based": [
+        4,
+        6,
+        5,
+        7
+      ],
+      "renumber": false,
+      "native_thru_is_1to3_diagnostic": true,
+      "selected_actual_through_pairs_0based": [
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "sdd_21_formula_note": "native se2mm scale0.5; Sdd21=0.5*(S21-S23-S41+S43) on supplied subnetwork",
+      "frequency_coverage_hz": [
+        0.0,
+        80000000000.0
+      ],
+      "requested_grid_hz": [
+        0.0,
+        40000000000.0,
+        4001
+      ],
+      "native_boundary_policy": "interp_s2p: s11/s22 polar extrapolation capped |S|<=1; s12/s21 polar interpolation with 0 outside measured/model coverage (including DC below fmin); z0 from extrapolated network",
+      "above_coverage_samples": 0,
+      "above_coverage_max_abs_s21": null,
+      "below_coverage_samples": 0,
+      "below_coverage_max_abs_s21": null,
+      "cascade_rule": "each segment import_freq->interp_s2p on this grid first, then networks[0] ** networks[1] in listed order; no segment time waveform producer",
+      "actual_native_fext": [
+        {
+          "aggressor_lane": 0,
+          "victim_lane": 1,
+          "subnetwork_to_sdd_21_0based": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "differential_max_abs_s21": 0.06535533607519471,
+          "nonzero": true,
+          "renumber_for_crosslane": false
+        }
+      ]
+    }
+  ]
+}

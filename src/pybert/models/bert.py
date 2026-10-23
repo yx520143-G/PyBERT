@@ -216,7 +216,8 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
     # solitary effect on the data, for plotting purposes only.
     try:
         split_time = clock()
-        chnl_h = self.calc_chnl_h()
+        channel_observations = {}
+        chnl_h = self.calc_chnl_h(observations=channel_observations) if observations is not None else self.calc_chnl_h()
         len_h = len(chnl_h)
         _calc_chnl_time = clock() - split_time
         # Note: We're not using 'self.ideal_signal', because we rely on the system response to
@@ -266,8 +267,12 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
     # Assumes all aggressor lanes carry the same PRBS pattern as the victim (coherent worst case).
     # These channels are also passed to AMI_Init() below as aggressors — complementary, not double-counting:
     # the noise here is the physical crosstalk in the received signal; the aggressors let the AMI model cancel it.
-    for h_fext in getattr(self, "fext_h", []):
-        noise = noise + convolve(x, h_fext)[: len(noise)]
+    fext_contributions = {}
+    for index, h_fext in enumerate(getattr(self, "fext_h", [])):
+        contribution = convolve(x, h_fext)[: len(noise)]
+        noise = noise + contribution
+        if observations is not None:
+            fext_contributions[f"fext_{index}_voltage"] = contribution
 
     # Tx and Rx modeling are not separable in all cases.
     # So, we model each of the 4 possible combinations explicitly.
@@ -840,6 +845,8 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
                                           pattern_len=pattern_len, rel_thresh=rel_thresh,
                                           decision_scaler=decision_scaler, mod_type=mod_type,
                                           xing_min_t=xing_min_t)
+            observations["source"].update(noise_total=noise, fext_count=len(getattr(self, "fext_h", [])),
+                                           **channel_observations, **fext_contributions)
 
         def capture_jitter(point):
             if observations is not None:

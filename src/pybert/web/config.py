@@ -3,6 +3,9 @@
 import hashlib
 import json
 import math
+import io
+import pickle
+import base64
 import tempfile
 from pathlib import Path
 
@@ -99,7 +102,7 @@ def snapshot(engine):
     return json.loads(json.dumps({k: v for k, v in cfg.items() if k not in ("date_created", "version")}))
 
 
-def validate(config, defaults, complete=True):
+def validate(config, defaults, complete=True, execution=False):
     """Reject unsupported active paths before any resource observer can load them."""
     if not isinstance(config, dict):
         raise ValueError("Configuration must be an object.")  # noqa: TRY004 - HTTP input validation contract
@@ -152,19 +155,16 @@ def validate(config, defaults, complete=True):
     if c["f_step"] * 1e6 > c["f_max"] * 1e9:
         raise ValueError("fStep exceeds fMax.")
     for key, values in {
-        "mod_type": ("NRZ", "PAM-4"),
+        "mod_type": ("NRZ", "PAM-4", "Duo-binary"),
         "tx_sel": ("native",),
         "rx_sel": ("native",),
         "tx_eq_sel": ("Native",),
         "rx_eq_sel": ("Native",),
-        "inter_sel": ("native",),
+        "inter_sel": ("native", "single", "multiple"),
     }.items():
         if c[key] not in values:
-            raise ValueError(f"{key}={c[key]} is not supported in #2; see #4/#10.")
+            raise ValueError(f"{key}={c[key]}: active IBIS/AMI is unsupported; see #10.")
     for key in (
-        "include_fext",
-        "pkg_enable",
-        "enable_com",
         "rx_use_viterbi",
         "tx_use_ami",
         "rx_use_ami",
@@ -172,19 +172,30 @@ def validate(config, defaults, complete=True):
         "rx_use_ts4",
     ):
         if c[key]:
-            raise ValueError(f"{key}: active capability is not supported in #2.")
-    if c["impulse_length"] != 0:
-        raise ValueError("impulse_length: only native automatic length is supported in #2.")
-    if c["ctle_enable"] and c["ctle_sel"] != "Native":
+            raise ValueError(f"{key}: active capability is unsupported; see #9/#10.")
+    if execution and c["impulse_length"] != 0:
+        raise ValueError("impulse_length: nonzero ns is blocked by native inconsistent units; use automatic 0.")
+    if execution and c["ctle_enable"] and c["ctle_sel"] != "Native":
         raise ValueError("ctle_sel=File with CTLE enabled is blocked by the native File path; see #4.")
+    if c["use_ctle_file"] != (c["ctle_sel"] == "File"):
+        raise ValueError("ctle_sel and use_ctle_file conflict.")
+    if execution and c["pkg_enable"] and c["include_fext"]:
+        raise ValueError("Package + FEXT is unavailable: victim package and simplified aggressor terminations are not jointly validated.")
+    if execution and c["enable_com"] and (c["inter_sel"] != "single" or Path(c["ch_file"]).suffix.lower() != ".s4p"):
+        raise ValueError("Run-after COM requires a single .s4p; it uses its own parameters.")
 
 
-def yaml_text(config):
+def yaml_text(config, runtime_extensions=None, resource_bindings=None):
     cfg = PyBertCfg.__new__(PyBertCfg)
     cfg.__dict__.update(date_created="", version=__version__, **config)
     for key in TABLES:
         cfg.__dict__[key] = [tuple(row) for row in config[key]]
-    return yaml.dump(cfg, sort_keys=False, allow_unicode=True)
+    header = "# Resources are referenced only; resource bytes are NOT included. Bind before Run.\n"
+    if runtime_extensions or resource_bindings:
+        extra = {"runtime_extensions": runtime_extensions or {}, "resource_bindings": resource_bindings or {}}
+        header += "# pybert-web-runtime-v1: " + json.dumps(extra, ensure_ascii=False, allow_nan=False) + "\n"
+        header += "# Runtime extensions above cannot be expressed by native PyBertCfg.\n"
+    return header + yaml.dump(cfg, sort_keys=False, allow_unicode=True)
 
 
 class ConfigLoader(yaml.SafeLoader):
@@ -199,10 +210,102 @@ ConfigLoader.add_constructor(
 
 
 def parse_yaml(text):
+    if len(text.encode("utf-8")) > 4_000_000:
+        raise ValueError("Configuration exceeds 4 MB.")
     value = yaml.load(text, Loader=ConfigLoader)
     if not isinstance(value, dict):
         raise ValueError("Expected native PyBertCfg YAML.")  # noqa: TRY004 - HTTP input validation contract
     return {k: v for k, v in value.items() if k not in ("version", "date_created")}
+
+
+class LegacyLoader(pickle.Unpickler):
+    """Only a known inert configuration container and primitive pickle opcodes."""
+
+    def find_class(self, module, name):
+        if (module, name) == ("pybert.configuration", "PyBertCfg"):
+            return PyBertCfg
+        raise ValueError("历史格式不能安全转换，请用原桌面导出 YAML。")
+
+
+def parse_legacy(content):
+    if len(content) > 4_000_000:
+        raise ValueError("Configuration exceeds 4 MB.")
+    value = LegacyLoader(io.BytesIO(content)).load()
+    if not isinstance(value, (PyBertCfg, dict)):
+        raise ValueError("历史格式不能安全转换，请用原桌面导出 YAML。")
+    result = vars(value) if isinstance(value, PyBertCfg) else value
+    # Reject non-primitive state before any native object is populated.
+    json.dumps(result, allow_nan=False)
+    return {k: v for k, v in result.items() if k not in ("version", "date_created")}
+
+
+def import_config(supplied, defaults):
+    """Known legacy aliases only; report every default/padded slot explicitly."""
+    supplied = dict(supplied)
+    changes = []
+    for key, target, aliases in (
+        ("tx_eq_sel", "tx_eq_sel", {"native": "Native", "ibis-ami": "IBIS-AMI"}),
+        ("rx_eq_sel", "rx_eq_sel", {"native": "Native", "ibis-ami": "IBIS-AMI"}),
+        ("ctle_sel", "ctle_sel", {"native": "Native", "file": "File"}),
+        ("inter_sel", "inter_sel", {s: s for s in ("native", "single", "multiple")}),
+        ("mod_type", "mod_type", {"nrz": "NRZ", "pam-4": "PAM-4", "duo-binary": "Duo-binary"}),
+    ):
+        if key in supplied:
+            supplied[target] = aliases.get(str(supplied[key]).lower(), supplied[key])
+    for old, new in (("tx_use_ibis", "tx_sel"), ("rx_use_ibis", "rx_sel"), ("use_ch_file", "inter_sel")):
+        if old in supplied:
+            value = supplied.pop(old)
+            if type(value) is not bool:
+                raise ValueError(f"{old}: boolean required.")
+            mapped = ("single" if value else "native") if old == "use_ch_file" else ("ibis" if value else "native")
+            if new in supplied and supplied[new] != mapped:
+                raise ValueError(f"Conflicting legacy {old} and current {new}.")
+            supplied[new] = mapped
+            changes.append(f"{old} -> {new}")
+    if "delta_t" in supplied:
+        value = supplied.pop("delta_t")
+        if "delta_t_ui" in supplied:
+            changes.append("legacy delta_t ignored by native precedence: explicit delta_t_ui present")
+        else:
+            if type(value) not in (int, float) or not math.isfinite(value):
+                raise ValueError("delta_t: finite ps required.")
+            context = new_engine()
+            context.bit_rate = supplied.get("bit_rate", defaults["bit_rate"])
+            context.mod_type = supplied.get("mod_type", defaults["mod_type"])
+            supplied["delta_t_ui"] = value * 1e-12 / context.ui
+            changes.append("delta_t ps -> delta_t_ui using native UI of imported rate/modulation")
+    if "ctle_sel" in supplied and "use_ctle_file" not in supplied:
+        supplied["use_ctle_file"] = supplied["ctle_sel"] == "File"
+    elif "use_ctle_file" in supplied and "ctle_sel" not in supplied:
+        supplied["ctle_sel"] = "File" if supplied["use_ctle_file"] else "Native"
+    missing = sorted(set(defaults) - set(supplied))
+    for key, (length, _) in TABLES.items():
+        if key in supplied and isinstance(supplied[key], list) and len(supplied[key]) < length:
+            changes.append(f"{key}: padded slots {len(supplied[key])}..{length-1} from constructed defaults")
+            supplied[key] = supplied[key] + defaults[key][len(supplied[key]):]
+    return supplied, {"defaulted_fields": missing, "default_source": "fresh native constructor at recorded adapter/native version", "compatibility": changes}
+
+
+def extensions(value):
+    if not value:
+        return {}
+    if set(value) != {"version", "values"} or value["version"] != 1 or not isinstance(value["values"], dict):
+        raise ValueError("runtime_extensions requires version=1 and values object.")
+    values = value["values"]
+    if set(values) - {"rlm", "rx_use_clocks", "ami_opt_trials", "tx_ami_params", "rx_ami_params"}:
+        raise ValueError("Unknown runtime extension.")
+    for key in ("rx_use_clocks",):
+        if key in values and type(values[key]) is not bool:
+            raise ValueError(f"{key}: boolean required.")
+    if "rlm" in values and (type(values["rlm"]) not in (int, float) or not math.isfinite(values["rlm"])):
+        raise ValueError("rlm: finite native numeric value required.")
+    if "ami_opt_trials" in values and (type(values["ami_opt_trials"]) is not int or values["ami_opt_trials"] < 1):
+        raise ValueError("ami_opt_trials: positive integer required.")
+    for key in ("tx_ami_params", "rx_ami_params"):
+        if key in values and not isinstance(values[key], dict):
+            raise ValueError(f"{key}: dynamic parameter object required.")
+    json.dumps(value, allow_nan=False)
+    return value
 
 
 def load_config(engine, config, defaults=None):
@@ -227,11 +330,22 @@ def normalize(request):
     """A full load or an ordered observer patch; each call owns one fresh engine."""
     engine = new_engine()
     defaults = snapshot(engine)
+    runtime = request.get("runtime_extensions", {})
+    bindings = request.get("resource_bindings", {})
+    report = {}
     mode = request.get("mode", "load")
     if mode == "defaults":
         pass
     elif mode == "load":
-        supplied = parse_yaml(request["yaml"]) if "yaml" in request else request["config"]
+        supplied = (parse_yaml(request["yaml"]) if "yaml" in request else
+                    parse_legacy(base64.b64decode(request["legacy_base64"], validate=True)) if "legacy_base64" in request else request["config"])
+        if "yaml" in request:
+            for line in request["yaml"].splitlines():
+                if line.startswith("# pybert-web-runtime-v1: "):
+                    extra = json.loads(line.split(": ", 1)[1])
+                    runtime = extra.get("runtime_extensions", {})
+                    bindings = request.get("resource_bindings", extra.get("resource_bindings", {}))
+        supplied, report = import_config(supplied, defaults)
         validate(supplied, defaults, complete=False)
         load_config(engine, defaults | supplied, defaults)
     elif mode == "patch":
@@ -241,6 +355,10 @@ def normalize(request):
             before = snapshot(engine)
             # Ntaps observer may clamp Npre; validate that derived pair after the edit.
             proposed = before | {key: value}
+            if key == "ctle_sel":
+                proposed["use_ctle_file"] = value == "File"
+            elif key == "use_ctle_file":
+                proposed["ctle_sel"] = "File" if value else "Native"
             if key == "rx_n_taps" and isinstance(value, int):
                 proposed["rx_n_pre"] = min(before["rx_n_pre"], max(0, value - 1))
             validate(proposed, defaults)
@@ -248,16 +366,26 @@ def normalize(request):
                 load_config(engine, proposed, defaults)
             else:
                 setattr(engine, key, value)
+                if key == "use_ctle_file":
+                    engine.ctle_sel = proposed["ctle_sel"]
             validate(snapshot(engine), defaults)
     else:
         raise ValueError(f"Unknown normalize mode {mode}.")
     config = snapshot(engine)
+    runtime = extensions(runtime)
     return {
         "config": config,
         "input_hash": input_hash(config),
+        "input_identity_hash": input_hash({"config": config, "runtime_extensions": runtime, "resource_bindings": bindings}),
         "input_hash_schema": "native-json-v1-integral-floats",
-        "yaml": yaml_text(config),
+        "yaml": yaml_text(config, runtime, bindings),
+        "runtime_extensions": runtime,
+        "runtime_defaults": {key: getattr(engine, key) for key in ("rlm", "rx_use_clocks", "ami_opt_trials")},
+        "resource_bindings": bindings,
+        "import_report": report,
+        "unresolved_references": {key: config[key] for key in ("ch_file", "ch_files", "ctle_file", "com_cfg_file", *RESOURCE_FIELDS) if config[key] and key not in bindings},
         "warnings": warnings(config),
+        "runtime_status": {key: "inactive in Native Run; retained for #8/#10" for key in runtime.get("values", {})},
     }
 
 

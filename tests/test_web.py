@@ -81,7 +81,6 @@ def test_ffe_dimensions(count, pre):
         {"vod": ""},
         {"rn": float("nan")},
         {"eye_bits": 15000},
-        {"include_fext": True},
         {"rx_eq_sel": "IBIS-AMI"},
         {"ctle_enable": True, "ctle_sel": "File"},
         {"runtime_extensions": {"rlm": 0.9}},
@@ -96,6 +95,7 @@ def test_inactive_paths_do_not_load(monkeypatch):
     config = snapshot(new_engine()) | {
         "ctle_enable": False,
         "ctle_sel": "File",
+        "use_ctle_file": True,
         "ctle_file": "missing.dat",
         "tx_ibis_file": "missing.ibs",
         "rx_dll_file": "missing.dll",

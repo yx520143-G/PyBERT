@@ -1,6 +1,7 @@
 """Thin localhost HTTP boundary; no shared PyBERT instance in the server."""
 
 import json
+import base64
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -61,6 +62,29 @@ def create_app(tasks=None):
     @app.get("/api/state")
     def state():
         return manager.index()
+
+    @app.post("/api/resources")
+    def upload_resource(request: dict):
+        content = base64.b64decode(request["content_base64"], validate=True)
+        with manager.lock:
+            return manager.resources.add(request["name"], content, {"kind": "browser_upload"})
+
+    @app.post("/api/resources/local")
+    def local_resource(request: dict):
+        with manager.lock:
+            return manager.resources.local(request["path"])
+
+    @app.post("/api/com", status_code=202)
+    def compute_com(request: dict):
+        return manager.start("com", request)
+
+    @app.get("/api/com/{com_id}")
+    def com_result(com_id: str):
+        task = manager.get(com_id)
+        if task["operation"] != "com":
+            raise KeyError("Not a COM task")
+        path = manager.tasks[com_id]["directory"] / "com.json"
+        return json.loads(path.read_text(encoding="utf-8")) if task["state"] == "succeeded" and task["worker_exited"] and path.exists() else task
 
     @app.get("/api/tasks/{task_id}")
     def task(task_id: str):

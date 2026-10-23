@@ -6,6 +6,13 @@
   const tables = {tx_taps: ['enabled', 'value', 'min_val', 'max_val'], rx_taps: ['enabled', 'value', 'min_val', 'max_val'], tx_tap_tuners: ['enabled', 'pos', 'min_val', 'max_val', 'step'], ffe_tap_tuners: ['enabled', 'pos', 'min_val', 'max_val', 'step'], dfe_tap_tuners: ['enabled', 'min_val', 'max_val']};
   let base = null, captured = null, patches = [], normalized = null, revision = 0, normalizedRevision = -1;
   let activeTask = null, currentTask = null, runs = [], selected = null, normalizing = null, timer = null, pendingValidation = false, disconnected = false, logicalName = '', renderToken = 0;
+  let runtimeExtensions = {};
+  const resourceBindings = () => window.PYBERT_RESOURCES?.bindings() || {};
+  function extraInput() {
+    const values = {...runtimeExtensions.values};
+    for (const key of ['rlm','rx_use_clocks','ami_opt_trials']) if (key in ui.getDraft()) values[key]=ui.getDraft()[key];
+    return {runtime_extensions:{version:1,values},resource_bindings:resourceBindings()};
+  }
   const esc = v => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const equal = (a,b) => JSON.stringify(a) === JSON.stringify(b);
   async function api(path, body) {
@@ -20,6 +27,7 @@
       if (tables[key]) draft[key] = value.map(row => Object.fromEntries(tables[key].map((column,i) => [column,row[i]])));
       else if (key in settings.fields) draft[key] = clone(value);
     }
+    Object.assign(draft,runtimeExtensions.values || {});
     return draft;
   }
   function toNative(draft) {
@@ -46,16 +54,18 @@
     return Object.keys(settings.fields).map(key => settings.fieldError(key,draft,{deferObserver:key==='rx_n_pre' && changingTapCount})).find(Boolean) || Object.keys(tables).map(key => settings.tableError(key,draft)).find(Boolean);
   }
   function controls() {
-    const locked = !base || !!normalizing || disconnected;
+    const locked = !base || !!normalizing || disconnected || window.PYBERT_RESOURCES?.pending();
     for (const id of ['run','save-config','save-as','load-config']) $(id).disabled = locked || !!activeTask;
     $('abort').disabled = !activeTask || disconnected;
     $('inspector').inert = !!normalizing;
     for (const id of ['reset-draft','reset-stage','tx-mode','rx-mode','reset-modes','undo-reset']) $(id).disabled = !!normalizing;
-    $('stale').textContent = selected ? (normalizedRevision !== revision || selected.input_hash !== normalized?.input_hash ? 'Older input · draft changed' : 'Matches validated input') : '';
+    $('stale').textContent = selected ? (normalizedRevision !== revision || selected.input_hash !== normalized?.input_hash || selected.input_identity_hash && selected.input_identity_hash !== normalized?.input_identity_hash ? 'Older input · draft or resource binding changed' : 'Matches validated input') : '';
+    if ($('resource-dialog')) $('resource-dialog').inert=!!normalizing;
   }
   async function normalizeDraft() {
     if (normalizing) return normalizing;
     if (activeTask) throw new Error('Native slot busy; input validation is pending.');
+    if (window.PYBERT_RESOURCES?.pending()) throw new Error('Resource upload is still in progress.');
     document.activeElement?.blur();
     record();
     pendingValidation = false;
@@ -63,11 +73,12 @@
     if (error) throw new Error(error);
     const expectedRevision = revision;
     const request = patches.length ? {mode:'patch', config:base, patches:clone(patches)} : {mode:'load', config:base};
-    normalizing = api('normalize', request);
+    normalizing = api('normalize', {...request,...extraInput()});
     $('input-status').textContent = 'Normalizing native observers…'; controls();
     try {
       const result = await normalizing;
-      base = result.config; normalized = result; patches = [];
+      base = result.config; normalized = result; patches = []; runtimeExtensions=result.runtime_extensions;
+      window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
       ui.replaceDraft(toDraft(base)); captured = toNative(ui.getDraft());
       persistNative();
       normalizedRevision = expectedRevision;
@@ -80,7 +91,7 @@
     if (pendingValidation && !activeTask && !normalizing) normalizeDraft().catch(inputError);
   }
   function persistNative() {
-    try { localStorage.setItem('pybert-native-snapshot-v1',JSON.stringify({schema:1,config:base,name:logicalName})); }
+    try { localStorage.setItem('pybert-native-snapshot-v1',JSON.stringify({schema:1,config:base,name:logicalName,...extraInput()})); }
     catch { /* The prototype draft-status independently reports storage failures. */ }
   }
   window.addEventListener('pybert-draft', event => {
@@ -92,6 +103,8 @@
       timer = setTimeout(validateWhenIdle, 200);
     } else $('input-status').textContent = activeTask ? 'Draft edited; native validation pending until worker exit.' : 'Draft edited; commit the field to validate.';
   });
+  window.addEventListener('pybert-resource-change',()=>{revision++;pendingValidation=true;controls();clearTimeout(timer);timer=setTimeout(validateWhenIdle,200);});
+  window.addEventListener('pybert-resource-error',event=>inputError(new Error(event.detail)));
   function observation() {
     return $('analysis-point').value === 'node' ? ({channel:'chnl',tx:'tx',noise:'tx',ctle:'ctle',rxffe:'ffe',dfe:'dfe',cdr:'dfe',agc:'dfe',analysis:'dfe'})[ui.getStage()] : $('analysis-point').value;
   }
@@ -105,7 +118,7 @@
       if ($('response-scope').value === 'cumulative' && response !== 'chnl') response += '_out';
       return `${response}_${$('response-type').value}`;
     }
-    if (kind === 'wave') return point ? `wave.${point}` : stage === 'source' ? 'wave.ideal_signal' : null;
+    if (kind === 'wave') return stage === 'noise' ? 'noise' : point ? `wave.${point}` : stage === 'source' ? 'wave.x' : null;
     if (kind === 'eye') return chosenPoint ? `eye.${chosenPoint}${chosenPoint === 'chnl' && $('channel-noise').checked ? '.gui_noise' : ''}` : null;
     if (kind.startsWith('jitter.') && kind !== 'jitter.info') return chosenPoint ? `jitter.${chosenPoint}.${kind.split('.')[1]}` : null;
     return kind;
@@ -222,6 +235,7 @@
       const state = await api('state');
       activeTask = state.active_task_id;
       currentTask = state.current_task_id;
+      window.PYBERT_RESOURCES?.state(state,selected?.run_id);
       if (currentTask) {
         const task = await api(`tasks/${currentTask}`);
         $('task-state').textContent = `${task.operation} ${task.task_id.slice(0,8)} · ${task.state} · ${task.phase}${task.error ? ` · ${task.error}`:''}`;
@@ -244,7 +258,7 @@
     clearTimeout(timer);
     try {
       const input = await normalizeDraft();
-      const task = await api('runs',{config:input.config,input_hash:input.input_hash,draft_revision:revision});
+      const task = await api('runs',{config:input.config,input_hash:input.input_hash,input_identity_hash:input.input_identity_hash,draft_revision:revision,...extraInput()});
       activeTask = currentTask = task.task_id; controls();
       $('task-state').textContent = `Run ${task.task_id} · validating`;
     } catch (error) { inputError(error); }
@@ -266,13 +280,18 @@
     const file = event.target.files[0]; if (!file) return;
     clearTimeout(timer);
     try {
-      normalizing = file.text().then(yaml => api('normalize',{mode:'load',yaml})); controls();
+      const request = {mode:'load'};
+      if (file.name.endsWith('.pybert_cfg')) request.legacy_base64 = await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result.split(',')[1]);reader.onerror=reject;reader.readAsDataURL(file);});
+      else request.yaml = await file.text();
+      if (document.getElementById('yaml-base-directory')?.value) request.base_directory=document.getElementById('yaml-base-directory').value;
+      normalizing = api('normalize',request); controls();
       const result = await normalizing;
-      base = result.config; normalized = result; patches = []; revision++; normalizedRevision = revision;
+      base = result.config; normalized = result; patches = []; runtimeExtensions=result.runtime_extensions; revision++; normalizedRevision = revision;
+      window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
       ui.replaceDraft(toDraft(base)); captured = toNative(ui.getDraft());
       logicalName = file.name; $('config-name').textContent = logicalName;
       persistNative();
-      $('input-status').textContent = result.warnings.join(' '); controls();
+      $('input-status').textContent = result.warnings.join(' ') + ' Import: ' + JSON.stringify(result.import_report) + ' Unresolved: ' + JSON.stringify(result.unresolved_references); controls();
     } catch (error) { inputError(error); }
     finally { normalizing = null; controls(); }
     event.target.value = '';
@@ -297,13 +316,12 @@
     controls();
     let saved = null;
     try { if (ui.hasSavedDraft()) saved = ui.getDraft(); } catch { /* existing draft status shows storage failure */ }
-    for (const key of ['rlm','rx_use_clocks','ami_opt_trials']) if (settings.fields[key]) settings.fields[key].readonly = 'Runtime/optimization extension is outside #2; retained separately, not exported into native YAML.';
     settings.tableInfo.tx_tap_tuners.readonly = ['value'];
     const version = await api('version'); $('version-info').textContent = JSON.stringify(version,null,2);
     const defaults = await api('normalize',{mode:'defaults'});
-    base = defaults.config; normalized = defaults; normalizedRevision = revision;
+    base = defaults.config; normalized = defaults; runtimeExtensions={version:1,values:defaults.runtime_defaults}; normalizedRevision = revision;
     ui.setDefaults(toDraft(base));
-    try { const previous=JSON.parse(localStorage.getItem('pybert-native-snapshot-v1') || 'null'); if (previous?.schema===1) { base=previous.config;logicalName=previous.name || ''; } } catch { /* Invalid storage is kept as a visible draft failure. */ }
+    try { const previous=JSON.parse(localStorage.getItem('pybert-native-snapshot-v1') || 'null'); if (previous?.schema===1) { base=previous.config;logicalName=previous.name || '';runtimeExtensions=previous.runtime_extensions || runtimeExtensions;window.PYBERT_RESOURCES?.restore(previous.resource_bindings,base); } } catch { /* Invalid storage is kept as a visible draft failure. */ }
     $('config-name').textContent=logicalName || 'Untitled';
     ui.replaceDraft(saved ? {...toDraft(base),...saved} : toDraft(base));
     captured = clone(base); record();

@@ -1,0 +1,38 @@
+{
+  "frozen_before_calculation": true,
+  "calculation_performed": false,
+  "base": "9a33d08458aa00782e90169c699857b8b19455a2",
+  "inherited_files": {
+    "docs\\webui\\issue2\\fixtures\\constructed-defaults.json": "858b0408a5b32aa48a88464545cbe841a1e52b454a4fe745463c67a5f7194124",
+    "docs\\webui\\issue2\\fixtures\\environment.json": "5192b4809e97001d4da45c9f28f1f4d8d4ac3cc8191c36920af15eab279c9f03",
+    "docs\\webui\\issue2\\fixtures\\F-NRZ-01.extensions.json": "e3d1b1b0ca4ae9f1b2fe85e832b2cf20de448a9bbdf81adcfc1a638f8cf4a87f",
+    "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+    "docs\\webui\\issue2\\fixtures\\F-NRZ-01.yaml": "ec0fc1f150c8498636734e46182afbd4c2c45e26b9543826576ef054fee43f1c",
+    "docs\\webui\\issue2\\fixtures\\F-PAM4-01.extensions.json": "660f4a7c0133d394aaf4f767d94398399ff24a9dedf28fb2f179bf95641aa4c3",
+    "docs\\webui\\issue2\\fixtures\\F-PAM4-01.json": "e78555943d3eed9aeb3bb6012e9105a69fca1874e5e2ea2acf75ad67109e1899",
+    "docs\\webui\\issue2\\fixtures\\F-PAM4-01.yaml": "97a34929fa37036538e0097730dcd09974310541b1e5caae087fca2051ca371d",
+    "docs\\webui\\issue2\\fixtures\\frozen-manifest.json": "f2bf44622304222455d0501235c230e11100e0cf2d6b0294b0b8284e33c51de9",
+    "docs\\webui\\issue2\\fixtures\\integration.json": "d4183ce41abf9812d159aa02887488971257d466ffee917cf43edade9e981a6c",
+    "docs\\webui\\issue2\\fixtures\\tolerances.json": "fe3a4e0c30ff8cb607219a51e94f8c806b5efcb8f616c931cf55ccdb477cc378"
+  },
+  "window_correction_v2_sha256": "5d06cc3b4ad6f2ef6cd7aea5d7723ce81b679c588551b764aa3a4403064a681e",
+  "environment_ref": "../evidence/resource-budget-inspection.json",
+  "files": {
+    "budget-correction-v2.json": "b7761e03b64385c51978413b33b85b11383c415e40ccc6c7af3f305247e68321",
+    "cases.json": "b06497cf7d38f99391640df5c17a1b96d34fe938c79489377d9c3f501bc90e7a",
+    "F4-CASCADE-AB.json": "db7feaae6af8213ea5c9fc7e1ece7548394cb95661bc75ea269a10c007d24302",
+    "F4-CASCADE-BA.json": "728428089505e2f6408b4f028725f1fde195e22b73abde5854f181152d5e528c",
+    "F4-DUO.json": "d1c7c1186e69d3b0bfbf0a4c6df76159c1194bffbe4a5438e1cc21f98c371c3d",
+    "F4-L0-OFF.json": "165f3731940ad8d7fb2a325df655d545433907d2b43519ea6272b0ac7b61c9b9",
+    "F4-L0-ON.json": "f23e002b15f9e1c285303b037b6ea9c6457d25f7835031172882a5a9261ad487",
+    "F4-L1-OFF.json": "f24187b489ae880d803f8d1d78cf5f47fa88beed4770e85d90a995d5f5055ae7",
+    "F4-L1-ON.json": "254bad400ca664bc241f9c8fd4837c867866b5de73f48aace3add5cfc70ea6e3",
+    "F4-PACKAGE.json": "ea826705fda8ea9098cd6b2fa88999f9cb5de3db12742b25a50abd02e8d3e80f",
+    "F4-SINGLE-NRZ.json": "05d96ae49f56d360bb9131759c3b7da3d48d490414487a1095219f151c579386",
+    "F4-SINGLE-PAM4.json": "bd30e6e658e2c5b8876832900bf3cae420bdf8d199f36db2f0f1f68fe78a961e",
+    "F4-TIME.json": "ed4006d7effa80c85d7d8592d02699a47550d5b35144b66f540dbb393fe43abb",
+    "resources.json": "328322795d3fdbd9fabf89cf5c3e4d695d461a9de645bd87830fdc9435626cd5"
+  },
+  "resource_bytes": 3954828,
+  "saved_raw_policy": "ignored local NPZ retained; no cleanup of #2/#3 or failed images"
+}

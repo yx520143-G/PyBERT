@@ -170,7 +170,7 @@
     if (field.kind === 'select') return `<select ${attrs}>${settings.optionsFor(key, draft).map((option, i) => `<option value="${escape(option)}"${value === option ? ' selected' : ''}>${escape(field.labels?.[i] || option)}</option>`).join('')}</select>`;
     if (field.kind === 'number') return `<div class="number-control"><input type="number" ${attrs} value="${escape(value)}" step="${field.integer ? '1' : 'any'}"${field.min !== undefined ? ` min="${field.min}"` : ''}${field.max !== undefined ? ` max="${field.max}"` : ''} autocomplete="off">${field.unit ? `<span class="input-unit">${field.unit}</span>` : ''}</div>`;
     const input = field.kind === 'files' ? `<textarea ${attrs} rows="3" placeholder="每行一个文件名或路径，按串接顺序排列" spellcheck="false">${escape(value.join('\n'))}</textarea>` : `<input type="text" ${attrs} value="${escape(value)}" placeholder="输入文件名或路径" spellcheck="false" autocomplete="off">`;
-    return `<div class="file-control">${input}<label class="file-picker${reason ? ' disabled' : ''}">选择文件<input type="file" data-file-key="${key}" accept="${field.accept}"${field.kind === 'files' ? ' multiple' : ''}${reason ? ' disabled' : ''} aria-label="选择 ${escape(label)}"></label></div><small class="file-hint">选择文件仅记录文件名；不读取或上传内容，可手工填写路径。</small>`;
+    return `<div class="file-control">${input}<label class="file-picker${reason ? ' disabled' : ''}">选择文件<input type="file" data-file-key="${key}" accept="${field.accept}"${field.kind === 'files' ? ' multiple' : ''}${reason ? ' disabled' : ''} aria-label="选择 ${escape(label)}"></label></div><small class="file-hint">选择文件上传并冻结内容。手工路径需在“资源 / COM”显式登记；YAML 相对路径需明确绑定。</small>`;
   }
 
   function fieldCard(param, key, id, source) {
@@ -504,6 +504,10 @@
     if (target.matches('[data-file-key]') && target.files.length) {
       clearUndo();
       const key = target.dataset.fileKey;
+      if (window.PYBERT_NATIVE) {
+        window.dispatchEvent(new CustomEvent('pybert-resource-files', {detail:{field:key,files:[...target.files]}}));
+        return;
+      }
       draft[key] = settings.fields[key].kind === 'files' ? [...target.files].map(file => file.name) : target.files[0].name;
       edited({ render: true });
     }

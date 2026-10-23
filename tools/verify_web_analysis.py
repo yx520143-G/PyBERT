@@ -24,7 +24,7 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def verify(arrays, manifest, old_arrays=None):
+def verify(arrays, manifest, old_arrays=None, expected_windows=None):
     raw_checks, display_checks = [], []
     ui = float(arrays["context.source.ui"])
 
@@ -134,6 +134,8 @@ def verify(arrays, manifest, old_arrays=None):
                 and w.get("start_s") == (float(events[0]) if len(events) else None)
                 and w.get("stop_s_inclusive") == (float(events[-1]) if len(events) else None)
                 and "stop_s_exclusive" not in w)
+        if expected_windows and key in expected_windows:
+            valid_window = w == expected_windows[key]
         raw_checks.append(dict(check=f"actual source window {key}",passed=bool(valid_window)))
 
     def metadata(key, point, observation_id, sources):
