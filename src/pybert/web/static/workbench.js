@@ -187,7 +187,8 @@
         layout[`yaxis${suffix}`] = {domain:[1-(row+1)/rows+.11/rows,1-row/rows-.08/rows],anchor:x,title:{text:p.yunit}};
         layout.annotations.push({text:`${p.run_id.slice(0,8)} · ${requests[i].id}`,x:col*.53+.22,y:1-row/rows,xref:'paper',yref:'paper',showarrow:false,font:{size:10}});
       }
-      return p.data.map(trace => ({...trace,name:charts.length>1 ? `${p.run_id.slice(0,8)} · ${requests[i].id} · ${trace.name || ''}` : trace.name,...(facets ? {xaxis:x,yaxis:y,showscale:false} : {})}));
+      const label=compare === 'runs' ? p.run_id.slice(0,8) : ({chnl:'Channel',tx:'Rx input',ctle:'CTLE',ffe:'Rx FFE',dfe:'DFE'})[requests[i].id.split('.')[1]];
+      return p.data.map(trace => ({...trace,name:charts.length>1 && label ? `${label} · ${trace.name || requests[i].id}` : trace.name,...(facets ? {xaxis:x,yaxis:y,showscale:false} : {})}));
     });
     await Plotly.newPlot('plot',data,layout,{responsive:true,displaylogo:false});
     if (token !== renderToken) return;
