@@ -177,7 +177,11 @@
     if (missing.length) return empty(`Analysis unavailable for ${missing.map(r => `${r.run.run_id.slice(0,8)} / ${r.id} (raw schema ${r.run.raw_schema_version})`).join(', ')}. Saved runs are immutable; switching views does not calculate missing datasets.`);
     const charts = await Promise.all(requests.map(async r => {
       const plot=await api(`runs/${r.run.run_id}/plots/${r.id}`);
-      if (!r.run.analysis_version && r.id === 'chnl_H') plot.title='Legacy Channel actual termination · raw schema 2; three-source view unavailable';
+      if (!r.run.analysis_version && r.id === 'chnl_H') {
+        plot.title='Legacy Channel actual termination · raw schema 2; three-source view unavailable';
+        plot.data.forEach(trace => { trace.name='Legacy actual termination · three-source view unavailable'; });
+        plot.metadata={...plot.metadata,legacy_note:plot.title,source_field:'chnl_H'};
+      }
       return {...plot,run:r.run};
     }));
     if (token !== renderToken) return;
