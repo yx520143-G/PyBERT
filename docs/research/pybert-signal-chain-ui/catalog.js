@@ -150,7 +150,7 @@
         map('直接构造 FIR', '主流程直接读取 rx_taps 的 enabled/value，以 1 UI 间距插零构造响应。它不调用 rx_ffe 属性中的隐式 cursor 规则。', pipeline(476)),
         map('优化与应用', 'Optimize EQ 先计算系数；Use EQ 将结果写回 rx_taps。仅运行仿真不会自动更新 Rx FFE。', ref('src/pybert/gui/handler.py', 169)),
         map('当前初始化细节', '类声明 Npre=4，但构造函数立即改为 5。静态推导唯一 unity tap 在 index 2、标签 Pre-tap3，Cursor 标签位于 index 5；默认仍只是纯延时。', traits(524)),
-        map('Rx AMI 条件', 'rx_use_ami=True 时 Native Rx FFE 被旁路；正常切换 AMI 还会自动禁用其 taps。', pipeline(480))
+        map('Rx AMI 条件', 'rx_use_ami=True 时 Native Rx FFE 在仿真中被旁路，实际 rx_taps 保留；切换回调禁用的是 FFE 搜索表 ffe_tap_tuners。', pipeline(480))
       ],
       groups: [group('结构与权重', traits(367), [
         p('rx_n_taps', 'Ntaps · 总 tap 数', '15', 'Int；内部预建 100 taps', '负值改为 0；当前没有严格的 100 上限输入校验。'),
@@ -301,7 +301,7 @@
       mapping: [
         map('显示模式与真实字段', '地图的 Native / AMI Init / AMI GetWave 是便于浏览的组合。源码实际由 *_eq_sel 与 *_use_getwave 控制，不能只写 *_use_ami=True。', traits(1152)),
         map('能力约束', 'Init 要求 Init_Returns_Impulse；GetWave 要求 GetWave_Exists。本页面没有加载动态库，不显示虚构的 Valid 或模型返回结果。', ref('src/pybert/utility/ibisami.py', 116)),
-        map('Rx AMI 切换', '正常切换会禁用 Native FFE 和 DFE taps。没有有效 AMI clocks 时仍使用原生采样/CDR/判决；后续重新开启 DFE taps 时还可能叠加其反馈。', traits(1334)),
+        map('Rx AMI 切换', '原生回调禁用 dfe_tap_tuners 和 FFE 搜索表 ffe_tap_tuners；实际 rx_taps 保留并在仿真中旁路。本页只保存草稿，不执行此回调。没有有效 AMI clocks 时仍使用原生采样/CDR/判决；后续重新开启 DFE taps 时还可能叠加其反馈。', traits(1334)),
         map('双 GetWave 的时钟限制', 'Tx 与 Rx 均为 GetWave 时，当前分支没有保存 Rx 返回 clocks；Use Clocks 不能单独保证采用模型时钟。', pipeline(320))
       ],
       groups: [

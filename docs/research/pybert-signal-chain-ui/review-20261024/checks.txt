@@ -1,0 +1,19 @@
+Node draft-state regression:
+✔ Ntaps edit, field reset, undo and persisted reload agree (10.5904ms)
+✔ Resetting only the optimizer table derives Enabled without overwriting manual Native taps (4.1489ms)
+✔ Storage write failure stays visible alongside invalid input and recovers independently (5.4154ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 110.6596
+Exit: 0
+
+GUI coverage:
+PASS: 129 GUI controls inventoried and mapped; conditions, table columns and draft compatibility checked. No simulation executed.
+Exit: 0
+Syntax: 6 files passed
+UTF-8 without BOM: 19 text files passed; evidence JSON parsed.

@@ -1,0 +1,72 @@
+[
+  {
+    "step": "edit 9",
+    "ntaps": 9,
+    "native": 9,
+    "tuner": 9,
+    "pass": true
+  },
+  {
+    "step": "reset Ntaps",
+    "ntaps": 15,
+    "native": 15,
+    "tuner": 15,
+    "pass": true
+  },
+  {
+    "step": "undo",
+    "ntaps": 9,
+    "native": 9,
+    "tuner": 9,
+    "pass": true
+  },
+  {
+    "step": "reload after undo",
+    "ntaps": 9,
+    "native": 9,
+    "tuner": 9,
+    "pass": true
+  },
+  {
+    "step": "reload after field reset",
+    "ntaps": 15,
+    "native": 15,
+    "tuner": 15,
+    "pass": true
+  },
+  {
+    "step": "optimizer reset preserves manual Native tap",
+    "ntaps": 9,
+    "native": 8,
+    "tuner": 9,
+    "pass": true
+  },
+  {
+    "step": "reload manual Native tap",
+    "ntaps": 9,
+    "native": 8,
+    "tuner": 9,
+    "pass": true
+  },
+  {
+    "step": "Rx FFE module reset",
+    "ntaps": 15,
+    "native": 15,
+    "tuner": 15,
+    "pass": true
+  },
+  {
+    "step": "undo module reset",
+    "ntaps": 9,
+    "native": 8,
+    "tuner": 9,
+    "pass": true
+  },
+  {
+    "step": "all defaults",
+    "ntaps": 15,
+    "native": 15,
+    "tuner": 15,
+    "pass": true
+  }
+]

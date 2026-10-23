@@ -191,6 +191,7 @@
       values.ffe_tap_tuners.forEach((tap, i) => { tap.enabled = i < values.rx_n_taps; });
       if (values.rx_n_pre >= values.rx_n_taps) values.rx_n_pre = Math.max(0, values.rx_n_taps - 1);
     }
+    if (key === 'ffe_tap_tuners') values.ffe_tap_tuners.forEach((tap, i) => { tap.enabled = i < validTapCount(values); });
   }
 
   function restore(saved) {
@@ -207,7 +208,7 @@
       } else if (typeof value === typeof defaults[key] || (fields[key].kind === 'number' && value === '')) values[key] = value;
     }
     for (const [key, field] of Object.entries(fields)) if (['select', 'radio'].includes(field.kind) && !optionsFor(key, values)?.includes(values[key])) values[key] = optionsFor(key, values)[0];
-    values.ffe_tap_tuners.forEach((tap, i) => { tap.enabled = i < validTapCount(values); });
+    reconcile('ffe_tap_tuners', values);
     return values;
   }
 

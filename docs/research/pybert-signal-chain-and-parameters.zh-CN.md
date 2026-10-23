@@ -267,7 +267,7 @@ AMI Init 路径用模型返回脉冲响应做卷积；GetWave 路径把时域波
 
 当前可确定的生效条件：
 
-- Rx AMI 生效时，Native Rx FFE 被旁路；正常切换到 Rx AMI 时，observer 还会自动禁用 Native DFE 和 FFE taps，保留需要的 dummy CDR/判决功能。
+- Rx AMI 生效时，Native Rx FFE 在仿真中被旁路，实际 `rx_taps` 保留。切换 observer 禁用的是 DFE 表 `dfe_tap_tuners` 和 FFE 搜索表 `ffe_tap_tuners`，保留需要的 dummy CDR/判决功能；本地 WebUI 草稿保留 Native 参数，不执行此 observer。
 - **Rx AMI + GetWave + Use Clocks + 实际返回有效时钟**同时成立时，代码直接按模型时钟采样，跳过原生 `run_dfe()` 循环；仍使用判决器把电压变为比特。
 - 如果未取得有效 AMI clocks，原生 CDR 仍会参与；用户若在切换 AMI 后重新启用 DFE taps，运行分支也可能使用原生 DFE 反馈。这不是正常切换 AMI 后的默认叠加行为。
 - Native/Init Tx 配合 Rx Init 时，显式噪声在 Rx AMI 输出后加入；配合 Rx GetWave 时，噪声随 `rx_in` 输入模型。Tx GetWave 分支虽然计算了含噪声的 `rx_in`，但各下游接收分支未使用这一含噪声输入。

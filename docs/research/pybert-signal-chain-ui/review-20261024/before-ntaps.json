@@ -1,0 +1,27 @@
+{
+  "head": "6209cebd318779f69e290a458bd6e995df64afd4",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "steps": [
+    {
+      "step": "edit 9",
+      "ntaps": 9,
+      "native": 9,
+      "tuner": 9
+    },
+    {
+      "step": "reset Ntaps",
+      "ntaps": 15,
+      "native": 9,
+      "tuner": 9
+    },
+    {
+      "step": "reload",
+      "ntaps": 15,
+      "native": 9,
+      "tuner": 15
+    }
+  ]
+}

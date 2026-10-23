@@ -1,0 +1,74 @@
+[
+  {
+    "chain": "01\nSource\nNRZ · PRBS-7\n02\nTx EQ\nNative FFE\n03\nChannel\nNative · 两端电气\nNoise\n加法注入\n04\nRx CTLE\nNative · 已启用\n05\nRx FFE\n固定 FIR 系数\n06\nDFE / Slicer\n自适应反馈 / 判决\n并入 Channel ↑\nDevice models\n多节点测量 ↗\nObserve\n响应 · 眼图 · 误码\n判决控制 ↑\nCDR\nAGC\n↗ Viterbi",
+    "clocksChecked": false,
+    "clocksDisabled": true,
+    "note": "i\nNative：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。",
+    "rx": "native",
+    "tx": "native"
+  },
+  {
+    "chain": "01\nSource\nNRZ · PRBS-7\n02\nTx EQ\nNative FFE\n03\nChannel\nNative · 两端电气\n⇄\nRx AMI\nAMI Init\nNoise\n加法注入\n05\nRx FFE\n旁路 · Rx AMI\n06\nSlicer\nNative 采样 / 判决\n并入 Channel ↑\nDevice models\n多节点测量 ↗\nObserve\n响应 · 眼图 · 误码\n判决控制 ↑\nCDR\nAGC\n↗ Viterbi",
+    "clocksChecked": false,
+    "clocksDisabled": true,
+    "note": "i\nRx Init：显式噪声在 Rx AMI 输出后加入。 原生 Rx AMI 回调禁用 DFE taps 与 FFE 搜索表；实际 Rx FFE 系数保留并在仿真中旁路。本页保留 Native 草稿，不执行该回调。",
+    "rx": "init",
+    "tx": "native"
+  },
+  {
+    "chain": "01\nSource\nNRZ · PRBS-7\n02\nTx EQ\nNative FFE\n03\nChannel\nNative · 两端电气\nNoise\n加法注入\n⇄\nRx AMI\nAMI GetWave\n05\nRx FFE\n旁路 · Rx AMI\n06\nSlicer\nNative 采样 / 判决\n并入 Channel ↑\nDevice models\n多节点测量 ↗\nObserve\n响应 · 眼图 · 误码\n判决控制 ↑\nCDR\nAGC\n↗ Viterbi",
+    "clocksChecked": false,
+    "clocksDisabled": false,
+    "note": "i\nRx GetWave：显式噪声随 rx_in 输入模型。 原生 Rx AMI 回调禁用 DFE taps 与 FFE 搜索表；实际 Rx FFE 系数保留并在仿真中旁路。本页保留 Native 草稿，不执行该回调。",
+    "rx": "getwave",
+    "tx": "native"
+  },
+  {
+    "chain": "01\nSource\nNRZ · PRBS-7\n02\nTx EQ\nAMI Init\n03\nChannel\nNative · 两端电气\nNoise\n加法注入\n04\nRx CTLE\nNative · 已启用\n05\nRx FFE\n固定 FIR 系数\n06\nDFE / Slicer\n自适应反馈 / 判决\n并入 Channel ↑\nDevice models\n多节点测量 ↗\nObserve\n响应 · 眼图 · 误码\n判决控制 ↑\nCDR\nAGC\n↗ Viterbi",
+    "clocksChecked": false,
+    "clocksDisabled": true,
+    "note": "i\nNative：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。",
+    "rx": "native",
+    "tx": "init"
+  },
+  {
+    "chain": "01\nSource\nNRZ · PRBS-7\n02\nTx EQ\nAMI Init\n03\nChannel\nNative · 两端电气\n⇄\nRx AMI\nAMI Init\nNoise\n加法注入\n05\nRx FFE\n旁路 · Rx AMI\n06\nSlicer\nNative 采样 / 判决\n并入 Channel ↑\nDevice models\n多节点测量 ↗\nObserve\n响应 · 眼图 · 误码\n判决控制 ↑\nCDR\nAGC\n↗ Viterbi",
+    "clocksChecked": false,
+    "clocksDisabled": true,
+    "note": "i\nRx Init：显式噪声在 Rx AMI 输出后加入。 原生 Rx AMI 回调禁用 DFE taps 与 FFE 搜索表；实际 Rx FFE 系数保留并在仿真中旁路。本页保留 Native 草稿，不执行该回调。",
+    "rx": "init",
+    "tx": "init"
+  },
+  {
+    "chain": "01\nSource\nNRZ · PRBS-7\n02\nTx EQ\nAMI Init\n03\nChannel\nNative · 两端电气\nNoise\n加法注入\n⇄\nRx AMI\nAMI GetWave\n05\nRx FFE\n旁路 · Rx AMI\n06\nSlicer\nNative 采样 / 判决\n并入 Channel ↑\nDevice models\n多节点测量 ↗\nObserve\n响应 · 眼图 · 误码\n判决控制 ↑\nCDR\nAGC\n↗ Viterbi",
+    "clocksChecked": false,
+    "clocksDisabled": false,
+    "note": "i\nRx GetWave：显式噪声随 rx_in 输入模型。 原生 Rx AMI 回调禁用 DFE taps 与 FFE 搜索表；实际 Rx FFE 系数保留并在仿真中旁路。本页保留 Native 草稿，不执行该回调。",
+    "rx": "getwave",
+    "tx": "init"
+  },
+  {
+    "chain": "01\nSource\nNRZ · PRBS-7\n02\nTx EQ\nAMI GetWave\n03\nChannel\nNative · 两端电气\nNoise\n路径限制\n04\nRx CTLE\nNative · 已启用\n05\nRx FFE\n固定 FIR 系数\n06\nDFE / Slicer\n自适应反馈 / 判决\n并入 Channel ↑\nDevice models\n多节点测量 ↗\nObserve\n响应 · 眼图 · 误码\n判决控制 ↑\nCDR\nAGC\n↗ Viterbi",
+    "clocksChecked": false,
+    "clocksDisabled": true,
+    "note": "!\nTx GetWave：当前源码未将含显式 noise 的 rx_in 用于下游输出，噪声注入路径存在限制。",
+    "rx": "native",
+    "tx": "getwave"
+  },
+  {
+    "chain": "01\nSource\nNRZ · PRBS-7\n02\nTx EQ\nAMI GetWave\n03\nChannel\nNative · 两端电气\nNoise\n路径限制\n⇄\nRx AMI\nAMI Init\n05\nRx FFE\n旁路 · Rx AMI\n06\nSlicer\nNative 采样 / 判决\n并入 Channel ↑\nDevice models\n多节点测量 ↗\nObserve\n响应 · 眼图 · 误码\n判决控制 ↑\nCDR\nAGC\n↗ Viterbi",
+    "clocksChecked": false,
+    "clocksDisabled": true,
+    "note": "!\nTx GetWave：当前源码未将含显式 noise 的 rx_in 用于下游输出，噪声注入路径存在限制。 原生 Rx AMI 回调禁用 DFE taps 与 FFE 搜索表；实际 Rx FFE 系数保留并在仿真中旁路。本页保留 Native 草稿，不执行该回调。",
+    "rx": "init",
+    "tx": "getwave"
+  },
+  {
+    "chain": "01\nSource\nNRZ · PRBS-7\n02\nTx EQ\nAMI GetWave\n03\nChannel\nNative · 两端电气\nNoise\n路径限制\n⇄\nRx AMI\nAMI GetWave\n05\nRx FFE\n旁路 · Rx AMI\n06\nSlicer\nNative 采样 / 判决\n并入 Channel ↑\nDevice models\n多节点测量 ↗\nObserve\n响应 · 眼图 · 误码\n判决控制 ↑\nCDR\nAGC\n↗ Viterbi",
+    "clocksChecked": false,
+    "clocksDisabled": false,
+    "note": "!\nTx GetWave：当前源码未将含显式 noise 的 rx_in 用于下游输出，噪声注入路径存在限制。 原生 Rx AMI 回调禁用 DFE taps 与 FFE 搜索表；实际 Rx FFE 系数保留并在仿真中旁路。本页保留 Native 草稿，不执行该回调。",
+    "rx": "getwave",
+    "tx": "getwave"
+  }
+]

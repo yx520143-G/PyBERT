@@ -66,7 +66,7 @@ window.PYBERT_GUI = {
     {"key":"tx_use_getwave","label":"Use GetWave","path":"Equalization / Tx","line":508},
     {"key":"btn_cfg_tx","label":"Tx Configure AMI","path":"Equalization / Tx","line":514},
     {"key":"tx_taps","label":"Tx taps","path":"Equalization / Tx","line":526},
-    {"key":"rx_eq_sel","label":"Rx EQ implementation","path":"Equalization / Rx / IBIS-AMI","line":552},
+    {"key":"rx_eq_sel","label":"Rx EQ implementation","path":"Equalization / Rx","line":552},
     {"key":"rx_ami_file","label":"AMI File:","path":"Equalization / Rx / IBIS-AMI","line":557},
     {"key":"rx_ami_valid","label":"Valid","path":"Equalization / Rx / IBIS-AMI","line":559},
     {"key":"rx_dll_file","label":"DLL File:","path":"Equalization / Rx / IBIS-AMI","line":562},

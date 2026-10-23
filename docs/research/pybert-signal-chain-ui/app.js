@@ -63,8 +63,9 @@
   function updateDraftStatus() {
     const modified = Object.keys(settings.defaults).filter(changed).length;
     const errors = Object.keys(settings.fields).filter(key => settings.fieldError(key, draft)).length + Object.keys(settings.tableInfo).filter(key => settings.tableError(key, draft)).length;
+    const storageStatus = storageAvailable ? '草稿已保留' : '仅当前页面保留';
     $('draft-status').classList.toggle('has-errors', errors > 0);
-    $('draft-status').innerHTML = `<strong>${errors ? `${errors} 项待修正` : storageAvailable ? '草稿已保留' : '仅当前页面保留'}</strong><span>${modified ? `${modified} 项设置已修改` : '源码默认配置'}${errors && storageAvailable ? ' · 草稿已保留' : ''}</span>`;
+    $('draft-status').innerHTML = `<strong>${errors ? `${errors} 项待修正` : storageStatus}</strong><span>${modified ? `${modified} 项设置已修改` : '源码默认配置'}${errors ? ` · ${storageStatus}` : ''}</span>`;
     for (const stage of stages) {
       const item = $('stage-nav').querySelector(`[data-stage="${stage.id}"]`);
       item?.classList.toggle('has-draft', stageKeys(stage).some(changed));
@@ -105,7 +106,7 @@
     else if (rx === 'init') notes.push('Rx Init：显式噪声在 Rx AMI 输出后加入。');
     else if (rx === 'getwave') notes.push('Rx GetWave：显式噪声随 rx_in 输入模型。');
     else notes.push('Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。');
-    if (rxAmi) notes.push('切换 Rx AMI 默认关闭 Native FFE / DFE taps，判决链保留。');
+    if (rxAmi) notes.push('原生 Rx AMI 回调禁用 DFE taps 与 FFE 搜索表；实际 Rx FFE 系数保留并在仿真中旁路。本页保留 Native 草稿，不执行该回调。');
     if (clocksConditional) notes.push('模型时钟仍须实际有效，届时才跳过 Native CDR / AGC；此图不表示已返回时钟。');
     if (rx === 'getwave' && clocks && txGetWave) notes.push('双 GetWave 分支当前丢弃 Rx 返回 clocks，请求时钟也不会自动旁路 Native CDR。');
     $('mode-note').className = `mode-note${txGetWave ? ' warning' : ''}`;
@@ -287,7 +288,7 @@
   function showReset(keys, message) {
     lastReset = settings.clone(draft);
     for (const key of keys) draft[key] = settings.clone(settings.defaults[key]);
-    if (keys.includes('pkg_group')) settings.reconcile('pkg_group', draft);
+    for (const key of keys) settings.reconcile(key, draft);
     for (const key of ['tx_pkg_case', 'rx_pkg_case']) if (!settings.optionsFor(key, draft).includes(draft[key])) draft[key] = settings.optionsFor(key, draft)[0];
     edited({ render: true });
     $('toast-message').textContent = message;
