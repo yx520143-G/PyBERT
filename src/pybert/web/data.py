@@ -379,6 +379,11 @@ def plot_payload(directory, plot_id):
                 }
             ]
     first = plot["traces"][0] if plot["traces"] else {"xunit": "ps", "yunit": "V"}
+    fields = list(plot.get("heatmap", {}).values()) or [trace[axis] for trace in plot["traces"] for axis in ("x", "y")]
+    metadata = dict(plot.get("metadata", {}))
+    if fields:
+        metadata.update(window=manifest["datasets"][fields[0]]["window"],
+                        datasets={key:manifest["datasets"][key] for key in fields})
     return {
         "run_id": manifest["run_id"],
         "plot_id": plot_id,
@@ -387,6 +392,6 @@ def plot_payload(directory, plot_id):
         "xunit": first["xunit"],
         "yunit": first["yunit"],
         "logx": first.get("logx", False),
-        "metadata": plot.get("metadata", {}),
+        "metadata": metadata,
         "availability": "available",
     }

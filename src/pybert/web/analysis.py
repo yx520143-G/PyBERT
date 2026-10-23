@@ -11,7 +11,7 @@ from scipy.signal import correlate
 from pybert.models.bert import MIN_BATHTUB_VAL
 from pybert.utility import calc_eye, calc_jitter, find_crossings, make_bathtub, safe_log10
 
-ANALYSIS_VERSION = 1
+ANALYSIS_VERSION = 2
 DISPLAY_NOISE_SEED = 34003
 POINTS = {
     "chnl": ("channel_only", "chnl_out", "Channel-only diagnostic"),
@@ -92,17 +92,24 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
     manifest["analysis_version"] = ANALYSIS_VERSION
     manifest["analysis_source_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     manifest["observations"] = {}
+    clock_window = dict(scope="full_record", source_field="ui_ests", time_axis="t", start_index=0,
+                        stop_index=len(arrays["ui_ests"]), sample_count=len(arrays["ui_ests"]),
+                        ignore_samps=0, ignore_until_s=float(arrays["t"][0]), start_s=float(arrays["t"][0]),
+                        stop_s_exclusive=float(arrays["t"][-1] + arrays["t"][1] - arrays["t"][0]))
 
     def checkpoint():
         if cancelled():
             raise RuntimeError("Cancelled during native analysis group")
 
-    def add(key, value, unit, point=None, axis=None, kind="analysis", producer="native helper", **extra):
+    def add(key, value, unit, point=None, axis=None, kind="analysis", producer="native helper",
+            dataset_window=None, source_fields=None, **extra):
         value = np.asarray(value)
         arrays[key] = value
         finite = bool(np.isfinite(value).all())
         datasets[key] = dict(field=key, producer=producer, point=point, kind=kind, unit=unit,
-                             dtype=str(value.dtype), shape=list(value.shape), axis=axis, window=window,
+                             dtype=str(value.dtype), shape=list(value.shape), axis=axis,
+                             window=window if dataset_window is None else dataset_window,
+                             source_fields=source_fields or [key],
                              clock_basis="native", display_noise=False,
                              availability="available" if finite else "unavailable",
                              reason=None if finite else "Native helper returned nonfinite values; raw retained",
@@ -112,9 +119,11 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
     def unavailable(plot_id, title, reason):
         plots[plot_id] = dict(title=title, traces=[], availability="unavailable", reason=reason)
 
-    def line(key, x, y, name, xunit, yunit, **extra):
-        xkey = add(f"display.{key}.x", x, xunit, kind="display")
-        ykey = add(f"display.{key}.y", y, yunit, axis=xkey, kind="display")
+    def line(key, x, y, name, xunit, yunit, point, xsource, ysource, dataset_window=None, **extra):
+        xkey = add(f"display.{key}.x", x, xunit, point, kind="display",
+                   source_fields=xsource, dataset_window=dataset_window)
+        ykey = add(f"display.{key}.y", y, yunit, point, axis=xkey, kind="display",
+                   source_fields=ysource, dataset_window=dataset_window)
         return dict(x=xkey, y=ykey, name=name, xunit=xunit, yunit=yunit, **extra)
 
     # Original four producers are consumed as-is; this call runs only after all four have finished.
@@ -143,7 +152,7 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
     # Channel frequency triplet retains the original complex datasets and native frequency axis.
     plots["channel.frequency"] = dict(title="Channel frequency · three native sources", traces=[
         line(f"channel.{key}", arrays["f"][1:] * 1e-9, 20 * safe_log10(abs(arrays[key][1:])), label,
-             "GHz", "dB", logx=True)
+             "GHz", "dB", "chnl", ["f"], [key], logx=True)
         for key, label in (("chnl_H_raw", "Raw · perfect termination"), ("chnl_H", "Actual termination"),
                            ("chnl_trimmed_H", "Trimmed impulse FFT"))])
     noise = np.random.default_rng(DISPLAY_NOISE_SEED).normal(0, 1e-3, len(arrays["chnl_out"]))
@@ -182,12 +191,13 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
             bins = arrays[context + "bin_centers"]
             if kind == "dist":
                 traces = [line(f"pdf.{point}.{name}", bins * 1e12, arrays[f"{name}_{point}"] * 1e-12,
-                               title, "ps", "1/ps") for name, title in
+                               title, "ps", "1/ps", point, [context + "bin_centers"], [f"{name}_{point}"]) for name, title in
                           (("jitter", "Total PDF"), ("jitter_ext", "Data-independent PDF"))]
             elif kind == "spec":
                 traces = [line(f"spec.{point}.{name}", arrays[context + "spectrum_freqs"][1:] * 1e-6,
                                10 * (safe_log10(arrays[f"{name}_{point}"][1:]) - safe_log10(ui)),
-                               title, "MHz", "10 log10(amplitude/UI)", logx=True) for name, title in
+                               title, "MHz", "10 log10(amplitude/UI)", point, [context + "spectrum_freqs"],
+                               [f"{name}_{point}", "context.source.ui"], logx=True) for name, title in
                           (("jitter_spectrum", "Total TIE amplitude"), ("jitter_ind_spectrum", "Independent TIE amplitude"),
                            ("thresh", "Pj threshold"))]
             else:
@@ -197,12 +207,15 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
                     probability = make_bathtub(bins, arrays[f"jitter_{point}"], **params)
                     key = add(f"bathtub.{point}.probability", probability, "probability", point,
                               context + "bin_centers", producer="make_bathtub", parameters=params,
+                              source_fields=[context + "bin_centers", f"jitter_{point}", f"rj_{point}",
+                                             f"dj_pos_{point}", f"dj_neg_{point}"],
                               actual_extrapolation=bool(params["rj"] > 0 and not
                                                        (arrays[f"jitter_{point}"][0] or arrays[f"jitter_{point}"][-1])))
                     if not np.isfinite(probability).all() or np.any(probability < 0):
                         raise ValueError("Nonfinite or negative native bathtub probability; raw retained")
                     traces = [line(f"bathtub.{point}", bins * 1e12, safe_log10(probability),
-                                   "Crossing-jitter estimate", "ps", "log10(probability)")]
+                                   "Crossing-jitter estimate", "ps", "log10(probability)", point,
+                                   [context + "bin_centers"], [key])]
                     info["bathtub_dataset"] = key
                 except (ValueError, IndexError, FloatingPointError, ZeroDivisionError) as err:
                     unavailable(plot_id, f"{label} · Bathtub", str(err))
@@ -235,19 +248,27 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
 
     checkpoint()
     counts, edges, spectrum, frequency, relative = clock_data(arrays["t"], arrays["ui_ests"], ui)
-    add("cdr.histogram.edges", edges, "ps", "cdr", producer="numpy.histogram(bins=100)")
-    centers = add("cdr.histogram.centers", (edges[:-1] + edges[1:]) / 2, "ps", "cdr")
-    add("cdr.histogram.counts", counts, "count", "cdr", centers)
-    add("cdr.spectrum.raw", spectrum, "ps FFT amplitude", "cdr", "cdr.spectrum.frequency_Hz", producer="rfft(ui_ests)")
-    add("cdr.spectrum.frequency_Hz", frequency, "Hz", "cdr")
-    add("cdr.spectrum.relative_frequency", relative, "f*UI", "cdr")
+    add("cdr.histogram.edges", edges, "ps", "cdr", producer="numpy.histogram(bins=100)",
+        dataset_window=clock_window, source_fields=["ui_ests"])
+    centers = add("cdr.histogram.centers", (edges[:-1] + edges[1:]) / 2, "ps", "cdr",
+                  dataset_window=clock_window, source_fields=["cdr.histogram.edges"])
+    add("cdr.histogram.counts", counts, "count", "cdr", centers,
+        dataset_window=clock_window, source_fields=["ui_ests"])
+    add("cdr.spectrum.raw", spectrum, "ps FFT amplitude", "cdr", "cdr.spectrum.frequency_Hz", producer="rfft(ui_ests)",
+        dataset_window=clock_window, source_fields=["ui_ests"])
+    add("cdr.spectrum.frequency_Hz", frequency, "Hz", "cdr",
+        dataset_window=clock_window, source_fields=["ui_ests", "t"])
+    add("cdr.spectrum.relative_frequency", relative, "f*UI", "cdr",
+        dataset_window=clock_window, source_fields=["cdr.spectrum.frequency_Hz", "context.source.ui"])
     plots["cdr.histogram"] = dict(title="CDR clock period · 100-bin histogram", traces=[
-        line("cdr.histogram", arrays[centers], counts, "Native UI estimates", "ps", "count")])
+        line("cdr.histogram", arrays[centers], counts, "Native UI estimates", "ps", "count", "cdr",
+             [centers], ["cdr.histogram.counts"], dataset_window=clock_window)])
     try:
         display = clock_display(spectrum)
         plots["cdr.spectrum"] = dict(title="CDR clock period · legacy log10 ratio (no ×10/20)", traces=[
             line("cdr.spectrum", relative, display,
-                 "Relative to fundamental", "f*UI", "legacy log10 ratio", logx=True)])
+                 "Relative to fundamental", "f*UI", "legacy log10 ratio", "cdr",
+                 ["cdr.spectrum.relative_frequency"], ["cdr.spectrum.raw"], dataset_window=clock_window, logx=True)])
     except ValueError as err:
         unavailable("cdr.spectrum", "CDR clock period · legacy log10 ratio", str(err))
 
@@ -265,10 +286,52 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
             manifest["jitter_rejection"].append(dict(segment=label, metric=metric, source=start, target=after,
                 raw_ratio=1e20 if reason and target is not None and target == 0 else float(source / target) if not reason else None,
                 availability="unavailable" if reason else "available", reason=reason))
+    # Retained schema2 projections also enter this builder during raw-only replay.
+    # Attach their direct source fields without changing or recomputing their arrays.
+    def projection_sources(key, point, xsource, ysource):
+        for suffix, sources in (("x", xsource), ("y", ysource)):
+            dataset = datasets.get(f"display.{key}.{suffix}")
+            if dataset is not None:
+                dataset.update(point=point, source_fields=sources)
+
+    for field, dataset in list(datasets.items()):
+        if dataset.get("axis") and not field.startswith("display."):
+            sources = [field, "context.source.ui"] if field in (
+                "jitter_spectrum_dfe", "jitter_ind_spectrum_dfe", "thresh_dfe") else [field]
+            projection_sources(field, dataset.get("point") or "simulation", [dataset["axis"]], sources)
+    field_points = dict(ideal_signal="source", bits="source", symbols="source", noise="noise",
+                        chnl_out="chnl", rx_in="tx", ctle_out="ctle", ffe_out="ffe", dfe_out="dfe",
+                        adaptation="dfe", dfe_slicer_samps="dfe", dfe_slicer_decisions="dfe", bit_errs_dfe="dfe",
+                        ui_ests="cdr", clocks="cdr", clock_times="cdr", lockeds="cdr", dfe_scalar_values="dfe",
+                        cdr_indices="cdr")
+    for field in ("ideal_signal", "chnl_out", "rx_in", "ctle_out", "ffe_out", "dfe_out"):
+        projection_sources(f"wave.{field}", field_points[field], ["t", "waveform_indices"], [field, "waveform_indices"])
+    for index in range(arrays.get("adaptation", np.empty((0, 0))).shape[1]):
+        projection_sources(f"tap{index + 1}", "dfe", ["adaptation"], ["adaptation"])
+    projection_sources("cdr", "cdr", ["t", "cdr_indices"], ["ui_ests", "cdr_indices"])
+    for eye_id, point, waveform in (("rx_in", "tx", "rx_in"), ("dfe", "dfe", "dfe_out")):
+        for suffix in ("x", "y", "counts"):
+            dataset = datasets.get(f"eye.{eye_id}.{suffix}")
+            if dataset is not None:
+                dataset.update(point=point, source_fields=[waveform] + (["clock_times"] if point == "dfe" else []))
+    observation_ids = {point: value[0] for point, value in POINTS.items()}
+    observation_ids.update(cdr="cdr_clock", simulation="simulation_record", source="source_reference", noise="additive_noise",
+                           tx_out="rx_input", ctle_out="ctle_output", ffe_out="rx_ffe_output", dfe_out="dfe_output")
     for key, dataset in datasets.items():
+        dataset["point"] = dataset.get("point") or field_points.get(key, "simulation")
+        if key.startswith("axis.") and key[5:] in datasets:
+            dataset["point"] = datasets[key[5:]]["point"]
+        if key in ("clocks", "clock_times", "lockeds"):
+            dataset.update(window=dict(clock_window, source_field=key, stop_index=len(arrays[key]),
+                                       sample_count=len(arrays[key])))
+        if key == "ui_ests" or key == "cdr_indices" or key.startswith(("cdr.", "display.cdr.")):
+            dataset.update(point="cdr", window=clock_window)
+        if key == "cdr_indices":
+            dataset["source_fields"] = ["t"]
+        dataset.setdefault("source_fields", [key])
         dataset.update(run_id=manifest["run_id"], input_hash=manifest["input_hash"], engine_sha=manifest["adapter_sha"],
                        raw_schema_version=manifest["raw_schema_version"], producer_version=ANALYSIS_VERSION,
-                       observation_id=POINTS.get(dataset.get("point"), (dataset.get("point"),))[0])
+                       observation_id=observation_ids.get(dataset["point"], dataset["point"]))
         dataset.setdefault("reason", None)
         if key.startswith("context.") and key.rsplit(".", 1)[-1] in ("tie", "tie_ind"):
             dataset["axis"] = key.rsplit(".", 1)[0] + ".t_jitter"

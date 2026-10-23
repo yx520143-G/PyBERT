@@ -99,6 +99,7 @@ def verify(arrays, manifest, old_arrays=None):
         check(f"display bathtub {point}", arrays[f"display.bathtub.{point}.y"], safe_log10(probability), 1e-10, 1e-10, True)
     counts, edges = np.histogram(arrays["ui_ests"], bins=100)
     check("clock histogram counts", arrays["cdr.histogram.counts"], counts, 0, 0)
+    check("clock histogram covers every UI estimate", arrays["cdr.histogram.counts"].sum(), len(arrays["ui_ests"]), 0, 0)
     check("clock histogram edges ps", arrays["cdr.histogram.edges"], edges, 1e-10, 1e-6)
     fft = np.fft.rfft(arrays["ui_ests"])
     f_clock = np.arange(len(fft)) / (t[1] * len(t))
@@ -112,8 +113,55 @@ def verify(arrays, manifest, old_arrays=None):
     for key, dataset in manifest["datasets"].items():
         raw_checks.append(dict(check=f"typed identity {key}",passed=dataset["shape"] == list(arrays[key].shape)
             and dataset["dtype"] == str(arrays[key].dtype) and dataset["run_id"] == manifest["run_id"]
-            and dataset["input_hash"] == manifest["input_hash"] and dataset["window"] == manifest["window"]
-            and "reason" in dataset and "unit" in dataset and "producer_version" in dataset))
+            and dataset["input_hash"] == manifest["input_hash"] and bool(dataset["point"]) and bool(dataset["observation_id"])
+            and "reason" in dataset and "unit" in dataset and "producer_version" in dataset
+            and bool(dataset["source_fields"]) and all(field in arrays for field in dataset["source_fields"])))
+        cdr = key in ("ui_ests", "clocks", "clock_times", "lockeds", "cdr_indices") or key.startswith(("cdr.", "display.cdr."))
+        source_field = key if key in ("clocks", "clock_times", "lockeds") else "ui_ests"
+        source_count = len(arrays[source_field])
+        w = dataset["window"]
+        valid_window = (w.get("scope") == "full_record" and w.get("source_field") == source_field
+            and w.get("time_axis") == "t" and w.get("start_index") == 0 and w.get("stop_index") == source_count
+            and w.get("sample_count") == source_count and w.get("ignore_samps") == 0
+            and w.get("ignore_until_s") == t[0] and w.get("start_s") == t[0]
+            and w.get("stop_s_exclusive") == t[-1] + (t[1] - t[0])) if cdr else w == manifest["window"]
+        raw_checks.append(dict(check=f"actual source window {key}",passed=bool(valid_window)))
+
+    def metadata(key, point, observation_id, sources):
+        dataset = manifest["datasets"][key]
+        raw_checks.append(dict(check=f"semantic source identity {key}", expected_point=point,
+            expected_observation_id=observation_id, expected_source_fields=sources,
+            passed=dataset["point"] == point and dataset["observation_id"] == observation_id
+            and dataset["source_fields"] == sources and all(field in arrays for field in sources)))
+
+    for point, observation in (("chnl", "channel_only"), ("tx", "rx_input"), ("ctle", "ctle_output"),
+                               ("ffe", "rx_ffe_output"), ("dfe", "dfe_output")):
+        for name in ("jitter", "jitter_ext"):
+            metadata(f"display.pdf.{point}.{name}.x", point, observation, [f"context.{point}.bin_centers"])
+            metadata(f"display.pdf.{point}.{name}.y", point, observation, [f"{name}_{point}"])
+        for name in ("jitter_spectrum", "jitter_ind_spectrum", "thresh"):
+            metadata(f"display.spec.{point}.{name}.x", point, observation, [f"context.{point}.spectrum_freqs"])
+            metadata(f"display.spec.{point}.{name}.y", point, observation, [f"{name}_{point}", "context.source.ui"])
+        metadata(f"display.bathtub.{point}.x", point, observation, [f"context.{point}.bin_centers"])
+        metadata(f"display.bathtub.{point}.y", point, observation, [f"bathtub.{point}.probability"])
+    for field in ("chnl_H_raw", "chnl_H", "chnl_trimmed_H"):
+        metadata(f"display.channel.{field}.x", "chnl", "channel_only", ["f"])
+        metadata(f"display.channel.{field}.y", "chnl", "channel_only", [field])
+    for field in ("jitter_spectrum_dfe", "jitter_ind_spectrum_dfe", "thresh_dfe"):
+        metadata(f"display.{field}.x", "dfe", "dfe_output", ["context.dfe.spectrum_freqs"])
+        metadata(f"display.{field}.y", "dfe", "dfe_output", [field, "context.source.ui"])
+    for key, fields in (("ui_ests", ["ui_ests"]), ("clocks", ["clocks"]), ("clock_times", ["clock_times"]),
+                        ("lockeds", ["lockeds"]), ("cdr_indices", ["t"]),
+                        ("display.cdr.x", ["t", "cdr_indices"]), ("display.cdr.y", ["ui_ests", "cdr_indices"]),
+                        ("cdr.histogram.edges", ["ui_ests"]), ("cdr.histogram.centers", ["cdr.histogram.edges"]),
+                        ("cdr.histogram.counts", ["ui_ests"]), ("cdr.spectrum.raw", ["ui_ests"]),
+                        ("cdr.spectrum.frequency_Hz", ["ui_ests", "t"]),
+                        ("cdr.spectrum.relative_frequency", ["cdr.spectrum.frequency_Hz", "context.source.ui"]),
+                        ("display.cdr.histogram.x", ["cdr.histogram.centers"]),
+                        ("display.cdr.histogram.y", ["cdr.histogram.counts"]),
+                        ("display.cdr.spectrum.x", ["cdr.spectrum.relative_frequency"]),
+                        ("display.cdr.spectrum.y", ["cdr.spectrum.raw"])):
+        metadata(key, "cdr", "cdr_clock", fields)
     for row in manifest["jitter_rejection"]:
         before, after = arrays[f"{row['metric']}_{row['source']}"], arrays[f"{row['metric']}_{row['target']}"]
         na = row["target"] == "tx" and row["metric"] in ("pj","rj")
@@ -131,6 +179,7 @@ def main():
     correction = json.loads((FIX / "window-correction-v2.json").read_text(encoding="utf-8"))
     assert correction["parent_sha256"] == digest(FIX / "frozen-manifest.json")
     report = dict(parent_freeze_sha256=correction["parent_sha256"], window_correction_sha256=digest(FIX / "window-correction-v2.json"),
+                  supersedes_metadata_report="numeric-20261024-061108/report.json; original report retained with its known metadata defects",
                   method="Saved full raw; independent direct native helper expectations, no shared analysis builder for expected values", fixtures=[],
                   execution_sources={str(p.relative_to(ROOT)):digest(p) for p in [*sorted((ROOT / "src/pybert/web").glob("*.py")), Path(__file__)]})
     try:
@@ -153,6 +202,12 @@ def main():
             np.savez_compressed(dest / "arrays.npz", **arrays)
             (dest / "manifest.json").write_text(json.dumps(manifest,indent=2,allow_nan=False),encoding="utf-8")
             result = verify(arrays, manifest, original)
+            baseline = ROOT / "docs/webui/issue3/evidence/numeric-20261024-061108" / name / "arrays.npz"
+            with np.load(baseline,allow_pickle=False) as previous:
+                result["prior_projection_unchanged"] = dict(source=str(baseline),sha256=digest(baseline),
+                    arrays=len(previous.files),passed=set(previous.files) == set(arrays)
+                    and all(np.array_equal(previous[key],arrays[key]) for key in previous.files))
+            result["passed"] = result["passed"] and result["prior_projection_unchanged"]["passed"]
             report["fixtures"].append(dict(fixture=name, **result))
             print(name, result["passed"], len(result["raw_checks"]),len(result["display_checks"]),flush=True)
         if "--identity" in sys.argv or "--identity-source" in sys.argv:
@@ -180,6 +235,12 @@ def main():
                 np.savez_compressed(output / "arrays.npz",**arrays)
                 (output / "manifest.json").write_text(json.dumps(manifest,indent=2,allow_nan=False),encoding="utf-8")
             result = verify(arrays,manifest)
+            baseline = ROOT / "docs/webui/issue3/evidence/numeric-20261024-061108/F-NRZ-IDENTITY/arrays.npz"
+            with np.load(baseline,allow_pickle=False) as previous:
+                result["prior_projection_unchanged"] = dict(source=str(baseline),sha256=digest(baseline),
+                    arrays=len(previous.files),passed=set(previous.files) == set(arrays)
+                    and all(np.array_equal(previous[key],arrays[key]) for key in previous.files))
+            result["passed"] = result["passed"] and result["prior_projection_unchanged"]["passed"]
             equality = {key: bool(np.array_equal(arrays[key+"_ctle"], arrays[key+"_ffe"])) for key in
                         ("jitter","jitter_ext","jitter_spectrum","jitter_ind_spectrum","thresh","isi","dcd","pj","rj","pjDD","rjDD","mu_pos","mu_neg","dj_pos","dj_neg")}
             equality.update({"context_"+key:bool(np.array_equal(arrays["context.ctle."+key],arrays["context.ffe."+key]))
