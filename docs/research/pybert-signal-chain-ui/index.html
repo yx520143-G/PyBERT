@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PyBERT 信号链配置工具。编辑本地参数草稿，查看模块设置与源码映射；不运行仿真。">
+  <title>PyBERT · 链路配置</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="catalog.js" defer></script>
+  <script src="settings.js" defer></script>
+  <script src="gui-map.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#inspector">跳到参数详情</a>
+  <aside class="sidebar" aria-label="Stage 导航">
+    <a class="brand" href="#source" aria-label="PyBERT 数据源">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M3 19h5V9h6v10h6V9h5"/></svg></span>
+      <span><strong>PyBERT<span class="brand-dot">.</span></strong><small>SIGNAL CHAIN WORKBENCH</small></span>
+    </a>
+    <div class="sidebar-caption">模块目录 <span id="stage-count"></span></div>
+    <nav id="stage-nav" aria-label="选择模块"></nav>
+    <div class="sidebar-footer">
+      <a href="../pybert-signal-chain-and-parameters.zh-CN.md">阅读完整研究文档 <span aria-hidden="true">↗</span></a>
+      <span>源码快照 · 2026.10.23</span>
+    </div>
+  </aside>
+
+  <div class="workspace">
+    <header class="page-header">
+      <div class="page-heading"><span class="eyebrow">LOCAL CONFIGURATION</span><h1>链路配置 <small>草稿 · 不运行仿真</small></h1></div>
+      <div class="header-actions">
+        <div class="search-wrap">
+          <label class="search-field" for="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="搜索 stage 或参数…" autocomplete="off" aria-label="搜索所有模块和参数" aria-controls="search-results" aria-expanded="false"><kbd aria-hidden="true">/</kbd></label>
+          <div id="search-results" class="search-results" hidden></div>
+        </div>
+        <div id="draft-status" class="draft-status" role="status" aria-live="polite"></div>
+        <button id="reset-draft" class="secondary-button" type="button">恢复全部默认</button>
+      </div>
+    </header>
+
+    <main>
+      <details id="gui-crosswalk" class="gui-crosswalk">
+        <summary>按原 GUI 查找设置 <small>Config. / Equalization / Optimizer / 结果与菜单</small></summary>
+        <div id="gui-index"></div>
+      </details>
+      <section class="chain-panel" aria-labelledby="chain-heading">
+        <div class="section-heading">
+          <div><h2 id="chain-heading">链路总览</h2><p>选择模块编辑设置，草稿会保留在此浏览器。</p></div>
+          <a class="version-link" href="https://github.com/capn-freako/PyBERT/tree/1bc905d577d2f3bd9471421cfbf3d422d4e6080e" target="_blank" rel="noopener noreferrer">v11.1.0 <span>· 1bc905d ↗</span></a>
+        </div>
+        <div class="mode-toolbar" aria-label="切换实现图示">
+          <span class="toolbar-label">实现方案 <small>未加载模型</small></span>
+          <label>Tx EQ <select id="tx-mode"><option value="native">Native</option><option value="init">AMI Init</option><option value="getwave">AMI GetWave</option></select></label>
+          <label>Rx EQ <select id="rx-mode"><option value="native">Native</option><option value="init">AMI Init</option><option value="getwave">AMI GetWave</option></select></label>
+          <label class="clock-option"><input id="ami-clocks" type="checkbox" disabled> 请求模型时钟</label>
+          <button id="reset-modes" class="text-button" type="button" title="将 Tx/Rx 实现方案恢复为 Native">恢复 Native</button>
+        </div>
+        <div class="chain-scroll" tabindex="0" aria-label="信号链图，可横向滚动"><div id="chain-map"></div></div>
+        <div id="mode-note" class="mode-note" role="status"></div>
+      </section>
+
+      <section id="inspector" class="inspector" aria-labelledby="stage-title" tabindex="-1">
+        <div id="stage-overview"></div>
+        <div class="inspector-toolbar">
+          <div class="tabs" role="tablist" aria-label="模块详情">
+            <button id="tab-settings" type="button" role="tab" aria-selected="true" aria-controls="settings-panel" tabindex="0" data-tab="settings">设置</button>
+            <button id="tab-parameters" type="button" role="tab" aria-selected="false" aria-controls="parameter-panel" tabindex="-1" data-tab="parameters">参数说明 <span id="parameter-count"></span></button>
+            <button id="tab-mapping" type="button" role="tab" aria-selected="false" aria-controls="mapping-panel" tabindex="-1" data-tab="mapping">实现映射 <span id="mapping-count"></span></button>
+          </div>
+          <button id="reset-stage" class="text-button" type="button">恢复本模块默认</button>
+          <label id="scope-control" class="scope-control" hidden>显示 <select id="scope-filter"><option value="all">全部条目</option><option value="gui">主 GUI 设置</option></select></label>
+        </div>
+        <div id="settings-panel" role="tabpanel" aria-labelledby="tab-settings"></div>
+        <div id="parameter-panel" role="tabpanel" aria-labelledby="tab-parameters" hidden></div>
+        <div id="mapping-panel" role="tabpanel" aria-labelledby="tab-mapping" hidden></div>
+      </section>
+      <footer class="page-footer"><span>初始值来自 PyBERT 11.1.0；草稿不修改 PyBERT 配置文件。</span><span>本地编辑 · 无计算后端</span></footer>
+    </main>
+  </div>
+  <div id="draft-toast" class="draft-toast" role="status" hidden><span id="toast-message"></span><button id="undo-reset" type="button">撤销</button><button id="close-toast" type="button" aria-label="关闭通知">×</button></div>
+  <noscript><p class="no-script">请启用 JavaScript 以浏览信号链。也可以阅读同目录上一级的研究文档。</p></noscript>
+</body>
+</html>

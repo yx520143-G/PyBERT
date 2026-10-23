@@ -1,0 +1,26 @@
+[
+  {
+    "file": "app.js",
+    "sha256": "ff4ecb27803f6f76d2e6726880251b92fd45c9f892e466b3a0a775f3e0be4cf3"
+  },
+  {
+    "file": "catalog.js",
+    "sha256": "5d3d980915916f4a9129670385e2ab46ca0998f08b65789f7ad023a527a2c11c"
+  },
+  {
+    "file": "gui-map.js",
+    "sha256": "be46acf5cab4dda5368e090ae469ba5dee5c281f3a64d169d1f2b1e72ce31a39"
+  },
+  {
+    "file": "settings.js",
+    "sha256": "dd7f4530bf10709ce7d0afc92ac1a9265411e2a39a3d77a5a9463b5a9905de3e"
+  },
+  {
+    "file": "index.html",
+    "sha256": "641f40b0bf61a0b160e016c4e94d1933b13ee16a1615e0c627902dff16c75fca"
+  },
+  {
+    "file": "styles.css",
+    "sha256": "715e1e6e7c530a88e961fc947fa5a0424bba0704f8f955880a6140eba1c1a38d"
+  }
+]

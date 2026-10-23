@@ -1,0 +1,910 @@
+{
+  "origin": "http://127.0.0.1:8768",
+  "verifiedBatches": [
+    {
+      "from": 1,
+      "to": 25,
+      "lastKey": "btn_sel_tx",
+      "pass": true
+    },
+    {
+      "from": 26,
+      "to": 50,
+      "lastKey": "cac",
+      "pass": true
+    },
+    {
+      "from": 51,
+      "to": 75,
+      "lastKey": "ctle_sel",
+      "pass": true
+    },
+    {
+      "from": 76,
+      "to": 100,
+      "lastKey": "min_mag_tune",
+      "pass": true
+    }
+  ],
+  "entries": [
+    {
+      "key": "bit_rate",
+      "section": "Config. / Simulation Control / Rate & Modulation4 项",
+      "target": "Source →"
+    },
+    {
+      "key": "nspui",
+      "section": "Config. / Simulation Control / Rate & Modulation4 项",
+      "target": "Simulation →"
+    },
+    {
+      "key": "mod_type",
+      "section": "Config. / Simulation Control / Rate & Modulation4 项",
+      "target": "Source →"
+    },
+    {
+      "key": "rlm",
+      "section": "Config. / Simulation Control / Rate & Modulation4 项",
+      "target": "Source →"
+    },
+    {
+      "key": "pattern",
+      "section": "Config. / Simulation Control / Test Pattern4 项",
+      "target": "Source →"
+    },
+    {
+      "key": "seed",
+      "section": "Config. / Simulation Control / Test Pattern4 项",
+      "target": "Source →"
+    },
+    {
+      "key": "nbits",
+      "section": "Config. / Simulation Control / Test Pattern4 项",
+      "target": "Simulation →"
+    },
+    {
+      "key": "eye_bits",
+      "section": "Config. / Simulation Control / Test Pattern4 项",
+      "target": "Simulation →"
+    },
+    {
+      "key": "vod",
+      "section": "Config. / Simulation Control / Tx Level & Noise4 项",
+      "target": "Source →"
+    },
+    {
+      "key": "rn",
+      "section": "Config. / Simulation Control / Tx Level & Noise4 项",
+      "target": "Noise →"
+    },
+    {
+      "key": "pn_mag",
+      "section": "Config. / Simulation Control / Tx Level & Noise4 项",
+      "target": "Noise →"
+    },
+    {
+      "key": "pn_freq",
+      "section": "Config. / Simulation Control / Tx Level & Noise4 项",
+      "target": "Noise →"
+    },
+    {
+      "key": "debug",
+      "section": "Config. / Simulation Control / Misc.3 项",
+      "target": "Simulation →"
+    },
+    {
+      "key": "enable_com",
+      "section": "Config. / Simulation Control / Misc.3 项",
+      "target": "COM →"
+    },
+    {
+      "key": "include_fext",
+      "section": "Config. / Simulation Control / Misc.3 项",
+      "target": "Noise →"
+    },
+    {
+      "key": "impulse_length",
+      "section": "Config. / Analysis Parameters4 项",
+      "target": "Simulation →"
+    },
+    {
+      "key": "thresh",
+      "section": "Config. / Analysis Parameters4 项",
+      "target": "Simulation →"
+    },
+    {
+      "key": "f_max",
+      "section": "Config. / Analysis Parameters4 项",
+      "target": "Simulation →"
+    },
+    {
+      "key": "f_step",
+      "section": "Config. / Analysis Parameters4 项",
+      "target": "Simulation →"
+    },
+    {
+      "key": "tx_sel",
+      "section": "Config. / Channel / Tx8 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "rs",
+      "section": "Config. / Channel / Tx8 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "cout",
+      "section": "Config. / Channel / Tx8 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "tx_ibis_file",
+      "section": "Config. / Channel / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "tx_ibis_valid",
+      "section": "Config. / Channel / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "btn_sel_tx",
+      "section": "Config. / Channel / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "btn_view_tx",
+      "section": "Config. / Channel / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "tx_use_ts4",
+      "section": "Config. / Channel / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "inter_sel",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "renumber",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "use_window",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "l_ch",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "Theta0",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "Z0",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "v0",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "Rdc",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "w0",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "R0",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "ch_file",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "lane_sel",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "com_cfg_file",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "COM →"
+    },
+    {
+      "key": "ch_files",
+      "section": "Config. / Channel / Interconnect14 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "pkg_enable",
+      "section": "Config. / Channel / Tx-Rx Device Models5 项",
+      "target": "Device models →"
+    },
+    {
+      "key": "pkg_group",
+      "section": "Config. / Channel / Tx-Rx Device Models5 项",
+      "target": "Device models →"
+    },
+    {
+      "key": "tx_pkg_case",
+      "section": "Config. / Channel / Tx-Rx Device Models5 项",
+      "target": "Device models →"
+    },
+    {
+      "key": "rx_pkg_case",
+      "section": "Config. / Channel / Tx-Rx Device Models5 项",
+      "target": "Device models →"
+    },
+    {
+      "key": "pkg_include_host",
+      "section": "Config. / Channel / Tx-Rx Device Models5 项",
+      "target": "Device models →"
+    },
+    {
+      "key": "rx_sel",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "rin",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "cin",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "cac",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "Channel →"
+    },
+    {
+      "key": "rx_use_viterbi",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "Viterbi / FEC →"
+    },
+    {
+      "key": "rx_viterbi_symbols",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "Viterbi / FEC →"
+    },
+    {
+      "key": "rx_ibis_file",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "rx_ibis_valid",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "btn_sel_rx",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "btn_view_rx",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "rx_use_ts4",
+      "section": "Config. / Channel / Rx11 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "tx_eq_sel",
+      "section": "Equalization / Tx8 项",
+      "target": "Tx EQ →"
+    },
+    {
+      "key": "tx_ami_file",
+      "section": "Equalization / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "tx_ami_valid",
+      "section": "Equalization / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "tx_dll_file",
+      "section": "Equalization / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "tx_dll_valid",
+      "section": "Equalization / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "tx_use_getwave",
+      "section": "Equalization / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "btn_cfg_tx",
+      "section": "Equalization / Tx8 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "tx_taps",
+      "section": "Equalization / Tx8 项",
+      "target": "Tx EQ →"
+    },
+    {
+      "key": "rx_eq_sel",
+      "section": "Equalization / Rx1 项",
+      "target": "Rx CTLE →"
+    },
+    {
+      "key": "rx_ami_file",
+      "section": "Equalization / Rx / IBIS-AMI7 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "rx_ami_valid",
+      "section": "Equalization / Rx / IBIS-AMI7 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "rx_dll_file",
+      "section": "Equalization / Rx / IBIS-AMI7 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "rx_dll_valid",
+      "section": "Equalization / Rx / IBIS-AMI7 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "rx_use_getwave",
+      "section": "Equalization / Rx / IBIS-AMI7 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "rx_use_clocks",
+      "section": "Equalization / Rx / IBIS-AMI7 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "btn_cfg_rx",
+      "section": "Equalization / Rx / IBIS-AMI7 项",
+      "target": "IBIS-AMI →"
+    },
+    {
+      "key": "ctle_enable",
+      "section": "Equalization / Rx / Native CTLE6 项",
+      "target": "Rx CTLE →"
+    },
+    {
+      "key": "ctle_sel",
+      "section": "Equalization / Rx / Native CTLE6 项",
+      "target": "Rx CTLE →"
+    },
+    {
+      "key": "ctle_file",
+      "section": "Equalization / Rx / Native CTLE6 项",
+      "target": "Rx CTLE →"
+    },
+    {
+      "key": "peak_freq",
+      "section": "Equalization / Rx / Native CTLE6 项",
+      "target": "Rx CTLE →"
+    },
+    {
+      "key": "rx_bw",
+      "section": "Equalization / Rx / Native CTLE6 项",
+      "target": "Rx CTLE →"
+    },
+    {
+      "key": "peak_mag",
+      "section": "Equalization / Rx / Native CTLE6 项",
+      "target": "Rx CTLE →"
+    },
+    {
+      "key": "cdr_type",
+      "section": "Equalization / Rx / CDR6 项",
+      "target": "CDR →"
+    },
+    {
+      "key": "delta_t_ui",
+      "section": "Equalization / Rx / CDR6 项",
+      "target": "CDR →"
+    },
+    {
+      "key": "alpha",
+      "section": "Equalization / Rx / CDR6 项",
+      "target": "CDR →"
+    },
+    {
+      "key": "n_lock_ave",
+      "section": "Equalization / Rx / CDR6 项",
+      "target": "CDR →"
+    },
+    {
+      "key": "rel_lock_tol",
+      "section": "Equalization / Rx / CDR6 项",
+      "target": "CDR →"
+    },
+    {
+      "key": "lock_sustain",
+      "section": "Equalization / Rx / CDR6 项",
+      "target": "CDR →"
+    },
+    {
+      "key": "rx_n_taps",
+      "section": "Equalization / Rx / FFE3 项",
+      "target": "Rx FFE →"
+    },
+    {
+      "key": "rx_n_pre",
+      "section": "Equalization / Rx / FFE3 项",
+      "target": "Rx FFE →"
+    },
+    {
+      "key": "rx_taps",
+      "section": "Equalization / Rx / FFE3 项",
+      "target": "Rx FFE →"
+    },
+    {
+      "key": "gain",
+      "section": "Equalization / Rx / DFE6 项",
+      "target": "DFE / Slicer →"
+    },
+    {
+      "key": "n_ave",
+      "section": "Equalization / Rx / DFE6 项",
+      "target": "DFE / Slicer →"
+    },
+    {
+      "key": "decision_scaler",
+      "section": "Equalization / Rx / DFE6 项",
+      "target": "DFE / Slicer →"
+    },
+    {
+      "key": "use_agc",
+      "section": "Equalization / Rx / DFE6 项",
+      "target": "AGC →"
+    },
+    {
+      "key": "sum_bw",
+      "section": "Equalization / Rx / DFE6 项",
+      "target": "DFE / Slicer →"
+    },
+    {
+      "key": "sum_ideal",
+      "section": "Equalization / Rx / DFE6 项",
+      "target": "DFE / Slicer →"
+    },
+    {
+      "key": "ami_opt_trials",
+      "section": "Optimizer / AMI budget1 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "tx_tap_tuners",
+      "section": "Optimizer / Tx FFE1 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "ctle_enable_tune",
+      "section": "Optimizer / Rx CTLE7 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "peak_freq_tune",
+      "section": "Optimizer / Rx CTLE7 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "rx_bw_tune",
+      "section": "Optimizer / Rx CTLE7 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "min_mag_tune",
+      "section": "Optimizer / Rx CTLE7 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "max_mag_tune",
+      "section": "Optimizer / Rx CTLE7 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "step_mag_tune",
+      "section": "Optimizer / Rx CTLE7 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "peak_mag_tune",
+      "section": "Optimizer / Rx CTLE7 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "use_mmse",
+      "section": "Optimizer / Rx FFE2 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "ffe_tap_tuners",
+      "section": "Optimizer / Rx FFE2 项",
+      "target": "Rx FFE →"
+    },
+    {
+      "key": "btn_disable",
+      "section": "Optimizer / Rx DFE3 项",
+      "target": "DFE / Slicer →"
+    },
+    {
+      "key": "btn_enable",
+      "section": "Optimizer / Rx DFE3 项",
+      "target": "DFE / Slicer →"
+    },
+    {
+      "key": "dfe_tap_tuners",
+      "section": "Optimizer / Rx DFE3 项",
+      "target": "DFE / Slicer →"
+    },
+    {
+      "key": "tx_ami_tap_tuners",
+      "section": "Optimizer / Tx AMI Params1 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "rx_ami_tap_tuners",
+      "section": "Optimizer / Rx AMI Params1 项",
+      "target": "Optimizer →"
+    },
+    {
+      "key": "plot_h_tune",
+      "section": "Optimizer / Plot1 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plots_h",
+      "section": "Responses4 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plots_s",
+      "section": "Responses4 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plots_p",
+      "section": "Responses4 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plots_H",
+      "section": "Responses4 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plots_dfe",
+      "section": "Results4 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plots_out",
+      "section": "Results4 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plots_eye",
+      "section": "Results4 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plots_bathtub",
+      "section": "Results4 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plot_viterbi",
+      "section": "Results / Viterbi4 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "trellis_err_select",
+      "section": "Results / Viterbi4 项",
+      "target": "Viterbi / FEC →"
+    },
+    {
+      "key": "trellis_max_err",
+      "section": "Results / Viterbi4 项",
+      "target": "Viterbi / FEC →"
+    },
+    {
+      "key": "trellis_pan_control",
+      "section": "Results / Viterbi4 项",
+      "target": "Viterbi / FEC →"
+    },
+    {
+      "key": "plots_jitter_dist",
+      "section": "Jitter3 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "plots_jitter_spec",
+      "section": "Jitter3 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "jitter_info",
+      "section": "Jitter3 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "perf_info",
+      "section": "Info3 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "instructions",
+      "section": "Info3 项",
+      "target": "Observe →"
+    },
+    {
+      "key": "console_log",
+      "section": "Info3 项",
+      "target": "Observe →"
+    }
+  ],
+  "tail": [
+    {
+      "key": "max_mag_tune",
+      "crosswalkClosed": true,
+      "heading": "均衡参数搜索Optimizer",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "step_mag_tune",
+      "crosswalkClosed": true,
+      "heading": "均衡参数搜索Optimizer",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "peak_mag_tune",
+      "crosswalkClosed": true,
+      "heading": "均衡参数搜索Optimizer",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "use_mmse",
+      "crosswalkClosed": true,
+      "heading": "均衡参数搜索Optimizer",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "ffe_tap_tuners",
+      "crosswalkClosed": true,
+      "heading": "接收端前馈均衡Rx FFE",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "btn_disable",
+      "crosswalkClosed": true,
+      "heading": "反馈均衡与符号判决DFE / Slicer",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "btn_enable",
+      "crosswalkClosed": true,
+      "heading": "反馈均衡与符号判决DFE / Slicer",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "dfe_tap_tuners",
+      "crosswalkClosed": true,
+      "heading": "反馈均衡与符号判决DFE / Slicer",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "tx_ami_tap_tuners",
+      "crosswalkClosed": true,
+      "heading": "均衡参数搜索Optimizer",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "rx_ami_tap_tuners",
+      "crosswalkClosed": true,
+      "heading": "均衡参数搜索Optimizer",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "plot_h_tune",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plots_h",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plots_s",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plots_p",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plots_H",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plots_dfe",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plots_out",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plots_eye",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plots_bathtub",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plot_viterbi",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "trellis_err_select",
+      "crosswalkClosed": true,
+      "heading": "可选序列检测与 FECViterbi / FEC",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "trellis_max_err",
+      "crosswalkClosed": true,
+      "heading": "可选序列检测与 FECViterbi / FEC",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "trellis_pan_control",
+      "crosswalkClosed": true,
+      "heading": "可选序列检测与 FECViterbi / FEC",
+      "highlightVisible": true,
+      "tab": "tab-settings",
+      "pass": true
+    },
+    {
+      "key": "plots_jitter_dist",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "plots_jitter_spec",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "jitter_info",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "perf_info",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "instructions",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    },
+    {
+      "key": "console_log",
+      "crosswalkClosed": true,
+      "heading": "误码与链路观察Observe",
+      "highlightVisible": true,
+      "tab": "tab-parameters",
+      "pass": true
+    }
+  ]
+}

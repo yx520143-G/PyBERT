@@ -1,0 +1,11 @@
+{
+  "desktop": {
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "documentWidth": 1265,
+    "clientWidth": 1265,
+    "hasHorizontalOverflow": false
+  }
+}
