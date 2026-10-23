@@ -1,0 +1,3 @@
+2026-10-23 resumed turn
+get_window_state(include_screenshot=true): FrameArrived timed out: timed out waiting on channel
+sky.click(Simulation menu, latest element_index=160): Error: coordinate input geometry is unavailable

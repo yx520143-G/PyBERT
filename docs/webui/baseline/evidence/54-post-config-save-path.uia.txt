@@ -1,0 +1,264 @@
+Window: "PyBERT", App: python.exe.
+	0 窗口 (settable, string) PyBERT Secondary Actions: Raise ID: QApplication._StickyDialog
+		44 对话框 Dialog Secondary Actions: Raise
+			45 窗格
+				46 工具栏 命令模块 ID: FolderBandModuleInner
+					47 按钮 帮助(&H) Description: 获取帮助。 ID: HelpButton
+					48 拆分按钮 视图 Description: 更改你的视图。 ID: ViewControl
+						49 按钮 视图滑块 Description: 更多选项 ID: SplitMenuButton
+					50 按钮 组织​​ Description: 组织该文件夹的内容。 ID: {7DDC1264-7E4D-4F74-BBC0-D191987C8D0F}
+					51 按钮 新建​​文件夹​​ Description: 新建文件夹。 ID: {E44616AD-6DF1-4B94-85A4-E465AE8A19DB}
+				52 窗格 控制项宿主 ID: ProperTreeHost
+					53 树 树视图 ID: 100
+						54 滚动条 (settable, float) 垂直滚动条 Value: 70 ID: NonClientVerticalScrollBar
+							55 按钮 上一行 ID: UpButton
+							56 按钮 向上翻页 ID: UpPageButton
+							57 缩略图 位置 ID: ScrollbarThumb
+							58 按钮 向下翻页 ID: DownPageButton
+							59 按钮 下一行 ID: DownButton
+						60 树项目 (selectable, settable, string) 快速访问 Value: 快速访问
+							61 树项目 (selectable, settable, string) 桌面 (已固定) Value: 桌面 (已固定)
+							62 树项目 (selectable, settable, string) 下载 (已固定) Value: 下载 (已固定)
+							63 树项目 (selectable, settable, string) 文档 (已固定) Value: 文档 (已固定)
+							64 树项目 (selectable, settable, string) 图片 (已固定) Value: 图片 (已固定)
+							65 树项目 (selectable, settable, string) docs Value: docs
+							66 树项目 (selectable, settable, string) outputs Value: outputs
+							67 树项目 (selectable, settable, string) pm-340-physical-input-transfer Value: pm-340-physical-input-transfer
+							68 树项目 (selectable, settable, string) VIAVI 入职 Value: VIAVI 入职
+						69 树项目 (selectable, settable, string) 桌面 Value: 桌面
+							70 树项目 (selectable, settable, string) 此电脑 Value: 此电脑
+								71 树项目 (selectable, settable, string) 3D 对象 Value: 3D 对象
+								72 树项目 (selectable, settable, string) 视频 Value: 视频
+								73 树项目 (selectable, settable, string) 图片 Value: 图片
+								74 树项目 (selectable, settable, string) 文档 Value: 文档
+								75 树项目 (selectable, settable, string) 下载 Value: 下载
+								76 树项目 (selectable, settable, string) 音乐 Value: 音乐
+								77 树项目 (selectable, settable, string) 桌面 Value: 桌面
+								78 树项目 (selectable, settable, string) 本地磁盘 (C:) Value: 本地磁盘 (C:)
+								79 树项目 (selectable, settable, string) storage (E:) Value: storage (E:)
+								80 树项目 (selectable, settable, string) Windows RE tools (R:) Value: Windows RE tools (R:)
+							81 树项目 (selectable, settable, string) 网络 Value: 网络
+				82 窗格 Shell 文件夹视图 ID: listview
+					83 列表 项目视图
+						84 标头 标题
+							85 拆分按钮 名称 ID: System.ItemNameDisplay
+								86 按钮 筛选器下拉列表 ID: DropDown
+							87 拆分按钮 修改日期 ID: System.DateModified
+								88 按钮 筛选器下拉列表 ID: DropDown
+							89 拆分按钮 类型 ID: System.ItemTypeText
+								90 按钮 筛选器下拉列表 ID: DropDown
+							91 拆分按钮 大小 ID: System.Size
+								92 按钮 筛选器下拉列表 ID: DropDown
+						93 列表项目 (selectable, settable, string) table-submission.yaml Value: table-submission.yaml ID: 0
+							94 图像
+							95 编辑 (settable, string) 名称 Value: table-submission.yaml ID: System.ItemNameDisplay
+							96 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎23:46 ID: System.DateModified
+							97 编辑 类型 Value: Yaml 源文件 ID: System.ItemTypeText
+							98 编辑 大小 Value: 18 KB ID: System.Size
+				99 文本 文件名: Description: 文件名: ID: SaveDialogLabel
+				100 组合框 (settable, string) 文件名: Value: E:\serial-bus-simulator\docs\webui\baseline\evidence\table-mouse-run-post.yaml ID: FileNameControlHost
+					101 编辑 (settable, string) 文件名: Value: E:\serial-bus-simulator\docs\webui\baseline\evidence\table-mouse-run-post.yaml ID: 1001
+					102 按钮 打开 ID: DropDown
+				103 文本 保存类型: Description: 保存类型: ID: SaveDialogLabel
+				104 组合框 (settable, string) 保存类型: Value: Yaml Config (*.yaml *.yml) ID: FileTypeControlHost
+					105 文本 (settable, string) Value: Yaml Config (*.yaml *.yml)
+					106 按钮 打开 ID: DropDown
+				107 树 保存字段 ID: SaveDialogPreviewMetadataInner
+				108 树 应用程序控件 ID: AppControlsModuleInner
+			109 工具栏
+				110 按钮 隐藏文件夹
+			111 按钮 保存(S) ID: 1
+			112 按钮 取消 ID: 2
+			113 缩略图 (settable, float) Value: 0
+			114 窗格 ID: 40965
+				115 窗格
+					116 工具栏 导航按钮
+						117 按钮 (disabled) 后退 (Alt + 向左键)
+						118 按钮 (disabled) 前进 (Alt + 向右键)
+						119 按钮 (disabled) 最近浏览的位置
+				120 窗格
+					121 工具栏 向上一级区段工具栏
+						122 按钮 上移到“baseline”(Alt + 向上键)
+				123 窗格 ID: 41477
+					124 进度栏 Value: 0
+						125 窗格
+							126 工具栏 地址: E:\serial-bus-simulator\docs\webui\baseline\evidence ID: 1001
+								127 拆分按钮 所有位置
+								128 拆分按钮 此电脑
+								129 拆分按钮 storage (E:)
+								130 拆分按钮 ‎serial-bus-simulator
+								131 拆分按钮 ‎docs
+								132 拆分按钮 ‎webui
+								133 拆分按钮 ‎baseline
+								134 菜单项目 ‎evidence
+						135 工具栏 地址区段工具栏
+							136 按钮 上一个位置
+							137 按钮 刷新“evidence”(F5)
+				138 窗格
+				139 窗格
+					140 窗格
+						141 窗格
+							142 编辑 (settable, string) 搜索框 Description: 在 evidence 中搜索 ID: SearchEditBox
+							143 按钮 搜索 ID: SearchBoxSearchButton
+				144 窗格
+			145 标题栏 (settable, string) Value: Dialog
+				146 菜单栏 系统 ID: MenuBar
+					147 菜单项目 系统
+				148 按钮 关闭
+		1 标题栏 (settable, string) Value: PyBERT
+			2 菜单栏 系统 ID: MenuBar
+				3 菜单项目 系统
+			4 按钮 最小化
+			5 按钮 最大化
+			6 按钮 关闭
+		7 窗口 (settable, string) Secondary Actions: Raise ID: QApplication._StickyDialog.QMainWindow
+			8 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget
+				9 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget
+					10 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget
+						11 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget
+							12 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget
+								13 编辑 (settable, string) Value: PyBERT Console Log [2026-10-23 14:59:11.474573+00:00]: PyBERT: Started. [2026-10-23 14:59:11.474573+00:00]: PyBERT: System: Windows 10 [2026-10-23 14:59:11.475574+00:00]: PyBERT: Python Version: 3.12.10 [2026-10-23 14:59:11.475574+00:00]: PyBERT: PyBERT Version: 11.1.0 [2026-10-23 14:59:11.475574+00:00]: PyBERT: PyAMI Version: 10.0.0 [2026-10-23 14:59:11.475574+00:00]: PyBERT: PyChOpMarg Version: 3.4.0 [2026-10-23 14:59:11.475574+00:00]: PyBERT: GUI Toolkit: qt [2026-10-23 14:59:11.475574+00:00]: PyBERT: Kiva Backend: image [2026-10-23 15:21:37.548626+00:00]: PyBERT: `EyeBits` has been held at `Nbits`. [2026-10-23 15:26:35.760555+00:00]: PyBERT: `EyeBits` has been held at `Nbits`. [2026-10-23 15:48:39.893096+00:00]: PyBERT: `EyeBits` has been held at `Nbits`. [2026-10-23 16:01:27.975318+00:00]: PyBERT: Ready. | Perf. (Msmpls./min.): 8.7 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 30.3 DCD= 0.1 Pj= 4.0 ( 7.1) Rj= 1.4 ( 5.5) | COM: -999.00 dB [2026-10-23 16:01:50.456489+00:00]: PyBERT: Ready. | Perf. (Msmpls./min.): 10.8 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 30.3 DCD= 0.1 Pj= 4.0 ( 7.1) Rj= 1.4 ( 5.5) | COM: -999.00 dB ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QTextEdit
+									14 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QTextEdit.qt_scrollarea_viewport
+						15 选项卡 (settable, string) Console ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							16 选项卡项目 (selectable, settable, string) Performance ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							17 选项卡项目 (selectable, settable, string) User's Guide ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							18 选项卡项目 (selectable, settable, string) Console ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+				19 选项卡 (settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					20 选项卡项目 (selectable, settable, string) Config. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					21 选项卡项目 (selectable, settable, string) Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					22 选项卡项目 (selectable, settable, string) Optimizer ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					23 选项卡项目 (selectable, settable, string) Responses ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					24 选项卡项目 (selectable, settable, string) Results ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					25 选项卡项目 (selectable, settable, string) Jitter ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					26 选项卡项目 (selectable, settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+			27 状态栏 ID: QApplication._StickyDialog.QMainWindow.QStatusBar
+				28 文本 Ready. | Perf. (Msmpls./min.): 10.8 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 30.3 DCD= 0.1 Pj= 4.0 ( 7.1) Rj= 1.4 ( 5.5) | COM: -999.00 dB ID: QApplication._StickyDialog.QMainWindow.QStatusBar.QLabel
+		29 菜单栏 (settable, string) ID: QApplication._StickyDialog.QMenuBar
+			30 菜单项目 (settable, string) File ID: QApplication._StickyDialog.QMenuBar.QAction
+			31 菜单项目 (settable, string) View ID: QApplication._StickyDialog.QMenuBar.QAction
+			32 菜单项目 (settable, string) Simulation ID: QApplication._StickyDialog.QMenuBar.QAction
+			33 菜单项目 (settable, string) Optimization ID: QApplication._StickyDialog.QMenuBar.QAction
+			34 菜单项目 (settable, string) Help ID: QApplication._StickyDialog.QMenuBar.QAction
+		44 对话框 Dialog Secondary Actions: Raise
+			45 窗格
+				46 工具栏 命令模块 ID: FolderBandModuleInner
+					47 按钮 帮助(&H) Description: 获取帮助。 ID: HelpButton
+					48 拆分按钮 视图 Description: 更改你的视图。 ID: ViewControl
+						49 按钮 视图滑块 Description: 更多选项 ID: SplitMenuButton
+					50 按钮 组织​​ Description: 组织该文件夹的内容。 ID: {7DDC1264-7E4D-4F74-BBC0-D191987C8D0F}
+					51 按钮 新建​​文件夹​​ Description: 新建文件夹。 ID: {E44616AD-6DF1-4B94-85A4-E465AE8A19DB}
+				52 窗格 控制项宿主 ID: ProperTreeHost
+					53 树 树视图 ID: 100
+						54 滚动条 (settable, float) 垂直滚动条 Value: 70 ID: NonClientVerticalScrollBar
+							55 按钮 上一行 ID: UpButton
+							56 按钮 向上翻页 ID: UpPageButton
+							57 缩略图 位置 ID: ScrollbarThumb
+							58 按钮 向下翻页 ID: DownPageButton
+							59 按钮 下一行 ID: DownButton
+						60 树项目 (selectable, settable, string) 快速访问 Value: 快速访问
+							61 树项目 (selectable, settable, string) 桌面 (已固定) Value: 桌面 (已固定)
+							62 树项目 (selectable, settable, string) 下载 (已固定) Value: 下载 (已固定)
+							63 树项目 (selectable, settable, string) 文档 (已固定) Value: 文档 (已固定)
+							64 树项目 (selectable, settable, string) 图片 (已固定) Value: 图片 (已固定)
+							65 树项目 (selectable, settable, string) docs Value: docs
+							66 树项目 (selectable, settable, string) outputs Value: outputs
+							67 树项目 (selectable, settable, string) pm-340-physical-input-transfer Value: pm-340-physical-input-transfer
+							68 树项目 (selectable, settable, string) VIAVI 入职 Value: VIAVI 入职
+						69 树项目 (selectable, settable, string) 桌面 Value: 桌面
+							70 树项目 (selectable, settable, string) 此电脑 Value: 此电脑
+								71 树项目 (selectable, settable, string) 3D 对象 Value: 3D 对象
+								72 树项目 (selectable, settable, string) 视频 Value: 视频
+								73 树项目 (selectable, settable, string) 图片 Value: 图片
+								74 树项目 (selectable, settable, string) 文档 Value: 文档
+								75 树项目 (selectable, settable, string) 下载 Value: 下载
+								76 树项目 (selectable, settable, string) 音乐 Value: 音乐
+								77 树项目 (selectable, settable, string) 桌面 Value: 桌面
+								78 树项目 (selectable, settable, string) 本地磁盘 (C:) Value: 本地磁盘 (C:)
+								79 树项目 (selectable, settable, string) storage (E:) Value: storage (E:)
+								80 树项目 (selectable, settable, string) Windows RE tools (R:) Value: Windows RE tools (R:)
+							81 树项目 (selectable, settable, string) 网络 Value: 网络
+				82 窗格 Shell 文件夹视图 ID: listview
+					83 列表 项目视图
+						84 标头 标题
+							85 拆分按钮 名称 ID: System.ItemNameDisplay
+								86 按钮 筛选器下拉列表 ID: DropDown
+							87 拆分按钮 修改日期 ID: System.DateModified
+								88 按钮 筛选器下拉列表 ID: DropDown
+							89 拆分按钮 类型 ID: System.ItemTypeText
+								90 按钮 筛选器下拉列表 ID: DropDown
+							91 拆分按钮 大小 ID: System.Size
+								92 按钮 筛选器下拉列表 ID: DropDown
+						93 列表项目 (selectable, settable, string) table-submission.yaml Value: table-submission.yaml ID: 0
+							94 图像
+							95 编辑 (settable, string) 名称 Value: table-submission.yaml ID: System.ItemNameDisplay
+							96 编辑 修改日期 Value: ‎2026/‎10/‎23 ‏‎23:46 ID: System.DateModified
+							97 编辑 类型 Value: Yaml 源文件 ID: System.ItemTypeText
+							98 编辑 大小 Value: 18 KB ID: System.Size
+				99 文本 文件名: Description: 文件名: ID: SaveDialogLabel
+				100 组合框 (settable, string) 文件名: Value: E:\serial-bus-simulator\docs\webui\baseline\evidence\table-mouse-run-post.yaml ID: FileNameControlHost
+					101 编辑 (settable, string) 文件名: Value: E:\serial-bus-simulator\docs\webui\baseline\evidence\table-mouse-run-post.yaml ID: 1001
+					102 按钮 打开 ID: DropDown
+				103 文本 保存类型: Description: 保存类型: ID: SaveDialogLabel
+				104 组合框 (settable, string) 保存类型: Value: Yaml Config (*.yaml *.yml) ID: FileTypeControlHost
+					105 文本 (settable, string) Value: Yaml Config (*.yaml *.yml)
+					106 按钮 打开 ID: DropDown
+				107 树 保存字段 ID: SaveDialogPreviewMetadataInner
+				108 树 应用程序控件 ID: AppControlsModuleInner
+			109 工具栏
+				110 按钮 隐藏文件夹
+			111 按钮 保存(S) ID: 1
+			112 按钮 取消 ID: 2
+			113 缩略图 (settable, float) Value: 0
+			114 窗格 ID: 40965
+				115 窗格
+					116 工具栏 导航按钮
+						117 按钮 (disabled) 后退 (Alt + 向左键)
+						118 按钮 (disabled) 前进 (Alt + 向右键)
+						119 按钮 (disabled) 最近浏览的位置
+				120 窗格
+					121 工具栏 向上一级区段工具栏
+						122 按钮 上移到“baseline”(Alt + 向上键)
+				123 窗格 ID: 41477
+					124 进度栏 Value: 0
+						125 窗格
+							126 工具栏 地址: E:\serial-bus-simulator\docs\webui\baseline\evidence ID: 1001
+								127 拆分按钮 所有位置
+								128 拆分按钮 此电脑
+								129 拆分按钮 storage (E:)
+								130 拆分按钮 ‎serial-bus-simulator
+								131 拆分按钮 ‎docs
+								132 拆分按钮 ‎webui
+								133 拆分按钮 ‎baseline
+								134 菜单项目 ‎evidence
+						135 工具栏 地址区段工具栏
+							136 按钮 上一个位置
+							137 按钮 刷新“evidence”(F5)
+				138 窗格
+				139 窗格
+					140 窗格
+						141 窗格
+							142 编辑 (settable, string) 搜索框 Description: 在 evidence 中搜索 ID: SearchEditBox
+							143 按钮 搜索 ID: SearchBoxSearchButton
+				144 窗格
+			145 标题栏 (settable, string) Value: Dialog
+				146 菜单栏 系统 ID: MenuBar
+					147 菜单项目 系统
+				148 按钮 关闭
+
+Document text: ```
+PyBERT Console Log
+
+[2026-10-23 14:59:11.474573+00:00]: PyBERT: Started.
+[2026-10-23 14:59:11.474573+00:00]: PyBERT: System: Windows 10
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: Python Version: 3.12.10
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: PyBERT Version: 11.1.0
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: PyAMI Version: 10.0.0
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: PyChOpMarg Version: 3.4.0
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: GUI Toolkit: qt
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: Kiva Backend: image
+	[2026-10-23 15:21:37.548626+00:00]: PyBERT: `EyeBits` has been held at `Nbits`.
+[2026-10-23 15:26:35.760555+00:00]: PyBERT: `EyeBits` has been held at `Nbits`.
+[2026-10-23 15:48:39.893096+00:00]: PyBERT: `EyeBits` has been held at `Nbits`.
+[2026-10-23 16:01:27.975318+00:00]: PyBERT: Ready.                         | Perf. (Msmpls./min.):  8.7    | ChnlDly (ns): 2.381    | BitErrs: 0 (-1)    | TxPwr (mW):  10    | Jitter (ps):  ISI=  30.3  DCD=   0.1  Pj=   4.0 (   7.1)  Rj=   1.4 (   5.5)    | COM: -999.00 dB
+[2026-10-23 16:01:50.456489+00:00]: PyBERT: Ready.                         | Perf. (Msmpls./min.): 10.8    | ChnlDly (ns): 2.381    | BitErrs: 0 (-1)    | TxPwr (mW):  10    | Jitter (ps):  ISI=  30.3  DCD=   0.1  Pj=   4.0 (   7.1)  Rj=   1.4 (   5.5)    | COM: -999.00 dB
+```

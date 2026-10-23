@@ -1,0 +1,13 @@
+{
+  "observed_at": "2026-10-23T23:49:06.2532911+08:00",
+  "path": "C:\\Users\\yx\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe",
+  "file_version": "155.0.8059.85",
+  "product_version": "155.0.8059.85",
+  "observation": "Get-Process chrome -> Path -> Get-Item.VersionInfo",
+  "future_acceptance_viewport_css_px": [
+    1280,
+    720
+  ],
+  "future_acceptance_zoom_percent": 100,
+  "actual_web_acceptance_performed": false
+}

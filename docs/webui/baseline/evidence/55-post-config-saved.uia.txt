@@ -1,0 +1,54 @@
+Window: "PyBERT", App: python.exe.
+	0 窗口 (settable, string) PyBERT Secondary Actions: Raise ID: QApplication._StickyDialog
+		1 标题栏 (settable, string) Value: PyBERT
+			2 菜单栏 系统 ID: MenuBar
+				3 菜单项目 系统
+			4 按钮 最小化
+			5 按钮 最大化
+			6 按钮 关闭
+		7 窗口 (settable, string) Secondary Actions: Raise ID: QApplication._StickyDialog.QMainWindow
+			8 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget
+				9 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget
+					10 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget
+						11 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget
+							12 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget
+								13 编辑 (settable, string) Value: PyBERT Console Log [2026-10-23 14:59:11.474573+00:00]: PyBERT: Started. [2026-10-23 14:59:11.474573+00:00]: PyBERT: System: Windows 10 [2026-10-23 14:59:11.475574+00:00]: PyBERT: Python Version: 3.12.10 [2026-10-23 14:59:11.475574+00:00]: PyBERT: PyBERT Version: 11.1.0 [2026-10-23 14:59:11.475574+00:00]: PyBERT: PyAMI Version: 10.0.0 [2026-10-23 14:59:11.475574+00:00]: PyBERT: PyChOpMarg Version: 3.4.0 [2026-10-23 14:59:11.475574+00:00]: PyBERT: GUI Toolkit: qt [2026-10-23 14:59:11.475574+00:00]: PyBERT: Kiva Backend: image [2026-10-23 15:21:37.548626+00:00]: PyBERT: `EyeBits` has been held at `Nbits`. [2026-10-23 15:26:35.760555+00:00]: PyBERT: `EyeBits` has been held at `Nbits`. [2026-10-23 15:48:39.893096+00:00]: PyBERT: `EyeBits` has been held at `Nbits`. [2026-10-23 16:01:27.975318+00:00]: PyBERT: Ready. | Perf. (Msmpls./min.): 8.7 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 30.3 DCD= 0.1 Pj= 4.0 ( 7.1) Rj= 1.4 ( 5.5) | COM: -999.00 dB [2026-10-23 16:01:50.456489+00:00]: PyBERT: Ready. | Perf. (Msmpls./min.): 10.8 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 30.3 DCD= 0.1 Pj= 4.0 ( 7.1) Rj= 1.4 ( 5.5) | COM: -999.00 dB ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QTextEdit
+									14 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QTextEdit.qt_scrollarea_viewport
+						15 选项卡 (settable, string) Console ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							16 选项卡项目 (selectable, settable, string) Performance ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							17 选项卡项目 (selectable, settable, string) User's Guide ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+							18 选项卡项目 (selectable, settable, string) Console ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QTabWidget.qt_tabwidget_tabbar
+				19 选项卡 (settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					20 选项卡项目 (selectable, settable, string) Config. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					21 选项卡项目 (selectable, settable, string) Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					22 选项卡项目 (selectable, settable, string) Optimizer ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					23 选项卡项目 (selectable, settable, string) Responses ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					24 选项卡项目 (selectable, settable, string) Results ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					25 选项卡项目 (selectable, settable, string) Jitter ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					26 选项卡项目 (selectable, settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+			27 状态栏 ID: QApplication._StickyDialog.QMainWindow.QStatusBar
+				28 文本 Configuration saved. | Perf. (Msmpls./min.): 10.8 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 30.3 DCD= 0.1 Pj= 4.0 ( 7.1) Rj= 1.4 ( 5.5) | COM: -999.00 dB ID: QApplication._StickyDialog.QMainWindow.QStatusBar.QLabel
+		29 菜单栏 (settable, string) ID: QApplication._StickyDialog.QMenuBar
+			30 菜单项目 (settable, string) File ID: QApplication._StickyDialog.QMenuBar.QAction
+			31 菜单项目 (settable, string) View ID: QApplication._StickyDialog.QMenuBar.QAction
+			32 菜单项目 (settable, string) Simulation ID: QApplication._StickyDialog.QMenuBar.QAction
+			33 菜单项目 (settable, string) Optimization ID: QApplication._StickyDialog.QMenuBar.QAction
+			34 菜单项目 (settable, string) Help ID: QApplication._StickyDialog.QMenuBar.QAction
+
+Document text: ```
+PyBERT Console Log
+
+[2026-10-23 14:59:11.474573+00:00]: PyBERT: Started.
+[2026-10-23 14:59:11.474573+00:00]: PyBERT: System: Windows 10
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: Python Version: 3.12.10
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: PyBERT Version: 11.1.0
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: PyAMI Version: 10.0.0
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: PyChOpMarg Version: 3.4.0
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: GUI Toolkit: qt
+[2026-10-23 14:59:11.475574+00:00]: PyBERT: Kiva Backend: image
+	[2026-10-23 15:21:37.548626+00:00]: PyBERT: `EyeBits` has been held at `Nbits`.
+[2026-10-23 15:26:35.760555+00:00]: PyBERT: `EyeBits` has been held at `Nbits`.
+[2026-10-23 15:48:39.893096+00:00]: PyBERT: `EyeBits` has been held at `Nbits`.
+[2026-10-23 16:01:27.975318+00:00]: PyBERT: Ready.                         | Perf. (Msmpls./min.):  8.7    | ChnlDly (ns): 2.381    | BitErrs: 0 (-1)    | TxPwr (mW):  10    | Jitter (ps):  ISI=  30.3  DCD=   0.1  Pj=   4.0 (   7.1)  Rj=   1.4 (   5.5)    | COM: -999.00 dB
+[2026-10-23 16:01:50.456489+00:00]: PyBERT: Ready.                         | Perf. (Msmpls./min.): 10.8    | ChnlDly (ns): 2.381    | BitErrs: 0 (-1)    | TxPwr (mW):  10    | Jitter (ps):  ISI=  30.3  DCD=   0.1  Pj=   4.0 (   7.1)  Rj=   1.4 (   5.5)    | COM: -999.00 dB
+```

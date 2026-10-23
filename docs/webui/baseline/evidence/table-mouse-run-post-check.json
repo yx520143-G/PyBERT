@@ -1,0 +1,60 @@
+{
+  "source": "Native GUI File / Save Config. As... export; parsed with yaml.BaseLoader without Python object construction",
+  "file": "table-mouse-run-post.yaml",
+  "sha256": "e249cc9bcd5af0cf53fc9b0c93f624e6ab38b5557359f8861b507dc5de1ad0fa",
+  "capture_role": "post-operation GUI instance configuration, not immutable run input",
+  "nbits": "4000",
+  "eye_bits": "3000",
+  "rx_n_taps": "15",
+  "rx_n_pre": "5",
+  "rx_taps_count": 100,
+  "rx_taps_first_six": [
+    [
+      "true",
+      "0.05",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "0.03",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "1.0",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "0.04",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "0.0",
+      "-1.0",
+      "1.0"
+    ],
+    [
+      "true",
+      "0.0",
+      "-1.0",
+      "1.0"
+    ]
+  ],
+  "decision_scaler": "0.3019818488973055",
+  "use_agc": "true",
+  "conditions": {
+    "mod_type": "NRZ",
+    "ctle_enable": "true",
+    "cdr_type": "Bang-Bang",
+    "sum_ideal": "true",
+    "pkg_enable": "false",
+    "rx_use_viterbi": "false"
+  },
+  "observed_values_match": true
+}

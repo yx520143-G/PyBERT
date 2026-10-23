@@ -1,0 +1,189 @@
+Window: "PyBERT", App: python.exe.
+	0 窗口 (settable, string) PyBERT Secondary Actions: Raise ID: QApplication._StickyDialog
+		1 标题栏 (settable, string) Value: PyBERT
+			2 菜单栏 系统 ID: MenuBar
+				3 菜单项目 系统
+			4 按钮 最小化
+			5 按钮 最大化
+			6 按钮 关闭
+		7 窗口 (settable, string) Secondary Actions: Raise ID: QApplication._StickyDialog.QMainWindow
+			8 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget
+				9 窗格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget
+					163 组 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget
+						164 组 (settable, string) Tx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox
+							165 文本 Tx eq sel: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							166 组 (settable, string) Tx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget
+								167 单选按钮 (selectable, settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QRadioButton
+								168 单选按钮 (selectable, settable, string) Ibis-ami ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QRadioButton
+							169 组 (settable, string) Tx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget
+								170 文本 Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QLabel
+								171 表格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									172 窗格 (selectable, settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									173 标头 (selectable, settable, string) Name ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									174 标头 (selectable, settable, string) Enabled ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									175 标头 (selectable, settable, string) Value ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									176 项 (selectable, settable, string) Pre-tap3 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									177 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									178 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									179 项 (selectable, settable, string) Pre-tap2 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									180 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									181 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									182 项 (selectable, settable, string) Pre-tap1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									183 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									184 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									185 项 (selectable, settable, string) Post-tap1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									186 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									187 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									188 项 (selectable, settable, string) Post-tap2 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									189 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									190 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									191 项 (selectable, settable, string) Post-tap3 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									192 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+									193 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.TableView
+						194 组 (settable, string) Rx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox
+							195 文本 Rx eq sel: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QLabel
+							196 组 (settable, string) Rx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget
+								197 单选按钮 (selectable, settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QRadioButton
+								198 单选按钮 (selectable, settable, string) Ibis-ami ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QRadioButton
+							199 组 (settable, string) Rx Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget
+								200 文本 Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QLabel
+								201 组 (settable, string) CTLE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox
+									202 文本 Enable: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									203 复选框 (settable, string) CTLE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QCheckBox
+									204 文本 Ctle sel: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									205 组 (settable, string) CTLE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget
+										206 单选按钮 (selectable, settable, string) Native ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QRadioButton
+										207 单选按钮 (selectable, settable, string) File ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QRadioButton
+									208 组 (settable, string) CTLE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget
+										209 文本 CTLE fp: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										210 编辑 (settable, string) Value: 5.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLineEdit
+										211 文本 GHz ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										212 文本 Bandwidth: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										213 编辑 (settable, string) Value: 12.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLineEdit
+										214 文本 GHz ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										215 文本 CTLE boost: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+										216 编辑 (settable, string) Value: 1.7 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLineEdit
+										217 文本 dB ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QWidget.QLabel
+								218 组 (settable, string) CDR ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox
+									219 文本 Type: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									220 组合框 (settable, string) CDR Value: Mueller-Muller ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QComboBox
+									221 文本 (disabled) Delta-t: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									222 编辑 (disabled, settable, string) CDR Value: 0.001 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									223 文本 UI ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									224 文本 (disabled) Alpha: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									225 编辑 (disabled, settable, string) CDR Value: 0.01 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									226 文本 (disabled) Lock Nave. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									227 编辑 (disabled, settable, string) CDR Value: 500 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									228 文本 (disabled) Lock Tol. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									229 编辑 (disabled, settable, string) CDR Value: 0.1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									230 文本 (disabled) Lock Sus. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									231 编辑 (disabled, settable, string) CDR Value: 500 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+								232 组 (settable, string) FFE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox
+									233 文本 Ntaps: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									234 编辑 (settable, string) FFE Value: 15 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									235 文本 Npre: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									236 编辑 (settable, string) FFE Value: 5 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									237 表格 (settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										238 窗格 (selectable, settable, string) ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										239 标头 (selectable, settable, string) Name ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										240 标头 (selectable, settable, string) Enabled ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										241 标头 (selectable, settable, string) Value ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										242 项 (selectable, settable, string) Pre-tap5 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										243 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										244 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										245 项 (selectable, settable, string) Pre-tap4 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										246 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										247 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										248 项 (selectable, settable, string) Pre-tap3 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										249 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										250 项 (selectable, settable, string) +1.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										251 项 (selectable, settable, string) Pre-tap2 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										252 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										253 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										254 项 (selectable, settable, string) Pre-tap1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										255 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										256 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										257 项 (selectable, settable, string) Cursor ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										258 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										259 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										260 项 (selectable, settable, string) Post-tap1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										261 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										262 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										263 项 (selectable, settable, string) Post-tap2 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										264 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										265 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										266 项 (selectable, settable, string) Post-tap3 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										267 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										268 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										269 项 (selectable, settable, string) Post-tap4 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										270 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										271 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										272 项 (selectable, settable, string) Post-tap5 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										273 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										274 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										275 项 (selectable, settable, string) Post-tap6 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										276 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										277 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										278 项 (selectable, settable, string) Post-tap7 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										279 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										280 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										281 项 (selectable, settable, string) Post-tap8 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										282 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										283 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										284 项 (selectable, settable, string) Post-tap9 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										285 项 (selectable, settable, string) True ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										286 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										287 项 (selectable, settable, string) Post-tap10 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										288 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										289 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										290 项 (selectable, settable, string) Post-tap11 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										291 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										292 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										293 项 (selectable, settable, string) Post-tap12 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										294 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										295 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										296 项 (selectable, settable, string) Post-tap13 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										297 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										298 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										299 项 (selectable, settable, string) Post-tap14 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										300 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										301 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										302 项 (selectable, settable, string) Post-tap15 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										303 项 (selectable, settable, string) False ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+										304 项 (selectable, settable, string) +0.000 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.TableView
+								305 组 (settable, string) DFE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox
+									306 文本 Use Optimizer tab to further configure. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									307 文本 Gain: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									308 编辑 (settable, string) DFE Value: 0.1 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									309 文本 Nave. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									310 编辑 (settable, string) DFE Value: 100 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									311 文本 Level: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									312 编辑 (settable, string) DFE Value: 0.300 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									313 文本 V ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									314 文本 Use AGC: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									315 复选框 (settable, string) DFE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QCheckBox
+									316 文本 (disabled) Bandwidth: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									317 编辑 (disabled, settable, string) DFE Value: 12.0 ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLineEdit
+									318 文本 GHz ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									319 文本 Ideal: ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QLabel
+									320 复选框 (settable, string) DFE ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_stackedwidget.QWidget.QGroupBox.QWidget.QGroupBox.QCheckBox
+				147 选项卡 (settable, string) Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					148 选项卡项目 (selectable, settable, string) Config. ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					149 选项卡项目 (selectable, settable, string) Equalization ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					150 选项卡项目 (selectable, settable, string) Optimizer ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					151 选项卡项目 (selectable, settable, string) Responses ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					152 选项卡项目 (selectable, settable, string) Results ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					153 选项卡项目 (selectable, settable, string) Jitter ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+					154 选项卡项目 (selectable, settable, string) Info ID: QApplication._StickyDialog.QMainWindow.QTabWidget.qt_tabwidget_tabbar
+			155 状态栏 ID: QApplication._StickyDialog.QMainWindow.QStatusBar
+				156 文本 Ready. | Perf. (Msmpls./min.): 10.5 | ChnlDly (ns): 2.381 | BitErrs: 0 (-1) | TxPwr (mW): 10 | Jitter (ps): ISI= 5.0 DCD= 0.0 Pj= 6.0 ( 0.0) Rj= 1.2 ( 2.1) | COM: -999.00 dB ID: QApplication._StickyDialog.QMainWindow.QStatusBar.QLabel
+		157 菜单栏 (settable, string) ID: QApplication._StickyDialog.QMenuBar
+			158 菜单项目 (settable, string) File ID: QApplication._StickyDialog.QMenuBar.QAction
+			159 菜单项目 (settable, string) View ID: QApplication._StickyDialog.QMenuBar.QAction
+			160 菜单项目 (settable, string) Simulation ID: QApplication._StickyDialog.QMenuBar.QAction
+			161 菜单项目 (settable, string) Optimization ID: QApplication._StickyDialog.QMenuBar.QAction
+			162 菜单项目 (settable, string) Help ID: QApplication._StickyDialog.QMenuBar.QAction
+
+Document text: ```
+12.0
+```
