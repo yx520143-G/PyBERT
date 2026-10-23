@@ -1,0 +1,5 @@
+{
+  "code_whitespace_exit_code": 0,
+  "source_head": "ad5c68f370f3a3afa6c6fd2af5efe035a2ddf040",
+  "raw_evidence_whitespace": "Preserved red-baseline.xml contains original pytest AssertionError spaces; full diff check reports them. No audit bytes trimmed."
+}

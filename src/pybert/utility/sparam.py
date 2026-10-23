@@ -262,6 +262,14 @@ _VITA_LANE_PORTS_PER_LANE = 8
 _VITA_END_OFFSETS = {"tx": (4, 6, 5, 7), "rx": (1, 3, 0, 2)}
 
 
+def _lane_through_ports(ntwk: Network, lane: int, renumber: bool) -> list[int]:
+    """A plain lane in sdd_21's interleaved (TX+, RX+, TX-, RX-) order."""
+    ports = list(range(4 * lane, 4 * lane + 4))
+    if renumber and thru_is_1to3(ntwk.subnetwork(ports)):
+        ports[1], ports[2] = ports[2], ports[1]
+    return ports
+
+
 def import_freq(filename: str, renumber: bool = False, lane: int = 0,
                  vita_end: "str | None" = None) -> Network:
     """
@@ -296,8 +304,10 @@ def import_freq(filename: str, renumber: bool = False, lane: int = 0,
         2. An 8- or 12-port file (``vita_end=None``) is assumed to contain L = N/4
         differential lanes, with ports ordered as **(+A, +B, −A, −B)** for each lane in
         groups of four: Lane k occupies single-ended ports [4k, 4k+1, 4k+2, 4k+3]
-        (0-indexed), mapped to the 4-port sub-network as [4k, 4k+2, 4k+1, 4k+3] so that
-        ``sdd_21()`` receives them in (+A, −A, +B, −B) order.
+        (0-indexed). This is already ``sdd_21()``'s interleaved order, with input pair
+        (4k, 4k+2) and output pair (4k+1, 4k+3). With ``renumber=False`` it is used
+        literally. With ``renumber=True``, the existing through-path detector is applied
+        to this lane's own four ports, swapping its middle two ports for 1=>3/2=>4 numbering.
     """
     # Import and sanity check the Touchstone file.
     ntwk = Network(filename, f_unit="Hz")
@@ -328,8 +338,8 @@ def import_freq(filename: str, renumber: bool = False, lane: int = 0,
         L = rs // 4
         if not (0 <= lane < L):
             raise ValueError(f"lane={lane} out of range for {rs}-port file (valid: 0..{L - 1})")
-        ports = [4 * lane, 4 * lane + 2, 4 * lane + 1, 4 * lane + 3]
-        return sdd_21(ntwk.subnetwork(ports), renumber=renumber)
+        ports = _lane_through_ports(ntwk, lane, renumber)
+        return sdd_21(ntwk.subnetwork(ports))
     if rs == 4:  # 4-port Touchstone files are assumed single-ended!
         return sdd_21(ntwk, renumber=renumber)
     if rs == 2:
@@ -351,8 +361,9 @@ def import_fext(filename: str, fs: Rvec, victim_lane: int, renumber: bool = Fals
         victim_lane: 0-based index of the victim lane.
 
     Keyword Args:
-        renumber: Passed through to ``sdd_21()`` for the victim-channel extraction;
-            always ``False`` for cross-lane (FEXT) paths.
+        renumber: Detect 1=>3/2=>4 numbering on each lane's own through network before
+            selecting its input/output conductors. Never run through-path detection on
+            a cross-lane (FEXT) network.
             Default: False
 
     Returns:
@@ -366,8 +377,9 @@ def import_fext(filename: str, fs: Rvec, victim_lane: int, renumber: bool = Fals
     Notes:
         Port ordering convention: same as ``import_freq()`` — lane k occupies
         single-ended ports [4k, 4k+1, 4k+2, 4k+3] as (+A, +B, −A, −B).
-        The FEXT path from aggressor j to victim k uses aggressor input ports
-        (4j, 4j+2) and victim output ports (4k+1, 4k+3).
+        Without renumbering, the FEXT path from aggressor j to victim k uses input pair
+        (4j, 4j+2) and output pair (4k+1, 4k+3). Its subnetwork order is
+        [4j, 4k+1, 4j+2, 4k+3], i.e. (TX+, RX+, TX-, RX-) for ``sdd_21()``.
     """
     ext = os.path.splitext(filename)[1][1:]
     if not re.search(r"^s\d+p$", ext, re.ASCII | re.IGNORECASE):
@@ -381,12 +393,13 @@ def import_fext(filename: str, fs: Rvec, victim_lane: int, renumber: bool = Fals
     if not (0 <= k < L):
         raise ValueError(f"victim_lane={k} out of range for {rs}-port file (valid: 0..{L - 1})")
     result = []
+    lane_ports = [_lane_through_ports(ntwk, j, renumber) for j in range(L)]
     for j in range(L):
         if j == k:
             continue
-        # Aggressor j input: 4j (+A), 4j+2 (−A).  Victim k output: 4k+1 (+B), 4k+3 (−B).
-        # Subnetwork port order → (TX+, TX−, RX+, RX−) as sdd_21() expects.
-        ports = [4 * j, 4 * j + 2, 4 * k + 1, 4 * k + 3]
+        # Use the source lanes' conductor identities, in sdd_21's interleaved order.
+        aggressor, victim = lane_ports[j], lane_ports[k]
+        ports = [aggressor[0], victim[1], aggressor[2], victim[3]]
         fext_2p = sdd_21(ntwk.subnetwork(ports))  # renumber intentionally omitted for cross-lane
         result.append(interp_s2p(fext_2p, fs))
     return result
