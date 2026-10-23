@@ -177,8 +177,9 @@
     if (charts.some(p => p.xunit !== first.xunit || p.yunit !== first.yunit || p.logx !== first.logx || (p.data[0]?.type === 'heatmap') !== heatmap)) return empty('Incompatible units, axis scales or dataset types; no index-based overlay is allowed.');
     $('plot').innerHTML = '';
     const facets = heatmap && charts.length > 1, rows = facets ? Math.ceil(charts.length/2) : 1;
-    $('plot').style.height = `${facets ? rows*270 : $('work-area').classList.contains('viewer-expanded') ? 430 : 310}px`;
+    $('plot').style.height = `${facets ? rows*300+130 : $('work-area').classList.contains('viewer-expanded') ? 430 : 310}px`;
     const layout = {title:{text:charts.length === 1 ? first.title : `${compare === 'runs' ? 'Two runs' : 'Same run · all points'} · ${kind}`,font:{size:13}},margin:{l:65,r:35,t:60,b:100},xaxis:{title:{text:first.xunit},type:first.logx?'log':'linear'},yaxis:{title:{text:first.yunit}},legend:{orientation:'h',y:-.3,font:{size:10}},paper_bgcolor:'#fff',plot_bgcolor:'#f7f9fc',font:{family:'Arial',size:11},annotations:[]};
+    if (facets) { layout.margin.r=70; layout.coloraxis={colorscale:'Viridis',colorbar:{title:{text:'count'}}}; }
     const data = charts.flatMap((p,i) => {
       const suffix = i ? String(i+1) : '', x = `x${suffix}`, y = `y${suffix}`;
       if (facets) {
@@ -188,7 +189,7 @@
         layout.annotations.push({text:`${p.run_id.slice(0,8)} · ${requests[i].id}`,x:col*.53+.22,y:1-row/rows,xref:'paper',yref:'paper',showarrow:false,font:{size:10}});
       }
       const label=compare === 'runs' ? p.run_id.slice(0,8) : ({chnl:'Channel',tx:'Rx input',ctle:'CTLE',ffe:'Rx FFE',dfe:'DFE'})[requests[i].id.split('.')[1]];
-      return p.data.map(trace => ({...trace,name:charts.length>1 && label ? `${label} · ${trace.name || requests[i].id}` : trace.name,...(facets ? {xaxis:x,yaxis:y,showscale:false} : {})}));
+      return p.data.map(trace => ({...trace,name:charts.length>1 && label ? `${label} · ${trace.name || requests[i].id}` : trace.name,...(facets ? {xaxis:x,yaxis:y,coloraxis:'coloraxis'} : {})}));
     });
     await Plotly.newPlot('plot',data,layout,{responsive:true,displaylogo:false});
     if (token !== renderToken) return;
