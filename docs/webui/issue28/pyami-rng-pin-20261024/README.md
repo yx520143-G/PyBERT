@@ -51,4 +51,4 @@ A 的 PyAMI PEP 610 是 `file://` 本地 URL、`dir_info.editable=true`，没有
 
 [startup.json](startup.json) 引用前序 4,874 项原件清单，另保护旧 11 个仓库 HEAD/tree/status、94 项 Git 元数据及 409 项 #25/#27 材料/已安装源码 hash。旧 env/cache 与本票新 env/cache 全部保留，未清理主 checkout 的既有 untracked 文件。#24/#27 的失败、软件调用和费用没有重跑或重置。
 
-交付仅为本人 PyBERT fork master 的唯一 Draft PR，明确 Refs #28，不自行 merge/close。双轴自审与最终 hash 封存将在固定候选后记录；固定最终 HEAD/tree/clean 后停止写入并交 PM fresh review。后续迁移/C1 与私有化由 PM 按授权安排；本票不解除 #10 有效 clocks/E SOURCE_BLOCKED、#4 默认 COM BLOCKED_BUDGET/NOT_EXECUTED 或父 #1 最终 fresh 数值 review。
+交付仅为本人 PyBERT fork master 的唯一 Draft PR，明确 Refs #28，不自行 merge/close。双轴自审见 [review.md](review.md)，最终 hash 封存见 [verification.json](verification.json)；固定最终 HEAD/tree/clean 后停止写入并交 PM fresh review。后续迁移/C1 与私有化由 PM 按授权安排；本票不解除 #10 有效 clocks/E SOURCE_BLOCKED、#4 默认 COM BLOCKED_BUDGET/NOT_EXECUTED 或父 #1 最终 fresh 数值 review。
