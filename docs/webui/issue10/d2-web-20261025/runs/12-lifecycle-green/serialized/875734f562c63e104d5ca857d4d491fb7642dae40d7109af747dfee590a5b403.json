@@ -1,0 +1,20 @@
+{
+  "format": "pybert-partial-clock-diagnostic",
+  "schema_version": 1,
+  "status": "failed",
+  "evidence_type": "diagnostic_partial_only",
+  "run_qualification": "not evaluated",
+  "phase": "prepare_failed",
+  "fresh": false,
+  "producer": null,
+  "raw": {},
+  "eye_consumers": {},
+  "phases_at_snapshot": [],
+  "terminal_at_snapshot": {
+    "status": "failed",
+    "error": "prepare failed"
+  },
+  "unavailable_fields": {},
+  "buffer_scope": "host producer raw; full ABI buffers remain separate B diagnostics",
+  "arrays": {}
+}

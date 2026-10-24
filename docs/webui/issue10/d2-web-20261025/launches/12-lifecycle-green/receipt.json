@@ -1,0 +1,23 @@
+{
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\run_guarded.py",
+    "12-lifecycle-green",
+    "LifecycleCases"
+  ],
+  "timeout_s": 60,
+  "plan_sha256": "7a48923893885df106ef5d6cc15ec59bd8ca84f7ae6721151722484dda698e65",
+  "scope": "hard bounded child; no product imports in launcher",
+  "task_wall_peak_RSS": "UNKNOWN",
+  "exit_code": 0,
+  "status": "returned",
+  "elapsed_s": 1.3766083999944385,
+  "guard_only_verification_passed": null,
+  "output_sha256": {
+    "stdout.txt": "3ea1dc2b537781bc907947d139f0b72409d54d3a65c28b2d8d441be18a2b4f8b",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "timeout_note": "events.jsonl and line-buffered child logs retain actual starts; timeout is never pass"
+}

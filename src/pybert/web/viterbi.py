@@ -117,7 +117,8 @@ def extend(engine, captured, arrays, manifest):
                   "sample_selection": "last eye_uis+1 recovered clocks <= t[-1], then first eye_uis",
                   "voltage_selection": "first t sample >= each actual recovered clock"}
         if clock is not None:
-            window.update(kind="AMI decoder symbol window", sample_selection=record["clock_source"]["sample_selection"],
+            window.update(kind="AMI decoder symbol window",
+                          sample_selection=record["clock_source"]["sample_selection"],
                           voltage_selection="dfe_out at the saved producer absolute indices",
                           producer_invocation_id=clock["info"]["invocation_id"],
                           producer_analysis_window=clock["info"]["analysis"])
@@ -147,7 +148,8 @@ def extend(engine, captured, arrays, manifest):
         ):
             add(f"viterbi.{key}", value, axis=axis, window=full_window, producer=producer)
             datasets[f"viterbi.{key}"]["clock_basis"] = (
-                "AMI producer decisions in returned order; decoder uses the final W producer indices" if clock is not None
+                "AMI producer decisions in returned order; decoder uses the final W producer indices"
+                if clock is not None
                 else "native DFE decisions in returned order; decoder uses the tail independently of sample clocks")
         add("viterbi.states", debug["decoder"].states, axis="viterbi.state_index", producer="original ISI decoder.states")
         add("viterbi.trans", debug["decoder"].trans, axis="viterbi.state_index", producer="original ISI decoder.trans")
@@ -316,7 +318,8 @@ def validate(run, arrays):
                 or not np.array_equal(times, arrays["t"][indices])
                 or not np.array_equal(arrays["viterbi.sig_samps"], arrays["dfe_out"][indices])):
             raise ValueError("AMI decoder must reuse the final W saved producer indices/grid times")
-        for key in ("sig_samps", "sample_times", "sample_indices", "decided_levels", "probs", "prevs", "path", "symbols_viterbi"):
+        for key in ("sig_samps", "sample_times", "sample_indices", "decided_levels",
+                    "probs", "prevs", "path", "symbols_viterbi"):
             window = run["datasets"][f"viterbi.{key}"]["window"]
             if (window.get("sample_selection") != record["clock_source"]["sample_selection"]
                     or window.get("producer_invocation_id") != clock["info"]["invocation_id"]

@@ -121,7 +121,9 @@ def clock_context(engine, snapshot=None):
 def eye_selection(context, slice_start, slice_stop):
     """Apply the actual crop and frozen stop to the same producer indices, without seconds rounding."""
     info = context["info"]
-    stop = min(slice_stop, info["analysis"]["stop_index"], len(context["raw"]["t"]))
+    t = context["raw"]["t"]
+    time_stop = int(np.searchsorted(t, info["analysis"]["stop_s"], side="right"))
+    stop = min(slice_stop, info["analysis"]["stop_index"], len(t), time_stop)
     if type(slice_start) is not int or type(slice_stop) is not int or not 0 <= slice_start <= stop:
         raise ValueError("Invalid actual waveform crop")
     width = 2 * info["nspui"]
@@ -252,6 +254,8 @@ def clock_features(run, archive_features=()):
     ami = run.get("ami")
     contract = ami.get("clock_contract") if isinstance(ami, dict) else None
     features = run.get("required_features", [])
+    if type(features) is not list:
+        raise ValueError("required_features must be a list of supported feature names")
     masked = run.get("raw_schema_version") == 6
     if masked:
         if (type(run.get("raw_schema_version")) is not int

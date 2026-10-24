@@ -1,0 +1,6 @@
+test_partial_raw_phase_errors_cancellation_and_actual_annotation (d2_cases.LifecycleCases.test_partial_raw_phase_errors_cancellation_and_actual_annotation) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.042s
+
+OK

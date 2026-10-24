@@ -99,18 +99,21 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                     config = request["config"]
                     if input_hash(config) != request["input_hash"]:
                         raise ValueError("Input hash does not match complete requested snapshot.")
-                    identity_hash = input_hash({"config": config, "runtime_extensions": request.get("runtime_extensions", {}),
+                    identity_hash = input_hash({"config": config,
+                                                "runtime_extensions": request.get("runtime_extensions", {}),
                                                 "resource_bindings": request.get("resource_bindings", {})})
                     if request.get("input_identity_hash", identity_hash) != identity_hash:
                         raise ValueError("Full input identity hash mismatch.")
                     load_config(p, config, snapshot(p))
                     runtime = extensions(request.get("runtime_extensions", {}))
                     frozen_runtime = json.loads(json.dumps(runtime))
-                    model_report = configure(p, config, runtime, request.get("frozen_resources", []), check=cancelled, emit=emit)
+                    model_report = configure(p, config, runtime, request.get("frozen_resources", []),
+                                             check=cancelled, emit=emit)
                     if runtime != frozen_runtime:
                         raise ValueError("Complete frozen AMI parameter tree required; validate before Run.")
                     effective = snapshot(p)
-                    effective.update({key: config[key] for side in ("tx", "rx") for key in (side + "_dll_file", side + "_ami_file", side + "_ibis_file")})
+                    effective.update({key: config[key] for side in ("tx", "rx")
+                                      for key in (side + "_dll_file", side + "_ami_file", side + "_ibis_file")})
                     if input_hash(effective) != request["input_hash"]:
                         raise ValueError("Effective input differs from frozen snapshot; normalize before Run.")
                     validate(effective, snapshot(new_engine()), execution=True)
@@ -128,7 +131,8 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                         with execution.capture():
                             main_invocations += 1
                             my_run_simulation(
-                                p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,
+                                p, initial_run=True, update_plots=False, aborted_sim=checkpoint,
+                                observations=observations,
                                 decoding=decoding,
                             )
                 finally:

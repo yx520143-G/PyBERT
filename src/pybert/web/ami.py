@@ -389,13 +389,15 @@ def annotate(p, execution, reports, arrays, manifest):
     branch = {"modes": modes, "requested_rx_use_clocks": p.rx_use_clocks,
                "clock_source": "AMI clocks" if model_clocks else "Native CDR" if native_returned else "unavailable",
                "clock_reason": info.get("reason") if observed else "No current versioned producer evidence",
-               "actual_producer_branch": actual, "producer_invocation_id": info.get("invocation_id") if observed else None,
+               "actual_producer_branch": actual,
+               "producer_invocation_id": info.get("invocation_id") if observed else None,
                "consumption_status": info.get("consumption_status") if observed else "unknown",
                "consumed_count": info.get("consumed_count") if observed else None,
                "producer_run_status": info.get("run_status") if observed else "unknown",
               "rx_ffe": "bypass: Rx AMI replaces Native Rx EQ" if p.rx_use_ami else "Native",
                "native_DFE_CDR_AGC": ("bypassed by actual AMI producer; adaptation readiness is not model lock"
-                                      if model_clocks else "executed native run_dfe; tuner enabled prefix determines adaptation"
+                                      if model_clocks else
+                                      "executed native run_dfe; tuner enabled prefix determines adaptation"
                                       if native_returned else "native execution not proven"),
               "rx_in": "diagnostic convolve(tx_out + noise, chnl_h); downstream uses other arrays; explicit noise not guaranteed downstream" if tx_gw else "actual noisy Rx input for Rx GetWave / Native; Rx Init has its own output-noise branch",
               "noise": "Tx GetWave known native limitation" if tx_gw else "Rx Init adds noise at ctle_out" if p.rx_use_ami and not p.rx_use_getwave else "rx_in",
@@ -403,7 +405,7 @@ def annotate(p, execution, reports, arrays, manifest):
     previous = manifest.get("ami", {})
     manifest["ami"] = {**previous, "schema_version": 1, "models": reports, "execution": execution.calls,
                        "library_calls": execution.library_calls, "dll_calls": execution.dll_calls,
-                       "actual_branch": branch, "phases": execution.phases,
+                       "actual_branch": branch, "phases": copy.deepcopy(execution.phases),
                        "producer": {name: info.get(name) if observed else None for name in
                            ("producer_contract_version", "invocation_id", "epoch_basis", "requested", "mode", "role",
                             "main_origin", "format_status", "eligible", "actual_branch", "consumption_status",

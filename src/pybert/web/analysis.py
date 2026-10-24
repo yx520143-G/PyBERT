@@ -253,7 +253,8 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract
             basis = "recovered clock_times" if recovered else "nominal waveform crossing fold"
             try:
                 if timed:
-                    eye_meta.update(availability="unavailable", reason="timed_eye_calculation_pending", trace_count=None)
+                    eye_meta.update(availability="unavailable", reason="timed_eye_calculation_pending",
+                                    trace_count=None)
                     counts, mapping = eye_data(ui, nspui, ys, clock_indices=relative)
                     eye_meta.update(availability="available", reason=None, trace_count=len(relative),
                                     trace_status="completed")
@@ -294,7 +295,8 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract
                           "raw": product["raw"], "frequency_Hz": product["frequency_hz"],
                           "relative_frequency": product["relative_frequency"]}
             period_meta[kind] = {name: product[name] for name in
-                ("availability", "reason", "window") + (("sample_interval_s", "origin_s") if kind == "spectrum" else ())}
+                ("availability", "reason", "window")
+                + (("sample_interval_s", "origin_s") if kind == "spectrum" else ())}
             for name, value in values.items():
                 axis = prefix + ".centers" if name == "counts" else prefix + ".frequency_Hz" if name == "raw" else None
                 unit = ("sample index" if name == "grid_indices" else "count" if name == "counts" else
@@ -329,7 +331,8 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract
                       dataset_window=clock_window, source_fields=["cdr.histogram.edges"])
         add("cdr.histogram.counts", counts, "count", "cdr", centers,
             dataset_window=clock_window, source_fields=["ui_ests"])
-        add("cdr.spectrum.raw", spectrum, "ps FFT amplitude", "cdr", "cdr.spectrum.frequency_Hz", producer="rfft(ui_ests)",
+        add("cdr.spectrum.raw", spectrum, "ps FFT amplitude", "cdr", "cdr.spectrum.frequency_Hz",
+            producer="rfft(ui_ests)",
             dataset_window=clock_window, source_fields=["ui_ests"])
         add("cdr.spectrum.frequency_Hz", frequency, "Hz", "cdr",
             dataset_window=clock_window, source_fields=["ui_ests", "t"])
@@ -343,7 +346,8 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract
             plots["cdr.spectrum"] = dict(title="CDR clock period · legacy log10 ratio (no ×10/20)", traces=[
                 line("cdr.spectrum", relative, display,
                      "Relative to fundamental", "f*UI", "legacy log10 ratio", "cdr",
-                     ["cdr.spectrum.relative_frequency"], ["cdr.spectrum.raw"], dataset_window=clock_window, logx=True)])
+                     ["cdr.spectrum.relative_frequency"], ["cdr.spectrum.raw"],
+                     dataset_window=clock_window, logx=True)])
         except ValueError as err:
             unavailable("cdr.spectrum", "CDR clock period · legacy log10 ratio", str(err))
 

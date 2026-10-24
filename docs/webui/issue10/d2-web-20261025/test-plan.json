@@ -1,8 +1,9 @@
 {
-  "phase": "partial lifecycle and actual AMI evidence green",
-  "run_id": "12-lifecycle-green",
+  "phase": "actual AMI collect-analysis software coordinator and static Native/worker boundaries",
+  "run_id": "13-coordinator-check",
   "selection": [
-    "LifecycleCases"
+    "CoordinatorCases",
+    "BindingCases"
   ],
   "snapshot_paths": {
     "clocks.py.txt": "src/pybert/web/clocks.py",
@@ -27,29 +28,37 @@
     "guard_cases.py.txt": "docs/webui/issue10/d2-web-20261025/guard_cases.py",
     "budget-supplement.json": "docs/webui/issue10/d2-web-20261025/PM-budget-supplement-6388850218.json",
     "ami.py.txt": "src/pybert/web/ami.py",
-    "worker.py.txt": "src/pybert/web/worker.py"
+    "worker.py.txt": "src/pybert/web/worker.py",
+    "bert.py.txt": "src/pybert/models/bert.py",
+    "baseline.data.txt": "docs\\webui\\issue10\\d2-web-20261025\\inputs\\data.baseline.py.txt",
+    "baseline.worker.txt": "docs\\webui\\issue10\\d2-web-20261025\\inputs\\worker.baseline.py.txt"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/web/clocks.py": "1187677132087c5791c0597997ecde9674d435e943710878506b7d1e6d0ac233",
-    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "2dd67841df72bcd9a72371803b20be15b8b82a972106f06e985c50645e628f35",
-    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "e0f63daba18b997242f25044ddd1ec6d74e871558fa5fffc8e6886fa94dd6952",
+    "src/pybert/web/clocks.py": "e70cdb84ca43a052dfd23d7c1ccc3d181d6fd4572923b80eadcbf362ea124dce",
+    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "540b65fa1faef036d08232dcb27c22e1e170e0f23b5d13e33db83eecd7cfd465",
+    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "4c780e3ee415f3895f6ce4c445dfc90b36e308d4483416f55e3a260bff5d8966",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "f59d58457156fc5cfc4b325fcced0a73750be234cea20b71ce85202199c7835b",
+    "docs/webui/issue10/d2-web-20261025/test-plan.json": "89b2516d99eb4c0c0e15a3ccc9ab7803ed3874a23c75629272dcd7af1b8fa8fb",
     "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
     "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
+    ".venv/pyvenv.cfg": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
     "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/ami_clock.py": "e0ae4bfc8a0b24d53b55df27c93f93e17370acc08a98f819725de6be2bec6072",
-    "src/pybert/web/analysis.py": "e4a6ea5a1769e1701700c72812daccabe445e7f8aaa3559bdabf1bfa3d038f4c",
+    "src/pybert/web/analysis.py": "e9d9f4557db0627fda4208f329e9dec8e0d6bb082498107b983c3ba0c598a426",
     "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
     "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
     "src/pybert/web/archive.py": "d98d8de807b2c989bca1f49070443d768ddbb5ebc791c501a98bf07b28568b2a",
-    "src/pybert/web/viterbi.py": "851f15acd46465c37d804945080505a2a52780a34b0c8f1e1a3d3ffbdde25a0c",
+    "src/pybert/web/viterbi.py": "bf36e841cb1accb3aec42cde32694f557c15210520627e0a41fe8afe4af97746",
     "src/pybert/web/data.py": "70f016f277605c1b5659732ae832ccb310bbcb6cc34066438422582c0e31182e",
     "src/pybert/web/__init__.py": "3f06f9f54e5a61c3261fb7f5dee91d100b5e1d5b0dc9a69d74735456a5d74b92",
     "docs/webui/issue10/d2-web-20261025/guard_cases.py": "5d9f7bc08ddd227ce7588fe9ce11da135547497fe5473aff48d9655661c4a97e",
     "docs/webui/issue10/d2-web-20261025/PM-budget-supplement-6388850218.json": "6769dac1b625cbfb47704d5f2d4596f22f52b70eb4f405fce37fefe537b24e59",
-    "src/pybert/web/ami.py": "4b6fb49873f2a060c2e0add0f285832b05fb570e257531c402c94ed1df762387",
-    "src/pybert/web/worker.py": "5e28582ffbc0d2569a032c40d17861364adb2ceb03fc5b578333b4ceac5ce427"
+    "src/pybert/web/ami.py": "7bd1fd59a0f149bffb185596093938557385f01822f660b26da76f676903424f",
+    "src/pybert/web/worker.py": "efaa716fd64b971175950c5126ec6ffa7149fad19b89dbf743b60a0661dd875e",
+    "src/pybert/models/bert.py": "6a0ed7ef34507eea07cf2d566671c9516a2e85c357034874f87aa7434affb2f5",
+    "docs\\webui\\issue10\\d2-web-20261025\\inputs\\data.baseline.py.txt": "34b317a4c512c5cf17f05ec60e66bb567059cbf02dfa34e97dd7406702326e35",
+    "docs\\webui\\issue10\\d2-web-20261025\\inputs\\worker.baseline.py.txt": "f34e4734639c0a8d3e169a55b35e11a8dc4019fd6d7d5b93ec272871e58b4bf4"
   },
   "modules": {
     "pybert.web.clocks": {
@@ -70,7 +79,15 @@
       "names": [
         "eye_data",
         "clock_data",
-        "clock_display"
+        "clock_display",
+        "extend_analysis"
+      ],
+      "constants": [
+        "ANALYSIS_VERSION",
+        "DISPLAY_NOISE_SEED",
+        "POINTS",
+        "STATS",
+        "JITTER_RETURN"
       ]
     },
     "pybert.utility.sigproc": {
@@ -125,9 +142,18 @@
     "pybert.web.data": {
       "path": "src/pybert/web/data.py",
       "names": [
-        "adapter_sha"
+        "adapter_sha",
+        "source_identity",
+        "collect",
+        "plot_payload"
       ],
-      "constants": []
+      "constants": [
+        "RESPONSES",
+        "WAVEFORMS",
+        "JITTER_POINTS",
+        "JITTER_STATS",
+        "RAW_FIELDS"
+      ]
     },
     "pybert.web": {
       "path": "src/pybert/web/__init__.py",
@@ -136,7 +162,10 @@
         "SCHEMA_VERSION",
         "RAW_SCHEMA_VERSION",
         "AMI_RAW_SCHEMA_VERSION",
-        "AMI_CLOCK_FEATURE"
+        "AMI_CLOCK_FEATURE",
+        "NATIVE_SHA",
+        "NATIVE_IMPORTER_SHA",
+        "PROTOTYPE_SHA"
       ]
     },
     "pybert.web.ami": {
@@ -167,16 +196,22 @@
     "pybert.web.viterbi.validate": "viterbi_validate",
     "pybert.web.ami.Execution.write": "execution_write",
     "pybert.web.ami.annotate": "annotate",
-    "pybert.web.clocks.write_partial": "partial_save"
+    "pybert.web.clocks.write_partial": "partial_save",
+    "pybert.web.data.collect": "collect",
+    "pybert.web.analysis.extend_analysis": "extend_analysis"
   },
   "forbidden_definitions": [
     "pybert.web.ami.Execution.capture"
   ],
   "observe": [
-    "write_partial",
-    "snapshot_producer",
+    "collect",
+    "extend_analysis",
+    "period_projection",
+    "eye_selection",
+    "extend",
+    "validate",
     "annotate",
-    "write"
+    "clock_context"
   ],
   "limits": {
     "pure": 25000,
@@ -212,58 +247,52 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 2998,
-    "collect": 0,
-    "extend_analysis": 0,
-    "eye_data": 0,
-    "calc_eye": 0,
-    "clock_data": 0,
-    "clock_display": 0,
-    "histogram": 0,
-    "rfft": 0,
-    "safe_log10": 0,
-    "viterbi_extend": 0,
-    "viterbi_validate": 0,
-    "resize_zero_pad": 0,
-    "read_arrays": 0,
-    "validate_run": 0,
+    "pure": 8000,
+    "collect": 1,
+    "extend_analysis": 1,
+    "eye_data": 6,
+    "calc_eye": 8,
+    "clock_data": 1,
+    "clock_display": 1,
+    "histogram": 1,
+    "rfft": 1,
+    "safe_log10": 60,
+    "viterbi_extend": 2,
+    "viterbi_validate": 6,
+    "resize_zero_pad": 8,
+    "read_arrays": 1,
+    "validate_run": 1,
     "save_archive": 0,
     "load_archive": 0,
-    "annotate": 2,
-    "execution_write": 1,
-    "partial_save": 4,
+    "annotate": 1,
+    "execution_write": 0,
+    "partial_save": 0,
     "NumPy_imports": 1
   },
   "expected_result": {
-    "tests": 1,
+    "tests": 2,
     "failures": 0,
     "errors": 0
   },
-  "case_inputs": "Literal LifecycleCases frozen11; actual software Execution phase/write/annotate, independentpartial bytes and failure branches, no full worker/Main/capture/model. Static worker finally/context wiring added; actualnumericalcoordinator not invoked here.",
+  "case_inputs": "CoordinatorCases literal 32-grid .25s/UI1/nspui4 masked ps periods; actual collect+extend_analysis; metadata/noise/FFE jitter/bathtub/trellis ordinary stubs explicitly named. Manual enabled AMI Viterbi payload only, no decoder/trellis/DFE model algorithm. BindingCases static AST/Git only.",
   "expected_values": {
-    "partial": "independentpartial NPZ/JSON, exactrawNaNbits, priornormalfiles unchanged, statusfailed/cancelled never succeeded",
-    "missing": "producerNone/raw{} without propertyevaluation",
-    "save_error": "sameOSError raised, NPZretained, no inventedmanifest",
-    "AMI": "producer partialcount1, missingproducer sourceunavailable/countNone, no len/first eligibility or Ignore model-lock claim",
-    "stage": "actualphase helper tracks completed/failed/error/elapsed for ordinarystubcaller; not actualMain invocations"
+    "dense": "NaN payload42 retained; known2..29 exact",
+    "eyes": "both actual DFE traces4, abs10/14/18/22, croporigin8; counts total32",
+    "histogram": "22 frozen known raw ps values,100bins",
+    "FFT": "declared12:28 full raw16e12 DC then zeros; freq k*.25 Hz; origin3s; zero-fund displayonly unavailable",
+    "Viterbi": "disabled-1 and manual enabled finalW10..30; oldW+1 6..26 rejected",
+    "Native": "actual primitive kernels06 + legacy archives10; static unchanged general finite add and Native clock_data; full Native collector not run",
+    "worker": "static post-Main snapshot/finally/phase and unchanged Main arguments only; full worker/Main not run"
   },
   "expected_basis": "independent literal bit patterns and index table, actual AST seam only; no product algorithm copies",
   "guards_order": "stdlib/input snapshots => irreversible import/audit/profile guards => installed-file verification => NumPy import/C extensions => selected actual definitions => tests",
   "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
   "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
   "expected_function_entries": {
-    "Execution_class_definition": 1,
-    "AMICancelled_class_definition": 1,
-    "Execution.__init__": 1,
-    "Execution.phase_resume_upper": 6,
-    "snapshot_producer": 2,
-    "write_partial": 4,
-    "Execution.write": 1,
-    "annotate": 2,
-    "all_other_nested_pack_json_hash_upper": 2998
+    "all_pure_including_definitions_nested_generators_pairs_upper": 8000
   },
-  "previous_plan": "runs/11-lifecycle-red/plan.json",
-  "expected_counts_policy": "upper bounds; B3000 includes red11 class-definition entries; every generator/pairs continuation remains counted",
+  "previous_plan": "runs/12-lifecycle-green/plan.json",
+  "expected_counts_policy": "upper bounds; C at most2 actual software records, this batch1; all generator/pairs resumes counted; at most2 remaining follow-up batches if needed",
   "serialization_policy": "Raw read_arrays/load_archive/read_json inputs and NPZ/JSON outputs now retain content-addressed original bytes, including malformed buffers/failed-save metadata; nested artifacts hash inventory. Prior08/10 did not bind every in-memory malformedbuffer individually; preserve original scope/gaps, no fabricated retro-capture. Original08 conservative pure event definition remains unchanged.",
   "FFT_uniformity": "original full-grid differences compared to original t[1]-t[0], rtol1e-12/atol0 for floating-grid representation only; no sample-target tolerance, no window change",
   "display_policy": "known ordinals evenly including endpoints up to total cap4096; split by original contiguous-known groups; singletons markers; omitted segments/count explicit; no unknown line bridge",
@@ -286,6 +315,29 @@
     "pybert.web.analysis": {
       "stored_clock_context": "pybert.web.clocks:stored_clock_context",
       "eye_selection": "pybert.web.clocks:eye_selection"
+    },
+    "pybert.web.data": {
+      "SCHEMA_VERSION": "pybert.web:SCHEMA_VERSION",
+      "RAW_SCHEMA_VERSION": "pybert.web:RAW_SCHEMA_VERSION",
+      "AMI_RAW_SCHEMA_VERSION": "pybert.web:AMI_RAW_SCHEMA_VERSION",
+      "AMI_CLOCK_FEATURE": "pybert.web:AMI_CLOCK_FEATURE",
+      "NATIVE_SHA": "pybert.web:NATIVE_SHA",
+      "NATIVE_IMPORTER_SHA": "pybert.web:NATIVE_IMPORTER_SHA",
+      "PROTOTYPE_SHA": "pybert.web:PROTOTYPE_SHA",
+      "clock_context": "pybert.web.clocks:clock_context",
+      "store_clock_context": "pybert.web.clocks:store_clock_context",
+      "eye_selection": "pybert.web.clocks:eye_selection",
+      "period_segments": "pybert.web.clocks:period_segments",
+      "calc_eye": "pybert.utility.sigproc:calc_eye",
+      "safe_log10": "pybert.utility.math:safe_log10"
+    }
+  },
+  "constant_sources": {
+    "pybert.web.analysis": {
+      "MIN_BATHTUB_VAL": {
+        "path": "src/pybert/models/bert.py",
+        "name": "MIN_BATHTUB_VAL"
+      }
     }
   }
 }

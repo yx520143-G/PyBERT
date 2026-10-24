@@ -98,10 +98,12 @@ def main():
                 and path.name not in ("before.json", "receipt.json")}
             receipt["array_output_sha256"] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
                                                for path in sorted(arrays_dir.iterdir())}
-            receipt["artifact_sha256"] = {str(path.relative_to(destination)): hashlib.sha256(path.read_bytes()).hexdigest()
+            receipt["artifact_sha256"] = {
+                str(path.relative_to(destination)): hashlib.sha256(path.read_bytes()).hexdigest()
                 for path in destination.rglob("*") if path.is_file() and path.parent != destination}
             receipt["inputs_unchanged_after"] = all(
-                (root / relative).is_file() and hashlib.sha256((root / relative).read_bytes()).hexdigest() == hashes[name]
+                (root / relative).is_file()
+                and hashlib.sha256((root / relative).read_bytes()).hexdigest() == hashes[name]
                 for name, relative in plan["snapshot_paths"].items())
             (destination / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n",
                                                       encoding="utf-8", newline="\n")
@@ -377,6 +379,13 @@ def main():
             ast.fix_missing_locations(wrapped)
             exec(compile(wrapped, str(path), "exec"), module.__dict__)
             modules[name] = module
+        for name, constants in plan.get("constant_sources", {}).items():
+            for target, spec in constants.items():
+                path = root / spec["path"]
+                tree = ast.parse(path.read_text(encoding="utf-8"))
+                node = next(item for item in tree.body if isinstance(item, ast.Assign)
+                            and any(isinstance(left, ast.Name) and left.id == spec["name"] for left in item.targets))
+                setattr(modules[name], target, ast.literal_eval(node.value))
         for name in ("pybert", "pybert.web", "pybert.utility", "pybert.models", "chaco", "chaco.api"):
             module = modules.get(name, types.ModuleType(name))
             module.__path__ = []
