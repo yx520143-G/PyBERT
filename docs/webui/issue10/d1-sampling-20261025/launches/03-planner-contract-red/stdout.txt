@@ -1,0 +1,1 @@
+{"run": "03-planner-contract-red", "exit_code": 1, "counts": {"pure": 50, "calc_eye": 0, "histogram": 0, "rfft": 0}, "elapsed_s": 2.2004306000017095}

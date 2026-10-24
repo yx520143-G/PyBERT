@@ -1,0 +1,259 @@
+test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) ... 
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [negative] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [NaN] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [infinite] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [descending] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [duplicate] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [matrix] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [sentinel] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [empty grid] ... ERROR
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [bad grid] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [repeated grid] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [bad UI] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [bad Ignore] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [collision] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [unknown origin] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [wrong mode] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 unknown] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 bit units] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 offset] ... FAIL
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [no clocks] ... ERROR
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 no clocks] ... ERROR
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [single tick] ... ERROR
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [just after end] ... ERROR
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [off-grid ceil] ... ERROR
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [ceil cannot satisfy Ignore] ... ERROR
+  test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 uses symbol UI once] ... ERROR
+
+======================================================================
+ERROR: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [empty grid]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 84, in test_planner_contract_without_claiming_consumption
+    functions["plan_ami_clocks"](*args, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\src\pybert\utility\ami_clock.py", line 17, in plan_ami_clocks
+    in_record = (targets >= grid[0]) & (targets <= grid[-1])
+                            ~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+======================================================================
+ERROR: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [no clocks]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 90, in test_planner_contract_without_claiming_consumption
+    self.assertEqual(info["use_native"], row.get("native", False))
+                     ~~~~^^^^^^^^^^^^^^
+KeyError: 'use_native'
+
+======================================================================
+ERROR: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 no clocks]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 90, in test_planner_contract_without_claiming_consumption
+    self.assertEqual(info["use_native"], row.get("native", False))
+                     ~~~~^^^^^^^^^^^^^^
+KeyError: 'use_native'
+
+======================================================================
+ERROR: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [single tick]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 90, in test_planner_contract_without_claiming_consumption
+    self.assertEqual(info["use_native"], row.get("native", False))
+                     ~~~~^^^^^^^^^^^^^^
+KeyError: 'use_native'
+
+======================================================================
+ERROR: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [just after end]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 90, in test_planner_contract_without_claiming_consumption
+    self.assertEqual(info["use_native"], row.get("native", False))
+                     ~~~~^^^^^^^^^^^^^^
+KeyError: 'use_native'
+
+======================================================================
+ERROR: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [off-grid ceil]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 90, in test_planner_contract_without_claiming_consumption
+    self.assertEqual(info["use_native"], row.get("native", False))
+                     ~~~~^^^^^^^^^^^^^^
+KeyError: 'use_native'
+
+======================================================================
+ERROR: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [ceil cannot satisfy Ignore]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 90, in test_planner_contract_without_claiming_consumption
+    self.assertEqual(info["use_native"], row.get("native", False))
+                     ~~~~^^^^^^^^^^^^^^
+KeyError: 'use_native'
+
+======================================================================
+ERROR: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 uses symbol UI once]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 90, in test_planner_contract_without_claiming_consumption
+    self.assertEqual(info["use_native"], row.get("native", False))
+                     ~~~~^^^^^^^^^^^^^^
+KeyError: 'use_native'
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [negative]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [NaN]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [infinite]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [descending]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [duplicate]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [matrix]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [sentinel]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [bad grid]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [repeated grid]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [bad UI]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [bad Ignore]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [collision]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [unknown origin]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [wrong mode]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 unknown]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 bit units]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) [PAM4 offset]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 83, in test_planner_contract_without_claiming_consumption
+    with self.assertRaisesRegex(ValueError, row["error"]):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.168s
+
+FAILED (failures=17, errors=8)

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+    "venv",
+    "--python",
+    "C:/Users/yx/AppData/Roaming/uv/python/cpython-3.13-windows-x86_64-none/python.exe",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv"
+  ],
+  "timeout_s": 120,
+  "plan_sha256": "d2b9dbfdce999518bcd839fd1faa8d18c0cca443a6ca90ae5dd5f52a43e9d06a"
+}

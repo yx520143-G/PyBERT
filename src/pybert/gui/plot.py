@@ -17,6 +17,7 @@ from chaco.tools.api import PanTool, ZoomTool
 
 from ..models.bert import update_eyes
 from ..utility.math import safe_log10
+from ..utility.ami_clock import set_period_plot_data
 
 PLOT_SPACING = 1
 PLOT_PADDING = 75
@@ -87,8 +88,10 @@ def make_plots(self, n_dfe_taps):
     plotdata = self.plotdata
 
     # - DFE tab
+    if "period_t_ns" not in plotdata.list_data():
+        set_period_plot_data(plotdata, [], [])
     plot2 = Plot(plotdata, padding_left=PLOT_PADDING, padding_bottom=PLOT_PADDING_BOT)
-    plot2.plot(("t_ns", "ui_ests"), type="line", color="blue")
+    plot2.plot(("period_t_ns", "ui_ests"), type="line", color="blue")
     plot2.title = "CDR Adaptation"
     plot2.index_axis.title = "Time (ns)"
     plot2.value_axis.title = "UI (ps)"

@@ -1,0 +1,11 @@
+test_producer_and_consumers_share_indices_and_native_algorithms (d1_cases.BindingCases.test_producer_and_consumers_share_indices_and_native_algorithms) ... ok
+test_actual_consumption_partial_windows_and_periods (d1_cases.ConsumerCases.test_actual_consumption_partial_windows_and_periods) ... ok
+test_producer_indices_and_native_eye_compatibility (d1_cases.EyeCases.test_producer_indices_and_native_eye_compatibility) ... ok
+test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) ... ok
+test_zero_edge_and_last_grid_sample_are_planned (d1_cases.PlannerCases.test_zero_edge_and_last_grid_sample_are_planned) ... ok
+test_masked_period_fft_axes_and_atomic_plot_switches (d1_cases.ProjectionCases.test_masked_period_fft_axes_and_atomic_plot_switches) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 32.015s
+
+OK

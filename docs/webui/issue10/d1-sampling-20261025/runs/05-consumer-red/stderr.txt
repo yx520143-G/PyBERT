@@ -1,0 +1,15 @@
+test_actual_consumption_partial_windows_and_periods (d1_cases.ConsumerCases.test_actual_consumption_partial_windows_and_periods) ... FAIL
+
+======================================================================
+FAIL: test_actual_consumption_partial_windows_and_periods (d1_cases.ConsumerCases.test_actual_consumption_partial_windows_and_periods)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 103, in test_actual_consumption_partial_windows_and_periods
+    self.assertTrue(callable(functions.get("consume_ami_clocks")), "production consumer is missing")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : production consumer is missing
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)

@@ -1,0 +1,51 @@
+{
+  "scope": "D1 minimal NumPy only install, no whole project or GUI dependencies; no NumPy/product imports for version checks",
+  "lock_sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+  "NumPy_resolution": {
+    "version": "2.5.1",
+    "markers": [
+      "python_full_version >= '3.13' and sys_platform == 'win32'",
+      "python_full_version >= '3.13' and sys_platform == 'emscripten'",
+      "python_full_version >= '3.13' and sys_platform != 'emscripten' and sys_platform != 'win32'",
+      "python_full_version == '3.12.*' and sys_platform == 'win32'",
+      "python_full_version == '3.12.*' and sys_platform == 'emscripten'",
+      "python_full_version == '3.12.*' and sys_platform != 'emscripten' and sys_platform != 'win32'"
+    ],
+    "wheel": {
+      "url": "https://files.pythonhosted.org/packages/10/70/800b3fca480af32df9e8ea9f3d4a0c8feb4b32d7f195d174eabbda4829ad/numpy-2.5.1-cp313-cp313-win_amd64.whl",
+      "hash": "sha256:6c3fe51bc6a16453d452997053454f309e8e0ed7b42d6b361ce4ac8c32913d74",
+      "size": 12425674,
+      "upload-time": "2026-07-04T17:07:02.387Z"
+    }
+  },
+  "requirements_sha256": "357573134641a80313a454f0dac4c26048c353cc908b91c428bea86238f1b9f1",
+  "commands": [
+    [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "venv",
+      "--python",
+      "C:/Users/yx/AppData/Roaming/uv/python/cpython-3.13-windows-x86_64-none/python.exe",
+      "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv"
+    ],
+    [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "pip",
+      "install",
+      "--python",
+      "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Scripts\\python.exe",
+      "--no-deps",
+      "--require-hashes",
+      "--link-mode",
+      "copy",
+      "-r",
+      "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\docs\\webui\\issue10\\d1-sampling-20261025\\numpy-requirement.txt"
+    ]
+  ],
+  "cache": "E:/serial-bus-simulator-dependencies/pybert-ami-d1-bootstrap-cache",
+  "expected_packages": [
+    "numpy==2.5.1"
+  ],
+  "model_and_actual_product_calls": 0,
+  "generic_installer_runtime_trace": "not complete; no model loading or package module import requested",
+  "task_wall_peak_RSS": "UNKNOWN"
+}

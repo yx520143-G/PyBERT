@@ -1,0 +1,20 @@
+{
+  "fixed_HEAD": "68bbd56129e4999273bce3fabd694dec3d8cf79f",
+  "fixed_tree": "57be400d41272e6f104d6c8b2298fbfdc3d87298",
+  "baseline": "9343cdb7a2eee1762a60ae284d1e3a48772729d4",
+  "Standards": {
+    "agent": "/root/d1_standards_review",
+    "hard": 0,
+    "actionable_heuristic": 0,
+    "report": "Standards：硬违规0；可操作heuristic0；无阻断项。\n已独立核对baseline9343cdb、候选HEAD68bbd56129e4999273bce3fabd694dec3d8cf79f/tree57be400d41272e6f104d6c8b2298fbfdc3d87298、13个提交、非空diff，工作区clean。完整读取CLAUDE.md、pyproject.toml及相关hooks。\nami_clock.py将采样、实际消费与必要投影收拢；未发现需另建通用框架或类型才能解决的smell。pybert.py:405–406使用class-level Traits，符合CLAUDE.md:195–200。bert.py:1308–1334、sigproc.py:394–455保留Native原计算，新增AMI分支复用实际calc_eye，符合CLAUDE.md:26–39。guarded cases从文件命名开始避开默认pytest发现；现有记录区分actual pure调用与静态接线证据。\n第10批为6 methods、0 failures/errors，pure141、calc_eye15、histogram8、rfft5；审查没有复跑。完整Main、实际Chaco/GUI、模型及端到端行为仍未验证。\n审查期间一次只读展示脚本因预期hunk标题不存在触发StopIteration，随后限定源码读取完成核对；未写文件、未导入NumPy或产品模块。该失败留于agent工具转录，未将缺失stdout/stderr伪造为仓库原件。"
+  },
+  "Spec": {
+    "agent": "/root/d1_spec_review",
+    "missing_partial": 0,
+    "scope_creep": 0,
+    "implemented_wrong": 0,
+    "report": "Spec：missing/partial0，scope creep0，implemented wrong0；未发现可复现的合同违背。\n已核对固定HEAD68bbd56129e4999273bce3fabd694dec3d8cf79f/tree57be400d41272e6f104d6c8b2298fbfdc3d87298、对基线的非空diff、完整D1合同及澄清。检查实际索引/canonical grid times、末tick/Ignore、冻结窗口、异常finally、合法empty fallback、生产PAM4拒绝、AMI Viterbi/Eye、masked period/FFT及独立图轴接线。Native原采样规则、Eye、插值和分析表达式保持；C1/A、依赖及D2/Web/archive未扩改。\n第10批原receipt为6 tests、0 failures/errors；累计pure310、Eye30、histogram8、rfft5，10批。审查未执行任何产品或数值入口。结论限于源码接线及已保存的有界软件证据，不代表Main、DFE、GUI或真实模型验收。最终旧保护封存和Draft PR属于后续交付。"
+  },
+  "scope": "independent read-only stdlib/AST/hash/Git, no product or numerical execution; root remains sole writer",
+  "tracker_note": "docs/agents/issue-tracker.md absent; explicit PM issue10 contract and clarification provide spec. No setup or scope expansion needed."
+}

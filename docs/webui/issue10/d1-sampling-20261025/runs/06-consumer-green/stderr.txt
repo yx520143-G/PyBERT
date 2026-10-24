@@ -1,0 +1,6 @@
+test_actual_consumption_partial_windows_and_periods (d1_cases.ConsumerCases.test_actual_consumption_partial_windows_and_periods) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.054s
+
+OK

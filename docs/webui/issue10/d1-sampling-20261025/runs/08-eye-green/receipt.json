@@ -1,0 +1,94 @@
+{
+  "run_id": "08-eye-green",
+  "selection": [
+    "EyeCases"
+  ],
+  "input_sha256": {
+    "helpers.py.txt": "66da466af5262948057eb1332cd45f04a11b1e3c6d74beca06d255adba0ad8dc",
+    "bert.py.txt": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "sigproc.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
+    "pybert.py.txt": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+    "plot.py.txt": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+    "cases.py.txt": "be5950ebe8b608bfb98c84bbe69a91626cd87a952d7d976f31903f2a5b344350",
+    "runner.py.txt": "b41fcbcf3ef2d894b053ea76a4c7986e8da285906fff26891e6857c0af3b090f",
+    "launcher.py.txt": "a59eec98c800000fedaa101ef2f2003b17d984f67fa4f08467fad4447aa04e41",
+    "plan.json": "2fc8581fcbe0b7dec422ba09a86e4fd0f148f9886c64cac00f743435ad5b5038",
+    "environment.json": "773a699f1944848e4854b34e1940845aaa453e43a80e96b10149a563ae7af689",
+    "baseline_eye.py.txt": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+    "venv.cfg.txt": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
+    "contract.json": "72fa8fdd908deb3553f6cd77a8abdcbaf3bd5f695f15107296a01cc82a08a127",
+    "clarification.json": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b"
+  },
+  "git_HEAD": "acdfee720c574503fba4350557323ede57c05b14",
+  "executable": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Scripts\\python.exe",
+  "prefix": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv",
+  "python": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+  "sys_path": [
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\python313.zip",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\DLLs",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Lib\\site-packages"
+  ],
+  "spent_before": {
+    "pure": 165,
+    "calc_eye": 0,
+    "histogram": 0,
+    "rfft": 0
+  },
+  "counts": {
+    "pure": 4,
+    "calc_eye": 15,
+    "histogram": 0,
+    "rfft": 0
+  },
+  "function_entries": {
+    "baseline.calc_eye": 4,
+    "candidate.calc_eye": 11,
+    "ami_eye_data": 4
+  },
+  "test_stub_entries": {},
+  "blocked_attempts": [],
+  "NumPy_imports": 1,
+  "NumPy_ctypes_import_events": [
+    [
+      "ctypes.dlopen",
+      "('kernel32',)"
+    ],
+    [
+      "ctypes.dlsym",
+      "(<WinDLL 'kernel32', handle 7ffc2e200000 at 0x174fef8cec0>, 'GetLastError')"
+    ]
+  ],
+  "stage": "execution",
+  "scope": "actual AST-extracted D1 helpers and calc_eye only; bounded real NumPy",
+  "task_wall_peak_RSS": "UNKNOWN",
+  "system_library_trace": "not complete",
+  "NumPy_version": "2.5.1",
+  "NumPy_path": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "exit_code": 0,
+  "elapsed_s": 2.4023566000105347,
+  "loaded_NumPy_extensions": {
+    "numpy._core._multiarray_umath": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd",
+    "numpy.linalg._umath_linalg": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp313-win_amd64.pyd",
+    "numpy.fft._pocketfft_umath": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Lib\\site-packages\\numpy\\fft\\_pocketfft_umath.cp313-win_amd64.pyd"
+  },
+  "restricted_actual_entries": {
+    "PyBERT_Main_full_entries": 0,
+    "DFE_construct_run_dfe_decode": 0,
+    "run_ami_model_PyAMI_model_module": 0,
+    "grammar_SciPy_other_DSP": 0,
+    "model_C_DLL_COM_coopt": 0,
+    "Web_GUI_CLI_services_browser_model_download": 0
+  },
+  "output_sha256": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "66a070c34259e1610b4a32283a1d130b0b67253219b9e2a792fe9531050453b6",
+    "events.jsonl": "f3b5e406d8a70244b1c73fbeb08dbdc8e9029d65887a59e17a10b9854542a70c"
+  },
+  "inputs_unchanged_after": true
+}

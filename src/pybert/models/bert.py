@@ -11,7 +11,6 @@ Copyright (c) 2014 David Banas; all rights reserved World wide.
 # pylint: disable=too-many-lines
 
 from collections.abc import Callable
-from itertools import pairwise
 from time import perf_counter
 from typing import Any, Optional, TypeAlias
 
@@ -49,6 +48,9 @@ from pyibisami.ami.parser import AmiName, ami_parse
 from pychopmarg.utility import loc_curs
 
 from ..common import Rvec
+from ..utility.ami_clock import (
+    new_clock_info, plan_ami_clocks, consume_ami_clocks, ami_eye_data, clock_period_data, set_period_plot_data,
+)
 from ..utility import (
     calc_eye,
     calc_jitter,
@@ -179,6 +181,17 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
         by the sample interval, or its inverse, because while IBIS-AMI models
         take the impulse response to have units: (V/s), PyBERT uses: (V/sample).
     """
+
+    rx_getwave_mode = self.rx_use_ami and self.rx_use_getwave
+    tx_getwave_mode = self.tx_use_ami and self.tx_use_getwave
+    clock_mode = ("tx_getwave_rx_getwave" if tx_getwave_mode else "rx_getwave") if rx_getwave_mode else "native"
+    clock_info = new_clock_info(self.rx_use_clocks, clock_mode)
+    self.ami_clock_info = clock_info
+    clock_info = self.ami_clock_info
+    self.ami_period_known = np.array([], dtype=bool)
+    self.clock_times, self.ui_ests = array([]), array([])
+    set_period_plot_data(self.plotdata, [], [])
+    clock_info["tx_mode"] = "getwave" if tx_getwave_mode else "init" if self.tx_use_ami else "native"
 
     def _check_sim_status():
         """Checks the status of the simulation thread and if this simulation needs to stop."""
@@ -375,7 +388,15 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
     bits_out_dfe: list[int] = []
     sig_samps: Rvec = array([])
     decisions: Rvec = array([])
-    ignore_bits: int = 0
+    ignore_ui = self._rx_cfg.fetch_param_val(["Reserved_Parameters", "Ignore_Bits"]) if rx_getwave_mode else 0
+    clock_info.update(ignore_ui_requested=ignore_ui, ignore_ui_units="symbol_ui" if mod_type == 0 else "UNKNOWN")
+    analysis_start = (nui - eye_uis) * nspui
+    clock_info["analysis"] = {
+        "start_s": (nui - eye_uis) * ui, "stop_s": float(t[-1]),
+        "start_index": analysis_start, "stop_index": len_t, "required_decisions": eye_uis,
+        "required_eye_traces": max(1, eye_uis - 2),
+        "fft_slice": [analysis_start + nspui, max(analysis_start + nspui, len_t - nspui)],
+    }
     try:
         params: list[str] = []
         if self.tx_use_ami and self.tx_use_getwave:
@@ -393,7 +414,6 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             split_time = clock()
             self.status = "Running CTLE..."
             if self.rx_use_ami and self.rx_use_getwave:
-                ignore_bits = self._rx_cfg.fetch_param_val(["Reserved_Parameters", "Ignore_Bits"])
                 ctle_out, _, ctle_h, ctle_out_h, msg, params = run_ami_model(
                     self.rx_dll_file, self._rx_cfg, True, ui, ts, tx_out_h, convolve(tx_out, chnl_h),
                     fext_hs=getattr(self, "fext_h", []))
@@ -433,9 +453,11 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
                 ctle_out, clock_times, ctle_h, ctle_out_h, msg, params = run_ami_model(
                     self.rx_dll_file, self._rx_cfg, True, ui, ts, tx_out_h, rx_in,
                     fext_hs=getattr(self, "fext_h", []), _probe_seed=self.seed)
+                clock_info.update(main_origin="c1_fresh_main", returned_edges_s=np.array(clock_times, copy=True))
                 self.log(f"Rx IBIS-AMI model initialization results:\n{msg}")
                 # Numeric histories retain full paths below the model root.
                 param_vals, tap_weightss = getwave_parameters(params)
+                clock_info["model_lock_status"] = "returned" if ("cdr_locked",) in param_vals else "unavailable"
                 if ("cdr_locked",) in param_vals:
                     _lockeds: npt.NDArray[np.float64] = array(param_vals[("cdr_locked",)])
                     _lockeds = _lockeds.repeat(len_t // len(_lockeds))
@@ -559,8 +581,20 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
     _n_taps = 0
     limits = []
     # Only make a "real" DFE if we're not running AMI_GetWave() w/ clocks.
-    ami_getwave_clocks: bool = (  # "len(clock_times) > 1" because `ui_ests` relies on `diff()`.
-        self.rx_use_ami and self.rx_use_getwave and self.rx_use_clocks and len(clock_times) > 1 and clock_times[0] != -1)
+    ami_getwave_clocks = False
+    if rx_getwave_mode and not tx_getwave_mode and self.rx_use_clocks:
+        try:
+            plan_ami_clocks(clock_info, clock_times, t, ui, ignore_ui, nspui, clock_info["analysis"],
+                            modulation="NRZ" if mod_type == 0 else "PAM4" if mod_type == 2 else "unsupported")
+            ami_getwave_clocks = not clock_info["use_native"]
+        finally:
+            self.ami_period_known = clock_info.get("period_known", np.array([], dtype=bool)).copy()
+            self.clock_times = clock_info.get("sample_grid_times_s", array([])).copy()
+            self.ui_ests = clock_info.get("period_s", array([])) * 1e12
+    elif rx_getwave_mode and tx_getwave_mode and self.rx_use_clocks:
+        clock_info["reason"] = "tx_getwave_clocks_not_consumed"
+    else:
+        clock_info["reason"] = "not_requested" if not self.rx_use_clocks else "non_rx_getwave"
     if not ami_getwave_clocks and any(tap.enabled for tap in dfe_tap_tuners):
         _gain = gain
         _ideal = self.sum_ideal
@@ -597,50 +631,55 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
 
     self.dfe_scalar_values = []
     if ami_getwave_clocks:  # Accommodate the singular special case.
-        t_ix = 0
-        clocks = zeros(len_t)
-        ui_ests = array([])
-        lockeds = []
-        locked = False
         dfe_out = ffe_out
-        for n_clks, (clock_time, next_clock_time) in enumerate(pairwise((clock_times, clock_times[1:]))):
-            if clock_time == -1:  # "-1" is used to flag "no more valid clock times".
-                break
-            sample_time = clock_time + ui / 2  # IBIS-AMI clock times are edge aligned.
-            ui_est = next_clock_time - clock_time
-            locked = n_clks >= ignore_bits
-            while t_ix < len_t and t[t_ix] < sample_time:
-                ui_ests = append(ui_ests, ui_est)
-                lockeds.append(locked)
-                t_ix += 1
-            if t_ix >= len_t:
-                self.log("Went beyond system time vector end searching for next clock time!")
-                break
-            sig_samp = ffe_out[t_ix]
-            decision, _bits = dfe.decide(sig_samp)
-            bits_out_dfe.extend(_bits)
-            decisions = append(decisions, decision)
-            clocks[t_ix] = 1
-            sig_samps = append(sig_samps, sig_samp)
+        try:
+            consume_ami_clocks(clock_info, ffe_out, dfe.decide, _check_sim_status)
+            clocks, ui_ests = clock_info["clock_mask"], clock_info["period_s"]
+            clock_times = clock_info["sample_grid_times_s"]
+            bits_out_dfe, sig_samps, decisions = clock_info["bits"], clock_info["sample_values"], clock_info["decisions"]
+            clock_info.update(consumption_status="partial", consumption_reason="main_postconditions_pending")
+        finally:
+            self.ami_clock_info = clock_info
+            clock_info = self.ami_clock_info
+            self.ami_period_known = clock_info["period_known"].copy()
+            self.clock_times = clock_info["sample_grid_times_s"].copy()
+            self.ui_ests = clock_info["period_s"] * 1e12
         tap_weightss = []
     else:  # all other cases
         dbg_dict: dict[str, Any] = {}
-        (dfe_out,
-         tap_weightss,
-         ui_ests,
-         clocks,
-         lockeds,
-         clock_times,
-         bits_out_dfe,
-         sig_samps,
-         decisions
-         ) = dfe.run_dfe(t, ffe_out, use_agc=self.use_agc, dbg_dict=dbg_dict, clock_phase=clock_phase)
+        clock_info["actual_branch"] = "native"
+        try:
+            (dfe_out,
+             tap_weightss,
+             ui_ests,
+             clocks,
+             lockeds,
+             clock_times,
+             bits_out_dfe,
+             sig_samps,
+             decisions
+             ) = dfe.run_dfe(t, ffe_out, use_agc=self.use_agc, dbg_dict=dbg_dict, clock_phase=clock_phase)
+        except BaseException as error:
+            clock_info.update(consumption_status="partial", consumed_count=None, native_returned=False,
+                              reason="native_failed_before_return", error_type=type(error).__name__)
+            raise
+        finally:
+            self.ami_clock_info = clock_info
+            clock_info = self.ami_clock_info
+        self.ami_period_known = np.array([], dtype=bool)
+        clock_info.update(consumption_status="partial", consumed_count=len(sig_samps), native_returned=True,
+                          consumption_reason="main_postconditions_pending")
         self.decision_scaler = dfe.decision_scaler
         self.dfe_scalar_values = dbg_dict["scalar_values"]
 
     # Slicer input samples and their decisions, over the same window `calc_ber()` checks.
-    self.dfe_slicer_samps = array(sig_samps[-eye_uis:])
-    self.dfe_slicer_decisions = array(decisions[-eye_uis:])
+    if ami_getwave_clocks:
+        selected = clock_info["analysis_sample_indices"]
+        self.dfe_slicer_samps = np.asarray(dfe_out)[selected]
+        self.dfe_slicer_decisions = decisions[np.searchsorted(clock_info["sample_indices"], selected)]
+    else:
+        self.dfe_slicer_samps = array(sig_samps[-eye_uis:])
+        self.dfe_slicer_decisions = array(decisions[-eye_uis:])
 
     # Determine post-DFE BER.
     def calc_ber(bits_out, path_name):
@@ -659,7 +698,11 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
 
         if decoding is not None:
             decoding[path_name] = {"bits_out": array(bits_out)}
-        bits_out = resize_zero_pad(bits_out, nbits, pad_front=True)
+        if ami_getwave_clocks:
+            if len(bits_out) < eye_bits:
+                raise ValueError("insufficient actual AMI decisions for the frozen BER window")
+        else:
+            bits_out = resize_zero_pad(bits_out, nbits, pad_front=True)
         bits_tst = bits_out[-eye_bits:]
         auto_corr = (
             1.0 * correlate(bits_tst, bits[-eye_bits:], mode="same") /  # noqa: W504
@@ -716,19 +759,23 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
     if self.rx_use_viterbi:
         # Assemble the (nominally) UI-spaced samples of the Rx DFE output.
         sig_samps = array([])
-        # - Avoid exception due to DFE predicting a last sample time beyond system time vector end.
-        # - ("+ 1" ensures correct number of samples in either case.)
-        _sample_times = list(filter(lambda x: x <= t[-1], clock_times[-(eye_uis + 1):]))
-        # - Trap the case of the last one just making it through filtration.
-        _sample_times = _sample_times[:eye_uis]
-        ix = 0
-        sample_indices = [] if decoding is not None else None
-        for sample_time in _sample_times:
-            while t[ix] < sample_time:
-                ix += 1
-            sig_samps = append(sig_samps, dfe_out[ix])
-            if sample_indices is not None:
-                sample_indices.append(ix)
+        if ami_getwave_clocks:
+            selected = clock_info["analysis_sample_indices"]
+            _sample_times = t[selected]
+            sig_samps = np.asarray(dfe_out)[selected]
+            sample_indices = list(map(int, selected)) if decoding is not None else None
+        else:
+            # Native DFE appends a future prediction; preserve its original W+1 tail rule.
+            _sample_times = list(filter(lambda x: x <= t[-1], clock_times[-(eye_uis + 1):]))
+            _sample_times = _sample_times[:eye_uis]
+            ix = 0
+            sample_indices = [] if decoding is not None else None
+            for sample_time in _sample_times:
+                while t[ix] < sample_time:
+                    ix += 1
+                sig_samps = append(sig_samps, dfe_out[ix])
+                if sample_indices is not None:
+                    sample_indices.append(ix)
 
         self.dbg_dict_viterbi = {}
         N = self.rx_viterbi_symbols
@@ -1144,6 +1191,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
         raise
 
     compute_com(self)
+    clock_info.update(consumption_status="completed", consumption_reason=None, run_status="completed")
 
 
 def compute_com(self) -> None:
@@ -1203,6 +1251,8 @@ def update_results(self) -> None:
     num_ui = self.nui
     clock_times = self.clock_times
     ui_ests = self.ui_ests
+    clock_info = self.ami_clock_info
+    ami_getwave_clocks = clock_info.get("actual_branch") == "ami"
     f = self.f
     t = self.t
     t_ns = self.t_ns
@@ -1255,24 +1305,36 @@ def update_results(self) -> None:
     if hasattr(self, "plots_dfe") and self.plots_dfe is not None:
         self.plots_dfe.components[1] = dfe_plot
 
-    (bin_counts, bin_edges) = histogram(ui_ests, bins=100)
-    bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2.0
-    clock_spec = rfft(ui_ests)
-    _f0 = 1 / (t[1] * len_t)
-    spec_freqs = [_f0 * k for k in range(len_t // 2 + 1)]
-    self.plotdata.set_data("clk_per_hist_bins", bin_centers)
-    self.plotdata.set_data("clk_per_hist_vals", bin_counts)
-    self.plotdata.set_data("clk_spec", safe_log10(abs(clock_spec[1:]) / abs(clock_spec[1])))  # Omit the d.c. value and normalize to fundamental magnitude.
-    self.plotdata.set_data("clk_freqs", array(spec_freqs[1:]) * ui)
+    if ami_getwave_clocks:
+        period_data = clock_period_data(clock_info, t, t[1] - t[0])
+        bin_centers, bin_counts = period_data["histogram_bins_ps"], period_data["histogram_counts"]
+        clock_spec = period_data["spectrum"]
+        if period_data["spectrum_display_eligible"]:
+            clk_spec = safe_log10(abs(clock_spec[1:]) / abs(clock_spec[1]))
+            clk_freqs = period_data["frequency_hz"][1:] * ui
+        else:
+            clk_spec, clk_freqs = array([]), array([])
+        set_period_plot_data(self.plotdata, period_data["plot_t_ns"], period_data["plot_period_ps"])
+    else:
+        (bin_counts, bin_edges) = histogram(ui_ests, bins=100)
+        bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2.0
+        clock_spec = rfft(ui_ests)
+        _f0 = 1 / (t[1] * len_t)
+        spec_freqs = [_f0 * k for k in range(len_t // 2 + 1)]
+        # Omit d.c. and normalize to the fundamental, preserving the Native calculation.
+        clk_spec = safe_log10(abs(clock_spec[1:]) / abs(clock_spec[1]))
+        clk_freqs = array(spec_freqs[1:]) * ui
+        if len_t > 1000:  # to prevent Chaco plotting error with too much data
+            krnl = interp1d(t_ns, self.ui_ests)
+            ui_ests_plot = krnl(t_ns_plot)
+        else:
+            ui_ests_plot = self.ui_ests
+        set_period_plot_data(self.plotdata, t_ns_plot, ui_ests_plot)
+    self.plotdata.update_data(clk_per_hist_bins=bin_centers, clk_per_hist_vals=bin_counts)
+    self.plotdata.update_data(clk_spec=clk_spec, clk_freqs=clk_freqs)
     self.plotdata.set_data("dfe_out", self.dfe_out)
     self.plotdata.set_data("clocks", self.clocks)
     self.plotdata.set_data("lockeds", self.lockeds)
-    if len_t > 1000:  # to prevent Chaco plotting error with too much data
-        krnl = interp1d(t_ns, self.ui_ests)
-        ui_ests_plot = krnl(t_ns_plot)
-    else:
-        ui_ests_plot = self.ui_ests
-    self.plotdata.set_data("ui_ests", ui_ests_plot)
 
     # Impulse responses
     self.plotdata.set_data("chnl_h", self.chnl_h)
@@ -1408,17 +1470,26 @@ def update_results(self) -> None:
     eye_tx = calc_eye(ui, samps_per_ui, height, self.rx_in[ignore_samps:], y_max)
     y_max = 1.1 * np.max(abs(array(self.ctle_out[ignore_samps:])))
     eye_ctle = calc_eye(ui, samps_per_ui, height, self.ctle_out[ignore_samps:], y_max)
-    y_max = 1.1 * np.max(abs(array(self.dfe_out[ignore_samps:])))
-    self.dfe_eye_ymax = y_max
-    i = 0
-    len_clock_times = len(clock_times)
-    while i < len_clock_times and clock_times[i] < ignore_until:
-        i += 1
-    if i >= len(clock_times):
-        self.log("ERROR: Insufficient coverage in 'clock_times' vector.")
-        eye_dfe = calc_eye(ui, samps_per_ui, height, self.dfe_out[ignore_samps:], y_max)
+    if ami_getwave_clocks:
+        cropped = self.dfe_out[ignore_samps:]
+        y_max = 1.1 * np.max(abs(array(cropped))) if len(cropped) else 0.0
+        self.dfe_eye_ymax = y_max
+        eye_dfe = ami_eye_data(clock_info, cropped, ignore_samps, height, y_max, calc_eye)
+        if eye_dfe is None:
+            self.log("AMI timed Eye unavailable: insufficient complete traces in the frozen window.")
+            eye_dfe = zeros((0, width))
     else:
-        eye_dfe = calc_eye(ui, samps_per_ui, height, self.dfe_out[ignore_samps:], y_max, array(clock_times[i:]) - ignore_until)
+        y_max = 1.1 * np.max(abs(array(self.dfe_out[ignore_samps:])))
+        self.dfe_eye_ymax = y_max
+        i = 0
+        len_clock_times = len(clock_times)
+        while i < len_clock_times and clock_times[i] < ignore_until:
+            i += 1
+        if i >= len(clock_times):
+            self.log("ERROR: Insufficient coverage in 'clock_times' vector.")
+            eye_dfe = calc_eye(ui, samps_per_ui, height, self.dfe_out[ignore_samps:], y_max)
+        else:
+            eye_dfe = calc_eye(ui, samps_per_ui, height, self.dfe_out[ignore_samps:], y_max, array(clock_times[i:]) - ignore_until)
     self.plotdata.set_data("eye_index", xs)
     self.plotdata.set_data("eye_chnl", eye_chnl)
     self.plotdata.set_data("eye_tx", eye_tx)

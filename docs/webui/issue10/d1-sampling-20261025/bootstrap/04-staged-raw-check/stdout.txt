@@ -1,0 +1,2 @@
+docs/webui/issue10/d1-sampling-20261025/launches/01-planner-red/stdout.txt:1: trailing whitespace.
++{"run": "01-planner-red", "exit_code": 1, "counts": {"pure": 0, "calc_eye": 0, "histogram": 0, "rfft": 0}, "elapsed_s": 2.024823199986713}

@@ -1,0 +1,7 @@
+{
+  "scope": "read-only API source, not import/GUI construction or execution",
+  "path": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv\\Lib\\site-packages\\chaco\\array_plot_data.py",
+  "version": "6.1.1 matching lock",
+  "sha256": "aaca0655f908e9dead580154c19fd537298aed570ca6cd9c9013bda2c81d276b",
+  "use": "update_data supports publishing x/y in one data_changed event"
+}

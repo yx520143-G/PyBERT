@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+    "pip",
+    "install",
+    "--python",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Scripts\\python.exe",
+    "--no-deps",
+    "--require-hashes",
+    "--link-mode",
+    "copy",
+    "-r",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\docs\\webui\\issue10\\d1-sampling-20261025\\numpy-requirement.txt"
+  ],
+  "timeout_s": 120,
+  "plan_sha256": "d2b9dbfdce999518bcd839fd1faa8d18c0cca443a6ca90ae5dd5f52a43e9d06a"
+}

@@ -1,0 +1,1 @@
+{"run": "10-integration-green", "exit_code": 0, "counts": {"pure": 141, "calc_eye": 15, "histogram": 8, "rfft": 5}, "elapsed_s": 34.80232780001825}

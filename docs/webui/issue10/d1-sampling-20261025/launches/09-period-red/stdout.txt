@@ -1,0 +1,1 @@
+{"run": "09-period-red", "exit_code": 1, "counts": {"pure": 0, "calc_eye": 0, "histogram": 0, "rfft": 0}, "elapsed_s": 2.3807426000130363}

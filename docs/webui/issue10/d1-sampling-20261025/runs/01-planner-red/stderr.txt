@@ -1,0 +1,15 @@
+test_zero_edge_and_last_grid_sample_are_planned (d1_cases.PlannerCases.test_zero_edge_and_last_grid_sample_are_planned) ... FAIL
+
+======================================================================
+FAIL: test_zero_edge_and_last_grid_sample_are_planned (d1_cases.PlannerCases.test_zero_edge_and_last_grid_sample_are_planned)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 13, in test_zero_edge_and_last_grid_sample_are_planned
+    self.assertTrue(callable(functions.get("new_clock_info")), "production state factory is missing")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : production state factory is missing
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)

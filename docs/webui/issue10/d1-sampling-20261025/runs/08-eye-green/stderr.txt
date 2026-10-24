@@ -1,0 +1,6 @@
+test_producer_indices_and_native_eye_compatibility (d1_cases.EyeCases.test_producer_indices_and_native_eye_compatibility) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.018s
+
+OK

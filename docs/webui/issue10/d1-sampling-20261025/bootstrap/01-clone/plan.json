@@ -1,0 +1,28 @@
+{
+  "commands": [
+    [
+      "git",
+      "clone",
+      "--no-local",
+      "--no-hardlinks",
+      "--no-checkout",
+      "--origin",
+      "origin",
+      "https://github.com/yx520143-G/PyBERT.git",
+      "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling"
+    ],
+    [
+      "git",
+      "-C",
+      "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling",
+      "switch",
+      "--create",
+      "codex/pybert-ami-d1-sampling",
+      "9343cdb7a2eee1762a60ae284d1e3a48772729d4"
+    ]
+  ],
+  "source_HEAD": "9343cdb7a2eee1762a60ae284d1e3a48772729d4",
+  "tree": "486768d95e04717f3726e8fd98cf1e36dd59fc98",
+  "scope": "new independent source clone only; no submodules/env/install/product execution; protected-startup already saved",
+  "task_wall_peak_RSS": "UNKNOWN"
+}

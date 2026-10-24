@@ -1,0 +1,288 @@
+{
+  "scope": "stdlib/hash/AST/Git audit only; no product/NumPy execution",
+  "failures": [],
+  "audited_HEAD_tree": [
+    "68bbd56129e4999273bce3fabd694dec3d8cf79f",
+    "57be400d41272e6f104d6c8b2298fbfdc3d87298"
+  ],
+  "old_protection": {
+    "raw": 4874,
+    "metadata": 252,
+    "materials_sources": 1008,
+    "repositories": 15,
+    "env_cache_dirs_present": 14
+  },
+  "new_installed_file_hashes": 950,
+  "batches": [
+    {
+      "id": "01-planner-red",
+      "freeze_HEAD": "472d64d0607c75a0545c9bb18604da4c69713f5a",
+      "exit": 1,
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "counts": {
+        "pure": 0,
+        "calc_eye": 0,
+        "histogram": 0,
+        "rfft": 0
+      },
+      "child_elapsed_s": 2.024823199986713,
+      "launch_elapsed_s": 2.249740400002338,
+      "NumPy_imports": 1,
+      "receipt_sha256": "d4f1327b641ce72582914a0027e8f45a0da6ae283cf3787b75403450137ca200"
+    },
+    {
+      "id": "02-planner-green",
+      "freeze_HEAD": "782c31b84b89b111d3dcf4e2a26e6295991d3018",
+      "exit": 0,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "counts": {
+        "pure": 2,
+        "calc_eye": 0,
+        "histogram": 0,
+        "rfft": 0
+      },
+      "child_elapsed_s": 2.0180438000243157,
+      "launch_elapsed_s": 2.223991799983196,
+      "NumPy_imports": 1,
+      "receipt_sha256": "270fc109c44fb58ebb33eaa9daf121122802fb5838ac8678e9cdab6dcbcf9cf0"
+    },
+    {
+      "id": "03-planner-contract-red",
+      "freeze_HEAD": "4a98b14bd0e64c5f4a8100d03a841ff87b1ac632",
+      "exit": 1,
+      "tests": 1,
+      "failures": 17,
+      "errors": 8,
+      "counts": {
+        "pure": 50,
+        "calc_eye": 0,
+        "histogram": 0,
+        "rfft": 0
+      },
+      "child_elapsed_s": 2.2004306000017095,
+      "launch_elapsed_s": 2.4185582000063732,
+      "NumPy_imports": 1,
+      "receipt_sha256": "3ee62ab71ec4d5ec049c60799e3cc48f4864b05d6cdcb8c66cb0272d00983be4"
+    },
+    {
+      "id": "04-planner-contract-green",
+      "freeze_HEAD": "85dfed8797c100ea0e4a21939d97083703240ee7",
+      "exit": 0,
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "counts": {
+        "pure": 70,
+        "calc_eye": 0,
+        "histogram": 0,
+        "rfft": 0
+      },
+      "child_elapsed_s": 2.268094500002917,
+      "launch_elapsed_s": 2.4953329999989364,
+      "NumPy_imports": 1,
+      "receipt_sha256": "042a74ece19a02b74cf36d456eb6eff9fe8551c743a77c763b6a1f46e6d36ef7"
+    },
+    {
+      "id": "05-consumer-red",
+      "freeze_HEAD": "89d89d0ea2ed59b8fdadc3512aeacc76da39d31d",
+      "exit": 1,
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "counts": {
+        "pure": 0,
+        "calc_eye": 0,
+        "histogram": 0,
+        "rfft": 0
+      },
+      "child_elapsed_s": 2.164925499993842,
+      "launch_elapsed_s": 2.4093673000170384,
+      "NumPy_imports": 1,
+      "receipt_sha256": "dbefd983bd1652831d502fde4d26123f245bbcb532d98fc3b4821f0b84c908c0"
+    },
+    {
+      "id": "06-consumer-green",
+      "freeze_HEAD": "2a0a2656c0cb0d3b32abd07b86493801e9b2981e",
+      "exit": 0,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "counts": {
+        "pure": 43,
+        "calc_eye": 0,
+        "histogram": 0,
+        "rfft": 0
+      },
+      "child_elapsed_s": 2.3050524000136647,
+      "launch_elapsed_s": 2.5358035000099335,
+      "NumPy_imports": 1,
+      "receipt_sha256": "cb8f7ea0ee12445481264643c1d559b281c27bbb1a1b6c3bf32fbf4bf3be97dc"
+    },
+    {
+      "id": "07-eye-red",
+      "freeze_HEAD": "9cf91315d5478ad9194e0b835ed4d70d7b243169",
+      "exit": 1,
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "counts": {
+        "pure": 0,
+        "calc_eye": 0,
+        "histogram": 0,
+        "rfft": 0
+      },
+      "child_elapsed_s": 2.2670053000038024,
+      "launch_elapsed_s": 2.4793504999834113,
+      "NumPy_imports": 1,
+      "receipt_sha256": "12efe3994276d34284a4912d934c07e464becf94d5ca9f0faad4206b9fb83662"
+    },
+    {
+      "id": "08-eye-green",
+      "freeze_HEAD": "acdfee720c574503fba4350557323ede57c05b14",
+      "exit": 0,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "counts": {
+        "pure": 4,
+        "calc_eye": 15,
+        "histogram": 0,
+        "rfft": 0
+      },
+      "child_elapsed_s": 2.4023566000105347,
+      "launch_elapsed_s": 2.6194736000034027,
+      "NumPy_imports": 1,
+      "receipt_sha256": "3cba41dd8a8151cd266ee44cbe60f69b21439b966778c8cd7ec92efdba7e4d08"
+    },
+    {
+      "id": "09-period-red",
+      "freeze_HEAD": "349428003497b94997adea7950b5ac820d557a5e",
+      "exit": 1,
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "counts": {
+        "pure": 0,
+        "calc_eye": 0,
+        "histogram": 0,
+        "rfft": 0
+      },
+      "child_elapsed_s": 2.3807426000130363,
+      "launch_elapsed_s": 2.6402212000102736,
+      "NumPy_imports": 1,
+      "receipt_sha256": "a0256589181ac710c1a3bedf6bd1d9c3130d14b84209f192aa56589b28f35959"
+    },
+    {
+      "id": "10-integration-green",
+      "freeze_HEAD": "418d72bcd63932dd7e456c9fd3c77525d0a4cf42",
+      "exit": 0,
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "counts": {
+        "pure": 141,
+        "calc_eye": 15,
+        "histogram": 8,
+        "rfft": 5
+      },
+      "child_elapsed_s": 34.80232780001825,
+      "launch_elapsed_s": 35.04567500000121,
+      "NumPy_imports": 1,
+      "receipt_sha256": "05ecf8f67f324b7d62afe37134dc265501b20007fc11f8577557d5cd086c9c5c"
+    }
+  ],
+  "cumulative_actual": {
+    "pure": 310,
+    "calc_eye": 30,
+    "histogram": 8,
+    "rfft": 5
+  },
+  "NumPy_imports": 10,
+  "child_elapsed_sum_s": 54.83380230006878,
+  "launch_elapsed_sum_s": 57.117514500016114,
+  "last_green_current_bindings": {
+    "src/pybert/utility/ami_clock.py": {
+      "sha256": "7e60336c8fd873e6666087a86ce0f0c335849765d8ece607b0506066b98ab087",
+      "same_as_last_green": true
+    },
+    "src/pybert/models/bert.py": {
+      "sha256": "6a0ed7ef34507eea07cf2d566671c9516a2e85c357034874f87aa7434affb2f5",
+      "same_as_last_green": true
+    },
+    "src/pybert/utility/sigproc.py": {
+      "sha256": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
+      "same_as_last_green": true
+    },
+    "src/pybert/pybert.py": {
+      "sha256": "729d4434aabd17804635f1a0bdc04adbcec4b71087d541eb9b52560127e7984e",
+      "same_as_last_green": true
+    },
+    "src/pybert/gui/plot.py": {
+      "sha256": "102166c16aef7ee6def7b5b4d8b6cb7165211baba1ab8288dec9ddd759bce82b",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/d1_cases.py": {
+      "sha256": "5ba937b89805956d03a5033ff59525a7557bf10d7ef32be57381969f6002078b",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/run_guarded.py": {
+      "sha256": "9dc0bca1efb72f6523b66044e864b7fe429195ff11fec88626565919e5f859b0",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/run_batch.py": {
+      "sha256": "a59eec98c800000fedaa101ef2f2003b17d984f67fa4f08467fad4447aa04e41",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/test-plan.json": {
+      "sha256": "6952a5b2f18a73799792c8591539527d60a138873af6cccca7d4dad260bbe666",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/environment.json": {
+      "sha256": "773a699f1944848e4854b34e1940845aaa453e43a80e96b10149a563ae7af689",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/inputs/sigproc.baseline.py.txt": {
+      "sha256": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+      "same_as_last_green": true
+    },
+    ".venv/pyvenv.cfg": {
+      "sha256": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/D1-contract-comment.json": {
+      "sha256": "72fa8fdd908deb3553f6cd77a8abdcbaf3bd5f695f15107296a01cc82a08a127",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json": {
+      "sha256": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/inputs/chaco-array-plot-data-6.1.1.py.txt": {
+      "sha256": "aaca0655f908e9dead580154c19fd537298aed570ca6cd9c9013bda2c81d276b",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/plot-api-source.json": {
+      "sha256": "bd23f0237c443e712b36ac7eb8cf8a21e4af61cf88e4e9e1a635d314ff57e02b",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/inputs/bert.baseline.py.txt": {
+      "sha256": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/inputs/plot.baseline.py.txt": {
+      "sha256": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+      "same_as_last_green": true
+    },
+    "docs/webui/issue10/d1-sampling-20261025/inputs/pybert.baseline.py.txt": {
+      "sha256": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+      "same_as_last_green": true
+    }
+  },
+  "audit_elapsed_s": 11.571454899996752,
+  "task_wall_peak_RSS": "UNKNOWN",
+  "full_Main_GUI_model_qualification": "NOT_EXECUTED / UNKNOWN"
+}

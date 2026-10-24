@@ -1,0 +1,113 @@
+{
+  "phase": "vertical tracer green: actual production state and planner",
+  "run_id": "02-planner-green",
+  "selection": [
+    "PlannerCases.test_zero_edge_and_last_grid_sample_are_planned"
+  ],
+  "snapshot_paths": {
+    "helpers.py.txt": "src/pybert/utility/ami_clock.py",
+    "bert.py.txt": "src/pybert/models/bert.py",
+    "sigproc.py.txt": "src/pybert/utility/sigproc.py",
+    "pybert.py.txt": "src/pybert/pybert.py",
+    "plot.py.txt": "src/pybert/gui/plot.py",
+    "cases.py.txt": "docs/webui/issue10/d1-sampling-20261025/d1_cases.py",
+    "runner.py.txt": "docs/webui/issue10/d1-sampling-20261025/run_guarded.py",
+    "launcher.py.txt": "docs/webui/issue10/d1-sampling-20261025/run_batch.py",
+    "plan.json": "docs/webui/issue10/d1-sampling-20261025/test-plan.json",
+    "environment.json": "docs/webui/issue10/d1-sampling-20261025/environment.json",
+    "baseline_eye.py.txt": "docs/webui/issue10/d1-sampling-20261025/inputs/sigproc.baseline.py.txt",
+    "venv.cfg.txt": ".venv/pyvenv.cfg",
+    "contract.json": "docs/webui/issue10/d1-sampling-20261025/D1-contract-comment.json",
+    "clarification.json": "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json"
+  },
+  "source_test_runner_raw_sha256": {
+    "src/pybert/utility/ami_clock.py": "c400a7154d0df3443da5207b5a4671736dca346572a14457984e36fb57e96e42",
+    "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "src/pybert/utility/sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+    "src/pybert/pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+    "src/pybert/gui/plot.py": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+    "docs/webui/issue10/d1-sampling-20261025/d1_cases.py": "ba039762ab452aca7c161c2eaf69b1b22bc4d3fa5ede26eeff8541c3a1a63d84",
+    "docs/webui/issue10/d1-sampling-20261025/run_guarded.py": "1c495c5bbf6f983293261bdd018758f424de2bde175134cde94eb19700f05b95",
+    "docs/webui/issue10/d1-sampling-20261025/run_batch.py": "a59eec98c800000fedaa101ef2f2003b17d984f67fa4f08467fad4447aa04e41",
+    "docs/webui/issue10/d1-sampling-20261025/environment.json": "773a699f1944848e4854b34e1940845aaa453e43a80e96b10149a563ae7af689",
+    "docs/webui/issue10/d1-sampling-20261025/inputs/sigproc.baseline.py.txt": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+    "docs/webui/issue10/d1-sampling-20261025/D1-contract-comment.json": "72fa8fdd908deb3553f6cd77a8abdcbaf3bd5f695f15107296a01cc82a08a127",
+    "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b"
+  },
+  "expected_counts": {
+    "pure": 2,
+    "calc_eye": 0,
+    "histogram": 0,
+    "rfft": 0,
+    "NumPy_imports": 1
+  },
+  "expected_result": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "case_inputs": {
+    "edges_s": [
+      0,
+      0.5,
+      1.0
+    ],
+    "grid_s": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1,
+      1.25
+    ],
+    "symbol_ui_s": 0.5,
+    "Ignore_UI": 0,
+    "nspui": 2,
+    "modulation": "NRZ",
+    "origin": "c1_fresh_main",
+    "window": {
+      "start_s": 0,
+      "stop_s": 1.25,
+      "start_index": 0,
+      "stop_index": 6,
+      "required_decisions": 2,
+      "required_eye_traces": 1,
+      "fft_slice": [
+        1,
+        4
+      ]
+    }
+  },
+  "expected_independent_values": {
+    "targets_s": [
+      0.25,
+      0.75,
+      1.25
+    ],
+    "indices": [
+      1,
+      3,
+      5
+    ],
+    "consumed_count": 0,
+    "status": "not_attempted"
+  },
+  "expected_basis": "literal half-UI plus hand-indexed grid; zero edge valid and last target exactly equals final sample; planner never implies consumption",
+  "cumulative_limits": {
+    "pure": 1000,
+    "calc_eye": 128,
+    "histogram": 64,
+    "rfft": 64
+  },
+  "max_dynamic_batches": 12,
+  "timeout_s": 60,
+  "max_input_FFT_length": 4096,
+  "max_eye_height": 64,
+  "max_nspui": 32,
+  "guards_order": "stdlib preload and input snapshots; import/audit/profile guards; verify installed NumPy files; authorized NumPy import/C extensions; guarded actual AST definitions; tests",
+  "actual_seams": "actual new planner/consumer/pure projections and actual baseline/candidate calc_eye; no product algorithm copies",
+  "future_vertical_slices": "bounded planner formats/window/index cases; actual partial consumer; optional Eye indices/Native exact; masked period/FFT/PlotData projection; AST wiring, one final relevant green; each actual new input/source first frozen and committed",
+  "restricted_entries": "full PyBERT/Main/update_results/run_dfe/DFE/decode/run_ami_model/PyAMI/modelmodule/grammar/SciPy/otherDSP/CmodelDLL/COM/coopt/Web/GUI/CLI/service/browser/model resource operations all0",
+  "task_wall_peak_RSS": "UNKNOWN",
+  "previous_plan": "runs/01-planner-red/plan.json"
+}
