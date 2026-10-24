@@ -1,0 +1,17 @@
+{
+  "frozen_plan_sha256": "cb7e464452c3b09f4d2b594b1e5e2f73d64febd7288ee51f22c4f8edd5c2dd6a",
+  "same_original_resource_case": "F4-SINGLE-NRZ",
+  "window_main_simulation": false,
+  "CLI_main_simulations_planned": 1,
+  "CLI_helper_collector": "default None through unchanged native simulate()",
+  "actual_sources": {
+    "src\\pybert\\pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+    "src\\pybert\\models\\bert.py": "83525dad2409cd3299f444422e8fbbd6ffefeb59ead9fb113fee34f47ff0925b",
+    "src\\pybert\\cli.py": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56",
+    "src\\pybert\\mcp\\server.py": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb",
+    "src\\pybert\\gui\\view.py": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4",
+    "tools\\verify_web_resource_compat.py": "1d6cb715c42d7bab3788fc268663d96c3f2538da821f95692d90472b8f250aa8"
+  },
+  "native_cli_input_sha256": "16f806863db8b9be86b31327d04a4cee514e9607580eab435be04ef9159e3171",
+  "checks": []
+}

@@ -1,0 +1,20 @@
+{
+  "main_simulation": false,
+  "COM": false,
+  "checks": [
+    {
+      "run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+      "source_manifest": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\chrome-20261024\\c3cadfdc-13e8-4ed9-bee3-b3b11462cd96\\manifest.json",
+      "title": "Base noise / coherent FEXT contributions / total injection \u00b7 FEXT disabled",
+      "availability": "disabled",
+      "traces": 2
+    },
+    {
+      "run_id": "d664e202-6f38-4b2e-b8ba-0901decd8268",
+      "source_manifest": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090903\\F4-L0-ON\\worker\\manifest.json",
+      "title": "Base noise / coherent FEXT contributions / total injection",
+      "availability": "active",
+      "traces": 3
+    }
+  ]
+}

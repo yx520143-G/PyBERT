@@ -1,0 +1,10 @@
+{
+  "status": "succeeded",
+  "result": {
+    "com_id": "aa2f130a-067d-4ee9-be3d-9407b505c138",
+    "parent_run_id": null,
+    "value_db": -15.419984103278814
+  },
+  "cancel_observed": false,
+  "cancel_requested": false
+}

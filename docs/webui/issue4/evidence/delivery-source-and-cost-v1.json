@@ -1,0 +1,1077 @@
+{
+  "implementation_cut": "6a3a323d89952d5807b852e517d1653a6f7e289c",
+  "base": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+  "native_producers": [
+    {
+      "path": "src/pybert/pybert.py",
+      "sha256": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+      "matches_corrected_freeze": true
+    },
+    {
+      "path": "src/pybert/models/bert.py",
+      "sha256": "83525dad2409cd3299f444422e8fbbd6ffefeb59ead9fb113fee34f47ff0925b",
+      "matches_corrected_freeze": true
+    },
+    {
+      "path": "src/pybert/utility/sparam.py",
+      "sha256": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+      "matches_corrected_freeze": true
+    },
+    {
+      "path": "src/pybert/models/com.py",
+      "sha256": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+      "matches_corrected_freeze": true
+    }
+  ],
+  "unchanged_compatibility_sources": [
+    {
+      "path": "src/pybert/cli.py",
+      "unchanged_from_accepted_master": true
+    },
+    {
+      "path": "src/pybert/mcp/server.py",
+      "unchanged_from_accepted_master": true
+    },
+    {
+      "path": "src/pybert/configuration.py",
+      "unchanged_from_accepted_master": true
+    },
+    {
+      "path": "src/pybert/gui/view.py",
+      "unchanged_from_accepted_master": true
+    },
+    {
+      "path": "src/pybert/gui/handler.py",
+      "unchanged_from_accepted_master": true
+    }
+  ],
+  "source_files": {
+    "src\\pybert\\web\\__init__.py": {
+      "raw_sha256": "07511ce2fefebaaeed0cb403bdd7d9c9db335f517422c5892fd485b409708d30",
+      "utf8_lf_sha256": "2eefb44349ee160474346dee95a2d78ea392c1e40db86f93c1ae769340c6364b"
+    },
+    "src\\pybert\\web\\analysis.py": {
+      "raw_sha256": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+      "utf8_lf_sha256": "6cf618bdd59661f73d8e1b02ce746f5958853b5c39d1fc24f7de699e0384c5d8"
+    },
+    "src\\pybert\\web\\com.py": {
+      "raw_sha256": "b6c453fc1c934c75839218f4207f6b5362ce979f62290fef92a0861ee3e181e2",
+      "utf8_lf_sha256": "b6c453fc1c934c75839218f4207f6b5362ce979f62290fef92a0861ee3e181e2"
+    },
+    "src\\pybert\\web\\config.py": {
+      "raw_sha256": "55b25db261e7fe16942e24d03465223633614c4a8e35863789242b38f5e52c48",
+      "utf8_lf_sha256": "dedee05d0b69ecb3ae45a0f8e1ec9fe1d108ab6588c22bd5441120b373c9cb54"
+    },
+    "src\\pybert\\web\\data.py": {
+      "raw_sha256": "beaff312718a52025887cacdebd6b1243cdfc302f30b78959f5af01a53e746f6",
+      "utf8_lf_sha256": "c4c12c596035d1e3da034140b7eae680c6f0caf9e90ebd4450a28a752ab2c82a"
+    },
+    "src\\pybert\\web\\resource_data.py": {
+      "raw_sha256": "504420d86287f73ed60cf7a3a881a80600972e8180446b4d368fdf2ce8d6e626",
+      "utf8_lf_sha256": "504420d86287f73ed60cf7a3a881a80600972e8180446b4d368fdf2ce8d6e626"
+    },
+    "src\\pybert\\web\\resources.py": {
+      "raw_sha256": "8369ed3ea1f812dc811390812450a92ef52769cd125250eac0b8beceeff96730",
+      "utf8_lf_sha256": "8369ed3ea1f812dc811390812450a92ef52769cd125250eac0b8beceeff96730"
+    },
+    "src\\pybert\\web\\server.py": {
+      "raw_sha256": "e837d5c89d6c2577da49670ab9de9a709846f47678251b5a7e8e49189d724fc1",
+      "utf8_lf_sha256": "01df4f8b0dc6e14c137c58f600c98380eca59bc36039de9278fb74a00acd30a2"
+    },
+    "src\\pybert\\web\\tasks.py": {
+      "raw_sha256": "5d15a52da216dc14985173ae3531722f948b21d22fe736adccb5c28fbaac9d26",
+      "utf8_lf_sha256": "039d221bb69be72af6c80daae3f435454035c054ef0842300912e98bb077f23e"
+    },
+    "src\\pybert\\web\\worker.py": {
+      "raw_sha256": "33b2382cef18d199363ad58a5e31b3344e58550e3e6a6f49f4090151a3b6b556",
+      "utf8_lf_sha256": "da284db10a7e07d15676ad4303cd495000c471066b536a5c6996a68303095bef"
+    },
+    "src\\pybert\\web\\static\\app.js": {
+      "raw_sha256": "64b75225e6e773e6d7c6b3decda0f7b538ce3188d1d44a47127186746bf95674",
+      "utf8_lf_sha256": "104502feaeddfc229d108eb4bc9905b96eaebe7bb9d20307462de988434ce332"
+    },
+    "src\\pybert\\web\\static\\catalog.js": {
+      "raw_sha256": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+      "utf8_lf_sha256": "5d3d980915916f4a9129670385e2ab46ca0998f08b65789f7ad023a527a2c11c"
+    },
+    "src\\pybert\\web\\static\\gui-map.js": {
+      "raw_sha256": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+      "utf8_lf_sha256": "ebdd4dfb409d1cce38b9bdd8d4d87c4309b6ff9bec45be9a83ad92ce595d497d"
+    },
+    "src\\pybert\\web\\static\\index.html": {
+      "raw_sha256": "330c5d3723a0e2e16c7b6b4bc615476a79687366fd74f1ea2a87066fc43dab4a",
+      "utf8_lf_sha256": "767cdbccb2245a61f1822c4935fc138ef6cb38fef6fb24f7d5c0c8dbdaf35fbe"
+    },
+    "src\\pybert\\web\\static\\resources.js": {
+      "raw_sha256": "057506fc886356ac4432271b957ef429a1f7d03a7f924b931c3ea882c78a9aa1",
+      "utf8_lf_sha256": "057506fc886356ac4432271b957ef429a1f7d03a7f924b931c3ea882c78a9aa1"
+    },
+    "src\\pybert\\web\\static\\settings.js": {
+      "raw_sha256": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+      "utf8_lf_sha256": "50a2fad3437d75873869be07f8d3849063265f8caf52456a523f9020f40c264d"
+    },
+    "src\\pybert\\web\\static\\styles.css": {
+      "raw_sha256": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+      "utf8_lf_sha256": "715e1e6e7c530a88e961fc947fa5a0424bba0704f8f955880a6140eba1c1a38d"
+    },
+    "src\\pybert\\web\\static\\workbench.css": {
+      "raw_sha256": "8073d39aab282a2439a17875738fb1df88671c133c191fa865078192ba99b51f",
+      "utf8_lf_sha256": "263ebb13535075b2b6b0e641da05c5994ff43ebc8c5dbbbc5c953eb873b0b269"
+    },
+    "src\\pybert\\web\\static\\workbench.js": {
+      "raw_sha256": "71219c91d453d4c1ea99e902725ead5cdc5e773df21103621aded8e561bfc5c0",
+      "utf8_lf_sha256": "32acc5bbfc1430144098d52b13b67506db0c9ee85387272a37efe7decd104bee"
+    },
+    "src\\pybert\\pybert.py": {
+      "raw_sha256": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+      "utf8_lf_sha256": "eb8e71264a5b71a9d45b02a4f46562d23d7b71beead583ca463ae15b16805c55"
+    },
+    "src\\pybert\\models\\bert.py": {
+      "raw_sha256": "83525dad2409cd3299f444422e8fbbd6ffefeb59ead9fb113fee34f47ff0925b",
+      "utf8_lf_sha256": "2112bb6513662cea07623f3c401e56c2e4d8ed076234a351d7cd58205ff85bfe"
+    },
+    "src\\pybert\\utility\\sparam.py": {
+      "raw_sha256": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+      "utf8_lf_sha256": "9d881b261481c9daf7ca9adfd89b951613b9777d5718d1e850e59c9fa007b5b8"
+    },
+    "src\\pybert\\models\\com.py": {
+      "raw_sha256": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+      "utf8_lf_sha256": "86780089766cfef221a508de5f713e787d4b72929b19a0fdb6f42700dfc2d4eb"
+    }
+  },
+  "after_real_Chrome_changes": {
+    "src/pybert/web/data.py": {
+      "before": "a29e49f6ccdb0d675ecd5bc031c4f90f6caff3367a45144443f633dd4e7e1c12",
+      "after": "beaff312718a52025887cacdebd6b1243cdfc302f30b78959f5af01a53e746f6"
+    },
+    "src/pybert/web/static/resources.js": {
+      "before": "0a114d0904f84cf921a7bc085aecbaae71363b46961a093c259f4d8b544e78f4",
+      "after": "057506fc886356ac4432271b957ef429a1f7d03a7f924b931c3ea882c78a9aa1"
+    }
+  },
+  "after_Chrome_change_proof": "reversing exactly the open-details UI hunk and noise payload title/metadata hunk reproduces v3 frozen source SHA bytes (LF/CRLF considered); neither changes producer/collect arrays",
+  "saved_noise_display": {
+    "main_simulation": false,
+    "COM": false,
+    "submissions_rejected": true,
+    "actual_Chrome_1280x720": true,
+    "screenshots_pixels_inspected": [
+      "68-saved-FEXT-disabled.png",
+      "69-saved-FEXT-active.png"
+    ],
+    "checks": {
+      "main_simulation": false,
+      "COM": false,
+      "checks": [
+        {
+          "run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+          "source_manifest": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\chrome-20261024\\c3cadfdc-13e8-4ed9-bee3-b3b11462cd96\\manifest.json",
+          "title": "Base noise / coherent FEXT contributions / total injection \u00b7 FEXT disabled",
+          "availability": "disabled",
+          "traces": 2
+        },
+        {
+          "run_id": "d664e202-6f38-4b2e-b8ba-0901decd8268",
+          "source_manifest": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090903\\F4-L0-ON\\worker\\manifest.json",
+          "title": "Base noise / coherent FEXT contributions / total injection",
+          "availability": "active",
+          "traces": 3
+        }
+      ]
+    }
+  },
+  "original_four_raw_preserved": [
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-073439\\F4-SINGLE-NRZ\\direct\\arrays.npz",
+      "passed": true
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-073439\\F4-SINGLE-NRZ\\worker\\arrays.npz",
+      "passed": true
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-073225\\F4-SINGLE-NRZ\\direct\\arrays.npz",
+      "passed": true
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-073225\\F4-SINGLE-NRZ\\worker\\5a30ef32-430f-4ef2-85d2-9f811c924cc2\\arrays.npz",
+      "passed": true
+    }
+  ],
+  "raw_files": [
+    {
+      "path": "docs\\webui\\issue4\\evidence\\chrome-20261024\\16b97811-8219-41bb-9a96-1e8571e98cf5\\arrays.npz",
+      "bytes": 45291659,
+      "sha256": "70412e8c61cdc5804de29b9e92502027c4e39f21529464909af5b41c0e92d681"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\chrome-20261024\\57183d8c-6a6d-4567-b0d6-628f55c48c61\\arrays.npz",
+      "bytes": 45312895,
+      "sha256": "7eb3eadb310c0e9df05794915b8de8540ee79a96d04aed513e7809f1aebbfbdc"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\chrome-20261024\\c3cadfdc-13e8-4ed9-bee3-b3b11462cd96\\arrays.npz",
+      "bytes": 44754368,
+      "sha256": "79168273d67634368c44594a4315ddd488333db8e30d8d4e006f27dcd2ea380f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\chrome-20261024\\c630ff19-02aa-4e21-89b3-a1842a74e78a\\arrays.npz",
+      "bytes": 44754368,
+      "sha256": "79168273d67634368c44594a4315ddd488333db8e30d8d4e006f27dcd2ea380f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\light-compat-20261024-091034\\native-cli.pybert_data",
+      "bytes": 304981,
+      "sha256": "f3596c488e18a8d3c6e1a8a689718e46566ba5133c21cf741d0e7cdf06c14956"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\light-compat-20261024-091034\\window-helper-arrays.npz",
+      "bytes": 172708,
+      "sha256": "34151c71f623d47dd911acc9b4e1efae9ddba07827e51d1c16cb792c3bf62b4e"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-073225\\F4-SINGLE-NRZ\\direct\\arrays.npz",
+      "bytes": 44754368,
+      "sha256": "79168273d67634368c44594a4315ddd488333db8e30d8d4e006f27dcd2ea380f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-073225\\F4-SINGLE-NRZ\\worker\\5a30ef32-430f-4ef2-85d2-9f811c924cc2\\arrays.npz",
+      "bytes": 44754368,
+      "sha256": "79168273d67634368c44594a4315ddd488333db8e30d8d4e006f27dcd2ea380f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075721\\F4-L0-ON\\direct\\arrays.npz",
+      "bytes": 48274015,
+      "sha256": "d69ee14bdd1daa2d0858c27376545e80f92d375f353714304cc14e1ae5561202"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075721\\F4-L0-ON\\worker\\d664e202-6f38-4b2e-b8ba-0901decd8268\\arrays.npz",
+      "bytes": 48274015,
+      "sha256": "43b8787c75a7ad68a449ebb781457cbcfb9fc33985b7ed00e01dc204400467eb"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-CASCADE-AB\\direct\\arrays.npz",
+      "bytes": 45312895,
+      "sha256": "7eb3eadb310c0e9df05794915b8de8540ee79a96d04aed513e7809f1aebbfbdc"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-CASCADE-AB\\worker\\5e57b0ab-25ed-4c26-9791-4b0242cd447a\\arrays.npz",
+      "bytes": 45312895,
+      "sha256": "7eb3eadb310c0e9df05794915b8de8540ee79a96d04aed513e7809f1aebbfbdc"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-CASCADE-BA\\direct\\arrays.npz",
+      "bytes": 45291659,
+      "sha256": "70412e8c61cdc5804de29b9e92502027c4e39f21529464909af5b41c0e92d681"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-CASCADE-BA\\worker\\62bfcc04-03e6-4f98-8d82-41fde0318682\\arrays.npz",
+      "bytes": 45291659,
+      "sha256": "70412e8c61cdc5804de29b9e92502027c4e39f21529464909af5b41c0e92d681"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-DUO\\direct\\arrays.npz",
+      "bytes": 44750589,
+      "sha256": "17e7eab85de18a6d213113f69f7e1ed533bf6fe74c453dbf24c438bc28645662"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-DUO\\worker\\c543c1cb-cd3b-4192-bc36-ffdf14992726\\arrays.npz",
+      "bytes": 44750589,
+      "sha256": "17e7eab85de18a6d213113f69f7e1ed533bf6fe74c453dbf24c438bc28645662"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-L0-OFF\\direct\\arrays.npz",
+      "bytes": 44505161,
+      "sha256": "bf09241730e7ea5d4ab79d4de7c36818346379f772d01b86acce928a3ecdbcd0"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-L0-OFF\\worker\\56f16c7f-bc76-4791-a043-987a0046f819\\arrays.npz",
+      "bytes": 44505161,
+      "sha256": "bf09241730e7ea5d4ab79d4de7c36818346379f772d01b86acce928a3ecdbcd0"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-L1-OFF\\direct\\arrays.npz",
+      "bytes": 44519830,
+      "sha256": "5c54d3f0f93285b6592fba5b3552b9687b037830237ef911aaec1a5223245bb4"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-L1-OFF\\worker\\90a08c67-3b82-441b-8764-ca27281e7b4e\\arrays.npz",
+      "bytes": 44519830,
+      "sha256": "5c54d3f0f93285b6592fba5b3552b9687b037830237ef911aaec1a5223245bb4"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-L1-ON\\direct\\arrays.npz",
+      "bytes": 48266357,
+      "sha256": "76f55aa630d1b609119f26d91ac3eac6248430312574c9975336697b8b80b757"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-L1-ON\\worker\\ef453f87-4a40-4bad-aaca-8ec892515974\\arrays.npz",
+      "bytes": 48266357,
+      "sha256": "3ad6f5e2920a4e8ccbccc03458bf4a4d07e676e363a9ee22a3a1631a338109e1"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-PACKAGE\\direct\\arrays.npz",
+      "bytes": 44779345,
+      "sha256": "10ebb842bac74477242af159afe907a873354c3505f9c025d907a02ccfbfee6f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-PACKAGE\\worker\\ff2421fc-3706-4831-acf7-ca02cc53216a\\arrays.npz",
+      "bytes": 44779345,
+      "sha256": "10ebb842bac74477242af159afe907a873354c3505f9c025d907a02ccfbfee6f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-SINGLE-PAM4\\direct\\arrays.npz",
+      "bytes": 23283741,
+      "sha256": "c0f2b4109df0966934ff91b3144ae13f6ab8bd5edb3dd522c97361e162b4c04d"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-SINGLE-PAM4\\worker\\0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07\\arrays.npz",
+      "bytes": 23283741,
+      "sha256": "c0f2b4109df0966934ff91b3144ae13f6ab8bd5edb3dd522c97361e162b4c04d"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-073439\\F4-SINGLE-NRZ\\direct\\arrays.npz",
+      "bytes": 44754368,
+      "sha256": "79168273d67634368c44594a4315ddd488333db8e30d8d4e006f27dcd2ea380f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-073439\\F4-SINGLE-NRZ\\worker\\arrays.npz",
+      "bytes": 44754368,
+      "sha256": "79168273d67634368c44594a4315ddd488333db8e30d8d4e006f27dcd2ea380f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090813\\F4-SINGLE-NRZ\\direct\\arrays.npz",
+      "bytes": 44754368,
+      "sha256": "79168273d67634368c44594a4315ddd488333db8e30d8d4e006f27dcd2ea380f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090813\\F4-SINGLE-NRZ\\worker\\arrays.npz",
+      "bytes": 44754368,
+      "sha256": "79168273d67634368c44594a4315ddd488333db8e30d8d4e006f27dcd2ea380f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090819\\F4-L0-ON\\direct\\arrays.npz",
+      "bytes": 48274015,
+      "sha256": "d69ee14bdd1daa2d0858c27376545e80f92d375f353714304cc14e1ae5561202"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090819\\F4-L0-ON\\worker\\arrays.npz",
+      "bytes": 48274015,
+      "sha256": "43b8787c75a7ad68a449ebb781457cbcfb9fc33985b7ed00e01dc204400467eb"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-CASCADE-AB\\direct\\arrays.npz",
+      "bytes": 45312895,
+      "sha256": "7eb3eadb310c0e9df05794915b8de8540ee79a96d04aed513e7809f1aebbfbdc"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-CASCADE-AB\\worker\\arrays.npz",
+      "bytes": 45312895,
+      "sha256": "7eb3eadb310c0e9df05794915b8de8540ee79a96d04aed513e7809f1aebbfbdc"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-CASCADE-BA\\direct\\arrays.npz",
+      "bytes": 45291659,
+      "sha256": "70412e8c61cdc5804de29b9e92502027c4e39f21529464909af5b41c0e92d681"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-CASCADE-BA\\worker\\arrays.npz",
+      "bytes": 45291659,
+      "sha256": "70412e8c61cdc5804de29b9e92502027c4e39f21529464909af5b41c0e92d681"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-DUO\\direct\\arrays.npz",
+      "bytes": 44750589,
+      "sha256": "17e7eab85de18a6d213113f69f7e1ed533bf6fe74c453dbf24c438bc28645662"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-DUO\\worker\\arrays.npz",
+      "bytes": 44750589,
+      "sha256": "17e7eab85de18a6d213113f69f7e1ed533bf6fe74c453dbf24c438bc28645662"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-L0-OFF\\direct\\arrays.npz",
+      "bytes": 44505161,
+      "sha256": "bf09241730e7ea5d4ab79d4de7c36818346379f772d01b86acce928a3ecdbcd0"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-L0-OFF\\worker\\arrays.npz",
+      "bytes": 44505161,
+      "sha256": "bf09241730e7ea5d4ab79d4de7c36818346379f772d01b86acce928a3ecdbcd0"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-L1-OFF\\direct\\arrays.npz",
+      "bytes": 44519830,
+      "sha256": "5c54d3f0f93285b6592fba5b3552b9687b037830237ef911aaec1a5223245bb4"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-L1-OFF\\worker\\arrays.npz",
+      "bytes": 44519830,
+      "sha256": "5c54d3f0f93285b6592fba5b3552b9687b037830237ef911aaec1a5223245bb4"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-L1-ON\\direct\\arrays.npz",
+      "bytes": 48266357,
+      "sha256": "76f55aa630d1b609119f26d91ac3eac6248430312574c9975336697b8b80b757"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-L1-ON\\worker\\arrays.npz",
+      "bytes": 48266357,
+      "sha256": "3ad6f5e2920a4e8ccbccc03458bf4a4d07e676e363a9ee22a3a1631a338109e1"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-PACKAGE\\direct\\arrays.npz",
+      "bytes": 44779345,
+      "sha256": "10ebb842bac74477242af159afe907a873354c3505f9c025d907a02ccfbfee6f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-PACKAGE\\worker\\arrays.npz",
+      "bytes": 44779345,
+      "sha256": "10ebb842bac74477242af159afe907a873354c3505f9c025d907a02ccfbfee6f"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-SINGLE-PAM4\\direct\\arrays.npz",
+      "bytes": 23283741,
+      "sha256": "c0f2b4109df0966934ff91b3144ae13f6ab8bd5edb3dd522c97361e162b4c04d"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090825\\F4-SINGLE-PAM4\\worker\\arrays.npz",
+      "bytes": 23283741,
+      "sha256": "c0f2b4109df0966934ff91b3144ae13f6ab8bd5edb3dd522c97361e162b4c04d"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090903\\F4-L0-ON\\direct\\arrays.npz",
+      "bytes": 48274015,
+      "sha256": "d69ee14bdd1daa2d0858c27376545e80f92d375f353714304cc14e1ae5561202"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090903\\F4-L0-ON\\worker\\arrays.npz",
+      "bytes": 48274015,
+      "sha256": "43b8787c75a7ad68a449ebb781457cbcfb9fc33985b7ed00e01dc204400467eb"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090909\\F4-L1-ON\\direct\\arrays.npz",
+      "bytes": 48266357,
+      "sha256": "76f55aa630d1b609119f26d91ac3eac6248430312574c9975336697b8b80b757"
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\saved-resource-check-20261024-090909\\F4-L1-ON\\worker\\arrays.npz",
+      "bytes": 48266357,
+      "sha256": "3ad6f5e2920a4e8ccbccc03458bf4a4d07e676e363a9ee22a3a1631a338109e1"
+    }
+  ],
+  "raw_total_bytes": 2198132299,
+  "numeric_cost_rows": [
+    {
+      "case": "F4-SINGLE-NRZ",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-073225\\report.json",
+      "direct_elapsed_s": 7.54152559999784,
+      "worker_total_stages_s": null
+    },
+    {
+      "case": "F4-L0-ON",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075721\\report.json",
+      "direct_elapsed_s": 7.91517739999108,
+      "worker_total_stages_s": null
+    },
+    {
+      "case": "F4-L0-OFF",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "direct_elapsed_s": 7.531210999994073,
+      "worker_total_stages_s": null
+    },
+    {
+      "case": "F4-L1-OFF",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "direct_elapsed_s": 7.461575299996184,
+      "worker_total_stages_s": null
+    },
+    {
+      "case": "F4-L1-ON",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "direct_elapsed_s": 7.77665660000639,
+      "worker_total_stages_s": null
+    },
+    {
+      "case": "F4-SINGLE-PAM4",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "direct_elapsed_s": 4.073768100002781,
+      "worker_total_stages_s": null
+    },
+    {
+      "case": "F4-CASCADE-AB",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "direct_elapsed_s": 7.985345799999777,
+      "worker_total_stages_s": null
+    },
+    {
+      "case": "F4-CASCADE-BA",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "direct_elapsed_s": 8.613779499995871,
+      "worker_total_stages_s": null
+    },
+    {
+      "case": "F4-PACKAGE",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "direct_elapsed_s": 7.732879099989077,
+      "worker_total_stages_s": null
+    },
+    {
+      "case": "F4-DUO",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "direct_elapsed_s": 7.6712961000012,
+      "worker_total_stages_s": null
+    }
+  ],
+  "original_real_COM_cost": {
+    "execution_freeze_sha256": "194c1e30cb7975f4968abf21ced9b27a85a72750449b1c01f2bbd2f5f9bde159",
+    "default_COM": "BLOCKED_BUDGET / NOT_EXECUTED",
+    "time_boundary": {
+      "case": "F4-TIME",
+      "resource_sha256": "2dccbb70485160f1c92238e2094e30149342cbb5262f69b41fd31b9f4325d14b",
+      "header_units": "t`s`float\t(deriv((v(txop_bump)-v(txon_bump)))/0.83873)`V/s",
+      "sample_period_s": 3.125e-12,
+      "grid_hz": [
+        0.0,
+        40000000000.0,
+        4001
+      ],
+      "main_simulation_performed": false,
+      "status": "NATIVE_BLOCKED",
+      "error": "cannot reshape array of size 0 into shape (0,newaxis)",
+      "error_type": "ValueError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\tools\\verify_web_resource_tools.py\", line 73, in main\n    network = import_channel(\n        resources[\"T\"][\"path\"],\n    ...<3 lines>...\n        lane=config[\"lane_sel\"],\n    )\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\utility\\sparam.py\", line 452, in import_channel\n    h = import_time(filename, sample_per)\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\utility\\sigproc.py\", line 137, in import_time\n    return interp_time(array(ts), array(xs), sample_per)\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\utility\\sigproc.py\", line 108, in interp_time\n    krnl = interp1d(ts, xs, kind=\"cubic\", bounds_error=False, fill_value=0, assume_sorted=True)\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\scipy\\interpolate\\_interpolate.py\", line 345, in __init__\n    self._y = self._reshape_yi(self.y)\n              ~~~~~~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\scipy\\interpolate\\_polyint.py\", line 120, in _reshape_yi\n    return yi.reshape((yi.shape[0], -1))\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\nValueError: cannot reshape array of size 0 into shape (0,newaxis)\n"
+    },
+    "direct": {
+      "value_db": -15.419984103278814,
+      "elapsed_s": 4.121971600005054,
+      "producer_counters": {
+        "n_fom_evals": 38,
+        "num_tx_combs": 1,
+        "package_cases": [
+          -15.419984103278814
+        ],
+        "local_search": 2
+      }
+    },
+    "worker_task": {
+      "task_id": "aa2f130a-067d-4ee9-be3d-9407b505c138",
+      "operation": "com",
+      "state": "succeeded",
+      "phase": "succeeded",
+      "cancel_requested": false,
+      "cancel_requested_at": null,
+      "cancel_observed_at": null,
+      "cancel_observed": false,
+      "worker_exited": true,
+      "logs": [
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py:69: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\native-tools-20261024-082936\\worker\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  cp = get_com_params(Path(cfg[\"worker_path\"])) if cfg else IEEE_8023dj",
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py:54: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\native-tools-20261024-082936\\worker\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  com_params = get_com_params(Path(cfg_file))"
+      ],
+      "created_at": 1792801780.6774204,
+      "request_hash": null,
+      "parent_run_id": null,
+      "resource_inputs": [
+        {
+          "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "original_name": "example2_THRU.s4p",
+          "format": ".s4p",
+          "bytes": 2454034,
+          "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "pending task validation",
+          "intended_uses": [
+            "channel",
+            "COM THRU"
+          ],
+          "field": "com_thru",
+          "index": null,
+          "reference": "",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\native-tools-20261024-082936\\worker\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+        },
+        {
+          "resource_id": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls",
+          "original_name": "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+          "format": ".xls",
+          "bytes": 30208,
+          "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "pending task validation",
+          "intended_uses": [
+            "COM configuration"
+          ],
+          "field": "com_cfg_file",
+          "index": null,
+          "reference": "",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\native-tools-20261024-082936\\worker\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"
+        }
+      ],
+      "parameter_source": "spreadsheet",
+      "worker_exit_confirmed_at": 1792801787.7297397,
+      "exitcode": 0,
+      "finished_at": 1792801787.7297413,
+      "result": {
+        "com_id": "aa2f130a-067d-4ee9-be3d-9407b505c138",
+        "parent_run_id": null,
+        "value_db": -15.419984103278814
+      }
+    },
+    "worker_result": {
+      "com_id": "aa2f130a-067d-4ee9-be3d-9407b505c138",
+      "parent_run_id": null,
+      "resources": [
+        {
+          "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "original_name": "example2_THRU.s4p",
+          "format": ".s4p",
+          "bytes": 2454034,
+          "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "pending task validation",
+          "intended_uses": [
+            "channel",
+            "COM THRU"
+          ],
+          "field": "com_thru",
+          "index": null,
+          "reference": "",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\native-tools-20261024-082936\\worker\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+        },
+        {
+          "resource_id": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls",
+          "original_name": "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+          "format": ".xls",
+          "bytes": 30208,
+          "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "pending task validation",
+          "intended_uses": [
+            "COM configuration"
+          ],
+          "field": "com_cfg_file",
+          "index": null,
+          "reference": "",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\native-tools-20261024-082936\\worker\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"
+        }
+      ],
+      "parameter_source": {
+        "kind": "spreadsheet",
+        "parameters": {
+          "fb": 106.25,
+          "fstep": 0.05,
+          "L": 4,
+          "M": 32,
+          "DER_0": 0.0002,
+          "T_r": 0.004,
+          "RLM": 0.95,
+          "A_v": 0.413,
+          "A_fe": 0.413,
+          "A_ne": 0.45,
+          "R_0": 50,
+          "A_DD": 0.02,
+          "SNR_TX": 33,
+          "eta_0": 6e-09,
+          "sigma_Rj": 0.01,
+          "f_z": 42.5,
+          "f_p1": 42.5,
+          "f_p2": 106.25,
+          "f_LF": 1.328125,
+          "g_DC": [
+            -12.0,
+            -11.0,
+            -10.0,
+            -9.0,
+            -8.0,
+            -7.0,
+            -6.0,
+            -5.0,
+            -4.0,
+            -3.0,
+            -2.0
+          ],
+          "g_DC2": [
+            -3.0,
+            -2.5,
+            -2.0,
+            -1.5,
+            -1.0,
+            -0.5,
+            0.0
+          ],
+          "tx_taps_min": [
+            0.0,
+            -0.2,
+            0.0,
+            -0.6,
+            -0.6,
+            0.0,
+            0.0
+          ],
+          "tx_taps_max": [
+            0.2,
+            0.0,
+            0.4,
+            -1.1102230246251565e-16,
+            -1.1102230246251565e-16,
+            0.0,
+            0.0
+          ],
+          "tx_taps_step": [
+            0.1,
+            0.1,
+            0.1,
+            0.09999999999999998,
+            0.09999999999999998,
+            0.0,
+            0.0
+          ],
+          "c0_min": 1,
+          "f_r": 0.58,
+          "dfe_min": [
+            0.0
+          ],
+          "dfe_max": [
+            0.85
+          ],
+          "rx_taps_min": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "rx_taps_max": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "dw": 5,
+          "R_d": [
+            50.0,
+            50.0
+          ],
+          "C_d": [
+            [
+              4e-05,
+              9e-05,
+              0.00011
+            ],
+            [
+              4e-05,
+              9e-05,
+              0.00011
+            ]
+          ],
+          "C_b": [
+            3e-05,
+            3e-05
+          ],
+          "C_p": [
+            4e-05,
+            4e-05
+          ],
+          "L_s": [
+            [
+              0.13,
+              0.15,
+              0.14
+            ],
+            [
+              0.13,
+              0.15,
+              0.14
+            ]
+          ],
+          "z_c": [
+            87.5,
+            92.5
+          ],
+          "z_p": [
+            33,
+            1.8
+          ],
+          "gamma0": 0.0005,
+          "a1": 0.00089,
+          "a2": 0.0002,
+          "tau": 0.006141,
+          "z_pB": 1.8,
+          "zp_tx": [
+            34.0,
+            1.8
+          ],
+          "zp_rx": [
+            32.0,
+            1.8
+          ],
+          "zp_next": [
+            34.0,
+            1.8
+          ],
+          "zp_fext": [
+            34.0,
+            1.8
+          ],
+          "z_c_rx": null,
+          "zp_cases": null,
+          "local_search": 2,
+          "ts_srch_mode": "middle",
+          "ts_track": false,
+          "ts_sample_adj": [
+            -16,
+            16
+          ],
+          "f_p3": null,
+          "N_qb": 0,
+          "P_qc": 0.0004,
+          "Nfix": null,
+          "Nwg": 0,
+          "Nwf": 0,
+          "mlsd": false,
+          "dCOM_an": 3.0,
+          "include_pcb": 0,
+          "zbp_tx": 151.0,
+          "zbp_rx": 151.0,
+          "zbp_next": 72.0,
+          "zbp_fext": 72.0,
+          "brd_Z_c": [
+            109.8,
+            109.8
+          ],
+          "brd_gamma0_a1_a2": [
+            0.0,
+            0.0004114,
+            0.0002547
+          ],
+          "brd_tau": 0.006191,
+          "brd_C0": [
+            0.0,
+            0.0
+          ],
+          "brd_C1": [
+            0.0,
+            0.0
+          ]
+        },
+        "parameters_sha256": "7cb2e9ae70b9f7c3f823994535b33e6f6d8a778a4f8bee5e694e11bd9d4d19bd",
+        "full_search_fom_upper_bound": 77,
+        "local_search": 2,
+        "timing_search": "middle",
+        "engine_processes": 1
+      },
+      "adapter_sha": "c89cbd7cf0b59acc59d57eb07fc58399e482b4fe",
+      "versions": {
+        "pipbert": "11.1.0",
+        "pychopmarg": "3.4.0",
+        "numpy": "2.5.1",
+        "scipy": "1.18.0"
+      },
+      "helper": "pybert.models.com.calc_com",
+      "no_time_domain_settings_injected": true,
+      "thru_network": {
+        "ports": 4,
+        "frequency_hz": [
+          0.0,
+          40000000000.0
+        ],
+        "frequency_samples": 4001,
+        "s_unit": "dimensionless complex",
+        "z0_unit": "ohm"
+      },
+      "parameter_schema": {
+        "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\template.py",
+        "sha256": "801119da1f9acfa470e4640e37b281e20cf07cdfb92c82b8ad0ae86e2bf2a2f4",
+        "unit_policy": "fixed native COMParams source documents parameter units; adapter passes values without conversion"
+      },
+      "source_hashes": {
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py": "b6c453fc1c934c75839218f4207f6b5362ce979f62290fef92a0861ee3e181e2",
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\com.py": "04010ac20bf154b91715c34130db531ce0c9f350881973053f2691ccb24680e9"
+      },
+      "state": "succeeded",
+      "value_db": -15.419984103278814,
+      "unit": "dB",
+      "logs": [
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py:69: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\native-tools-20261024-082936\\worker\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  cp = get_com_params(Path(cfg[\"worker_path\"])) if cfg else IEEE_8023dj",
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py:54: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\native-tools-20261024-082936\\worker\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  com_params = get_com_params(Path(cfg_file))"
+      ],
+      "cancellation": {
+        "cancel_requested": false,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "worker_exit_confirmed_at": 1792801787.7297397
+      },
+      "exitcode": 0
+    },
+    "comparison": {
+      "rtol": 1e-10,
+      "atol_db": 1e-09,
+      "absolute_difference_db": 0.0,
+      "passed": true
+    },
+    "passed": true
+  },
+  "Chrome_task_cost": [
+    {
+      "task_id": "57183d8c-6a6d-4567-b0d6-628f55c48c61",
+      "operation": "run",
+      "state": "succeeded",
+      "created_at": 1792802886.0695481,
+      "worker_exit_confirmed_at": 1792802896.4204144,
+      "elapsed_s": 10.350866317749023
+    },
+    {
+      "task_id": "16b97811-8219-41bb-9a96-1e8571e98cf5",
+      "operation": "run",
+      "state": "succeeded",
+      "created_at": 1792803059.0347178,
+      "worker_exit_confirmed_at": 1792803069.2874758,
+      "elapsed_s": 10.252758026123047
+    },
+    {
+      "task_id": "a4dbc128-d042-43fd-b4a8-ede21c019527",
+      "operation": "com",
+      "state": "cancelled",
+      "created_at": 1792803220.0009913,
+      "worker_exit_confirmed_at": 1792803223.0738277,
+      "elapsed_s": 3.072836399078369
+    },
+    {
+      "task_id": "e6e6867a-a976-4e47-a7bd-ee53767a2f9e",
+      "operation": "com",
+      "state": "succeeded",
+      "created_at": 1792803106.578463,
+      "worker_exit_confirmed_at": 1792803114.1466656,
+      "elapsed_s": 7.568202495574951
+    },
+    {
+      "task_id": "c922f333-2a39-4fe3-abd0-5793c9bba535",
+      "operation": "com",
+      "state": "failed",
+      "created_at": 1792803168.5279005,
+      "worker_exit_confirmed_at": 1792803172.2338073,
+      "elapsed_s": 3.705906867980957
+    },
+    {
+      "task_id": "b6b85201-e481-4c69-98ce-c66650043535",
+      "operation": "com",
+      "state": "cancelled",
+      "created_at": 1792803251.1714993,
+      "worker_exit_confirmed_at": 1792803258.2914624,
+      "elapsed_s": 7.1199631690979
+    },
+    {
+      "task_id": "c630ff19-02aa-4e21-89b3-a1842a74e78a",
+      "operation": "run",
+      "state": "succeeded",
+      "created_at": 1792803689.2152588,
+      "worker_exit_confirmed_at": 1792803699.0483832,
+      "elapsed_s": 9.83312439918518
+    },
+    {
+      "task_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+      "operation": "run",
+      "state": "succeeded",
+      "created_at": 1792803363.9153016,
+      "worker_exit_confirmed_at": 1792803373.7184117,
+      "elapsed_s": 9.803110122680664
+    },
+    {
+      "task_id": "a803f4ca-83f2-4031-a31c-af5213fc71d8",
+      "operation": "com",
+      "state": "succeeded",
+      "created_at": 1792803373.7310054,
+      "worker_exit_confirmed_at": 1792803380.9549258,
+      "elapsed_s": 7.2239203453063965
+    },
+    {
+      "task_id": "a8642af8-3ded-45a2-901a-f5c0d8b54948",
+      "operation": "com",
+      "state": "succeeded",
+      "created_at": 1792803699.062817,
+      "worker_exit_confirmed_at": 1792803706.2906666,
+      "elapsed_s": 7.22784948348999
+    },
+    {
+      "task_id": "c6309eb1-78d6-486a-83a7-8bb2dd1082b3",
+      "operation": "run",
+      "state": "cancelled",
+      "created_at": 1792803742.489369,
+      "worker_exit_confirmed_at": 1792803747.9590843,
+      "elapsed_s": 5.469715356826782
+    },
+    {
+      "task_id": "0521cea2-bd79-48c3-9202-41ae1a33d0fd",
+      "operation": "run",
+      "state": "failed",
+      "created_at": 1792803640.0377345,
+      "worker_exit_confirmed_at": 1792803643.4059055,
+      "elapsed_s": 3.368170976638794
+    }
+  ],
+  "CLI_cost": {
+    "command": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "run",
+      "--extra",
+      "web",
+      "pybert",
+      "sim",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\light-compat-20261024-091034\\native-cli.yaml",
+      "--results",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\light-compat-20261024-091034\\native-cli.pybert_data"
+    ],
+    "exitcode": 0,
+    "elapsed_s": 7.73213050000777,
+    "result_exists": true
+  },
+  "COM_budget": "original defaults 139756144 outer candidates / local_search=0; BLOCKED_BUDGET / NOT_EXECUTED; spreadsheet 77 upper bound, actual direct FOM38; no extrapolated duration",
+  "service_ports_closed": {
+    "8767": true,
+    "8768": true
+  },
+  "production_last_index_idle": true,
+  "input_A_removed_from_Git_tracking_only_retained_bytes": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+  "passed": true
+}

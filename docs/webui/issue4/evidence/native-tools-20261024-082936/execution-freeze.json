@@ -1,0 +1,63 @@
+{
+  "before_first_COM_calculation": true,
+  "fixture_sha256": "8d953b64ccc1e9afd57ac336679bf4e47156258e4cec4d4d023ce4c6d08ce381",
+  "corrected_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+  "budget_correction_sha256": "b7761e03b64385c51978413b33b85b11383c415e40ccc6c7af3f305247e68321",
+  "case": "F4-COM-XLS",
+  "thru": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p",
+    "bytes": 2454034,
+    "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+    "source_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\chnl_data\\example2_THRU.s4p",
+    "source": "PyChOpMarg ca905e793fcf6330929471317ca32e7611578e5d / chnl_data/example2_THRU.s4p",
+    "permission": "BSD-3-Clause submodule LICENSE",
+    "ports": 4,
+    "f_hz": [
+      0.0,
+      40000000000.0
+    ],
+    "n_frequency": 4001,
+    "s_unit": "dimensionless complex",
+    "z0_unit": "ohm",
+    "z0_ohm": [
+      50.0
+    ],
+    "finite": true,
+    "source_bytes_unmodified": true
+  },
+  "configuration": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+    "bytes": 30208,
+    "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+    "source_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\config\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+    "source": "PyChOpMarg ca905e793fcf6330929471317ca32e7611578e5d / config original spreadsheet",
+    "permission": "BSD-3-Clause submodule LICENSE"
+  },
+  "scalar_db_tolerance": {
+    "rtol": 1e-10,
+    "atol": 1e-09
+  },
+  "engine_processes": 1,
+  "parameters": "exact original spreadsheet; no search/physical settings changed",
+  "default_COM": "BLOCKED_BUDGET / NOT_EXECUTED",
+  "python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+  "modules": {
+    "pybert": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\__init__.py",
+    "pychopmarg": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\__init__.py",
+    "pyibisami": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\__init__.py"
+  },
+  "sources": {
+    "src\\pybert\\web\\__init__.py": "07511ce2fefebaaeed0cb403bdd7d9c9db335f517422c5892fd485b409708d30",
+    "src\\pybert\\web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "src\\pybert\\web\\com.py": "b6c453fc1c934c75839218f4207f6b5362ce979f62290fef92a0861ee3e181e2",
+    "src\\pybert\\web\\config.py": "55b25db261e7fe16942e24d03465223633614c4a8e35863789242b38f5e52c48",
+    "src\\pybert\\web\\data.py": "a29e49f6ccdb0d675ecd5bc031c4f90f6caff3367a45144443f633dd4e7e1c12",
+    "src\\pybert\\web\\resource_data.py": "504420d86287f73ed60cf7a3a881a80600972e8180446b4d368fdf2ce8d6e626",
+    "src\\pybert\\web\\resources.py": "8369ed3ea1f812dc811390812450a92ef52769cd125250eac0b8beceeff96730",
+    "src\\pybert\\web\\server.py": "e837d5c89d6c2577da49670ab9de9a709846f47678251b5a7e8e49189d724fc1",
+    "src\\pybert\\web\\tasks.py": "5d15a52da216dc14985173ae3531722f948b21d22fe736adccb5c28fbaac9d26",
+    "src\\pybert\\web\\worker.py": "33b2382cef18d199363ad58a5e31b3344e58550e3e6a6f49f4090151a3b6b556",
+    "src\\pybert\\models\\com.py": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+    "tools\\verify_web_resource_tools.py": "b8c801d38544f48c4ceb23d2334fe8e4f4a2535418e4d6b2403e91392e561610"
+  }
+}

@@ -1,0 +1,297 @@
+- generic [ref=e1]:
+  - link "跳到参数详情" [ref=e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=e3]:
+    - link "PyBERT 数据源" [ref=e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=e8]:
+        - strong [ref=e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=e10]:
+      - text: 模块目录
+      - generic [ref=e11]: 16 MODULES
+    - navigation "选择模块" [ref=e12]:
+      - generic [ref=e3077]:
+        - heading "主信号链" [level=2] [ref=e3078]
+        - button "Source" [ref=e3079] [cursor=pointer]
+        - button "Tx EQ" [ref=e3081] [cursor=pointer]: •
+        - button "Channel" [ref=e3083] [cursor=pointer]: •
+        - button "Noise" [ref=e3085] [cursor=pointer]
+        - button "Rx CTLE" [ref=e3087] [cursor=pointer]
+        - button "Rx FFE" [ref=e3089] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=e3091] [cursor=pointer]
+        - button "Observe" [ref=e3093] [cursor=pointer]
+      - generic [ref=e3095]:
+        - heading "控制与判决旁支" [level=2] [ref=e3096]
+        - button "CDR" [ref=e3097] [cursor=pointer]
+        - button "AGC" [ref=e3099] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=e3101] [cursor=pointer]
+      - generic [ref=e3103]:
+        - heading "全局设置与工具" [level=2] [ref=e3104]
+        - button "Simulation" [ref=e3105] [cursor=pointer]
+        - button "Device models" [ref=e3107] [cursor=pointer]
+        - button "IBIS-AMI" [ref=e3109] [cursor=pointer]
+        - button "Optimizer" [ref=e3111] [cursor=pointer]
+        - button "COM" [ref=e3113] [cursor=pointer]: •
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - searchbox "搜索所有模块和参数" [ref=e62]
+          - generic [aria-hidden] [ref=e63]: /
+        - status [ref=e64]:
+          - strong [ref=e3115]: 草稿已保留
+          - generic [ref=e3116]: 5 项设置已修改
+        - button "恢复全部默认" [ref=e67] [cursor=pointer]
+    - generic [ref=e68]:
+      - button "Run" [ref=e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=e70]
+      - status [ref=e71]: com a4dbc128 · cancelled · cancelled · Cancelled before validation
+      - generic [ref=e72]: F-NRZ-01.yaml
+      - button "Load Config" [ref=e73] [cursor=pointer]
+      - button "资源 / COM" [ref=e74] [cursor=pointer]
+      - button "Save" [ref=e75] [cursor=pointer]
+      - button "Save As…" [ref=e76] [cursor=pointer]
+      - button "Help / About" [ref=e77] [cursor=pointer]
+      - button "Disconnect" [ref=e78] [cursor=pointer]
+    - status [ref=e79]: "DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it."
+    - status [ref=e80]: 已载入 F-NRZ-01.yaml；未自动 Run。
+    - status "run_id=16b97811-8219-41bb-9a96-1e8571e98cf5; com_id=none" [ref=e2481]: 核心结果成功 · 16b97811；COM 未随此 Run 启用
+    - main [ref=e82]:
+      - group [ref=e83]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=e84] [cursor=pointer]
+      - region "链路总览" [ref=e85]:
+        - generic "切换实现图示" [ref=e86]:
+          - generic [ref=e87]: 实现方案
+          - generic [ref=e88]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=e89] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e90]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=e91] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e92]:
+            - checkbox "请求模型时钟" [disabled] [ref=e93]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=e94] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e3117]:
+              - button "Source：NRZ · PRBS-7，查看设置" [ref=e3118] [cursor=pointer]:
+                - strong [ref=e3119]: Source
+                - generic [ref=e3120]: NRZ · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=e3122] [cursor=pointer]:
+                - strong [ref=e3123]: Tx EQ
+                - generic [ref=e3124]: Native FFE
+              - button "Channel：文件串接 · 两端电气，查看设置" [ref=e3126] [cursor=pointer]:
+                - strong [ref=e3127]: Channel
+                - generic [ref=e3128]: 文件串接 · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=e3130] [cursor=pointer]:
+                - strong [ref=e3131]: Noise
+                - generic [ref=e3132]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=e3134] [cursor=pointer]:
+                - strong [ref=e3135]: Rx CTLE
+                - generic [ref=e3136]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=e3138] [cursor=pointer]:
+                - strong [ref=e3139]: Rx FFE
+                - generic [ref=e3140]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=e3142] [cursor=pointer]:
+                - strong [ref=e3143]: DFE / Slicer
+                - generic [ref=e3144]: 自适应反馈 / 判决
+            - generic [ref=e3145]:
+              - button "Device models" [ref=e3147] [cursor=pointer]
+              - button "Observe" [ref=e3149] [cursor=pointer]
+              - generic [ref=e3150]:
+                - button "CDR" [ref=e3151] [cursor=pointer]
+                - button "AGC" [ref=e3152] [cursor=pointer]
+                - button "↗ Viterbi" [ref=e3153] [cursor=pointer]
+        - status [ref=e134]:
+          - generic [aria-hidden] [ref=e3154]: i
+          - generic [ref=e3155]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=e137]:
+        - text: ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳
+        - region "Native run analysis" [ref=e241]:
+          - generic [ref=e242]:
+            - generic [ref=e243]:
+              - text: Selected run
+              - combobox "Selected run" [ref=e244]:
+                - option "Select successful run…"
+                - option "NRZ · 57183d8c"
+                - option "NRZ · 16b97811" [selected]
+            - generic [ref=e2051]: Older input · draft or resource binding changed
+          - generic [ref=e246]:
+            - text: Analysis
+            - combobox "Analysis" [ref=e247]:
+              - option "Responses"
+              - option "Waveform"
+              - option "Eye"
+              - option "Jitter Dist." [selected]
+              - option "Jitter Spec."
+              - option "Jitter Bathtub"
+              - option "Jitter Info"
+              - option "DFE Adaptation"
+              - option "CDR Adaptation"
+              - option "CDR Histogram"
+              - option "CDR Spectrum"
+              - option "Run overview"
+              - option "Run input comparison"
+          - generic [ref=e250]:
+            - generic [ref=e251]:
+              - text: Point
+              - combobox "Point" [ref=e252]:
+                - option "Follow node"
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output" [selected]
+            - generic [ref=e253]:
+              - text: Compare
+              - combobox "Compare" [ref=e254]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Restore settings" [ref=e2083] [cursor=pointer]
+          - generic "Selected run plot" [ref=e258]:
+            - generic [ref=e2483]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: −40
+                      - generic: −20
+                      - generic: "0"
+                      - generic: "20"
+                      - generic: "40"
+                    - generic:
+                      - generic: "0"
+                      - generic: "0.02"
+                      - generic: "0.04"
+                      - generic: "0.06"
+                      - generic: "0.08"
+              - img:
+                - generic:
+                  - generic [ref=e2500]:
+                    - generic [ref=e2501]:
+                      - generic [ref=e2502]: Total PDF
+                      - generic [ref=e2503] [cursor=pointer]
+                    - generic [ref=e2504]:
+                      - generic [ref=e2505]: Data-independent PDF
+                      - generic [ref=e2506] [cursor=pointer]
+                  - generic: DFE summing-node output · dist
+                  - generic: ps
+                  - generic: 1/ps
+              - toolbar [ref=e2507]:
+                - button "Download plot as a PNG" [ref=e2509] [cursor=pointer]
+                - generic [ref=e2510]:
+                  - button "Zoom" [ref=e2511] [cursor=pointer]
+                  - button "Pan" [ref=e2512] [cursor=pointer]
+                - generic [ref=e2513]:
+                  - button "Zoom in" [ref=e2514] [cursor=pointer]
+                  - button "Zoom out" [ref=e2515] [cursor=pointer]
+                  - button "Autoscale" [ref=e2516] [cursor=pointer]
+                  - button "Reset axes" [ref=e2517] [cursor=pointer]
+          - generic [ref=e260]:
+            - paragraph [ref=e2518]: DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling. Zoom/pan and double-click reset do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.
+            - group [ref=e2519]:
+              - generic "16b97811-8219-41bb-9a96-1e8571e98cf5 · jitter.dfe.dist · NRZ · input f77ff35f1928" [ref=e2520]
+      - group [ref=e261]:
+        - generic "Task logs / selected run logs" [ref=e262]
+  - dialog [ref=e2295]:
+    - button "关闭" [active] [ref=e2296] [cursor=pointer]
+    - heading "资源内容与独立 COM" [level=2] [ref=e2297]
+    - paragraph [ref=e2298]: 上传或显式登记路径后冻结 bytes / SHA-256。配置只保存引用和绑定身份，不附带资源；inactive 旧路径可保留。级联顺序和重复元素均保留。
+    - generic [ref=e2299]:
+      - text: 目标字段
+      - combobox "目标字段" [ref=e2300]:
+        - option "ch_file"
+        - option "ch_files"
+        - option "com_cfg_file" [selected]
+    - generic [ref=e2301]:
+      - text: 本机绝对路径
+      - textbox "本机绝对路径" [ref=e2302]:
+        - /placeholder: C:/.../channel.s4p
+        - text: C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/docs/webui/issue4/local/resources/config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls
+    - button "登记并绑定" [ref=e2303] [cursor=pointer]
+    - generic [ref=e2304]:
+      - text: 已登记资源
+      - combobox "已登记资源" [ref=e2305]:
+        - option "选择已冻结资源" [selected]
+        - option "example2_THRU.s4p · 41d8f6343771"
+        - option "002_peters_01_0605_B1_thru.s4p · e4be2f6cdd2f"
+        - option "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls · 18901409eeb0"
+        - option "invalid-com.xls · 9194e625c139"
+    - button "绑定当前引用" [ref=e2306] [cursor=pointer]
+    - status [ref=e2307]: COM a4dbc128-d042-43fd-b4a8-ede21c019527 已提交
+    - generic [ref=e2308]:
+      - heading "ch_file" [level=4] [ref=e3245]
+      - generic [ref=e3247]:
+        - text: "0: (empty)"
+        - code [ref=e3248]: UNBOUND
+      - heading "ch_files" [level=4] [ref=e3249]
+      - generic [ref=e3250]:
+        - generic [ref=e3251]:
+          - text: "0: 002_peters_01_0605_B1_thru.s4p"
+          - code [ref=e3252]: e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e.s4p
+        - button "bind" [ref=e3253] [cursor=pointer]
+        - button "up" [ref=e3254] [cursor=pointer]
+        - button "down" [ref=e3255] [cursor=pointer]
+        - button "duplicate" [ref=e3256] [cursor=pointer]
+        - button "remove" [ref=e3257] [cursor=pointer]
+      - generic [ref=e3258]:
+        - generic [ref=e3259]:
+          - text: "1: example2_THRU.s4p"
+          - code [ref=e3260]: 41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p
+        - button "bind" [ref=e3261] [cursor=pointer]
+        - button "up" [ref=e3262] [cursor=pointer]
+        - button "down" [ref=e3263] [cursor=pointer]
+        - button "duplicate" [ref=e3264] [cursor=pointer]
+        - button "remove" [ref=e3265] [cursor=pointer]
+      - heading "com_cfg_file" [level=4] [ref=e3266]
+      - generic [ref=e3268]:
+        - text: "0: C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+        - code [ref=e3269]: 18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls
+    - group [ref=e2334]:
+      - generic "完整资源清单与内容身份" [ref=e2335]
+    - group [ref=e2336]:
+      - generic "配置导入 / 未解析引用 / runtime extensions" [ref=e2337]
+    - group [ref=e2338]:
+      - generic "所选成功 Run 的实际端口 / 覆盖 / 解析记录" [ref=e2339]
+    - generic [ref=e2340]:
+      - text: Load YAML 的显式本机基目录（可选）
+      - textbox "Load YAML 的显式本机基目录（可选）" [ref=e2341]:
+        - /placeholder: 留空则保留未绑定相对引用
+    - separator [ref=e2342]
+    - heading "COM · 单 THRU 工具" [level=3] [ref=e2343]
+    - paragraph [ref=e2344]: 使用原 calc_com；独立参数，不继承当前 EQ、bitrate、noise、FEXT 或 package。默认 IEEE_8023dj 搜索很大；调用内部没有取消检查点，Abort 在返回后观察。
+    - generic [ref=e2345]:
+      - text: THRU .s4p
+      - combobox "THRU .s4p" [ref=e2346]:
+        - option "选择 .s4p"
+        - option "example2_THRU.s4p · 41d8f6343771" [selected]
+        - option "002_peters_01_0605_B1_thru.s4p · e4be2f6cdd2f"
+    - generic [ref=e2347]:
+      - text: COM 参数
+      - combobox "COM 参数" [ref=e2348]:
+        - option "明确采用 IEEE_8023dj defaults"
+        - option "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls · 18901409eeb0" [selected]
+        - option "invalid-com.xls · 9194e625c139"
+    - generic [ref=e2349]:
+      - checkbox "关联当前选中成功 run（可选）" [ref=e2350]
+      - text: 关联当前选中成功 run（可选）
+    - button "独立计算 COM" [ref=e2351] [cursor=pointer]
+    - generic [ref=e2800]:
+      - group [ref=e3270]:
+        - generic "e6e6867a-a976-4e47-a7bd-ee53767a2f9e · succeeded · -15.419984103 dB · 匹配当前工具选择" [ref=e3271]
+      - group [ref=e3272]:
+        - generic "c922f333-2a39-4fe3-abd0-5793c9bba535 · failed · 旧输入 / 与当前工具选择不同" [ref=e3273]
+      - group [ref=e3274]:
+        - generic "a4dbc128-d042-43fd-b4a8-ede21c019527 · cancelled · 匹配当前工具选择" [ref=e3275]

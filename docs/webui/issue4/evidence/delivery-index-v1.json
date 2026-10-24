@@ -1,0 +1,1357 @@
+{
+  "implementation_cut": "5fff0412b4cde14591ef0b9c1986be7505ac0e2b",
+  "scope": "all versioned issue4 artifacts except this self-referential index; raw/input inventories are separate retained local evidence in delivery seals",
+  "files": [
+    {
+      "path": "docs/webui/issue4/.gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "docs/webui/issue4/.gitignore",
+      "bytes": 41,
+      "sha256": "a5f97af31d57d0600a03f281c7df1a2f6b29df2ce25355acf87ee101edde4d07"
+    },
+    {
+      "path": "docs/webui/issue4/README.md",
+      "bytes": 14447,
+      "sha256": "e244a2b82e40306abd1ca7a5c305f4afda8ec31862fae8789b0356411adfe023"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/0521cea2-bd79-48c3-9202-41ae1a33d0fd/request.json",
+      "bytes": 23564,
+      "sha256": "54701b1c02c11f2e55ee662204f21da0f1ec3d8c66d95f64a795ca5e3cfd5a72"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/16b97811-8219-41bb-9a96-1e8571e98cf5/manifest.json",
+      "bytes": 354766,
+      "sha256": "02c3b130e84fa24c0e1cbf4999c66faa8d9542bdb3b350ff861af1f2d2ef2a69"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/16b97811-8219-41bb-9a96-1e8571e98cf5/request.json",
+      "bytes": 22578,
+      "sha256": "4fe4482e4ae20301b87e21dd6df2368486a88c5be0f9d8d6f75e5e9e95ef894d"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/57183d8c-6a6d-4567-b0d6-628f55c48c61/manifest.json",
+      "bytes": 354760,
+      "sha256": "e989462956e412a3989fd46ceadfa458702463d335d21d4bc8b4f2a3ee9978e4"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/57183d8c-6a6d-4567-b0d6-628f55c48c61/request.json",
+      "bytes": 22577,
+      "sha256": "11fae429b5dc9e9b6c81a213972d12748ffd7dfeb95ebf2cba3f1360e0303dab"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/AB-active.json",
+      "bytes": 36382,
+      "sha256": "30291e3e6d49517e5429554a70773c1ef45e458d3e8ccb345f5546c40f42256b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/BA-success.json",
+      "bytes": 121651,
+      "sha256": "7443cf55058b2c51d1e0e4b1fa7b9cd64293d29f1c02b7cf1dc4a4796f6a4733"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/COM-cancel-prevalidation-attempt.json",
+      "bytes": 94266,
+      "sha256": "4004a8466d13f733958af1ec8221f039cf3e6d7d2eeba2809f1b8edad92d5913"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/COM-helper-cancel-exited.json",
+      "bytes": 101524,
+      "sha256": "cdf1bcffe1812eb6dab01630da5826d863327289dbcfb45a49139c7678700986"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/a4dbc128-d042-43fd-b4a8-ede21c019527/request.json",
+      "bytes": 2054,
+      "sha256": "6842e23c2b676824948c67b29733a293c0728a2abc6ea1a8c8e1791ec04b27b5"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/a803f4ca-83f2-4031-a31c-af5213fc71d8/com-input.json",
+      "bytes": 7442,
+      "sha256": "fdb9313f5ab20a7283f15233092c23f368d4063eac054f376ffa9d92d06684f5"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/a803f4ca-83f2-4031-a31c-af5213fc71d8/com.json",
+      "bytes": 8606,
+      "sha256": "d9174b43999dea95ec46935d735e0041a371b1d3028d534549b387236b4a993a"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/a803f4ca-83f2-4031-a31c-af5213fc71d8/request.json",
+      "bytes": 2079,
+      "sha256": "2c318426874871ec45a2ed0db0534b1fddf771bfbdd7108ebb854929a8d15809"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/a8642af8-3ded-45a2-901a-f5c0d8b54948/com-input.json",
+      "bytes": 7596,
+      "sha256": "96a2fc60ba0a3bf573656e550ea0b9ca9b96d2d37e71d36620e16835c481b166"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/a8642af8-3ded-45a2-901a-f5c0d8b54948/com.json",
+      "bytes": 8760,
+      "sha256": "4a4435f5f975053e9ed281ba404ddab9485814c08f6da001b9ac6afc14a66865"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/a8642af8-3ded-45a2-901a-f5c0d8b54948/request.json",
+      "bytes": 2233,
+      "sha256": "85d429319326f06992eda755150eb2d2ea119238103983e45a1df7a879c16934"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/b6b85201-e481-4c69-98ce-c66650043535/com-input.json",
+      "bytes": 7225,
+      "sha256": "3ba45496d95cc62e866442c7daeb1ed354e37b79b5ddb8f1ad7781654be756fb"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/b6b85201-e481-4c69-98ce-c66650043535/request.json",
+      "bytes": 2054,
+      "sha256": "6842e23c2b676824948c67b29733a293c0728a2abc6ea1a8c8e1791ec04b27b5"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/browser-audit-v1.json",
+      "bytes": 125473,
+      "sha256": "1da83e43db7ea1d26ec0a67db8b4a98cfa0138c1b8a57c80f46e31c119ca19b0"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/c3cadfdc-13e8-4ed9-bee3-b3b11462cd96/manifest.json",
+      "bytes": 354368,
+      "sha256": "e6585bae9dc9bcdfe3a133cd202994d73b888cf13b55d89126ba3f2159fa3512"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/c3cadfdc-13e8-4ed9-bee3-b3b11462cd96/request.json",
+      "bytes": 23413,
+      "sha256": "51c08b83c6ce5448d176e0ba615df2b58e722d14024be48e88e69884ac0fe8ae"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/c6309eb1-78d6-486a-83a7-8bb2dd1082b3/request.json",
+      "bytes": 23567,
+      "sha256": "1a18ec05ab4b00cb8e87e3965e54250b19a249f53baba9ff169e5c04c8c16f59"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/c630ff19-02aa-4e21-89b3-a1842a74e78a/manifest.json",
+      "bytes": 354512,
+      "sha256": "23c6b7458bb70273d9725423e9638d65af4547345b8a22f970633acb8a66b956"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/c630ff19-02aa-4e21-89b3-a1842a74e78a/request.json",
+      "bytes": 23567,
+      "sha256": "b751307ec8988a568ed8c742f9c62f7a9ea06e0aa1c262c066b1665a340f7979"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/c922f333-2a39-4fe3-abd0-5793c9bba535/request.json",
+      "bytes": 1993,
+      "sha256": "359e72a7d60c5df535c72c83aa22ed8ee576aa94ba3baf0a6f7e8d210fb2dce4"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/core-DFE-cancel-exited.json",
+      "bytes": 124049,
+      "sha256": "4641aadc11bb6e051a14dc60062d299ad4b9e40f5dafc00d9399976ba70e18a1"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/core-after-child-finished.json",
+      "bytes": 354368,
+      "sha256": "e6585bae9dc9bcdfe3a133cd202994d73b888cf13b55d89126ba3f2159fa3512"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/core-before-child-finished.json",
+      "bytes": 354368,
+      "sha256": "e6585bae9dc9bcdfe3a133cd202994d73b888cf13b55d89126ba3f2159fa3512"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/core-cancel-late-attempt.json",
+      "bytes": 119868,
+      "sha256": "f714960732dda98cf31e74eccf175569815ee9e7f42cec0e616ff236e297d97c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/core-child-success.json",
+      "bytes": 110376,
+      "sha256": "9ccc507990f00463af0b3e9d1b7dacd63b0a670f1ea6caa7a16f5a9551e14527"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/download-resource-roundtrip.yaml",
+      "bytes": 15015,
+      "sha256": "1e64e7c2ece6d918c492dc3931dc574aad9d21379fdc29897e6f84eb2e8d3b6a"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/e6e6867a-a976-4e47-a7bd-ee53767a2f9e/com-input.json",
+      "bytes": 7225,
+      "sha256": "f3826429030ed5c2422f452fe957f1eee1a5090d9f41935c75f9fef37649d274"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/e6e6867a-a976-4e47-a7bd-ee53767a2f9e/com.json",
+      "bytes": 8389,
+      "sha256": "2bd3cfb1e42f7b2529c03575afa43fe9d532e7b0c32abd26eed384c1bc168683"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/e6e6867a-a976-4e47-a7bd-ee53767a2f9e/request.json",
+      "bytes": 2054,
+      "sha256": "6842e23c2b676824948c67b29733a293c0728a2abc6ea1a8c8e1791ec04b27b5"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/final-idle.json",
+      "bytes": 177697,
+      "sha256": "7f545198710119978a37896cbf894c0187155a1aef67cccb4dbd1cb3c8305887"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/inactive-file-picker-v5/70-inactive-reference-ready.yaml",
+      "bytes": 13963,
+      "sha256": "c16a1de98a403eeebbc1a8ef6d2ab0a3760e2e33c583ec234252594c546a4725"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/inactive-file-picker-v5/70-inactive-reference-server.log",
+      "bytes": 21737,
+      "sha256": "f17affe339b2431604a9a10c15c319e84e6a48e4c04a74b7337a9b72e4f0fa60"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/inactive-file-picker-v5/71-inactive-picker-ready.yaml",
+      "bytes": 15843,
+      "sha256": "6a2ce6acf40ede80c66e9edcf226ee64ceb69d87d069e5c9dde61367074aaf89"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/inactive-file-picker-v5/72-inactive-reference-kept.yaml",
+      "bytes": 15776,
+      "sha256": "fc2baa0874c1bd1a69e61fede985fdae99de5f53f6e0eeff7a8eb816cf590518"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/inactive-file-picker-v5/73-inactive-save-ready.yaml",
+      "bytes": 16096,
+      "sha256": "56a072bcf82e059a24ad598f9df8587244bb1c77badc23172de59772a318c10c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/inactive-file-picker-v5/74-inactive-reference-localstorage.txt",
+      "bytes": 6263,
+      "sha256": "22c893576ec136ed3915c599e6518f5611b5aae8d9bc8dabec130d9a1eedce71"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/inactive-file-picker-v5/74-inactive-reference-saved.yaml",
+      "bytes": 15914,
+      "sha256": "2dbe49b566ae303ace32a0eadf1c566b9bb3769781e0cb3be035272c99832c45"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/inactive-file-picker-v5/74-inactive-reference-state.json",
+      "bytes": 147,
+      "sha256": "7c3c68ae033d6b20bcf6a08affc20fb1c80eeaad7d19f2868158b52a8ebf16cd"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/inactive-file-picker-v5/inactive-reference-roundtrip.yaml",
+      "bytes": 14527,
+      "sha256": "484ed055c537948969b29f0c4c1638d784c07178b3d2e36f0c37c0ac61113caa"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/independent-COM-active.json",
+      "bytes": 78124,
+      "sha256": "aca411b1711deafe703b3412b216037a3d34a42df773d68cd06287c69ce3eea5"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/independent-COM-success.json",
+      "bytes": 79418,
+      "sha256": "b052bbe182a4660d2ec0547ef114bfc6862d87f070cb051949f8bb1a7470bfcd"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/invalid-COM-failed.json",
+      "bytes": 88745,
+      "sha256": "fe55ab783443be8d3965c15b4612b0172ca99a0895bf4f91b8dcca7a3f15c281"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/native-File-blocked.json",
+      "bytes": 113471,
+      "sha256": "341dbde9ef4815653397c954f58019e101c5523ec135b34e7426a7339bc5a416"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/native-File-exited.json",
+      "bytes": 164181,
+      "sha256": "ec93be2a649df28e63a37a1a891603669a1e24e4b3d6bfa2431d92488c172177"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/run-child-transitions.json",
+      "bytes": 109707,
+      "sha256": "467915ac92e9bf08cfec2376d7f463e396274e9c4e2575efc7916c3ff2f5509a"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/saved-noise-display-v2/67-saved-noise-checks.json",
+      "bytes": 917,
+      "sha256": "7be3b55951f958b1ef515018b5262acb5f5365805a9b89966297cf1227d555bb"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/saved-noise-display-v2/67-saved-noise-ready.yaml",
+      "bytes": 14365,
+      "sha256": "b6a798b907f622eef1c414955493e51d4a2dcc26cdbb602af5294fb19f721bbe"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/saved-noise-display-v2/67-saved-noise-server.log",
+      "bytes": 202,
+      "sha256": "45137143eb40fa8b3bcfa8af76a8512c812ab004f92eb13ff049486d1a29a676"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/saved-noise-display-v2/serve-saved-noise.py",
+      "bytes": 2310,
+      "sha256": "5ed6d4f32cf528d4770b4fa505590b5afa7895b8eac8fbe31d28fc056949a801"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/04-loaded.yaml",
+      "bytes": 14365,
+      "sha256": "fcec16a6ef74471fd85e19bcd3ed9a440ec1fe2eb1a5e303a7a9124cf3936451"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/05-channel.yaml",
+      "bytes": 23894,
+      "sha256": "9ad208b980839f4bff7f5042d94ffb1754c5143efc8056715c220b4b1408a24b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/06-multiple.yaml",
+      "bytes": 24241,
+      "sha256": "2ececb4f3d0775bb8d62478d3be8527bea0c2ba896de7445c4b49a75d1ac5a1e"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/07-upload-ready.yaml",
+      "bytes": 24700,
+      "sha256": "3b8f5b60dacb9deab8cc051e3c5b6ca25859b144da3081a517b4892c29c1b1ea"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/08-AB-frozen.yaml",
+      "bytes": 24938,
+      "sha256": "91cf45f30cbbd427a1021736cee384a10a0d13ed5aad3c95418f01dcfc81e24c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/08-AB-localstorage.txt",
+      "bytes": 6394,
+      "sha256": "d4616a178f2641d698d3717148f4225ed9c4d12e18165f4a8921cbc4f42a1c9e"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/09-AB-success.yaml",
+      "bytes": 26869,
+      "sha256": "409da5dc9f335076d66fc5d35eed8f5ff6757736ca46e83ee0c7b32872aafb6a"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/15-resources-AB.yaml",
+      "bytes": 14371,
+      "sha256": "be6042ec3ac7a2424a701a0fe3364ce2706315f9f9a03d4f1961776666556886"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/16-reordered-BA.yaml",
+      "bytes": 14371,
+      "sha256": "94179c9beb38a34073fe3bdc57717a120ecf36aa2a83374e259ab946b4d1b4fc"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/17-BA-localstorage.txt",
+      "bytes": 6400,
+      "sha256": "02e71da4870160013ec52ca5c50a9c63cd9ed5f67a32cac35f2d7970a1d4f8dc"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/18-register-C.yaml",
+      "bytes": 14414,
+      "sha256": "71af0749cf36afcf217818664ee0488e2263f8764822bcc4218ce69ea8f3f702"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/19-C-ready.yaml",
+      "bytes": 15022,
+      "sha256": "6ca223eb28ed93f2634ac0ced0d21536bdd76b3e70bdab4e98f8b1a8b682b997"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/20-independent-COM-active.yaml",
+      "bytes": 15108,
+      "sha256": "dc9314204fb810308c3abb250c33bb4999c647ca7520e79a9f6da0f7980bd81b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/21-independent-COM-success.yaml",
+      "bytes": 15149,
+      "sha256": "c174f50c072edfa538c3796a8c1eb7e6ad5727cfc2134ff5eadb8017c10523ee"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/22-invalid-COM-start.yaml",
+      "bytes": 15359,
+      "sha256": "285ee92e3375a604d1772626acc8bf4fb946372e708cb55c74d951f8ba5e28be"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/23-invalid-COM-failed.yaml",
+      "bytes": 15451,
+      "sha256": "11ba839a0bcee9a73d5d62d070a4d9b339749ec788f7a5c196ce1e24716b3eba"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/24-COM-cancel-pending.txt",
+      "bytes": 4783,
+      "sha256": "fb725703f869623449e41dbe3357960d4de38ab270b3b01be6dc6372899402ec"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/25-COM-helper-cancel-ready.yaml",
+      "bytes": 15599,
+      "sha256": "baa9542a7715ed067ab3d405c18bbcea9988568b91d5cb00718908394d89cc1f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/26-COM-helper-cancel-pending.txt",
+      "bytes": 6479,
+      "sha256": "1e7ffd31d04df7c413382eaa32ad3736e1e7d8783583981b26cbc895bdd44008"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/27-COM-helper-cancel-exited.yaml",
+      "bytes": 10544,
+      "sha256": "3eda528dfeddff57a782634122baec514fdfa9c4d02e274c42fdbbc88cc045a1"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/28-single-setup.yaml",
+      "bytes": 27009,
+      "sha256": "8512ba42db25ecfa1f0bd8a52b3f97762d19a24505b162c966f1a0c6d2f31ca2"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/29-single-ready.yaml",
+      "bytes": 26777,
+      "sha256": "0a4ec381894f00ed8ac28dfdfc124efb0e77b7f7cf95a917f17ef6210b8b0028"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/30-single-uploaded.yaml",
+      "bytes": 27145,
+      "sha256": "9e8c5a6fc9076a66c23ca40c6f9320a6350d9fa7958f0faa0aa5c3b660cf3911"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/31-COM-enable.yaml",
+      "bytes": 13516,
+      "sha256": "6059f928287467b97d1cfeb170f9652fd63b625c7f47d19f53ac5361b0efb9c8"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/32-run-child-input.yaml",
+      "bytes": 13440,
+      "sha256": "a6368b31374d4a95334efbcfe236354ad710412978aad2d362f4d963659e26dd"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/33-core-child-success.yaml",
+      "bytes": 13701,
+      "sha256": "d1dcc4547db0dad42a1ae20af3437b1df334d4bd329d3735e0c77df1c6cb3204"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/34-save-as.yaml",
+      "bytes": 14009,
+      "sha256": "d2add5b4dded13747f87d90e15a204e347a466a387e1f1a930e70a8899373a3c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/35-save-as-escape-name.txt",
+      "bytes": 150,
+      "sha256": "83966e34a04809d57b216c0139dbdd2d8e08bcf33e3430c27ed71e86cbfc4aaf"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/36-save-download-ready.yaml",
+      "bytes": 14009,
+      "sha256": "b568fa47ab8e911716f64fdeb2286cd26b7831971066128850d8103246d8e021"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/37-downloaded.yaml",
+      "bytes": 13854,
+      "sha256": "4d206be141617f30aa0a81271a1b77f3c991e3c7bdf564536282a2a7d875ba43"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/38-reloaded-localstorage.txt",
+      "bytes": 6798,
+      "sha256": "26338100754cddbdd30e825aef56eaf9500964a0447d8f9beb0fa4cbd117e49b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/38-saved-reloaded.yaml",
+      "bytes": 13819,
+      "sha256": "fed741f01090c9dd6940c2be05992c1ae06869bd2dd518645527ba8c2f8d7415"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/39-rejected-localstorage.txt",
+      "bytes": 6798,
+      "sha256": "26338100754cddbdd30e825aef56eaf9500964a0447d8f9beb0fa4cbd117e49b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/39-unsafe-rejected.yaml",
+      "bytes": 14147,
+      "sha256": "d3506d12fd03c1f0e38a63e4a92f30307df89767c5462d75a532b8825fcb88f6"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/40-relative-unbound.yaml",
+      "bytes": 13822,
+      "sha256": "82cbf30e16a0f204fe24ad715159d33ebb019d0c27d62056dc6d7343bb012ca4"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/40-unbound-localstorage.txt",
+      "bytes": 6452,
+      "sha256": "474eb49136fab138a7e0c34152b96b1628670e5907d863a212b48847f235fb51"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/41-explicit-base-ready.yaml",
+      "bytes": 19040,
+      "sha256": "b1a2f1acdc9be6418d3e753c80de4f3266430fee1962da3ac5e75d0fb0683426"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/42-explicit-base-bound.yaml",
+      "bytes": 13822,
+      "sha256": "1e3e2221285a830ddbcf1d68541d9642964b6ad538653e5c36dbeaaeb1498277"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/42-explicit-base-localstorage.txt",
+      "bytes": 6626,
+      "sha256": "1f758621f1f0fd47c70313124d205e7e53df57006dfb0b52e9cb1e23336a0f00"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/43-legacy-inactive.yaml",
+      "bytes": 13410,
+      "sha256": "a18d1c2d5c26f898ff0c5fb9d5fcda953455d4c9b26a18d3687a44de6664f46b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/43-legacy-localstorage.txt",
+      "bytes": 6249,
+      "sha256": "3f27b4b41a2c5d387637120baaa63558fbe7bfeb2b52de66efdaae01714d24df"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/44-legacy-save-yaml.yaml",
+      "bytes": 13645,
+      "sha256": "399b198801128f0ee36035fa7a4ca3164298a766d45de6002cd5cc15fd3e6875"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/45-ctle-native.yaml",
+      "bytes": 17357,
+      "sha256": "dac72409c4a4b2e4bdaa8ed5966a97348578be1d41a8910f62e7b41abe170671"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/46-native-File-block-start.yaml",
+      "bytes": 17622,
+      "sha256": "9f40668b47d241c3ad53e77b2b50f248b9fd34f2c441a2a689eacc0894aa1401"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/47-native-File-blocked.yaml",
+      "bytes": 17713,
+      "sha256": "59b268982d55e2a26255e7e5748c51fa84963ee481ef6de61c33dce7c7337819"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/48-native-restored.yaml",
+      "bytes": 17283,
+      "sha256": "908ef7cf1bbdc16db230f0c7d62bd9a0bfe808ec8fa4427ef5943d797445ec76"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/49-core-DFE-cancel-pending.txt",
+      "bytes": 57,
+      "sha256": "9c46899be7fcc1f6da7f11d5cc2903ab83b3bf400e280c49eb4d1c61204d7d30"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/50-core-cancel-attempt-state.yaml",
+      "bytes": 17242,
+      "sha256": "6820511a23844512bb728f02d844ac6586a17a9c76186cd4d4859e4ded4a7879"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/51-core-DFE-cancel-pending.txt",
+      "bytes": 6243,
+      "sha256": "4edcb9a33ff70f9f956fba0f11bed7035a043e3448bc75896680ca732430e296"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/51-core-DFE-cancel-ready.yaml",
+      "bytes": 17277,
+      "sha256": "f0b2715687b16da72cb00d319baf0aea5edb1764490c088b113145e22cf4f95d"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/52-core-DFE-cancel-exited.yaml",
+      "bytes": 17308,
+      "sha256": "39277432ec0407f761ba39cb12a1ce37573f3a3d13c1a95e232e949f7c967e4e"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/53-duplicate-ready.yaml",
+      "bytes": 22927,
+      "sha256": "b195db4b3f52ec9d9a6ba6837843029c33c83c3ee5ac397f257199bc0be32c0b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/54-duplicate-BBA-localstorage.txt",
+      "bytes": 6906,
+      "sha256": "33a95212938f009879e89bf3bedbc04da7cde75ed18506d8e53d573584e6dbc1"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/54-duplicate-BBA.yaml",
+      "bytes": 23410,
+      "sha256": "0356f21e25abae5b0fa82d2c9d00311f0eef55c8660607ba500a358d563af223"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/55-restored-BA.yaml",
+      "bytes": 22902,
+      "sha256": "cba1b401cea7b51146b26f14751c800e4cff127e2c24d2659922d22ec3c404de"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/56-COM-details-collapse-before.txt",
+      "bytes": 393,
+      "sha256": "afb2a27071750c3f8f606444e659dc118283214f5abddaa6c91ab32baebd43de"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/57-reloaded-ui-fix.yaml",
+      "bytes": 17484,
+      "sha256": "9a50c73ec8a3d14f4d0b419569511789e824717a228c83f460a972c5267ce257"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/58-history-ready.yaml",
+      "bytes": 17484,
+      "sha256": "9a50c73ec8a3d14f4d0b419569511789e824717a228c83f460a972c5267ce257"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/59-COM-details-persist-after.txt",
+      "bytes": 496,
+      "sha256": "3c365ea7644d3bb9bcf1614120414c9ffe826cec910db3fa5cce7b7aa0adbd76"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/60-history-ready.yaml",
+      "bytes": 17484,
+      "sha256": "9a50c73ec8a3d14f4d0b419569511789e824717a228c83f460a972c5267ce257"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/61-history-open.yaml",
+      "bytes": 24866,
+      "sha256": "b81e19b65ba7c803d11541efb7bfeec110727fde2a51fe71fe2282b431a1e2c1"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/62-COM-details-persist-after.txt",
+      "bytes": 53,
+      "sha256": "a132c264a0035a54f58874eb1d7f29438ddc5a93baad4884234856847f4dd87e"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/63-history-fix-retest-ready.yaml",
+      "bytes": 23007,
+      "sha256": "2b8199cb3e641be0ba9857dd6641cabcbd4d7a62b64025e0066a29a306e4b02f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/64-COM-details-persist-final.txt",
+      "bytes": 618,
+      "sha256": "4b747e8db0e47cb901b504f87f64198248cdd70389ea91da349184d3ffa0efa4"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/64-console.txt",
+      "bytes": 58,
+      "sha256": "5e022534a5fe0feeb06a8fc815ff2ad8e4598aae62e789579db7dbcbfb58bc2a"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/65-comparison-ready.yaml",
+      "bytes": 17484,
+      "sha256": "8849aad9368d4f039b2d6ad99797fdfd72d15c7d0ea3288d07f1d51fc2f19b85"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/66-browser-environment.txt",
+      "bytes": 348,
+      "sha256": "1e2ca216051336c2f4686eb3b3952a7fa07fe9c224a65f2558753edda79f2335"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/66-final-localstorage.txt",
+      "bytes": 6798,
+      "sha256": "26338100754cddbdd30e825aef56eaf9500964a0447d8f9beb0fa4cbd117e49b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/cancel-com.js",
+      "bytes": 1103,
+      "sha256": "83ab5255e4412d47e5937a1c9d06e12d6ded4e3900d79610d31f119b00676e0a"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/cancel-core.js",
+      "bytes": 1265,
+      "sha256": "a8a2c15a44b2e2df8580c140b8ae9e6ede34d9a6b4cd8d25a7f28f23e9e6e02f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/cli.ps1",
+      "bytes": 233,
+      "sha256": "752219d3628a0d260a2ed4370d68cf4470ef086b215b799dd97db89571f56a9c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/initial-console.log",
+      "bytes": 290,
+      "sha256": "da02195c88fe4fa28c148219920eba6df862cdf4b3b67496c9b4bfb9047904cf"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/issue4-chrome-config.json",
+      "bytes": 130,
+      "sha256": "f627941527feac5cce25a88efbbee1214f23b974356c60d1a2d4a43e764ea780"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/reorder-BA.js",
+      "bytes": 286,
+      "sha256": "5449f540eb1956e97ef0a1ab7205623513209f568c226ef364fb851eacd416f1"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/wait-plot.js",
+      "bytes": 752,
+      "sha256": "9f3cf185e48d93636a9b7d2c00d97958de73aab703461a899ddb300be088c74f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/chrome-20261024/ui/watch-child.py",
+      "bytes": 2202,
+      "sha256": "ca26ba5f4be619a197cc7c5ed355a2aebfc8dc472d9a5d81015ccdd58f469169"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/corrected-native-execution-v2.json",
+      "bytes": 10826,
+      "sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/corrected-native-precheck-v2.json",
+      "bytes": 1714,
+      "sha256": "4775b02a47dc8eddb3e162edfab331ba7af441cfa14658752ef0079544f55b3f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/delivery-final-source-v2.json",
+      "bytes": 3865,
+      "sha256": "1dd7ee7878a80f0896787b935f2abaa8cb27c038430b71542378cdf76ef4a8e3"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/delivery-source-and-cost-v1.json",
+      "bytes": 45740,
+      "sha256": "3fd573724604ddd055446a7c308f6775ce0f1dc3cab4d5cae4ceee25b3a66ecf"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/execution-freeze-v1.json",
+      "bytes": 15621,
+      "sha256": "e63f467d2c844ffe005ed772bc85a68bbe5398039df4ebbecec5d97e36ae7e70"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/final-resource-com-contracts-v4.log",
+      "bytes": 18219,
+      "sha256": "cb25b7dec52045af53f9f17b326df7313367aa053539d726650e5fdcb8608236"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/final-resource-com-contracts-v4.xml",
+      "bytes": 4877,
+      "sha256": "84f694181c56bc0c10f703d2dd1f03bbe84424aef03a81c50be18ec4768a752b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/inactive-file-storage-v5.log",
+      "bytes": 100,
+      "sha256": "e661102544a16472e0eafc783bf3da6b1f1441bf61b7c2e3b9dfaeb7296dc903"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/initial-contract-results.json",
+      "bytes": 718,
+      "sha256": "c89e94d8a6c3ca2bba9eff8b7ab6a94ec4e8750655d526dc079b03025560523d"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/light-compat-20261024-091034/before-calls.json",
+      "bytes": 1062,
+      "sha256": "93f579d8103c1dae5aadb03df042b5e66f3f2765b4ef020b5759f86a78db6596"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/light-compat-20261024-091034/native-cli.stderr.txt",
+      "bytes": 524,
+      "sha256": "b96dab050e45d63f77cd604aa274a559eaf807dc8758a5c3336f87e9845ddc05"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/light-compat-20261024-091034/native-cli.stdout.txt",
+      "bytes": 231,
+      "sha256": "d0fa3a5651c191685029d41f64c58859a86f848d7428624cfad191fa3f081430"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/light-compat-20261024-091034/native-cli.yaml",
+      "bytes": 15699,
+      "sha256": "16f806863db8b9be86b31327d04a4cee514e9607580eab435be04ef9159e3171"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/light-compat-20261024-091034/original_pybert.py",
+      "bytes": 73389,
+      "sha256": "288484c67101820f70db99f7f0a7892038103e1aad82c7961a5076432cc96382"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/light-compat-20261024-091034/report.json",
+      "bytes": 4478,
+      "sha256": "381f5e768c9c0db03fdf549c82501bee16c009f1cb1bde1ba14598855b31f913"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/light-compat-20261024-091034/saved-cli-check-v2.json",
+      "bytes": 3948,
+      "sha256": "fb5f6e4b4b01e55a752434a9d8119be537f79e505f12ae24ba6d96b6463c72fb"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-port-boundary-v2.json",
+      "bytes": 3497,
+      "sha256": "092b62d85fa3f640181083ded9900d4f472e3ccbfaf76f94e33f659196636646"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-resource-precheck-v1.json",
+      "bytes": 6151,
+      "sha256": "d6997605aacf6ba5f8c3469919e4e1d039dc5ff309f89acf79554dd0ec33f755"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-src_pybert_models_bert.py.txt",
+      "bytes": 63980,
+      "sha256": "e747099eba0a20d9309654d008c7773bee14b6e3ea3458b9228a45f04059276f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-src_pybert_pybert.py.txt",
+      "bytes": 73389,
+      "sha256": "288484c67101820f70db99f7f0a7892038103e1aad82c7961a5076432cc96382"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-src_pybert_utility_sparam.py.txt",
+      "bytes": 19783,
+      "sha256": "a7ed41af1a0d01e9486d0c7e612bd423dc608b89a2a643b5fcea18f911030ee3"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-tools-20261024-082936/direct-merged-console.log",
+      "bytes": 394,
+      "sha256": "541c12a48dba0e09830e6897c1c48178933f68bddab52e16c2cba28612c14043"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-tools-20261024-082936/execution-freeze.json",
+      "bytes": 3899,
+      "sha256": "194c1e30cb7975f4968abf21ced9b27a85a72750449b1c01f2bbd2f5f9bde159"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-tools-20261024-082936/report.json",
+      "bytes": 16191,
+      "sha256": "19cab6491b7651f9f2fae00e08ab6429faf98d61665e284dec737eaf17d0ba0f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-tools-20261024-082936/worker/aa2f130a-067d-4ee9-be3d-9407b505c138/com-input.json",
+      "bytes": 7563,
+      "sha256": "91ad3bbd6c53810707592fa612c430d30e29b26b286af226cf6e01ca5d94b4a0"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-tools-20261024-082936/worker/aa2f130a-067d-4ee9-be3d-9407b505c138/com.json",
+      "bytes": 8911,
+      "sha256": "39248d0aa365611fd46bc7153e27e4cdec8c489d05e6874fd9d6782d8ebc589d"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-tools-20261024-082936/worker/aa2f130a-067d-4ee9-be3d-9407b505c138/request.json",
+      "bytes": 2366,
+      "sha256": "4927d76389b8026027999dcd60ead2e30d568c8a26f0bd8844e7d828084b070c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/native-tools-20261024-082936/worker/aa2f130a-067d-4ee9-be3d-9407b505c138/terminal.json",
+      "bytes": 229,
+      "sha256": "d9e714e785b21c2ed377c385241f9df113afde040ce68a4dfe33b9ec4358074f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-073225/F4-SINGLE-NRZ/direct/manifest.json",
+      "bytes": 511869,
+      "sha256": "81624eb3401eb7c1e18a64ecfa4259c29982a7427a2cd5d243d7da20c6486ae6"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-073225/F4-SINGLE-NRZ/worker/5a30ef32-430f-4ef2-85d2-9f811c924cc2/manifest.json",
+      "bytes": 545214,
+      "sha256": "acd24b72e62165d425a6f2de0abd56bb63377e47beba3ab1fda4f9c8fb7ce023"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-073225/F4-SINGLE-NRZ/worker/5a30ef32-430f-4ef2-85d2-9f811c924cc2/request.json",
+      "bytes": 22787,
+      "sha256": "db64e8fac16aa6acfa1eb7306da81487b8631da7312aca39f18aefed60d5885d"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-073225/F4-SINGLE-NRZ/worker/5a30ef32-430f-4ef2-85d2-9f811c924cc2/terminal.json",
+      "bytes": 163,
+      "sha256": "9d758c2b337ed16d7f5b3f8b673897be14452c2e4007f4de5d25a0bec89fd802"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-073225/execution-snapshot.json",
+      "bytes": 5731,
+      "sha256": "d85c5466f412854ab6d99c78fe04faa095d4e6ed35f00af07e2315db422e05c6"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-073225/original_bert.py",
+      "bytes": 63980,
+      "sha256": "e747099eba0a20d9309654d008c7773bee14b6e3ea3458b9228a45f04059276f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-073225/original_pybert.py",
+      "bytes": 73389,
+      "sha256": "288484c67101820f70db99f7f0a7892038103e1aad82c7961a5076432cc96382"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-073225/report.json",
+      "bytes": 265694,
+      "sha256": "68106e6ef58305ce535b61a596d2848fae64984218b122d8af41d49006c7b9ab"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075721/F4-L0-ON/direct/manifest.json",
+      "bytes": 524098,
+      "sha256": "de5d6a80e1885fbf98a19af3f88f86942584de02ad670ac0e98c4507e099e8b7"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075721/F4-L0-ON/worker/d664e202-6f38-4b2e-b8ba-0901decd8268/manifest.json",
+      "bytes": 557918,
+      "sha256": "e7b98d37507b14891b6917e9206b121aea390f7ab19f45777526ebd16ff45e91"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075721/F4-L0-ON/worker/d664e202-6f38-4b2e-b8ba-0901decd8268/request.json",
+      "bytes": 22776,
+      "sha256": "11de924d8cd3b103acefe4376c125df6cb8c62fe03a9cfff9907f6c7aa9e0309"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075721/F4-L0-ON/worker/d664e202-6f38-4b2e-b8ba-0901decd8268/terminal.json",
+      "bytes": 163,
+      "sha256": "7c313e519d6f681846070b65f48c15df4efbd51d228b0c1ffc4e62814633053a"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075721/execution-snapshot.json",
+      "bytes": 5807,
+      "sha256": "1d3f3a6bcb9a032826c2d6425d16f4147f9fe93e08bf3d5472b5ed242a1ae066"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075721/original_bert.py",
+      "bytes": 63980,
+      "sha256": "e747099eba0a20d9309654d008c7773bee14b6e3ea3458b9228a45f04059276f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075721/original_pybert.py",
+      "bytes": 73389,
+      "sha256": "288484c67101820f70db99f7f0a7892038103e1aad82c7961a5076432cc96382"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075721/report.json",
+      "bytes": 468266,
+      "sha256": "d599a0d6b415c0d607744b61db93d689afe65000387bbe88b3ed861d1057f183"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-CASCADE-AB/direct/manifest.json",
+      "bytes": 515103,
+      "sha256": "ec42828c0fb2fc3dabe02e008bf16f993864739ebfb8771105801ca7321ad99c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-CASCADE-AB/worker/5e57b0ab-25ed-4c26-9791-4b0242cd447a/manifest.json",
+      "bytes": 550517,
+      "sha256": "9f6afe087ee8b6e52a12575ba15251c1952b4e5a2000f83a184f7326b9ae5089"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-CASCADE-AB/worker/5e57b0ab-25ed-4c26-9791-4b0242cd447a/request.json",
+      "bytes": 24194,
+      "sha256": "b3090288c7849d35177cf65bd6094919c2d64b532dfada6b0bd1605d25bfa078"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-CASCADE-AB/worker/5e57b0ab-25ed-4c26-9791-4b0242cd447a/terminal.json",
+      "bytes": 163,
+      "sha256": "71d959b211a23205c7c4cf692d569020a9665b00d965d861bf90d8faef7de287"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-CASCADE-BA/direct/manifest.json",
+      "bytes": 515113,
+      "sha256": "8d0f0a4117665e30e14fbf12a31174e3f4a24325372bff09c096566da25d036c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-CASCADE-BA/worker/62bfcc04-03e6-4f98-8d82-41fde0318682/manifest.json",
+      "bytes": 550528,
+      "sha256": "a7fd69d974c347d7186fd9db848389ce35a08f8a5615456863992b6b38115143"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-CASCADE-BA/worker/62bfcc04-03e6-4f98-8d82-41fde0318682/request.json",
+      "bytes": 24194,
+      "sha256": "c29964a38cd68b0127a228c4439f1763366fb4a993e619f843e1f40ad0c50b8f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-CASCADE-BA/worker/62bfcc04-03e6-4f98-8d82-41fde0318682/terminal.json",
+      "bytes": 163,
+      "sha256": "ac4ff79d7c297dac5383dd94afba2c8c34a90e58ebf430259223c4981d4b2dd0"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-DUO/direct/manifest.json",
+      "bytes": 515208,
+      "sha256": "904d22504ada0382233ada003dafbe43a4a1dbffb966cf61bafe4a518cd671e4"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-DUO/worker/c543c1cb-cd3b-4192-bc36-ffdf14992726/manifest.json",
+      "bytes": 546112,
+      "sha256": "d69b3240b69910e74a68d061b032e8d407f104f5288c07d255c3808136fbae8a"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-DUO/worker/c543c1cb-cd3b-4192-bc36-ffdf14992726/request.json",
+      "bytes": 21466,
+      "sha256": "c1a71926b96fd0fbe2db8456de52b727df083d8fc2ec0a67ed8317bc302e653c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-DUO/worker/c543c1cb-cd3b-4192-bc36-ffdf14992726/terminal.json",
+      "bytes": 163,
+      "sha256": "dab34d86fc30a5e964745ee4e9125be9b97a61df98e8bf9d7e45308ec4ea493e"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L0-OFF/direct/manifest.json",
+      "bytes": 515407,
+      "sha256": "142eec3d4bc961def5d80b8c18d5e69549ff879b541c69692dd639cf6f0bd7ca"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L0-OFF/worker/56f16c7f-bc76-4791-a043-987a0046f819/manifest.json",
+      "bytes": 549147,
+      "sha256": "a213d603cfb105157bdda66d7ffceee62949eca65aa506efb93f01b433b3cb3b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L0-OFF/worker/56f16c7f-bc76-4791-a043-987a0046f819/request.json",
+      "bytes": 22778,
+      "sha256": "e397be7f40df0f023b703cba376129b456e83ef9983769304e1b01f64ffd4e06"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L0-OFF/worker/56f16c7f-bc76-4791-a043-987a0046f819/terminal.json",
+      "bytes": 163,
+      "sha256": "3d7d22201b839127dbfaf3044459984fd652a99b235eeb071c92cced2fd69661"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L1-OFF/direct/manifest.json",
+      "bytes": 515426,
+      "sha256": "c82df3775b6e12f85f61f2223350aa4a632d9fa647f52095abbb4fd6711accb2"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L1-OFF/worker/90a08c67-3b82-441b-8764-ca27281e7b4e/manifest.json",
+      "bytes": 549168,
+      "sha256": "9f1c687767bfe8207472626fe2071db3f40527d790bd11c3d5e7275338ed8295"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L1-OFF/worker/90a08c67-3b82-441b-8764-ca27281e7b4e/request.json",
+      "bytes": 22778,
+      "sha256": "f7e000fb34d008708099d19a8ebcbe4d54c3b0c4c2772cd024cd5a1841ab7fac"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L1-OFF/worker/90a08c67-3b82-441b-8764-ca27281e7b4e/terminal.json",
+      "bytes": 163,
+      "sha256": "031403ba2a42d916f3e55ba3659d0d8652171703b7ca25d9df08a4b9a34fd81a"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L1-ON/direct/manifest.json",
+      "bytes": 524180,
+      "sha256": "a1cdbccc30eb04fbfad6ad1e3a580a8447ab964555abf2eae565289a8aff9e29"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L1-ON/worker/ef453f87-4a40-4bad-aaca-8ec892515974/manifest.json",
+      "bytes": 558001,
+      "sha256": "96f272da46e61074dd1264096eb8bb05866a61a1a45b22c59fbb14f78845dc69"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L1-ON/worker/ef453f87-4a40-4bad-aaca-8ec892515974/request.json",
+      "bytes": 22776,
+      "sha256": "8f0313c0dcc5230dad15f09c01a256c7912c94763fb05dcfde596f2764fea661"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-L1-ON/worker/ef453f87-4a40-4bad-aaca-8ec892515974/terminal.json",
+      "bytes": 163,
+      "sha256": "3cdce50819b65534a9ec44855b3bd06ef0ac45edbd49f57b74d4e4c11a01d73d"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-PACKAGE/direct/manifest.json",
+      "bytes": 514611,
+      "sha256": "27c8b0c3a1f443a960d0e4f01701299e5d9b9163a1c696b22d996e33f2e48a17"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-PACKAGE/worker/ff2421fc-3706-4831-acf7-ca02cc53216a/manifest.json",
+      "bytes": 548191,
+      "sha256": "10dd61be56ef43ce7393a543fc6a742a1d48aad3332feb5adbcffc81beed3ce2"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-PACKAGE/worker/ff2421fc-3706-4831-acf7-ca02cc53216a/request.json",
+      "bytes": 22783,
+      "sha256": "7a1cda16d7ed16960b91cb0e685983ccbce307bd099400ab07169adf32aef706"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-PACKAGE/worker/ff2421fc-3706-4831-acf7-ca02cc53216a/terminal.json",
+      "bytes": 163,
+      "sha256": "481ab9e97f004b930ee1fb61ed1be50c030464d79961934710c37cff8e1f4a3b"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-SINGLE-PAM4/direct/manifest.json",
+      "bytes": 514312,
+      "sha256": "28a2e9d1ceb4e23745bbb7589982186b1122b5b4444c38d40d0a6261dca0567e"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-SINGLE-PAM4/worker/0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07/manifest.json",
+      "bytes": 547356,
+      "sha256": "43228935f9c0e3938a6679bcd8490f1b9a693982f4af8f1929d7ef71f1509bdf"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-SINGLE-PAM4/worker/0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07/request.json",
+      "bytes": 22790,
+      "sha256": "8d31d8b4116010f4bbbdc962498e52093023850b6ed635c57eecec7263be7437"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/F4-SINGLE-PAM4/worker/0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07/terminal.json",
+      "bytes": 163,
+      "sha256": "7acc7ebf175fe6e7e77758e5095948d34d79fdc9a0ea2446c965bd6d33100dba"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/execution-snapshot.json",
+      "bytes": 5807,
+      "sha256": "1d3f3a6bcb9a032826c2d6425d16f4147f9fe93e08bf3d5472b5ed242a1ae066"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/original_bert.py",
+      "bytes": 63980,
+      "sha256": "e747099eba0a20d9309654d008c7773bee14b6e3ea3458b9228a45f04059276f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/original_pybert.py",
+      "bytes": 73389,
+      "sha256": "288484c67101820f70db99f7f0a7892038103e1aad82c7961a5076432cc96382"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-20261024-075832/report.json",
+      "bytes": 3661470,
+      "sha256": "944cd5e6006d414b6863c2148a8c262154df6a3810240677c2c580218e030ab0"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/numeric-corrected-baseline-links-v2.json",
+      "bytes": 30864,
+      "sha256": "96ad4f3c87a39797affe381d2b715db979711cd508534f103baf2601ba79acc9"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/package-enum-preflight-v2.json",
+      "bytes": 3491,
+      "sha256": "7329325429c786fb568a0d1acde070d715cfc7b1b0d2ccdc54e95033a45572e8"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/remaining-run-cases-merged-console.log",
+      "bytes": 4031,
+      "sha256": "f21671e8b9ba950dd2b48b5a781f693c8b5b432a0363ee5580a3a417eb648017"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/resource-budget-inspection.json",
+      "bytes": 13788,
+      "sha256": "f7cdb568cf1f4e07949fe477a6443cc50ee04182839a658fe1a182e3b9ee218e"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/resource-com-contracts-v2.xml",
+      "bytes": 4296,
+      "sha256": "cd8c1cc0f3ad7f044db6365804c5b58dfb0095c38533b21cb09a30c5731903e2"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/resource-contracts-v1.xml",
+      "bytes": 3320,
+      "sha256": "3daaea87e8202d3d0177ee1440caa3248f3e2340bd91d7cb2e2317610b0f437c"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/resource-import-contracts-v3.xml",
+      "bytes": 1687,
+      "sha256": "d35a2e715a6397f940b7c6d23afe860d2ed2233f62dbb4023601b24312df9e6d"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-073439/F4-SINGLE-NRZ/direct/manifest.json",
+      "bytes": 514474,
+      "sha256": "7d95700fa3d2d6e4bdfdb51f02423c18454c0ab4fc95f89432dcff7a835f1416"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-073439/F4-SINGLE-NRZ/worker/manifest.json",
+      "bytes": 547819,
+      "sha256": "dccfda77fd0a4b92d218248b3feef2ccf13d08151820df7414c64b7979f4f052"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-073439/report.json",
+      "bytes": 197008,
+      "sha256": "542aaa212266cd416b520e76c173c76e75c2e4a692cd8d4695a060babe76845f"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090813/F4-SINGLE-NRZ/direct/manifest.json",
+      "bytes": 514647,
+      "sha256": "e75de5b08fb110e4ffb55845aa25237f31c59c0b0982c3a50be778c05aee28e0"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090813/F4-SINGLE-NRZ/worker/manifest.json",
+      "bytes": 547992,
+      "sha256": "5bab892e9b6615b496ae370b321d2f9226503d6f379f0524b2b38e08ea40814e"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090813/report.json",
+      "bytes": 197270,
+      "sha256": "406215f1c504efb094282479e0f53c4856fdab0f891368e9bec599a86d69a7ba"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090819/F4-L0-ON/direct/manifest.json",
+      "bytes": 524206,
+      "sha256": "806580a880ed0965b9e56e775326055362aa6132a8e5742d25c9802189ea8827"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090819/F4-L0-ON/worker/manifest.json",
+      "bytes": 560062,
+      "sha256": "a61d0ffd3bfc0e47dbec2f236d1b0c190a7afc0bd13ac79c11172c0b205b8001"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090819/report.json",
+      "bytes": 1445,
+      "sha256": "739c7af6947d432ae1d1ec9bd6fc08c389e2c5366bb0ec7410f212fe66223ffc"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-CASCADE-AB/direct/manifest.json",
+      "bytes": 515184,
+      "sha256": "f87e246f358d2d37c09244fcab5270de5bd7c62f5c8193c5538f8f0bb7a17a26"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-CASCADE-AB/worker/manifest.json",
+      "bytes": 550598,
+      "sha256": "de907df30d824fcee03486d5646ff2ab52dfbffbbee1e02f415d97cf2687fddf"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-CASCADE-BA/direct/manifest.json",
+      "bytes": 515194,
+      "sha256": "9d42c1be9a21428b275df775429a8c509031880f532ca4934c74c325eced46f9"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-CASCADE-BA/worker/manifest.json",
+      "bytes": 550609,
+      "sha256": "c5c8af3092e18c57044e89530c16b89d02ccecb5410f897d311de45cc6ff6e9e"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-DUO/direct/manifest.json",
+      "bytes": 515289,
+      "sha256": "253e576c9eca546d68a756808a364bb4ee5b1c92a09b1b601474b19ab5d914cc"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-DUO/worker/manifest.json",
+      "bytes": 546193,
+      "sha256": "9b8d8274b7fb533b0b3d3e0a9878d65a639d58fef35c7635b850559372bb8954"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-L0-OFF/direct/manifest.json",
+      "bytes": 515488,
+      "sha256": "7ee57852bc4e380d912cfbe246b27d3428a7cbeec73577b1e00f582145d0dcb0"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-L0-OFF/worker/manifest.json",
+      "bytes": 549228,
+      "sha256": "38ebac6446f1efb377a2ec0092afd0fac15892295e3dfb2389aac77028fa1638"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-L1-OFF/direct/manifest.json",
+      "bytes": 515507,
+      "sha256": "733f928ebd6e8e50af5fed2f947ecd4d0ad8fd07cb459455cbe6403b17aeb2eb"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-L1-OFF/worker/manifest.json",
+      "bytes": 549249,
+      "sha256": "75856bcf35fa1474f4c8a5d63c3835d302e4422edc65fbe81f4cf76f80e5c6ee"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-L1-ON/direct/manifest.json",
+      "bytes": 524288,
+      "sha256": "8da83d6bd638a206c3ba3887f7e2d10e14cea17ff27a9ffbfb30fb061df06a26"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-L1-ON/worker/manifest.json",
+      "bytes": 560145,
+      "sha256": "ee0b83680de71b2cb7b45d5674d2fc11b030ffd9743a3400002b75b05953b458"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-PACKAGE/direct/manifest.json",
+      "bytes": 514692,
+      "sha256": "dd64705f4ecc7dbc6df113a580ab06e515ad7b2a4b6ac8e40eff4534047a1721"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-PACKAGE/worker/manifest.json",
+      "bytes": 548272,
+      "sha256": "a4cc5949871c7eef5e2037ec39a038af7767d34d7c3d80b83d11a338eb6293c2"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-SINGLE-PAM4/direct/manifest.json",
+      "bytes": 514393,
+      "sha256": "b4a6dc75000bc70dbacd51e72bfad9170d535b4bdf96caedf98cc059137d2976"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/F4-SINGLE-PAM4/worker/manifest.json",
+      "bytes": 547437,
+      "sha256": "6dc6154fc39a9a4da49d5ec5d913458e964aad6e4c70e97ed6a3f765a0d6e593"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090825/report.json",
+      "bytes": 1377944,
+      "sha256": "9d98821f597aa57c2737c8645e8d9cc80defc0c93315cfbb50a5370300cb8278"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090903/F4-L0-ON/direct/manifest.json",
+      "bytes": 524206,
+      "sha256": "806580a880ed0965b9e56e775326055362aa6132a8e5742d25c9802189ea8827"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090903/F4-L0-ON/worker/manifest.json",
+      "bytes": 560062,
+      "sha256": "a61d0ffd3bfc0e47dbec2f236d1b0c190a7afc0bd13ac79c11172c0b205b8001"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090903/report.json",
+      "bytes": 199626,
+      "sha256": "56054a144fa584b7125c3e870d35e1111837b23aa18b165fcdde613e0bdf4644"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090909/F4-L1-ON/direct/manifest.json",
+      "bytes": 524288,
+      "sha256": "8da83d6bd638a206c3ba3887f7e2d10e14cea17ff27a9ffbfb30fb061df06a26"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090909/F4-L1-ON/worker/manifest.json",
+      "bytes": 560145,
+      "sha256": "ee0b83680de71b2cb7b45d5674d2fc11b030ffd9743a3400002b75b05953b458"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/saved-resource-check-20261024-090909/report.json",
+      "bytes": 199626,
+      "sha256": "c962cf7d1d0b4ab940eadab3ec8b3957bc4d4c396e6a1f41d9e865cce6587545"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/spec-readback-v1.json",
+      "bytes": 34461,
+      "sha256": "bdd4da7c5ec79f1865468dcd96c83ab5f8646d74d2cdf39dffa867d46b8415e0"
+    },
+    {
+      "path": "docs/webui/issue4/evidence/verification-source-numeric-v2.py.txt",
+      "bytes": 14919,
+      "sha256": "7b585d67160edb763283b842efcc89dd10184a9c37bcb140dba50a7922e9b5ee"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-CASCADE-AB.json",
+      "bytes": 18365,
+      "sha256": "db7feaae6af8213ea5c9fc7e1ece7548394cb95661bc75ea269a10c007d24302"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-CASCADE-BA.json",
+      "bytes": 18365,
+      "sha256": "728428089505e2f6408b4f028725f1fde195e22b73abde5854f181152d5e528c"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-DUO.json",
+      "bytes": 18062,
+      "sha256": "d1c7c1186e69d3b0bfbf0a4c6df76159c1194bffbe4a5438e1cc21f98c371c3d"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-L0-OFF.json",
+      "bytes": 18191,
+      "sha256": "165f3731940ad8d7fb2a325df655d545433907d2b43519ea6272b0ac7b61c9b9"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-L0-ON.json",
+      "bytes": 18190,
+      "sha256": "f23e002b15f9e1c285303b037b6ea9c6457d25f7835031172882a5a9261ad487"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-L1-OFF.json",
+      "bytes": 18191,
+      "sha256": "f24187b489ae880d803f8d1d78cf5f47fa88beed4770e85d90a995d5f5055ae7"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-L1-ON.json",
+      "bytes": 18190,
+      "sha256": "254bad400ca664bc241f9c8fd4837c867866b5de73f48aace3add5cfc70ea6e3"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-PACKAGE.json",
+      "bytes": 18191,
+      "sha256": "ea826705fda8ea9098cd6b2fa88999f9cb5de3db12742b25a50abd02e8d3e80f"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-SINGLE-NRZ.json",
+      "bytes": 18192,
+      "sha256": "05d96ae49f56d360bb9131759c3b7da3d48d490414487a1095219f151c579386"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-SINGLE-PAM4.json",
+      "bytes": 18194,
+      "sha256": "bd30e6e658e2c5b8876832900bf3cae420bdf8d199f36db2f0f1f68fe78a961e"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/F4-TIME.json",
+      "bytes": 18199,
+      "sha256": "ed4006d7effa80c85d7d8592d02699a47550d5b35144b66f540dbb393fe43abb"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/budget-correction-v2.json",
+      "bytes": 8712,
+      "sha256": "b7761e03b64385c51978413b33b85b11383c415e40ccc6c7af3f305247e68321"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/cases.json",
+      "bytes": 4441,
+      "sha256": "b06497cf7d38f99391640df5c17a1b96d34fe938c79489377d9c3f501bc90e7a"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/chrome-and-light-preflight-v3.json",
+      "bytes": 6675,
+      "sha256": "cb7e464452c3b09f4d2b594b1e5e2f73d64febd7288ee51f22c4f8edd5c2dd6a"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/frozen-manifest.json",
+      "bytes": 3146,
+      "sha256": "8d953b64ccc1e9afd57ac336679bf4e47156258e4cec4d4d023ce4c6d08ce381"
+    },
+    {
+      "path": "docs/webui/issue4/fixtures/resources.json",
+      "bytes": 4589,
+      "sha256": "328322795d3fdbd9fabf89cf5c3e4d695d461a9de645bd87830fdc9435626cd5"
+    }
+  ],
+  "bytes": 37642404
+}

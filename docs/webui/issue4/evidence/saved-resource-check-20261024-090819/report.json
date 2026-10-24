@@ -1,0 +1,21 @@
+{
+  "source_report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075721\\report.json",
+  "source_report_sha256": "d599a0d6b415c0d607744b61db93d689afe65000387bbe88b3ed861d1057f183",
+  "main_simulation_performed": false,
+  "method": "same saved raw bytes; annotate interference identity/windows and run independent expectations",
+  "actual_sources": {
+    "tools\\verify_web_resources.py": "2654ad6d5b0d0c89dfca9ad4940212d82f67b9ada7fe5b082683ad35bda59814",
+    "src\\pybert\\web\\resource_data.py": "504420d86287f73ed60cf7a3a881a80600972e8180446b4d368fdf2ce8d6e626",
+    "tools\\verify_web_analysis.py": "fcda25d623b649f7227956ae33544f96b38724ecde2ecab01234ce8299033f3f"
+  },
+  "cases": [
+    {
+      "case": "F4-L0-ON",
+      "passed": false,
+      "direct_raw_unchanged": true,
+      "worker_raw_unchanged": true,
+      "error": "'lane_ix'",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\tools\\verify_web_resources.py\", line 476, in recheck_saved\n    entry[\"independent_saved_data\"] = saved_checks(worker)\n                                      ~~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\tools\\verify_web_resources.py\", line 288, in saved_checks\n    lane = config[\"lane_ix\"]\n           ~~~~~~^^^^^^^^^^^\nKeyError: 'lane_ix'\n"
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+- generic [ref=e1]:
+  - link "跳到参数详情" [ref=e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=e3]:
+    - link "PyBERT 数据源" [ref=e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=e8]:
+        - strong [ref=e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=e10]:
+      - text: 模块目录
+      - generic [ref=e11]: 16 MODULES
+    - navigation "选择模块" [ref=e12]:
+      - generic [ref=e820]:
+        - heading "主信号链" [level=2] [ref=e821]
+        - button "Source" [ref=e822] [cursor=pointer]
+        - button "Tx EQ" [ref=e824] [cursor=pointer]: •
+        - button "Channel" [ref=e826] [cursor=pointer]
+        - button "Noise" [ref=e828] [cursor=pointer]
+        - button "Rx CTLE" [ref=e830] [cursor=pointer]: •
+        - button "Rx FFE" [ref=e832] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=e834] [cursor=pointer]
+        - button "Observe" [ref=e836] [cursor=pointer]
+      - generic [ref=e838]:
+        - heading "控制与判决旁支" [level=2] [ref=e839]
+        - button "CDR" [ref=e840] [cursor=pointer]
+        - button "AGC" [ref=e842] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=e844] [cursor=pointer]
+      - generic [ref=e846]:
+        - heading "全局设置与工具" [level=2] [ref=e847]
+        - button "Simulation" [ref=e848] [cursor=pointer]
+        - button "Device models" [ref=e850] [cursor=pointer]
+        - button "IBIS-AMI" [ref=e852] [cursor=pointer]: •
+        - button "Optimizer" [ref=e854] [cursor=pointer]
+        - button "COM" [ref=e856] [cursor=pointer]
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - searchbox "搜索所有模块和参数" [ref=e62]
+          - generic [aria-hidden] [ref=e63]: /
+        - status [ref=e64]:
+          - strong [ref=e858]: 草稿已保留
+          - generic [ref=e859]: 7 项设置已修改
+        - button "恢复全部默认" [ref=e67] [cursor=pointer]
+    - generic [ref=e68]:
+      - button "Run" [ref=e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=e70]
+      - status [ref=e71]: normalize a0c80783 · succeeded · succeeded
+      - generic [ref=e72]: legacy-inactive.pybert_cfg
+      - button "Load Config" [ref=e73] [cursor=pointer]
+      - button "资源 / COM" [ref=e74] [cursor=pointer]
+      - button "Save" [ref=e75] [cursor=pointer]
+      - button "Save As…" [ref=e76] [cursor=pointer]
+      - button "Help / About" [ref=e77] [cursor=pointer]
+      - button "Disconnect" [ref=e78] [cursor=pointer]
+    - status [ref=e79]: "DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it. CTLE bypassed; File/native preset is inactive."
+    - status [ref=e80]: 已载入 legacy-inactive.pybert_cfg；未自动 Run。
+    - status [ref=e81]
+    - main [ref=e82]:
+      - group [ref=e83]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=e84] [cursor=pointer]
+      - region "链路总览" [ref=e85]:
+        - generic "切换实现图示" [ref=e86]:
+          - generic [ref=e87]: 实现方案
+          - generic [ref=e88]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=e89] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e90]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=e91] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e92]:
+            - checkbox "请求模型时钟" [disabled] [ref=e93]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=e94] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e860]:
+              - button "Source：NRZ · PRBS-7，查看设置" [ref=e861] [cursor=pointer]:
+                - strong [ref=e862]: Source
+                - generic [ref=e863]: NRZ · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=e865] [cursor=pointer]:
+                - strong [ref=e866]: Tx EQ
+                - generic [ref=e867]: Native FFE
+              - button "Channel：Native · 两端电气，查看设置" [ref=e869] [cursor=pointer]:
+                - strong [ref=e870]: Channel
+                - generic [ref=e871]: Native · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=e873] [cursor=pointer]:
+                - strong [ref=e874]: Noise
+                - generic [ref=e875]: 加法注入
+              - button "Rx CTLE：已关闭 · 旁路，查看设置" [ref=e877] [cursor=pointer]:
+                - strong [ref=e878]: Rx CTLE
+                - generic [ref=e879]: 已关闭 · 旁路
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=e881] [cursor=pointer]:
+                - strong [ref=e882]: Rx FFE
+                - generic [ref=e883]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=e885] [cursor=pointer]:
+                - strong [ref=e886]: DFE / Slicer
+                - generic [ref=e887]: 自适应反馈 / 判决
+            - generic [ref=e888]:
+              - button "Device models" [ref=e890] [cursor=pointer]
+              - button "Observe" [ref=e892] [cursor=pointer]
+              - generic [ref=e893]:
+                - button "CDR" [ref=e894] [cursor=pointer]
+                - button "AGC" [ref=e895] [cursor=pointer]
+                - button "↗ Viterbi" [ref=e896] [cursor=pointer]
+        - status [ref=e134]:
+          - generic [aria-hidden] [ref=e897]: i
+          - generic [ref=e898]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=e137]:
+        - region [ref=e513]:
+          - heading "连续时间线性均衡Rx CTLE" [level=2] [ref=e901]
+          - generic [ref=e143]:
+            - tablist "模块详情" [ref=e144]:
+              - tab "设置" [selected] [ref=e145] [cursor=pointer]
+              - tab "参数说明 8" [ref=e517] [cursor=pointer]:
+                - text: 参数说明
+                - generic [ref=e147]: "8"
+              - tab "实现映射 4" [ref=e518] [cursor=pointer]:
+                - text: 实现映射
+                - generic [ref=e149]: "4"
+            - button "恢复本模块默认" [ref=e150] [cursor=pointer]
+          - tabpanel "设置" [ref=e151]:
+            - generic [ref=e902]:
+              - generic [ref=e903]:
+                - heading "实现与使能" [level=3] [ref=e904]
+                - generic [ref=e905]: 本地草稿
+              - generic [ref=e906]:
+                - generic [ref=e907]:
+                  - generic [ref=e908]: Rx EQ implementation · 实现
+                  - combobox "Rx EQ implementation · 实现" [ref=e910] [cursor=pointer]:
+                    - option "Native" [selected]
+                    - option "IBIS-AMI"
+                  - paragraph [ref=e911]: Rx AMI 替代 Native CTLE；电气端接仍由 rx_sel 独立选择。
+                  - generic [ref=e912]:
+                    - code [ref=e913]: rx_eq_sel
+                    - generic [ref=e914]: 默认 Native
+                  - text: ↳
+                  - group [ref=e915]:
+                    - generic "范围与来源" [ref=e916] [cursor=pointer]
+                - generic [ref=e917]:
+                  - generic [ref=e918]:
+                    - generic [ref=e919]: Enable · CTLE 开关
+                    - button "恢复 Enable · CTLE 开关 默认值" [ref=e920] [cursor=pointer]: 恢复
+                  - generic [ref=e921] [cursor=pointer]:
+                    - switch "Enable · CTLE 开关" [ref=e922]
+                    - generic [ref=e924]: 已关闭
+                  - paragraph [ref=e925]: 全 Native 主链中关闭后直接旁路 CTLE。
+                  - generic [ref=e926]:
+                    - code [ref=e927]: ctle_enable
+                    - generic [ref=e928]: 默认 开启
+                  - text: ↳
+                  - group [ref=e929]:
+                    - generic "范围与来源" [ref=e930] [cursor=pointer]
+                - generic [ref=e931]:
+                  - generic [ref=e932]:
+                    - generic [ref=e933]: Response source · 响应来源
+                    - button "恢复 Response source · 响应来源 默认值" [ref=e934] [cursor=pointer]: 恢复
+                  - combobox "Response source · 响应来源" [disabled] [ref=e935] [cursor=pointer]:
+                    - option "Native"
+                    - option "File" [selected]
+                  - paragraph [ref=e936]: 解析模型或外部响应文件。
+                  - generic [ref=e937]:
+                    - code [ref=e938]: ctle_sel
+                    - generic [ref=e939]: 默认 Native
+                  - paragraph [ref=e940]: ↳ 启用 CTLE 后可切换响应来源；原 GUI 仍允许编辑已有参数。
+                  - group [ref=e941]:
+                    - generic "范围与来源" [ref=e942] [cursor=pointer]
+            - generic [ref=e943]:
+              - generic [ref=e944]:
+                - heading "Native 频率响应" [level=3] [ref=e945]
+                - generic [ref=e946]: 本地草稿
+              - generic [ref=e947]:
+                - generic [ref=e948]:
+                  - generic [ref=e949]: CTLE fp · Peaking 频率
+                  - generic [ref=e951]:
+                    - spinbutton "CTLE fp · Peaking 频率" [disabled] [ref=e952]: "5"
+                    - generic [ref=e953]: GHz
+                  - paragraph [ref=e954]: CTLE peaking 参数频率，同时用于确定一个极点。
+                  - generic [ref=e955]:
+                    - code [ref=e956]: peak_freq
+                    - generic [ref=e957]: 默认 5 GHz
+                  - paragraph [ref=e958]: ↳ 响应来源选择 Native 后可设置。
+                  - group [ref=e959]:
+                    - generic "范围与来源" [ref=e960] [cursor=pointer]
+                - generic [ref=e961]:
+                  - generic [ref=e962]: Bandwidth · 自然带宽
+                  - generic [ref=e964]:
+                    - spinbutton "Bandwidth · 自然带宽" [disabled] [ref=e965]: "12"
+                    - generic [ref=e966]: GHz
+                  - paragraph [ref=e967]: 未均衡信号路径的带宽参数，用于确定另一个极点。
+                  - generic [ref=e968]:
+                    - code [ref=e969]: rx_bw
+                    - generic [ref=e970]: 默认 12 GHz
+                  - paragraph [ref=e971]: ↳ 响应来源选择 Native 后可设置。
+                  - group [ref=e972]:
+                    - generic "范围与来源" [ref=e973] [cursor=pointer]
+                - generic [ref=e974]:
+                  - generic [ref=e975]: CTLE boost · 相对提升
+                  - generic [ref=e977]:
+                    - spinbutton "CTLE boost · 相对提升" [disabled] [ref=e978]: "1.7"
+                    - generic [ref=e979]: dB
+                  - paragraph [ref=e980]: 控制零点位置和高低频响应的相对关系。
+                  - generic [ref=e981]:
+                    - code [ref=e982]: peak_mag
+                    - generic [ref=e983]: 默认 1.7 dB
+                  - paragraph [ref=e984]: ↳ 响应来源选择 Native 后可设置。
+                  - group [ref=e985]:
+                    - generic "范围与来源" [ref=e986] [cursor=pointer]
+            - generic [ref=e987]:
+              - generic [ref=e988]:
+                - heading "外部响应" [level=3] [ref=e989]
+                - generic [ref=e990]: 本地草稿
+              - generic [ref=e992]:
+                - generic [ref=e993]:
+                  - generic [ref=e994]: Filename · 响应文件
+                  - button "恢复 Filename · 响应文件 默认值" [ref=e995] [cursor=pointer]: 恢复
+                - generic [ref=e996]:
+                  - textbox "Filename · 响应文件" [ref=e997]:
+                    - /placeholder: 输入文件名或路径
+                    - text: inactive-reference-only.csv
+                  - generic [ref=e998] [cursor=pointer]:
+                    - text: 选择文件
+                    - button "选择 Filename · 响应文件" [ref=e999]
+                - generic [ref=e1000]: 当前仅保存未消费的文件名引用，不上传资源。File CTLE / IBIS-AMI 激活仍受能力限制。
+                - paragraph [ref=e1001]: 当前导入实现带 FIXME，不能把存在文件入口理解为路径已经验证可用。
+                - generic [ref=e1002]:
+                  - code [ref=e1003]: ctle_file
+                  - generic [ref=e1004]: 默认 空
+                - generic [ref=e1005]: 此路径有已记录的实现限制，详见参数说明。
+                - text: ↳
+                - group [ref=e1006]:
+                  - generic "范围与来源" [ref=e1007] [cursor=pointer]
+            - generic [ref=e1008]:
+              - generic [ref=e1009]: 还有 1 个结果、内部状态或参考条目。
+              - button "查看参数说明 →" [ref=e1010] [cursor=pointer]
+          - text: ↳ ↳ ↳ ↳ ↳ ↳
+        - region "Native run analysis" [ref=e241]:
+          - generic [ref=e243]:
+            - text: Selected run
+            - combobox "Selected run" [ref=e244]:
+              - option "No successful run" [selected]
+          - generic [ref=e245]:
+            - generic [ref=e246]:
+              - text: Analysis
+              - combobox "Analysis" [ref=e247]:
+                - option "Responses" [selected]
+                - option "Waveform"
+                - option "Eye"
+                - option "Jitter Dist."
+                - option "Jitter Spec."
+                - option "Jitter Bathtub"
+                - option "Jitter Info"
+                - option "DFE Adaptation"
+                - option "CDR Adaptation"
+                - option "CDR Histogram"
+                - option "CDR Spectrum"
+                - option "Run overview"
+                - option "Run input comparison"
+            - combobox "Response type" [ref=e248]:
+              - option "Impulse" [selected]
+              - option "Step"
+              - option "Pulse"
+              - option "Frequency"
+            - combobox "Response scope" [ref=e249]:
+              - option "Cumulative" [selected]
+              - option "Single stage"
+          - generic [ref=e250]:
+            - generic [ref=e251]:
+              - text: Point
+              - combobox "Point" [ref=e252]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=e253]:
+              - text: Compare
+              - combobox "Compare" [ref=e254]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Expand viewer" [ref=e257] [cursor=pointer]
+          - generic "Selected run plot" [ref=e258]:
+            - paragraph [ref=e628]: No successful native run. Run the engine to inspect real data.
+      - group [ref=e261]:
+        - generic "Task logs / selected run logs" [ref=e262]
+  - dialog [ref=e1011]:
+    - generic [ref=e1012]:
+      - generic [ref=e1013]:
+        - text: Configuration filename
+        - textbox "Configuration filename" [active] [ref=e1014]: legacy-inactive.yaml
+      - button "Cancel" [ref=e1015] [cursor=pointer]
+      - button "Download YAML" [ref=e1016] [cursor=pointer]

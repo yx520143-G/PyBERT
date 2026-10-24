@@ -1,0 +1,49 @@
+F4-L0-OFF fixed original engine
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+F4-L0-OFF fresh spawn adapter
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+F4-L0-OFF passed True 
+F4-L1-OFF fixed original engine
+F4-L1-OFF fresh spawn adapter
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+F4-L1-OFF passed True 
+F4-L1-ON fixed original engine
+F4-L1-ON fresh spawn adapter
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+F4-L1-ON passed True 
+F4-SINGLE-PAM4 fixed original engine
+F4-SINGLE-PAM4 fresh spawn adapter
+F4-SINGLE-PAM4 passed True 
+F4-CASCADE-AB fixed original engine
+F4-CASCADE-AB fresh spawn adapter
+F4-CASCADE-AB passed True 
+F4-CASCADE-BA fixed original engine
+F4-CASCADE-BA fresh spawn adapter
+F4-CASCADE-BA passed True 
+F4-PACKAGE fixed original engine
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+F4-PACKAGE fresh spawn adapter
+F4-PACKAGE passed True 
+F4-DUO fixed original engine
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+F4-DUO fresh spawn adapter
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+F4-DUO passed True 
+report C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\docs\webui\issue4\evidence\numeric-20261024-075832\report.json

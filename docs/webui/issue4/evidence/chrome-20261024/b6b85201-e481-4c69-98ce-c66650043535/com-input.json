@@ -1,0 +1,303 @@
+{
+  "com_id": "b6b85201-e481-4c69-98ce-c66650043535",
+  "parent_run_id": null,
+  "resources": [
+    {
+      "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+      "original_name": "example2_THRU.s4p",
+      "format": ".s4p",
+      "bytes": 2454034,
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+      "source": {
+        "kind": "browser_upload"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "channel",
+        "COM THRU"
+      ],
+      "field": "com_thru",
+      "index": null,
+      "reference": "",
+      "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+    },
+    {
+      "resource_id": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls",
+      "original_name": "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+      "format": ".xls",
+      "bytes": 30208,
+      "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+      "source": {
+        "kind": "local_path",
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "COM configuration"
+      ],
+      "field": "com_cfg_file",
+      "index": null,
+      "reference": "",
+      "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"
+    }
+  ],
+  "parameter_source": {
+    "kind": "spreadsheet",
+    "parameters": {
+      "fb": 106.25,
+      "fstep": 0.05,
+      "L": 4,
+      "M": 32,
+      "DER_0": 0.0002,
+      "T_r": 0.004,
+      "RLM": 0.95,
+      "A_v": 0.413,
+      "A_fe": 0.413,
+      "A_ne": 0.45,
+      "R_0": 50,
+      "A_DD": 0.02,
+      "SNR_TX": 33,
+      "eta_0": 6e-09,
+      "sigma_Rj": 0.01,
+      "f_z": 42.5,
+      "f_p1": 42.5,
+      "f_p2": 106.25,
+      "f_LF": 1.328125,
+      "g_DC": [
+        -12.0,
+        -11.0,
+        -10.0,
+        -9.0,
+        -8.0,
+        -7.0,
+        -6.0,
+        -5.0,
+        -4.0,
+        -3.0,
+        -2.0
+      ],
+      "g_DC2": [
+        -3.0,
+        -2.5,
+        -2.0,
+        -1.5,
+        -1.0,
+        -0.5,
+        0.0
+      ],
+      "tx_taps_min": [
+        0.0,
+        -0.2,
+        0.0,
+        -0.6,
+        -0.6,
+        0.0,
+        0.0
+      ],
+      "tx_taps_max": [
+        0.2,
+        0.0,
+        0.4,
+        -1.1102230246251565e-16,
+        -1.1102230246251565e-16,
+        0.0,
+        0.0
+      ],
+      "tx_taps_step": [
+        0.1,
+        0.1,
+        0.1,
+        0.09999999999999998,
+        0.09999999999999998,
+        0.0,
+        0.0
+      ],
+      "c0_min": 1,
+      "f_r": 0.58,
+      "dfe_min": [
+        0.0
+      ],
+      "dfe_max": [
+        0.85
+      ],
+      "rx_taps_min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "rx_taps_max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dw": 5,
+      "R_d": [
+        50.0,
+        50.0
+      ],
+      "C_d": [
+        [
+          4e-05,
+          9e-05,
+          0.00011
+        ],
+        [
+          4e-05,
+          9e-05,
+          0.00011
+        ]
+      ],
+      "C_b": [
+        3e-05,
+        3e-05
+      ],
+      "C_p": [
+        4e-05,
+        4e-05
+      ],
+      "L_s": [
+        [
+          0.13,
+          0.15,
+          0.14
+        ],
+        [
+          0.13,
+          0.15,
+          0.14
+        ]
+      ],
+      "z_c": [
+        87.5,
+        92.5
+      ],
+      "z_p": [
+        33,
+        1.8
+      ],
+      "gamma0": 0.0005,
+      "a1": 0.00089,
+      "a2": 0.0002,
+      "tau": 0.006141,
+      "z_pB": 1.8,
+      "zp_tx": [
+        34.0,
+        1.8
+      ],
+      "zp_rx": [
+        32.0,
+        1.8
+      ],
+      "zp_next": [
+        34.0,
+        1.8
+      ],
+      "zp_fext": [
+        34.0,
+        1.8
+      ],
+      "z_c_rx": null,
+      "zp_cases": null,
+      "local_search": 2,
+      "ts_srch_mode": "middle",
+      "ts_track": false,
+      "ts_sample_adj": [
+        -16,
+        16
+      ],
+      "f_p3": null,
+      "N_qb": 0,
+      "P_qc": 0.0004,
+      "Nfix": null,
+      "Nwg": 0,
+      "Nwf": 0,
+      "mlsd": false,
+      "dCOM_an": 3.0,
+      "include_pcb": 0,
+      "zbp_tx": 151.0,
+      "zbp_rx": 151.0,
+      "zbp_next": 72.0,
+      "zbp_fext": 72.0,
+      "brd_Z_c": [
+        109.8,
+        109.8
+      ],
+      "brd_gamma0_a1_a2": [
+        0.0,
+        0.0004114,
+        0.0002547
+      ],
+      "brd_tau": 0.006191,
+      "brd_C0": [
+        0.0,
+        0.0
+      ],
+      "brd_C1": [
+        0.0,
+        0.0
+      ]
+    },
+    "parameters_sha256": "7cb2e9ae70b9f7c3f823994535b33e6f6d8a778a4f8bee5e694e11bd9d4d19bd",
+    "full_search_fom_upper_bound": 77,
+    "local_search": 2,
+    "timing_search": "middle",
+    "engine_processes": 1
+  },
+  "adapter_sha": "c89cbd7cf0b59acc59d57eb07fc58399e482b4fe",
+  "versions": {
+    "pipbert": "11.1.0",
+    "pychopmarg": "3.4.0",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0"
+  },
+  "helper": "pybert.models.com.calc_com",
+  "no_time_domain_settings_injected": true,
+  "thru_network": {
+    "ports": 4,
+    "frequency_hz": [
+      0.0,
+      40000000000.0
+    ],
+    "frequency_samples": 4001,
+    "s_unit": "dimensionless complex",
+    "z0_unit": "ohm"
+  },
+  "parameter_schema": {
+    "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\template.py",
+    "sha256": "801119da1f9acfa470e4640e37b281e20cf07cdfb92c82b8ad0ae86e2bf2a2f4",
+    "unit_policy": "fixed native COMParams source documents parameter units; adapter passes values without conversion"
+  },
+  "source_hashes": {
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py": "b6c453fc1c934c75839218f4207f6b5362ce979f62290fef92a0861ee3e181e2",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\com.py": "04010ac20bf154b91715c34130db531ce0c9f350881973053f2691ccb24680e9"
+  }
+}

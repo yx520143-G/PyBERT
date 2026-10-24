@@ -1,0 +1,267 @@
+- generic [ref=e1]:
+  - link "跳到参数详情" [ref=e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=e3]:
+    - link "PyBERT 数据源" [ref=e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=e8]:
+        - strong [ref=e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=e10]:
+      - text: 模块目录
+      - generic [ref=e11]: 16 MODULES
+    - navigation "选择模块" [ref=e12]:
+      - generic [ref=e4346]:
+        - heading "主信号链" [level=2] [ref=e4347]
+        - button "Source" [ref=e4348] [cursor=pointer]
+        - button "Tx EQ" [ref=e4350] [cursor=pointer]: •
+        - button "Channel" [ref=e4352] [cursor=pointer]: •
+        - button "Noise" [ref=e4354] [cursor=pointer]
+        - button "Rx CTLE" [ref=e4356] [cursor=pointer]
+        - button "Rx FFE" [ref=e4358] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=e4360] [cursor=pointer]
+        - button "Observe" [ref=e4362] [cursor=pointer]
+      - generic [ref=e4364]:
+        - heading "控制与判决旁支" [level=2] [ref=e4365]
+        - button "CDR" [ref=e4366] [cursor=pointer]
+        - button "AGC" [ref=e4368] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=e4370] [cursor=pointer]
+      - generic [ref=e4372]:
+        - heading "全局设置与工具" [level=2] [ref=e4373]
+        - button "Simulation" [ref=e4374] [cursor=pointer]
+        - button "Device models" [ref=e4376] [cursor=pointer]
+        - button "IBIS-AMI" [ref=e4378] [cursor=pointer]
+        - button "Optimizer" [ref=e4380] [cursor=pointer]
+        - button "COM" [ref=e4382] [cursor=pointer]: •
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - searchbox "搜索所有模块和参数" [ref=e62]
+          - generic [aria-hidden] [ref=e63]: /
+        - status [ref=e64]:
+          - strong [ref=e4384]: 草稿已保留
+          - generic [ref=e4385]: 7 项设置已修改
+        - button "恢复全部默认" [ref=e67] [cursor=pointer]
+    - generic [ref=e68]:
+      - button "Run" [ref=e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=e70]
+      - status [ref=e71]: normalize 9ad780ff · succeeded · succeeded
+      - generic [ref=e72]: F-NRZ-01.yaml
+      - button "Load Config" [ref=e73] [cursor=pointer]
+      - button "资源 / COM" [ref=e74] [cursor=pointer]
+      - button "Save" [ref=e75] [cursor=pointer]
+      - button "Save As…" [ref=e76] [cursor=pointer]
+      - button "Help / About" [ref=e77] [cursor=pointer]
+      - button "Disconnect" [ref=e78] [cursor=pointer]
+    - status [ref=e79]: "DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it. COM is deferred to a separate joined child with its own parameters; no current EQ/noise/bitrate injection."
+    - status [ref=e80]: 已载入 F-NRZ-01.yaml；未自动 Run。
+    - status "run_id=c3cadfdc-13e8-4ed9-bee3-b3b11462cd96; com_id=a803f4ca-83f2-4031-a31c-af5213fc71d8" [ref=e4306]: 核心结果成功 · c3cadfdc；COM 子任务 a803f4ca：succeeded · -15.419984103 dB
+    - main [ref=e82]:
+      - group [ref=e83]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=e84] [cursor=pointer]
+      - region "链路总览" [ref=e85]:
+        - generic "切换实现图示" [ref=e86]:
+          - generic [ref=e87]: 实现方案
+          - generic [ref=e88]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=e89] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e90]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=e91] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e92]:
+            - checkbox "请求模型时钟" [disabled] [ref=e93]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=e94] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e4386]:
+              - button "Source：NRZ · PRBS-7，查看设置" [ref=e4387] [cursor=pointer]:
+                - strong [ref=e4388]: Source
+                - generic [ref=e4389]: NRZ · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=e4391] [cursor=pointer]:
+                - strong [ref=e4392]: Tx EQ
+                - generic [ref=e4393]: Native FFE
+              - button "Channel：单文件 · 两端电气，查看设置" [ref=e4395] [cursor=pointer]:
+                - strong [ref=e4396]: Channel
+                - generic [ref=e4397]: 单文件 · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=e4399] [cursor=pointer]:
+                - strong [ref=e4400]: Noise
+                - generic [ref=e4401]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=e4403] [cursor=pointer]:
+                - strong [ref=e4404]: Rx CTLE
+                - generic [ref=e4405]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=e4407] [cursor=pointer]:
+                - strong [ref=e4408]: Rx FFE
+                - generic [ref=e4409]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=e4411] [cursor=pointer]:
+                - strong [ref=e4412]: DFE / Slicer
+                - generic [ref=e4413]: 自适应反馈 / 判决
+            - generic [ref=e4414]:
+              - button "Device models" [ref=e4416] [cursor=pointer]
+              - button "Observe" [ref=e4418] [cursor=pointer]
+              - generic [ref=e4419]:
+                - button "CDR" [ref=e4420] [cursor=pointer]
+                - button "AGC" [ref=e4421] [cursor=pointer]
+                - button "↗ Viterbi" [ref=e4422] [cursor=pointer]
+        - status [ref=e134]:
+          - generic [aria-hidden] [ref=e4423]: i
+          - generic [ref=e4424]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=e137]:
+        - region [ref=e4060]:
+          - heading "独立 COM 评估COM" [level=2] [ref=e4427]
+          - generic [ref=e143]:
+            - tablist "模块详情" [ref=e144]:
+              - tab "设置" [selected] [ref=e145] [cursor=pointer]
+              - tab "参数说明 5" [ref=e4064] [cursor=pointer]:
+                - text: 参数说明
+                - generic [ref=e147]: "5"
+              - tab "实现映射 2" [ref=e4065] [cursor=pointer]:
+                - text: 实现映射
+                - generic [ref=e149]: "2"
+            - button "恢复本模块默认" [ref=e150] [cursor=pointer]
+          - tabpanel "设置" [ref=e151]:
+            - generic [ref=e4428]:
+              - generic [ref=e4429]:
+                - heading "调用与结果" [level=3] [ref=e4430]
+                - generic [ref=e4431]: 本地草稿
+              - generic [ref=e4432]:
+                - generic [ref=e4433]:
+                  - generic [ref=e4434]:
+                    - generic [ref=e4435]: Compute COM · 启用评估
+                    - button "恢复 Compute COM · 启用评估 默认值" [ref=e4436] [cursor=pointer]: 恢复
+                  - generic [ref=e4437] [cursor=pointer]:
+                    - switch "Compute COM · 启用评估" [checked] [ref=e4438]
+                    - generic [ref=e4440]: 已开启
+                  - paragraph [ref=e4441]: 在主仿真之后执行 COM。
+                  - generic [ref=e4442]:
+                    - code [ref=e4443]: enable_com
+                    - generic [ref=e4444]: 默认 关闭
+                  - text: ↳
+                  - group [ref=e4445]:
+                    - generic "范围与来源" [ref=e4446] [cursor=pointer]
+                - generic [ref=e4447]:
+                  - generic [ref=e4448]:
+                    - generic [ref=e4449]: COM config · 参数表
+                    - button "恢复 COM config · 参数表 默认值" [ref=e4450] [cursor=pointer]: 恢复
+                  - generic [ref=e4451]:
+                    - textbox "COM config · 参数表" [ref=e4452]:
+                      - /placeholder: 输入文件名或路径
+                      - text: C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\docs\webui\issue4\local\resources\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls
+                    - generic [ref=e4453] [cursor=pointer]:
+                      - text: 选择文件
+                      - button "选择 COM config · 参数表" [ref=e4454]
+                  - generic [ref=e4455]: 选择文件上传并冻结内容。手工路径需在“资源 / COM”显式登记；YAML 相对路径需明确绑定。
+                  - paragraph [ref=e4456]: 空时使用 PyChOpMarg 默认参数。
+                  - generic [ref=e4457]:
+                    - code [ref=e4458]: com_cfg_file
+                    - generic [ref=e4459]: 默认 空
+                  - text: ↳
+                  - group [ref=e4460]:
+                    - generic "范围与来源" [ref=e4461] [cursor=pointer]
+            - generic [ref=e4462]:
+              - generic [ref=e4463]: 还有 3 个结果、内部状态或参考条目。
+              - button "查看参数说明 →" [ref=e4464] [cursor=pointer]
+          - text: ↳
+        - region "Native run analysis" [ref=e241]:
+          - generic [ref=e242]:
+            - generic [ref=e243]:
+              - text: Selected run
+              - combobox "Selected run" [ref=e244]:
+                - option "Select successful run…"
+                - option "NRZ · 16b97811"
+                - option "NRZ · c3cadfdc" [selected]
+            - generic [ref=e2051]: Matches validated input
+          - generic [ref=e246]:
+            - text: Analysis
+            - combobox "Analysis" [ref=e247]:
+              - option "Responses"
+              - option "Waveform"
+              - option "Eye"
+              - option "Jitter Dist." [selected]
+              - option "Jitter Spec."
+              - option "Jitter Bathtub"
+              - option "Jitter Info"
+              - option "DFE Adaptation"
+              - option "CDR Adaptation"
+              - option "CDR Histogram"
+              - option "CDR Spectrum"
+              - option "Run overview"
+              - option "Run input comparison"
+          - generic [ref=e250]:
+            - generic [ref=e251]:
+              - text: Point
+              - combobox "Point" [ref=e252]:
+                - option "Follow node"
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output" [selected]
+            - generic [ref=e253]:
+              - text: Compare
+              - combobox "Compare" [ref=e254]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Expand viewer" [ref=e3546] [cursor=pointer]
+          - generic "Selected run plot" [ref=e258]:
+            - generic [ref=e4308]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: −40
+                      - generic: −20
+                      - generic: "0"
+                      - generic: "20"
+                      - generic: "40"
+                    - generic:
+                      - generic: "0"
+                      - generic: "0.05"
+                      - generic: "0.1"
+                      - generic: "0.15"
+              - img:
+                - generic:
+                  - generic [ref=e4325]:
+                    - generic [ref=e4326]:
+                      - generic [ref=e4327]: Total PDF
+                      - generic [ref=e4328] [cursor=pointer]
+                    - generic [ref=e4329]:
+                      - generic [ref=e4330]: Data-independent PDF
+                      - generic [ref=e4331] [cursor=pointer]
+                  - generic: DFE summing-node output · dist
+                  - generic: ps
+                  - generic: 1/ps
+              - toolbar [ref=e4332]:
+                - button "Download plot as a PNG" [ref=e4334] [cursor=pointer]
+                - generic [ref=e4335]:
+                  - button "Zoom" [ref=e4336] [cursor=pointer]
+                  - button "Pan" [ref=e4337] [cursor=pointer]
+                - generic [ref=e4338]:
+                  - button "Zoom in" [ref=e4339] [cursor=pointer]
+                  - button "Zoom out" [ref=e4340] [cursor=pointer]
+                  - button "Autoscale" [ref=e4341] [cursor=pointer]
+                  - button "Reset axes" [ref=e4342] [cursor=pointer]
+          - generic [ref=e260]:
+            - paragraph [ref=e4343]: DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling. Zoom/pan and double-click reset do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.
+            - group [ref=e4344]:
+              - generic "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96 · jitter.dfe.dist · NRZ · input 769673a42a84" [ref=e4345]
+      - group [ref=e261]:
+        - generic "Task logs / selected run logs" [ref=e262]
+  - dialog [ref=e4465]:
+    - generic [ref=e4466]:
+      - generic [ref=e4467]:
+        - text: Configuration filename
+        - textbox "Configuration filename" [active] [ref=e4468]: F-NRZ-01.yaml
+      - button "Cancel" [ref=e4469] [cursor=pointer]
+      - button "Download YAML" [ref=e4470] [cursor=pointer]

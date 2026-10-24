@@ -1,0 +1,6 @@
+### Result
+{"immediate":"","after_poll":"","task":"c922f333-2a39-4fe3-abd0-5793c9bba535"}
+### Ran Playwright code
+```js
+await (async page => { const detail=page.locator("#com-results details").nth(1); if(await detail.getAttribute("open")===null)await page.getByText(/^c922f333.*failed/).click(); const immediate=await detail.getAttribute("open"); await page.waitForTimeout(1700); const after=await detail.getAttribute("open"); if(immediate===null || after===null)throw Error("COM details collapsed during poll"); return {immediate,after_poll:after,task:await detail.getAttribute("data-com-task")}; })(page);
+```

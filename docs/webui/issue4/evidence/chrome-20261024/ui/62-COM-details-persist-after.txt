@@ -1,0 +1,2 @@
+### Error
+Error: COM details collapsed during poll
