@@ -15,7 +15,7 @@ import numpy as np
 
 from pybert.web.worker import run_worker
 from pybert.web.resources import Resources
-from pybert.web.config import input_hash, yaml_text, unresolved_references
+from pybert.web.config import extensions, input_hash, yaml_text, unresolved_references
 from pybert.web.records import References, verify_replay_resources
 from pybert.web.archive import MAX_ARRAY_BYTES
 from pybert.web.optimization import load_optimization
@@ -286,6 +286,7 @@ class Tasks:
         # A cached constructor snapshot is plain immutable metadata, not an observer operation.
         with self.lock:
             if request.get("mode") == "defaults" and self.defaults is not None:
+                extensions(request.get("runtime_extensions", {}))
                 return copy.deepcopy(self.defaults)
         request = copy.deepcopy(request)
         task = self.start("normalize", request)

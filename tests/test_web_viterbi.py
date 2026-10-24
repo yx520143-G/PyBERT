@@ -230,7 +230,8 @@ def test_http_cached_defaults_reject_fec_without_worker_or_losing_success(tmp_pa
     monkeypatch.setattr(manager.context, "Process", no_worker)
     assert client.post("/api/normalize", json={"mode": "defaults"}).json() == manager.defaults
     for request in ({"mode": "defaults", "rx_viterbi_fec": True},
-                    {"mode": "defaults", "config": {"rx_viterbi_fec": True}}):
+                    {"mode": "defaults", "config": {"rx_viterbi_fec": True}},
+                    {"mode": "defaults", "runtime_extensions": {"version": 1, "values": {"rx_viterbi_fec": True}}}):
         response = client.post("/api/normalize", json=request)
         assert response.status_code == 422 and "unsupported_native_fec" in response.json()["detail"]
     assert manager.active is None and set(manager.tasks) == existing_tasks and manager.runs == ["old-success"]
