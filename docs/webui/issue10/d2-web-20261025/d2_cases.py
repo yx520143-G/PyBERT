@@ -709,3 +709,104 @@ class BindingCases(unittest.TestCase):
         guard = (evidence / "run_guarded.py").read_text(encoding="utf-8")
         self.assertIn("os._exit(86)", guard)
         self.assertIn("except BaseException as error:", ast.unparse(function(guard, "main")))
+
+
+class ReviewFixCases(unittest.TestCase):
+    def test_worker_imported_config_snapshot_keeps_global_scope(self):
+        import ast
+        import json
+        import symtable
+        from d2_under_test import root, evidence, destination
+
+        paths = {"base": evidence / "inputs/worker.baseline.py.txt",
+                 "reviewed": evidence / "inputs/worker.review-broken.py.txt",
+                 "current": root / "src/pybert/web/worker.py"}
+        report = {}
+        functions = {}
+        for label, path in paths.items():
+            text = path.read_text(encoding="utf-8")
+            table = next(item for item in symtable.symtable(text, str(path), "exec").get_children()
+                         if item.get_name() == "run_worker")
+            symbol = table.lookup("snapshot")
+            function = next(item for item in ast.parse(text).body
+                            if isinstance(item, ast.FunctionDef) and item.name == "run_worker")
+            functions[label] = function
+            report[label] = {"global": symbol.is_global(), "local": symbol.is_local(),
+                             "referenced": symbol.is_referenced(), "assigned": symbol.is_assigned()}
+        (destination / "worker-scope.json").write_text(json.dumps(report, indent=2) + "\n",
+                                                       encoding="utf-8")
+        self.assertTrue(report["base"]["global"])
+        self.assertTrue(report["reviewed"]["local"])
+        self.assertTrue(report["reviewed"]["assigned"])
+        self.assertTrue(report["current"]["global"], "config snapshot was shadowed by a worker local")
+        self.assertFalse(report["current"]["assigned"])
+        self.assertFalse(any(isinstance(item, ast.Name) and item.id == "snapshot" and isinstance(item.ctx, ast.Store)
+                             for item in ast.walk(functions["current"])))
+        calls = lambda node: [ast.dump(item, include_attributes=False) for item in ast.walk(node)
+                              if isinstance(item, ast.Call) and ast.unparse(item.func) == "my_run_simulation"]
+        self.assertEqual(calls(functions["base"]), calls(functions["current"]))
+        analysis = ast.unparse(ast.parse((root / "src/pybert/web/analysis.py").read_text(encoding="utf-8")))
+        self.assertIn("'uniform_grid_validation'", analysis)
+
+    def test_high_origin_roundoff_and_real_nonuniform_period_inputs(self):
+        import json
+        from d2_under_test import evidence
+
+        fixture = json.loads((evidence / "review-fixtures.json").read_text(encoding="utf-8"))
+        t = np.array([float.fromhex(value) for value in fixture["grid_hex"]])
+        periods = np.array(fixture["period_ps"])
+        original_t, original_periods = t.tobytes(), periods.tobytes()
+        projection = modules["pybert.web.clocks"].period_projection
+
+        def context(grid):
+            return {"info": {"period_known": np.array([True] * 16), "analysis": {
+                "start_index": 0, "stop_index": 16, "start_s": float(grid[0]), "stop_s": float(grid[-1]),
+                "fft_slice": [2, 10]}}}
+
+        product = projection(context(t), t, periods, 1e-10)
+        spectrum = product["spectrum"]
+        self.assertEqual(spectrum["availability"], "available", spectrum["reason"])
+        self.assertEqual(spectrum["indices"].tolist(), [2, 3, 4, 5, 6, 7, 8, 9])
+        self.assertEqual(spectrum["window"], {"start_index": 2, "stop_index": 10})
+        self.assertEqual(spectrum["origin_s"], float.fromhex(fixture["grid_hex"][2]))
+        self.assertEqual(spectrum["sample_interval_s"], float.fromhex(fixture["actual_first_interval_hex"]))
+        self.assertEqual(spectrum["frequency_hz"].tolist(),
+                         [float.fromhex(value) for value in fixture["expected_frequency_hex"]])
+        self.assertEqual(spectrum["raw"].real.tolist(), fixture["expected_fft_real"])
+        self.assertEqual(spectrum["raw"].imag.tolist(), [0.] * 5)
+        self.assertEqual(int(product["histogram"]["counts"].sum()), 16)
+        validation = spectrum["uniform_grid_validation"]
+        self.assertEqual(validation["max_interval_error_s"], fixture["max_abs_interval_error_s"])
+        self.assertEqual(validation["max_bound_s"], fixture["expected_roundoff_bound_s"])
+        self.assertEqual(validation["timestamp_dtype"], t.dtype.str)
+        self.assertTrue(validation["strictly_increasing"])
+        self.assertEqual(t.tobytes(), original_t)
+        self.assertEqual(periods.tobytes(), original_periods)
+
+        for kind in ("perturbed", "duplicate", "reversed", "initial_zero"):
+            grid = t.copy()
+            if kind == "perturbed":
+                grid[8] += float.fromhex(fixture["nominal_ts_hex"]) / 16
+            elif kind == "duplicate":
+                grid[8] = grid[7]
+            elif kind == "reversed":
+                grid[8] = grid[6]
+            else:
+                grid[1] = grid[0]
+            with self.subTest(kind=kind):
+                result = projection(context(grid), grid, periods, 1e-10)
+                self.assertEqual(result["spectrum"]["availability"], "unavailable")
+                self.assertEqual(result["spectrum"]["reason"], "unknown_or_nonpositive_sample_interval"
+                                 if kind == "initial_zero" else "nonuniform_grid")
+                self.assertEqual(result["spectrum"]["raw"].size, 0)
+                self.assertEqual(int(result["histogram"]["counts"].sum()), 16)
+        for bad in (float("nan"), float("inf")):
+            grid = t.copy()
+            grid[8] = bad
+            with self.subTest(nonfinite=str(bad)), self.assertRaises(ValueError):
+                projection(context(grid), grid, periods, 1e-10)
+        # Exactly representable zero-origin control must retain the old raw FFT/frequency convention.
+        grid = np.array([i * 0.25 for i in range(16)])
+        result = projection(context(grid), grid, periods, 1.)["spectrum"]
+        self.assertEqual(result["raw"].tolist(), [40. + 0j, 0j, 0j, 0j, 0j])
+        self.assertEqual(result["frequency_hz"].tolist(), [0., 0.5, 1., 1.5, 2.])

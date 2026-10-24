@@ -1,0 +1,8 @@
+{
+  "elapsed_s": 0.1229581999941729,
+  "scope": "stdlib source/AST/fixture/hash/plan generation only",
+  "product_NumPy_calls": 0,
+  "review_source": "9331c38e4393868d69d2bbc4dbd22565c0612324",
+  "original_external_seal_preserved": true,
+  "D_forecast_two_batches_pure_upper": 64
+}

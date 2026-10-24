@@ -116,6 +116,10 @@ def main():
         events.write(json.dumps({"kind": kind, "name": name}) + "\n")
         if spent[kind] + counts[kind] > plan["limits"][kind]:
             block("cumulative " + kind)
+        review = plan.get("review_budget")
+        if kind == "pure" and review is not None:
+            if spent[kind] + counts[kind] - review["prior_cumulative_pure"] > review["limit"]:
+                block("review D pure")
 
     def snapshot(value):
         if isinstance(value, (np.ndarray, np.generic)):
