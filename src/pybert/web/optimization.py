@@ -1,6 +1,7 @@
 """Bounded native coopt adapter. Candidates never mutate an editable draft or a Run."""
 
 import io
+import copy
 import importlib.metadata
 import os
 import math
@@ -245,7 +246,7 @@ def prepare(request, model_report=None, check=lambda: False, emit=lambda *a, **k
     load_config(p, config)
     if config["tx_sel"] == "ibis" or config["rx_sel"] == "ibis":
         runtime = extensions(request.get("runtime_extensions", {}))
-        before = json.loads(json.dumps(runtime))
+        before = copy.deepcopy(runtime)
         report = configure(p, config, runtime, request.get("frozen_resources", []), check=check, emit=emit)
         if model_report is not None:
             model_report.update(report)
