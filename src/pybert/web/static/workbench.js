@@ -321,6 +321,7 @@
   function applyLoadedInput(result,sourceId=null,name='',guard=null) {
     base=result.config;normalized=result;patches=[];runtimeExtensions=result.runtime_extensions;revision++;normalizedRevision=revision;
     sourceRecordId=sourceId;replayGuard=guard;snapshotRecoveryRequired=false;logicalName=name;
+    $('config-status').textContent='';
     $('config-name').textContent=name || 'Untitled';
     window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
     window.PYBERT_RESOURCES?.importReport(result);

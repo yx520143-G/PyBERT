@@ -545,7 +545,7 @@
     replaceDraft: values => { draft = values; saveDraft(); renderStage(); },
     replaceLoadedDraft: values => {recoveryRequired=false;retainedFields={};loadMessage='已显式载入完整配置；旧草稿原件未删除。';draft=values;saveDraft();renderStage();},
     setSources: version=>{sources=version;},
-    migrationError: ()=>recoveryRequired?'本地草稿恢复失败：请显式恢复默认或Load Config。':Object.keys(retainedFields).length?'有未应用的历史字段，原值保留；请检查迁移明细并显式恢复默认或载入完整配置。':null,
+    migrationError: ()=>recoveryRequired?'本地草稿恢复失败：请显式恢复默认或Load Config。':Object.values(retainedFields).some(row=>row.blocking!==false)?'有未应用的历史字段，原值保留；请检查迁移明细并显式恢复默认或载入完整配置。':null,
     setDefaults: values => { Object.assign(settings.defaults, settings.clone(values)); for (const [key, value] of Object.entries(values)) if (settings.fields[key]) settings.fields[key].value = value; },
     hasSavedDraft: () => restored
   };

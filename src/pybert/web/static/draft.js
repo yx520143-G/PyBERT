@@ -7,7 +7,10 @@
     for(const [key,value] of Object.entries(saved.values)) {
       if (!Object.hasOwn(values,key)) {retained[key]={value,reason:'当前版本未支持的稳定field ID'};continue;}
       let valid;
-      if (settings.tableInfo[key]) valid=Array.isArray(value) && value.length===values[key].length && value.every((row,i)=>row && settings.tableInfo[key].columns.every(column=>typeof row[column]===typeof values[key][i][column] || (column!=='enabled' && row[column]==='')));
+      if (settings.tableInfo[key]) {
+        valid=Array.isArray(value) && value.length===values[key].length && value.every((row,i)=>row && settings.tableInfo[key].columns.every(column=>column==='value' && key.endsWith('_tap_tuners') ? row[column]===undefined || typeof row[column]==='number' && Number.isFinite(row[column]) : typeof row[column]===typeof values[key][i][column] || (column!=='enabled' && row[column]==='')));
+        if(valid && key.endsWith('_tap_tuners') && value.some(row=>row.value!==undefined)) retained[`${key}.value`]={value:value.map(row=>row.value ?? null),reason:'优化value保留；当前Native Run不消费，#8专项处理。',blocking:false};
+      }
       else if(settings.fields[key]?.kind==='files') valid=Array.isArray(value) && value.every(item=>typeof item==='string');
       else valid=typeof value===typeof values[key] || (settings.fields[key]?.kind==='number' && value==='');
       if (valid && ['select','radio'].includes(settings.fields[key]?.kind)) {const options=settings.optionsFor(key,{...values,[key]:value});if(options && !options.includes(value)) valid=false;}

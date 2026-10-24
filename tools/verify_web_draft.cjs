@@ -30,4 +30,10 @@ assert.equal(JSON.parse(app.storage.get('pybert-native-draft-v2')).values.bit_ra
 const broken=loadApp({'pybert-native-draft-v2':'invalid JSON'});
 broken.ui.replaceDraft(broken.ui.getDraft());
 assert.equal(broken.storage.get('pybert-native-draft-v2'),'invalid JSON');assert.match(broken.ui.migrationError(),/恢复失败/);
+const native=JSON.parse(JSON.stringify(window.PYBERT_SETTINGS.defaults));
+native.tx_tap_tuners.forEach(row=>delete row.value);
+const restoredNative=loadApp({'pybert-native-draft-v2':JSON.stringify({schema:2,values:native})});
+assert.equal(restoredNative.ui.migrationError(),null);
+const nativeMigrate=window.PYBERT_DRAFT.migrate({schema:2,values:native});
+assert.equal(Object.keys(nativeMigrate.retained).length,0);
 console.log('PASS: actual PR7 storage-key migration, v1→v2 stable fields, catalog order independence, retained values, unknown schema/invalid JSON refusal without overwrite.');
