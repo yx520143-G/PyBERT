@@ -1,0 +1,12 @@
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": [{"array_sha256": "52763ecee9ecc554a111c86eef1d572b7cfb4df1d2fb2d683e1243f905f6cfa0", "dtype": "<i8", "shape": [4], "bytes": 32}, {"array_sha256": "7a1ac7238c22c18037ebfc9321dccd04c3575ed1ab1bcd7367d8030d302eb2a2", "dtype": "<f8", "shape": [4], "bytes": 32}, {"array_sha256": "6bab56d2f81d4b5a2dbf102bf6a6ff7d5211a475fc5f97813f977e8ba714b07d", "dtype": "<f8", "shape": [4], "bytes": 32}], "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": null, "state": {}}
+{"function": "pybert.web.clocks.validate_period", "event": "return_or_exception", "return": [{"array_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "dtype": "<i8", "shape": [0], "bytes": 0}, {"array_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "dtype": "<f8", "shape": [0], "bytes": 0}, {"array_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "dtype": "<f8", "shape": [0], "bytes": 0}], "state": {}}

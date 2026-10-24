@@ -1,8 +1,8 @@
 {
-  "phase": "masked-period contract green",
-  "run_id": "02-mask-green",
+  "phase": "producer freshness and Eye crop selection red",
+  "run_id": "03-producer-red",
   "selection": [
-    "MaskCases"
+    "ProducerCases"
   ],
   "snapshot_paths": {
     "clocks.py.txt": "src/pybert/web/clocks.py",
@@ -13,27 +13,38 @@
     "environment.json": "docs/webui/issue10/d2-web-20261025/environment.json",
     "contract.json": "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json",
     "venv.cfg.txt": ".venv/pyvenv.cfg",
-    "baseline_eye.py.txt": "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt"
+    "baseline_eye.py.txt": "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt",
+    "producer.py.txt": "src/pybert/utility/ami_clock.py"
   },
   "source_test_runner_raw_sha256": {
     "src/pybert/web/clocks.py": "9bc0a5f315300f47fc0adb41a3dd8b486653b9e4e1c7e2895e65c18ecbb0dc10",
-    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "994207db29a070bf8e8400f4d67c15b3e372cd6a834a7dabc75d16eff25ab735",
+    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "70782aa712b7345db11b68851cf3df8945aeba7854f1052cab7b24b567ac89fa",
     "docs/webui/issue10/d2-web-20261025/run_guarded.py": "c88449bcb1de1cebd26bf52eb799f1e24ed7d195244c94dcea029acf318cb77f",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "0363ea36878cef57f1ed281d0f9d193cd3384c243314a0d7717e15e1c3203762",
     "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
     "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
-    "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d"
+    "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
+    "src/pybert/utility/ami_clock.py": "b72ba1e1c4e507d7a3bedba73548fb721c4df620072d171469bd5c9a7bb9e23c"
   },
   "modules": {
     "pybert.web.clocks": {
       "path": "src/pybert/web/clocks.py",
       "names": null
+    },
+    "pybert.utility.ami_clock": {
+      "path": "src/pybert/utility/ami_clock.py",
+      "names": [
+        "new_clock_info"
+      ]
     }
   },
   "function_kinds": {},
   "forbidden_definitions": [],
   "observe": [
-    "validate_period"
+    "snapshot_producer",
+    "clock_context",
+    "eye_selection",
+    "new_clock_info"
   ],
   "limits": {
     "pure": 4000,
@@ -69,7 +80,7 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 12,
+    "pure": 0,
     "collect": 0,
     "extend_analysis": 0,
     "eye_data": 0,
@@ -93,39 +104,27 @@
   },
   "expected_result": {
     "tests": 1,
-    "failures": 0,
-    "errors": 0
+    "failures": 1,
+    "errors": 0,
+    "reason": "host producer snapshot absent; assertion before actual factory/helper calls"
   },
-  "case_inputs": "literal nine-element t/period raw uint64 NaN payloads and bool mask in cases.py.txt; ten invalid type/shape/known/unknown rows and all-unknown; every literal frozen before call",
+  "case_inputs": "literal16-grid with indices2,6,10,14; frozen window4:16 and FFT6:10; three in-window samples but only absolute6 yields complete8-sample trace in crop4:14; crop7:16 has zero traces. Two actual factories generate distinct monotonic Main ids, not model Init epoch/RNG.",
   "expected_values": {
-    "known_indices": [
-      3,
-      4,
-      6,
-      7
+    "crop4_14_relative": [
+      2
     ],
-    "known_times_s": [
-      0.75,
-      1,
-      1.5,
-      1.75
+    "crop4_14_absolute": [
+      6
     ],
-    "known_period_ps": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "dense_raw": "same C-order bytes including distinct NaN payloads",
-    "invalid": "all ten rows raise ValueError, no filtering/coercion",
-    "all_unknown": "diagnostic empty compact, no mathematical qualification"
+    "window_samples": 3,
+    "full_consumed": 4,
+    "crop7_16": "zero complete trace/unavailable",
+    "freshness": "old/missing/different/same invocation or partial source rejected; legal actually-returned no-clocks Native stays Native"
   },
   "expected_basis": "independent literal bit patterns and index table, actual AST seam only; no product algorithm copies",
   "guards_order": "stdlib/input snapshots => import/audit/profile guards => installed-file verification => NumPy import/C extensions => selected actual definitions => tests",
   "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
   "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
-  "expected_function_entries": {
-    "pybert.web.clocks.validate_period": 12
-  },
-  "previous_plan": "runs/01-mask-red/plan.json"
+  "expected_function_entries": {},
+  "previous_plan": "runs/02-mask-green/plan.json"
 }

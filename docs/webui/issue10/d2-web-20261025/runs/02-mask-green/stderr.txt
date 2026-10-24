@@ -1,0 +1,6 @@
+test_dense_bytes_and_exact_known_compact (d2_cases.MaskCases.test_dense_bytes_and_exact_known_compact) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+OK

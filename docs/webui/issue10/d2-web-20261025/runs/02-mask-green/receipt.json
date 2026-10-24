@@ -1,0 +1,108 @@
+{
+  "run_id": "02-mask-green",
+  "git_HEAD": "1b0877f99a7302a3c55a0c9b02fb5691df0ae9b7",
+  "input_sha256": {
+    "clocks.py.txt": "9bc0a5f315300f47fc0adb41a3dd8b486653b9e4e1c7e2895e65c18ecbb0dc10",
+    "cases.py.txt": "994207db29a070bf8e8400f4d67c15b3e372cd6a834a7dabc75d16eff25ab735",
+    "runner.py.txt": "c88449bcb1de1cebd26bf52eb799f1e24ed7d195244c94dcea029acf318cb77f",
+    "launcher.py.txt": "0363ea36878cef57f1ed281d0f9d193cd3384c243314a0d7717e15e1c3203762",
+    "plan.json": "ceef30bc99baa4949a9e6875c127a5932cf3134effe63365901d11ee5f0f8f81",
+    "environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
+    "contract.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
+    "venv.cfg.txt": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
+    "baseline_eye.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d"
+  },
+  "spent_before": {
+    "pure": 0,
+    "collect": 0,
+    "extend_analysis": 0,
+    "eye_data": 0,
+    "calc_eye": 0,
+    "clock_data": 0,
+    "clock_display": 0,
+    "histogram": 0,
+    "rfft": 0,
+    "safe_log10": 0,
+    "viterbi_extend": 0,
+    "viterbi_validate": 0,
+    "resize_zero_pad": 0,
+    "read_arrays": 0,
+    "validate_run": 0,
+    "save_archive": 0,
+    "load_archive": 0,
+    "annotate": 0,
+    "execution_write": 0,
+    "partial_save": 0
+  },
+  "counts": {
+    "pure": 12,
+    "collect": 0,
+    "extend_analysis": 0,
+    "eye_data": 0,
+    "calc_eye": 0,
+    "clock_data": 0,
+    "clock_display": 0,
+    "histogram": 0,
+    "rfft": 0,
+    "safe_log10": 0,
+    "viterbi_extend": 0,
+    "viterbi_validate": 0,
+    "resize_zero_pad": 0,
+    "read_arrays": 0,
+    "validate_run": 0,
+    "save_archive": 0,
+    "load_archive": 0,
+    "annotate": 0,
+    "execution_write": 0,
+    "partial_save": 0
+  },
+  "function_entries": {
+    "pybert.web.clocks.validate_period": 12
+  },
+  "stub_entries": {},
+  "blocked_attempts": [],
+  "NumPy_imports": 1,
+  "stage": "execution",
+  "executable": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv\\Scripts\\python.exe",
+  "prefix": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv",
+  "python": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+  "NumPy_ctypes_import_events": [
+    [
+      "ctypes.dlopen",
+      "('kernel32',)"
+    ],
+    [
+      "ctypes.dlsym",
+      "(<WinDLL 'kernel32', handle 7ffc2e200000 at 0x1f14f00fcb0>, 'GetLastError')"
+    ]
+  ],
+  "serialization": {},
+  "task_wall_peak_RSS": "UNKNOWN",
+  "scope": "actual AST definitions; no product module body or engine import; bounded real NumPy",
+  "NumPy_version": "2.5.1",
+  "NumPy_path": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "exit_code": 0,
+  "elapsed_s": 0.59913200000301,
+  "loaded_NumPy_extensions": {
+    "numpy._core._multiarray_umath": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd",
+    "numpy.linalg._umath_linalg": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv\\Lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp313-win_amd64.pyd",
+    "numpy.fft._pocketfft_umath": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv\\Lib\\site-packages\\numpy\\fft\\_pocketfft_umath.cp313-win_amd64.pyd"
+  },
+  "output_sha256": {
+    "events.jsonl": "cf6191c46c4139eda1098b357ca256912bedb8f041ba4bb8cd6b0143f6fbc9d3",
+    "observations.jsonl": "bf28c122888de974675a6438414b838005ea0c9e12f17211943fb3dd7f13c203",
+    "stderr.txt": "6984620282d82ffaa79f76c0aebcd741194ea99231b1a832c02b7ed651352eec",
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "array_output_sha256": {
+    "52763ecee9ecc554a111c86eef1d572b7cfb4df1d2fb2d683e1243f905f6cfa0.bin": "52763ecee9ecc554a111c86eef1d572b7cfb4df1d2fb2d683e1243f905f6cfa0",
+    "6bab56d2f81d4b5a2dbf102bf6a6ff7d5211a475fc5f97813f977e8ba714b07d.bin": "6bab56d2f81d4b5a2dbf102bf6a6ff7d5211a475fc5f97813f977e8ba714b07d",
+    "7a1ac7238c22c18037ebfc9321dccd04c3575ed1ab1bcd7367d8030d302eb2a2.bin": "7a1ac7238c22c18037ebfc9321dccd04c3575ed1ab1bcd7367d8030d302eb2a2",
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "inputs_unchanged_after": true,
+  "run_output_bytes": 208522
+}
