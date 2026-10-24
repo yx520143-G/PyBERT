@@ -1,6 +1,6 @@
 {
-  "phase": "actual consumer red: partial failures, both window bounds, periods, chunk/full and W+1/float-floor",
-  "run_id": "05-consumer-red",
+  "phase": "actual consumer green, no real DFE/model/decode",
+  "run_id": "06-consumer-green",
   "selection": [
     "ConsumerCases"
   ],
@@ -21,7 +21,7 @@
     "clarification.json": "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/utility/ami_clock.py": "874dffeef57ea49934660a6ec4bb22afdf9d57f80fba6bc7e4dfe4da1ac8b3c8",
+    "src/pybert/utility/ami_clock.py": "c9a3077cb58bc03ae24f63b8c27e9ac0a346f2a1f678efd1719bc111bae5afa9",
     "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
     "src/pybert/utility/sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
     "src/pybert/pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
@@ -35,7 +35,7 @@
     "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b"
   },
   "expected_counts": {
-    "pure": 0,
+    "pure": 43,
     "calc_eye": 0,
     "histogram": 0,
     "rfft": 0,
@@ -43,9 +43,10 @@
   },
   "expected_result": {
     "tests": 1,
-    "failures": 1,
+    "failures": 0,
     "errors": 0,
-    "reason": "actual production consumer absent; its first assertion prevents all planner/stub calls"
+    "pure_breakdown": "15 state factories +14 planners +14 consumers =43",
+    "note": "expected count audited against actual function entries, no calling product to predict"
   },
   "case_inputs": {
     "source": "literal row table and grid/window arrays in cases.py.txt; 10 rows plus tail/fresh/chunk-prefix/full/float cases"
@@ -96,5 +97,5 @@
   "future_vertical_slices": "bounded planner formats/window/index cases; actual partial consumer; optional Eye indices/Native exact; masked period/FFT/PlotData projection; AST wiring, one final relevant green; each actual new input/source first frozen and committed",
   "restricted_entries": "full PyBERT/Main/update_results/run_dfe/DFE/decode/run_ami_model/PyAMI/modelmodule/grammar/SciPy/otherDSP/CmodelDLL/COM/coopt/Web/GUI/CLI/service/browser/model resource operations all0",
   "task_wall_peak_RSS": "UNKNOWN",
-  "previous_plan": "runs/04-planner-contract-green/plan.json"
+  "previous_plan": "runs/05-consumer-red/plan.json"
 }

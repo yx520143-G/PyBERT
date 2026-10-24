@@ -76,3 +76,80 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
     if np.any(np.diff(indices) <= 0):
         reject("unsupported_resolution")
     return info
+
+
+def consume_ami_clocks(info, waveform, decide, check_cancel=None):
+    """Consume actual samples, keeping every completed decision even when a later step fails."""
+    grid = info["grid_s"]
+    waveform = np.asarray(waveform)
+    if waveform.ndim != 1 or len(waveform) != len(grid) or info["use_native"]:
+        info["reason"] = "invalid_consumer_input"
+        raise ValueError("invalid_consumer_input")
+    info["actual_branch"] = "ami"
+    indices, positions, samples, decisions, bits = [], [], [], [], []
+    attempts = 0
+    loop_finished = False
+    try:
+        for tick, index in zip(info["planned_tick_positions"], info["planned_indices"]):
+            info["last_attempted_tick_position"] = int(tick)
+            if check_cancel is not None:
+                check_cancel()
+            attempts += 1
+            value = waveform[index]
+            decision, returned_bits = decide(value)
+            bits.extend(returned_bits)
+            positions.append(int(tick))
+            indices.append(int(index))
+            samples.append(value)
+            decisions.append(decision)
+        loop_finished = True
+    except BaseException as error:
+        info.update(reason="consumption_failed", error_type=type(error).__name__, error_message=str(error))
+        raise
+    finally:
+        indices = np.asarray(indices, dtype=int)
+        positions = np.asarray(positions, dtype=int)
+        targets = info["targets_s"][positions]
+        actual_times = grid[indices]
+        period = np.full(len(grid), np.nan)
+        known = np.zeros(len(grid), dtype=bool)
+        for left in range(len(indices) - 1):
+            if positions[left + 1] == positions[left] + 1:
+                interval = slice(indices[left], indices[left + 1])
+                period[interval] = info["edges_s"][positions[left + 1]] - info["edges_s"][positions[left]]
+                known[interval] = True
+        clocks = np.zeros(len(grid))
+        clocks[indices] = 1
+        ready = targets >= info["ignore_ui"] * info["symbol_ui_s"]
+        window = info["analysis"]
+        inside = (ready & (targets >= window["start_s"]) & (targets <= window["stop_s"])
+                  & (actual_times >= window["start_s"]) & (actual_times <= window["stop_s"])
+                  & (indices >= window["start_index"]) & (indices < window["stop_index"]))
+        analysis_indices = indices[inside]
+        eye_indices = analysis_indices[analysis_indices + 2 * info["nspui"] <= window["stop_index"]]
+        fft_start, fft_stop = window["fft_slice"]
+        period_eligible = fft_stop - fft_start >= 2 and bool(np.all(known[fft_start:fft_stop]))
+        full = (loop_finished and len(analysis_indices) >= window["required_decisions"]
+                and len(eye_indices) >= window["required_eye_traces"] and period_eligible)
+        info.update(sample_indices=indices, consumed_tick_positions=positions, consumed_count=len(indices),
+                    sample_grid_times_s=actual_times, sample_targets_s=targets,
+                    sample_quantization_delay_s=actual_times - targets, adaptation_ready=ready,
+                    sample_values=np.asarray(samples), decisions=np.asarray(decisions), bits=list(bits),
+                    clock_mask=clocks, period_s=period, period_known=known,
+                    analysis_sample_indices=analysis_indices[-window["required_decisions"]:],
+                    eye_sample_indices=eye_indices, eye_eligible_trace_count=len(eye_indices),
+                    eye_trace_count=0, eye_status="not_attempted", attempted_count=attempts,
+                    period_window_eligible=period_eligible, loop_finished=loop_finished,
+                    full_analysis_eligible=bool(full), consumption_status="completed" if full else "partial")
+        info.setdefault("model_lock_status", "unavailable")
+        if len(positions) and positions[-1] == len(info["edges_s"]) - 1:
+            info["last_tick_status"] = "consumed"
+        elif info["deferred_reasons"][-1] is not None:
+            info["last_tick_status"] = "deferred"
+        else:
+            info["last_tick_status"] = "not_consumed"
+        if loop_finished:
+            info["reason"] = None if full else "insufficient_coverage"
+    if not info["full_analysis_eligible"]:
+        raise ValueError("insufficient_coverage")
+    return info
