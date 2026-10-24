@@ -1,0 +1,9 @@
+### Ran Playwright code
+```js
+await fileChooser.setFiles(["C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\fixtures\\v1\\V-PAM4-ISI.yaml"])
+```
+### Page
+- Page URL: http://127.0.0.1:8776/#noise
+- Page Title: PyBERT · Signal Chain Workbench
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T06-27-00-274Z.yml)

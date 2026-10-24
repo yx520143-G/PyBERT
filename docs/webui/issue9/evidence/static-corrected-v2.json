@@ -1,0 +1,13 @@
+{
+  "command": "python -c from_pybert_cli_import_cli --version",
+  "exitcode": 0,
+  "main_calls": 0,
+  "COM_calls": 0,
+  "compileall": 0,
+  "modified_js_syntax": 0,
+  "diff_check": 0,
+  "services_stopped": true,
+  "chrome_session_closed": true,
+  "previous_failed_record": "static-final.json and cli-version.log preserved",
+  "actual_command": "python -c \"from pybert.cli import cli; cli()\" --version"
+}

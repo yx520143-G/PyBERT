@@ -1,0 +1,11 @@
+### Ran Playwright code
+```js
+await page.getByRole('button', { name: '打开结果 / 加入比较' }).click();
+```
+### Page
+- Page URL: http://127.0.0.1:8778/#viterbi
+- Console: 1 errors, 0 warnings
+### Modal state
+- [File chooser]: can be handled by upload
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T07-11-07-903Z.yml)

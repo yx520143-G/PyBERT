@@ -1,0 +1,10 @@
+### Ran Playwright code
+```js
+await fileChooser.setFiles(["C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\metadata-audit-20261024-150741\\local\\8\\derived.pybert_run"])
+```
+### Page
+- Page URL: http://127.0.0.1:8778/#viterbi
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 1 errors, 0 warnings
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T07-11-11-683Z.yml)

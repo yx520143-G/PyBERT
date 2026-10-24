@@ -83,7 +83,8 @@ gFc             = 1.0e6  # Corner frequency of high-pass filter used to model ca
 # pylint: disable=too-many-locals,protected-access,too-many-branches,too-many-statements
 def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True,
                       aborted_sim: Optional[Callable[[], bool]] = None,
-                      observations: Optional[dict[str, Any]] = None):
+                      observations: Optional[dict[str, Any]] = None,
+                      decoding: Optional[dict[str, Any]] = None):
     """
     Runs the simulation.
 
@@ -103,6 +104,8 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             has requested to stop/abort the simulation.
         observations: Optional caller-owned collection of the actual local analysis
             inputs/axes. Collection does not change any calculation or GUI state.
+        decoding: Optional caller-owned read-only capture of each BER alignment and
+            the actual local ISI decoder inputs. No live decoder is stored here.
 
     Raises:
         RuntimeError: If the simulation is aborted by the user or cannot continue.
@@ -609,7 +612,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
     self.dfe_slicer_decisions = array(decisions[-eye_uis:])
 
     # Determine post-DFE BER.
-    def calc_ber(bits_out):
+    def calc_ber(bits_out, path_name):
         """
         Calculate the BER of an output bit stream.
 
@@ -623,6 +626,8 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             - The indices of the erroneous bits.
         """
 
+        if decoding is not None:
+            decoding[path_name] = {"bits_out": array(bits_out)}
         bits_out = resize_zero_pad(bits_out, nbits, pad_front=True)
         bits_tst = bits_out[-eye_bits:]
         auto_corr = (
@@ -645,9 +650,17 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
         bit_errs = where(bits_tst != bits_ref)[0]
         n_errs = len(bit_errs)
 
+        if decoding is not None:
+            decoding[path_name].update(
+                bits_test=array(bits_tst), bits_reference=array(bits_ref), auto_corr=array(auto_corr),
+                bit_delay=int(bit_dly), test_start_bit=nbits - eye_bits, test_stop_bit=nbits,
+                reference_start_bit=len(bits) - eye_bits - int(bit_dly),
+                reference_stop_bit=len(bits) - int(bit_dly), errors=array(bit_errs), count=n_errs,
+            )
+
         return n_errs, bit_errs
 
-    n_errs_dfe, bit_errs_dfe = calc_ber(bits_out_dfe)
+    n_errs_dfe, bit_errs_dfe = calc_ber(bits_out_dfe, "dfe")
 
     # Calculate DFE responses.
     # - First, calculate the impulse responses.
@@ -678,10 +691,13 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
         # - Trap the case of the last one just making it through filtration.
         _sample_times = _sample_times[:eye_uis]
         ix = 0
+        sample_indices = [] if decoding is not None else None
         for sample_time in _sample_times:
             while t[ix] < sample_time:
                 ix += 1
             sig_samps = append(sig_samps, dfe_out[ix])
+            if sample_indices is not None:
+                sample_indices.append(ix)
 
         self.dbg_dict_viterbi = {}
         N = self.rx_viterbi_symbols
@@ -733,8 +749,15 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             # adapted slicer level). Rescale before slicing, so inner/outer
             # PAM-4 levels are classified correctly.
             bits_out_viterbi = concat_lists([dfe.decide(ss * dfe.decision_scaler)[1] for ss in symbols_viterbi])
+            if decoding is not None:
+                decoding["isi"] = dict(
+                    sample_times=array(_sample_times), sample_indices=array(sample_indices),
+                    sigma=sigma, decision_scaler=dfe.decision_scaler, ui=ui, ts=ts, nspui=nspui,
+                    N=N, L=L, clk_phase_ix=clk_phase_ix, pulse_resp_curs_ix=pulse_resp_curs_ix,
+                    pulse_peak_ix=pk_ix, decided_levels=array(dec_lvls),
+                )
 
-        n_errs_viterbi, bit_errs_viterbi = calc_ber(bits_out_viterbi)
+        n_errs_viterbi, bit_errs_viterbi = calc_ber(bits_out_viterbi, "viterbi")
 
         self.dbg_dict_viterbi.update(
             {"decoder": decoder,
@@ -1371,7 +1394,11 @@ def update_results(self) -> None:
     self.plotdata.set_data("eye_ctle", eye_ctle)
     self.plotdata.set_data("eye_dfe", eye_dfe)
 
-    # Viterbi trellis
+    update_trellis(self)
+
+
+def update_trellis(self) -> None:
+    """Original trellis producer, also usable with a caller-owned plot-data sink."""
     N_PATHS = 3
     trellis_path_xs:     list[int] = []
     trellis_err_xs:      list[int] = []

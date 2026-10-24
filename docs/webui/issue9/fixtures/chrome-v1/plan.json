@@ -1,0 +1,25 @@
+{
+  "before_chrome": true,
+  "extra_case": {
+    "name": "PAM4-DISABLED",
+    "source": "V-PAM4-ERROR",
+    "only_change": "rx_use_viterbi false; keep same seed/noise/full windows",
+    "sha256": "bdb95bf7f0372a29e3d6aae7dd941cea318642351555a4ab7986f13aab511097"
+  },
+  "steps": [
+    "load original F-PAM4-01 disabled; enable Viterbi and set N2; Run V-PAM4-ISI config exact",
+    "Position 50, drag, Error0of0, Responses/Jitter no Run",
+    "load V-PAM4-ERROR and Run; Error1/max Position; compare old Run; save/open/reload",
+    "load PAM4-DISABLED; Run; keep current DFE count and Viterbi -1",
+    "V-CANCEL: Run then actual keyboard Abort during Running Viterbi; capture request/observed/exit",
+    "default PAM4 N4 budget refusal, invalid N and unsupported_native_fec requests; old success retained"
+  ],
+  "runtime": "UI constructed runtime defaults are recorded; inactive for Native computation",
+  "viewport": [
+    1280,
+    720
+  ],
+  "methods": "headed desktop Chrome via Playwright CLI; standard click/fill/press/drag; API reads only for capture/timing",
+  "no_seed_search": true,
+  "no_COM_or_16": true
+}

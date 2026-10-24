@@ -175,6 +175,7 @@
     $('analysis-info').innerHTML = '';
     $('response-type').hidden = $('response-scope').hidden = $('analysis-kind').value !== 'response';
     $('channel-noise-label').hidden = $('analysis-kind').value !== 'eye';
+    $('trellis-toolbar').hidden = $('analysis-kind').value !== 'viterbi';
     if (!selected) return empty('No successful native run. Run the engine to inspect real data.');
     $('run-log-id').textContent = `Selected successful run: ${selected.run_id}`;
     $('run-log').textContent = (selected.logs || []).join('\n');
@@ -182,6 +183,10 @@
     $('plot').classList.toggle('text-mode',['overview','jitter.info','compare'].includes(id));
     if (['overview','jitter.info','compare'].includes(id)) $('plot').style.height='auto';
     if (!id) return empty('No matching observation at this node. Choose an explicit Point.');
+    if (id === 'viterbi') {
+      const other=$('compare-mode').value==='runs'?comparisonRecord():null;
+      return window.PYBERT_VITERBI.render(selected,other,()=>token===renderToken);
+    }
     if (id === 'overview') {
       empty(`Record ${recordId(selected)} · source run ${selected.run_id} · ${selected.effective_input.mod_type || 'legacy input unknown'} · ${selected.input_hash.slice(0,12)}`);
       $('analysis-info').innerHTML = `<pre>${esc(JSON.stringify({summary:selected.summary,window:selected.window,warnings:selected.warnings,legacy:selected.legacy,lifecycle:selected.lifecycle,native_sha:selected.native_sha,adapter_sha:selected.adapter_sha},null,2))}</pre><details><summary>保存时子功能快照 / 来源</summary><pre>${esc(JSON.stringify({saved_at:selected.archive_saved_at,subfunctions:selected.saved_subfunctions},null,2))}</pre></details>`;
@@ -212,7 +217,7 @@
       if (a.legacy || b.legacy) return empty('Legacy缺少输入/物理轴，无法做物理域比较；可单独查看index诊断。');
       const differences = Object.keys(a.effective_input).filter(key => !equal(a.effective_input[key],b.effective_input[key]));
       empty(`A ${recordId(a)} / source ${a.run_id} · B ${recordId(b)} / source ${b.run_id}`);
-      $('analysis-info').innerHTML = `<table><tr><th></th><th>A ${esc(a.run_id.slice(0,8))}</th><th>B ${esc(b.run_id.slice(0,8))}</th></tr>${['n_errs_dfe','chnl_dly_s','rel_power','initial_level_v','final_level_v'].map(key => `<tr><td>${key}</td><td>${a.summary[key]}</td><td>${b.summary[key]}</td></tr>`).join('')}</table><p>Input differences: ${esc(differences.join(', ') || 'None')}</p><pre>${esc(JSON.stringify(differences.map(key => ({field:key,A:a.effective_input[key],B:b.effective_input[key]})),null,2))}</pre><p>A window ${esc(JSON.stringify(a.window))}<br>B window ${esc(JSON.stringify(b.window))}</p>`;
+      $('analysis-info').innerHTML = `<table><tr><th></th><th>A ${esc(a.run_id.slice(0,8))}</th><th>B ${esc(b.run_id.slice(0,8))}</th></tr>${['n_errs_dfe','n_errs_viterbi','viterbi_availability','chnl_dly_s','rel_power','initial_level_v','final_level_v'].map(key => `<tr><td>${key}</td><td>${esc(a.summary[key] ?? '该记录未采集')}</td><td>${esc(b.summary[key] ?? '该记录未采集')}</td></tr>`).join('')}</table><p>Input differences: ${esc(differences.join(', ') || 'None')}</p><pre>${esc(JSON.stringify(differences.map(key => ({field:key,A:a.effective_input[key],B:b.effective_input[key]})),null,2))}</pre><p>A window ${esc(JSON.stringify(a.window))}<br>B window ${esc(JSON.stringify(b.window))}</p>`;
       $('analysis-info').innerHTML += `<p>Resources/runtime A</p><pre>${esc(JSON.stringify({resources:a.resources,runtime:a.runtime_extensions},null,2))}</pre><p>Resources/runtime B</p><pre>${esc(JSON.stringify({resources:b.resources,runtime:b.runtime_extensions},null,2))}</pre>`;
       return;
     }
@@ -333,6 +338,7 @@
   $('abort').addEventListener('click',async () => { if (activeTask) { const task = await api(`tasks/${activeTask}/cancel`,{}); $('task-state').textContent = `${task.task_id} · ${task.state}; awaiting worker exit`; } });
   $('selected-run').addEventListener('change',() => chooseRun($('selected-run').value).catch(inputError));
   for (const id of ['analysis-kind','response-type','response-scope','analysis-point','compare-mode','comparison-run','channel-noise']) $(id).addEventListener('change',() => renderAnalysis().catch(inputError));
+  window.addEventListener('pybert-trellis-view',()=>renderAnalysis().catch(inputError));
   $('expand-viewer').addEventListener('click',() => { const expanded=$('work-area').classList.toggle('viewer-expanded'); $('expand-viewer').textContent=expanded?'Restore settings':'Expand viewer'; renderAnalysis().catch(inputError); });
   window.addEventListener('pybert-analysis-navigation',event => {
     $('analysis-kind').value=event.detail.kind; $('analysis-point').value='node';

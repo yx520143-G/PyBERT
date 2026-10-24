@@ -1,0 +1,39 @@
+### Result
+{"run_id":"59df53f4-d978-42a2-9abc-df073389a70d","terminal":{"task_id":"59df53f4-d978-42a2-9abc-df073389a70d","operation":"run","state":"succeeded","phase":"succeeded","cancel_requested":false,"cancel_requested_at":null,"cancel_observed_at":null,"cancel_observed":false,"worker_exited":true,"logs":[],"created_at":1792823023.293429,"request_hash":"b5a281a7ec2b429d93f8432a05d47a28cda9a281dcb0b5d1c300234a43c206d1","parent_run_id":null,"resource_inputs":[],"parameter_source":null,"worker_exit_confirmed_at":1792823029.7526891,"exitcode":0,"finished_at":1792823029.7526898,"result":{"run_id":"59df53f4-d978-42a2-9abc-df073389a70d"}},"summary":{"n_errs_dfe":596,"n_errs_viterbi":-1,"viterbi_availability":"disabled","chnl_dly_s":2.3812500000000002e-9,"rel_power":0.004799993259259258,"dfe_jitter_s":{"isi":5.5717010365023504e-11,"dcd":1.797389474846738e-12,"pj":1.2747471642376656e-11,"rj":1.9123133455285692e-11,"pjDD":4.848484848484849e-11,"rjDD":2.5238952674514224e-11,"mu_pos":1.080107126533023e-12,"mu_neg":1.0346314421677708e-11,"dj_pos":3.5050370168986865e-11,"dj_neg":-3.6385068975442455e-11},"initial_level_v":0.5,"final_level_v":0.3492298747643425,"performance_Msamples_per_min":{"channel":161.14141837549073,"tx":498.8775255899307,"ctle":98.91135688491131,"ffe":638.7197217859132,"dfe":17.74322230493525,"jitter":59.87817286792513,"total":10.756288862162306}},"dirty":"Older input · draft or resource binding changed","post_count":1,"checks":{"disabled_minus1":true,"current_DFE596":true,"no_stale_trellis":true,"dirty_old_result_preserved":true,"saved":true}}
+### Ran Playwright code
+```js
+await (async page => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue9-viterbi/serial-bus-simulator';
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+  let posts=0;page.on('request',request=>{if(request.method()==='POST'&&request.url().endsWith('/api/runs'))posts++;});
+  await page.waitForFunction(()=>document.getElementById('config-status').textContent.includes('PAM4-DISABLED.yaml')&&!document.getElementById('run').disabled);
+  const response=page.waitForResponse(r=>r.url().endsWith('/api/runs') && r.request().method()==='POST');
+  await page.locator('#run').click();const task=await(await response).json();
+  let final;for(let i=0;i<1200;i++){final=await(await page.request.get('http://127.0.0.1:8776/api/tasks/'+task.task_id)).json();if(final.worker_exited)break;await page.waitForTimeout(100);}
+  assert(final.state==='succeeded'&&final.worker_exited,JSON.stringify(final));
+  await page.waitForFunction(id=>window.PYBERT_RUNS.selected()?.run_id===id,task.task_id);
+  await page.locator('#analysis-kind').selectOption('viterbi');
+  await page.waitForFunction(()=>document.getElementById('trellis-status').textContent.includes('DFE: 596 bit errors'));
+  const selected=await page.evaluate(()=>window.PYBERT_RUNS.selected());
+  assert(selected.summary.n_errs_dfe===596&&selected.summary.n_errs_viterbi===-1,'disabled must preserve actual DFE');
+  assert(await page.locator('#trellis-position').isDisabled(),'disabled viewport');
+  await page.locator('#expand-viewer').click();await page.locator('#analysis').scrollIntoViewIfNeeded();
+  await page.screenshot({path:root+'/output/playwright/issue9/07-disabled-current-dfe596.jpg'});
+  const download=page.waitForEvent('download');await page.locator('#save-results').click();
+  await(await download).saveAs(root+'/output/playwright/issue9/PAM4-DISABLED.pybert_run');
+  await page.getByRole('button',{name:'Noise',exact:true}).click();
+  await page.locator('#expand-viewer').click();
+  await page.locator('#control-rn').fill('0.16');await page.locator('#control-rn').press('Tab');
+  await page.waitForFunction(()=>document.getElementById('stale').textContent.includes('Older input'));
+  const dirty=await page.locator('#stale').innerText();
+  assert(posts===1,'unexpected extra Run');
+  return {run_id:task.task_id,terminal:final,summary:selected.summary,dirty,post_count:posts,checks:{disabled_minus1:true,current_DFE596:true,no_stale_trellis:true,dirty_old_result_preserved:true,saved:true}};
+}
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8776/#noise
+- Page Title: PyBERT · Signal Chain Workbench
+### Events
+- Downloading file 59df53f4-d978-42a2-9abc-df073389a70d.pybert_run ...
+- Downloaded file 59df53f4-d978-42a2-9abc-df073389a70d.pybert_run to ".playwright-cli\59df53f4-d978-42a2-9abc-df073389a70d.pybert-run"

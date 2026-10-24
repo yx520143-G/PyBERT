@@ -1,0 +1,38 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 23 items
+
+tests/test_web_viterbi.py::test_original_error_mapping_view_clamp_raw_log_and_zero PASSED [  4%]
+tests/test_web_viterbi.py::test_windows_source_identity_paths_are_portable PASSED [  8%]
+tests/test_web_viterbi.py::test_full_dfe_decisions_have_own_axis_and_explicit_decoder_tail PASSED [ 13%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[axis] PASSED [ 17%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[window] PASSED [ 21%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[mapping] PASSED [ 26%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[full_index] PASSED [ 30%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[schema_downgrade] PASSED [ 34%]
+tests/test_web_viterbi.py::test_legacy_schema1_retained_with_explicit_metadata_erratum PASSED [ 39%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[source] PASSED [ 43%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[missing_bits] PASSED [ 47%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[axis] PASSED [ 52%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[window] PASSED [ 56%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[count] PASSED [ 60%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[error_mapping] PASSED [ 65%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[states] PASSED [ 69%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[sample_time] PASSED [ 73%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[schema] PASSED [ 78%]
+tests/test_web_viterbi.py::test_disabled_retains_actual_dfe_count_and_old_record_not_collected PASSED [ 82%]
+tests/test_web_viterbi.py::test_default_depth_budget_and_no_silent_parameter_change PASSED [ 86%]
+tests/test_web_viterbi.py::test_fec_rejected_in_config_yaml_runtime_and_request PASSED [ 91%]
+tests/test_web_viterbi.py::test_http_cached_defaults_reject_fec_without_worker_or_losing_success PASSED [ 95%]
+tests/test_web_viterbi.py::test_original_trellis_producer_body_is_unchanged PASSED [100%]
+
+- generated xml file: C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\docs\webui\issue9\evidence\pm-p2-contracts-v1.xml -
+============================= slowest 3 durations =============================
+3.73s call     tests/test_web_viterbi.py::test_http_cached_defaults_reject_fec_without_worker_or_losing_success
+0.30s call     tests/test_web_viterbi.py::test_default_depth_budget_and_no_silent_parameter_change
+0.22s call     tests/test_web_viterbi.py::test_fec_rejected_in_config_yaml_runtime_and_request
+======================= 23 passed, 35 warnings in 5.61s =======================

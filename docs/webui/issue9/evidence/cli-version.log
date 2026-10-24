@@ -1,0 +1,24 @@
+C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\src\pybert\__main__.py", line 17, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\src\pybert\__main__.py", line 13, in main
+    thePyBERT.configure_traits(view=traits_view)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\traits\has_traits.py", line 2099, in configure_traits
+    rc = toolkit().view_application(
+        context,
+    ...<5 lines>...
+        args,
+    )
+  File "C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\traitsui\toolkit.py", line 238, in view_application
+    raise NotImplementedError(
+        not_implemented_message.format(ETSConfig.toolkit)
+    )
+NotImplementedError: the 'null' toolkit does not implement this method

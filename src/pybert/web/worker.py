@@ -96,8 +96,10 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                     raise RuntimeError("Cancelled before simulation")
                 emit("phase", phase="running")
                 observations = {}
+                decoding = {}
                 my_run_simulation(
-                    p, initial_run=True, update_plots=False, aborted_sim=cancelled, observations=observations
+                    p, initial_run=True, update_plots=False, aborted_sim=cancelled, observations=observations,
+                    decoding=decoding,
                 )
                 # Native early returns and partial producers cannot become successful runs.
                 if p.status != "Ready." or set(observations) != {"source", "chnl", "tx", "ctle", "dfe"}:
@@ -126,7 +128,7 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                                            "worker_projection": projected},
                     "warnings": warnings(effective),
                 }
-                collect(p, observations, directory, identity, cancelled)
+                collect(p, observations, directory, identity, cancelled, decoding=decoding)
                 if cancelled():
                     raise RuntimeError("Cancelled before publication")
                 terminal = {"status": "succeeded", "result": {"run_id": task_id}}

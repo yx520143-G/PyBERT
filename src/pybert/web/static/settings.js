@@ -35,7 +35,7 @@
     delta_t_ui: number(0.001, 'UI'), alpha: number(0.01),
     n_lock_ave: number(500, '', { integer: true }), rel_lock_tol: number(0.1), lock_sustain: number(500, '', { integer: true }),
     use_agc: toggle(true),
-    rx_use_viterbi: toggle(false), rx_viterbi_symbols: number(4, '', { integer: true }),
+    rx_use_viterbi: toggle(false), rx_viterbi_symbols: number(4, 'symbols', { integer: true, min: 1, hint: 'Native ISI/MLSD；完整窗口预算在 Run 前检查，超预算不缩 Depth 或样本。' }),
     nbits: number(15000, 'bits', { integer: true, min: 1000, max: 10000000 }),
     eye_bits: number(10160, 'bits', { integer: true }), nspui: number(32, 'samples/UI', { integer: true, min: 2, max: 256 }),
     debug: toggle(false), f_max: number(40, 'GHz'), f_step: number(10, 'MHz'), impulse_length: number(0, 'ns'), thresh: number(3, 'σ'),
@@ -51,9 +51,9 @@
     use_mmse: toggle(true), rlm: number(0.95), ami_opt_trials: number(100, '', { integer: true }),
     enable_com: toggle(false), com_cfg_file: file('.xls,.xlsx'),
     peak_mag_tune: { kind: 'unavailable', value: '', label: 'CTLE Result · Boost', readonly: '未执行优化；源码初始值为 1.7 dB，不作为本次结果。' },
-    trellis_err_select: number(0, '', { integer: true, readonly: '需要 Viterbi 误码位置数据；当前未运行仿真。' }),
-    trellis_pan_control: number(0, '', { integer: true, readonly: '需要 Viterbi trellis 绘图数据；当前未运行仿真。' }),
-    trellis_max_err: { kind: 'unavailable', value: '', readonly: '未运行仿真，无法提供误码总数。' }
+    trellis_err_select: number(0, '', { integer: true, readonly: '在右侧 Analysis → Viterbi Trellis 操作，Error 0 表示未选；绑定所选 Run。' }),
+    trellis_pan_control: number(0, '', { integer: true, readonly: '在右侧 Analysis → Viterbi Trellis 移动 Position；初始10symbols，按真实长度裁界，不 Run。' }),
+    trellis_max_err: { kind: 'unavailable', value: '', readonly: '在右侧 Viterbi Trellis 显示所选 Run 的 bit-error entries，PAM4重复symbol条目保留。' }
   };
   for (const side of ['tx', 'rx']) {
     for (const type of ['ibis', 'ami', 'dll']) fields[`${side}_${type}_valid`] = { kind: 'unavailable', value: '', label: `${side.toUpperCase()} ${type.toUpperCase()} Valid`, readonly: '未加载 / 未验证模型。' };

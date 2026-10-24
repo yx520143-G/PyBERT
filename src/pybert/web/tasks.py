@@ -15,7 +15,7 @@ import numpy as np
 
 from pybert.web.worker import run_worker
 from pybert.web.resources import Resources
-from pybert.web.config import input_hash, yaml_text, unresolved_references
+from pybert.web.config import extensions, input_hash, yaml_text, unresolved_references
 from pybert.web.records import References, verify_replay_resources
 from pybert.web.archive import MAX_ARRAY_BYTES
 from pybert.web.optimization import load_optimization
@@ -52,6 +52,12 @@ class Tasks:
             if operation == "optimization" and self.optimization_bytes() > 1024**3 - MAX_ARRAY_BYTES:
                 raise ValueError("Optimization storage budget reserves at most 768 MiB for the next job within 1 GiB; existing records retained.")
             request = copy.deepcopy(request)
+            if "rx_viterbi_fec" in request or "rx_viterbi_fec" in request.get("config", {}):
+                raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
+            if operation == "run" and request["config"].get("rx_use_viterbi"):
+                from pybert.web.viterbi import plan
+
+                plan(request["config"], execution=True)
             task_id = task_id or str(uuid.uuid4())
             if operation in ("run", "optimization"):
                 rows = self.resources.for_run(request["config"], request.get("resource_bindings", {}))
@@ -275,9 +281,12 @@ class Tasks:
             return copy.deepcopy(self.tasks[task_id]["data"])
 
     def normalize(self, request):
+        if "rx_viterbi_fec" in request or "rx_viterbi_fec" in request.get("config", {}):
+            raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
         # A cached constructor snapshot is plain immutable metadata, not an observer operation.
         with self.lock:
             if request.get("mode") == "defaults" and self.defaults is not None:
+                extensions(request.get("runtime_extensions", {}))
                 return copy.deepcopy(self.defaults)
         request = copy.deepcopy(request)
         task = self.start("normalize", request)

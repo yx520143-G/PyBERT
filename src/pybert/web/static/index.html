@@ -12,6 +12,7 @@
   <script src="gui-map.js" defer></script>
   <script src="app.js" defer></script>
   <script src="/plotly.js" defer></script>
+  <script src="viterbi.js" defer></script>
   <script src="workbench.js" defer></script>
   <script src="resources.js" defer></script>
   <script src="results.js" defer></script>
@@ -105,10 +106,14 @@
       </section>
       <section id="analysis" class="analysis" aria-label="Native run analysis">
         <div class="result-toolbar"><label>Selected record <select id="selected-run"><option value="">No successful run</option></select></label><span id="stale"></span><label>比较参考 <select id="comparison-run"><option value="">自动选择另一条</option></select></label></div>
-        <div class="result-toolbar"><label>Analysis <select id="analysis-kind"><option value="response">Responses</option><option value="wave">Waveform</option><option value="eye">Eye</option><option value="jitter.dist">Jitter Dist.</option><option value="jitter.spec">Jitter Spec.</option><option value="jitter.bathtub">Jitter Bathtub</option><option value="jitter.info">Jitter Info</option><option value="adaptation">DFE Adaptation</option><option value="cdr">CDR Adaptation</option><option value="cdr.histogram">CDR Histogram</option><option value="cdr.spectrum">CDR Spectrum</option><option value="overview">Run overview</option><option value="compare">Run input comparison</option></select></label>
+        <div class="result-toolbar"><label>Analysis <select id="analysis-kind"><option value="response">Responses</option><option value="wave">Waveform</option><option value="eye">Eye</option><option value="jitter.dist">Jitter Dist.</option><option value="jitter.spec">Jitter Spec.</option><option value="jitter.bathtub">Jitter Bathtub</option><option value="jitter.info">Jitter Info</option><option value="adaptation">DFE Adaptation</option><option value="cdr">CDR Adaptation</option><option value="cdr.histogram">CDR Histogram</option><option value="cdr.spectrum">CDR Spectrum</option><option value="viterbi">Viterbi Trellis</option><option value="overview">Run overview</option><option value="compare">Run input comparison</option></select></label>
           <select id="response-type" aria-label="Response type"><option value="h">Impulse</option><option value="s">Step</option><option value="p">Pulse</option><option value="H">Frequency</option></select>
           <select id="response-scope" aria-label="Response scope"><option value="cumulative">Cumulative</option><option value="single">Single stage</option></select></div>
         <div class="result-toolbar"><label>Point <select id="analysis-point"><option value="node">Follow node</option><option value="chnl">Channel-only</option><option value="tx">Rx input</option><option value="ctle">CTLE output</option><option value="ffe">Rx FFE output</option><option value="dfe">DFE output</option></select></label><label>Compare <select id="compare-mode"><option value="none">Selected point</option><option value="points">Same run · all points</option><option value="runs">Two successful runs</option></select></label><label id="channel-noise-label"><input id="channel-noise" type="checkbox"> Channel eye +1mV display noise</label><button id="expand-viewer" type="button">Expand viewer</button></div>
+        <div id="trellis-toolbar" hidden>
+          <div class="result-toolbar"><label>Position <input id="trellis-position" type="number" min="0" max="0" value="0" step="1" disabled></label><input id="trellis-pan" aria-label="Trellis Position drag" type="range" min="0" max="0" value="0" step="1" disabled><label>Error <input id="trellis-error" type="number" min="0" max="0" value="0" step="1" disabled></label><span id="trellis-of">of 0</span></div>
+          <p id="trellis-status" role="status">所选 Run 的原生 trellis；Error 0 表示未选择错误。</p>
+        </div>
         <div id="plot" aria-label="Selected run plot"><p>Run the native engine to inspect real responses, waveforms, eyes and jitter.</p></div>
         <div id="analysis-info"></div>
       </section></div>

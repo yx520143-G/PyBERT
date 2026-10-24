@@ -4,3 +4,4 @@ Simbeor linguist-vendored
 pybert linguist-source
 scikit-rf linguist-vendored
 conda.recipe linguist-documentation
+docs/webui/issue9/evidence/** -text

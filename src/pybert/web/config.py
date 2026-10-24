@@ -107,6 +107,8 @@ def validate(config, defaults, complete=True, execution=False):
     """Reject unsupported active paths before any resource observer can load them."""
     if not isinstance(config, dict):
         raise ValueError("Configuration must be an object.")  # noqa: TRY004 - HTTP input validation contract
+    if "rx_viterbi_fec" in config:
+        raise ValueError("unsupported_native_fec: API-only FEC is not supported or persisted by PyBertCfg.")
     unknown = set(config) - set(defaults)
     if unknown:
         raise ValueError(f"Unsupported configuration fields/runtime extensions: {sorted(unknown)}")
@@ -166,12 +168,14 @@ def validate(config, defaults, complete=True, execution=False):
         if c[key] not in values:
             raise ValueError(f"{key}={c[key]}: active IBIS/AMI is unsupported; see #10.")
     for key in (
-        "rx_use_viterbi",
         "tx_use_ami",
         "rx_use_ami",
     ):
         if c[key]:
             raise ValueError(f"{key}: active capability is unsupported; see #9/#10.")
+    from pybert.web.viterbi import plan
+
+    plan(c, execution=execution)
     if execution and c["impulse_length"] != 0:
         raise ValueError("impulse_length: nonzero ns is blocked by native inconsistent units; use automatic 0.")
     if execution and c["ctle_enable"] and c["ctle_sel"] != "Native":
@@ -302,6 +306,8 @@ def extensions(value):
     if set(value) != {"version", "values"} or type(value["version"]) is not int or value["version"] != 1 or not isinstance(value["values"], dict):
         raise ValueError("runtime_extensions requires version=1 and values object.")
     values = value["values"]
+    if "rx_viterbi_fec" in values:
+        raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
     if set(values) - {"rlm", "rx_use_clocks", "ami_opt_trials", "tx_ami_params", "rx_ami_params", "optimizer_values", "eq_application"}:
         raise ValueError("Unknown runtime extension.")
     for key in ("rx_use_clocks",):
@@ -375,6 +381,8 @@ def load_config(engine, config, defaults=None):
 
 def normalize(request):
     """A full load or an ordered observer patch; each call owns one fresh engine."""
+    if "rx_viterbi_fec" in request:
+        raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
     engine = new_engine()
     defaults = snapshot(engine)
     runtime = request.get("runtime_extensions", {})
@@ -472,4 +480,9 @@ def warnings(config):
         messages.append("On-die TS4 presets are inactive in Native electrical mode; no IBIS/AMI resources loaded.")
     if config["enable_com"]:
         messages.append("COM is deferred to a separate joined child with its own parameters; no current EQ/noise/bitrate injection.")
+    if config["rx_use_viterbi"]:
+        from pybert.web.viterbi import plan
+
+        budget = plan(config)
+        messages.append(f"Native ISI/MLSD: L={budget['L']}, N={budget['N']}, states={budget['states']}, full samples≤{budget['samples_upper_bound']}; {budget['availability']}: {budget['reason'] or 'bounded native decoder'}. FEC unsupported.")
     return messages

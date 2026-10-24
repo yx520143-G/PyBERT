@@ -83,8 +83,10 @@ def validate_run(run, arrays):
         raise ValueError("Missing/invalid source run_id identity.")
     if run.get("legacy"):
         raise ValueError("Legacy缺少完整原输入和物理轴，无法保存/打开为完整Web archive；请保留原文件与可用sidecar。")
-    if run.get("status") != "succeeded" or type(run.get("raw_schema_version")) is not int or run["raw_schema_version"] not in (2, 3, 4):
+    if run.get("status") != "succeeded" or type(run.get("raw_schema_version")) is not int or run["raw_schema_version"] not in (2, 3, 4, 5):
         raise ValueError("Unsupported run status/raw schema; no executable defaults substituted.")
+    if run["raw_schema_version"] < 5 and "decoding" in run:
+        raise ValueError("Decoding requires raw schema 5; older schema cannot bypass its validation.")
     if type(run.get("schema_version")) is not int or run["schema_version"] != 1 or type(run.get("draft_revision")) is not int or run["draft_revision"] < 0:
         raise ValueError("Missing/invalid run schema_version or draft_revision.")
     for name, length in (("input_hash", 64), ("native_sha", 40), ("prototype_sha", 40), ("adapter_sha", 40)):
@@ -97,7 +99,7 @@ def validate_run(run, arrays):
     for name in ("resources", "warnings"):
         if not isinstance(run.get(name), list):
             raise ValueError(f"Missing required run metadata: {name}")
-    if run["raw_schema_version"] == 4:
+    if run["raw_schema_version"] >= 4:
         for name in ("input_identity_hash", "resource_hash"):
             value = run.get(name)
             if not isinstance(value, str) or len(value) != 64 or any(char not in "0123456789abcdefABCDEF" for char in value):
@@ -129,6 +131,10 @@ def validate_run(run, arrays):
                 raise ValueError("Heatmap references absent data.")
             if arrays[heatmap["z"]].shape != (len(arrays[heatmap["y"]]), len(arrays[heatmap["x"]])):
                 raise ValueError("Heatmap grid mismatch.")
+    if run["raw_schema_version"] >= 5:
+        from pybert.web.viterbi import validate
+
+        validate(run, arrays)
     return sum(array.nbytes for array in arrays.values())
 
 
