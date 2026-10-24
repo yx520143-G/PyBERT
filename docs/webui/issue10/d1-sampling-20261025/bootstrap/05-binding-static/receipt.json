@@ -1,0 +1,8 @@
+{
+  "scope": "stdlib-only AST BindingCases; no NumPy import/product definition execution",
+  "tests": 1,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_s": 0.2247547000006307,
+  "cases_sha256": "233633e595b26344bdaf853dd6e73ad15fa8b58189df4965b4bcfa110f53da62"
+}

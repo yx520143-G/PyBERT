@@ -1,0 +1,15 @@
+test_masked_period_fft_axes_and_atomic_plot_switches (d1_cases.ProjectionCases.test_masked_period_fft_axes_and_atomic_plot_switches) ... FAIL
+
+======================================================================
+FAIL: test_masked_period_fft_axes_and_atomic_plot_switches (d1_cases.ProjectionCases.test_masked_period_fft_axes_and_atomic_plot_switches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 284, in test_masked_period_fft_axes_and_atomic_plot_switches
+    self.assertTrue(callable(functions.get("clock_period_data")), "production period projection is missing")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : production period projection is missing
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)

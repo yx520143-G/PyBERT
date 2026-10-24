@@ -37,6 +37,7 @@ from traits.api import (
     Array,
     Bool,
     Button,
+    Dict,
     Enum,
     File,
     Float,
@@ -401,6 +402,8 @@ class PyBERT(HasTraits):  # pylint: disable=too-many-instance-attributes
     n_errs_dfe = Int(0)  #: # of DFE bit errors observed in last run.
     n_errs_viterbi = Int(0)  #: # of Viterbi bit errors observed in last run.
     run_count = Int(0)  # Used as a mechanism to force bit stream regeneration.
+    ami_clock_info = Dict()  #: Actual AMI sampling provenance, windows and partial-consumption evidence.
+    ami_period_known = Array(dtype=bool)  #: Full-grid mask for the AMI edge-derived period values.
 
     # COM (Channel Operating Margin) — computed post-simulation via PyChOpMarg.
     enable_com   = Bool(False)  #: Compute COM after each simulation run when True. (Default = False)

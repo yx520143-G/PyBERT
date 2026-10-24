@@ -3,6 +3,7 @@
 import ast
 import hashlib
 import json
+import math
 from pathlib import Path
 import subprocess
 import sys
@@ -50,11 +51,35 @@ def main():
     trace = (destination / "events.jsonl").open("w", encoding="utf-8", newline="\n", buffering=1)
     output = (destination / "stdout.txt").open("w", encoding="utf-8", newline="\n", buffering=1)
     errors = (destination / "stderr.txt").open("w", encoding="utf-8", newline="\n", buffering=1)
+    observations = (destination / "observations.jsonl").open("w", encoding="utf-8", newline="\n", buffering=1)
+    arrays = destination / "arrays"
+    arrays.mkdir()
     started = time.perf_counter()
     saved_stdout, saved_stderr = sys.stdout, sys.stderr
     sys.stdout, sys.stderr = output, errors
     code = 1
     np = None
+
+    def snapshot(value):
+        if isinstance(value, (np.ndarray, np.generic)):
+            raw = value.tobytes(order="C")
+            if len(raw) > 65536 or value.dtype.hasobject:
+                block("observation array size/type")
+            digest = hashlib.sha256(raw).hexdigest()
+            (arrays / (digest + ".bin")).write_bytes(raw)
+            return {"array_sha256": digest, "dtype": value.dtype.str, "shape": list(value.shape),
+                    "bytes": len(raw), "order": "C"}
+        if isinstance(value, dict):
+            return {str(key): snapshot(item) for key, item in value.items()}
+        if isinstance(value, (list, tuple)):
+            return [snapshot(item) for item in value]
+        if isinstance(value, float) and not math.isfinite(value):
+            return {"nonfinite_float": value.hex()}
+        if isinstance(value, complex):
+            return {"complex": [snapshot(value.real), snapshot(value.imag)]}
+        if value is None or isinstance(value, (str, int, float, bool)):
+            return value
+        return {"opaque_type": type(value).__name__}
 
     def block(reason):
         receipt["blocked_attempts"].append(reason)
@@ -88,6 +113,17 @@ def main():
 
     def profile(frame, event, arg):
         filename = Path(frame.f_code.co_filename).as_posix()
+        observed_source = filename in {source.as_posix(), eye_source.as_posix(), baseline.as_posix()}
+        if (event == "return" and receipt["stage"] == "execution" and observed_source
+                and frame.f_code.co_name != "<module>"):
+            # A Python return event can also accompany an exception: retain state without claiming success.
+            state = {key: value for key, value in frame.f_locals.items()
+                     if key in {"info", "result", "img_array", "period_t_ns", "period_ps", "x", "y"}}
+            if "plotdata" in frame.f_locals:
+                state["plot_stub_data"] = frame.f_locals["plotdata"].data
+            observations.write(json.dumps({"function": frame.f_code.co_qualname, "source": filename,
+                                          "event": "return_or_exception", "return": snapshot(arg),
+                                          "state": snapshot(state)}, allow_nan=False) + "\n")
         if event == "c_call" and receipt["stage"] == "execution":
             if str(getattr(arg, "__module__", "")).startswith("numpy.random"):
                 block("RNG call")
@@ -196,8 +232,11 @@ def main():
         output.close()
         errors.close()
         trace.close()
+        observations.close()
         receipt["output_sha256"] = {name: hashlib.sha256((destination / name).read_bytes()).hexdigest()
-                                    for name in ("stdout.txt", "stderr.txt", "events.jsonl")}
+                                    for name in ("stdout.txt", "stderr.txt", "events.jsonl", "observations.jsonl")}
+        receipt["array_output_sha256"] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+                                           for path in sorted(arrays.iterdir())}
         receipt["inputs_unchanged_after"] = all(
             hashlib.sha256(path.read_bytes()).hexdigest() == input_hashes[name]
             for name, path in original_files.items())

@@ -1,9 +1,7 @@
 {
-  "phase": "masked period projection and paired Native/AMI plot publication red",
-  "run_id": "09-period-red",
-  "selection": [
-    "ProjectionCases"
-  ],
+  "phase": "complete D1 bounded integration green: planner/consumer/Eye/period and static real wiring",
+  "run_id": "10-integration-green",
+  "selection": [],
   "snapshot_paths": {
     "helpers.py.txt": "src/pybert/utility/ami_clock.py",
     "bert.py.txt": "src/pybert/models/bert.py",
@@ -20,40 +18,46 @@
     "contract.json": "docs/webui/issue10/d1-sampling-20261025/D1-contract-comment.json",
     "clarification.json": "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json",
     "plot-api.py.txt": "docs/webui/issue10/d1-sampling-20261025/inputs/chaco-array-plot-data-6.1.1.py.txt",
-    "plot-api-source.json": "docs/webui/issue10/d1-sampling-20261025/plot-api-source.json"
+    "plot-api-source.json": "docs/webui/issue10/d1-sampling-20261025/plot-api-source.json",
+    "bert.baseline.py.txt": "docs/webui/issue10/d1-sampling-20261025/inputs/bert.baseline.py.txt",
+    "plot.baseline.py.txt": "docs/webui/issue10/d1-sampling-20261025/inputs/plot.baseline.py.txt",
+    "pybert.baseline.py.txt": "docs/webui/issue10/d1-sampling-20261025/inputs/pybert.baseline.py.txt"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/utility/ami_clock.py": "66da466af5262948057eb1332cd45f04a11b1e3c6d74beca06d255adba0ad8dc",
-    "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "src/pybert/utility/ami_clock.py": "7e60336c8fd873e6666087a86ce0f0c335849765d8ece607b0506066b98ab087",
+    "src/pybert/models/bert.py": "6a0ed7ef34507eea07cf2d566671c9516a2e85c357034874f87aa7434affb2f5",
     "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
-    "src/pybert/pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
-    "src/pybert/gui/plot.py": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
-    "docs/webui/issue10/d1-sampling-20261025/d1_cases.py": "d025d3d6265e6fc452af82edb6a85823c28757f4481247c2437dc1f92b7b51f1",
-    "docs/webui/issue10/d1-sampling-20261025/run_guarded.py": "00f16bd1ae94689111d3e1edb1c4042c63634e28e2c225e528fbe5cb083f0d4e",
+    "src/pybert/pybert.py": "729d4434aabd17804635f1a0bdc04adbcec4b71087d541eb9b52560127e7984e",
+    "src/pybert/gui/plot.py": "102166c16aef7ee6def7b5b4d8b6cb7165211baba1ab8288dec9ddd759bce82b",
+    "docs/webui/issue10/d1-sampling-20261025/d1_cases.py": "5ba937b89805956d03a5033ff59525a7557bf10d7ef32be57381969f6002078b",
+    "docs/webui/issue10/d1-sampling-20261025/run_guarded.py": "9dc0bca1efb72f6523b66044e864b7fe429195ff11fec88626565919e5f859b0",
     "docs/webui/issue10/d1-sampling-20261025/run_batch.py": "a59eec98c800000fedaa101ef2f2003b17d984f67fa4f08467fad4447aa04e41",
     "docs/webui/issue10/d1-sampling-20261025/environment.json": "773a699f1944848e4854b34e1940845aaa453e43a80e96b10149a563ae7af689",
     "docs/webui/issue10/d1-sampling-20261025/inputs/sigproc.baseline.py.txt": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
     "docs/webui/issue10/d1-sampling-20261025/D1-contract-comment.json": "72fa8fdd908deb3553f6cd77a8abdcbaf3bd5f695f15107296a01cc82a08a127",
     "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b",
     "docs/webui/issue10/d1-sampling-20261025/inputs/chaco-array-plot-data-6.1.1.py.txt": "aaca0655f908e9dead580154c19fd537298aed570ca6cd9c9013bda2c81d276b",
-    "docs/webui/issue10/d1-sampling-20261025/plot-api-source.json": "bd23f0237c443e712b36ac7eb8cf8a21e4af61cf88e4e9e1a635d314ff57e02b"
+    "docs/webui/issue10/d1-sampling-20261025/plot-api-source.json": "bd23f0237c443e712b36ac7eb8cf8a21e4af61cf88e4e9e1a635d314ff57e02b",
+    "docs/webui/issue10/d1-sampling-20261025/inputs/bert.baseline.py.txt": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs/webui/issue10/d1-sampling-20261025/inputs/plot.baseline.py.txt": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+    "docs/webui/issue10/d1-sampling-20261025/inputs/pybert.baseline.py.txt": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3"
   },
   "expected_counts": {
-    "pure": 0,
-    "calc_eye": 0,
-    "histogram": 0,
-    "rfft": 0,
+    "pure": 141,
+    "calc_eye": 15,
+    "histogram": 8,
+    "rfft": 5,
     "NumPy_imports": 1
   },
   "expected_result": {
-    "tests": 1,
-    "failures": 1,
-    "errors": 0,
-    "reason": "actual period projection absent, assertion before any helper/histogram/FFT call"
+    "tests": 6,
+    "failures": 0,
+    "errors": 0
   },
   "case_inputs": {
     "source": "literal period seconds/mask/window and times in cases.py.txt, including n8 and n2001; only NumPy small arrays",
-    "FFT_reference": "t starts10, ts.25, slice[1,5], values1,2,3,4ps"
+    "FFT_reference": "t starts10, ts.25, slice[1,5], values1,2,3,4ps",
+    "full_matrix": "PlannerCases25 literal contract subtests and tracer; ConsumerCases actual decides/failures/cancel/dual windows/W+1; EyeCases baseline/candidate exact and explicit indices; ProjectionCases literal4-point DFT and n8/n2001; BindingCases stdlib AST only."
   },
   "expected_independent_values": {
     "FFT_complex": [
@@ -71,7 +75,7 @@
     "window": "gap/one-point/outside frozen bounds => noFFT; known histogram separate",
     "plot": "single atomic update_data for x/y, dedicated key; exact1000Native arrays, full8/2001AMI arrays and clear transitions"
   },
-  "expected_basis": "independent hand4-point DFT and literal ps/ns units, source-backed Chaco6.1.1 update_data contract with ordinary PlotData stub; no Chaco execution",
+  "expected_basis": "independent hand4-point DFT and literal ps/ns units, source-backed Chaco6.1.1 update_data contract with ordinary PlotData stub; no Chaco execution; same frozen literal rows of all earlier green suites, plus AST comparisons to original 9343cdb definitions. No full controller/GUI execution.",
   "cumulative_limits": {
     "pure": 1000,
     "calc_eye": 128,
@@ -88,5 +92,19 @@
   "future_vertical_slices": "bounded planner formats/window/index cases; actual partial consumer; optional Eye indices/Native exact; masked period/FFT/PlotData projection; AST wiring, one final relevant green; each actual new input/source first frozen and committed",
   "restricted_entries": "full PyBERT/Main/update_results/run_dfe/DFE/decode/run_ami_model/PyAMI/modelmodule/grammar/SciPy/otherDSP/CmodelDLL/COM/coopt/Web/GUI/CLI/service/browser/model resource operations all0",
   "task_wall_peak_RSS": "UNKNOWN",
-  "previous_plan": "runs/08-eye-green/plan.json"
+  "previous_plan": "runs/09-period-red/plan.json",
+  "expected_function_entries": {
+    "new_clock_info": 42,
+    "plan_ami_clocks": 41,
+    "plan_ami_clocks.<locals>.reject": 18,
+    "consume_ami_clocks": 15,
+    "ami_eye_data": 4,
+    "clock_period_data": 11,
+    "set_period_plot_data": 10,
+    "baseline.calc_eye": 4,
+    "candidate.calc_eye": 11,
+    "numpy.histogram": 8,
+    "numpy.fft.rfft": 5
+  },
+  "observation_policy": "New in batch10 only: every actual pure/calc_eye return-or-exception event retains returned values and selected actual local state. Arrays are lossless C-order dtype/shape/raw-SHA bound .bin, max65536B each, no numeric recomputation. Python return events alone never prove normal completion. Earlier01-09 retain their original assertions/logs/counts, not an invented full-array record."
 }

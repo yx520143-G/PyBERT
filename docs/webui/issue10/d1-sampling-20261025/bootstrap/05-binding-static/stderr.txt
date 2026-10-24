@@ -1,0 +1,6 @@
+test_producer_and_consumers_share_indices_and_native_algorithms (builtins.BindingCases.test_producer_and_consumers_share_indices_and_native_algorithms) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.224s
+
+OK

@@ -7,7 +7,8 @@ def new_clock_info(requested=False, mode="native", origin=None):
     """Start a fresh producer record; no plan is evidence of completed consumption."""
     return {"requested": bool(requested), "mode": mode, "role": "main", "main_origin": origin,
             "format_status": "not_checked", "consumption_status": "not_attempted", "consumed_count": 0,
-            "actual_branch": "not_attempted", "reason": None, "full_analysis_eligible": False}
+            "actual_branch": "not_attempted", "reason": None, "full_analysis_eligible": False,
+            "run_status": "not_completed"}
 
 
 def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *, modulation="NRZ", profile=None):
@@ -176,3 +177,73 @@ def ami_eye_data(info, waveform, ignore_samps, height, y_max, calc_eye):
         raise
     info.update(eye_status="completed", eye_trace_count=len(relative), eye_reason=None)
     return image
+
+
+def clock_period_data(info, t_grid, ts):
+    """Project known periods without filling gaps or choosing a new FFT window after observing data."""
+    period = np.asarray(info.get("period_s", []), dtype=float)
+    known = np.asarray(info.get("period_known", []))
+    grid = np.asarray(t_grid)
+    result = {"plot_t_ns": np.array([]), "plot_period_ps": np.array([]),
+              "histogram_bins_ps": np.array([]), "histogram_counts": np.array([]),
+              "frequency_hz": np.array([]), "spectrum": np.array([], dtype=complex),
+              "spectrum_display_eligible": False, "spectrum_display_reason": "fft_unavailable"}
+    if not len(period) and not len(known):
+        info["period_analysis"] = {"histogram_status": "unavailable", "fft_status": "unavailable"}
+        return result
+    if (period.ndim != 1 or known.ndim != 1 or grid.ndim != 1 or known.dtype.kind != "b"
+            or len(period) != len(known) or len(period) != len(grid)
+            or np.any(~np.isfinite(period[known])) or np.any(~np.isnan(period[~known]))):
+        raise ValueError("period mask must match the grid, finite known values and NaN unknown values")
+    if not np.isfinite(ts) or ts <= 0:
+        raise ValueError("positive sample interval required")
+    period_ps = period * 1e12
+    result.update(plot_t_ns=np.array(grid, copy=True) * 1e9, plot_period_ps=period_ps)
+    window = info["analysis"]
+    indices = np.arange(len(grid))
+    inside = ((indices >= window["start_index"]) & (indices < window["stop_index"])
+              & (grid >= window["start_s"]) & (grid <= window["stop_s"]))
+    input_complete = (info.get("loop_finished", info.get("consumption_status") == "completed")
+                      and info["full_analysis_eligible"])
+    hist_status = fft_status = "sampling_incomplete"
+    fft_window = None
+    if input_complete:
+        values = period_ps[known & inside]
+        hist_status = "no_known_values"
+        if len(values):
+            counts, edges = np.histogram(values, bins=100)
+            result.update(histogram_counts=counts, histogram_bins_ps=(edges[:-1] + edges[1:]) / 2)
+            hist_status = "available"
+        first, stop = window["fft_slice"]
+        if stop - first < 2:
+            fft_status = "insufficient_period_window"
+        elif not (0 <= first < stop <= len(grid)) or not bool(np.all(inside[first:stop])):
+            fft_status = "outside_frozen_window"
+        elif not bool(np.all(known[first:stop])):
+            fft_status = "unknown_period"
+        else:
+            spectrum = np.fft.rfft(period_ps[first:stop])
+            frequencies = np.arange(len(spectrum), dtype=float) / ((stop - first) * ts)
+            result.update(spectrum=spectrum, frequency_hz=frequencies)
+            fft_status, fft_window = "available", [int(first), int(stop)]
+            display = len(spectrum) > 1 and abs(spectrum[1]) > 0 and bool(np.all(np.isfinite(spectrum)))
+            result.update(spectrum_display_eligible=bool(display),
+                          spectrum_display_reason="available" if display else "zero_fundamental")
+    info["period_analysis"] = {"histogram_status": hist_status, "fft_status": fft_status,
+                               "histogram_window_indices": [window["start_index"], window["stop_index"]],
+                               "declared_fft_window_indices": list(window["fft_slice"]),
+                               "fft_window_indices": fft_window, "sample_interval_s": ts,
+                               "frozen_time_bounds_s": [window["start_s"], window["stop_s"]],
+                               "fft_sample_time_bounds_s": None if fft_window is None else
+                               [float(grid[fft_window[0]]), float(grid[fft_window[1] - 1])],
+                               "frequency_hz": result["frequency_hz"], "spectrum": result["spectrum"],
+                               "spectrum_display_reason": result["spectrum_display_reason"]}
+    return result
+
+
+def set_period_plot_data(plotdata, period_t_ns, period_ps):
+    """Publish an independent clock-period axis and its values as one plot-data event."""
+    x, y = np.array(period_t_ns, copy=True), np.array(period_ps, copy=True)
+    if x.ndim != 1 or y.ndim != 1 or len(x) != len(y):
+        raise ValueError("period plot arrays require matching lengths")
+    plotdata.update_data(period_t_ns=x, ui_ests=y)

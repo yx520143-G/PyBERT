@@ -13,3 +13,9 @@
 累计执行上限：planner/consumer/pure 投影 helper 合计 1000 次，calc_eye（含 baseline）128 次，histogram/rfft 各 64 次，动态批次 12 次，每批 timeout60s；单输入/FFT 长度≤4096、Eye height≤64、nspui≤32。实际 NumPy 活动及其 C 扩展加载与模型 DLL 分开记录，不称“0数值”。完整 Main/引擎/DFE/decode/PyAMI/grammar/模型/C DLL/COM/coopt/Web/GUI/服务/root pytest/fullsuite 均不执行。
 
 启动与依赖准备成本保留；clone/switch 内部 elapsed `50.4921535999747 s`，整任务 wall/peak RSS UNKNOWN。首次较宽源码/lock 展示被工具截断，已用限定源码范围和目标 wheel 的新只读观察补足，不冒称恢复完整首次输出。全部旧 #30 原件、v1/v2、617339 B 本地原日志、环境及历史失败/费用保留。D1 完成后仅本人 fork 的一个 Draft PR，Refs #10，不关闭 #10；独立两轴自审、固定停写后交 PM fresh review。
+
+## 第10批冻结前状态
+
+01–09 共9批（含5个red）已实际执行，累计pure169、calc_eye15、histogram0、rfft0；NumPy import9。第10批冻结完整6个test methods，预计pure141、calc_eye15、histogram8、rfft5。所有实际source/test/runner及三份新增baseline快照由test-plan绑定，先commit再执行；完整Main/DFE/GUI等仍0。
+
+第10批开始保存actual return-or-exception状态及lossless dtype/shape/C-order数组原bytes（每块≤65536B），不把return event当作正常完成。01–09没有该完整数组观察，不事后补造。静态AST检查单独记在bootstrap/05-binding-static，无NumPy或产品定义执行。一次只读git diff展示因subprocess默认GBK解码失败，工具转录保留该UnicodeDecodeError；后续限定源码读取和UTF-8 bytes decode完成核对，未触发动态批次。

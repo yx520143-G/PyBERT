@@ -407,3 +407,113 @@ class ProjectionCases(unittest.TestCase):
         self.assertEqual(plot.events[-1], (0, 0))
         self.assertEqual(plot.data["t_ns"].tolist(), [99, 100])
         self.assertEqual(plot.data["other"].tolist(), [7, 8])
+
+
+class BindingCases(unittest.TestCase):
+    """Static comparison of real wiring; these checks never execute Main or GUI definitions."""
+
+    def test_producer_and_consumers_share_indices_and_native_algorithms(self):
+        import ast
+        from d1_under_test import root, evidence
+
+        def read(relative):
+            return ast.parse((root / relative).read_text(encoding="utf-8"))
+
+        def original(name):
+            return ast.parse((evidence / "inputs" / (name + ".baseline.py.txt")).read_text(encoding="utf-8"))
+
+        def function(tree, name):
+            return next(node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == name)
+
+        def dump(node):
+            return ast.dump(node, include_attributes=False)
+
+        def assignment(tree, name):
+            return next(node for node in ast.walk(tree) if isinstance(node, ast.Assign)
+                        and any(ast.unparse(target) == name for target in node.targets))
+
+        def call(tree, name):
+            return [node for node in ast.walk(tree) if isinstance(node, ast.Call) and ast.unparse(node.func) == name]
+
+        bert, old = read("src/pybert/models/bert.py"), original("bert")
+        main, old_main = function(bert, "my_run_simulation"), function(old, "my_run_simulation")
+        main_text = ast.unparse(main)
+        self.assertLess(main_text.index("clock_info = new_clock_info"), main_text.index("if self.tx_sel"))
+        self.assertIn("set_period_plot_data(self.plotdata, [], [])", main_text)
+        self.assertIn("if rx_getwave_mode else 0", main_text)
+        self.assertIn("['Reserved_Parameters', 'Ignore_Bits']", main_text)
+        self.assertIn("consume_ami_clocks(clock_info, ffe_out, dfe.decide, _check_sim_status)", main_text)
+        self.assertIn("finally:\n            self.ami_clock_info = clock_info", main_text)
+        self.assertIn("main_postconditions_pending", main_text)
+        self.assertLess(main_text.index("compute_com(self)"), main_text.index("run_status='completed'"))
+        self.assertIn("modulation='NRZ' if mod_type == 0 else 'PAM4' if mod_type == 2 else 'unsupported'", main_text)
+        self.assertNotIn("profile=", main_text)
+        self.assertIn("clock_times = clock_info['sample_grid_times_s']", main_text)
+        self.assertIn("selected = clock_info['analysis_sample_indices']", main_text)
+        self.assertIn("_sample_times = t[selected]", main_text)
+        self.assertIn("sig_samps = np.asarray(dfe_out)[selected]", main_text)
+        self.assertEqual(sorted(map(dump, call(main, "run_ami_model"))),
+                         sorted(map(dump, call(old_main, "run_ami_model"))))
+        self.assertEqual(list(map(dump, call(main, "dfe.run_dfe"))), list(map(dump, call(old_main, "dfe.run_dfe"))))
+        for name in ("clk_phase_ix", "pulse_resp_samps", "dec_lvls", "sigma"):
+            self.assertEqual(dump(assignment(main, name)), dump(assignment(old_main, name)))
+        for name in ("decoder.decode", "decoder_fec.decode"):
+            self.assertEqual(list(map(dump, call(main, name))), list(map(dump, call(old_main, name))))
+        viterbi = next(node for node in ast.walk(main) if isinstance(node, ast.If)
+                       and ast.unparse(node.test) == "self.rx_use_viterbi")
+        split = next(node for node in viterbi.body if isinstance(node, ast.If)
+                     and ast.unparse(node.test) == "ami_getwave_clocks")
+        old_viterbi = next(node for node in ast.walk(old_main) if isinstance(node, ast.If)
+                           and ast.unparse(node.test) == "self.rx_use_viterbi")
+        old_sampling = old_viterbi.body[1:]
+        stop = next(i for i, node in enumerate(old_sampling)
+                    if isinstance(node, ast.Assign) and ast.unparse(node.targets[0]) == "self.dbg_dict_viterbi")
+        self.assertEqual(list(map(dump, split.orelse)), list(map(dump, old_sampling[:stop])))
+        ber, old_ber = function(main, "calc_ber"), function(old_main, "calc_ber")
+        for candidate in (ber, old_ber):
+            start = candidate.body.index(assignment(candidate, "bits_tst"))
+            candidate.body = candidate.body[start:]
+        self.assertEqual(dump(ber), dump(old_ber))
+        for name in ("getwave_parameters", "compute_com", "update_trellis", "update_eyes"):
+            self.assertEqual(dump(function(bert, name)), dump(function(old, name)))
+
+        update, old_update = function(bert, "update_results"), function(old, "update_results")
+        update_text = ast.unparse(update)
+        self.assertIn("clock_period_data(clock_info, t, t[1] - t[0])", update_text)
+        self.assertIn("set_period_plot_data(self.plotdata, period_data['plot_t_ns'], period_data['plot_period_ps'])",
+                      update_text)
+        self.assertIn("set_period_plot_data(self.plotdata, t_ns_plot, ui_ests_plot)", update_text)
+        for name in ("bin_centers", "clock_spec", "_f0", "spec_freqs", "ui_ests_plot"):
+            old_assign = assignment(old_update, name)
+            self.assertIn(dump(old_assign), [dump(node) for node in ast.walk(update)])
+        native_interp = next(node for node in ast.walk(old_update) if isinstance(node, ast.If)
+                             and ast.unparse(node.test) == "len_t > 1000" and "ui_ests_plot" in ast.unparse(node))
+        self.assertIn(dump(native_interp), [dump(node) for node in ast.walk(update)])
+        self.assertIn("ami_eye_data(clock_info, cropped, ignore_samps, height, y_max, calc_eye)", update_text)
+        old_eye_start = max(i for i, node in enumerate(old_update.body) if isinstance(node, ast.Assign)
+                            and ast.unparse(node.targets[0]) == "y_max")
+        old_eye_stop = next(i for i, node in enumerate(old_update.body)
+                           if "set_data('eye_index'" in ast.unparse(node))
+        eye_branch = next(node for node in update.body if isinstance(node, ast.If)
+                          and ast.unparse(node.test) == "ami_getwave_clocks" and "ami_eye_data" in ast.unparse(node))
+        self.assertEqual(list(map(dump, eye_branch.orelse)),
+                         list(map(dump, old_update.body[old_eye_start:old_eye_stop])))
+
+        plot, old_plot = read("src/pybert/gui/plot.py"), original("plot")
+        plot.body = [node for node in plot.body if not (isinstance(node, ast.ImportFrom)
+                                                      and node.module == "utility.ami_clock")]
+        plots = function(plot, "make_plots")
+        plots.body = [node for node in plots.body if not (isinstance(node, ast.If)
+                                                         and "period_t_ns" in ast.unparse(node.test))]
+        for node in ast.walk(plot):
+            if isinstance(node, ast.Constant) and node.value == "period_t_ns":
+                node.value = "t_ns"
+        self.assertEqual(dump(plot), dump(old_plot))
+        eye = function(read("src/pybert/utility/sigproc.py"), "calc_eye")
+        old_eye = function(original("sigproc"), "calc_eye")
+        eye.args.kwonlyargs, eye.args.kw_defaults = [], []
+        eye.body = [node for node in eye.body if not (isinstance(node, ast.If)
+                                                     and ast.unparse(node.test) == "clock_indices is not None")]
+        eye.body[0] = old_eye.body[0]
+        self.assertEqual(dump(eye), dump(old_eye))
+        self.assertNotIn("test_", (evidence / "d1_cases.py").name)

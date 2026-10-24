@@ -1,0 +1,92 @@
+{
+  "phase": "masked period projection and paired Native/AMI plot publication red",
+  "run_id": "09-period-red",
+  "selection": [
+    "ProjectionCases"
+  ],
+  "snapshot_paths": {
+    "helpers.py.txt": "src/pybert/utility/ami_clock.py",
+    "bert.py.txt": "src/pybert/models/bert.py",
+    "sigproc.py.txt": "src/pybert/utility/sigproc.py",
+    "pybert.py.txt": "src/pybert/pybert.py",
+    "plot.py.txt": "src/pybert/gui/plot.py",
+    "cases.py.txt": "docs/webui/issue10/d1-sampling-20261025/d1_cases.py",
+    "runner.py.txt": "docs/webui/issue10/d1-sampling-20261025/run_guarded.py",
+    "launcher.py.txt": "docs/webui/issue10/d1-sampling-20261025/run_batch.py",
+    "plan.json": "docs/webui/issue10/d1-sampling-20261025/test-plan.json",
+    "environment.json": "docs/webui/issue10/d1-sampling-20261025/environment.json",
+    "baseline_eye.py.txt": "docs/webui/issue10/d1-sampling-20261025/inputs/sigproc.baseline.py.txt",
+    "venv.cfg.txt": ".venv/pyvenv.cfg",
+    "contract.json": "docs/webui/issue10/d1-sampling-20261025/D1-contract-comment.json",
+    "clarification.json": "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json",
+    "plot-api.py.txt": "docs/webui/issue10/d1-sampling-20261025/inputs/chaco-array-plot-data-6.1.1.py.txt",
+    "plot-api-source.json": "docs/webui/issue10/d1-sampling-20261025/plot-api-source.json"
+  },
+  "source_test_runner_raw_sha256": {
+    "src/pybert/utility/ami_clock.py": "66da466af5262948057eb1332cd45f04a11b1e3c6d74beca06d255adba0ad8dc",
+    "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
+    "src/pybert/pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+    "src/pybert/gui/plot.py": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+    "docs/webui/issue10/d1-sampling-20261025/d1_cases.py": "d025d3d6265e6fc452af82edb6a85823c28757f4481247c2437dc1f92b7b51f1",
+    "docs/webui/issue10/d1-sampling-20261025/run_guarded.py": "00f16bd1ae94689111d3e1edb1c4042c63634e28e2c225e528fbe5cb083f0d4e",
+    "docs/webui/issue10/d1-sampling-20261025/run_batch.py": "a59eec98c800000fedaa101ef2f2003b17d984f67fa4f08467fad4447aa04e41",
+    "docs/webui/issue10/d1-sampling-20261025/environment.json": "773a699f1944848e4854b34e1940845aaa453e43a80e96b10149a563ae7af689",
+    "docs/webui/issue10/d1-sampling-20261025/inputs/sigproc.baseline.py.txt": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+    "docs/webui/issue10/d1-sampling-20261025/D1-contract-comment.json": "72fa8fdd908deb3553f6cd77a8abdcbaf3bd5f695f15107296a01cc82a08a127",
+    "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b",
+    "docs/webui/issue10/d1-sampling-20261025/inputs/chaco-array-plot-data-6.1.1.py.txt": "aaca0655f908e9dead580154c19fd537298aed570ca6cd9c9013bda2c81d276b",
+    "docs/webui/issue10/d1-sampling-20261025/plot-api-source.json": "bd23f0237c443e712b36ac7eb8cf8a21e4af61cf88e4e9e1a635d314ff57e02b"
+  },
+  "expected_counts": {
+    "pure": 0,
+    "calc_eye": 0,
+    "histogram": 0,
+    "rfft": 0,
+    "NumPy_imports": 1
+  },
+  "expected_result": {
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "reason": "actual period projection absent, assertion before any helper/histogram/FFT call"
+  },
+  "case_inputs": {
+    "source": "literal period seconds/mask/window and times in cases.py.txt, including n8 and n2001; only NumPy small arrays",
+    "FFT_reference": "t starts10, ts.25, slice[1,5], values1,2,3,4ps"
+  },
+  "expected_independent_values": {
+    "FFT_complex": [
+      "10+0j",
+      "-2+2j",
+      "-2+0j"
+    ],
+    "FFT_Hz": [
+      0,
+      1,
+      2
+    ],
+    "histogram_counts": "one in bins0/33/66/99 for four literal values1/2/3/4",
+    "NaN": "unknown retained, never0 or interpolated",
+    "window": "gap/one-point/outside frozen bounds => noFFT; known histogram separate",
+    "plot": "single atomic update_data for x/y, dedicated key; exact1000Native arrays, full8/2001AMI arrays and clear transitions"
+  },
+  "expected_basis": "independent hand4-point DFT and literal ps/ns units, source-backed Chaco6.1.1 update_data contract with ordinary PlotData stub; no Chaco execution",
+  "cumulative_limits": {
+    "pure": 1000,
+    "calc_eye": 128,
+    "histogram": 64,
+    "rfft": 64
+  },
+  "max_dynamic_batches": 12,
+  "timeout_s": 60,
+  "max_input_FFT_length": 4096,
+  "max_eye_height": 64,
+  "max_nspui": 32,
+  "guards_order": "stdlib preload and input snapshots; import/audit/profile guards; verify installed NumPy files; authorized NumPy import/C extensions; guarded actual AST definitions; tests",
+  "actual_seams": "actual new planner/consumer/pure projections and actual baseline/candidate calc_eye; no product algorithm copies",
+  "future_vertical_slices": "bounded planner formats/window/index cases; actual partial consumer; optional Eye indices/Native exact; masked period/FFT/PlotData projection; AST wiring, one final relevant green; each actual new input/source first frozen and committed",
+  "restricted_entries": "full PyBERT/Main/update_results/run_dfe/DFE/decode/run_ami_model/PyAMI/modelmodule/grammar/SciPy/otherDSP/CmodelDLL/COM/coopt/Web/GUI/CLI/service/browser/model resource operations all0",
+  "task_wall_peak_RSS": "UNKNOWN",
+  "previous_plan": "runs/08-eye-green/plan.json"
+}
