@@ -61,6 +61,7 @@ def main():
     paths = {str(root / spec["path"]): name for name, spec in plan["modules"].items()}
     paths.update({str(root / spec["path"]): name for name, spec in plan.get("extra_sources", {}).items()})
     cases = str(evidence / "d2_cases.py")
+    copies = {}
 
     def block(reason):
         receipt["blocked_attempts"].append(reason)
@@ -114,6 +115,24 @@ def main():
 
     def profile(frame, event, arg):
         filename, name = frame.f_code.co_filename, frame.f_code.co_qualname
+        if event in ("c_call", "c_return", "c_exception") and receipt["stage"] == "execution":
+            owner = getattr(arg, "__self__", None)
+            method = getattr(arg, "__name__", "")
+            if isinstance(owner, np.ndarray) and method in ("copy", "__deepcopy__"):
+                key = (id(frame), method)
+                if event == "c_call":
+                    copies[key] = (time.perf_counter(), owner.nbytes)
+                elif key in copies:
+                    begin, size = copies.pop(key)
+                    item = receipt["serialization"].setdefault("host_copy", {"calls": 0, "input_bytes": 0,
+                                                                           "elapsed_s": 0., "failed": 0})
+                    elapsed = time.perf_counter() - begin
+                    item["calls"] += 1
+                    item["input_bytes"] += size
+                    item["elapsed_s"] += elapsed
+                    item["failed"] += event == "c_exception"
+                    events.write(json.dumps({"kind": "serialization", "name": "host_copy", "input_bytes": size,
+                                             "elapsed_s": elapsed, "event": event, "source": filename}) + "\n")
         if event == "call":
             if filename == cases and frame.f_code.co_name.startswith("stub_"):
                 receipt["stub_entries"][name] = receipt["stub_entries"].get(name, 0) + 1

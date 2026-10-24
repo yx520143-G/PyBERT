@@ -1,11 +1,14 @@
 """Native Rx GetWave sampling and its producer-owned analysis coordinates."""
 
 import numpy as np
+from time import monotonic_ns
 
 
 def new_clock_info(requested=False, mode="native", origin=None):
     """Start a fresh producer record; no plan is evidence of completed consumption."""
-    return {"requested": bool(requested), "mode": mode, "role": "main", "main_origin": origin,
+    return {"producer_contract_version": 2, "invocation_id": str(monotonic_ns()),
+            "epoch_basis": "fresh Main invocation; not the model Init epoch",
+            "requested": bool(requested), "mode": mode, "role": "main", "main_origin": origin,
             "format_status": "not_checked", "consumption_status": "not_attempted", "consumed_count": 0,
             "actual_branch": "not_attempted", "reason": None, "full_analysis_eligible": False,
             "run_status": "not_completed"}

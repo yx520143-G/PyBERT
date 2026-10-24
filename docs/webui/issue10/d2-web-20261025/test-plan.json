@@ -1,6 +1,6 @@
 {
-  "phase": "producer freshness and Eye crop selection red",
-  "run_id": "03-producer-red",
+  "phase": "producer freshness and Eye crop selection green",
+  "run_id": "04-producer-green",
   "selection": [
     "ProducerCases"
   ],
@@ -17,14 +17,14 @@
     "producer.py.txt": "src/pybert/utility/ami_clock.py"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/web/clocks.py": "9bc0a5f315300f47fc0adb41a3dd8b486653b9e4e1c7e2895e65c18ecbb0dc10",
+    "src/pybert/web/clocks.py": "42f340e9c011a7eb6102a1f0bf912f9aaf34bcd15d7d23c3d6859e7275238f21",
     "docs/webui/issue10/d2-web-20261025/d2_cases.py": "70782aa712b7345db11b68851cf3df8945aeba7854f1052cab7b24b567ac89fa",
-    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "c88449bcb1de1cebd26bf52eb799f1e24ed7d195244c94dcea029acf318cb77f",
+    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "9fa694864d7cbcf91eb96d64cdfec1cc31a4ead7b57ba986807a566befd0c447",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "0363ea36878cef57f1ed281d0f9d193cd3384c243314a0d7717e15e1c3203762",
     "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
     "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
     "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
-    "src/pybert/utility/ami_clock.py": "b72ba1e1c4e507d7a3bedba73548fb721c4df620072d171469bd5c9a7bb9e23c"
+    "src/pybert/utility/ami_clock.py": "39a349b0f50466468ddc5010fa453e6f6dac612cf4308eab023b058d813825f2"
   },
   "modules": {
     "pybert.web.clocks": {
@@ -80,7 +80,7 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 0,
+    "pure": 64,
     "collect": 0,
     "extend_analysis": 0,
     "eye_data": 0,
@@ -104,9 +104,8 @@
   },
   "expected_result": {
     "tests": 1,
-    "failures": 1,
-    "errors": 0,
-    "reason": "host producer snapshot absent; assertion before actual factory/helper calls"
+    "failures": 0,
+    "errors": 0
   },
   "case_inputs": "literal16-grid with indices2,6,10,14; frozen window4:16 and FFT6:10; three in-window samples but only absolute6 yields complete8-sample trace in crop4:14; crop7:16 has zero traces. Two actual factories generate distinct monotonic Main ids, not model Init epoch/RNG.",
   "expected_values": {
@@ -125,6 +124,14 @@
   "guards_order": "stdlib/input snapshots => import/audit/profile guards => installed-file verification => NumPy import/C extensions => selected actual definitions => tests",
   "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
   "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
-  "expected_function_entries": {},
-  "previous_plan": "runs/02-mask-green/plan.json"
+  "expected_function_entries": {
+    "new_clock_info": 3,
+    "snapshot_producer": 9,
+    "clock_context": 10,
+    "eye_selection": 2,
+    "validate_period_upper_bound": 4
+  },
+  "previous_plan": "runs/03-producer-red/plan.json",
+  "expected_counts_policy": "upper bounds, actual trace must be reported; do not label them as actual",
+  "serialization_policy": "from04 count each ndarray copy/deepcopy C completion incl bytes and elapsed;02 lacked per-copy trace (20 case fixture copies inferable from10 completed rows, elapsed UNKNOWN); preserve02 unchanged, full final matrix will include instrumented rows. No numerical re-run solely for instrumentation."
 }

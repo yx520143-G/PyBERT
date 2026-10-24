@@ -7,3 +7,5 @@
 每批实际计算前冻结完整case/输入/实际源/test/runner/预算/环境/guards并commit；guarded case从一开始不在默认pytest发现范围。预算4000 pure、collect/extend_analysis各32、eye_data/calc_eye各128、clock_data/display/hist/rfft各128、safe_log10 256、Viterbi.extend64/validate256、resize256、archive.read_arrays/validate_run各256、save/load各64、annotate/Execution.write/partial.save各128；最多16动态批/60s。NPZ/hostcopy/JSON/hash/header等另计，数据预算16MiB/产物、512MiB累计；不启动E或完整Main/模型。
 
 全部失败、raw与成本保留；新env仅允许锁定最小NumPy，不装GUI/SciPy。启动时实际产品/NumPy/模型调用0。
+
+01功能red/02masked green、03producer red已保留。02在固定10行fixture中实际完成20次数组copy，但原runner没有逐copy事件/elapsed；不能冒称已完整trace。04开始记录ndarray copy/deepcopy事件、bytes与elapsed；最终相关整合矩阵将包含同一mask行的完整instrumentation，02原件不回写。
