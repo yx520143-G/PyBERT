@@ -1,0 +1,30 @@
+{
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 2,
+  "successful": false,
+  "elapsed_s": 0.40490829999907874,
+  "pure_parser_calls": 751,
+  "source_sha256": {
+    "bert.py": "d4e2c51722a29759e49dbbf745aedb1ca46dc3686c0a0d76c627a880356380b2",
+    "test_ami_getwave_params.py": "21973c73154f308cf97afc4d62c6c6a093871ee9d686c2adf64e1620c9532c32",
+    "run_batch.py": "1e26e3781f2673d6810384c33b36641d83fc2e0f5230a88092c95d03bc9563ee"
+  },
+  "new_calls": {
+    "Main": 0,
+    "COM": 0,
+    "coopt_candidates": 0,
+    "AMI_Init": 0,
+    "AMI_GetWave": 0,
+    "AMI_Close": 0,
+    "real_model_library_load": 0,
+    "engine_construction": 0,
+    "native_numerical_helper": 0
+  },
+  "peak_RSS": "UNKNOWN",
+  "kind": "pure parser/production function tests; no clocks qualification",
+  "original_tap_filter_diagnosis": {
+    "input": "dfe_tap1",
+    "error": "'str' object has no attribute 'tolower'"
+  }
+}

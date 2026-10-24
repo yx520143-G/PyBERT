@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "url": "https://github.com/yx520143-G/PyBERT/issues/22",
+    "title": "[Native prerequisite] 修复 AMI GetWave 返回参数 tuple 与 tap 筛选兼容",
+    "issue_number": 22,
+    "body": "**当前执行状态：已由PM正式派发，同一owner串行实施。** owner已正式ACK；PM实际核验新managed worktree `C:/Users/yx/.codex/worktrees/pybert-issue22-ami-params/serial-bus-simulator`，branch `codex/pybert-issue22-ami-params`，HEAD `98f30f871aaf6e1a277317096c68295890c92a79` / tree `ca9655f64f1caa745156791ac7c3c51d327c8800`、clean、PyAMI/PyChOpMarg gitlink不变。SHA checkout初始detached已由owner显式创建上述分支并独立核验。 本票只做返回参数解析与tap筛选，所有真实模型/引擎调用预算0。\n\n## 问题与结果\n\n父票 [#10](https://github.com/yx520143-G/PyBERT/issues/10) 的旧 NRZ Rx GetWave probe 已取得返回参数，但在 PyBERT 原生参数树 visitor 读取 `node.name` 时失败。固定 PyAMI `5270d713e40bac2be5747bef09b92df79df9085b` 的实际 grammar 返回 `(label, values)` tuple；后继 tap 名称筛选还对 Python str 调用不存在的 `tolower/contains`。本票只修正这组返回参数接口兼容缺陷，使合法返回树可按原含义被消费，并用零库调用回归证明。\n\n成功不等于有效 clocks 资格：PyAMI buffer 聚合、响应 probe 与真实 waveform 的状态共享、clocks 采样遍历/边界、弱入口谓词与 metadata、缺失合法 NRZ/PAM4 fixture 均继续留在 #10 的明确后续范围。本票不借解析修复改动它们。\n\n## 证据与基线\n\n- 当前集成基线：`b96977a34ec5122bef9f6b4457a035535215ac8a` / tree `499d039af87c652410452520adc999bdd49e3f13`。\n- 只读诊断固定本地提交：`98f30f871aaf6e1a277317096c68295890c92a79` / tree `ca9655f64f1caa745156791ac7c3c51d327c8800`，仅在 `docs/webui/issue10/clocks-gate-audit-20261024/` 新增4份材料。该提交尚未推送，实施 PR 可原样携带此封存证据。\n- 报告 README SHA256 `19fdf4d742c86cf76958e2a5a9426b1c4f5a04ee3d064c7cc394761ba744bd70`；diagnostics.json `a7e80acd8ae37b51ee23aab81b4f4cc429512c00ec399827405bcf3f85f6cefa`。\n- PM独立50项检查通过：4文件Git/磁盘字节全同且UTF-8无BOM、7输入hash不变、11 raw数组dtype/shape/字节exact；750份已保存params_out可由固定纯grammar解析，原visitor/tap筛选/数组pairwise错误及wrapper合法sentinel反例均重现。PM和owner本轮真实模型/引擎调用都是0。\n- 实际首个失败与现有原始数据见 [#10 核验记录](https://github.com/yx520143-G/PyBERT/issues/10#issuecomment-6383128457)。不得重跑旧模型来再次证明已知异常。\n\n## 精确范围\n\n1. 修正 `src/pybert/models/bert.py` Rx GetWave 返回参数处理（当前375–407行）的 tuple/tree 访问与字符串筛选。可将直接相关纯解析逻辑提成一个最小 helper，若更利于直接验证；不引入第二套 AMI grammar、通用框架或全树重构。\n2. 沿用固定 PyAMI parser 的真实返回契约；保持完整层级与数值含义。嵌套同名 leaf 不得因无分隔拼接而覆盖；既有根层数值/tap 名称读取需兼容。非数值/混合/Table/空 root 的行为必须明确，并以真实返回类型为依据，不凭猜测转换、吞异常或造数。\n3. 对后续 call 缺失/新增参数或长度变化，保持原件可追溯，定义必要的明确不可用/拒绝行为；只为实际消费所需处理，不搭建额外可配置机制。不得用填0、广播、按最短截断来伪造完整 tap 历史。\n4. tap 筛选采用有效 Python 字符串操作，保留原本大小写不敏感意图和排序约定；返回参数空或没有 taps 时不得凭空生成“模型返回的 taps”。既有其他 lock/UI占位及其metadata问题在报告中保留，不顺手改动时钟分支。\n5. 旧报告/诊断四文件、失败raw、source snapshots与费用保持原字节；本票另存红/绿测试和来源/适用性记录。\n\n## 不含项\n\n- 不改 PyAMI parser、`AMIModel.getWave/get_responses`、依赖或 gitlink；不 fork/push 上游。\n- 不改 `run_ami_model` 的模型构造、probe调用顺序、随机性、状态、time origin、bits_per_call、wave/clocks及 Init/GetWave 次数。\n- 不修改 clocks 的值、数量、顺序、sentinel、容差/窗口；不修 pairwise/采样边界、入口谓词或 Web clocks 标签作为本票的附带改动。\n- 不构造/下载/编译替代 DLL，不执行真实模型、Native仿真或优化，不把纯stub当有效 NRZ/PAM4 clocks fixture。\n- 不处理另外三个 Tx GetWave 原生 ParseError，不关闭 #10、#4 或父 #1。\n\n## 验证与预算\n\n先保存原缺陷的定向红灯，再验证同一组输入上的最小修复。允许使用固定纯 parser、保存的750份原params_out及普通 Python/NumPy 数据 stub；不得导入会自动构造或运行引擎的入口。测试应调用实际生产解析函数，必要时只抽取该纯函数，不手抄一份修复作为 oracle。\n\n最低覆盖：原真实返回树；空root/无taps；嵌套数值及同名leaf不同path；非数值/混合/Table的明确行为；大小写tap筛选；多call拼接与必要缺失/形状边界；原非法语法仍明确失败。合理的纯接口/适配定向回归可以自主执行，记录实际测试批次和 elapsed，不用全套数值测试冒充零成本。\n\n本票所有新增 Main、COM、coopt（含候选）、AMI_Init/GetWave/Close、真实库加载、引擎构造、原生数值helper均为 **0**。任何需要真实预检/运行的疑点先保存具体输入/source/预算/收益交PM另行定义；本票当前没有该授权。诊断纯解析时间另计，wall/RSS缺测保留UNKNOWN。\n\n## 串行 ownership 与交付\n\nPM明确派发后，由当前 #10 owner chat `01a16ccd-6cf3-79d1-bfc3-7d77aa7f7b61`（6.1-sol/xhigh）作为本票唯一writer。从固定诊断提交98f30f8创建新managed worktree/分支，封存原调查位置；不得修改主checkout或旧PR20/21工作区。常规定向实现、验证、自审自主闭环，重要发现与最终交付报PM，不逐步骤申请批准。\n\n唯一Draft PR指向 Fork master，附准确范围、实际测试/原件与剩余clocks限制；固定HEAD/tree后停止写入/服务并返权。PM fresh review 后决定集成。关闭本票只代表返回参数接口缺陷已解决，不能提升有效clocks或父票状态。\n\n- [ ] 原visitor和tap字符串缺陷由保存真实返回参数复现。\n- [ ] 最小修复符合固定parser返回类型与完整path语义，相关边界有明确结果。\n- [ ] 定向红/绿与实际生产函数回归通过，零真实模型/引擎调用账可核对。\n- [ ] 原封存材料字节不变，src/依赖变更未越界。\n- [ ] 固定Draft PR完成独立fresh review，已停写返权并由PM完成集成判断。\n",
+    "state": "open",
+    "user": {
+      "login": "yx520143-G",
+      "name": "yx520143-G",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+      "id": 269540313
+    },
+    "assignees": null,
+    "labels": null,
+    "milestone": null,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-10-24T10:42:50Z",
+    "updated_at": "2026-10-24T10:47:50Z",
+    "closed_at": null,
+    "display_url": "https://github.com/yx520143-G/PyBERT/issues/22",
+    "display_title": "[Native prerequisite] 修复 AMI GetWave 返回参数 tuple 与 tap 筛选兼容"
+  },
+  "url": "https://github.com/yx520143-G/PyBERT/issues/22",
+  "title": "[Native prerequisite] 修复 AMI GetWave 返回参数 tuple 与 tap 筛选兼容",
+  "display_url": "https://github.com/yx520143-G/PyBERT/issues/22",
+  "display_title": "[Native prerequisite] 修复 AMI GetWave 返回参数 tuple 与 tap 筛选兼容"
+}

@@ -1,0 +1,25 @@
+test_blank_return_is_unavailable_without_hiding_syntax_errors (pure_ami_tests.GetWaveParameterTests.test_blank_return_is_unavailable_without_hiding_syntax_errors) ... ERROR
+
+======================================================================
+ERROR: test_blank_return_is_unavailable_without_hiding_syntax_errors (pure_ami_tests.GetWaveParameterTests.test_blank_return_is_unavailable_without_hiding_syntax_errors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 100, in test_blank_return_is_unavailable_without_hiding_syntax_errors
+    self.assertEqual(consume(["", " \n\t", "(rx)"]), ({}, []))
+                     ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 91, in getwave_parameters
+    parsed = list(map(ami_parse, params))
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 32, in parse
+    return parser_ns["ami_parse"](text)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\parsec\__init__.py", line 143, in parse
+    return self.parse_partial(text)[0]
+           ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\parsec\__init__.py", line 155, in parse_partial
+    raise ParseError(res.expected, text, res.index)
+parsec.ParseError: expected: 'AMI file' at 0:0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.020s
+
+FAILED (errors=1)

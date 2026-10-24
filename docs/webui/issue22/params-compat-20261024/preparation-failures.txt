@@ -1,0 +1,23 @@
+前置准备命令失败记录（不是产品红灯，也不是模型调用）：
+
+1. 首次 Python -c 因 PowerShell 双引号转义不正确，在 Python 解析阶段报
+   SyntaxError: unterminated string literal (detected at line 1)
+   exit 1；exec wall 0.6783647 s。该脚本未执行，未写入产品。
+
+2. 改为 literal here-string 后，误将源文件中 pylint marker 当成唯一位置，
+   assert text.count(marker) == 1 报 AssertionError，exit 1；exec wall 0.7714126 s。
+   在断言前只已复制本票 source/parser.py、PyAMI-LICENSE、baseline-bert.py；未写产品。
+   后续改为精确定位 my_run_simulation 前的 marker，原块提取成功。
+
+两次新增 Main/COM/coopt候选/AMI_Init/GetWave/Close/AMI库加载/引擎/原生helper均0。
+原终端输出保留在本 chat；此记录不冒充原始 stdout 全字节副本。
+
+3. 提交前 staged/disk 文件数检查报 AssertionError，尚未创建 commit。
+   原因是新局部 .gitattributes 被 ignore，其他61个预期文件均已进入 index。
+   随后只对本票新 .gitattributes 显式 force-add，不增删其他 ignored 材料。
+   该检查不执行 parser/模型/引擎/helper；来源和全部红绿原件未变。
+
+4. 对所有 staged 原件执行 diff --check 时 exit 2：unittest 的原始失败进度
+   行以及 red-01 的原 traceback 空行带有尾空格。保持这些 tests.log 原字节；
+   后续只排除本票 */tests.log 原件，对其余 staged 文件执行同一检查。
+   这不是源码测试失败，也不修改日志让旧检查变绿。

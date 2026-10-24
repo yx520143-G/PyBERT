@@ -1,0 +1,38 @@
+test_saved_750_return_strings_preserve_numeric_tap_histories (pure_ami_tests.GetWaveParameterTests.test_saved_750_return_strings_preserve_numeric_tap_histories) ... 
+  test_saved_750_return_strings_preserve_numeric_tap_histories (pure_ami_tests.GetWaveParameterTests.test_saved_750_return_strings_preserve_numeric_tap_histories) (side='direct') ... ERROR
+  test_saved_750_return_strings_preserve_numeric_tap_histories (pure_ami_tests.GetWaveParameterTests.test_saved_750_return_strings_preserve_numeric_tap_histories) (side='worker') ... ERROR
+
+======================================================================
+ERROR: test_saved_750_return_strings_preserve_numeric_tap_histories (pure_ami_tests.GetWaveParameterTests.test_saved_750_return_strings_preserve_numeric_tap_histories) (side='direct')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 62, in test_saved_750_return_strings_preserve_numeric_tap_histories
+    values, taps = consume(params)
+                   ~~~~~~~^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 104, in getwave_parameters
+    param_vals.update(get_numeric_values(AmiName(""), nd))
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 91, in get_numeric_values
+    pname_hier = AmiName(prefix + node.name)
+                                  ^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'name'
+
+======================================================================
+ERROR: test_saved_750_return_strings_preserve_numeric_tap_histories (pure_ami_tests.GetWaveParameterTests.test_saved_750_return_strings_preserve_numeric_tap_histories) (side='worker')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 62, in test_saved_750_return_strings_preserve_numeric_tap_histories
+    values, taps = consume(params)
+                   ~~~~~~~^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 104, in getwave_parameters
+    param_vals.update(get_numeric_values(AmiName(""), nd))
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 91, in get_numeric_values
+    pname_hier = AmiName(prefix + node.name)
+                                  ^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'name'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.180s
+
+FAILED (errors=2)

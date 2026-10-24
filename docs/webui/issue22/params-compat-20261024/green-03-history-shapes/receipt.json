@@ -1,0 +1,26 @@
+{
+  "tests_run": 11,
+  "failures": 0,
+  "errors": 0,
+  "successful": true,
+  "elapsed_s": 0.6777449999935925,
+  "pure_parser_calls": 777,
+  "source_sha256": {
+    "bert.py": "e17f39ad8f81e01e75d1c06348e9edda684330a46e06dd5c6f0e0ed7d4b8266c",
+    "test_ami_getwave_params.py": "cd166f13bf1f77ce7d1827f3e53815987a566861a4810a8ee861259e62d35da9",
+    "run_batch.py": "1e26e3781f2673d6810384c33b36641d83fc2e0f5230a88092c95d03bc9563ee"
+  },
+  "new_calls": {
+    "Main": 0,
+    "COM": 0,
+    "coopt_candidates": 0,
+    "AMI_Init": 0,
+    "AMI_GetWave": 0,
+    "AMI_Close": 0,
+    "real_model_library_load": 0,
+    "engine_construction": 0,
+    "native_numerical_helper": 0
+  },
+  "peak_RSS": "UNKNOWN",
+  "kind": "pure parser/production function tests; no clocks qualification"
+}
