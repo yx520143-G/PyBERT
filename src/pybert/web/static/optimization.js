@@ -1,7 +1,7 @@
 /* Optimization UI owns candidate selection; the existing workbench owns editable inputs and Run. */
 (() => {
   const $=id=>document.getElementById(id), runs=window.PYBERT_RUNS;
-  let busy=true, active=null, rows=[], selected=null, pending=null, token=0, plotting=Promise.resolve();
+  let busy=true, active=null, rows=[], selected=null, selectedId=null, pending=null, token=0, plotting=Promise.resolve();
   const eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const status=text=>{$('optimizer-status').textContent=text;};
   function controls() {
@@ -13,9 +13,10 @@
   }
   async function render() {
     const own=++token,id=$('selected-opt').value;
+    selected=null;selectedId=null;controls();
     const result=id ? await runs.api(`optimizations/${id}`) : null;
     if(own!==token || $('selected-opt').value!==id) return;
-    selected=result;
+    selected=result;selectedId=id;
     $('optimizer-record').textContent=selected ? JSON.stringify(selected,null,2) : '';
     $('selected-candidate').replaceChildren();
     if(selected) for(const row of selected.candidates || []) {
@@ -57,7 +58,7 @@
   $('selected-candidate').addEventListener('change',()=>action(plot));
   $('use-eq').addEventListener('click',()=>action(async()=>{
     const source=selected,recordId=$('selected-opt').value;
-    if(!source || source.status!=='succeeded')throw new Error('请选择成功优化记录。');
+    if(!source || source.status!=='succeeded' || selectedId!==recordId)throw new Error('请等待所选成功优化记录加载完成。');
     const current=await runs.optimizationInput();
     const result=await runs.api('optimizer-actions/use_eq',{...current,record_id:recordId});
     if(current.draft_revision!==runs.revision() || recordId!==$('selected-opt').value)throw new Error('Use EQ 等待期间草稿或记录已改变；请重新预览差异。');
@@ -78,6 +79,7 @@
   }));
   $('save-opt').addEventListener('click',()=>action(async()=>{
     const source=selected,recordId=$('selected-opt').value;
+    if(!source || selectedId!==recordId)throw new Error('请等待所选优化记录加载完成。');
     const response=await fetch(`/api/optimizations/${recordId}/archive`);if(!response.ok) throw new Error((await response.json()).detail);
     const url=URL.createObjectURL(await response.blob()),a=document.createElement('a');a.href=url;a.download=`${source.opt_id}.pybert_opt`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status('已提交优化记录下载；含冻结输入、RLM、候选数组/评分、状态/成本；资源 bytes 不附带。');
   }));

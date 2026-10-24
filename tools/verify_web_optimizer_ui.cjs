@@ -28,6 +28,9 @@ function app() {
   a.requests[1].resolve(a.record('B'));await tick();
   a.requests[0].resolve(a.record('A'));await tick();
   assert.match(a.window.PYBERT_OPTIMIZER.field('peak_mag_tune'),/获选 B$/);
+  a.choose('C');const before=a.requests.length;a.click('use-eq');a.click('save-opt');await tick();
+  assert.equal(a.requests.length,before);assert.equal(a.element('use-eq').disabled,true);
+  assert.equal(a.element('save-opt').disabled,true);assert.match(a.element('optimizer-status').textContent,/加载完成/);
   const b=app();b.choose('A');b.requests[0].resolve(b.record('A'));await tick();
   b.click('use-eq');await tick();b.edit();b.requests.at(-1).resolve({config:{rn:.02}});await tick();
   assert.equal(b.element('eq-dialog').open,undefined);assert.match(b.element('optimizer-status').textContent,/等待期间/);
