@@ -261,7 +261,7 @@
     const result = id ? await api(`runs/${id}`) : null;
     if ($('selected-run').value !== (id || '')) return;
     selected = result;
-    try { localStorage.setItem('pybert-result-selection-v1',JSON.stringify({record_id:id})); } catch { $('results-status').textContent='结果选择仅当前页面保留；本地存储失败。'; }
+    try { if(id) localStorage.setItem('pybert-result-selection-v1',JSON.stringify({record_id:id})); } catch { $('results-status').textContent='结果选择仅当前页面保留；本地存储失败。'; }
     controls(); await renderAnalysis();
   }
   async function poll(once=false) {
