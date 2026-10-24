@@ -52,4 +52,4 @@ Python 为 `3.13.15`，uv `0.11.23`，B pip `26.2.2`；完整版本输出见 com
 
 F 的 strict clocks 适用于所有 GW（含 Tx、response probes、Init 内 probes）；合法 prefix/epoch/status 等由 #24 定义。历史 B+8 只是兼容容量，不能证明任意 DLL 的容量上界或防止写越界。F **尚无可选 rng、probe 隔离、D/Web/归档接入或 E 资源资格修复**，这些另票处理。本来源迁移不是有效 NRZ/PAM4 clocks 或真实模型资格，#10/#4/#1 的剩余 gate 保留。
 
-含 Git direct URL 的本 fork 暂不具备 PyPI 发布路径，pip 安装需要 Git/GitHub 可达；这不是 PyPI 发行或已发布新版本。交付仅为本人 PyBERT fork 的唯一 Draft PR，不自行 merge 或关闭 #25。固定提交后另做独立 Standards/Spec 只读复核和 hash 封存，clean 后停写返权给 PM fresh review。
+含 Git direct URL 的本 fork 暂不具备 PyPI 发布路径，pip 安装需要 Git/GitHub 可达；这不是 PyPI 发行或已发布新版本。交付仅为本人 PyBERT fork 的唯一 Draft PR，不自行 merge 或关闭 #25。独立双轴只读复核见 [review.md](review.md)，最终 hash 封存见 [verification.json](verification.json)；固定最终 HEAD/tree/clean 后停写返权给 PM fresh review。
