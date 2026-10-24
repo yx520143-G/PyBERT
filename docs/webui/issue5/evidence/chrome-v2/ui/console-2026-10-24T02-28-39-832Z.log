@@ -1,0 +1,24 @@
+[     958ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8770/favicon.ico:0
+[  886379ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[  886447ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/runs/ref-b9822547-7cd8-4d9d-b0f4-cb8579d40da7/plots/eye.dfe:0
+[  887381ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[  888394ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[  889396ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 1040094ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8770/api/runs:0
+[ 2105088ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8770/api/references?name=corrupt.pybert_run&trusted=false:0
+[ 2105298ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8770/api/references?name=unknown-version.pybert_run&trusted=false:0
+[ 2105331ms] [ERROR] Failed to load resource: the server responded with a status of 503 (Service Unavailable) @ http://127.0.0.1:8770/api/runs/573aed1e-b3b5-4977-8d6b-a482b94fdd2a/archive:0
+[ 2242861ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8770/api/references?name=NRZ-real.pybert_run&trusted=true:0
+[ 2242985ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8770/api/runs/ref-f1975de9-a888-49b7-9d76-768bd96903ec:0
+[ 2626908ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 2627918ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 2628933ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 2629948ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 2825263ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 2826273ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 2827278ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 2828286ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 3127104ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 3128113ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 3129126ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0
+[ 3130130ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8770/api/state:0

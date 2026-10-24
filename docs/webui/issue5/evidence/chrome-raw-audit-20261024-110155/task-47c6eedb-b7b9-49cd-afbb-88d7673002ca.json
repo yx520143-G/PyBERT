@@ -1,0 +1,44 @@
+{
+  "task_id": "47c6eedb-b7b9-49cd-afbb-88d7673002ca",
+  "operation": "run",
+  "state": "failed",
+  "phase": "failed",
+  "cancel_requested": false,
+  "cancel_requested_at": null,
+  "cancel_observed_at": null,
+  "cancel_observed": false,
+  "worker_exited": true,
+  "logs": [],
+  "created_at": 1792810863.0016396,
+  "request_hash": "cb2a29185b949b257ad1772c52f036e27e617f6f2a507a144c4b863d514aa2c3",
+  "parent_run_id": null,
+  "resource_inputs": [
+    {
+      "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+      "original_name": "example2_THRU.s4p",
+      "format": ".s4p",
+      "bytes": 2454034,
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+      "source": {
+        "kind": "browser_upload"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "channel",
+        "COM THRU"
+      ],
+      "field": "ch_file",
+      "index": null,
+      "reference": "example2_THRU.s4p",
+      "worker_path": "docs\\webui\\issue5\\evidence\\chrome-v2\\local\\service\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+    }
+  ],
+  "parameter_source": null,
+  "worker_exit_confirmed_at": 1792810866.7144282,
+  "exitcode": 0,
+  "finished_at": 1792810866.714429,
+  "error": "ctle_sel=File with CTLE enabled is blocked by the native File path; see #4.",
+  "error_type": "ValueError",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 85, in run_worker\n    validate(effective, snapshot(new_engine()), execution=True)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\src\\pybert\\web\\config.py\", line 178, in validate\n    raise ValueError(\"ctle_sel=File with CTLE enabled is blocked by the native File path; see #4.\")\nValueError: ctle_sel=File with CTLE enabled is blocked by the native File path; see #4.\n"
+}

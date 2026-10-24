@@ -1,0 +1,17 @@
+### Result
+{
+  "input": "有未应用的历史字段，原值保留；请检查迁移明细并显式恢复默认或载入完整配置。",
+  "config": "草稿恢复: 有未应用的历史字段，原值保留；请检查迁移明细并显式恢复默认或载入完整配置。",
+  "migration": "有未应用的历史字段，原值保留；请检查迁移明细并显式恢复默认或载入完整配置。",
+  "retained": {
+    "peak_mag_tune": {
+      "value": 1.7,
+      "reason": "类型/表结构/枚举不匹配；未以默认值冒充执行"
+    }
+  },
+  "run_disabled": false
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => ({input:document.querySelector(\'#input-status\').textContent,config:document.querySelector(\'#config-status\').textContent,migration:window.PYBERT_WORKBENCH.migrationError(),retained:JSON.parse(localStorage.getItem(\'pybert-native-draft-v2\')).retained_fields,run_disabled:document.querySelector(\'#run\').disabled})');
+```

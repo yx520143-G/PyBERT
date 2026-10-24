@@ -1,0 +1,11 @@
+### Ran Playwright code
+```js
+await page.reload();
+```
+### Page
+- Page URL: http://127.0.0.1:8770/
+- Page Title: PyBERT · Signal Chain Workbench
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T02-44-51-692Z.yml)
+### Events
+- New console entries: .playwright-cli\console-2026-10-24T02-28-39-832Z.log#L2-L6

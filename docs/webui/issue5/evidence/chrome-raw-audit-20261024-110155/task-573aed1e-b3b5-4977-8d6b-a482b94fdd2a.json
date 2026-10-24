@@ -1,0 +1,48 @@
+{
+  "task_id": "573aed1e-b3b5-4977-8d6b-a482b94fdd2a",
+  "operation": "run",
+  "state": "succeeded",
+  "phase": "succeeded",
+  "cancel_requested": false,
+  "cancel_requested_at": null,
+  "cancel_observed_at": null,
+  "cancel_observed": false,
+  "worker_exited": true,
+  "logs": [
+    "[2026-10-24 02:52:34.441446+00:00]: PyBERT: 2-Port Network: 's2p_interp',  0.0-40000000000.0 Hz, 4001 pts, z0=[100.+0.j 100.+0.j]",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],"
+  ],
+  "created_at": 1792810350.8852265,
+  "request_hash": "802e0975c5691ff8c91a13ebd97fbc0615220e4da0de2d404c157facd52e44c3",
+  "parent_run_id": null,
+  "resource_inputs": [
+    {
+      "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+      "original_name": "example2_THRU.s4p",
+      "format": ".s4p",
+      "bytes": 2454034,
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+      "source": {
+        "kind": "browser_upload"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "channel",
+        "COM THRU"
+      ],
+      "field": "ch_file",
+      "index": null,
+      "reference": "example2_THRU.s4p",
+      "worker_path": "docs\\webui\\issue5\\evidence\\chrome-v2\\local\\service\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+    }
+  ],
+  "parameter_source": null,
+  "worker_exit_confirmed_at": 1792810361.080653,
+  "exitcode": 0,
+  "finished_at": 1792810361.0806537,
+  "result": {
+    "run_id": "573aed1e-b3b5-4977-8d6b-a482b94fdd2a"
+  }
+}

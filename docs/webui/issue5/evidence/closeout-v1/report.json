@@ -1,0 +1,2360 @@
+{
+  "product_head": "3ccb88f4e34db2a81a04a6b7a7f198f0c88e367d",
+  "main_calls": 0,
+  "COM_calls": 0,
+  "checks": [
+    {
+      "check": "all Python sources executed in fixed-source saved roundtrip still exact",
+      "passed": true
+    },
+    {
+      "check": "real runs remain applicable to all backend/physical sources; only draft/workbench UI subsequently changed",
+      "passed": true
+    },
+    {
+      "check": "all original historical COM/core files unchanged",
+      "passed": true
+    },
+    {
+      "check": "Chrome historical parent manifest/NPZ exact original",
+      "passed": true
+    },
+    {
+      "check": "Chrome reopen/resave subfunctions snapshot exact despite same-ID success in session",
+      "passed": true
+    },
+    {
+      "check": "Chrome captured real active task exactly and did not read unexited files",
+      "passed": true
+    },
+    {
+      "check": "phase10d-restart completed without main/COM",
+      "passed": true
+    },
+    {
+      "check": "phase11c-com-snapshot completed without main/COM",
+      "passed": true
+    },
+    {
+      "check": "phase12b-storage completed without main/COM",
+      "passed": true
+    },
+    {
+      "check": "phase13-selection-before completed without main/COM",
+      "passed": true
+    },
+    {
+      "check": "phase13-selection-after completed without main/COM",
+      "passed": true
+    }
+  ],
+  "actual_source_sha256": {
+    "src\\pybert\\web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "src\\pybert\\web\\archive.py": "f7f9e120daaea6911403a5dc770bb04f5d479d7f1b34bbd641d0923610df904f",
+    "src\\pybert\\web\\com.py": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f",
+    "src\\pybert\\web\\config.py": "55b25db261e7fe16942e24d03465223633614c4a8e35863789242b38f5e52c48",
+    "src\\pybert\\web\\data.py": "ed3118864ed0cc63a0c134ddb44fe5248d5d639fdca86d9cf1dd1a703a326c2d",
+    "src\\pybert\\web\\legacy_results.py": "4f294c18a15cb9f3c16fa0b3c4ddd5492d9c58172ee4437aa3136f17c1bb0403",
+    "src\\pybert\\web\\records.py": "b11a0753176cdf7cadb4c4113aa250d21c5f04bd53da1e12454f1d556aaed7ec",
+    "src\\pybert\\web\\resources.py": "6def3f648adac590145ce3afef950c6b69c129fbc635ea447cf09b9c4a564009",
+    "src\\pybert\\web\\resource_data.py": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3",
+    "src\\pybert\\web\\server.py": "9ad983c7486afec83644b6f315001f1d7722b431f2bf1d7bf954858eb17b6157",
+    "src\\pybert\\web\\tasks.py": "f455c3ee4c81eacd87854e3884fe4b4233520f7f3b87501ac783df0fa7dc6166",
+    "src\\pybert\\web\\worker.py": "9624c77a71345d2a5b6d0fb31c8b89a1606b9aeca80c2934beef9a9678bf9e13",
+    "src\\pybert\\web\\__init__.py": "07511ce2fefebaaeed0cb403bdd7d9c9db335f517422c5892fd485b409708d30",
+    "src\\pybert\\web\\static\\app.js": "e2c6957e857bf34613c7e8f3c67bf007b6929450de47c15424ae577f1403aebb",
+    "src\\pybert\\web\\static\\catalog.js": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+    "src\\pybert\\web\\static\\draft.js": "43cd36b77a3ae982973a9760108cc36f74dc8622fc406c7b140bf44d2ec842d2",
+    "src\\pybert\\web\\static\\gui-map.js": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+    "src\\pybert\\web\\static\\index.html": "7806a4988cd9f68f9efcdbb5b393583d0c1769e9b4a0ec95966f37ce44049c90",
+    "src\\pybert\\web\\static\\resources.js": "786b63c7cff80ecc6dbd0bb3ea21b1e4b523edb29ff8e64ddd48b4832bdf7995",
+    "src\\pybert\\web\\static\\results.js": "d0b3203be8aa94154c22a3d92751ca47d35fa4b00a8c3b238c79b10851e11c0a",
+    "src\\pybert\\web\\static\\settings.js": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+    "src\\pybert\\web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "src\\pybert\\web\\static\\workbench.css": "bb462eda1b116c813abccde3db999e3e486ca6f5635721ff178db64dfb990526",
+    "src\\pybert\\web\\static\\workbench.js": "4828ff5eaee4b9ed961aec396a541973abe8fbdea1bba4994f4813841e3eba1b",
+    "tools\\verify_web_archive_closeout.py": "f5c2b970b8a7e3246591077b004fc1a9d8210cb96c85b50cc0e25faff9a384aa"
+  },
+  "changes_after_real_runs": {
+    "src\\pybert\\web\\static\\draft.js": {
+      "observed": "37b9a39ff0a62897d009ec9b43e80ce71b3b9d2fccb5c4e72f524a986959d976",
+      "current": "43cd36b77a3ae982973a9760108cc36f74dc8622fc406c7b140bf44d2ec842d2"
+    },
+    "src\\pybert\\web\\static\\workbench.js": {
+      "observed": "a28b621e957caee6574a98162a8d7b1990bcb2bb39025dfc0b73e06702c11e21",
+      "current": "4828ff5eaee4b9ed961aec396a541973abe8fbdea1bba4994f4813841e3eba1b"
+    }
+  },
+  "real_run_arrays": {
+    "PAM4": 440,
+    "NRZ": 439
+  },
+  "real_run_costs": [
+    {
+      "task_id": "47c6eedb-b7b9-49cd-afbb-88d7673002ca",
+      "state": "failed",
+      "request_hash": "cb2a29185b949b257ad1772c52f036e27e617f6f2a507a144c4b863d514aa2c3",
+      "elapsed_s": 3.712789297103882,
+      "worker_exited": true
+    },
+    {
+      "task_id": "573aed1e-b3b5-4977-8d6b-a482b94fdd2a",
+      "state": "succeeded",
+      "request_hash": "802e0975c5691ff8c91a13ebd97fbc0615220e4da0de2d404c157facd52e44c3",
+      "elapsed_s": 10.195427179336548,
+      "worker_exited": true
+    },
+    {
+      "task_id": "7876578d-ae5e-4f75-82d9-88a106b1b803",
+      "state": "cancelled",
+      "request_hash": "802e0975c5691ff8c91a13ebd97fbc0615220e4da0de2d404c157facd52e44c3",
+      "elapsed_s": 5.771289348602295,
+      "worker_exited": true
+    },
+    {
+      "task_id": "c4532a94-3702-44e9-9869-106b3198cf79",
+      "state": "succeeded",
+      "request_hash": "27da78135f879f5c67800cad0a1b3e8ff4538fc1e5c26cf8e65a8c02681f4677",
+      "elapsed_s": 7.836383819580078,
+      "worker_exited": true
+    }
+  ],
+  "chrome_results": {
+    "phase10d-restart": {
+      "source_sha256": "a5317e93a3e176928c2e1141f5ce96bd1f6d1f5195b5fd02f8a3cef22446def4",
+      "result": {
+        "unavailable": "原记录 ref-9c8c46a8-e58a-495f-9452-e47144217f94 当前不可用（服务重启、缓存淘汰或参考移除）；未保存的临时结果无法恢复，请重新打开已保存archive。",
+        "grids": [
+          {
+            "x": [
+              -200,
+              200
+            ],
+            "y": [
+              -0.41459369817578773,
+              0.41376451077943616
+            ],
+            "shape": [
+              1000,
+              64
+            ]
+          },
+          {
+            "x": [
+              -100,
+              100
+            ],
+            "y": [
+              -0.3837298541826554,
+              0.3829623944742901
+            ],
+            "shape": [
+              1000,
+              64
+            ]
+          }
+        ],
+        "state": {
+          "active_task_id": "92864978-102d-49ee-a724-a52bf9316bde",
+          "current_task_id": "92864978-102d-49ee-a724-a52bf9316bde",
+          "runs": [],
+          "com_tasks": [],
+          "resources": [],
+          "references": [
+            {
+              "record_id": "ref-676f44c4-a197-4d63-bf10-5e85f60878b4",
+              "run_id": "573aed1e-b3b5-4977-8d6b-a482b94fdd2a",
+              "kind": "archive",
+              "name": "NRZ-real.pybert_run",
+              "source_sha256": "4d25f353778083cc7c231a013ddb64dfd98f7136576e1725b62c09c4bd68dd39",
+              "array_bytes": 77768588,
+              "file_bytes": 46045505
+            },
+            {
+              "record_id": "ref-40609b52-7c58-4240-8a66-f93361032b1a",
+              "run_id": "c4532a94-3702-44e9-9869-106b3198cf79",
+              "kind": "archive",
+              "name": "PAM4-real.pybert_run",
+              "source_sha256": "6b09fd82f760f7233396aa7919e30b6e028d18960fa86748828165bdff36f70a",
+              "array_bytes": 42194684,
+              "file_bytes": 24574311
+            }
+          ],
+          "result_budget": {
+            "temporary_runs": 2,
+            "temporary_policy": "oldest temporary success evicted; save archive to retain",
+            "temporary_array_bytes_per_record": 805306368,
+            "reference_records": 4,
+            "reference_array_bytes": 1073741824,
+            "reference_used_bytes": 119963272,
+            "temporary_file_bytes": 0
+          }
+        },
+        "draft_unchanged": true,
+        "main_calls": 0,
+        "COM_calls": 0
+      }
+    },
+    "phase11c-com-snapshot": {
+      "source_sha256": "dc5ebf3935e17034a1bd46a8eede2494ab25d5c799cbee001b30623b27204e00",
+      "result": {
+        "mode": "replay of real saved historical active/final tasks; no live COM",
+        "initial_task": {
+          "task_id": "a803f4ca-83f2-4031-a31c-af5213fc71d8",
+          "operation": "com",
+          "state": "running",
+          "phase": "native COM helper (cancellation observed after return)",
+          "cancel_requested": false,
+          "cancel_requested_at": null,
+          "cancel_observed_at": null,
+          "cancel_observed": false,
+          "worker_exited": false,
+          "logs": [
+            "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py:69: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  cp = get_com_params(Path(cfg[\"worker_path\"])) if cfg else IEEE_8023dj",
+            "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py:54: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  com_params = get_com_params(Path(cfg_file))"
+          ],
+          "created_at": 1792803373.7310054,
+          "request_hash": null,
+          "parent_run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+          "resource_inputs": [
+            {
+              "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+              "original_name": "example2_THRU.s4p",
+              "format": ".s4p",
+              "bytes": 2454034,
+              "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+              "source": {
+                "kind": "browser_upload"
+              },
+              "permission": "explicitly supplied for this local session",
+              "parse_status": "pending task validation",
+              "intended_uses": [
+                "channel",
+                "COM THRU"
+              ],
+              "field": "com_thru",
+              "index": null,
+              "reference": "example2_THRU.s4p",
+              "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+            },
+            {
+              "resource_id": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls",
+              "original_name": "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+              "format": ".xls",
+              "bytes": 30208,
+              "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+              "source": {
+                "kind": "local_path",
+                "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+              },
+              "permission": "explicitly supplied for this local session",
+              "parse_status": "pending task validation",
+              "intended_uses": [
+                "COM configuration"
+              ],
+              "field": "com_cfg_file",
+              "index": null,
+              "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+              "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"
+            }
+          ],
+          "parameter_source": "spreadsheet"
+        },
+        "current_task": {
+          "task_id": "a803f4ca-83f2-4031-a31c-af5213fc71d8",
+          "operation": "com",
+          "state": "succeeded",
+          "phase": "succeeded",
+          "cancel_requested": false,
+          "cancel_requested_at": null,
+          "cancel_observed_at": null,
+          "cancel_observed": false,
+          "worker_exited": true,
+          "logs": [
+            "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py:69: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  cp = get_com_params(Path(cfg[\"worker_path\"])) if cfg else IEEE_8023dj",
+            "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py:54: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  com_params = get_com_params(Path(cfg_file))"
+          ],
+          "created_at": 1792803373.7310054,
+          "request_hash": null,
+          "parent_run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+          "resource_inputs": [
+            {
+              "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+              "original_name": "example2_THRU.s4p",
+              "format": ".s4p",
+              "bytes": 2454034,
+              "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+              "source": {
+                "kind": "browser_upload"
+              },
+              "permission": "explicitly supplied for this local session",
+              "parse_status": "pending task validation",
+              "intended_uses": [
+                "channel",
+                "COM THRU"
+              ],
+              "field": "com_thru",
+              "index": null,
+              "reference": "example2_THRU.s4p",
+              "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+            },
+            {
+              "resource_id": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls",
+              "original_name": "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+              "format": ".xls",
+              "bytes": 30208,
+              "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+              "source": {
+                "kind": "local_path",
+                "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+              },
+              "permission": "explicitly supplied for this local session",
+              "parse_status": "pending task validation",
+              "intended_uses": [
+                "COM configuration"
+              ],
+              "field": "com_cfg_file",
+              "index": null,
+              "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+              "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"
+            }
+          ],
+          "parameter_source": "spreadsheet",
+          "worker_exit_confirmed_at": 1792803380.9549258,
+          "exitcode": 0,
+          "finished_at": 1792803380.954926,
+          "result": {
+            "com_id": "a803f4ca-83f2-4031-a31c-af5213fc71d8",
+            "parent_run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+            "value_db": -15.419984103278814
+          }
+        },
+        "archived_snapshot": {
+          "availability": "captured",
+          "task": {
+            "task_id": "a803f4ca-83f2-4031-a31c-af5213fc71d8",
+            "operation": "com",
+            "state": "running",
+            "phase": "native COM helper (cancellation observed after return)",
+            "cancel_requested": false,
+            "cancel_requested_at": null,
+            "cancel_observed_at": null,
+            "cancel_observed": false,
+            "worker_exited": false,
+            "logs": [
+              "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py:69: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  cp = get_com_params(Path(cfg[\"worker_path\"])) if cfg else IEEE_8023dj",
+              "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py:54: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  com_params = get_com_params(Path(cfg_file))"
+            ],
+            "created_at": 1792803373.7310054,
+            "request_hash": null,
+            "parent_run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+            "resource_inputs": [
+              {
+                "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+                "original_name": "example2_THRU.s4p",
+                "format": ".s4p",
+                "bytes": 2454034,
+                "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+                "source": {
+                  "kind": "browser_upload"
+                },
+                "permission": "explicitly supplied for this local session",
+                "parse_status": "pending task validation",
+                "intended_uses": [
+                  "channel",
+                  "COM THRU"
+                ],
+                "field": "com_thru",
+                "index": null,
+                "reference": "example2_THRU.s4p",
+                "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+              },
+              {
+                "resource_id": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls",
+                "original_name": "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+                "format": ".xls",
+                "bytes": 30208,
+                "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+                "source": {
+                  "kind": "local_path",
+                  "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+                },
+                "permission": "explicitly supplied for this local session",
+                "parse_status": "pending task validation",
+                "intended_uses": [
+                  "COM configuration"
+                ],
+                "field": "com_cfg_file",
+                "index": null,
+                "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+                "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"
+              }
+            ],
+            "parameter_source": "spreadsheet"
+          },
+          "files": {
+            "com-input.json": {
+              "availability": "waiting_for_exit"
+            },
+            "com.json": {
+              "availability": "waiting_for_exit"
+            },
+            "terminal.json": {
+              "availability": "waiting_for_exit"
+            }
+          }
+        },
+        "record_id": "ref-98bab4c2-df74-4149-abb2-cbb8218a5602",
+        "source_run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+        "main_calls": 0,
+        "COM_calls": 0
+      }
+    },
+    "phase12b-storage": {
+      "source_sha256": "ac923c9d495a370df9f0a78fc044eb4d6cb2f465b4237cbafb917a0b66845894",
+      "result": {
+        "authentic_pr7_field_count": 112,
+        "coverage": [
+          {
+            "key": "bit_rate",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "mod_type",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "vod",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "pattern",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "seed",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_eq_sel",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_eq_sel",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "inter_sel",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "ch_file",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "ch_files",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "renumber",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "use_window",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "lane_sel",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "l_ch",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "Z0",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "v0",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "Rdc",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "R0",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "w0",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "Theta0",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_sel",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_sel",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rs",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "cout",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rin",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "cin",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "cac",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rn",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "pn_mag",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "pn_freq",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "include_fext",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "ctle_enable",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "ctle_sel",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "ctle_file",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "peak_freq",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_bw",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "peak_mag",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_n_taps",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_n_pre",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "gain",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "n_ave",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "decision_scaler",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "sum_ideal",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "sum_bw",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "cdr_type",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "delta_t_ui",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "alpha",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "n_lock_ave",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rel_lock_tol",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "lock_sustain",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "use_agc",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_use_viterbi",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_viterbi_symbols",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "nbits",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "eye_bits",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "nspui",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "debug",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "f_max",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "f_step",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "impulse_length",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "thresh",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "pkg_enable",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "pkg_group",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_pkg_case",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_pkg_case",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "pkg_include_host",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_ibis_file",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_ibis_file",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_use_ts4",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_use_ts4",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_use_getwave",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_use_getwave",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_use_clocks",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_c0_min",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "ctle_enable_tune",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "peak_freq_tune",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_bw_tune",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "min_mag_tune",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "max_mag_tune",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "step_mag_tune",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "use_mmse",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rlm",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "ami_opt_trials",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "enable_com",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "com_cfg_file",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "peak_mag_tune",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "trellis_err_select",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "trellis_pan_control",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "trellis_max_err",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_ibis_valid",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_ami_valid",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_dll_valid",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_ami_file",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_dll_file",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "btn_sel_tx",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "btn_view_tx",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "btn_cfg_tx",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_ami_tap_tuners",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_ibis_valid",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_ami_valid",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_dll_valid",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_ami_file",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_dll_file",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "btn_sel_rx",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "btn_view_rx",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "btn_cfg_rx",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_ami_tap_tuners",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_taps",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "tx_tap_tuners",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "rx_taps",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "ffe_tap_tuners",
+            "exact": true,
+            "retained": false
+          },
+          {
+            "key": "dfe_tap_tuners",
+            "exact": true,
+            "retained": false
+          }
+        ],
+        "migration": {
+          "saved": {
+            "schema": 2,
+            "sources": {
+              "schema_version": 1,
+              "version": "11.1.0",
+              "adapter_sha": "0bd84ba28e062794c24f38ba5cc80fec4043ca8b",
+              "native_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+              "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+              "prototype_sha": "8542f10f4c137f79b3200638f5ee59d36202526a",
+              "fork": "yx520143-G/PyBERT"
+            },
+            "migration_source": {
+              "schema": 1,
+              "sources": {
+                "prototype_sha": "1bc905d"
+              }
+            },
+            "values": {
+              "bit_rate": 25,
+              "mod_type": "NRZ",
+              "vod": 1.25,
+              "pattern": "PRBS-7",
+              "seed": 1,
+              "tx_eq_sel": "Native",
+              "rx_eq_sel": "Native",
+              "inter_sel": "native",
+              "ch_file": "",
+              "ch_files": [],
+              "renumber": false,
+              "use_window": false,
+              "lane_sel": 0,
+              "l_ch": 0.5,
+              "Z0": 100,
+              "v0": 0.67,
+              "Rdc": 0.1876,
+              "R0": 1.452,
+              "w0": 10000000,
+              "Theta0": 0.02,
+              "tx_sel": "native",
+              "rx_sel": "native",
+              "rs": 100,
+              "cout": 0.5,
+              "rin": 100,
+              "cin": 0.5,
+              "cac": 1,
+              "rn": 0.01,
+              "pn_mag": 0.01,
+              "pn_freq": 11,
+              "include_fext": false,
+              "ctle_enable": true,
+              "ctle_sel": "Native",
+              "ctle_file": "",
+              "peak_freq": 5,
+              "rx_bw": 12,
+              "peak_mag": 1.7,
+              "rx_n_taps": 15,
+              "rx_n_pre": 5,
+              "gain": 0.1,
+              "n_ave": 100,
+              "decision_scaler": 0.5,
+              "sum_ideal": true,
+              "sum_bw": 12,
+              "cdr_type": "Bang-Bang",
+              "delta_t_ui": 0.001,
+              "alpha": 0.01,
+              "n_lock_ave": 500,
+              "rel_lock_tol": 0.1,
+              "lock_sustain": 500,
+              "use_agc": true,
+              "rx_use_viterbi": false,
+              "rx_viterbi_symbols": 4,
+              "nbits": 15000,
+              "eye_bits": 10160,
+              "nspui": 32,
+              "debug": false,
+              "f_max": 40,
+              "f_step": 10,
+              "impulse_length": 0,
+              "thresh": 3,
+              "pkg_enable": false,
+              "pkg_group": "KR",
+              "tx_pkg_case": "A1",
+              "rx_pkg_case": "A1",
+              "pkg_include_host": true,
+              "tx_ibis_file": "",
+              "rx_ibis_file": "",
+              "tx_use_ts4": false,
+              "rx_use_ts4": false,
+              "tx_use_getwave": false,
+              "rx_use_getwave": false,
+              "rx_use_clocks": false,
+              "tx_c0_min": 0,
+              "ctle_enable_tune": true,
+              "peak_freq_tune": 5,
+              "rx_bw_tune": 12,
+              "min_mag_tune": 2,
+              "max_mag_tune": 12,
+              "step_mag_tune": 1,
+              "use_mmse": true,
+              "rlm": 0.95,
+              "ami_opt_trials": 100,
+              "enable_com": false,
+              "com_cfg_file": "",
+              "peak_mag_tune": "",
+              "trellis_err_select": 0,
+              "trellis_pan_control": 0,
+              "trellis_max_err": "",
+              "tx_ibis_valid": "",
+              "tx_ami_valid": "",
+              "tx_dll_valid": "",
+              "tx_ami_file": "",
+              "tx_dll_file": "",
+              "btn_sel_tx": "",
+              "btn_view_tx": "",
+              "btn_cfg_tx": "",
+              "tx_ami_tap_tuners": "",
+              "rx_ibis_valid": "",
+              "rx_ami_valid": "",
+              "rx_dll_valid": "",
+              "rx_ami_file": "",
+              "rx_dll_file": "",
+              "btn_sel_rx": "",
+              "btn_view_rx": "",
+              "btn_cfg_rx": "",
+              "rx_ami_tap_tuners": "",
+              "tx_taps": [
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                }
+              ],
+              "tx_tap_tuners": [
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.05,
+                  "step": 0.025,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "min_val": -0.1,
+                  "max_val": 0.1,
+                  "step": 0.05,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "min_val": -0.2,
+                  "max_val": 0.2,
+                  "step": 0.1,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.2,
+                  "max_val": 0.2,
+                  "step": 0.1,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.1,
+                  "max_val": 0.1,
+                  "step": 0.05,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.05,
+                  "step": 0.025,
+                  "value": 0
+                }
+              ],
+              "rx_taps": [
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 1
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": true,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                },
+                {
+                  "enabled": false,
+                  "value": 0
+                }
+              ],
+              "ffe_tap_tuners": [
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -1,
+                  "max_val": 1,
+                  "step": 0.1
+                }
+              ],
+              "dfe_tap_tuners": [
+                {
+                  "enabled": true,
+                  "min_val": -0.2,
+                  "max_val": 0.4
+                },
+                {
+                  "enabled": true,
+                  "min_val": -0.15,
+                  "max_val": 0.15
+                },
+                {
+                  "enabled": true,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": true,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                },
+                {
+                  "enabled": false,
+                  "min_val": -0.05,
+                  "max_val": 0.1
+                }
+              ]
+            },
+            "retained_fields": {
+              "tx_tap_tuners.value": {
+                "value": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "reason": "优化value保留；当前Native Run不消费，#8专项处理。",
+                "blocking": false
+              }
+            }
+          },
+          "legacy": "{\"schema\":1,\"commit\":\"1bc905d\",\"values\":{\"bit_rate\":25,\"mod_type\":\"NRZ\",\"vod\":1.25,\"pattern\":\"PRBS-7\",\"seed\":1,\"tx_eq_sel\":\"Native\",\"rx_eq_sel\":\"Native\",\"inter_sel\":\"native\",\"ch_file\":\"\",\"ch_files\":[],\"renumber\":false,\"use_window\":false,\"lane_sel\":0,\"l_ch\":0.5,\"Z0\":100,\"v0\":0.67,\"Rdc\":0.1876,\"R0\":1.452,\"w0\":10000000,\"Theta0\":0.02,\"tx_sel\":\"native\",\"rx_sel\":\"native\",\"rs\":100,\"cout\":0.5,\"rin\":100,\"cin\":0.5,\"cac\":1,\"rn\":0.01,\"pn_mag\":0.01,\"pn_freq\":11,\"include_fext\":false,\"ctle_enable\":true,\"ctle_sel\":\"Native\",\"ctle_file\":\"\",\"peak_freq\":5,\"rx_bw\":12,\"peak_mag\":1.7,\"rx_n_taps\":15,\"rx_n_pre\":5,\"gain\":0.1,\"n_ave\":100,\"decision_scaler\":0.5,\"sum_ideal\":true,\"sum_bw\":12,\"cdr_type\":\"Bang-Bang\",\"delta_t_ui\":0.001,\"alpha\":0.01,\"n_lock_ave\":500,\"rel_lock_tol\":0.1,\"lock_sustain\":500,\"use_agc\":true,\"rx_use_viterbi\":false,\"rx_viterbi_symbols\":4,\"nbits\":15000,\"eye_bits\":10160,\"nspui\":32,\"debug\":false,\"f_max\":40,\"f_step\":10,\"impulse_length\":0,\"thresh\":3,\"pkg_enable\":false,\"pkg_group\":\"KR\",\"tx_pkg_case\":\"A1\",\"rx_pkg_case\":\"A1\",\"pkg_include_host\":true,\"tx_ibis_file\":\"\",\"rx_ibis_file\":\"\",\"tx_use_ts4\":false,\"rx_use_ts4\":false,\"tx_use_getwave\":false,\"rx_use_getwave\":false,\"rx_use_clocks\":false,\"tx_c0_min\":0,\"ctle_enable_tune\":true,\"peak_freq_tune\":5,\"rx_bw_tune\":12,\"min_mag_tune\":2,\"max_mag_tune\":12,\"step_mag_tune\":1,\"use_mmse\":true,\"rlm\":0.95,\"ami_opt_trials\":100,\"enable_com\":false,\"com_cfg_file\":\"\",\"peak_mag_tune\":\"\",\"trellis_err_select\":0,\"trellis_pan_control\":0,\"trellis_max_err\":\"\",\"tx_ibis_valid\":\"\",\"tx_ami_valid\":\"\",\"tx_dll_valid\":\"\",\"tx_ami_file\":\"\",\"tx_dll_file\":\"\",\"btn_sel_tx\":\"\",\"btn_view_tx\":\"\",\"btn_cfg_tx\":\"\",\"tx_ami_tap_tuners\":\"\",\"rx_ibis_valid\":\"\",\"rx_ami_valid\":\"\",\"rx_dll_valid\":\"\",\"rx_ami_file\":\"\",\"rx_dll_file\":\"\",\"btn_sel_rx\":\"\",\"btn_view_rx\":\"\",\"btn_cfg_rx\":\"\",\"rx_ami_tap_tuners\":\"\",\"tx_taps\":[{\"enabled\":false,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0}],\"tx_tap_tuners\":[{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.05,\"step\":0.025,\"value\":0},{\"enabled\":true,\"min_val\":-0.1,\"max_val\":0.1,\"step\":0.05,\"value\":0},{\"enabled\":true,\"min_val\":-0.2,\"max_val\":0.2,\"step\":0.1,\"value\":0},{\"enabled\":false,\"min_val\":-0.2,\"max_val\":0.2,\"step\":0.1,\"value\":0},{\"enabled\":false,\"min_val\":-0.1,\"max_val\":0.1,\"step\":0.05,\"value\":0},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.05,\"step\":0.025,\"value\":0}],\"rx_taps\":[{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":1},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":true,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0},{\"enabled\":false,\"value\":0}],\"ffe_tap_tuners\":[{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":true,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1},{\"enabled\":false,\"min_val\":-1,\"max_val\":1,\"step\":0.1}],\"dfe_tap_tuners\":[{\"enabled\":true,\"min_val\":-0.2,\"max_val\":0.4},{\"enabled\":true,\"min_val\":-0.15,\"max_val\":0.15},{\"enabled\":true,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":true,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":true,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1},{\"enabled\":false,\"min_val\":-0.05,\"max_val\":0.1}]}}",
+          "error": null
+        },
+        "refused": [
+          {
+            "raw": "invalid JSON",
+            "error": "本地草稿恢复失败：请显式恢复默认或Load Config。"
+          },
+          {
+            "raw": "{\"schema\":999,\"values\":{\"bit_rate\":50}}",
+            "error": "本地草稿恢复失败：请显式恢复默认或Load Config。"
+          },
+          {
+            "raw": "{\"schema\":2,\"values\":{\"bit_rate\":25},\"retained_fields\":{\"future_physical_input\":{\"value\":123,\"blocking\":false}}}",
+            "error": "有未应用的历史字段，原值保留；请检查迁移明细并显式恢复默认或载入完整配置。"
+          }
+        ],
+        "storage_failure_kept_input": 26,
+        "recovery_saved_input": 27,
+        "main_calls": 0,
+        "COM_calls": 0
+      }
+    },
+    "phase13-selection-before": {
+      "source_sha256": "96fc017988063cddb73033c904073b5d315132e771fea7146a26c1e2f0bbe412",
+      "result": {
+        "record_id": "ref-40609b52-7c58-4240-8a66-f93361032b1a",
+        "restored_status": "已恢复所选记录 ref-40609b52-7c58-4240-8a66-f93361032b1a。",
+        "main_calls": 0,
+        "COM_calls": 0
+      }
+    },
+    "phase13-selection-after": {
+      "source_sha256": "47cf125f5bf88578b6260af168ef203d063439e813326a734bef93ff2aed0034",
+      "result": {
+        "storageBefore": "{\"record_id\":\"ref-40609b52-7c58-4240-8a66-f93361032b1a\"}",
+        "after": {
+          "storage": "{\"record_id\":\"ref-40609b52-7c58-4240-8a66-f93361032b1a\"}",
+          "message": "原记录 ref-40609b52-7c58-4240-8a66-f93361032b1a 当前不可用（服务重启、缓存淘汰或参考移除）；请重新打开已保存archive。"
+        },
+        "state": {
+          "active_task_id": "3b8a0f2d-59da-40f5-a578-72a8012c5efa",
+          "current_task_id": "3b8a0f2d-59da-40f5-a578-72a8012c5efa",
+          "runs": [],
+          "com_tasks": [],
+          "resources": [],
+          "references": [],
+          "result_budget": {
+            "temporary_runs": 2,
+            "temporary_policy": "oldest temporary success evicted; save archive to retain",
+            "temporary_array_bytes_per_record": 805306368,
+            "reference_records": 4,
+            "reference_array_bytes": 1073741824,
+            "reference_used_bytes": 0,
+            "temporary_file_bytes": 0
+          }
+        },
+        "main_calls": 0,
+        "COM_calls": 0
+      }
+    }
+  },
+  "passed": true
+}

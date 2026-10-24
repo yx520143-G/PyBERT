@@ -1,0 +1,11 @@
+{
+  "sources": {
+    "docs\\research\\pybert-signal-chain-ui\\catalog.js": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+    "docs\\research\\pybert-signal-chain-ui\\settings.js": "7f966a4416e07ce995be65554181df4ae8c2d08e3be54c45729ad604b2b25273"
+  },
+  "changes": {
+    "bit_rate": 25,
+    "vod": 1.25
+  },
+  "schema": 1
+}

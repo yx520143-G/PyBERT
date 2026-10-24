@@ -1,0 +1,232 @@
+- generic [ref=f1e1]:
+  - link "跳到参数详情" [ref=f1e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=f1e3]:
+    - link "PyBERT 数据源" [ref=f1e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=f1e8]:
+        - strong [ref=f1e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=f1e10]:
+      - text: 模块目录
+      - generic [ref=f1e11]: 16 MODULES
+    - navigation "选择模块" [ref=f1e12]:
+      - generic [ref=f1e279]:
+        - heading "主信号链" [level=2] [ref=f1e280]
+        - button "Source" [ref=f1e281] [cursor=pointer]: •
+        - button "Tx EQ" [ref=f1e283] [cursor=pointer]: •
+        - button "Channel" [active] [ref=f1e285] [cursor=pointer]: •
+        - button "Noise" [ref=f1e287] [cursor=pointer]
+        - button "Rx CTLE" [ref=f1e289] [cursor=pointer]
+        - button "Rx FFE" [ref=f1e291] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=f1e293] [cursor=pointer]
+        - button "Observe" [ref=f1e295] [cursor=pointer]
+      - generic [ref=f1e297]:
+        - heading "控制与判决旁支" [level=2] [ref=f1e298]
+        - button "CDR" [ref=f1e299] [cursor=pointer]
+        - button "AGC" [ref=f1e301] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=f1e303] [cursor=pointer]
+      - generic [ref=f1e305]:
+        - heading "全局设置与工具" [level=2] [ref=f1e306]
+        - button "Simulation" [ref=f1e307] [cursor=pointer]
+        - button "Device models" [ref=f1e309] [cursor=pointer]
+        - button "IBIS-AMI" [ref=f1e311] [cursor=pointer]
+        - button "Optimizer" [ref=f1e313] [cursor=pointer]
+        - button "COM" [ref=f1e315] [cursor=pointer]
+  - generic [ref=f1e51]:
+    - banner [ref=f1e52]:
+      - generic [ref=f1e53]:
+        - generic [ref=f1e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=f1e55]
+      - generic [ref=f1e56]:
+        - generic [ref=f1e58]:
+          - searchbox "搜索所有模块和参数" [ref=f1e62]
+          - generic [aria-hidden] [ref=f1e63]: /
+        - status [ref=f1e64]:
+          - strong [ref=f1e317]: 草稿已保留
+          - generic [ref=f1e318]: 5 项设置已修改
+        - button "恢复全部默认" [ref=f1e67] [cursor=pointer]
+    - generic [ref=f1e68]:
+      - button "Run" [ref=f1e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=f1e70]
+      - status [ref=f1e71]: normalize 2714a93a · succeeded · succeeded
+      - generic [ref=f1e72]: Untitled
+      - button "Load Config" [ref=f1e73] [cursor=pointer]
+      - button "资源 / COM" [ref=f1e74] [cursor=pointer]
+      - button "Save" [ref=f1e75] [cursor=pointer]
+      - button "Save As…" [ref=f1e76] [cursor=pointer]
+      - button "Help / About" [ref=f1e77] [cursor=pointer]
+      - button "Disconnect" [ref=f1e78] [cursor=pointer]
+    - status [ref=f1e79]: "Input: ch_file: resource is unbound/unavailable; upload or register its path explicitly."
+    - status [ref=f1e80]: "草稿恢复: 有未应用的历史字段，原值保留；请检查迁移明细并显式恢复默认或载入完整配置。"
+    - status "run_id=0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07; com_id=none" [ref=f1e319]: 外部参考 ref-38d497c8-a587-4584-a119-77f4a1dc8fe1 · 原run 0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07 · 完整存档；子任务仅显示保存时快照，见概览。
+    - generic [ref=f1e82]:
+      - button "打开结果 / 加入比较" [ref=f1e83] [cursor=pointer]
+      - generic [ref=f1e84]:
+        - checkbox "我选择的是可信本机 legacy pickle（可执行代码）" [ref=f1e85]
+        - text: 我选择的是可信本机 legacy pickle（可执行代码）
+      - button "保存所选结果" [ref=f1e86] [cursor=pointer]
+      - button "原生保存 / 损失清单" [ref=f1e87] [cursor=pointer]
+      - button "恢复所选输入到草稿" [ref=f1e88] [cursor=pointer]
+      - button "移除所选参考" [ref=f1e89] [cursor=pointer]
+      - button "清除加载的参考" [ref=f1e90] [cursor=pointer]
+    - status [ref=f1e91]: 已加载 issue4-PAM4.pybert_run · record ref-38d497c8-a587-4584-a119-77f4a1dc8fe1 · source 0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07；草稿未改，未Run。
+    - generic [ref=f1e92]: 临时成功缓存 0/2 · 0 bytes（第三次成功淘汰最旧临时记录）；参考 1/4 · 42194684/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。
+    - main [ref=f1e93]:
+      - group [ref=f1e94]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=f1e95] [cursor=pointer]
+      - region "链路总览" [ref=f1e96]:
+        - generic "切换实现图示" [ref=f1e97]:
+          - generic [ref=f1e98]: 实现方案
+          - generic [ref=f1e99]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=f1e100] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=f1e101]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=f1e102] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=f1e103]:
+            - checkbox "请求模型时钟" [disabled] [ref=f1e104]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=f1e105] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=f1e106]:
+          - generic [ref=f1e107]:
+            - generic [ref=f1e320]:
+              - button "Source：PAM-4 · PRBS-7，查看设置" [ref=f1e321] [cursor=pointer]:
+                - strong [ref=f1e322]: Source
+                - generic [ref=f1e323]: PAM-4 · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=f1e325] [cursor=pointer]:
+                - strong [ref=f1e326]: Tx EQ
+                - generic [ref=f1e327]: Native FFE
+              - button "Channel：单文件 · 两端电气，查看设置" [ref=f1e329] [cursor=pointer]:
+                - strong [ref=f1e330]: Channel
+                - generic [ref=f1e331]: 单文件 · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=f1e333] [cursor=pointer]:
+                - strong [ref=f1e334]: Noise
+                - generic [ref=f1e335]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=f1e337] [cursor=pointer]:
+                - strong [ref=f1e338]: Rx CTLE
+                - generic [ref=f1e339]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=f1e341] [cursor=pointer]:
+                - strong [ref=f1e342]: Rx FFE
+                - generic [ref=f1e343]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=f1e345] [cursor=pointer]:
+                - strong [ref=f1e346]: DFE / Slicer
+                - generic [ref=f1e347]: 自适应反馈 / 判决
+            - generic [ref=f1e348]:
+              - button "Device models" [ref=f1e350] [cursor=pointer]
+              - button "Observe" [ref=f1e352] [cursor=pointer]
+              - generic [ref=f1e353]:
+                - button "CDR" [ref=f1e354] [cursor=pointer]
+                - button "AGC" [ref=f1e355] [cursor=pointer]
+                - button "↗ Viterbi" [ref=f1e356] [cursor=pointer]
+        - status [ref=f1e145]:
+          - generic [aria-hidden] [ref=f1e357]: i
+          - generic [ref=f1e358]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=f1e148]:
+        - text: ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳
+        - region "Native run analysis" [ref=f1e255]:
+          - generic [ref=f1e256]:
+            - generic [ref=f1e257]:
+              - text: Selected record
+              - combobox "Selected record" [ref=f1e258]:
+                - option "Select record…"
+                - option "参考 · issue4-PAM4.pybert_run · ref-38d497c8" [selected]
+            - generic [ref=f1e359]: Older input · draft or resource binding changed
+            - generic [ref=f1e259]:
+              - text: 比较参考
+              - combobox "比较参考" [ref=f1e260]:
+                - option "自动选择另一条" [selected]
+                - option "参考 · issue4-PAM4.pybert_run · ref-38d497c8"
+          - generic [ref=f1e262]:
+            - text: Analysis
+            - combobox "Analysis" [ref=f1e263]:
+              - option "Responses"
+              - option "Waveform"
+              - option "Eye" [selected]
+              - option "Jitter Dist."
+              - option "Jitter Spec."
+              - option "Jitter Bathtub"
+              - option "Jitter Info"
+              - option "DFE Adaptation"
+              - option "CDR Adaptation"
+              - option "CDR Histogram"
+              - option "CDR Spectrum"
+              - option "Run overview"
+              - option "Run input comparison"
+          - generic [ref=f1e266]:
+            - generic [ref=f1e267]:
+              - text: Point
+              - combobox "Point" [ref=f1e268]:
+                - option "Follow node"
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output" [selected]
+            - generic [ref=f1e269]:
+              - text: Compare
+              - combobox "Compare" [ref=f1e270]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - generic [ref=f1e271]:
+              - checkbox "Channel eye +1mV display noise" [ref=f1e272]
+              - text: Channel eye +1mV display noise
+            - button "Restore settings" [ref=f1e360] [cursor=pointer]
+          - generic "Selected run plot" [ref=f1e274]:
+            - generic [ref=f1e362]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: −200
+                      - generic: −150
+                      - generic: −100
+                      - generic: −50
+                      - generic: "0"
+                      - generic: "50"
+                      - generic: "100"
+                      - generic: "150"
+                      - generic: "200"
+                    - generic:
+                      - generic: −0.4
+                      - generic: −0.2
+                      - generic: "0"
+                      - generic: "0.2"
+                      - generic: "0.4"
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: "0"
+                      - generic: "5"
+                      - generic: "10"
+                      - generic: "15"
+                      - generic: "20"
+                      - generic: "25"
+                      - generic: "30"
+                  - generic: DFE summing-node output eye · recovered clock_times
+                  - generic: ps
+                  - generic: V
+              - toolbar [ref=f1e376]:
+                - button "Download plot as a PNG" [ref=f1e378] [cursor=pointer]
+                - generic [ref=f1e379]:
+                  - button "Zoom" [ref=f1e380] [cursor=pointer]
+                  - button "Pan" [ref=f1e381] [cursor=pointer]
+                - generic [ref=f1e382]:
+                  - button "Zoom in" [ref=f1e383] [cursor=pointer]
+                  - button "Zoom out" [ref=f1e384] [cursor=pointer]
+                  - button "Autoscale" [ref=f1e385] [cursor=pointer]
+                  - button "Reset axes" [ref=f1e386] [cursor=pointer]
+          - generic [ref=f1e276]:
+            - paragraph [ref=f1e387]: DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling. Zoom/pan and switching views do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.
+            - group [ref=f1e388]:
+              - generic "ref-38d497c8-a587-4584-a119-77f4a1dc8fe1 · source 0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07 · eye.dfe · PAM-4 · input e4f717945382" [ref=f1e389]
+      - group [ref=f1e277]:
+        - generic "Task logs / selected run logs" [ref=f1e278]

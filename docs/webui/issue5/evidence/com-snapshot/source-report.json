@@ -1,0 +1,148 @@
+{
+  "mode": "historical snapshot replay; no engine",
+  "source_files": {
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\chrome-20261024\\c3cadfdc-13e8-4ed9-bee3-b3b11462cd96\\manifest.json": "e6585bae9dc9bcdfe3a133cd202994d73b888cf13b55d89126ba3f2159fa3512",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\chrome-20261024\\c3cadfdc-13e8-4ed9-bee3-b3b11462cd96\\arrays.npz": "79168273d67634368c44594a4315ddd488333db8e30d8d4e006f27dcd2ea380f",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\chrome-20261024\\c3cadfdc-13e8-4ed9-bee3-b3b11462cd96\\request.json": "51c08b83c6ce5448d176e0ba615df2b58e722d14024be48e88e69884ac0fe8ae",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\chrome-20261024\\a803f4ca-83f2-4031-a31c-af5213fc71d8\\com-input.json": "fdb9313f5ab20a7283f15233092c23f368d4063eac054f376ffa9d92d06684f5",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\chrome-20261024\\a803f4ca-83f2-4031-a31c-af5213fc71d8\\com.json": "d9174b43999dea95ec46935d735e0041a371b1d3028d534549b387236b4a993a",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\chrome-20261024\\a803f4ca-83f2-4031-a31c-af5213fc71d8\\request.json": "2c318426874871ec45a2ed0db0534b1fddf771bfbdd7108ebb854929a8d15809"
+  },
+  "snapshots": {
+    "running": {
+      "task_id": "a803f4ca-83f2-4031-a31c-af5213fc71d8",
+      "operation": "com",
+      "state": "running",
+      "phase": "native COM helper (cancellation observed after return)",
+      "cancel_requested": false,
+      "cancel_requested_at": null,
+      "cancel_observed_at": null,
+      "cancel_observed": false,
+      "worker_exited": false,
+      "logs": [
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py:69: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  cp = get_com_params(Path(cfg[\"worker_path\"])) if cfg else IEEE_8023dj",
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py:54: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  com_params = get_com_params(Path(cfg_file))"
+      ],
+      "created_at": 1792803373.7310054,
+      "request_hash": null,
+      "parent_run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+      "resource_inputs": [
+        {
+          "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "original_name": "example2_THRU.s4p",
+          "format": ".s4p",
+          "bytes": 2454034,
+          "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+          "source": {
+            "kind": "browser_upload"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "pending task validation",
+          "intended_uses": [
+            "channel",
+            "COM THRU"
+          ],
+          "field": "com_thru",
+          "index": null,
+          "reference": "example2_THRU.s4p",
+          "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+        },
+        {
+          "resource_id": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls",
+          "original_name": "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+          "format": ".xls",
+          "bytes": 30208,
+          "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "pending task validation",
+          "intended_uses": [
+            "COM configuration"
+          ],
+          "field": "com_cfg_file",
+          "index": null,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+          "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"
+        }
+      ],
+      "parameter_source": "spreadsheet"
+    },
+    "final": {
+      "task_id": "a803f4ca-83f2-4031-a31c-af5213fc71d8",
+      "operation": "com",
+      "state": "succeeded",
+      "phase": "succeeded",
+      "cancel_requested": false,
+      "cancel_requested_at": null,
+      "cancel_observed_at": null,
+      "cancel_observed": false,
+      "worker_exited": true,
+      "logs": [
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py:69: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  cp = get_com_params(Path(cfg[\"worker_path\"])) if cfg else IEEE_8023dj",
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py:54: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'.\n  com_params = get_com_params(Path(cfg_file))"
+      ],
+      "created_at": 1792803373.7310054,
+      "request_hash": null,
+      "parent_run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+      "resource_inputs": [
+        {
+          "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "original_name": "example2_THRU.s4p",
+          "format": ".s4p",
+          "bytes": 2454034,
+          "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+          "source": {
+            "kind": "browser_upload"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "pending task validation",
+          "intended_uses": [
+            "channel",
+            "COM THRU"
+          ],
+          "field": "com_thru",
+          "index": null,
+          "reference": "example2_THRU.s4p",
+          "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+        },
+        {
+          "resource_id": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls",
+          "original_name": "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+          "format": ".xls",
+          "bytes": 30208,
+          "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "pending task validation",
+          "intended_uses": [
+            "COM configuration"
+          ],
+          "field": "com_cfg_file",
+          "index": null,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+          "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"
+        }
+      ],
+      "parameter_source": "spreadsheet",
+      "worker_exit_confirmed_at": 1792803380.9549258,
+      "exitcode": 0,
+      "finished_at": 1792803380.954926,
+      "result": {
+        "com_id": "a803f4ca-83f2-4031-a31c-af5213fc71d8",
+        "parent_run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+        "value_db": -15.419984103278814
+      }
+    }
+  },
+  "transition_source_sha256": "467915ac92e9bf08cfec2376d7f463e396274e9c4e2575efc7916c3ff2f5509a",
+  "final_source_sha256": "7f545198710119978a37896cbf894c0187155a1aef67cccb4dbd1cb3c8305887",
+  "defaults_source_sha256": "d847a762448eb733eb989b5026ad63addebc810222e3a598b4b50da85716927e",
+  "main_calls": 0,
+  "COM_calls": 0
+}

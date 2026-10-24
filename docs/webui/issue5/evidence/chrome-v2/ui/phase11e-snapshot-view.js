@@ -1,0 +1,7 @@
+async (page) => {
+  const detail=page.locator('#analysis-info details');
+  if(!await detail.evaluate(el=>el.open))await detail.locator('summary').click();
+  await detail.locator('pre').evaluate(el=>el.scrollIntoView({block:'start'}));
+  await page.screenshot({path:'output/playwright/26-com-snapshot-running-detail.png'});
+  return {detail_open:await detail.evaluate(el=>el.open),saved_running_snapshot_visible:true,no_engine:true};
+}

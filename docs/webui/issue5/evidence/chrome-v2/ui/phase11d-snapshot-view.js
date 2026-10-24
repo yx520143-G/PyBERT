@@ -1,0 +1,7 @@
+async (page) => {
+  await page.setViewportSize({width:1280,height:720});
+  if(!await page.evaluate(()=>document.querySelector('#work-area').classList.contains('viewer-expanded')))await page.locator('#expand-viewer').click();
+  await page.locator('#analysis-info details').evaluate(el=>el.scrollIntoView({block:'start'}));
+  await page.screenshot({path:'output/playwright/25-com-snapshot-confirmed.png'});
+  return {saved_snapshot_state:await page.evaluate(()=>Object.values(window.PYBERT_RUNS.selected().saved_subfunctions.linked_tasks)[0].task.state),current_task:'historical succeeded snapshot',no_engine:true};
+}

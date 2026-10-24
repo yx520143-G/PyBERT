@@ -1,0 +1,12 @@
+{
+  "UTF8_files": 140,
+  "BOM_files": [],
+  "non_UTF8_historical_raw_capture": [
+    {
+      "file": "docs\\webui\\issue5\\evidence\\core-contracts-v3.log",
+      "offset": 9409,
+      "original_bytes_preserved": true
+    }
+  ],
+  "policy": "Authored source/docs/default UTF-8 without BOM. Historical command-output raw bytes preserved without transcoding; not used as parsed JSON evidence."
+}

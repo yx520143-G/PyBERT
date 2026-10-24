@@ -1,0 +1,10 @@
+### Ran Playwright code
+```js
+await fileChooser.setFiles(["C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\docs\\webui\\issue5\\evidence\\saved-roundtrip-20261024-102512\\local\\issue4-PAM4.pybert_run"])
+```
+### Page
+- Page URL: http://127.0.0.1:8770/
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 1 errors, 0 warnings
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T02-29-09-703Z.yml)

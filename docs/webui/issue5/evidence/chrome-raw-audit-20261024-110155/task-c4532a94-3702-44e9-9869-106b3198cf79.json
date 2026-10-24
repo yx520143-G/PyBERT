@@ -1,0 +1,46 @@
+{
+  "task_id": "c4532a94-3702-44e9-9869-106b3198cf79",
+  "operation": "run",
+  "state": "succeeded",
+  "phase": "succeeded",
+  "cancel_requested": false,
+  "cancel_requested_at": null,
+  "cancel_observed_at": null,
+  "cancel_observed": false,
+  "worker_exited": true,
+  "logs": [
+    "[2026-10-24 02:50:53.173109+00:00]: PyBERT: 2-Port Network: 's2p_interp',  0.0-40000000000.0 Hz, 4001 pts, z0=[100.+0.j 100.+0.j]"
+  ],
+  "created_at": 1792810249.3742561,
+  "request_hash": "27da78135f879f5c67800cad0a1b3e8ff4538fc1e5c26cf8e65a8c02681f4677",
+  "parent_run_id": null,
+  "resource_inputs": [
+    {
+      "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+      "original_name": "example2_THRU.s4p",
+      "format": ".s4p",
+      "bytes": 2454034,
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+      "source": {
+        "kind": "browser_upload"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "channel",
+        "COM THRU"
+      ],
+      "field": "ch_file",
+      "index": null,
+      "reference": "example2_THRU.s4p",
+      "worker_path": "docs\\webui\\issue5\\evidence\\chrome-v2\\local\\service\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+    }
+  ],
+  "parameter_source": null,
+  "worker_exit_confirmed_at": 1792810257.2106388,
+  "exitcode": 0,
+  "finished_at": 1792810257.21064,
+  "result": {
+    "run_id": "c4532a94-3702-44e9-9869-106b3198cf79"
+  }
+}
