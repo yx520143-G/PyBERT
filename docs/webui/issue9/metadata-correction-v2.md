@@ -30,3 +30,5 @@ Chrome155 / 1280×720，8778服务的唯一worker请求是defaults归一化，0M
 ![旧schema1明确勘误](evidence/chrome-v3/13-legacy-metadata-erratum.jpg)
 
 服务PID58356/3816在身份核对后停止，本票Chrome会话关闭；8776/8777/8778无Listen。旧失败、费用、原始数组/manifest和ignored衍生archive均不清理。原NRZ/Duo/重复symbol/零概率缺口、#4默认COM和#16未执行边界不变。
+
+compileall与修改的JS syntax通过。静态记录中的早期 `git diff --check` 只检查当时未暂存的改动；封存时全量暂存检查会把 `-text` 保留的执行源CRLF和原生既有空白报为whitespace，不能因此改写证据。最终产品/文档采用 `git diff d33b58b...HEAD --check -- . ':!docs/webui/issue9/evidence'` 通过，证据另按实际bytes、UTF-8和BOM核验；不声称全部证据通过空白风格检查。
