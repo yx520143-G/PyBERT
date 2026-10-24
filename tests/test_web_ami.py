@@ -11,6 +11,24 @@ from pybert.web.config import extensions, normalize, validate
 from pybert.web.resources import Resources
 
 
+def echo_frozen_models(task_id, operation, request, directory, cancel, pipe):
+    pipe.send({"task_id": task_id, "kind": "terminal", "status": "succeeded",
+               "result": {"fields": [r["field"] for r in request.get("frozen_resources", [])]}})
+    pipe.close()
+
+
+@pytest.mark.parametrize("mode", [{"mode": "load"}, {}])
+def test_yaml_model_bindings_freeze_before_spawn_without_parsing_models(tmp_path, mode):
+    import json
+    from pybert.web.tasks import Tasks
+
+    manager = Tasks(tmp_path, worker=echo_frozen_models)
+    bundle = manager.resources.model_bundle([("model.ibs", b"inert test bytes")], {})
+    extra = {"resource_bindings": {"rx_model_bundle": bundle["resource_id"]}}
+    result = manager.normalize({**mode, "yaml": "# pybert-web-runtime-v1: " + json.dumps(extra) + "\n"})
+    assert result["fields"] == ["rx_model_bundle"]
+
+
 def test_hierarchical_parser_metadata_and_setter():
     cfg = AMIParamConfigurator(Path("models/ibisami/example_rx.ami").read_text(encoding="utf-8"))
     rows = parameter_rows(cfg)
@@ -136,6 +154,23 @@ def test_native_reset_preserves_inactive_ami_side_initial_values():
     result, _ = optimizer_action(p, runtime, "reset_eq")
     assert result["values"]["optimizer_values"]["ffe"] == [.25] * 100
     assert result["values"]["ami_opt_trials"] == 4
+
+
+def test_tune_runtime_key_order_does_not_change_identity(monkeypatch):
+    from pybert.web import optimization
+    from pybert.web.config import new_engine, snapshot, input_hash
+
+    config = snapshot(new_engine()) | {"rx_sel": "ibis"}
+    runtime = {"version": 1, "values": {"rlm": .95, "ami_models": {}}}
+
+    def reorder(_p, _config, values, _resources, **kwargs):
+        values["version"] = values.pop("version")
+        return {}
+
+    monkeypatch.setattr(optimization, "configure", reorder)
+    request = {"config": config, "input_hash": input_hash(config), "runtime_extensions": runtime, "resource_bindings": {}}
+    request["input_identity_hash"] = input_hash({key: request[key] for key in ("config", "runtime_extensions", "resource_bindings")})
+    optimization.prepare(request)
 
 
 def test_ami_configure_endpoint_uses_single_slot_manager():

@@ -245,11 +245,11 @@ def prepare(request, model_report=None, check=lambda: False, emit=lambda *a, **k
     load_config(p, config)
     if config["tx_sel"] == "ibis" or config["rx_sel"] == "ibis":
         runtime = extensions(request.get("runtime_extensions", {}))
-        before = json_bytes(runtime)
+        before = json.loads(json.dumps(runtime))
         report = configure(p, config, runtime, request.get("frozen_resources", []), check=check, emit=emit)
         if model_report is not None:
             model_report.update(report)
-        if json_bytes(runtime) != before:
+        if runtime != before:
             raise ValueError("Complete frozen AMI parameters/search required before Tune.")
     effective = snapshot(p)
     effective.update({key: config[key] for side in ("tx", "rx") for key in (side + "_dll_file", side + "_ami_file", side + "_ibis_file")})

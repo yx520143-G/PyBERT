@@ -15,7 +15,7 @@ import numpy as np
 
 from pybert.web.worker import run_worker
 from pybert.web.resources import Resources
-from pybert.web.config import extensions, input_hash, yaml_text, unresolved_references
+from pybert.web.config import extensions, input_hash, yaml_text, yaml_metadata, unresolved_references
 from pybert.web.records import References, verify_replay_resources
 from pybert.web.archive import MAX_ARRAY_BYTES
 from pybert.web.optimization import load_optimization
@@ -59,6 +59,8 @@ class Tasks:
 
                 plan(request["config"], execution=True)
             task_id = task_id or str(uuid.uuid4())
+            if operation == "normalize" and request.get("mode", "load") == "load" and "yaml" in request:
+                request.setdefault("resource_bindings", yaml_metadata(request["yaml"]).get("resource_bindings", {}))
             if operation == "normalize" and request.get("resource_bindings"):
                 # Parent copies and verifies bytes only. All parsing/loading remains in the fresh child.
                 request["frozen_resources"] = self.resources.for_models({}, request["resource_bindings"], allow_unavailable=True)

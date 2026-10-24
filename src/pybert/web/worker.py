@@ -138,9 +138,16 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                     "resources": resources,
                     "resource_bindings": request.get("resource_bindings", {}),
                     "runtime_extensions": runtime,
-                    "runtime_extension_status": {key: "inactive in Native Run; retained for #8/#10" for key in runtime.get("values", {})},
+                    "runtime_extension_status": {
+                        key: ("active model selections/parameters applied; see ami.models and actual_branch"
+                              if key == "ami_models" and any(config[side + "_use_ami"] for side in ("tx", "rx")) else
+                              "native GetWave clock selection consumes this request; actual source/fallback in ami.actual_branch"
+                              if key == "rx_use_clocks" and config["rx_use_ami"] and config["rx_use_getwave"] else
+                              "Tune setting retained; ordinary Run does not consume" if key in ("rlm", "ami_opt_trials", "optimizer_values") else
+                              "inactive for this Run branch; requested value retained")
+                        for key in runtime.get("values", {})},
                     "execution_strategy": {"deferred_com": request.get("deferred_com"),
-                                           "inactive_model_paths": "retained without loading observers",
+                                           "model_paths": "active IBIS parsed and AMI binary loaded in this worker only; inactive paths retained",
                                            "worker_projection": projected},
                     "warnings": warnings(effective),
                 }

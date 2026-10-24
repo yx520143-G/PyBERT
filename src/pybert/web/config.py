@@ -218,6 +218,17 @@ ConfigLoader.add_constructor(
 )
 
 
+def yaml_metadata(text):
+    """Read only inert JSON comments, including before the parent freezes resource bytes."""
+    metadata = {}
+    for line in text.splitlines():
+        if line.startswith("# pybert-web-runtime-v1: "):
+            metadata = json.loads(line.split(": ", 1)[1])
+            if not isinstance(metadata, dict) or set(metadata) - {"runtime_extensions", "resource_bindings"}:
+                raise ValueError("Unknown versioned Web configuration metadata.")
+    return metadata
+
+
 def parse_yaml(text):
     if len(text.encode("utf-8")) > 4_000_000:
         raise ValueError("Configuration exceeds 4 MB.")
@@ -402,13 +413,9 @@ def normalize(request, check=lambda: False, emit=lambda *a, **k: None):
         supplied = (parse_yaml(request["yaml"]) if "yaml" in request else
                     parse_legacy(base64.b64decode(request["legacy_base64"], validate=True)) if "legacy_base64" in request else request["config"])
         if "yaml" in request:
-            for line in request["yaml"].splitlines():
-                if line.startswith("# pybert-web-runtime-v1: "):
-                    extra = json.loads(line.split(": ", 1)[1])
-                    if not isinstance(extra, dict) or set(extra) - {"runtime_extensions", "resource_bindings"}:
-                        raise ValueError("Unknown versioned Web configuration metadata.")
-                    runtime = extra.get("runtime_extensions", {})
-                    bindings = request.get("resource_bindings", extra.get("resource_bindings", {}))
+            extra = yaml_metadata(request["yaml"])
+            runtime = extra.get("runtime_extensions", runtime)
+            bindings = request.get("resource_bindings", extra.get("resource_bindings", {}))
         supplied, report = import_config(supplied, defaults)
         runtime, bindings = extensions(runtime), binding_data(bindings)
         validate(supplied, defaults, complete=False)
