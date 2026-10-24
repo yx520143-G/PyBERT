@@ -322,6 +322,8 @@ def worker(output, environment, selected):
 
 def main():
     mode, label = sys.argv[1:3]
+    if mode == "importer" and len(sys.argv) > 3:
+        raise ValueError("Importer scope is a frozen full batch; individual case selectors are unsupported")
     environment = bind(label)
     if mode == "environment":
         write(ISSUE / f"environment-{label}.json", environment)
