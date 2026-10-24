@@ -1,0 +1,14 @@
+{
+  "before_Chrome_computation": true,
+  "time": 1792816107.2380264,
+  "inputs": "v1 complete frozen PAM4/NRZ plus cancel16/failure0 recipes",
+  "viewport": [
+    1280,
+    720
+  ],
+  "planned_main": 3,
+  "main_recipe": "PAM4 RLM095 and 080 untouched actual EQ; then explicit Use winning PAM4 candidate and Run, no improvement requirement",
+  "planned_coopt": "PAM4 4 candidates, NRZ 4 candidates, cancel16 after native coopt phase, native no-Tx failure (0 scored)",
+  "planned_COM": 0,
+  "inherited_tolerances": "../v1/manifest.json; no changes"
+}

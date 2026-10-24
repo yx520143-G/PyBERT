@@ -1,0 +1,23 @@
+### Result
+{"method":"Native button Enter key without force on preregistered outer16/inner16","requested":{"task_id":"333787d7-7a75-4536-9225-70df8983d5e0","operation":"optimization","state":"cancel_requested","phase":"native coopt; 16 outer candidates; inner 16","cancel_requested":true,"cancel_requested_at":1792818146.415615,"cancel_observed_at":null,"cancel_observed":false,"worker_exited":false,"logs":[],"created_at":1792818142.7290764,"request_hash":"a9993977c9ea3a37a29f9f65a1f4f67d73e3180fb286ea77c6046180a1818ae6","parent_run_id":null,"resource_inputs":[],"parameter_source":null},"task":{"task_id":"333787d7-7a75-4536-9225-70df8983d5e0","operation":"optimization","state":"cancelled","phase":"cancelled","cancel_requested":true,"cancel_requested_at":1792818146.415615,"cancel_observed_at":1792818146.577746,"cancel_observed":true,"worker_exited":true,"logs":["[2026-10-24 05:02:26.528049+00:00]: PyBERT: Optimizing linear EQ...\n\tOversampling factor: 32\n\tTx equalization: native (1 enabled tap(s), cursor at 3)\n\tRx equalization: native (3 enabled FFE tap(s))\n\tRunning 16 trials."],"created_at":1792818142.7290764,"request_hash":"a9993977c9ea3a37a29f9f65a1f4f67d73e3180fb286ea77c6046180a1818ae6","parent_run_id":null,"resource_inputs":[],"parameter_source":null,"worker_exit_confirmed_at":1792818146.8009968,"exitcode":0,"finished_at":1792818146.8009973,"error":"Native optimization checkpoint observed cancellation.","error_type":"OptimizationCancelled"}}
+### Ran Playwright code
+```js
+await (async page => {
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+  await page.waitForFunction(()=>!document.getElementById('tune-eq').disabled);
+  await page.locator('#optimizer-open').click();
+  const previous=await page.locator('#optimizer-status').innerText();
+  await page.locator('#tune-eq').click();
+  await page.waitForFunction(previous=>document.getElementById('optimizer-status').textContent!==previous && document.getElementById('optimizer-status').textContent.includes('validating'),previous);
+  const text=await page.locator('#optimizer-status').innerText(),id=text.match(/opt ([a-f0-9-]+)/)[1];
+  const cancelResponse=page.waitForResponse(r=>r.url().endsWith('/api/tasks/'+id+'/cancel'));
+  await page.locator('#abort-eq').press('Enter');
+  const requested=await(await cancelResponse).json();
+  assert(requested.cancel_requested && !requested.worker_exited,'Normal Abort did not request before exit');
+  await page.waitForFunction(id=>document.getElementById('task-state').textContent.includes(id.slice(0,8)) && document.getElementById('task-state').textContent.includes('cancelled'),id);
+  const task=await(await page.request.get('http://127.0.0.1:8774/api/tasks/'+id)).json();
+  assert(task.cancel_observed && task.worker_exited && task.state==='cancelled','Ordinary click cancellation incomplete');
+  return {method:'Native button Enter key without force on preregistered outer16/inner16',requested,task};
+}
+)(page);
+```

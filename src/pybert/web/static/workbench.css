@@ -27,7 +27,7 @@ dialog { max-width:740px; max-height:80vh; border:1px solid #cbd5e1; border-radi
 #analysis-info { max-height:150px; }#analysis-info details { margin:4px 0; overflow-wrap:anywhere; }
 #work-area.viewer-expanded { grid-template-columns:1fr; }#work-area.viewer-expanded>.inspector { display:none; }
 #work-area.viewer-expanded #analysis-info { max-height:230px; }
-#plot svg { stroke:none; stroke-width:0; }
+#plot svg,#optimizer-plot svg { stroke:none; stroke-width:0; }
 #resource-dialog { width: min(960px, 94vw); max-height: 88vh; overflow: auto; }
 #resource-dialog label { display: block; margin: 10px 0; }
 #resource-dialog input:not([type=checkbox]), #resource-dialog select { max-width: 100%; width: 65%; }

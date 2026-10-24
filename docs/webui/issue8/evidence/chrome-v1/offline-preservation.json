@@ -1,0 +1,43 @@
+{
+  "policy": "Offline lossless preservation of existing completed records with current archive validator; no native computation; Chrome reopen/save tested separately after restart",
+  "records": [
+    {
+      "opt_id": "2cbffe4b-fe52-47eb-b160-801d4ea1ea95",
+      "status": "succeeded",
+      "archive_sha256": "cd7f442fc13142f97a7f16d282f12d06f21d19418bb29e124ac016105941d651"
+    },
+    {
+      "opt_id": "2e3d0d79-061f-4084-96bc-53d651486c2d",
+      "status": "succeeded",
+      "archive_sha256": "7f31a45a95c5f1f34dd302adb11e2dd9f390a496283d8d994d2cdf1a22d644c6"
+    },
+    {
+      "opt_id": "58773098-44cd-44b9-9507-fe876609cb12",
+      "status": "cancelled",
+      "archive_sha256": "e905d7f51cfae028c530f49a46ca59d5b6bc0aed9b5ff2b1908ca1b56b974708"
+    },
+    {
+      "opt_id": "77c4090c-f458-40b0-a280-d4d679371557",
+      "status": "succeeded",
+      "archive_sha256": "82fbd2a84b96cb06312ab7329816a7860c349f66ea06913089bf8dea815d9a1e"
+    },
+    {
+      "opt_id": "d9890cb8-079c-4e85-8aae-ddb3a74758cf",
+      "status": "succeeded",
+      "archive_sha256": "5e2469dffcbc05c4f7b22ae9595782274de8391b1f3f23f81322a9e1abd5b040"
+    },
+    {
+      "opt_id": "db86e583-2b31-4671-9765-f9e49667bb6f",
+      "status": "succeeded",
+      "archive_sha256": "6e5e4c98c237b21f26916bbdb353b9047bdc5dfd71727e08bc73aa5f664cee52"
+    },
+    {
+      "opt_id": "ebea040f-55c9-4ba5-88e4-e8760e0265c6",
+      "status": "failed",
+      "archive_sha256": "2c96aae28d194bab6a2f17741f7878317db8b89d7e9365f621c6f5ae73fb4ff9"
+    }
+  ],
+  "new_coopt_calls": 0,
+  "main_calls": 0,
+  "COM_calls": 0
+}

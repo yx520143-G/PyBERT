@@ -18,6 +18,7 @@ from pybert.web.resources import Resources
 from pybert.web.config import input_hash, yaml_text, unresolved_references
 from pybert.web.records import References, verify_replay_resources
 from pybert.web.archive import MAX_ARRAY_BYTES
+from pybert.web.optimization import load_optimization
 
 
 class BusyError(RuntimeError):
@@ -38,15 +39,21 @@ class Tasks:
         self.defaults = None
         self.resources = Resources(self.root / "resources")
         self.coms = []
+        self.optimizations = []
+        self.optimization_references = {}
         self.references = References(self.root / "references")
 
     def start(self, operation, request, task_id=None, cancel_requested=False):
         with self.lock:
             if self.active is not None:
                 raise BusyError("The native engine slot is busy; normalization is pending until the worker exits.")
+            if operation == "optimization" and len(self.optimizations) >= 16:
+                raise ValueError("Optimization record budget (16) reached; save records and restart the service before another optimization. Existing records retained.")
+            if operation == "optimization" and self.optimization_bytes() > 1024**3 - MAX_ARRAY_BYTES:
+                raise ValueError("Optimization storage budget reserves at most 768 MiB for the next job within 1 GiB; existing records retained.")
             request = copy.deepcopy(request)
             task_id = task_id or str(uuid.uuid4())
-            if operation == "run":
+            if operation in ("run", "optimization"):
                 rows = self.resources.for_run(request["config"], request.get("resource_bindings", {}))
                 source = request.get("replay_guard")
                 if source is not None and (not isinstance(source, dict) or source.get("version") != 1 or not isinstance(source.get("resources"), list)):
@@ -61,7 +68,7 @@ class Tasks:
                 request["resource_hash"] = input_hash([{k: row[k] for k in ("field", "index", "sha256")} for row in rows])
                 if source and source.get("resource_hash") and source["resource_hash"] != request["resource_hash"]:
                     raise ValueError("Saved run resource identity changed, including its COM configuration; bind original content before Run.")
-                if request["config"]["enable_com"]:
+                if operation == "run" and request["config"]["enable_com"]:
                     request["deferred_com"] = {"com_id": str(uuid.uuid4()), "parent_run_id": task_id}
             elif operation == "com" and "frozen_resources" not in request:
                 request["frozen_resources"] = [self.resources.freeze(request.get("thru_resource_id"), "com_thru", request.get("thru_reference", ""))]
@@ -135,7 +142,7 @@ class Tasks:
                         task["phase"] = "worker finishing; waiting for exit"
                     elif message["kind"] == "phase":
                         task["phase"] = message["phase"]
-                        if not task["cancel_requested"] and task["operation"] in ("run", "com"):
+                        if not task["cancel_requested"] and task["operation"] in ("run", "com", "optimization"):
                             task["state"] = "running"
                     elif message["kind"] == "log":
                         task["logs"].append(message["text"])
@@ -158,6 +165,9 @@ class Tasks:
                     "error": f"Worker exited {p.exitcode} without a valid terminal envelope.",
                     "cancel_observed": task["cancel_observed"],
                 }
+            if terminal["status"] == "cancelled" and not terminal.get("cancel_observed"):
+                terminal = {"status": "failed", "error": "Cancellation terminal lacked an observed native checkpoint acknowledgement.",
+                            "cancel_observed": False}
             task.update(
                 state=terminal["status"],
                 phase=terminal["status"],
@@ -191,6 +201,26 @@ class Tasks:
                         old = self.runs.pop(0)
                         self._remove_directory(self.tasks[old]["directory"])
             self.active = None
+            if task["operation"] == "optimization":
+                path = entry["directory"] / "optimization.json"
+                if not path.exists() and task["state"] != "succeeded":
+                    request = entry["request"]
+                    record = {"schema_version": 1, "opt_id": task_id, "status": task["state"],
+                              "requested_input": request["config"], "runtime_extensions": request.get("runtime_extensions", {}),
+                              "resource_bindings": request.get("resource_bindings", {}), "input_hash": request["input_hash"],
+                              "input_identity_hash": request.get("input_identity_hash"), "resource_hash": request.get("resource_hash"),
+                              "resources": request.get("frozen_resources", []), "arrays": {}, "candidates": [],
+                              "error": task.get("error", "Worker did not produce a complete record.")}
+                    np.savez_compressed(entry["directory"] / "arrays.npz")
+                    path.write_text(json.dumps(record, indent=2, allow_nan=False), encoding="utf-8")
+                if path.exists():
+                    record = json.loads(path.read_text(encoding="utf-8"))
+                    record["status"] = task["state"]
+                    record["task"] = copy.deepcopy(task)
+                    path.write_text(json.dumps(record, indent=2, allow_nan=False), encoding="utf-8")
+                    self.optimizations.append(task_id)
+                elif task["state"] == "succeeded":
+                    task.update(state="failed", phase="failed", error="Missing optimization record.")
             entry["done"].set()
             p.close()
             if task["state"] == "succeeded" and task["operation"] == "com":
@@ -218,7 +248,7 @@ class Tasks:
             for old in list(self.tasks):
                 if len(self.tasks) <= 32:
                     break
-                if old not in self.runs and old not in self.coms and old != self.current and self.tasks[old]["done"].is_set():
+                if old not in self.runs and old not in self.coms and old not in self.optimizations and old != self.current and self.tasks[old]["done"].is_set():
                     retired = self.tasks.pop(old)
                     if retired["directory"].exists():
                         self._remove_directory(retired["directory"])
@@ -275,6 +305,41 @@ class Tasks:
                 raise KeyError("Run unavailable (temporary cache or service restarted).")
             return self.tasks[run_id]["directory"]
 
+    def optimization_directory(self, opt_id):
+        with self.lock:
+            if opt_id in self.optimization_references:
+                return self.optimization_references[opt_id]
+            if opt_id not in self.optimizations:
+                raise KeyError("Optimization record unavailable; reopen a saved .pybert_opt archive.")
+            return self.tasks[opt_id]["directory"]
+
+    def optimization(self, opt_id):
+        return {**json.loads((self.optimization_directory(opt_id) / "optimization.json").read_text(encoding="utf-8")), "record_id": opt_id}
+
+    def open_optimization(self, content):
+        with self.lock:
+            if self.active is not None and self.tasks[self.active]["data"]["operation"] == "optimization":
+                raise BusyError("Optimization archive loading waits until the active worker exits; its storage reservation remains in force.")
+            if len(self.optimization_references) >= 4:
+                raise ValueError("Four optimization archive references already loaded; restart/save before adding more.")
+            record_id = "opt-ref-" + str(uuid.uuid4())
+            directory = self.root / record_id
+            directory.mkdir()
+            try:
+                record = load_optimization(content, directory)
+                size = sum(row["nbytes"] for row in record["arrays"].values())
+                if self.optimization_bytes() + size > 1024**3:
+                    raise ValueError("Optimization records exceed the shared 1 GiB raw-array budget; existing records retained.")
+            except Exception:
+                self._remove_directory(directory)
+                raise
+            self.optimization_references[record_id] = directory
+            return {"record_id": record_id, "opt_id": record["opt_id"], "status": record["status"]}
+
+    def optimization_bytes(self):
+        return sum(row["nbytes"] for rid in [*self.optimizations, *self.optimization_references]
+                   for row in self.optimization(rid)["arrays"].values())
+
     def manifest(self, record_id):
         with self.lock:
             if record_id in self.references.items:
@@ -293,6 +358,8 @@ class Tasks:
                 "com_tasks": [copy.deepcopy(entry["data"]) for entry in self.tasks.values() if entry["data"]["operation"] == "com"],
                 "resources": list(copy.deepcopy(self.resources.items).values()),
                 "references": self.references.index(),
+                "optimizations": [{"record_id": rid, **{key: record.get(key) for key in ("opt_id", "status", "score_mode", "fom", "selected_candidate_id")}}
+                                  for rid in [*self.optimizations, *self.optimization_references] for record in [self.optimization(rid)]],
                 "result_budget": {"temporary_runs": 2, "temporary_policy": "oldest temporary success evicted; save archive to retain",
                                   "temporary_array_bytes_per_record": MAX_ARRAY_BYTES,
                                   "reference_records": 4, "reference_array_bytes": 1024**3,

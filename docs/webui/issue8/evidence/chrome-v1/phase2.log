@@ -1,0 +1,46 @@
+### Result
+{"run_id":"6591b4c8-aa28-4cba-a816-2c7c14359232","checks":{"conflict_diff_visible":true,"explicit_cancel_keeps_draft":true,"explicit_use":true,"unrelated_fields_preserved":true,"DFE_not_applied":true,"old_Run_stale":true,"new_Run_succeeded":true,"Reset_preserves_ranges_and_Run":true,"YAML_downloaded":true}}
+### Ran Playwright code
+```js
+await (async page => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue8-optimizer/serial-bus-simulator';
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+  await page.getByRole('button',{name:'Noise',exact:true}).click();
+  await page.locator('#control-rn').fill('0.02');await page.locator('#control-rn').press('Tab');
+  await page.locator('#optimizer-open').click();
+  await page.waitForFunction(()=>!document.getElementById('use-eq').disabled);
+  await page.locator('#use-eq').click();
+  await page.waitForFunction(()=>document.getElementById('eq-dialog').open);
+  assert((await page.locator('#eq-differences').innerText()).includes('rn'),'Missing current vs frozen Rn conflict');
+  await page.screenshot({path:root+'/output/playwright/issue8/02-use-conflict.png'});
+  await page.locator('#cancel-use-eq').click();
+  const draftBefore=await page.evaluate(()=>window.PYBERT_WORKBENCH.getDraft());
+  assert(draftBefore.rn===.02 && draftBefore.rlm===.8,'Cancel preview mutated draft');
+  await page.waitForFunction(()=>!document.getElementById('use-eq').disabled);
+  await page.locator('#use-eq').click();
+  await page.waitForFunction(()=>document.getElementById('eq-dialog').open && !document.getElementById('confirm-use-eq').disabled);
+  await page.locator('#confirm-use-eq').click();
+  await page.waitForFunction(()=>!document.getElementById('eq-dialog').open);
+  assert((await page.locator('#stale').innerText()).includes('Older input'),'Old Run not marked stale');
+  const draftAfter=await page.evaluate(()=>window.PYBERT_WORKBENCH.getDraft());
+  assert(draftAfter.rn===.02 && draftAfter.rlm===.8,'Use overwrote unrelated Rn/RLM');
+  assert(JSON.stringify(draftBefore.dfe_tap_tuners)===JSON.stringify(draftAfter.dfe_tap_tuners),'Use wrote DFE weights');
+  const response=page.waitForResponse(r=>r.url().endsWith('/api/runs') && r.request().method()==='POST');
+  await page.locator('#run').click();const run=await(await response).json();
+  await page.waitForFunction(id=>document.getElementById('task-state').textContent.includes(id.slice(0,8)) && document.getElementById('task-state').textContent.includes('succeeded'),run.task_id);
+  await page.waitForFunction(id=>document.getElementById('selected-run').value===id,run.task_id);
+  const download=page.waitForEvent('download');await page.locator('#save-results').click();await(await download).saveAs(root+'/output/playwright/issue8/PAM4-used.pybert_run');
+  const beforeReset=await page.evaluate(()=>window.PYBERT_WORKBENCH.getDraft());
+  await page.waitForFunction(()=>!document.getElementById('reset-eq').disabled);
+  await page.locator('#reset-eq').click();
+  await page.waitForFunction(()=>document.getElementById('optimizer-status').textContent.includes('已按原 Reset EQ'));
+  const afterReset=await page.evaluate(()=>window.PYBERT_WORKBENCH.getDraft());
+  assert(JSON.stringify(beforeReset.tx_tap_tuners.map(t=>[t.min_val,t.max_val,t.step]))===JSON.stringify(afterReset.tx_tap_tuners.map(t=>[t.min_val,t.max_val,t.step])),'Reset changed Tx search ranges');
+  assert(JSON.stringify(beforeReset.dfe_tap_tuners)===JSON.stringify(afterReset.dfe_tap_tuners),'Reset changed DFE');
+  assert(await page.locator('#selected-run').inputValue()===run.task_id,'Reset cleared selected Run');
+  const save=page.waitForEvent('download');await page.locator('#save-config').click();await(await save).saveAs(root+'/output/playwright/issue8/used-reset.yaml');
+  await page.screenshot({path:root+'/output/playwright/issue8/03-reset.png'});
+  return {run_id:run.task_id,checks:{conflict_diff_visible:true,explicit_cancel_keeps_draft:true,explicit_use:true,unrelated_fields_preserved:true,DFE_not_applied:true,old_Run_stale:true,new_Run_succeeded:true,Reset_preserves_ranges_and_Run:true,YAML_downloaded:true}};
+}
+)(page);
+```

@@ -1,0 +1,35 @@
+### Ran Playwright code
+```js
+await (async page => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue8-optimizer/serial-bus-simulator';
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+  const task={task_id:'db86e583-2b31-4671-9765-f9e49667bb6f'};
+  const run={task_id:'197c1df5-db40-4a31-beed-00711d7759ca'};
+  await page.waitForFunction(id=>document.getElementById('task-state').textContent.includes(id.slice(0,8)) && document.getElementById('task-state').textContent.includes('succeeded'),run.task_id);
+  const first=await (await page.request.get('http://127.0.0.1:8773/api/tasks/'+run.task_id)).json();
+  assert(first.state==='succeeded','First PAM4 Run failed: '+first.error);
+  await page.waitForFunction(id=>document.getElementById('selected-run').value===id,run.task_id);
+  const d1=page.waitForEvent('download');await page.locator('#save-results').click();await(await d1).saveAs(root+'/output/playwright/issue8/PAM4-RLM095.pybert_run');
+  await page.getByRole('button',{name:'Source',exact:true}).click();
+  await page.locator('#control-rlm').fill('0.8');await page.locator('#control-rlm').press('Tab');
+  await page.waitForFunction(()=>!document.getElementById('run').disabled);
+  const rr=page.waitForResponse(r=>r.url().endsWith('/api/runs') && r.request().method()==='POST');
+  await page.locator('#run').click();const run2=await(await rr).json();
+  await page.waitForFunction(id=>document.getElementById('task-state').textContent.includes(id.slice(0,8)) && document.getElementById('task-state').textContent.includes('succeeded'),run2.task_id);
+  const second=await(await page.request.get('http://127.0.0.1:8773/api/tasks/'+run2.task_id)).json();
+  assert(second.state==='succeeded','Second PAM4 Run failed: '+second.error);
+  await page.waitForFunction(id=>document.getElementById('selected-run').value===id,run2.task_id);
+  const d2=page.waitForEvent('download');await page.locator('#save-results').click();await(await d2).saveAs(root+'/output/playwright/issue8/PAM4-RLM080.pybert_run');
+  console.log(JSON.stringify({viewport:page.viewportSize(),browser:page.context().browser().version(),opt_id:task.task_id,run_rlm095:run.task_id,run_rlm080:run2.task_id,checks:{MMSE:true,no_automatic_Run:true,no_automatic_Use:true,Run_Tune_mutex:true,two_RLM_runs_succeeded:true,archives_downloaded:true}}));
+})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8773/#source
+- Page Title: PyBERT · Signal Chain Workbench
+### Events
+- Downloading file db86e583-2b31-4671-9765-f9e49667bb6f.pybert_opt ...
+- Downloaded file db86e583-2b31-4671-9765-f9e49667bb6f.pybert_opt to ".playwright-cli\db86e583-2b31-4671-9765-f9e49667bb6f.pybert-opt"
+- Downloading file 197c1df5-db40-4a31-beed-00711d7759ca.pybert_run ...
+- Downloaded file 197c1df5-db40-4a31-beed-00711d7759ca.pybert_run to ".playwright-cli\197c1df5-db40-4a31-beed-00711d7759ca.pybert-run"
+- Downloading file 01fab8db-c71e-49f0-83fa-b28ab404a9af.pybert_run ...
+- Downloaded file 01fab8db-c71e-49f0-83fa-b28ab404a9af.pybert_run to ".playwright-cli\01fab8db-c71e-49f0-83fa-b28ab404a9af.pybert-run"

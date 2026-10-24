@@ -82,7 +82,7 @@ def source_identity():
     """Actual on-disk source bytes supplement Git HEAD, which can be dirty."""
     package = Path(__file__).resolve().parents[1]
     paths = [*Path(__file__).parent.glob("*.py"), *Path(__file__).parent.joinpath("static").glob("*")]
-    paths += [package / name for name in ("pybert.py", "models/bert.py", "utility/sparam.py", "configuration.py")]
+    paths += [package / name for name in ("pybert.py", "models/bert.py", "utility/sparam.py", "configuration.py", "threads/optimization.py")]
     return {str(path.relative_to(package)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths if path.is_file()}
 
 

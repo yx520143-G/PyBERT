@@ -1,0 +1,195 @@
+{
+  "code_head": "e55819af432c99ced1d4bb2fc6deda2663aa989c",
+  "prior_evidence": "final-source/report.json",
+  "sources": [
+    {
+      "path": "src\\pybert\\web\\__init__.py",
+      "previous_sha256": "07511ce2fefebaaeed0cb403bdd7d9c9db335f517422c5892fd485b409708d30",
+      "current_sha256": "07511ce2fefebaaeed0cb403bdd7d9c9db335f517422c5892fd485b409708d30",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\analysis.py",
+      "previous_sha256": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+      "current_sha256": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\archive.py",
+      "previous_sha256": "9c8161e9ff087bfa9e0265c8e984e64bae1bbe6e3e35ff404d2961dfed066959",
+      "current_sha256": "9c8161e9ff087bfa9e0265c8e984e64bae1bbe6e3e35ff404d2961dfed066959",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\com.py",
+      "previous_sha256": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f",
+      "current_sha256": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\config.py",
+      "previous_sha256": "5ce14ac22ee11bad0d77795d14f97cf9109fb74f821ee7e558ab0bba9bccabeb",
+      "current_sha256": "5ce14ac22ee11bad0d77795d14f97cf9109fb74f821ee7e558ab0bba9bccabeb",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\data.py",
+      "previous_sha256": "c3c70800813a3a450752086ec2f9e26274a0c28677ed59ebc91fac2899e31e9c",
+      "current_sha256": "c3c70800813a3a450752086ec2f9e26274a0c28677ed59ebc91fac2899e31e9c",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\legacy_results.py",
+      "previous_sha256": "f10ad1c1131510eb889300149195cabbdd9fc43594f966d5dea9ce715ef77be1",
+      "current_sha256": "f10ad1c1131510eb889300149195cabbdd9fc43594f966d5dea9ce715ef77be1",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\optimization.py",
+      "previous_sha256": "485834dae6895e774e07ca5dcd0af64fe2726d6edaea1ea79926f18e1cdd8554",
+      "current_sha256": "e4c57fc0f99b904abf040658019e71d195356081297b429d73119e484dc20296",
+      "unchanged": false
+    },
+    {
+      "path": "src\\pybert\\web\\records.py",
+      "previous_sha256": "a17ea0bc912077ad733cd4e7034ced846c9b289d0fc368a1441327578eae8093",
+      "current_sha256": "a17ea0bc912077ad733cd4e7034ced846c9b289d0fc368a1441327578eae8093",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\resource_data.py",
+      "previous_sha256": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3",
+      "current_sha256": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\resources.py",
+      "previous_sha256": "6def3f648adac590145ce3afef950c6b69c129fbc635ea447cf09b9c4a564009",
+      "current_sha256": "6def3f648adac590145ce3afef950c6b69c129fbc635ea447cf09b9c4a564009",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\server.py",
+      "previous_sha256": "1f12dcd6f91877ef97872ac9dc822c9c964786aad35ca6c57758d48656e1f417",
+      "current_sha256": "1f12dcd6f91877ef97872ac9dc822c9c964786aad35ca6c57758d48656e1f417",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\tasks.py",
+      "previous_sha256": "bcbb9b4081315349745815dca94850ecb397335e233ce5eaa5624d430670522a",
+      "current_sha256": "bcbb9b4081315349745815dca94850ecb397335e233ce5eaa5624d430670522a",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\worker.py",
+      "previous_sha256": "6a1f64e469ecfb0666f27fc3c6c9e347f791c7b4eabf0b426cf03a7e0ad0799b",
+      "current_sha256": "6a1f64e469ecfb0666f27fc3c6c9e347f791c7b4eabf0b426cf03a7e0ad0799b",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\app.js",
+      "previous_sha256": "2e3d19295683b3014eab36be821fdf1090698dec2b846f3aafc1b37e111290e2",
+      "current_sha256": "2e3d19295683b3014eab36be821fdf1090698dec2b846f3aafc1b37e111290e2",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\catalog.js",
+      "previous_sha256": "ab981cd61aecb64b1652200e7b89e616301799cf1ca137b4039573d5ebf1c158",
+      "current_sha256": "ab981cd61aecb64b1652200e7b89e616301799cf1ca137b4039573d5ebf1c158",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\draft.js",
+      "previous_sha256": "ee831427c6f44699ca554d8c00ed3ea6108bd5f7a627a8ade63a0d7e2674eb87",
+      "current_sha256": "ee831427c6f44699ca554d8c00ed3ea6108bd5f7a627a8ade63a0d7e2674eb87",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\gui-map.js",
+      "previous_sha256": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+      "current_sha256": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\index.html",
+      "previous_sha256": "be090a41802139655b57a794590fbb3410094819d8e2541ae6bd4a7f186ff465",
+      "current_sha256": "be090a41802139655b57a794590fbb3410094819d8e2541ae6bd4a7f186ff465",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\optimization.js",
+      "previous_sha256": "85e7eb6fd310c5aa3c7a0cdc6de70605644af73e0a5b6d16689e3d164302e3ac",
+      "current_sha256": "85e7eb6fd310c5aa3c7a0cdc6de70605644af73e0a5b6d16689e3d164302e3ac",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\resources.js",
+      "previous_sha256": "786b63c7cff80ecc6dbd0bb3ea21b1e4b523edb29ff8e64ddd48b4832bdf7995",
+      "current_sha256": "786b63c7cff80ecc6dbd0bb3ea21b1e4b523edb29ff8e64ddd48b4832bdf7995",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\results.js",
+      "previous_sha256": "ca2d05e602162100475e19ba60869722438a255960e33fb036bfaff61e7ff7aa",
+      "current_sha256": "ca2d05e602162100475e19ba60869722438a255960e33fb036bfaff61e7ff7aa",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\settings.js",
+      "previous_sha256": "c9e6d81b6ee4ac738ff229d916f541a219c65bb2a7a11ee36a33f29ec26cf005",
+      "current_sha256": "c9e6d81b6ee4ac738ff229d916f541a219c65bb2a7a11ee36a33f29ec26cf005",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\styles.css",
+      "previous_sha256": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+      "current_sha256": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\workbench.css",
+      "previous_sha256": "97eebf327bebc75e2a2f180d12add837a9c10f5abd25f8202149c832b34b683b",
+      "current_sha256": "97eebf327bebc75e2a2f180d12add837a9c10f5abd25f8202149c832b34b683b",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\web\\static\\workbench.js",
+      "previous_sha256": "a61de9a5d0139249a14be9ee844a721586132a26a450c735689f22c383be3113",
+      "current_sha256": "a61de9a5d0139249a14be9ee844a721586132a26a450c735689f22c383be3113",
+      "unchanged": true
+    },
+    {
+      "path": "src\\pybert\\threads\\optimization.py",
+      "previous_sha256": "491bd4660be5697b94396f6316064e9f48bd3ea473a54ce1baf6cdea83e7a29b",
+      "current_sha256": "491bd4660be5697b94396f6316064e9f48bd3ea473a54ce1baf6cdea83e7a29b",
+      "unchanged": true
+    },
+    {
+      "path": "tools\\verify_web_optimizer.py",
+      "previous_sha256": "2c859f917e0bc5826c086485f7e9a14b689d10dd0f9a412b76f465147a4265a6",
+      "current_sha256": "2c859f917e0bc5826c086485f7e9a14b689d10dd0f9a412b76f465147a4265a6",
+      "unchanged": true
+    },
+    {
+      "path": "tools\\verify_web_optimizer_ui.cjs",
+      "previous_sha256": "36d717f9593571fb9271b841ff8a990627f7629876e5dad9b464ea98ed0f1513",
+      "current_sha256": "75b0ff76b4a060460aa68f5fe252c3bca21648f6c06c0b718a06c690911637e0",
+      "unchanged": false
+    },
+    {
+      "path": "tools\\audit_web_optimizer_delivery.py",
+      "previous_sha256": "dd1335ede341ceafe131d31a804ff052d9f0c2cd0a34a30aae701ec8a9a2bace",
+      "current_sha256": "dd1335ede341ceafe131d31a804ff052d9f0c2cd0a34a30aae701ec8a9a2bace",
+      "unchanged": true
+    }
+  ],
+  "current_copies": [
+    "after-optimization.py",
+    "test_web_optimization.py",
+    "verify_web_optimizer_ui.cjs"
+  ],
+  "new_coopt": 0,
+  "new_main": 0,
+  "new_COM": 0,
+  "note": "Observer/API regression only. Historical arrays remain bound to original executed source; final fixed source did not rerun numerical batches."
+}

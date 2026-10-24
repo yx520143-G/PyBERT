@@ -54,6 +54,10 @@
           p('tx_eq_sel', 'EQ implementation · 均衡实现', 'Native', 'Native / IBIS-AMI', 'AMI 需有效的 IBIS、AMI 配置与平台动态库。'),
           p('tx_taps[].enabled', 'Tap enable · 启用抽头', 'Pre-tap2 / Pre-tap1 开启', 'Boolean · 每个非主游标 tap', '禁用 tap 在 FIR 中取 0。', { condition: 'Native Tx' }),
           p('tx_taps[].value', 'Tap value · 抽头权重', '全部 0', 'Float · 无量纲', '即使默认有两个 tap 开启，权重为 0 也不会产生预加重。', { condition: 'Native Tx' })
+        ]),
+        group('优化约束（与实际 Tx taps 分离）', traits(208), [
+          p('tx_tap_tuners', 'Tx FFE search · 搜索表', '原生构造默认', 'enabled / min / max / step', 'Value 为所选优化获选候选，只读；显式 Use EQ 才修改实际 Tx taps。'),
+          p('tx_c0_min', 'Minimum cursor · 最小主游标', '0', '无量纲', '原生 coopt 排除 cursor<=0 或低于此约束的 Tx 组合。')
         ])
       ],
       tables: [{ title: 'Native Tx tap 配置', columns: ['Tap', '位置', '初始状态', '初值', '优化范围', '优化步长'], rows: txRows, note: '范围与步长来自独立的 tx_tap_tuners；手动 Tx 权重与优化器搜索设置不是同一个对象。', source: traits(208) }]
@@ -139,6 +143,13 @@
         group('外部响应', traits(321), [
           p('ctle_file', 'Filename · 响应文件', '空', 'GUI 过滤 .csv', '当前导入实现带 FIXME，不能把存在文件入口理解为路径已经验证可用。', { status: 'limitation', condition: 'ctle_sel = File', source: pipeline(275) }),
           p('use_ctle_file', 'File mode flag · 内部状态', 'False', 'Boolean', '由 ctle_sel 同步设置，不是额外的独立 GUI 开关。', { scope: 'internal', source: traits(1269) })
+        ]),
+        group('Native 优化约束', traits(251), [
+          p('ctle_enable_tune', 'Optimize CTLE · 优化使能', 'True', 'Boolean', '与普通 CTLE 开关分离，显式 Use EQ 才应用。'),
+          p('peak_freq_tune', 'Tuning fp · 优化频率', '5 GHz', 'GHz', 'Native coopt 的固定 peaking 频率。'),
+          p('rx_bw_tune', 'Tuning BW · 优化带宽', '12 GHz', 'GHz', 'Native coopt 的固定带宽。'),
+          p('min_mag_tune / max_mag_tune / step_mag_tune', 'Boost search · 提升网格', '2 / 12 / 1 dB', 'min / max / step', '预计候选数与预算见 Native EQ 优化工作区。'),
+          p('peak_mag_tune', 'Selected boost · 获选结果', '未选候选', 'dB · 只读', '属于所选 opt ID，不自动写入普通 CTLE。')
         ])
       ]
     },
@@ -360,6 +371,7 @@
         ]),
         group('Rx 求解与 AMI 预算', traits(251), [
           p('use_mmse', 'Use MMSE · 求解器', 'True', 'Boolean；仅 Native Rx', '关闭时枚举 Rx FFE 并按 cursor/ISI 指标评分。'),
+          p('rlm', 'RLM · MMSE 电平失配', '0.95', '无量纲', '仅 Native MMSE 读取；普通 PAM4 波形和非 MMSE 网格不消费。'),
           p('ami_opt_trials', 'AMI trial budget · 预算', '100', 'Int · 无显式上下限', 'Tx 或 Rx 使用 AMI 时的候选次数；没有搜索维度时只评估一次。'),
           p('tx_ami_tap_tuners / rx_ami_tap_tuners', 'AMI parameter search · 参数空间', '由模型声明生成', 'name / enabled / min_val / max_val / step / value', '具体可搜索参数随 .ami 文件变化，默认需选择要搜索的参数。')
         ])

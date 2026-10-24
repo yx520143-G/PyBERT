@@ -16,6 +16,7 @@ from pybert.web.data import adapter_sha, plot_payload
 from pybert.web.tasks import BusyError, Tasks
 from pybert.web.archive import MAX_FILE_BYTES, save_archive, read_json
 from pybert.web.legacy_results import legacy_report, export_legacy
+from pybert.web.optimization import save_optimization
 
 
 def create_app(tasks=None):
@@ -61,6 +62,8 @@ def create_app(tasks=None):
 
     @app.post("/api/normalize")
     def normalize(request: dict):
+        if request.get("mode", "load") not in ("defaults", "load", "patch"):
+            raise ValueError("Optimizer actions require their dedicated endpoint and a registered record ID.")
         return manager.normalize(request)
 
     @app.post("/api/runs", status_code=202)
@@ -72,6 +75,66 @@ def create_app(tasks=None):
     @app.get("/api/state")
     def state():
         return manager.index()
+
+    @app.post("/api/optimizations", status_code=202)
+    def optimize(request: dict):
+        if not all(key in request for key in ("config", "input_hash", "input_identity_hash", "runtime_extensions")):
+            raise ValueError("Complete normalized Native input, identity hash and explicit optimization runtime are required.")
+        return manager.start("optimization", request)
+
+    @app.get("/api/optimizations/{opt_id}")
+    def optimization(opt_id: str):
+        return manager.optimization(opt_id)
+
+    @app.post("/api/optimizer-actions/{action}")
+    def optimizer_action(action: str, request: dict):
+        if action not in ("optimizer_plan", "use_eq", "reset_eq"):
+            raise ValueError("Unknown optimizer action.")
+        body = {**request, "mode": action}
+        if action == "use_eq":
+            record = manager.optimization(request["record_id"])
+            body["optimization"] = {**record, "current_config": request["config"]}
+        return manager.normalize(body)
+
+    @app.get("/api/optimizations/{opt_id}/archive")
+    def optimization_archive(opt_id: str):
+        with manager.lock:
+            directory = manager.optimization_directory(opt_id)
+            target = directory / "export.pybert_opt"
+            save_optimization(directory, target)
+        return FileResponse(target, filename=f"{opt_id}.pybert_opt")
+
+    @app.post("/api/optimization-references", status_code=201)
+    async def optimization_open(request: Request):
+        content = bytearray()
+        async for chunk in request.stream():
+            content.extend(chunk)
+            if len(content) > MAX_FILE_BYTES:
+                raise ValueError("Optimization archive exceeds 256 MiB.")
+        return manager.open_optimization(bytes(content))
+
+    @app.get("/api/optimizations/{opt_id}/pulse")
+    def optimization_pulse(opt_id: str, candidate: str = ""):
+        import numpy as np
+
+        record = manager.optimization(opt_id)
+        if record["status"] != "succeeded":
+            raise ValueError("Incomplete/failed optimization pulse cannot be published as success.")
+        with np.load(manager.optimization_directory(opt_id) / "arrays.npz", allow_pickle=False) as arrays:
+            rows = record["candidates"]
+            row = next((row for row in rows if row["candidate_id"] == (candidate or record["selected_candidate_id"])), None)
+            if not row or row["availability"] != "available":
+                raise ValueError("Candidate unavailable.")
+            pulse = arrays[row["arrays_prefix"] + "_pulse"]
+            # Each candidate can have a different producer length. Native sampling interval, no resampling.
+            axis = arrays[row["arrays_prefix"] + "_t_ns"]
+            return {"opt_id": record["opt_id"], "candidate": row, "selected": row["candidate_id"] == record["selected_candidate_id"],
+                    "x_ns": axis.tolist(), "pulse": pulse.tolist(), "channel_x_ns": arrays["channel_t_ns"].tolist(),
+                    "channel_pulse": arrays["p_chnl"].tolist(),
+                    "cursor_ns": arrays["curs_ix"].tolist() if row["candidate_id"] == record["selected_candidate_id"] else [],
+                    "cursor_V": arrays["curs_amp"].tolist() if row["candidate_id"] == record["selected_candidate_id"] else [],
+                    "clocks": arrays["clocks_tune"].tolist() if row["candidate_id"] == record["selected_candidate_id"] else [],
+                    "nspui": record["requested_input"]["nspui"], "unit": "native pulse V; MMSE cursor-normalized", "clock_basis": "optimization sampling marks, not recovered CDR"}
 
     @app.post("/api/resources")
     def upload_resource(request: dict):

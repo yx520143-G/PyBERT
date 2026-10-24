@@ -1,0 +1,541 @@
+### Page
+- Page URL: http://127.0.0.1:8773/#dfe
+- Page Title: PyBERT · Signal Chain Workbench
+### Snapshot
+```yaml
+- generic [active] [ref=f1e1]:
+  - link "跳到参数详情" [ref=f1e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=f1e3]:
+    - link "PyBERT 数据源" [ref=f1e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=f1e8]:
+        - strong [ref=f1e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=f1e10]:
+      - text: 模块目录
+      - generic [ref=f1e11]: 16 MODULES
+    - navigation "选择模块" [ref=f1e12]:
+      - generic [ref=f1e13]:
+        - heading "主信号链" [level=2] [ref=f1e14]
+        - button "Source" [ref=f1e15] [cursor=pointer]: •
+        - button "Tx EQ" [ref=f1e17] [cursor=pointer]: •
+        - button "Channel" [ref=f1e19] [cursor=pointer]
+        - button "Noise" [ref=f1e21] [cursor=pointer]
+        - button "Rx CTLE" [ref=f1e23] [cursor=pointer]
+        - button "Rx FFE" [ref=f1e25] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=f1e27] [cursor=pointer]: •
+        - button "Observe" [ref=f1e29] [cursor=pointer]
+      - generic [ref=f1e31]:
+        - heading "控制与判决旁支" [level=2] [ref=f1e32]
+        - button "CDR" [ref=f1e33] [cursor=pointer]
+        - button "AGC" [ref=f1e35] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=f1e37] [cursor=pointer]
+      - generic [ref=f1e39]:
+        - heading "全局设置与工具" [level=2] [ref=f1e40]
+        - button "Simulation" [ref=f1e41] [cursor=pointer]
+        - button "Device models" [ref=f1e43] [cursor=pointer]
+        - button "IBIS-AMI" [ref=f1e45] [cursor=pointer]
+        - button "Optimizer" [ref=f1e47] [cursor=pointer]: •
+        - button "COM" [ref=f1e49] [cursor=pointer]
+  - generic [ref=f1e51]:
+    - banner [ref=f1e52]:
+      - generic [ref=f1e53]:
+        - generic [ref=f1e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=f1e55]
+      - generic [ref=f1e56]:
+        - generic [ref=f1e58]:
+          - searchbox "搜索所有模块和参数" [ref=f1e62]
+          - generic [ref=f1e63]: /
+        - status [ref=f1e64]:
+          - strong [ref=f1e65]: 草稿已保留
+          - generic [ref=f1e66]: 10 项设置已修改
+        - button "恢复全部默认" [ref=f1e67] [cursor=pointer]
+    - generic [ref=f1e68]:
+      - button "Run" [ref=f1e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=f1e70]
+      - status [ref=f1e71]: normalize aea9439d · succeeded · succeeded
+      - generic [ref=f1e72]: O-PAM4-MMSE.yaml
+      - button "Load Config" [ref=f1e73] [cursor=pointer]
+      - button "资源 / COM" [ref=f1e74] [cursor=pointer]
+      - button "Native EQ 优化" [ref=f1e75] [cursor=pointer]
+      - button "Save" [ref=f1e76] [cursor=pointer]
+      - button "Save As…" [ref=f1e77] [cursor=pointer]
+      - button "Help / About" [ref=f1e78] [cursor=pointer]
+      - button "Disconnect" [ref=f1e79] [cursor=pointer]
+    - status [ref=f1e80]: "DFE consumes the continuous enabled prefix: 2 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it. 未解析引用 0 类；完整导入/扩展报告见“资源 / COM”。"
+    - status [ref=f1e81]: 已载入 O-PAM4-MMSE.yaml；未自动 Run。
+    - status [ref=f1e82]
+    - generic [ref=f1e83]:
+      - button "打开结果 / 加入比较" [ref=f1e84] [cursor=pointer]
+      - generic [ref=f1e85]:
+        - checkbox "我选择的是可信本机 legacy pickle（可执行代码）" [ref=f1e86]
+        - text: 我选择的是可信本机 legacy pickle（可执行代码）
+      - button "保存所选结果" [disabled] [ref=f1e87]
+      - button "原生保存 / 损失清单" [disabled] [ref=f1e88]
+      - button "恢复所选输入到草稿" [disabled] [ref=f1e89]
+      - button "移除所选参考" [disabled] [ref=f1e90]
+      - button "清除加载的参考" [ref=f1e91] [cursor=pointer]
+    - status [ref=f1e92]
+    - generic [ref=f1e93]: 临时成功缓存 0/2 · 0 bytes（第三次成功淘汰最旧临时记录）；参考 0/4 · 0/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。
+    - main [ref=f1e94]:
+      - group [ref=f1e95]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=f1e96] [cursor=pointer]
+      - region "链路总览" [ref=f1e97]:
+        - generic "切换实现图示" [ref=f1e98]:
+          - generic [ref=f1e99]: 实现方案
+          - generic [ref=f1e100]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=f1e101] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=f1e102]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=f1e103] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=f1e104]:
+            - checkbox "请求模型时钟" [disabled] [ref=f1e105]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=f1e106] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=f1e107]:
+          - generic [ref=f1e108]:
+            - generic [ref=f1e109]:
+              - button "Source：PAM-4 · PRBS-7，查看设置" [ref=f1e110] [cursor=pointer]:
+                - strong [ref=f1e111]: Source
+                - generic [ref=f1e112]: PAM-4 · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=f1e114] [cursor=pointer]:
+                - strong [ref=f1e115]: Tx EQ
+                - generic [ref=f1e116]: Native FFE
+              - button "Channel：Native · 两端电气，查看设置" [ref=f1e118] [cursor=pointer]:
+                - strong [ref=f1e119]: Channel
+                - generic [ref=f1e120]: Native · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=f1e122] [cursor=pointer]:
+                - strong [ref=f1e123]: Noise
+                - generic [ref=f1e124]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=f1e126] [cursor=pointer]:
+                - strong [ref=f1e127]: Rx CTLE
+                - generic [ref=f1e128]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=f1e130] [cursor=pointer]:
+                - strong [ref=f1e131]: Rx FFE
+                - generic [ref=f1e132]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=f1e134] [cursor=pointer]:
+                - strong [ref=f1e135]: DFE / Slicer
+                - generic [ref=f1e136]: 自适应反馈 / 判决
+            - generic [ref=f1e137]:
+              - button "Device models" [ref=f1e139] [cursor=pointer]
+              - button "Observe" [ref=f1e141] [cursor=pointer]
+              - generic [ref=f1e142]:
+                - button "CDR" [ref=f1e143] [cursor=pointer]
+                - button "AGC" [ref=f1e144] [cursor=pointer]
+                - button "↗ Viterbi" [ref=f1e145] [cursor=pointer]
+        - status [ref=f1e146]:
+          - generic [ref=f1e147]: i
+          - generic [ref=f1e148]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=f1e149]:
+        - region [ref=f1e150]:
+          - heading "反馈均衡与符号判决DFE / Slicer" [level=2] [ref=f1e154]
+          - generic [ref=f1e155]:
+            - tablist "模块详情" [ref=f1e156]:
+              - tab "设置" [selected] [ref=f1e157] [cursor=pointer]
+              - tab "参数说明 8" [ref=f1e158] [cursor=pointer]:
+                - text: 参数说明
+                - generic [ref=f1e159]: "8"
+              - tab "实现映射 4" [ref=f1e160] [cursor=pointer]:
+                - text: 实现映射
+                - generic [ref=f1e161]: "4"
+            - button "恢复本模块默认" [ref=f1e162] [cursor=pointer]
+          - tabpanel "设置" [ref=f1e163]:
+            - paragraph [ref=f1e164]: 已显式载入完整配置；旧草稿原件未删除。
+            - group [ref=f1e165]:
+              - generic "迁移来源与未应用字段（保留原值）" [ref=f1e166]
+            - generic [ref=f1e167]:
+              - generic [ref=f1e168]:
+                - heading "自适应与判决" [level=3] [ref=f1e169]
+                - generic [ref=f1e170]: 本地草稿
+              - generic [ref=f1e171]:
+                - generic [ref=f1e172]:
+                  - generic [ref=f1e173]: Gain · 误差反馈增益
+                  - spinbutton "Gain · 误差反馈增益" [ref=f1e176]: "0.1"
+                  - paragraph [ref=f1e177]: 控制 decision-directed tap 修正量。
+                  - generic [ref=f1e178]:
+                    - code [ref=f1e179]: gain
+                    - generic [ref=f1e180]: 默认 0.1
+                  - text: ↳
+                  - group [ref=f1e181]:
+                    - generic "范围与来源" [ref=f1e182] [cursor=pointer]
+                - generic [ref=f1e183]:
+                  - generic [ref=f1e184]: Nave · 更新间隔
+                  - spinbutton "Nave · 更新间隔" [ref=f1e187]: "100"
+                  - paragraph [ref=f1e188]: 累计平均修正量，锁定后每 n_ave 个时钟更新 tap。
+                  - generic [ref=f1e189]:
+                    - code [ref=f1e190]: n_ave
+                    - generic [ref=f1e191]: 默认 100
+                  - text: ↳
+                  - group [ref=f1e192]:
+                    - generic "范围与来源" [ref=f1e193] [cursor=pointer]
+                - generic [ref=f1e194]:
+                  - generic [ref=f1e195]: Level · 判决电平尺度
+                  - generic [ref=f1e197]:
+                    - spinbutton "Level · 判决电平尺度" [ref=f1e198]: "0.5"
+                    - generic [ref=f1e199]: V
+                  - paragraph [ref=f1e200]: 决定判决输出尺度及 PAM-4 等阈值；Use AGC 开启后会被更新。
+                  - generic [ref=f1e201]:
+                    - code [ref=f1e202]: decision_scaler
+                    - generic [ref=f1e203]: 默认 0.5 V
+                  - text: ↳
+                  - group [ref=f1e204]:
+                    - generic "范围与来源" [ref=f1e205] [cursor=pointer]
+            - generic [ref=f1e206]:
+              - generic [ref=f1e207]:
+                - heading "求和节点" [level=3] [ref=f1e208]
+                - generic [ref=f1e209]: 本地草稿
+              - generic [ref=f1e210]:
+                - generic [ref=f1e211]:
+                  - generic [ref=f1e212]: Ideal · 理想求和
+                  - generic [ref=f1e214] [cursor=pointer]:
+                    - switch "Ideal · 理想求和" [checked] [ref=f1e215]
+                    - generic [ref=f1e217]: 已开启
+                  - paragraph [ref=f1e218]: 理想无限带宽求和节点。
+                  - generic [ref=f1e219]:
+                    - code [ref=f1e220]: sum_ideal
+                    - generic [ref=f1e221]: 默认 开启
+                  - text: ↳
+                  - group [ref=f1e222]:
+                    - generic "范围与来源" [ref=f1e223] [cursor=pointer]
+                - generic [ref=f1e224]:
+                  - generic [ref=f1e225]: Bandwidth · 求和带宽
+                  - generic [ref=f1e227]:
+                    - spinbutton "Bandwidth · 求和带宽" [disabled] [ref=f1e228]: "12"
+                    - generic [ref=f1e229]: GHz
+                  - paragraph [ref=f1e230]: 非理想节点的低通带宽。
+                  - generic [ref=f1e231]:
+                    - code [ref=f1e232]: sum_bw
+                    - generic [ref=f1e233]: 默认 12 GHz
+                  - paragraph [ref=f1e234]: ↳ 关闭“理想求和”后可设置带宽。
+                  - group [ref=f1e235]:
+                    - generic "范围与来源" [ref=f1e236] [cursor=pointer]
+            - generic [ref=f1e237]:
+              - generic [ref=f1e238]:
+                - heading "DFE taps 与自适应范围" [level=3] [ref=f1e239]
+                - code [ref=f1e240]: dfe_tap_tuners
+              - paragraph [ref=f1e241]: Enabled/min/max 与普通 Run 共用；优化要求连续前缀。Value 属于所选优化的获选候选，不是时域自适应初值或训练状态。
+              - generic [ref=f1e242]:
+                - button "Disable All · 全部禁用" [ref=f1e243] [cursor=pointer]
+                - button "Enable All · 全部启用" [ref=f1e244] [cursor=pointer]
+              - table [ref=f1e246]:
+                - rowgroup [ref=f1e247]:
+                  - row [ref=f1e248]:
+                    - columnheader "Name / Tap" [ref=f1e249]
+                    - columnheader "启用" [ref=f1e250]
+                    - columnheader "最小权重" [ref=f1e251]
+                    - columnheader "最大权重" [ref=f1e252]
+                    - columnheader "权重 · 只读" [ref=f1e253]
+                - rowgroup [ref=f1e254]:
+                  - row [ref=f1e255]:
+                    - rowheader "Tap1 index 0" [ref=f1e256]:
+                      - text: Tap1
+                      - generic [ref=f1e257]: index 0
+                    - cell [ref=f1e258]:
+                      - checkbox "DFE taps 与自适应范围 Tap1 启用" [checked] [ref=f1e259]
+                    - cell [ref=f1e260]:
+                      - spinbutton "DFE taps 与自适应范围 Tap1 最小权重" [ref=f1e261]: "-0.2"
+                    - cell [ref=f1e262]:
+                      - spinbutton "DFE taps 与自适应范围 Tap1 最大权重" [ref=f1e263]: "0.4"
+                    - cell "未提供" [ref=f1e264]
+                  - row [ref=f1e265]:
+                    - rowheader "Tap2 index 1" [ref=f1e266]:
+                      - text: Tap2
+                      - generic [ref=f1e267]: index 1
+                    - cell [ref=f1e268]:
+                      - checkbox "DFE taps 与自适应范围 Tap2 启用" [checked] [ref=f1e269]
+                    - cell [ref=f1e270]:
+                      - spinbutton "DFE taps 与自适应范围 Tap2 最小权重" [ref=f1e271]: "-0.15"
+                    - cell [ref=f1e272]:
+                      - spinbutton "DFE taps 与自适应范围 Tap2 最大权重" [ref=f1e273]: "0.15"
+                    - cell "未提供" [ref=f1e274]
+                  - row [ref=f1e275]:
+                    - rowheader "Tap3 index 2" [ref=f1e276]:
+                      - text: Tap3
+                      - generic [ref=f1e277]: index 2
+                    - cell [ref=f1e278]:
+                      - checkbox "DFE taps 与自适应范围 Tap3 启用" [ref=f1e279]
+                    - cell [ref=f1e280]:
+                      - spinbutton "DFE taps 与自适应范围 Tap3 最小权重" [ref=f1e281]: "-0.05"
+                    - cell [ref=f1e282]:
+                      - spinbutton "DFE taps 与自适应范围 Tap3 最大权重" [ref=f1e283]: "0.1"
+                    - cell "未提供" [ref=f1e284]
+                  - row [ref=f1e285]:
+                    - rowheader "Tap4 index 3" [ref=f1e286]:
+                      - text: Tap4
+                      - generic [ref=f1e287]: index 3
+                    - cell [ref=f1e288]:
+                      - checkbox "DFE taps 与自适应范围 Tap4 启用" [ref=f1e289]
+                    - cell [ref=f1e290]:
+                      - spinbutton "DFE taps 与自适应范围 Tap4 最小权重" [ref=f1e291]: "-0.05"
+                    - cell [ref=f1e292]:
+                      - spinbutton "DFE taps 与自适应范围 Tap4 最大权重" [ref=f1e293]: "0.1"
+                    - cell "未提供" [ref=f1e294]
+                  - row [ref=f1e295]:
+                    - rowheader "Tap5 index 4" [ref=f1e296]:
+                      - text: Tap5
+                      - generic [ref=f1e297]: index 4
+                    - cell [ref=f1e298]:
+                      - checkbox "DFE taps 与自适应范围 Tap5 启用" [ref=f1e299]
+                    - cell [ref=f1e300]:
+                      - spinbutton "DFE taps 与自适应范围 Tap5 最小权重" [ref=f1e301]: "-0.05"
+                    - cell [ref=f1e302]:
+                      - spinbutton "DFE taps 与自适应范围 Tap5 最大权重" [ref=f1e303]: "0.1"
+                    - cell "未提供" [ref=f1e304]
+                  - row [ref=f1e305]:
+                    - rowheader "Tap6 index 5" [ref=f1e306]:
+                      - text: Tap6
+                      - generic [ref=f1e307]: index 5
+                    - cell [ref=f1e308]:
+                      - checkbox "DFE taps 与自适应范围 Tap6 启用" [ref=f1e309]
+                    - cell [ref=f1e310]:
+                      - spinbutton "DFE taps 与自适应范围 Tap6 最小权重" [ref=f1e311]: "-0.05"
+                    - cell [ref=f1e312]:
+                      - spinbutton "DFE taps 与自适应范围 Tap6 最大权重" [ref=f1e313]: "0.1"
+                    - cell "未提供" [ref=f1e314]
+                  - row [ref=f1e315]:
+                    - rowheader "Tap7 index 6" [ref=f1e316]:
+                      - text: Tap7
+                      - generic [ref=f1e317]: index 6
+                    - cell [ref=f1e318]:
+                      - checkbox "DFE taps 与自适应范围 Tap7 启用" [ref=f1e319]
+                    - cell [ref=f1e320]:
+                      - spinbutton "DFE taps 与自适应范围 Tap7 最小权重" [ref=f1e321]: "-0.05"
+                    - cell [ref=f1e322]:
+                      - spinbutton "DFE taps 与自适应范围 Tap7 最大权重" [ref=f1e323]: "0.1"
+                    - cell "未提供" [ref=f1e324]
+                  - row [ref=f1e325]:
+                    - rowheader "Tap8 index 7" [ref=f1e326]:
+                      - text: Tap8
+                      - generic [ref=f1e327]: index 7
+                    - cell [ref=f1e328]:
+                      - checkbox "DFE taps 与自适应范围 Tap8 启用" [ref=f1e329]
+                    - cell [ref=f1e330]:
+                      - spinbutton "DFE taps 与自适应范围 Tap8 最小权重" [ref=f1e331]: "-0.05"
+                    - cell [ref=f1e332]:
+                      - spinbutton "DFE taps 与自适应范围 Tap8 最大权重" [ref=f1e333]: "0.1"
+                    - cell "未提供" [ref=f1e334]
+                  - row [ref=f1e335]:
+                    - rowheader "Tap9 index 8" [ref=f1e336]:
+                      - text: Tap9
+                      - generic [ref=f1e337]: index 8
+                    - cell [ref=f1e338]:
+                      - checkbox "DFE taps 与自适应范围 Tap9 启用" [ref=f1e339]
+                    - cell [ref=f1e340]:
+                      - spinbutton "DFE taps 与自适应范围 Tap9 最小权重" [ref=f1e341]: "-0.05"
+                    - cell [ref=f1e342]:
+                      - spinbutton "DFE taps 与自适应范围 Tap9 最大权重" [ref=f1e343]: "0.1"
+                    - cell "未提供" [ref=f1e344]
+                  - row [ref=f1e345]:
+                    - rowheader "Tap10 index 9" [ref=f1e346]:
+                      - text: Tap10
+                      - generic [ref=f1e347]: index 9
+                    - cell [ref=f1e348]:
+                      - checkbox "DFE taps 与自适应范围 Tap10 启用" [ref=f1e349]
+                    - cell [ref=f1e350]:
+                      - spinbutton "DFE taps 与自适应范围 Tap10 最小权重" [ref=f1e351]: "-0.05"
+                    - cell [ref=f1e352]:
+                      - spinbutton "DFE taps 与自适应范围 Tap10 最大权重" [ref=f1e353]: "0.1"
+                    - cell "未提供" [ref=f1e354]
+                  - row [ref=f1e355]:
+                    - rowheader "Tap11 index 10" [ref=f1e356]:
+                      - text: Tap11
+                      - generic [ref=f1e357]: index 10
+                    - cell [ref=f1e358]:
+                      - checkbox "DFE taps 与自适应范围 Tap11 启用" [ref=f1e359]
+                    - cell [ref=f1e360]:
+                      - spinbutton "DFE taps 与自适应范围 Tap11 最小权重" [ref=f1e361]: "-0.05"
+                    - cell [ref=f1e362]:
+                      - spinbutton "DFE taps 与自适应范围 Tap11 最大权重" [ref=f1e363]: "0.1"
+                    - cell "未提供" [ref=f1e364]
+                  - row [ref=f1e365]:
+                    - rowheader "Tap12 index 11" [ref=f1e366]:
+                      - text: Tap12
+                      - generic [ref=f1e367]: index 11
+                    - cell [ref=f1e368]:
+                      - checkbox "DFE taps 与自适应范围 Tap12 启用" [ref=f1e369]
+                    - cell [ref=f1e370]:
+                      - spinbutton "DFE taps 与自适应范围 Tap12 最小权重" [ref=f1e371]: "-0.05"
+                    - cell [ref=f1e372]:
+                      - spinbutton "DFE taps 与自适应范围 Tap12 最大权重" [ref=f1e373]: "0.1"
+                    - cell "未提供" [ref=f1e374]
+                  - row [ref=f1e375]:
+                    - rowheader "Tap13 index 12" [ref=f1e376]:
+                      - text: Tap13
+                      - generic [ref=f1e377]: index 12
+                    - cell [ref=f1e378]:
+                      - checkbox "DFE taps 与自适应范围 Tap13 启用" [ref=f1e379]
+                    - cell [ref=f1e380]:
+                      - spinbutton "DFE taps 与自适应范围 Tap13 最小权重" [ref=f1e381]: "-0.05"
+                    - cell [ref=f1e382]:
+                      - spinbutton "DFE taps 与自适应范围 Tap13 最大权重" [ref=f1e383]: "0.1"
+                    - cell "未提供" [ref=f1e384]
+                  - row [ref=f1e385]:
+                    - rowheader "Tap14 index 13" [ref=f1e386]:
+                      - text: Tap14
+                      - generic [ref=f1e387]: index 13
+                    - cell [ref=f1e388]:
+                      - checkbox "DFE taps 与自适应范围 Tap14 启用" [ref=f1e389]
+                    - cell [ref=f1e390]:
+                      - spinbutton "DFE taps 与自适应范围 Tap14 最小权重" [ref=f1e391]: "-0.05"
+                    - cell [ref=f1e392]:
+                      - spinbutton "DFE taps 与自适应范围 Tap14 最大权重" [ref=f1e393]: "0.1"
+                    - cell "未提供" [ref=f1e394]
+                  - row [ref=f1e395]:
+                    - rowheader "Tap15 index 14" [ref=f1e396]:
+                      - text: Tap15
+                      - generic [ref=f1e397]: index 14
+                    - cell [ref=f1e398]:
+                      - checkbox "DFE taps 与自适应范围 Tap15 启用" [ref=f1e399]
+                    - cell [ref=f1e400]:
+                      - spinbutton "DFE taps 与自适应范围 Tap15 最小权重" [ref=f1e401]: "-0.05"
+                    - cell [ref=f1e402]:
+                      - spinbutton "DFE taps 与自适应范围 Tap15 最大权重" [ref=f1e403]: "0.1"
+                    - cell "未提供" [ref=f1e404]
+                  - row [ref=f1e405]:
+                    - rowheader "Tap16 index 15" [ref=f1e406]:
+                      - text: Tap16
+                      - generic [ref=f1e407]: index 15
+                    - cell [ref=f1e408]:
+                      - checkbox "DFE taps 与自适应范围 Tap16 启用" [ref=f1e409]
+                    - cell [ref=f1e410]:
+                      - spinbutton "DFE taps 与自适应范围 Tap16 最小权重" [ref=f1e411]: "-0.05"
+                    - cell [ref=f1e412]:
+                      - spinbutton "DFE taps 与自适应范围 Tap16 最大权重" [ref=f1e413]: "0.1"
+                    - cell "未提供" [ref=f1e414]
+                  - row [ref=f1e415]:
+                    - rowheader "Tap17 index 16" [ref=f1e416]:
+                      - text: Tap17
+                      - generic [ref=f1e417]: index 16
+                    - cell [ref=f1e418]:
+                      - checkbox "DFE taps 与自适应范围 Tap17 启用" [ref=f1e419]
+                    - cell [ref=f1e420]:
+                      - spinbutton "DFE taps 与自适应范围 Tap17 最小权重" [ref=f1e421]: "-0.05"
+                    - cell [ref=f1e422]:
+                      - spinbutton "DFE taps 与自适应范围 Tap17 最大权重" [ref=f1e423]: "0.1"
+                    - cell "未提供" [ref=f1e424]
+                  - row [ref=f1e425]:
+                    - rowheader "Tap18 index 17" [ref=f1e426]:
+                      - text: Tap18
+                      - generic [ref=f1e427]: index 17
+                    - cell [ref=f1e428]:
+                      - checkbox "DFE taps 与自适应范围 Tap18 启用" [ref=f1e429]
+                    - cell [ref=f1e430]:
+                      - spinbutton "DFE taps 与自适应范围 Tap18 最小权重" [ref=f1e431]: "-0.05"
+                    - cell [ref=f1e432]:
+                      - spinbutton "DFE taps 与自适应范围 Tap18 最大权重" [ref=f1e433]: "0.1"
+                    - cell "未提供" [ref=f1e434]
+                  - row [ref=f1e435]:
+                    - rowheader "Tap19 index 18" [ref=f1e436]:
+                      - text: Tap19
+                      - generic [ref=f1e437]: index 18
+                    - cell [ref=f1e438]:
+                      - checkbox "DFE taps 与自适应范围 Tap19 启用" [ref=f1e439]
+                    - cell [ref=f1e440]:
+                      - spinbutton "DFE taps 与自适应范围 Tap19 最小权重" [ref=f1e441]: "-0.05"
+                    - cell [ref=f1e442]:
+                      - spinbutton "DFE taps 与自适应范围 Tap19 最大权重" [ref=f1e443]: "0.1"
+                    - cell "未提供" [ref=f1e444]
+                  - row [ref=f1e445]:
+                    - rowheader "Tap20 index 19" [ref=f1e446]:
+                      - text: Tap20
+                      - generic [ref=f1e447]: index 19
+                    - cell [ref=f1e448]:
+                      - checkbox "DFE taps 与自适应范围 Tap20 启用" [ref=f1e449]
+                    - cell [ref=f1e450]:
+                      - spinbutton "DFE taps 与自适应范围 Tap20 最小权重" [ref=f1e451]: "-0.05"
+                    - cell [ref=f1e452]:
+                      - spinbutton "DFE taps 与自适应范围 Tap20 最大权重" [ref=f1e453]: "0.1"
+                    - cell "未提供" [ref=f1e454]
+            - generic [ref=f1e455]:
+              - generic [ref=f1e456]: 还有 1 个结果、内部状态或参考条目。
+              - button "查看参数说明 →" [ref=f1e457] [cursor=pointer]
+          - text: ↳
+        - region "Native run analysis" [ref=f1e458]:
+          - generic [ref=f1e459]:
+            - generic [ref=f1e460]:
+              - text: Selected record
+              - combobox "Selected record" [ref=f1e461]:
+                - option "No successful run" [selected]
+            - generic [ref=f1e462]:
+              - text: 比较参考
+              - combobox "比较参考" [ref=f1e463]:
+                - option "自动选择另一条" [selected]
+          - generic [ref=f1e464]:
+            - generic [ref=f1e465]:
+              - text: Analysis
+              - combobox "Analysis" [ref=f1e466]:
+                - option "Responses" [selected]
+                - option "Waveform"
+                - option "Eye"
+                - option "Jitter Dist."
+                - option "Jitter Spec."
+                - option "Jitter Bathtub"
+                - option "Jitter Info"
+                - option "DFE Adaptation"
+                - option "CDR Adaptation"
+                - option "CDR Histogram"
+                - option "CDR Spectrum"
+                - option "Run overview"
+                - option "Run input comparison"
+            - combobox "Response type" [ref=f1e467]:
+              - option "Impulse" [selected]
+              - option "Step"
+              - option "Pulse"
+              - option "Frequency"
+            - combobox "Response scope" [ref=f1e468]:
+              - option "Cumulative" [selected]
+              - option "Single stage"
+          - generic [ref=f1e469]:
+            - generic [ref=f1e470]:
+              - text: Point
+              - combobox "Point" [ref=f1e471]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=f1e472]:
+              - text: Compare
+              - combobox "Compare" [ref=f1e473]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Expand viewer" [ref=f1e474] [cursor=pointer]
+          - generic "Selected run plot" [ref=f1e475]:
+            - paragraph [ref=f1e476]: No successful native run. Run the engine to inspect real data.
+      - group [ref=f1e478]:
+        - generic "Native EQ 优化 · 候选与真实 Run 独立" [ref=f1e479]
+        - paragraph [ref=f1e480]: 在 Tx FFE / CTLE / Rx FFE / DFE 节点编辑搜索约束；Use MMSE 与 RLM 见优化节点。AMI 优化未接入（#10）。
+        - generic [ref=f1e481]:
+          - button "检查候选预算" [ref=f1e482] [cursor=pointer]
+          - button "Tune EQ" [ref=f1e483] [cursor=pointer]
+          - button "Abort EQ" [disabled] [ref=f1e484]
+          - button "Reset EQ" [ref=f1e485] [cursor=pointer]
+        - status [ref=f1e486]: Native slot busy; input validation is pending.
+        - paragraph [ref=f1e487]: MMSE 使用固定 Tx level 0.5 V、SNR 25 dB、DJ/RJ=0 与空 aggressor；Rn 进入 eta0。优化 pulse 假设 bounded ideal DFE，MMSE cursor=1 归一化；FOM 不是 COM、BER 或时域效果。RLM 只进入 MMSE。
+        - generic [ref=f1e488]:
+          - generic [ref=f1e489]:
+            - text: 优化记录
+            - combobox "优化记录" [ref=f1e490]:
+              - option "无优化记录" [selected]
+          - generic [ref=f1e491]:
+            - text: 候选
+            - combobox "候选" [ref=f1e492]
+          - button "Use EQ · 预览差异" [disabled] [ref=f1e493]
+          - button "保存优化记录" [disabled] [ref=f1e494]
+          - button "打开优化记录" [ref=f1e495] [cursor=pointer]
+        - paragraph
+        - group [ref=f1e497]:
+          - generic "评分 / 权重 / 原始输入与版本" [ref=f1e498]
+      - group [ref=f1e499]:
+        - generic "Task logs / selected run logs" [ref=f1e500]
+```

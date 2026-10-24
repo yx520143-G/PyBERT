@@ -1,0 +1,18 @@
+{
+  "before_new_context_computation": true,
+  "physical_requests_unchanged": [
+    "../v1/O-PAM4-MMSE.json",
+    "../v1/O-PAM4-MMSE-RLM080.json"
+  ],
+  "purpose": "Expose and independently compare actual NoiseCalc/mmse p_tx/H/constraints/cursor input hashes; no scoring/selection/physical input change",
+  "new_direct_calls": 2,
+  "new_adapter_calls": 2,
+  "main_calls": 0,
+  "COM_calls": 0,
+  "tolerances": "v1 unchanged; actual MMSE input arrays/scalars/hashes additionally exact",
+  "source_sha256": {
+    "src\\pybert\\threads\\optimization.py": "491bd4660be5697b94396f6316064e9f48bd3ea473a54ce1baf6cdea83e7a29b",
+    "src\\pybert\\web\\optimization.py": "d6746cc276012d58ec8a2051d7444d71df071700fe6e1d6fb7a070262439b9c6",
+    "tools\\verify_web_optimizer.py": "2c859f917e0bc5826c086485f7e9a14b689d10dd0f9a412b76f465147a4265a6"
+  }
+}

@@ -12,6 +12,7 @@ from pybert.web.config import input_hash, load_config, new_engine, normalize, sn
 from pybert.web.data import collect
 from pybert.web.resources import inspect_channels, projection
 from pybert.web.com import ComCancelled, run_com
+from pybert.web.optimization import OptimizationCancelled, run_optimization
 
 
 class Stream:
@@ -51,6 +52,8 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
             if cancelled():
                 if operation == "com":
                     raise ComCancelled("Cancelled before validation")
+                if operation == "optimization":
+                    raise OptimizationCancelled("Cancelled before optimization validation")
                 raise RuntimeError("Cancelled before validation")
             if operation == "normalize":
                 result = normalize(request)
@@ -67,6 +70,8 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                 finally:
                     logging.getLogger().removeHandler(handler)
                     handler.close()
+            elif operation == "optimization":
+                terminal = {"status": "succeeded", "result": run_optimization(task_id, request, directory, cancelled, emit)}
             elif operation == "run":
                 p = new_engine()
                 p.observe(lambda e: emit("phase", phase=str(e.new)), "status")
@@ -129,9 +134,11 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                 raise ValueError(f"Unknown worker operation {operation}")
     except ComCancelled as err:
         terminal = {"status": "cancelled", "error": str(err), "error_type": type(err).__name__}
+    except OptimizationCancelled as err:
+        terminal = {"status": "cancelled", "error": str(err), "error_type": type(err).__name__}
     except Exception as err:
         terminal = {
-            "status": "cancelled" if observed and operation != "com" else "failed",
+            "status": "cancelled" if observed and operation not in ("com", "optimization") else "failed",
             "error": str(err),
             "error_type": type(err).__name__,
             "traceback": traceback.format_exc(),

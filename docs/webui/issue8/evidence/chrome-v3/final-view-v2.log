@@ -1,0 +1,41 @@
+### Result
+{"browser":"155.0.8059.85","viewport":{"width":1280,"height":720},"records":[{"record_id":"opt-ref-89f691ca-1b52-44fc-91de-bc2bec087568","opt_id":"438a304f-e2d3-495c-b56c-fd5b78f9d436","status":"succeeded","raw_schema":2,"rlm":0.95},{"record_id":"opt-ref-26f91999-65e8-4007-88ba-502c8d2e88bc","opt_id":"d949d7a1-acb6-4fda-8df4-f3b1e533e92a","status":"succeeded","raw_schema":2,"rlm":0.8},{"record_id":"opt-ref-43ecda00-6827-4b36-a89a-ec67f0d7f5b8","opt_id":"2e3d0d79-061f-4084-96bc-53d651486c2d","status":"succeeded","rlm":0.95},{"record_id":"opt-ref-df73d0a2-7c2a-4584-92e5-49f1fdd1fb73","opt_id":"333787d7-7a75-4536-9225-70df8983d5e0","status":"cancelled","rlm":0.95}],"checks":{"raw_schema2_both_RLM":true,"cancelled_lifecycle":true,"readable_plot_stroke":"0px","FFE_slots":100,"FFE_enable_readonly":true,"forged_use_rejected":true,"no_computed_results":true},"new_coopt":0,"new_main":0,"new_COM":0}
+### Ran Playwright code
+```js
+await (async page => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue8-optimizer/serial-bus-simulator',base='http://127.0.0.1:8775/api/';
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+  await page.reload();await page.waitForFunction(()=>!document.getElementById('load-config').disabled);
+  const state=await(await page.request.get(base+'state')).json();
+  await page.locator('#optimizer-open').click();const records=[];
+  for(const row of state.optimizations) {
+    const record=await(await page.request.get(base+'optimizations/'+row.record_id)).json();
+    records.push({record_id:row.record_id,opt_id:record.opt_id,status:record.status,raw_schema:record.optimization_raw_schema,rlm:record.runtime_extensions.values.rlm});
+    if(record.status==='succeeded')assert(record.candidates.length===4,'Candidate inventory changed');
+    else assert(record.status==='cancelled'&&record.task.cancel_observed&&record.task.worker_exited,'Cancelled evidence changed');
+  }
+  for(const [index,row] of state.optimizations.entries()) {
+    if(index!==0&&index!==2)continue;
+    await page.locator('#selected-opt').selectOption(row.record_id);
+    await page.waitForFunction(id=>document.getElementById('optimizer-provenance').textContent.includes(id),row.opt_id);
+    await page.waitForFunction(()=>document.getElementById('optimizer-plot').data?.length>=2);
+    const stroke=await page.locator('#optimizer-plot svg').first().evaluate(el=>getComputedStyle(el).strokeWidth);
+    assert(stroke==='0px','Icon CSS still strokes plot text');
+    await page.locator('#optimizer-plot').scrollIntoViewIfNeeded();
+    await page.screenshot({path:root+'/output/playwright/issue8/final/'+(index===0?'09-readable-mmse.png':'10-readable-grid.png')});
+  }
+  await page.getByRole('button',{name:'Rx FFE',exact:true}).click();
+  await page.locator('#settings-table-ffe_tap_tuners').evaluate(el=>el.open=true);
+  assert(await page.locator('#settings-table-ffe_tap_tuners tbody tr').count()===100,'Missing FFE slots');
+  assert(await page.locator('#settings-table-ffe_tap_tuners tbody input[type=checkbox]').count()===0,'FFE enable editable');
+  const forged=await page.request.post(base+'normalize',{data:{mode:'use_eq',config:{},optimization:{status:'succeeded'}}});
+  assert(forged.status()===422,'Forged action accepted');
+  const after=await(await page.request.get(base+'state')).json();
+  assert(after.runs.length===0&&after.optimizations.length===4&&after.references.length===2,'Computed inventory changed');
+  return {browser:page.context().browser().version(),viewport:page.viewportSize(),records,checks:{raw_schema2_both_RLM:true,cancelled_lifecycle:true,readable_plot_stroke:'0px',FFE_slots:100,FFE_enable_readonly:true,forged_use_rejected:true,no_computed_results:true},new_coopt:0,new_main:0,new_COM:0};
+}
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8775/#rxffe
+- Page Title: PyBERT · Signal Chain Workbench

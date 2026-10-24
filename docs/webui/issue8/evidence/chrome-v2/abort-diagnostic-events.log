@@ -1,0 +1,954 @@
+### Result
+{
+  "events": [
+    {
+      "at": 121069.20000000298,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 121069.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 121070.80000001192,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 121070.80000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 121620.40000000596,
+      "name": "pybert-worker-state",
+      "busy": true,
+      "disabled": true
+    },
+    {
+      "at": 121620.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 122080,
+      "name": "pybert-optimizer-state",
+      "active": "74b284a7-e0a7-4043-9e5a-d8169182cd62",
+      "disabled": false
+    },
+    {
+      "at": 122080.10000000894,
+      "name": "disabled mutation",
+      "disabled": false
+    },
+    {
+      "at": 122081.5,
+      "name": "pybert-worker-state",
+      "busy": true,
+      "active": "74b284a7-e0a7-4043-9e5a-d8169182cd62",
+      "disabled": false
+    },
+    {
+      "at": 123092.40000000596,
+      "name": "pybert-optimizer-state",
+      "active": "74b284a7-e0a7-4043-9e5a-d8169182cd62",
+      "disabled": false
+    },
+    {
+      "at": 123093.80000001192,
+      "name": "pybert-worker-state",
+      "busy": true,
+      "active": "74b284a7-e0a7-4043-9e5a-d8169182cd62",
+      "disabled": false
+    },
+    {
+      "at": 124107.10000000894,
+      "name": "pybert-optimizer-state",
+      "active": "74b284a7-e0a7-4043-9e5a-d8169182cd62",
+      "disabled": false
+    },
+    {
+      "at": 124108.5,
+      "name": "pybert-worker-state",
+      "busy": true,
+      "active": "74b284a7-e0a7-4043-9e5a-d8169182cd62",
+      "disabled": false
+    },
+    {
+      "at": 125119.60000000894,
+      "name": "pybert-optimizer-state",
+      "active": "74b284a7-e0a7-4043-9e5a-d8169182cd62",
+      "disabled": false
+    },
+    {
+      "at": 125121.10000000894,
+      "name": "pybert-worker-state",
+      "busy": true,
+      "active": "74b284a7-e0a7-4043-9e5a-d8169182cd62",
+      "disabled": false
+    },
+    {
+      "at": 125190.5,
+      "name": "pybert-worker-state",
+      "busy": true,
+      "active": "74b284a7-e0a7-4043-9e5a-d8169182cd62",
+      "disabled": false
+    },
+    {
+      "at": 128419.10000000894,
+      "name": "pybert-optimizer-state",
+      "active": "bfff63bb-ee3e-4cb1-8633-6ba762f7130e",
+      "disabled": false
+    },
+    {
+      "at": 128420.80000001192,
+      "name": "pybert-worker-state",
+      "busy": true,
+      "active": "bfff63bb-ee3e-4cb1-8633-6ba762f7130e",
+      "disabled": false
+    },
+    {
+      "at": 132090.60000000894,
+      "name": "pybert-worker-state",
+      "busy": true,
+      "active": "f0212eed-e517-469c-bcf9-4e00fc305ae5",
+      "disabled": false
+    },
+    {
+      "at": 133097.30000001192,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 133097.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 133099.20000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 133099.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 133106.90000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 133135.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 134112.20000000298,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 134112.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 134113.80000001192,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 134113.80000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 135118.5,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 135118.60000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 135119.90000000596,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 135119.90000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 136128.20000000298,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 136128.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 136129.60000000894,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 136129.60000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 137137.60000000894,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 137137.80000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 137139.10000000894,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 137139.10000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 138146.80000001192,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 138146.90000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 138148.20000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 138148.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 139153.90000000596,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 139154,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 139155.40000000596,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 139155.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 140162.90000000596,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 140163,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 140164.30000001192,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 140164.30000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 141184,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 141184.10000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 141185.40000000596,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 141185.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 142190.5,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 142190.60000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 142191.90000000596,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 142191.90000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 143199.10000000894,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 143199.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 143200.60000000894,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 143200.60000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 144217,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 144217.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 144218.5,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 144218.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 145224.5,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 145224.60000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 145225.90000000596,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 145225.90000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 146245,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 146245.10000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 146246.5,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 146246.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 147260.20000000298,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 147260.30000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 147261.70000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 147261.70000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 148266.20000000298,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 148266.30000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 148267.60000000894,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 148267.60000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 149275.10000000894,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 149275.30000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 149276.70000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 149276.70000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 150289.30000001192,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 150289.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 150290.70000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 150290.70000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 151302.70000000298,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 151302.90000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 151304.20000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 151304.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 152310.40000000596,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 152310.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 152311.80000001192,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 152311.80000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 153317.10000000894,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 153317.30000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 153318.60000000894,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 153318.60000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 154328.30000001192,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 154328.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 154329.90000000596,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 154329.90000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 155340.10000000894,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 155340.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 155341.5,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 155341.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 156346.80000001192,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 156346.90000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 156348.20000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 156348.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 157356,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 157356.10000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 157357.40000000596,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 157357.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 158367.80000001192,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 158367.90000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 158369.20000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 158369.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 159379.5,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 159379.70000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 159381,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 159381,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 160392.70000000298,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 160392.80000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 160394,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 160394,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 161411.30000001192,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 161411.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 161412.70000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 161412.70000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 162429,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 162429.10000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 162430.5,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 162430.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 163439,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 163439,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 163440.40000000596,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 163440.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 164452.30000001192,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 164452.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 164453.70000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 164453.80000001192,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 165464.10000000894,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 165464.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 165465.5,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 165465.5,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 166471.30000001192,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 166471.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 166472.70000000298,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 166472.70000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 167483.5,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 167483.70000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 167485,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 167485,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 168502.10000000894,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 168502.10000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 168503.40000000596,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 168503.40000000596,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 169514,
+      "name": "pybert-optimizer-state",
+      "active": null,
+      "disabled": true
+    },
+    {
+      "at": 169514.20000000298,
+      "name": "disabled mutation",
+      "disabled": true
+    },
+    {
+      "at": 169515.60000000894,
+      "name": "pybert-worker-state",
+      "busy": false,
+      "disabled": true
+    },
+    {
+      "at": 169515.60000000894,
+      "name": "disabled mutation",
+      "disabled": true
+    }
+  ],
+  "status": "opt f0212eed-e517-469c-bcf9-4e00fc305ae5 · succeeded；查看所选记录，成功候选仍需显式 Use EQ。",
+  "input": "DFE consumes the continuous enabled prefix: 2 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it.",
+  "task": "optimization f0212eed · succeeded · succeeded",
+  "origin": 1792817692177.9
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => (({events:window.__eqEvents,status:document.getElementById(\'optimizer-status\').textContent,input:document.getElementById(\'input-status\').textContent,task:document.getElementById(\'task-state\').textContent,origin:performance.timeOrigin}))');
+```

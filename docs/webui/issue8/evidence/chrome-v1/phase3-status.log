@@ -1,0 +1,2369 @@
+### Page
+- Page URL: http://127.0.0.1:8773/#rxffe
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [ref=f2e1]:
+  - link "跳到参数详情" [ref=f2e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=f2e3]:
+    - link "PyBERT 数据源" [ref=f2e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=f2e8]:
+        - strong [ref=f2e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=f2e10]:
+      - text: 模块目录
+      - generic [ref=f2e11]: 16 MODULES
+    - navigation "选择模块" [ref=f2e12]:
+      - generic [ref=f2e983]:
+        - heading "主信号链" [level=2] [ref=f2e984]
+        - button "Source" [ref=f2e985] [cursor=pointer]
+        - button "Tx EQ" [ref=f2e987] [cursor=pointer]: •
+        - button "Channel" [ref=f2e989] [cursor=pointer]
+        - button "Noise" [ref=f2e991] [cursor=pointer]
+        - button "Rx CTLE" [ref=f2e993] [cursor=pointer]
+        - button "Rx FFE" [ref=f2e995] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=f2e997] [cursor=pointer]: •
+        - button "Observe" [ref=f2e999] [cursor=pointer]
+      - generic [ref=f2e1001]:
+        - heading "控制与判决旁支" [level=2] [ref=f2e1002]
+        - button "CDR" [ref=f2e1003] [cursor=pointer]
+        - button "AGC" [ref=f2e1005] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=f2e1007] [cursor=pointer]
+      - generic [ref=f2e1009]:
+        - heading "全局设置与工具" [level=2] [ref=f2e1010]
+        - button "Simulation" [ref=f2e1011] [cursor=pointer]
+        - button "Device models" [ref=f2e1013] [cursor=pointer]
+        - button "IBIS-AMI" [ref=f2e1015] [cursor=pointer]
+        - button "Optimizer" [ref=f2e1017] [cursor=pointer]: •
+        - button "COM" [ref=f2e1019] [cursor=pointer]
+  - generic [ref=f2e51]:
+    - banner [ref=f2e52]:
+      - generic [ref=f2e53]:
+        - generic [ref=f2e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=f2e55]
+      - generic [ref=f2e56]:
+        - generic [ref=f2e58]:
+          - searchbox "搜索所有模块和参数" [ref=f2e62]
+          - generic [ref=f2e63]: /
+        - status [ref=f2e64]:
+          - strong [ref=f2e1021]: 草稿已保留
+          - generic [ref=f2e1022]: 10 项设置已修改
+        - button "恢复全部默认" [ref=f2e67] [cursor=pointer]
+    - generic [ref=f2e68]:
+      - button "Run" [ref=f2e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=f2e70]
+      - status [ref=f2e71]: optimization 2e3d0d79 · succeeded · succeeded
+      - generic [ref=f2e72]: O-NRZ-grid.yaml
+      - button "Load Config" [ref=f2e73] [cursor=pointer]
+      - button "资源 / COM" [ref=f2e74] [cursor=pointer]
+      - button "Native EQ 优化" [ref=f2e75] [cursor=pointer]
+      - button "Save" [ref=f2e76] [cursor=pointer]
+      - button "Save As…" [ref=f2e77] [cursor=pointer]
+      - button "Help / About" [ref=f2e78] [cursor=pointer]
+      - button "Disconnect" [ref=f2e79] [cursor=pointer]
+    - status [ref=f2e80]: "DFE consumes the continuous enabled prefix: 2 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it."
+    - status [ref=f2e81]: 已载入 O-NRZ-grid.yaml；未自动 Run。
+    - status "run_id=6591b4c8-aa28-4cba-a816-2c7c14359232; com_id=none" [ref=f2e709]: 核心结果成功 · 6591b4c8；COM 未随此 Run 启用
+    - generic [ref=f2e83]:
+      - button "打开结果 / 加入比较" [ref=f2e84] [cursor=pointer]
+      - generic [ref=f2e85]:
+        - checkbox "我选择的是可信本机 legacy pickle（可执行代码）" [ref=f2e86]
+        - text: 我选择的是可信本机 legacy pickle（可执行代码）
+      - button "保存所选结果" [ref=f2e87] [cursor=pointer]
+      - button "原生保存 / 损失清单" [ref=f2e88] [cursor=pointer]
+      - button "恢复所选输入到草稿" [ref=f2e89] [cursor=pointer]
+      - button "移除所选参考" [disabled] [ref=f2e90]
+      - button "清除加载的参考" [ref=f2e91] [cursor=pointer]
+    - status [ref=f2e92]: 已向浏览器交付 6591b4c8-aa28-4cba-a816-2c7c14359232.pybert_run；完成状态见下载面板，未确认覆盖本地文件。
+    - generic [ref=f2e93]: 临时成功缓存 2/2 · 46496867 bytes（第三次成功淘汰最旧临时记录）；参考 0/4 · 0/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。
+    - main [ref=f2e94]:
+      - group [ref=f2e95]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=f2e96] [cursor=pointer]
+      - region "链路总览" [ref=f2e97]:
+        - generic "切换实现图示" [ref=f2e98]:
+          - generic [ref=f2e99]: 实现方案
+          - generic [ref=f2e100]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=f2e101] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=f2e102]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=f2e103] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=f2e104]:
+            - checkbox "请求模型时钟" [disabled] [ref=f2e105]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=f2e106] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=f2e107]:
+          - generic [ref=f2e108]:
+            - generic [ref=f2e1023]:
+              - button "Source：NRZ · PRBS-7，查看设置" [ref=f2e1024] [cursor=pointer]:
+                - strong [ref=f2e1025]: Source
+                - generic [ref=f2e1026]: NRZ · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=f2e1028] [cursor=pointer]:
+                - strong [ref=f2e1029]: Tx EQ
+                - generic [ref=f2e1030]: Native FFE
+              - button "Channel：Native · 两端电气，查看设置" [ref=f2e1032] [cursor=pointer]:
+                - strong [ref=f2e1033]: Channel
+                - generic [ref=f2e1034]: Native · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=f2e1036] [cursor=pointer]:
+                - strong [ref=f2e1037]: Noise
+                - generic [ref=f2e1038]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=f2e1040] [cursor=pointer]:
+                - strong [ref=f2e1041]: Rx CTLE
+                - generic [ref=f2e1042]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=f2e1044] [cursor=pointer]:
+                - strong [ref=f2e1045]: Rx FFE
+                - generic [ref=f2e1046]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=f2e1048] [cursor=pointer]:
+                - strong [ref=f2e1049]: DFE / Slicer
+                - generic [ref=f2e1050]: 自适应反馈 / 判决
+            - generic [ref=f2e1051]:
+              - button "Device models" [ref=f2e1053] [cursor=pointer]
+              - button "Observe" [ref=f2e1055] [cursor=pointer]
+              - generic [ref=f2e1056]:
+                - button "CDR" [ref=f2e1057] [cursor=pointer]
+                - button "AGC" [ref=f2e1058] [cursor=pointer]
+                - button "↗ Viterbi" [ref=f2e1059] [cursor=pointer]
+        - status [ref=f2e146]:
+          - generic [ref=f2e1060]: i
+          - generic [ref=f2e1061]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=f2e149]:
+        - region [ref=f2e1062]:
+          - heading "接收端前馈均衡Rx FFE" [level=2] [ref=f2e1065]
+          - generic [ref=f2e155]:
+            - tablist "模块详情" [ref=f2e156]:
+              - tab "设置" [selected] [ref=f2e157] [cursor=pointer]
+              - tab "参数说明 6" [ref=f2e1066] [cursor=pointer]:
+                - text: 参数说明
+                - generic [ref=f2e159]: "6"
+              - tab "实现映射 4" [ref=f2e754] [cursor=pointer]:
+                - text: 实现映射
+                - generic [ref=f2e161]: "4"
+            - button "恢复本模块默认" [ref=f2e162] [cursor=pointer]
+          - tabpanel "设置" [ref=f2e163]:
+            - paragraph [ref=f2e1067]: 已显式载入完整配置；旧草稿原件未删除。
+            - group [ref=f2e1068]:
+              - generic "迁移来源与未应用字段（保留原值）" [ref=f2e1069]
+            - generic [ref=f2e1070]:
+              - generic [ref=f2e1071]:
+                - heading "结构与权重" [level=3] [ref=f2e1072]
+                - generic [ref=f2e1073]: 本地草稿
+              - generic [ref=f2e1074]:
+                - generic [ref=f2e1075]:
+                  - generic [ref=f2e1076]:
+                    - generic [ref=f2e1077]: Ntaps · 总 tap 数
+                    - button "恢复 Ntaps · 总 tap 数 默认值" [ref=f2e1078] [cursor=pointer]: 恢复
+                  - spinbutton "Ntaps · 总 tap 数" [ref=f2e1080]: "3"
+                  - paragraph [ref=f2e1081]: 此编辑器按源码预建的 100 个槽位提供 0–100 个 tap。底层 Python 字段未统一限制上界。
+                  - generic [ref=f2e1082]:
+                    - code [ref=f2e1083]: rx_n_taps
+                    - generic [ref=f2e1084]: 默认 15
+                  - text: ↳
+                  - group [ref=f2e1085]:
+                    - generic "范围与来源" [ref=f2e1086] [cursor=pointer]
+                - generic [ref=f2e1087]:
+                  - generic [ref=f2e1088]:
+                    - generic [ref=f2e1089]: Npre · 前游标 tap 数
+                    - button "恢复 Npre · 前游标 tap 数 默认值" [ref=f2e1090] [cursor=pointer]: 恢复
+                  - spinbutton "Npre · 前游标 tap 数" [ref=f2e1092]: "1"
+                  - paragraph [ref=f2e1093]: 提交后由原生 observer 重排完整 100 槽 tap；运行中编辑将在 worker 退出后校验。完整 YAML 加载恢复保存的数组，不重复移位。
+                  - generic [ref=f2e1094]:
+                    - code [ref=f2e1095]: rx_n_pre
+                    - generic [ref=f2e1096]: 默认 5
+                  - text: ↳
+                  - group [ref=f2e1097]:
+                    - generic "范围与来源" [ref=f2e1098] [cursor=pointer]
+            - generic [ref=f2e1099]:
+              - generic [ref=f2e1100]:
+                - heading "Native Rx FFE taps" [level=3] [ref=f2e1101]
+                - code [ref=f2e1102]: rx_taps
+              - paragraph [ref=f2e1103]: 完整保存 100 槽。Ntaps/Npre 提交由原生 observer 处理；固定 FIR 不参与 DFE 训练。输入值与所选 run 的训练结果分离。
+              - table [ref=f2e1105]:
+                - rowgroup [ref=f2e1106]:
+                  - row [ref=f2e1107]:
+                    - columnheader "Name / Tap" [ref=f2e1108]
+                    - columnheader "启用" [ref=f2e1109]
+                    - columnheader "权重" [ref=f2e1110]
+                - rowgroup [ref=f2e1111]:
+                  - row [ref=f2e1112]:
+                    - rowheader "Pre-tap1 index 0" [ref=f2e1113]:
+                      - text: Pre-tap1
+                      - generic [ref=f2e1114]: index 0
+                    - cell [ref=f2e1115]:
+                      - checkbox "Native Rx FFE taps Pre-tap1 启用" [checked] [ref=f2e1116]
+                    - cell [ref=f2e1117]:
+                      - spinbutton "Native Rx FFE taps Pre-tap1 权重" [ref=f2e1118]: "0"
+                  - row [ref=f2e1119]:
+                    - rowheader "Cursor index 1" [ref=f2e1120]:
+                      - text: Cursor
+                      - generic [ref=f2e1121]: index 1
+                    - cell [ref=f2e1122]:
+                      - checkbox "Native Rx FFE taps Cursor 启用" [checked] [ref=f2e1123]
+                    - cell [ref=f2e1124]:
+                      - spinbutton "Native Rx FFE taps Cursor 权重" [ref=f2e1125]: "1"
+                  - row [ref=f2e1126]:
+                    - rowheader "Post-tap1 index 2" [ref=f2e1127]:
+                      - text: Post-tap1
+                      - generic [ref=f2e1128]: index 2
+                    - cell [ref=f2e1129]:
+                      - checkbox "Native Rx FFE taps Post-tap1 启用" [checked] [ref=f2e1130]
+                    - cell [ref=f2e1131]:
+                      - spinbutton "Native Rx FFE taps Post-tap1 权重" [ref=f2e1132]: "-0.03"
+                  - row [ref=f2e1133]:
+                    - rowheader "Post-tap2 index 3" [ref=f2e1134]:
+                      - text: Post-tap2
+                      - generic [ref=f2e1135]: index 3
+                    - cell [ref=f2e1136]:
+                      - checkbox "Native Rx FFE taps Post-tap2 启用" [ref=f2e1137]
+                    - cell [ref=f2e1138]:
+                      - spinbutton "Native Rx FFE taps Post-tap2 权重" [ref=f2e1139]: "0"
+                  - row [ref=f2e1140]:
+                    - rowheader "Post-tap3 index 4" [ref=f2e1141]:
+                      - text: Post-tap3
+                      - generic [ref=f2e1142]: index 4
+                    - cell [ref=f2e1143]:
+                      - checkbox "Native Rx FFE taps Post-tap3 启用" [ref=f2e1144]
+                    - cell [ref=f2e1145]:
+                      - spinbutton "Native Rx FFE taps Post-tap3 权重" [ref=f2e1146]: "0"
+                  - row [ref=f2e1147]:
+                    - rowheader "Post-tap4 index 5" [ref=f2e1148]:
+                      - text: Post-tap4
+                      - generic [ref=f2e1149]: index 5
+                    - cell [ref=f2e1150]:
+                      - checkbox "Native Rx FFE taps Post-tap4 启用" [ref=f2e1151]
+                    - cell [ref=f2e1152]:
+                      - spinbutton "Native Rx FFE taps Post-tap4 权重" [ref=f2e1153]: "0"
+                  - row [ref=f2e1154]:
+                    - rowheader "Post-tap5 index 6" [ref=f2e1155]:
+                      - text: Post-tap5
+                      - generic [ref=f2e1156]: index 6
+                    - cell [ref=f2e1157]:
+                      - checkbox "Native Rx FFE taps Post-tap5 启用" [ref=f2e1158]
+                    - cell [ref=f2e1159]:
+                      - spinbutton "Native Rx FFE taps Post-tap5 权重" [ref=f2e1160]: "0"
+                  - row [ref=f2e1161]:
+                    - rowheader "Post-tap6 index 7" [ref=f2e1162]:
+                      - text: Post-tap6
+                      - generic [ref=f2e1163]: index 7
+                    - cell [ref=f2e1164]:
+                      - checkbox "Native Rx FFE taps Post-tap6 启用" [ref=f2e1165]
+                    - cell [ref=f2e1166]:
+                      - spinbutton "Native Rx FFE taps Post-tap6 权重" [ref=f2e1167]: "0"
+                  - row [ref=f2e1168]:
+                    - rowheader "Post-tap7 index 8" [ref=f2e1169]:
+                      - text: Post-tap7
+                      - generic [ref=f2e1170]: index 8
+                    - cell [ref=f2e1171]:
+                      - checkbox "Native Rx FFE taps Post-tap7 启用" [ref=f2e1172]
+                    - cell [ref=f2e1173]:
+                      - spinbutton "Native Rx FFE taps Post-tap7 权重" [ref=f2e1174]: "0"
+                  - row [ref=f2e1175]:
+                    - rowheader "Post-tap8 index 9" [ref=f2e1176]:
+                      - text: Post-tap8
+                      - generic [ref=f2e1177]: index 9
+                    - cell [ref=f2e1178]:
+                      - checkbox "Native Rx FFE taps Post-tap8 启用" [ref=f2e1179]
+                    - cell [ref=f2e1180]:
+                      - spinbutton "Native Rx FFE taps Post-tap8 权重" [ref=f2e1181]: "0"
+                  - row [ref=f2e1182]:
+                    - rowheader "Post-tap9 index 10" [ref=f2e1183]:
+                      - text: Post-tap9
+                      - generic [ref=f2e1184]: index 10
+                    - cell [ref=f2e1185]:
+                      - checkbox "Native Rx FFE taps Post-tap9 启用" [ref=f2e1186]
+                    - cell [ref=f2e1187]:
+                      - spinbutton "Native Rx FFE taps Post-tap9 权重" [ref=f2e1188]: "0"
+                  - row [ref=f2e1189]:
+                    - rowheader "Post-tap10 index 11" [ref=f2e1190]:
+                      - text: Post-tap10
+                      - generic [ref=f2e1191]: index 11
+                    - cell [ref=f2e1192]:
+                      - checkbox "Native Rx FFE taps Post-tap10 启用" [ref=f2e1193]
+                    - cell [ref=f2e1194]:
+                      - spinbutton "Native Rx FFE taps Post-tap10 权重" [ref=f2e1195]: "0"
+                  - row [ref=f2e1196]:
+                    - rowheader "Post-tap11 index 12" [ref=f2e1197]:
+                      - text: Post-tap11
+                      - generic [ref=f2e1198]: index 12
+                    - cell [ref=f2e1199]:
+                      - checkbox "Native Rx FFE taps Post-tap11 启用" [ref=f2e1200]
+                    - cell [ref=f2e1201]:
+                      - spinbutton "Native Rx FFE taps Post-tap11 权重" [ref=f2e1202]: "0"
+                  - row [ref=f2e1203]:
+                    - rowheader "Post-tap12 index 13" [ref=f2e1204]:
+                      - text: Post-tap12
+                      - generic [ref=f2e1205]: index 13
+                    - cell [ref=f2e1206]:
+                      - checkbox "Native Rx FFE taps Post-tap12 启用" [ref=f2e1207]
+                    - cell [ref=f2e1208]:
+                      - spinbutton "Native Rx FFE taps Post-tap12 权重" [ref=f2e1209]: "0"
+                  - row [ref=f2e1210]:
+                    - rowheader "Post-tap13 index 14" [ref=f2e1211]:
+                      - text: Post-tap13
+                      - generic [ref=f2e1212]: index 14
+                    - cell [ref=f2e1213]:
+                      - checkbox "Native Rx FFE taps Post-tap13 启用" [ref=f2e1214]
+                    - cell [ref=f2e1215]:
+                      - spinbutton "Native Rx FFE taps Post-tap13 权重" [ref=f2e1216]: "0"
+                  - row [ref=f2e1217]:
+                    - rowheader "Post-tap14 index 15" [ref=f2e1218]:
+                      - text: Post-tap14
+                      - generic [ref=f2e1219]: index 15
+                    - cell [ref=f2e1220]:
+                      - checkbox "Native Rx FFE taps Post-tap14 启用" [ref=f2e1221]
+                    - cell [ref=f2e1222]:
+                      - spinbutton "Native Rx FFE taps Post-tap14 权重" [ref=f2e1223]: "0"
+                  - row [ref=f2e1224]:
+                    - rowheader "Post-tap15 index 16" [ref=f2e1225]:
+                      - text: Post-tap15
+                      - generic [ref=f2e1226]: index 16
+                    - cell [ref=f2e1227]:
+                      - checkbox "Native Rx FFE taps Post-tap15 启用" [ref=f2e1228]
+                    - cell [ref=f2e1229]:
+                      - spinbutton "Native Rx FFE taps Post-tap15 权重" [ref=f2e1230]: "0"
+                  - row [ref=f2e1231]:
+                    - rowheader "Post-tap16 index 17" [ref=f2e1232]:
+                      - text: Post-tap16
+                      - generic [ref=f2e1233]: index 17
+                    - cell [ref=f2e1234]:
+                      - checkbox "Native Rx FFE taps Post-tap16 启用" [ref=f2e1235]
+                    - cell [ref=f2e1236]:
+                      - spinbutton "Native Rx FFE taps Post-tap16 权重" [ref=f2e1237]: "0"
+                  - row [ref=f2e1238]:
+                    - rowheader "Post-tap17 index 18" [ref=f2e1239]:
+                      - text: Post-tap17
+                      - generic [ref=f2e1240]: index 18
+                    - cell [ref=f2e1241]:
+                      - checkbox "Native Rx FFE taps Post-tap17 启用" [ref=f2e1242]
+                    - cell [ref=f2e1243]:
+                      - spinbutton "Native Rx FFE taps Post-tap17 权重" [ref=f2e1244]: "0"
+                  - row [ref=f2e1245]:
+                    - rowheader "Post-tap18 index 19" [ref=f2e1246]:
+                      - text: Post-tap18
+                      - generic [ref=f2e1247]: index 19
+                    - cell [ref=f2e1248]:
+                      - checkbox "Native Rx FFE taps Post-tap18 启用" [ref=f2e1249]
+                    - cell [ref=f2e1250]:
+                      - spinbutton "Native Rx FFE taps Post-tap18 权重" [ref=f2e1251]: "0"
+                  - row [ref=f2e1252]:
+                    - rowheader "Post-tap19 index 20" [ref=f2e1253]:
+                      - text: Post-tap19
+                      - generic [ref=f2e1254]: index 20
+                    - cell [ref=f2e1255]:
+                      - checkbox "Native Rx FFE taps Post-tap19 启用" [ref=f2e1256]
+                    - cell [ref=f2e1257]:
+                      - spinbutton "Native Rx FFE taps Post-tap19 权重" [ref=f2e1258]: "0"
+                  - row [ref=f2e1259]:
+                    - rowheader "Post-tap20 index 21" [ref=f2e1260]:
+                      - text: Post-tap20
+                      - generic [ref=f2e1261]: index 21
+                    - cell [ref=f2e1262]:
+                      - checkbox "Native Rx FFE taps Post-tap20 启用" [ref=f2e1263]
+                    - cell [ref=f2e1264]:
+                      - spinbutton "Native Rx FFE taps Post-tap20 权重" [ref=f2e1265]: "0"
+                  - row [ref=f2e1266]:
+                    - rowheader "Post-tap21 index 22" [ref=f2e1267]:
+                      - text: Post-tap21
+                      - generic [ref=f2e1268]: index 22
+                    - cell [ref=f2e1269]:
+                      - checkbox "Native Rx FFE taps Post-tap21 启用" [ref=f2e1270]
+                    - cell [ref=f2e1271]:
+                      - spinbutton "Native Rx FFE taps Post-tap21 权重" [ref=f2e1272]: "0"
+                  - row [ref=f2e1273]:
+                    - rowheader "Post-tap22 index 23" [ref=f2e1274]:
+                      - text: Post-tap22
+                      - generic [ref=f2e1275]: index 23
+                    - cell [ref=f2e1276]:
+                      - checkbox "Native Rx FFE taps Post-tap22 启用" [ref=f2e1277]
+                    - cell [ref=f2e1278]:
+                      - spinbutton "Native Rx FFE taps Post-tap22 权重" [ref=f2e1279]: "0"
+                  - row [ref=f2e1280]:
+                    - rowheader "Post-tap23 index 24" [ref=f2e1281]:
+                      - text: Post-tap23
+                      - generic [ref=f2e1282]: index 24
+                    - cell [ref=f2e1283]:
+                      - checkbox "Native Rx FFE taps Post-tap23 启用" [ref=f2e1284]
+                    - cell [ref=f2e1285]:
+                      - spinbutton "Native Rx FFE taps Post-tap23 权重" [ref=f2e1286]: "0"
+                  - row [ref=f2e1287]:
+                    - rowheader "Post-tap24 index 25" [ref=f2e1288]:
+                      - text: Post-tap24
+                      - generic [ref=f2e1289]: index 25
+                    - cell [ref=f2e1290]:
+                      - checkbox "Native Rx FFE taps Post-tap24 启用" [ref=f2e1291]
+                    - cell [ref=f2e1292]:
+                      - spinbutton "Native Rx FFE taps Post-tap24 权重" [ref=f2e1293]: "0"
+                  - row [ref=f2e1294]:
+                    - rowheader "Post-tap25 index 26" [ref=f2e1295]:
+                      - text: Post-tap25
+                      - generic [ref=f2e1296]: index 26
+                    - cell [ref=f2e1297]:
+                      - checkbox "Native Rx FFE taps Post-tap25 启用" [ref=f2e1298]
+                    - cell [ref=f2e1299]:
+                      - spinbutton "Native Rx FFE taps Post-tap25 权重" [ref=f2e1300]: "0"
+                  - row [ref=f2e1301]:
+                    - rowheader "Post-tap26 index 27" [ref=f2e1302]:
+                      - text: Post-tap26
+                      - generic [ref=f2e1303]: index 27
+                    - cell [ref=f2e1304]:
+                      - checkbox "Native Rx FFE taps Post-tap26 启用" [ref=f2e1305]
+                    - cell [ref=f2e1306]:
+                      - spinbutton "Native Rx FFE taps Post-tap26 权重" [ref=f2e1307]: "0"
+                  - row [ref=f2e1308]:
+                    - rowheader "Post-tap27 index 28" [ref=f2e1309]:
+                      - text: Post-tap27
+                      - generic [ref=f2e1310]: index 28
+                    - cell [ref=f2e1311]:
+                      - checkbox "Native Rx FFE taps Post-tap27 启用" [ref=f2e1312]
+                    - cell [ref=f2e1313]:
+                      - spinbutton "Native Rx FFE taps Post-tap27 权重" [ref=f2e1314]: "0"
+                  - row [ref=f2e1315]:
+                    - rowheader "Post-tap28 index 29" [ref=f2e1316]:
+                      - text: Post-tap28
+                      - generic [ref=f2e1317]: index 29
+                    - cell [ref=f2e1318]:
+                      - checkbox "Native Rx FFE taps Post-tap28 启用" [ref=f2e1319]
+                    - cell [ref=f2e1320]:
+                      - spinbutton "Native Rx FFE taps Post-tap28 权重" [ref=f2e1321]: "0"
+                  - row [ref=f2e1322]:
+                    - rowheader "Post-tap29 index 30" [ref=f2e1323]:
+                      - text: Post-tap29
+                      - generic [ref=f2e1324]: index 30
+                    - cell [ref=f2e1325]:
+                      - checkbox "Native Rx FFE taps Post-tap29 启用" [ref=f2e1326]
+                    - cell [ref=f2e1327]:
+                      - spinbutton "Native Rx FFE taps Post-tap29 权重" [ref=f2e1328]: "0"
+                  - row [ref=f2e1329]:
+                    - rowheader "Post-tap30 index 31" [ref=f2e1330]:
+                      - text: Post-tap30
+                      - generic [ref=f2e1331]: index 31
+                    - cell [ref=f2e1332]:
+                      - checkbox "Native Rx FFE taps Post-tap30 启用" [ref=f2e1333]
+                    - cell [ref=f2e1334]:
+                      - spinbutton "Native Rx FFE taps Post-tap30 权重" [ref=f2e1335]: "0"
+                  - row [ref=f2e1336]:
+                    - rowheader "Post-tap31 index 32" [ref=f2e1337]:
+                      - text: Post-tap31
+                      - generic [ref=f2e1338]: index 32
+                    - cell [ref=f2e1339]:
+                      - checkbox "Native Rx FFE taps Post-tap31 启用" [ref=f2e1340]
+                    - cell [ref=f2e1341]:
+                      - spinbutton "Native Rx FFE taps Post-tap31 权重" [ref=f2e1342]: "0"
+                  - row [ref=f2e1343]:
+                    - rowheader "Post-tap32 index 33" [ref=f2e1344]:
+                      - text: Post-tap32
+                      - generic [ref=f2e1345]: index 33
+                    - cell [ref=f2e1346]:
+                      - checkbox "Native Rx FFE taps Post-tap32 启用" [ref=f2e1347]
+                    - cell [ref=f2e1348]:
+                      - spinbutton "Native Rx FFE taps Post-tap32 权重" [ref=f2e1349]: "0"
+                  - row [ref=f2e1350]:
+                    - rowheader "Post-tap33 index 34" [ref=f2e1351]:
+                      - text: Post-tap33
+                      - generic [ref=f2e1352]: index 34
+                    - cell [ref=f2e1353]:
+                      - checkbox "Native Rx FFE taps Post-tap33 启用" [ref=f2e1354]
+                    - cell [ref=f2e1355]:
+                      - spinbutton "Native Rx FFE taps Post-tap33 权重" [ref=f2e1356]: "0"
+                  - row [ref=f2e1357]:
+                    - rowheader "Post-tap34 index 35" [ref=f2e1358]:
+                      - text: Post-tap34
+                      - generic [ref=f2e1359]: index 35
+                    - cell [ref=f2e1360]:
+                      - checkbox "Native Rx FFE taps Post-tap34 启用" [ref=f2e1361]
+                    - cell [ref=f2e1362]:
+                      - spinbutton "Native Rx FFE taps Post-tap34 权重" [ref=f2e1363]: "0"
+                  - row [ref=f2e1364]:
+                    - rowheader "Post-tap35 index 36" [ref=f2e1365]:
+                      - text: Post-tap35
+                      - generic [ref=f2e1366]: index 36
+                    - cell [ref=f2e1367]:
+                      - checkbox "Native Rx FFE taps Post-tap35 启用" [ref=f2e1368]
+                    - cell [ref=f2e1369]:
+                      - spinbutton "Native Rx FFE taps Post-tap35 权重" [ref=f2e1370]: "0"
+                  - row [ref=f2e1371]:
+                    - rowheader "Post-tap36 index 37" [ref=f2e1372]:
+                      - text: Post-tap36
+                      - generic [ref=f2e1373]: index 37
+                    - cell [ref=f2e1374]:
+                      - checkbox "Native Rx FFE taps Post-tap36 启用" [ref=f2e1375]
+                    - cell [ref=f2e1376]:
+                      - spinbutton "Native Rx FFE taps Post-tap36 权重" [ref=f2e1377]: "0"
+                  - row [ref=f2e1378]:
+                    - rowheader "Post-tap37 index 38" [ref=f2e1379]:
+                      - text: Post-tap37
+                      - generic [ref=f2e1380]: index 38
+                    - cell [ref=f2e1381]:
+                      - checkbox "Native Rx FFE taps Post-tap37 启用" [ref=f2e1382]
+                    - cell [ref=f2e1383]:
+                      - spinbutton "Native Rx FFE taps Post-tap37 权重" [ref=f2e1384]: "0"
+                  - row [ref=f2e1385]:
+                    - rowheader "Post-tap38 index 39" [ref=f2e1386]:
+                      - text: Post-tap38
+                      - generic [ref=f2e1387]: index 39
+                    - cell [ref=f2e1388]:
+                      - checkbox "Native Rx FFE taps Post-tap38 启用" [ref=f2e1389]
+                    - cell [ref=f2e1390]:
+                      - spinbutton "Native Rx FFE taps Post-tap38 权重" [ref=f2e1391]: "0"
+                  - row [ref=f2e1392]:
+                    - rowheader "Post-tap39 index 40" [ref=f2e1393]:
+                      - text: Post-tap39
+                      - generic [ref=f2e1394]: index 40
+                    - cell [ref=f2e1395]:
+                      - checkbox "Native Rx FFE taps Post-tap39 启用" [ref=f2e1396]
+                    - cell [ref=f2e1397]:
+                      - spinbutton "Native Rx FFE taps Post-tap39 权重" [ref=f2e1398]: "0"
+                  - row [ref=f2e1399]:
+                    - rowheader "Post-tap40 index 41" [ref=f2e1400]:
+                      - text: Post-tap40
+                      - generic [ref=f2e1401]: index 41
+                    - cell [ref=f2e1402]:
+                      - checkbox "Native Rx FFE taps Post-tap40 启用" [ref=f2e1403]
+                    - cell [ref=f2e1404]:
+                      - spinbutton "Native Rx FFE taps Post-tap40 权重" [ref=f2e1405]: "0"
+                  - row [ref=f2e1406]:
+                    - rowheader "Post-tap41 index 42" [ref=f2e1407]:
+                      - text: Post-tap41
+                      - generic [ref=f2e1408]: index 42
+                    - cell [ref=f2e1409]:
+                      - checkbox "Native Rx FFE taps Post-tap41 启用" [ref=f2e1410]
+                    - cell [ref=f2e1411]:
+                      - spinbutton "Native Rx FFE taps Post-tap41 权重" [ref=f2e1412]: "0"
+                  - row [ref=f2e1413]:
+                    - rowheader "Post-tap42 index 43" [ref=f2e1414]:
+                      - text: Post-tap42
+                      - generic [ref=f2e1415]: index 43
+                    - cell [ref=f2e1416]:
+                      - checkbox "Native Rx FFE taps Post-tap42 启用" [ref=f2e1417]
+                    - cell [ref=f2e1418]:
+                      - spinbutton "Native Rx FFE taps Post-tap42 权重" [ref=f2e1419]: "0"
+                  - row [ref=f2e1420]:
+                    - rowheader "Post-tap43 index 44" [ref=f2e1421]:
+                      - text: Post-tap43
+                      - generic [ref=f2e1422]: index 44
+                    - cell [ref=f2e1423]:
+                      - checkbox "Native Rx FFE taps Post-tap43 启用" [ref=f2e1424]
+                    - cell [ref=f2e1425]:
+                      - spinbutton "Native Rx FFE taps Post-tap43 权重" [ref=f2e1426]: "0"
+                  - row [ref=f2e1427]:
+                    - rowheader "Post-tap44 index 45" [ref=f2e1428]:
+                      - text: Post-tap44
+                      - generic [ref=f2e1429]: index 45
+                    - cell [ref=f2e1430]:
+                      - checkbox "Native Rx FFE taps Post-tap44 启用" [ref=f2e1431]
+                    - cell [ref=f2e1432]:
+                      - spinbutton "Native Rx FFE taps Post-tap44 权重" [ref=f2e1433]: "0"
+                  - row [ref=f2e1434]:
+                    - rowheader "Post-tap45 index 46" [ref=f2e1435]:
+                      - text: Post-tap45
+                      - generic [ref=f2e1436]: index 46
+                    - cell [ref=f2e1437]:
+                      - checkbox "Native Rx FFE taps Post-tap45 启用" [ref=f2e1438]
+                    - cell [ref=f2e1439]:
+                      - spinbutton "Native Rx FFE taps Post-tap45 权重" [ref=f2e1440]: "0"
+                  - row [ref=f2e1441]:
+                    - rowheader "Post-tap46 index 47" [ref=f2e1442]:
+                      - text: Post-tap46
+                      - generic [ref=f2e1443]: index 47
+                    - cell [ref=f2e1444]:
+                      - checkbox "Native Rx FFE taps Post-tap46 启用" [ref=f2e1445]
+                    - cell [ref=f2e1446]:
+                      - spinbutton "Native Rx FFE taps Post-tap46 权重" [ref=f2e1447]: "0"
+                  - row [ref=f2e1448]:
+                    - rowheader "Post-tap47 index 48" [ref=f2e1449]:
+                      - text: Post-tap47
+                      - generic [ref=f2e1450]: index 48
+                    - cell [ref=f2e1451]:
+                      - checkbox "Native Rx FFE taps Post-tap47 启用" [ref=f2e1452]
+                    - cell [ref=f2e1453]:
+                      - spinbutton "Native Rx FFE taps Post-tap47 权重" [ref=f2e1454]: "0"
+                  - row [ref=f2e1455]:
+                    - rowheader "Post-tap48 index 49" [ref=f2e1456]:
+                      - text: Post-tap48
+                      - generic [ref=f2e1457]: index 49
+                    - cell [ref=f2e1458]:
+                      - checkbox "Native Rx FFE taps Post-tap48 启用" [ref=f2e1459]
+                    - cell [ref=f2e1460]:
+                      - spinbutton "Native Rx FFE taps Post-tap48 权重" [ref=f2e1461]: "0"
+                  - row [ref=f2e1462]:
+                    - rowheader "Post-tap49 index 50" [ref=f2e1463]:
+                      - text: Post-tap49
+                      - generic [ref=f2e1464]: index 50
+                    - cell [ref=f2e1465]:
+                      - checkbox "Native Rx FFE taps Post-tap49 启用" [ref=f2e1466]
+                    - cell [ref=f2e1467]:
+                      - spinbutton "Native Rx FFE taps Post-tap49 权重" [ref=f2e1468]: "0"
+                  - row [ref=f2e1469]:
+                    - rowheader "Post-tap50 index 51" [ref=f2e1470]:
+                      - text: Post-tap50
+                      - generic [ref=f2e1471]: index 51
+                    - cell [ref=f2e1472]:
+                      - checkbox "Native Rx FFE taps Post-tap50 启用" [ref=f2e1473]
+                    - cell [ref=f2e1474]:
+                      - spinbutton "Native Rx FFE taps Post-tap50 权重" [ref=f2e1475]: "0"
+                  - row [ref=f2e1476]:
+                    - rowheader "Post-tap51 index 52" [ref=f2e1477]:
+                      - text: Post-tap51
+                      - generic [ref=f2e1478]: index 52
+                    - cell [ref=f2e1479]:
+                      - checkbox "Native Rx FFE taps Post-tap51 启用" [ref=f2e1480]
+                    - cell [ref=f2e1481]:
+                      - spinbutton "Native Rx FFE taps Post-tap51 权重" [ref=f2e1482]: "0"
+                  - row [ref=f2e1483]:
+                    - rowheader "Post-tap52 index 53" [ref=f2e1484]:
+                      - text: Post-tap52
+                      - generic [ref=f2e1485]: index 53
+                    - cell [ref=f2e1486]:
+                      - checkbox "Native Rx FFE taps Post-tap52 启用" [ref=f2e1487]
+                    - cell [ref=f2e1488]:
+                      - spinbutton "Native Rx FFE taps Post-tap52 权重" [ref=f2e1489]: "0"
+                  - row [ref=f2e1490]:
+                    - rowheader "Post-tap53 index 54" [ref=f2e1491]:
+                      - text: Post-tap53
+                      - generic [ref=f2e1492]: index 54
+                    - cell [ref=f2e1493]:
+                      - checkbox "Native Rx FFE taps Post-tap53 启用" [ref=f2e1494]
+                    - cell [ref=f2e1495]:
+                      - spinbutton "Native Rx FFE taps Post-tap53 权重" [ref=f2e1496]: "0"
+                  - row [ref=f2e1497]:
+                    - rowheader "Post-tap54 index 55" [ref=f2e1498]:
+                      - text: Post-tap54
+                      - generic [ref=f2e1499]: index 55
+                    - cell [ref=f2e1500]:
+                      - checkbox "Native Rx FFE taps Post-tap54 启用" [ref=f2e1501]
+                    - cell [ref=f2e1502]:
+                      - spinbutton "Native Rx FFE taps Post-tap54 权重" [ref=f2e1503]: "0"
+                  - row [ref=f2e1504]:
+                    - rowheader "Post-tap55 index 56" [ref=f2e1505]:
+                      - text: Post-tap55
+                      - generic [ref=f2e1506]: index 56
+                    - cell [ref=f2e1507]:
+                      - checkbox "Native Rx FFE taps Post-tap55 启用" [ref=f2e1508]
+                    - cell [ref=f2e1509]:
+                      - spinbutton "Native Rx FFE taps Post-tap55 权重" [ref=f2e1510]: "0"
+                  - row [ref=f2e1511]:
+                    - rowheader "Post-tap56 index 57" [ref=f2e1512]:
+                      - text: Post-tap56
+                      - generic [ref=f2e1513]: index 57
+                    - cell [ref=f2e1514]:
+                      - checkbox "Native Rx FFE taps Post-tap56 启用" [ref=f2e1515]
+                    - cell [ref=f2e1516]:
+                      - spinbutton "Native Rx FFE taps Post-tap56 权重" [ref=f2e1517]: "0"
+                  - row [ref=f2e1518]:
+                    - rowheader "Post-tap57 index 58" [ref=f2e1519]:
+                      - text: Post-tap57
+                      - generic [ref=f2e1520]: index 58
+                    - cell [ref=f2e1521]:
+                      - checkbox "Native Rx FFE taps Post-tap57 启用" [ref=f2e1522]
+                    - cell [ref=f2e1523]:
+                      - spinbutton "Native Rx FFE taps Post-tap57 权重" [ref=f2e1524]: "0"
+                  - row [ref=f2e1525]:
+                    - rowheader "Post-tap58 index 59" [ref=f2e1526]:
+                      - text: Post-tap58
+                      - generic [ref=f2e1527]: index 59
+                    - cell [ref=f2e1528]:
+                      - checkbox "Native Rx FFE taps Post-tap58 启用" [ref=f2e1529]
+                    - cell [ref=f2e1530]:
+                      - spinbutton "Native Rx FFE taps Post-tap58 权重" [ref=f2e1531]: "0"
+                  - row [ref=f2e1532]:
+                    - rowheader "Post-tap59 index 60" [ref=f2e1533]:
+                      - text: Post-tap59
+                      - generic [ref=f2e1534]: index 60
+                    - cell [ref=f2e1535]:
+                      - checkbox "Native Rx FFE taps Post-tap59 启用" [ref=f2e1536]
+                    - cell [ref=f2e1537]:
+                      - spinbutton "Native Rx FFE taps Post-tap59 权重" [ref=f2e1538]: "0"
+                  - row [ref=f2e1539]:
+                    - rowheader "Post-tap60 index 61" [ref=f2e1540]:
+                      - text: Post-tap60
+                      - generic [ref=f2e1541]: index 61
+                    - cell [ref=f2e1542]:
+                      - checkbox "Native Rx FFE taps Post-tap60 启用" [ref=f2e1543]
+                    - cell [ref=f2e1544]:
+                      - spinbutton "Native Rx FFE taps Post-tap60 权重" [ref=f2e1545]: "0"
+                  - row [ref=f2e1546]:
+                    - rowheader "Post-tap61 index 62" [ref=f2e1547]:
+                      - text: Post-tap61
+                      - generic [ref=f2e1548]: index 62
+                    - cell [ref=f2e1549]:
+                      - checkbox "Native Rx FFE taps Post-tap61 启用" [ref=f2e1550]
+                    - cell [ref=f2e1551]:
+                      - spinbutton "Native Rx FFE taps Post-tap61 权重" [ref=f2e1552]: "0"
+                  - row [ref=f2e1553]:
+                    - rowheader "Post-tap62 index 63" [ref=f2e1554]:
+                      - text: Post-tap62
+                      - generic [ref=f2e1555]: index 63
+                    - cell [ref=f2e1556]:
+                      - checkbox "Native Rx FFE taps Post-tap62 启用" [ref=f2e1557]
+                    - cell [ref=f2e1558]:
+                      - spinbutton "Native Rx FFE taps Post-tap62 权重" [ref=f2e1559]: "0"
+                  - row [ref=f2e1560]:
+                    - rowheader "Post-tap63 index 64" [ref=f2e1561]:
+                      - text: Post-tap63
+                      - generic [ref=f2e1562]: index 64
+                    - cell [ref=f2e1563]:
+                      - checkbox "Native Rx FFE taps Post-tap63 启用" [ref=f2e1564]
+                    - cell [ref=f2e1565]:
+                      - spinbutton "Native Rx FFE taps Post-tap63 权重" [ref=f2e1566]: "0"
+                  - row [ref=f2e1567]:
+                    - rowheader "Post-tap64 index 65" [ref=f2e1568]:
+                      - text: Post-tap64
+                      - generic [ref=f2e1569]: index 65
+                    - cell [ref=f2e1570]:
+                      - checkbox "Native Rx FFE taps Post-tap64 启用" [ref=f2e1571]
+                    - cell [ref=f2e1572]:
+                      - spinbutton "Native Rx FFE taps Post-tap64 权重" [ref=f2e1573]: "0"
+                  - row [ref=f2e1574]:
+                    - rowheader "Post-tap65 index 66" [ref=f2e1575]:
+                      - text: Post-tap65
+                      - generic [ref=f2e1576]: index 66
+                    - cell [ref=f2e1577]:
+                      - checkbox "Native Rx FFE taps Post-tap65 启用" [ref=f2e1578]
+                    - cell [ref=f2e1579]:
+                      - spinbutton "Native Rx FFE taps Post-tap65 权重" [ref=f2e1580]: "0"
+                  - row [ref=f2e1581]:
+                    - rowheader "Post-tap66 index 67" [ref=f2e1582]:
+                      - text: Post-tap66
+                      - generic [ref=f2e1583]: index 67
+                    - cell [ref=f2e1584]:
+                      - checkbox "Native Rx FFE taps Post-tap66 启用" [ref=f2e1585]
+                    - cell [ref=f2e1586]:
+                      - spinbutton "Native Rx FFE taps Post-tap66 权重" [ref=f2e1587]: "0"
+                  - row [ref=f2e1588]:
+                    - rowheader "Post-tap67 index 68" [ref=f2e1589]:
+                      - text: Post-tap67
+                      - generic [ref=f2e1590]: index 68
+                    - cell [ref=f2e1591]:
+                      - checkbox "Native Rx FFE taps Post-tap67 启用" [ref=f2e1592]
+                    - cell [ref=f2e1593]:
+                      - spinbutton "Native Rx FFE taps Post-tap67 权重" [ref=f2e1594]: "0"
+                  - row [ref=f2e1595]:
+                    - rowheader "Post-tap68 index 69" [ref=f2e1596]:
+                      - text: Post-tap68
+                      - generic [ref=f2e1597]: index 69
+                    - cell [ref=f2e1598]:
+                      - checkbox "Native Rx FFE taps Post-tap68 启用" [ref=f2e1599]
+                    - cell [ref=f2e1600]:
+                      - spinbutton "Native Rx FFE taps Post-tap68 权重" [ref=f2e1601]: "0"
+                  - row [ref=f2e1602]:
+                    - rowheader "Post-tap69 index 70" [ref=f2e1603]:
+                      - text: Post-tap69
+                      - generic [ref=f2e1604]: index 70
+                    - cell [ref=f2e1605]:
+                      - checkbox "Native Rx FFE taps Post-tap69 启用" [ref=f2e1606]
+                    - cell [ref=f2e1607]:
+                      - spinbutton "Native Rx FFE taps Post-tap69 权重" [ref=f2e1608]: "0"
+                  - row [ref=f2e1609]:
+                    - rowheader "Post-tap70 index 71" [ref=f2e1610]:
+                      - text: Post-tap70
+                      - generic [ref=f2e1611]: index 71
+                    - cell [ref=f2e1612]:
+                      - checkbox "Native Rx FFE taps Post-tap70 启用" [ref=f2e1613]
+                    - cell [ref=f2e1614]:
+                      - spinbutton "Native Rx FFE taps Post-tap70 权重" [ref=f2e1615]: "0"
+                  - row [ref=f2e1616]:
+                    - rowheader "Post-tap71 index 72" [ref=f2e1617]:
+                      - text: Post-tap71
+                      - generic [ref=f2e1618]: index 72
+                    - cell [ref=f2e1619]:
+                      - checkbox "Native Rx FFE taps Post-tap71 启用" [ref=f2e1620]
+                    - cell [ref=f2e1621]:
+                      - spinbutton "Native Rx FFE taps Post-tap71 权重" [ref=f2e1622]: "0"
+                  - row [ref=f2e1623]:
+                    - rowheader "Post-tap72 index 73" [ref=f2e1624]:
+                      - text: Post-tap72
+                      - generic [ref=f2e1625]: index 73
+                    - cell [ref=f2e1626]:
+                      - checkbox "Native Rx FFE taps Post-tap72 启用" [ref=f2e1627]
+                    - cell [ref=f2e1628]:
+                      - spinbutton "Native Rx FFE taps Post-tap72 权重" [ref=f2e1629]: "0"
+                  - row [ref=f2e1630]:
+                    - rowheader "Post-tap73 index 74" [ref=f2e1631]:
+                      - text: Post-tap73
+                      - generic [ref=f2e1632]: index 74
+                    - cell [ref=f2e1633]:
+                      - checkbox "Native Rx FFE taps Post-tap73 启用" [ref=f2e1634]
+                    - cell [ref=f2e1635]:
+                      - spinbutton "Native Rx FFE taps Post-tap73 权重" [ref=f2e1636]: "0"
+                  - row [ref=f2e1637]:
+                    - rowheader "Post-tap74 index 75" [ref=f2e1638]:
+                      - text: Post-tap74
+                      - generic [ref=f2e1639]: index 75
+                    - cell [ref=f2e1640]:
+                      - checkbox "Native Rx FFE taps Post-tap74 启用" [ref=f2e1641]
+                    - cell [ref=f2e1642]:
+                      - spinbutton "Native Rx FFE taps Post-tap74 权重" [ref=f2e1643]: "0"
+                  - row [ref=f2e1644]:
+                    - rowheader "Post-tap75 index 76" [ref=f2e1645]:
+                      - text: Post-tap75
+                      - generic [ref=f2e1646]: index 76
+                    - cell [ref=f2e1647]:
+                      - checkbox "Native Rx FFE taps Post-tap75 启用" [ref=f2e1648]
+                    - cell [ref=f2e1649]:
+                      - spinbutton "Native Rx FFE taps Post-tap75 权重" [ref=f2e1650]: "0"
+                  - row [ref=f2e1651]:
+                    - rowheader "Post-tap76 index 77" [ref=f2e1652]:
+                      - text: Post-tap76
+                      - generic [ref=f2e1653]: index 77
+                    - cell [ref=f2e1654]:
+                      - checkbox "Native Rx FFE taps Post-tap76 启用" [ref=f2e1655]
+                    - cell [ref=f2e1656]:
+                      - spinbutton "Native Rx FFE taps Post-tap76 权重" [ref=f2e1657]: "0"
+                  - row [ref=f2e1658]:
+                    - rowheader "Post-tap77 index 78" [ref=f2e1659]:
+                      - text: Post-tap77
+                      - generic [ref=f2e1660]: index 78
+                    - cell [ref=f2e1661]:
+                      - checkbox "Native Rx FFE taps Post-tap77 启用" [ref=f2e1662]
+                    - cell [ref=f2e1663]:
+                      - spinbutton "Native Rx FFE taps Post-tap77 权重" [ref=f2e1664]: "0"
+                  - row [ref=f2e1665]:
+                    - rowheader "Post-tap78 index 79" [ref=f2e1666]:
+                      - text: Post-tap78
+                      - generic [ref=f2e1667]: index 79
+                    - cell [ref=f2e1668]:
+                      - checkbox "Native Rx FFE taps Post-tap78 启用" [ref=f2e1669]
+                    - cell [ref=f2e1670]:
+                      - spinbutton "Native Rx FFE taps Post-tap78 权重" [ref=f2e1671]: "0"
+                  - row [ref=f2e1672]:
+                    - rowheader "Post-tap79 index 80" [ref=f2e1673]:
+                      - text: Post-tap79
+                      - generic [ref=f2e1674]: index 80
+                    - cell [ref=f2e1675]:
+                      - checkbox "Native Rx FFE taps Post-tap79 启用" [ref=f2e1676]
+                    - cell [ref=f2e1677]:
+                      - spinbutton "Native Rx FFE taps Post-tap79 权重" [ref=f2e1678]: "0"
+                  - row [ref=f2e1679]:
+                    - rowheader "Post-tap80 index 81" [ref=f2e1680]:
+                      - text: Post-tap80
+                      - generic [ref=f2e1681]: index 81
+                    - cell [ref=f2e1682]:
+                      - checkbox "Native Rx FFE taps Post-tap80 启用" [ref=f2e1683]
+                    - cell [ref=f2e1684]:
+                      - spinbutton "Native Rx FFE taps Post-tap80 权重" [ref=f2e1685]: "0"
+                  - row [ref=f2e1686]:
+                    - rowheader "Post-tap81 index 82" [ref=f2e1687]:
+                      - text: Post-tap81
+                      - generic [ref=f2e1688]: index 82
+                    - cell [ref=f2e1689]:
+                      - checkbox "Native Rx FFE taps Post-tap81 启用" [ref=f2e1690]
+                    - cell [ref=f2e1691]:
+                      - spinbutton "Native Rx FFE taps Post-tap81 权重" [ref=f2e1692]: "0"
+                  - row [ref=f2e1693]:
+                    - rowheader "Post-tap82 index 83" [ref=f2e1694]:
+                      - text: Post-tap82
+                      - generic [ref=f2e1695]: index 83
+                    - cell [ref=f2e1696]:
+                      - checkbox "Native Rx FFE taps Post-tap82 启用" [ref=f2e1697]
+                    - cell [ref=f2e1698]:
+                      - spinbutton "Native Rx FFE taps Post-tap82 权重" [ref=f2e1699]: "0"
+                  - row [ref=f2e1700]:
+                    - rowheader "Post-tap83 index 84" [ref=f2e1701]:
+                      - text: Post-tap83
+                      - generic [ref=f2e1702]: index 84
+                    - cell [ref=f2e1703]:
+                      - checkbox "Native Rx FFE taps Post-tap83 启用" [ref=f2e1704]
+                    - cell [ref=f2e1705]:
+                      - spinbutton "Native Rx FFE taps Post-tap83 权重" [ref=f2e1706]: "0"
+                  - row [ref=f2e1707]:
+                    - rowheader "Post-tap84 index 85" [ref=f2e1708]:
+                      - text: Post-tap84
+                      - generic [ref=f2e1709]: index 85
+                    - cell [ref=f2e1710]:
+                      - checkbox "Native Rx FFE taps Post-tap84 启用" [ref=f2e1711]
+                    - cell [ref=f2e1712]:
+                      - spinbutton "Native Rx FFE taps Post-tap84 权重" [ref=f2e1713]: "0"
+                  - row [ref=f2e1714]:
+                    - rowheader "Post-tap85 index 86" [ref=f2e1715]:
+                      - text: Post-tap85
+                      - generic [ref=f2e1716]: index 86
+                    - cell [ref=f2e1717]:
+                      - checkbox "Native Rx FFE taps Post-tap85 启用" [ref=f2e1718]
+                    - cell [ref=f2e1719]:
+                      - spinbutton "Native Rx FFE taps Post-tap85 权重" [ref=f2e1720]: "0"
+                  - row [ref=f2e1721]:
+                    - rowheader "Post-tap86 index 87" [ref=f2e1722]:
+                      - text: Post-tap86
+                      - generic [ref=f2e1723]: index 87
+                    - cell [ref=f2e1724]:
+                      - checkbox "Native Rx FFE taps Post-tap86 启用" [ref=f2e1725]
+                    - cell [ref=f2e1726]:
+                      - spinbutton "Native Rx FFE taps Post-tap86 权重" [ref=f2e1727]: "0"
+                  - row [ref=f2e1728]:
+                    - rowheader "Post-tap87 index 88" [ref=f2e1729]:
+                      - text: Post-tap87
+                      - generic [ref=f2e1730]: index 88
+                    - cell [ref=f2e1731]:
+                      - checkbox "Native Rx FFE taps Post-tap87 启用" [ref=f2e1732]
+                    - cell [ref=f2e1733]:
+                      - spinbutton "Native Rx FFE taps Post-tap87 权重" [ref=f2e1734]: "0"
+                  - row [ref=f2e1735]:
+                    - rowheader "Post-tap88 index 89" [ref=f2e1736]:
+                      - text: Post-tap88
+                      - generic [ref=f2e1737]: index 89
+                    - cell [ref=f2e1738]:
+                      - checkbox "Native Rx FFE taps Post-tap88 启用" [ref=f2e1739]
+                    - cell [ref=f2e1740]:
+                      - spinbutton "Native Rx FFE taps Post-tap88 权重" [ref=f2e1741]: "0"
+                  - row [ref=f2e1742]:
+                    - rowheader "Post-tap89 index 90" [ref=f2e1743]:
+                      - text: Post-tap89
+                      - generic [ref=f2e1744]: index 90
+                    - cell [ref=f2e1745]:
+                      - checkbox "Native Rx FFE taps Post-tap89 启用" [ref=f2e1746]
+                    - cell [ref=f2e1747]:
+                      - spinbutton "Native Rx FFE taps Post-tap89 权重" [ref=f2e1748]: "0"
+                  - row [ref=f2e1749]:
+                    - rowheader "Post-tap90 index 91" [ref=f2e1750]:
+                      - text: Post-tap90
+                      - generic [ref=f2e1751]: index 91
+                    - cell [ref=f2e1752]:
+                      - checkbox "Native Rx FFE taps Post-tap90 启用" [ref=f2e1753]
+                    - cell [ref=f2e1754]:
+                      - spinbutton "Native Rx FFE taps Post-tap90 权重" [ref=f2e1755]: "0"
+                  - row [ref=f2e1756]:
+                    - rowheader "Post-tap91 index 92" [ref=f2e1757]:
+                      - text: Post-tap91
+                      - generic [ref=f2e1758]: index 92
+                    - cell [ref=f2e1759]:
+                      - checkbox "Native Rx FFE taps Post-tap91 启用" [ref=f2e1760]
+                    - cell [ref=f2e1761]:
+                      - spinbutton "Native Rx FFE taps Post-tap91 权重" [ref=f2e1762]: "0"
+                  - row [ref=f2e1763]:
+                    - rowheader "Post-tap92 index 93" [ref=f2e1764]:
+                      - text: Post-tap92
+                      - generic [ref=f2e1765]: index 93
+                    - cell [ref=f2e1766]:
+                      - checkbox "Native Rx FFE taps Post-tap92 启用" [ref=f2e1767]
+                    - cell [ref=f2e1768]:
+                      - spinbutton "Native Rx FFE taps Post-tap92 权重" [ref=f2e1769]: "0"
+                  - row [ref=f2e1770]:
+                    - rowheader "Post-tap93 index 94" [ref=f2e1771]:
+                      - text: Post-tap93
+                      - generic [ref=f2e1772]: index 94
+                    - cell [ref=f2e1773]:
+                      - checkbox "Native Rx FFE taps Post-tap93 启用" [ref=f2e1774]
+                    - cell [ref=f2e1775]:
+                      - spinbutton "Native Rx FFE taps Post-tap93 权重" [ref=f2e1776]: "0"
+                  - row [ref=f2e1777]:
+                    - rowheader "Post-tap94 index 95" [ref=f2e1778]:
+                      - text: Post-tap94
+                      - generic [ref=f2e1779]: index 95
+                    - cell [ref=f2e1780]:
+                      - checkbox "Native Rx FFE taps Post-tap94 启用" [ref=f2e1781]
+                    - cell [ref=f2e1782]:
+                      - spinbutton "Native Rx FFE taps Post-tap94 权重" [ref=f2e1783]: "0"
+                  - row [ref=f2e1784]:
+                    - rowheader "Post-tap95 index 96" [ref=f2e1785]:
+                      - text: Post-tap95
+                      - generic [ref=f2e1786]: index 96
+                    - cell [ref=f2e1787]:
+                      - checkbox "Native Rx FFE taps Post-tap95 启用" [ref=f2e1788]
+                    - cell [ref=f2e1789]:
+                      - spinbutton "Native Rx FFE taps Post-tap95 权重" [ref=f2e1790]: "0"
+                  - row [ref=f2e1791]:
+                    - rowheader "Post-tap96 index 97" [ref=f2e1792]:
+                      - text: Post-tap96
+                      - generic [ref=f2e1793]: index 97
+                    - cell [ref=f2e1794]:
+                      - checkbox "Native Rx FFE taps Post-tap96 启用" [ref=f2e1795]
+                    - cell [ref=f2e1796]:
+                      - spinbutton "Native Rx FFE taps Post-tap96 权重" [ref=f2e1797]: "0"
+                  - row [ref=f2e1798]:
+                    - rowheader "Post-tap97 index 98" [ref=f2e1799]:
+                      - text: Post-tap97
+                      - generic [ref=f2e1800]: index 98
+                    - cell [ref=f2e1801]:
+                      - checkbox "Native Rx FFE taps Post-tap97 启用" [ref=f2e1802]
+                    - cell [ref=f2e1803]:
+                      - spinbutton "Native Rx FFE taps Post-tap97 权重" [ref=f2e1804]: "0"
+                  - row [ref=f2e1805]:
+                    - rowheader "Post-tap98 index 99" [ref=f2e1806]:
+                      - text: Post-tap98
+                      - generic [ref=f2e1807]: index 99
+                    - cell [ref=f2e1808]:
+                      - checkbox "Native Rx FFE taps Post-tap98 启用" [ref=f2e1809]
+                    - cell [ref=f2e1810]:
+                      - spinbutton "Native Rx FFE taps Post-tap98 权重" [ref=f2e1811]: "0"
+            - group [ref=f2e1812]:
+              - generic "− Rx FFE 搜索范围 Optimizer · 展开编辑" [ref=f2e1813] [cursor=pointer]:
+                - text: − Rx FFE 搜索范围
+                - generic [ref=f2e1814]: Optimizer · 展开编辑
+              - paragraph [ref=f2e1815]: 完整显示 100 个槽位。Enabled 只读并随 Ntaps/Npre 更新；Value 属于所选优化的获选候选，与实际 Rx taps 分开。
+              - table [ref=f2e1817]:
+                - rowgroup [ref=f2e1818]:
+                  - row [ref=f2e1819]:
+                    - columnheader "Name / Tap" [ref=f2e1820]
+                    - columnheader "启用 · 只读" [ref=f2e1821]
+                    - columnheader "最小权重" [ref=f2e1822]
+                    - columnheader "最大权重" [ref=f2e1823]
+                    - columnheader "搜索步长" [ref=f2e1824]
+                    - columnheader "权重 · 只读" [ref=f2e1825]
+                - rowgroup [ref=f2e1826]:
+                  - row [ref=f2e1827]:
+                    - rowheader "Pre-tap1 index 0" [ref=f2e1828]:
+                      - text: Pre-tap1
+                      - generic [ref=f2e1829]: index 0
+                    - cell "Rx FFE 搜索范围 Pre-tap1 启用状态只读" [ref=f2e1830]: "True"
+                    - cell [ref=f2e1831]:
+                      - spinbutton "Rx FFE 搜索范围 Pre-tap1 最小权重" [ref=f2e1832]: "0"
+                    - cell [ref=f2e1833]:
+                      - spinbutton "Rx FFE 搜索范围 Pre-tap1 最大权重" [ref=f2e1834]: "0"
+                    - cell [ref=f2e1835]:
+                      - spinbutton "Rx FFE 搜索范围 Pre-tap1 搜索步长" [ref=f2e1836]: "1"
+                    - cell "0" [ref=f2e1837]
+                  - row [ref=f2e1838]:
+                    - rowheader "Cursor index 1" [ref=f2e1839]:
+                      - text: Cursor
+                      - generic [ref=f2e1840]: index 1
+                    - cell "Rx FFE 搜索范围 Cursor 启用状态只读" [ref=f2e1841]: "True"
+                    - cell [ref=f2e1842]:
+                      - spinbutton "Rx FFE 搜索范围 Cursor 最小权重" [ref=f2e1843]: "1"
+                    - cell [ref=f2e1844]:
+                      - spinbutton "Rx FFE 搜索范围 Cursor 最大权重" [ref=f2e1845]: "1"
+                    - cell [ref=f2e1846]:
+                      - spinbutton "Rx FFE 搜索范围 Cursor 搜索步长" [ref=f2e1847]: "1"
+                    - cell "1" [ref=f2e1848]
+                  - row [ref=f2e1849]:
+                    - rowheader "Post-tap1 index 2" [ref=f2e1850]:
+                      - text: Post-tap1
+                      - generic [ref=f2e1851]: index 2
+                    - cell "Rx FFE 搜索范围 Post-tap1 启用状态只读" [ref=f2e1852]: "True"
+                    - cell [ref=f2e1853]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap1 最小权重" [ref=f2e1854]: "-0.03"
+                    - cell [ref=f2e1855]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap1 最大权重" [ref=f2e1856]: "0"
+                    - cell [ref=f2e1857]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap1 搜索步长" [ref=f2e1858]: "0.03"
+                    - cell "-0.03" [ref=f2e1859]
+                  - row [ref=f2e1860]:
+                    - rowheader "Post-tap2 index 3" [ref=f2e1861]:
+                      - text: Post-tap2
+                      - generic [ref=f2e1862]: index 3
+                    - cell "Rx FFE 搜索范围 Post-tap2 启用状态只读" [ref=f2e1863]: "False"
+                    - cell [ref=f2e1864]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap2 最小权重" [ref=f2e1865]: "0"
+                    - cell [ref=f2e1866]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap2 最大权重" [ref=f2e1867]: "0"
+                    - cell [ref=f2e1868]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap2 搜索步长" [ref=f2e1869]: "1"
+                    - cell "0" [ref=f2e1870]
+                  - row [ref=f2e1871]:
+                    - rowheader "Post-tap3 index 4" [ref=f2e1872]:
+                      - text: Post-tap3
+                      - generic [ref=f2e1873]: index 4
+                    - cell "Rx FFE 搜索范围 Post-tap3 启用状态只读" [ref=f2e1874]: "False"
+                    - cell [ref=f2e1875]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap3 最小权重" [ref=f2e1876]: "0"
+                    - cell [ref=f2e1877]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap3 最大权重" [ref=f2e1878]: "0"
+                    - cell [ref=f2e1879]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap3 搜索步长" [ref=f2e1880]: "1"
+                    - cell "0" [ref=f2e1881]
+                  - row [ref=f2e1882]:
+                    - rowheader "Post-tap4 index 5" [ref=f2e1883]:
+                      - text: Post-tap4
+                      - generic [ref=f2e1884]: index 5
+                    - cell "Rx FFE 搜索范围 Post-tap4 启用状态只读" [ref=f2e1885]: "False"
+                    - cell [ref=f2e1886]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap4 最小权重" [ref=f2e1887]: "0"
+                    - cell [ref=f2e1888]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap4 最大权重" [ref=f2e1889]: "0"
+                    - cell [ref=f2e1890]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap4 搜索步长" [ref=f2e1891]: "1"
+                    - cell "0" [ref=f2e1892]
+                  - row [ref=f2e1893]:
+                    - rowheader "Post-tap5 index 6" [ref=f2e1894]:
+                      - text: Post-tap5
+                      - generic [ref=f2e1895]: index 6
+                    - cell "Rx FFE 搜索范围 Post-tap5 启用状态只读" [ref=f2e1896]: "False"
+                    - cell [ref=f2e1897]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap5 最小权重" [ref=f2e1898]: "0"
+                    - cell [ref=f2e1899]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap5 最大权重" [ref=f2e1900]: "0"
+                    - cell [ref=f2e1901]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap5 搜索步长" [ref=f2e1902]: "1"
+                    - cell "0" [ref=f2e1903]
+                  - row [ref=f2e1904]:
+                    - rowheader "Post-tap6 index 7" [ref=f2e1905]:
+                      - text: Post-tap6
+                      - generic [ref=f2e1906]: index 7
+                    - cell "Rx FFE 搜索范围 Post-tap6 启用状态只读" [ref=f2e1907]: "False"
+                    - cell [ref=f2e1908]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap6 最小权重" [ref=f2e1909]: "0"
+                    - cell [ref=f2e1910]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap6 最大权重" [ref=f2e1911]: "0"
+                    - cell [ref=f2e1912]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap6 搜索步长" [ref=f2e1913]: "1"
+                    - cell "0" [ref=f2e1914]
+                  - row [ref=f2e1915]:
+                    - rowheader "Post-tap7 index 8" [ref=f2e1916]:
+                      - text: Post-tap7
+                      - generic [ref=f2e1917]: index 8
+                    - cell "Rx FFE 搜索范围 Post-tap7 启用状态只读" [ref=f2e1918]: "False"
+                    - cell [ref=f2e1919]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap7 最小权重" [ref=f2e1920]: "0"
+                    - cell [ref=f2e1921]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap7 最大权重" [ref=f2e1922]: "0"
+                    - cell [ref=f2e1923]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap7 搜索步长" [ref=f2e1924]: "1"
+                    - cell "0" [ref=f2e1925]
+                  - row [ref=f2e1926]:
+                    - rowheader "Post-tap8 index 9" [ref=f2e1927]:
+                      - text: Post-tap8
+                      - generic [ref=f2e1928]: index 9
+                    - cell "Rx FFE 搜索范围 Post-tap8 启用状态只读" [ref=f2e1929]: "False"
+                    - cell [ref=f2e1930]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap8 最小权重" [ref=f2e1931]: "0"
+                    - cell [ref=f2e1932]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap8 最大权重" [ref=f2e1933]: "0"
+                    - cell [ref=f2e1934]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap8 搜索步长" [ref=f2e1935]: "1"
+                    - cell "0" [ref=f2e1936]
+                  - row [ref=f2e1937]:
+                    - rowheader "Post-tap9 index 10" [ref=f2e1938]:
+                      - text: Post-tap9
+                      - generic [ref=f2e1939]: index 10
+                    - cell "Rx FFE 搜索范围 Post-tap9 启用状态只读" [ref=f2e1940]: "False"
+                    - cell [ref=f2e1941]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap9 最小权重" [ref=f2e1942]: "0"
+                    - cell [ref=f2e1943]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap9 最大权重" [ref=f2e1944]: "0"
+                    - cell [ref=f2e1945]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap9 搜索步长" [ref=f2e1946]: "1"
+                    - cell "0" [ref=f2e1947]
+                  - row [ref=f2e1948]:
+                    - rowheader "Post-tap10 index 11" [ref=f2e1949]:
+                      - text: Post-tap10
+                      - generic [ref=f2e1950]: index 11
+                    - cell "Rx FFE 搜索范围 Post-tap10 启用状态只读" [ref=f2e1951]: "False"
+                    - cell [ref=f2e1952]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap10 最小权重" [ref=f2e1953]: "0"
+                    - cell [ref=f2e1954]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap10 最大权重" [ref=f2e1955]: "0"
+                    - cell [ref=f2e1956]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap10 搜索步长" [ref=f2e1957]: "1"
+                    - cell "0" [ref=f2e1958]
+                  - row [ref=f2e1959]:
+                    - rowheader "Post-tap11 index 12" [ref=f2e1960]:
+                      - text: Post-tap11
+                      - generic [ref=f2e1961]: index 12
+                    - cell "Rx FFE 搜索范围 Post-tap11 启用状态只读" [ref=f2e1962]: "False"
+                    - cell [ref=f2e1963]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap11 最小权重" [ref=f2e1964]: "0"
+                    - cell [ref=f2e1965]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap11 最大权重" [ref=f2e1966]: "0"
+                    - cell [ref=f2e1967]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap11 搜索步长" [ref=f2e1968]: "1"
+                    - cell "0" [ref=f2e1969]
+                  - row [ref=f2e1970]:
+                    - rowheader "Post-tap12 index 13" [ref=f2e1971]:
+                      - text: Post-tap12
+                      - generic [ref=f2e1972]: index 13
+                    - cell "Rx FFE 搜索范围 Post-tap12 启用状态只读" [ref=f2e1973]: "False"
+                    - cell [ref=f2e1974]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap12 最小权重" [ref=f2e1975]: "0"
+                    - cell [ref=f2e1976]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap12 最大权重" [ref=f2e1977]: "0"
+                    - cell [ref=f2e1978]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap12 搜索步长" [ref=f2e1979]: "1"
+                    - cell "0" [ref=f2e1980]
+                  - row [ref=f2e1981]:
+                    - rowheader "Post-tap13 index 14" [ref=f2e1982]:
+                      - text: Post-tap13
+                      - generic [ref=f2e1983]: index 14
+                    - cell "Rx FFE 搜索范围 Post-tap13 启用状态只读" [ref=f2e1984]: "False"
+                    - cell [ref=f2e1985]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap13 最小权重" [ref=f2e1986]: "0"
+                    - cell [ref=f2e1987]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap13 最大权重" [ref=f2e1988]: "0"
+                    - cell [ref=f2e1989]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap13 搜索步长" [ref=f2e1990]: "1"
+                    - cell "0" [ref=f2e1991]
+                  - row [ref=f2e1992]:
+                    - rowheader "Post-tap14 index 15" [ref=f2e1993]:
+                      - text: Post-tap14
+                      - generic [ref=f2e1994]: index 15
+                    - cell "Rx FFE 搜索范围 Post-tap14 启用状态只读" [ref=f2e1995]: "False"
+                    - cell [ref=f2e1996]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap14 最小权重" [ref=f2e1997]: "0"
+                    - cell [ref=f2e1998]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap14 最大权重" [ref=f2e1999]: "0"
+                    - cell [ref=f2e2000]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap14 搜索步长" [ref=f2e2001]: "1"
+                    - cell "0" [ref=f2e2002]
+                  - row [ref=f2e2003]:
+                    - rowheader "Post-tap15 index 16" [ref=f2e2004]:
+                      - text: Post-tap15
+                      - generic [ref=f2e2005]: index 16
+                    - cell "Rx FFE 搜索范围 Post-tap15 启用状态只读" [ref=f2e2006]: "False"
+                    - cell [ref=f2e2007]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap15 最小权重" [ref=f2e2008]: "0"
+                    - cell [ref=f2e2009]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap15 最大权重" [ref=f2e2010]: "0"
+                    - cell [ref=f2e2011]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap15 搜索步长" [ref=f2e2012]: "1"
+                    - cell "0" [ref=f2e2013]
+                  - row [ref=f2e2014]:
+                    - rowheader "Post-tap16 index 17" [ref=f2e2015]:
+                      - text: Post-tap16
+                      - generic [ref=f2e2016]: index 17
+                    - cell "Rx FFE 搜索范围 Post-tap16 启用状态只读" [ref=f2e2017]: "False"
+                    - cell [ref=f2e2018]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap16 最小权重" [ref=f2e2019]: "0"
+                    - cell [ref=f2e2020]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap16 最大权重" [ref=f2e2021]: "0"
+                    - cell [ref=f2e2022]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap16 搜索步长" [ref=f2e2023]: "1"
+                    - cell "0" [ref=f2e2024]
+                  - row [ref=f2e2025]:
+                    - rowheader "Post-tap17 index 18" [ref=f2e2026]:
+                      - text: Post-tap17
+                      - generic [ref=f2e2027]: index 18
+                    - cell "Rx FFE 搜索范围 Post-tap17 启用状态只读" [ref=f2e2028]: "False"
+                    - cell [ref=f2e2029]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap17 最小权重" [ref=f2e2030]: "0"
+                    - cell [ref=f2e2031]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap17 最大权重" [ref=f2e2032]: "0"
+                    - cell [ref=f2e2033]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap17 搜索步长" [ref=f2e2034]: "1"
+                    - cell "0" [ref=f2e2035]
+                  - row [ref=f2e2036]:
+                    - rowheader "Post-tap18 index 19" [ref=f2e2037]:
+                      - text: Post-tap18
+                      - generic [ref=f2e2038]: index 19
+                    - cell "Rx FFE 搜索范围 Post-tap18 启用状态只读" [ref=f2e2039]: "False"
+                    - cell [ref=f2e2040]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap18 最小权重" [ref=f2e2041]: "0"
+                    - cell [ref=f2e2042]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap18 最大权重" [ref=f2e2043]: "0"
+                    - cell [ref=f2e2044]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap18 搜索步长" [ref=f2e2045]: "1"
+                    - cell "0" [ref=f2e2046]
+                  - row [ref=f2e2047]:
+                    - rowheader "Post-tap19 index 20" [ref=f2e2048]:
+                      - text: Post-tap19
+                      - generic [ref=f2e2049]: index 20
+                    - cell "Rx FFE 搜索范围 Post-tap19 启用状态只读" [ref=f2e2050]: "False"
+                    - cell [ref=f2e2051]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap19 最小权重" [ref=f2e2052]: "0"
+                    - cell [ref=f2e2053]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap19 最大权重" [ref=f2e2054]: "0"
+                    - cell [ref=f2e2055]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap19 搜索步长" [ref=f2e2056]: "1"
+                    - cell "0" [ref=f2e2057]
+                  - row [ref=f2e2058]:
+                    - rowheader "Post-tap20 index 21" [ref=f2e2059]:
+                      - text: Post-tap20
+                      - generic [ref=f2e2060]: index 21
+                    - cell "Rx FFE 搜索范围 Post-tap20 启用状态只读" [ref=f2e2061]: "False"
+                    - cell [ref=f2e2062]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap20 最小权重" [ref=f2e2063]: "0"
+                    - cell [ref=f2e2064]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap20 最大权重" [ref=f2e2065]: "0"
+                    - cell [ref=f2e2066]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap20 搜索步长" [ref=f2e2067]: "1"
+                    - cell "0" [ref=f2e2068]
+                  - row [ref=f2e2069]:
+                    - rowheader "Post-tap21 index 22" [ref=f2e2070]:
+                      - text: Post-tap21
+                      - generic [ref=f2e2071]: index 22
+                    - cell "Rx FFE 搜索范围 Post-tap21 启用状态只读" [ref=f2e2072]: "False"
+                    - cell [ref=f2e2073]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap21 最小权重" [ref=f2e2074]: "0"
+                    - cell [ref=f2e2075]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap21 最大权重" [ref=f2e2076]: "0"
+                    - cell [ref=f2e2077]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap21 搜索步长" [ref=f2e2078]: "1"
+                    - cell "0" [ref=f2e2079]
+                  - row [ref=f2e2080]:
+                    - rowheader "Post-tap22 index 23" [ref=f2e2081]:
+                      - text: Post-tap22
+                      - generic [ref=f2e2082]: index 23
+                    - cell "Rx FFE 搜索范围 Post-tap22 启用状态只读" [ref=f2e2083]: "False"
+                    - cell [ref=f2e2084]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap22 最小权重" [ref=f2e2085]: "0"
+                    - cell [ref=f2e2086]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap22 最大权重" [ref=f2e2087]: "0"
+                    - cell [ref=f2e2088]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap22 搜索步长" [ref=f2e2089]: "1"
+                    - cell "0" [ref=f2e2090]
+                  - row [ref=f2e2091]:
+                    - rowheader "Post-tap23 index 24" [ref=f2e2092]:
+                      - text: Post-tap23
+                      - generic [ref=f2e2093]: index 24
+                    - cell "Rx FFE 搜索范围 Post-tap23 启用状态只读" [ref=f2e2094]: "False"
+                    - cell [ref=f2e2095]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap23 最小权重" [ref=f2e2096]: "0"
+                    - cell [ref=f2e2097]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap23 最大权重" [ref=f2e2098]: "0"
+                    - cell [ref=f2e2099]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap23 搜索步长" [ref=f2e2100]: "1"
+                    - cell "0" [ref=f2e2101]
+                  - row [ref=f2e2102]:
+                    - rowheader "Post-tap24 index 25" [ref=f2e2103]:
+                      - text: Post-tap24
+                      - generic [ref=f2e2104]: index 25
+                    - cell "Rx FFE 搜索范围 Post-tap24 启用状态只读" [ref=f2e2105]: "False"
+                    - cell [ref=f2e2106]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap24 最小权重" [ref=f2e2107]: "0"
+                    - cell [ref=f2e2108]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap24 最大权重" [ref=f2e2109]: "0"
+                    - cell [ref=f2e2110]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap24 搜索步长" [ref=f2e2111]: "1"
+                    - cell "0" [ref=f2e2112]
+                  - row [ref=f2e2113]:
+                    - rowheader "Post-tap25 index 26" [ref=f2e2114]:
+                      - text: Post-tap25
+                      - generic [ref=f2e2115]: index 26
+                    - cell "Rx FFE 搜索范围 Post-tap25 启用状态只读" [ref=f2e2116]: "False"
+                    - cell [ref=f2e2117]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap25 最小权重" [ref=f2e2118]: "0"
+                    - cell [ref=f2e2119]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap25 最大权重" [ref=f2e2120]: "0"
+                    - cell [ref=f2e2121]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap25 搜索步长" [ref=f2e2122]: "1"
+                    - cell "0" [ref=f2e2123]
+                  - row [ref=f2e2124]:
+                    - rowheader "Post-tap26 index 27" [ref=f2e2125]:
+                      - text: Post-tap26
+                      - generic [ref=f2e2126]: index 27
+                    - cell "Rx FFE 搜索范围 Post-tap26 启用状态只读" [ref=f2e2127]: "False"
+                    - cell [ref=f2e2128]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap26 最小权重" [ref=f2e2129]: "0"
+                    - cell [ref=f2e2130]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap26 最大权重" [ref=f2e2131]: "0"
+                    - cell [ref=f2e2132]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap26 搜索步长" [ref=f2e2133]: "1"
+                    - cell "0" [ref=f2e2134]
+                  - row [ref=f2e2135]:
+                    - rowheader "Post-tap27 index 28" [ref=f2e2136]:
+                      - text: Post-tap27
+                      - generic [ref=f2e2137]: index 28
+                    - cell "Rx FFE 搜索范围 Post-tap27 启用状态只读" [ref=f2e2138]: "False"
+                    - cell [ref=f2e2139]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap27 最小权重" [ref=f2e2140]: "0"
+                    - cell [ref=f2e2141]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap27 最大权重" [ref=f2e2142]: "0"
+                    - cell [ref=f2e2143]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap27 搜索步长" [ref=f2e2144]: "1"
+                    - cell "0" [ref=f2e2145]
+                  - row [ref=f2e2146]:
+                    - rowheader "Post-tap28 index 29" [ref=f2e2147]:
+                      - text: Post-tap28
+                      - generic [ref=f2e2148]: index 29
+                    - cell "Rx FFE 搜索范围 Post-tap28 启用状态只读" [ref=f2e2149]: "False"
+                    - cell [ref=f2e2150]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap28 最小权重" [ref=f2e2151]: "0"
+                    - cell [ref=f2e2152]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap28 最大权重" [ref=f2e2153]: "0"
+                    - cell [ref=f2e2154]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap28 搜索步长" [ref=f2e2155]: "1"
+                    - cell "0" [ref=f2e2156]
+                  - row [ref=f2e2157]:
+                    - rowheader "Post-tap29 index 30" [ref=f2e2158]:
+                      - text: Post-tap29
+                      - generic [ref=f2e2159]: index 30
+                    - cell "Rx FFE 搜索范围 Post-tap29 启用状态只读" [ref=f2e2160]: "False"
+                    - cell [ref=f2e2161]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap29 最小权重" [ref=f2e2162]: "0"
+                    - cell [ref=f2e2163]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap29 最大权重" [ref=f2e2164]: "0"
+                    - cell [ref=f2e2165]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap29 搜索步长" [ref=f2e2166]: "1"
+                    - cell "0" [ref=f2e2167]
+                  - row [ref=f2e2168]:
+                    - rowheader "Post-tap30 index 31" [ref=f2e2169]:
+                      - text: Post-tap30
+                      - generic [ref=f2e2170]: index 31
+                    - cell "Rx FFE 搜索范围 Post-tap30 启用状态只读" [ref=f2e2171]: "False"
+                    - cell [ref=f2e2172]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap30 最小权重" [ref=f2e2173]: "0"
+                    - cell [ref=f2e2174]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap30 最大权重" [ref=f2e2175]: "0"
+                    - cell [ref=f2e2176]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap30 搜索步长" [ref=f2e2177]: "1"
+                    - cell "0" [ref=f2e2178]
+                  - row [ref=f2e2179]:
+                    - rowheader "Post-tap31 index 32" [ref=f2e2180]:
+                      - text: Post-tap31
+                      - generic [ref=f2e2181]: index 32
+                    - cell "Rx FFE 搜索范围 Post-tap31 启用状态只读" [ref=f2e2182]: "False"
+                    - cell [ref=f2e2183]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap31 最小权重" [ref=f2e2184]: "0"
+                    - cell [ref=f2e2185]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap31 最大权重" [ref=f2e2186]: "0"
+                    - cell [ref=f2e2187]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap31 搜索步长" [ref=f2e2188]: "1"
+                    - cell "0" [ref=f2e2189]
+                  - row [ref=f2e2190]:
+                    - rowheader "Post-tap32 index 33" [ref=f2e2191]:
+                      - text: Post-tap32
+                      - generic [ref=f2e2192]: index 33
+                    - cell "Rx FFE 搜索范围 Post-tap32 启用状态只读" [ref=f2e2193]: "False"
+                    - cell [ref=f2e2194]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap32 最小权重" [ref=f2e2195]: "0"
+                    - cell [ref=f2e2196]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap32 最大权重" [ref=f2e2197]: "0"
+                    - cell [ref=f2e2198]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap32 搜索步长" [ref=f2e2199]: "1"
+                    - cell "0" [ref=f2e2200]
+                  - row [ref=f2e2201]:
+                    - rowheader "Post-tap33 index 34" [ref=f2e2202]:
+                      - text: Post-tap33
+                      - generic [ref=f2e2203]: index 34
+                    - cell "Rx FFE 搜索范围 Post-tap33 启用状态只读" [ref=f2e2204]: "False"
+                    - cell [ref=f2e2205]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap33 最小权重" [ref=f2e2206]: "0"
+                    - cell [ref=f2e2207]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap33 最大权重" [ref=f2e2208]: "0"
+                    - cell [ref=f2e2209]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap33 搜索步长" [ref=f2e2210]: "1"
+                    - cell "0" [ref=f2e2211]
+                  - row [ref=f2e2212]:
+                    - rowheader "Post-tap34 index 35" [ref=f2e2213]:
+                      - text: Post-tap34
+                      - generic [ref=f2e2214]: index 35
+                    - cell "Rx FFE 搜索范围 Post-tap34 启用状态只读" [ref=f2e2215]: "False"
+                    - cell [ref=f2e2216]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap34 最小权重" [ref=f2e2217]: "0"
+                    - cell [ref=f2e2218]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap34 最大权重" [ref=f2e2219]: "0"
+                    - cell [ref=f2e2220]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap34 搜索步长" [ref=f2e2221]: "1"
+                    - cell "0" [ref=f2e2222]
+                  - row [ref=f2e2223]:
+                    - rowheader "Post-tap35 index 36" [ref=f2e2224]:
+                      - text: Post-tap35
+                      - generic [ref=f2e2225]: index 36
+                    - cell "Rx FFE 搜索范围 Post-tap35 启用状态只读" [ref=f2e2226]: "False"
+                    - cell [ref=f2e2227]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap35 最小权重" [ref=f2e2228]: "0"
+                    - cell [ref=f2e2229]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap35 最大权重" [ref=f2e2230]: "0"
+                    - cell [ref=f2e2231]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap35 搜索步长" [ref=f2e2232]: "1"
+                    - cell "0" [ref=f2e2233]
+                  - row [ref=f2e2234]:
+                    - rowheader "Post-tap36 index 37" [ref=f2e2235]:
+                      - text: Post-tap36
+                      - generic [ref=f2e2236]: index 37
+                    - cell "Rx FFE 搜索范围 Post-tap36 启用状态只读" [ref=f2e2237]: "False"
+                    - cell [ref=f2e2238]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap36 最小权重" [ref=f2e2239]: "0"
+                    - cell [ref=f2e2240]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap36 最大权重" [ref=f2e2241]: "0"
+                    - cell [ref=f2e2242]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap36 搜索步长" [ref=f2e2243]: "1"
+                    - cell "0" [ref=f2e2244]
+                  - row [ref=f2e2245]:
+                    - rowheader "Post-tap37 index 38" [ref=f2e2246]:
+                      - text: Post-tap37
+                      - generic [ref=f2e2247]: index 38
+                    - cell "Rx FFE 搜索范围 Post-tap37 启用状态只读" [ref=f2e2248]: "False"
+                    - cell [ref=f2e2249]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap37 最小权重" [ref=f2e2250]: "0"
+                    - cell [ref=f2e2251]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap37 最大权重" [ref=f2e2252]: "0"
+                    - cell [ref=f2e2253]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap37 搜索步长" [ref=f2e2254]: "1"
+                    - cell "0" [ref=f2e2255]
+                  - row [ref=f2e2256]:
+                    - rowheader "Post-tap38 index 39" [ref=f2e2257]:
+                      - text: Post-tap38
+                      - generic [ref=f2e2258]: index 39
+                    - cell "Rx FFE 搜索范围 Post-tap38 启用状态只读" [ref=f2e2259]: "False"
+                    - cell [ref=f2e2260]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap38 最小权重" [ref=f2e2261]: "0"
+                    - cell [ref=f2e2262]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap38 最大权重" [ref=f2e2263]: "0"
+                    - cell [ref=f2e2264]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap38 搜索步长" [ref=f2e2265]: "1"
+                    - cell "0" [ref=f2e2266]
+                  - row [ref=f2e2267]:
+                    - rowheader "Post-tap39 index 40" [ref=f2e2268]:
+                      - text: Post-tap39
+                      - generic [ref=f2e2269]: index 40
+                    - cell "Rx FFE 搜索范围 Post-tap39 启用状态只读" [ref=f2e2270]: "False"
+                    - cell [ref=f2e2271]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap39 最小权重" [ref=f2e2272]: "0"
+                    - cell [ref=f2e2273]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap39 最大权重" [ref=f2e2274]: "0"
+                    - cell [ref=f2e2275]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap39 搜索步长" [ref=f2e2276]: "1"
+                    - cell "0" [ref=f2e2277]
+                  - row [ref=f2e2278]:
+                    - rowheader "Post-tap40 index 41" [ref=f2e2279]:
+                      - text: Post-tap40
+                      - generic [ref=f2e2280]: index 41
+                    - cell "Rx FFE 搜索范围 Post-tap40 启用状态只读" [ref=f2e2281]: "False"
+                    - cell [ref=f2e2282]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap40 最小权重" [ref=f2e2283]: "0"
+                    - cell [ref=f2e2284]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap40 最大权重" [ref=f2e2285]: "0"
+                    - cell [ref=f2e2286]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap40 搜索步长" [ref=f2e2287]: "1"
+                    - cell "0" [ref=f2e2288]
+                  - row [ref=f2e2289]:
+                    - rowheader "Post-tap41 index 42" [ref=f2e2290]:
+                      - text: Post-tap41
+                      - generic [ref=f2e2291]: index 42
+                    - cell "Rx FFE 搜索范围 Post-tap41 启用状态只读" [ref=f2e2292]: "False"
+                    - cell [ref=f2e2293]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap41 最小权重" [ref=f2e2294]: "0"
+                    - cell [ref=f2e2295]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap41 最大权重" [ref=f2e2296]: "0"
+                    - cell [ref=f2e2297]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap41 搜索步长" [ref=f2e2298]: "1"
+                    - cell "0" [ref=f2e2299]
+                  - row [ref=f2e2300]:
+                    - rowheader "Post-tap42 index 43" [ref=f2e2301]:
+                      - text: Post-tap42
+                      - generic [ref=f2e2302]: index 43
+                    - cell "Rx FFE 搜索范围 Post-tap42 启用状态只读" [ref=f2e2303]: "False"
+                    - cell [ref=f2e2304]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap42 最小权重" [ref=f2e2305]: "0"
+                    - cell [ref=f2e2306]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap42 最大权重" [ref=f2e2307]: "0"
+                    - cell [ref=f2e2308]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap42 搜索步长" [ref=f2e2309]: "1"
+                    - cell "0" [ref=f2e2310]
+                  - row [ref=f2e2311]:
+                    - rowheader "Post-tap43 index 44" [ref=f2e2312]:
+                      - text: Post-tap43
+                      - generic [ref=f2e2313]: index 44
+                    - cell "Rx FFE 搜索范围 Post-tap43 启用状态只读" [ref=f2e2314]: "False"
+                    - cell [ref=f2e2315]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap43 最小权重" [ref=f2e2316]: "0"
+                    - cell [ref=f2e2317]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap43 最大权重" [ref=f2e2318]: "0"
+                    - cell [ref=f2e2319]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap43 搜索步长" [ref=f2e2320]: "1"
+                    - cell "0" [ref=f2e2321]
+                  - row [ref=f2e2322]:
+                    - rowheader "Post-tap44 index 45" [ref=f2e2323]:
+                      - text: Post-tap44
+                      - generic [ref=f2e2324]: index 45
+                    - cell "Rx FFE 搜索范围 Post-tap44 启用状态只读" [ref=f2e2325]: "False"
+                    - cell [ref=f2e2326]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap44 最小权重" [ref=f2e2327]: "0"
+                    - cell [ref=f2e2328]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap44 最大权重" [ref=f2e2329]: "0"
+                    - cell [ref=f2e2330]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap44 搜索步长" [ref=f2e2331]: "1"
+                    - cell "0" [ref=f2e2332]
+                  - row [ref=f2e2333]:
+                    - rowheader "Post-tap45 index 46" [ref=f2e2334]:
+                      - text: Post-tap45
+                      - generic [ref=f2e2335]: index 46
+                    - cell "Rx FFE 搜索范围 Post-tap45 启用状态只读" [ref=f2e2336]: "False"
+                    - cell [ref=f2e2337]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap45 最小权重" [ref=f2e2338]: "0"
+                    - cell [ref=f2e2339]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap45 最大权重" [ref=f2e2340]: "0"
+                    - cell [ref=f2e2341]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap45 搜索步长" [ref=f2e2342]: "1"
+                    - cell "0" [ref=f2e2343]
+                  - row [ref=f2e2344]:
+                    - rowheader "Post-tap46 index 47" [ref=f2e2345]:
+                      - text: Post-tap46
+                      - generic [ref=f2e2346]: index 47
+                    - cell "Rx FFE 搜索范围 Post-tap46 启用状态只读" [ref=f2e2347]: "False"
+                    - cell [ref=f2e2348]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap46 最小权重" [ref=f2e2349]: "0"
+                    - cell [ref=f2e2350]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap46 最大权重" [ref=f2e2351]: "0"
+                    - cell [ref=f2e2352]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap46 搜索步长" [ref=f2e2353]: "1"
+                    - cell "0" [ref=f2e2354]
+                  - row [ref=f2e2355]:
+                    - rowheader "Post-tap47 index 48" [ref=f2e2356]:
+                      - text: Post-tap47
+                      - generic [ref=f2e2357]: index 48
+                    - cell "Rx FFE 搜索范围 Post-tap47 启用状态只读" [ref=f2e2358]: "False"
+                    - cell [ref=f2e2359]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap47 最小权重" [ref=f2e2360]: "0"
+                    - cell [ref=f2e2361]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap47 最大权重" [ref=f2e2362]: "0"
+                    - cell [ref=f2e2363]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap47 搜索步长" [ref=f2e2364]: "1"
+                    - cell "0" [ref=f2e2365]
+                  - row [ref=f2e2366]:
+                    - rowheader "Post-tap48 index 49" [ref=f2e2367]:
+                      - text: Post-tap48
+                      - generic [ref=f2e2368]: index 49
+                    - cell "Rx FFE 搜索范围 Post-tap48 启用状态只读" [ref=f2e2369]: "False"
+                    - cell [ref=f2e2370]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap48 最小权重" [ref=f2e2371]: "0"
+                    - cell [ref=f2e2372]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap48 最大权重" [ref=f2e2373]: "0"
+                    - cell [ref=f2e2374]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap48 搜索步长" [ref=f2e2375]: "1"
+                    - cell "0" [ref=f2e2376]
+                  - row [ref=f2e2377]:
+                    - rowheader "Post-tap49 index 50" [ref=f2e2378]:
+                      - text: Post-tap49
+                      - generic [ref=f2e2379]: index 50
+                    - cell "Rx FFE 搜索范围 Post-tap49 启用状态只读" [ref=f2e2380]: "False"
+                    - cell [ref=f2e2381]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap49 最小权重" [ref=f2e2382]: "0"
+                    - cell [ref=f2e2383]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap49 最大权重" [ref=f2e2384]: "0"
+                    - cell [ref=f2e2385]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap49 搜索步长" [ref=f2e2386]: "1"
+                    - cell "0" [ref=f2e2387]
+                  - row [ref=f2e2388]:
+                    - rowheader "Post-tap50 index 51" [ref=f2e2389]:
+                      - text: Post-tap50
+                      - generic [ref=f2e2390]: index 51
+                    - cell "Rx FFE 搜索范围 Post-tap50 启用状态只读" [ref=f2e2391]: "False"
+                    - cell [ref=f2e2392]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap50 最小权重" [ref=f2e2393]: "0"
+                    - cell [ref=f2e2394]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap50 最大权重" [ref=f2e2395]: "0"
+                    - cell [ref=f2e2396]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap50 搜索步长" [ref=f2e2397]: "1"
+                    - cell "0" [ref=f2e2398]
+                  - row [ref=f2e2399]:
+                    - rowheader "Post-tap51 index 52" [ref=f2e2400]:
+                      - text: Post-tap51
+                      - generic [ref=f2e2401]: index 52
+                    - cell "Rx FFE 搜索范围 Post-tap51 启用状态只读" [ref=f2e2402]: "False"
+                    - cell [ref=f2e2403]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap51 最小权重" [ref=f2e2404]: "0"
+                    - cell [ref=f2e2405]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap51 最大权重" [ref=f2e2406]: "0"
+                    - cell [ref=f2e2407]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap51 搜索步长" [ref=f2e2408]: "1"
+                    - cell "0" [ref=f2e2409]
+                  - row [ref=f2e2410]:
+                    - rowheader "Post-tap52 index 53" [ref=f2e2411]:
+                      - text: Post-tap52
+                      - generic [ref=f2e2412]: index 53
+                    - cell "Rx FFE 搜索范围 Post-tap52 启用状态只读" [ref=f2e2413]: "False"
+                    - cell [ref=f2e2414]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap52 最小权重" [ref=f2e2415]: "0"
+                    - cell [ref=f2e2416]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap52 最大权重" [ref=f2e2417]: "0"
+                    - cell [ref=f2e2418]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap52 搜索步长" [ref=f2e2419]: "1"
+                    - cell "0" [ref=f2e2420]
+                  - row [ref=f2e2421]:
+                    - rowheader "Post-tap53 index 54" [ref=f2e2422]:
+                      - text: Post-tap53
+                      - generic [ref=f2e2423]: index 54
+                    - cell "Rx FFE 搜索范围 Post-tap53 启用状态只读" [ref=f2e2424]: "False"
+                    - cell [ref=f2e2425]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap53 最小权重" [ref=f2e2426]: "0"
+                    - cell [ref=f2e2427]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap53 最大权重" [ref=f2e2428]: "0"
+                    - cell [ref=f2e2429]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap53 搜索步长" [ref=f2e2430]: "1"
+                    - cell "0" [ref=f2e2431]
+                  - row [ref=f2e2432]:
+                    - rowheader "Post-tap54 index 55" [ref=f2e2433]:
+                      - text: Post-tap54
+                      - generic [ref=f2e2434]: index 55
+                    - cell "Rx FFE 搜索范围 Post-tap54 启用状态只读" [ref=f2e2435]: "False"
+                    - cell [ref=f2e2436]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap54 最小权重" [ref=f2e2437]: "0"
+                    - cell [ref=f2e2438]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap54 最大权重" [ref=f2e2439]: "0"
+                    - cell [ref=f2e2440]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap54 搜索步长" [ref=f2e2441]: "1"
+                    - cell "0" [ref=f2e2442]
+                  - row [ref=f2e2443]:
+                    - rowheader "Post-tap55 index 56" [ref=f2e2444]:
+                      - text: Post-tap55
+                      - generic [ref=f2e2445]: index 56
+                    - cell "Rx FFE 搜索范围 Post-tap55 启用状态只读" [ref=f2e2446]: "False"
+                    - cell [ref=f2e2447]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap55 最小权重" [ref=f2e2448]: "0"
+                    - cell [ref=f2e2449]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap55 最大权重" [ref=f2e2450]: "0"
+                    - cell [ref=f2e2451]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap55 搜索步长" [ref=f2e2452]: "1"
+                    - cell "0" [ref=f2e2453]
+                  - row [ref=f2e2454]:
+                    - rowheader "Post-tap56 index 57" [ref=f2e2455]:
+                      - text: Post-tap56
+                      - generic [ref=f2e2456]: index 57
+                    - cell "Rx FFE 搜索范围 Post-tap56 启用状态只读" [ref=f2e2457]: "False"
+                    - cell [ref=f2e2458]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap56 最小权重" [ref=f2e2459]: "0"
+                    - cell [ref=f2e2460]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap56 最大权重" [ref=f2e2461]: "0"
+                    - cell [ref=f2e2462]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap56 搜索步长" [ref=f2e2463]: "1"
+                    - cell "0" [ref=f2e2464]
+                  - row [ref=f2e2465]:
+                    - rowheader "Post-tap57 index 58" [ref=f2e2466]:
+                      - text: Post-tap57
+                      - generic [ref=f2e2467]: index 58
+                    - cell "Rx FFE 搜索范围 Post-tap57 启用状态只读" [ref=f2e2468]: "False"
+                    - cell [ref=f2e2469]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap57 最小权重" [ref=f2e2470]: "0"
+                    - cell [ref=f2e2471]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap57 最大权重" [ref=f2e2472]: "0"
+                    - cell [ref=f2e2473]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap57 搜索步长" [ref=f2e2474]: "1"
+                    - cell "0" [ref=f2e2475]
+                  - row [ref=f2e2476]:
+                    - rowheader "Post-tap58 index 59" [ref=f2e2477]:
+                      - text: Post-tap58
+                      - generic [ref=f2e2478]: index 59
+                    - cell "Rx FFE 搜索范围 Post-tap58 启用状态只读" [ref=f2e2479]: "False"
+                    - cell [ref=f2e2480]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap58 最小权重" [ref=f2e2481]: "0"
+                    - cell [ref=f2e2482]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap58 最大权重" [ref=f2e2483]: "0"
+                    - cell [ref=f2e2484]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap58 搜索步长" [ref=f2e2485]: "1"
+                    - cell "0" [ref=f2e2486]
+                  - row [ref=f2e2487]:
+                    - rowheader "Post-tap59 index 60" [ref=f2e2488]:
+                      - text: Post-tap59
+                      - generic [ref=f2e2489]: index 60
+                    - cell "Rx FFE 搜索范围 Post-tap59 启用状态只读" [ref=f2e2490]: "False"
+                    - cell [ref=f2e2491]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap59 最小权重" [ref=f2e2492]: "0"
+                    - cell [ref=f2e2493]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap59 最大权重" [ref=f2e2494]: "0"
+                    - cell [ref=f2e2495]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap59 搜索步长" [ref=f2e2496]: "1"
+                    - cell "0" [ref=f2e2497]
+                  - row [ref=f2e2498]:
+                    - rowheader "Post-tap60 index 61" [ref=f2e2499]:
+                      - text: Post-tap60
+                      - generic [ref=f2e2500]: index 61
+                    - cell "Rx FFE 搜索范围 Post-tap60 启用状态只读" [ref=f2e2501]: "False"
+                    - cell [ref=f2e2502]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap60 最小权重" [ref=f2e2503]: "0"
+                    - cell [ref=f2e2504]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap60 最大权重" [ref=f2e2505]: "0"
+                    - cell [ref=f2e2506]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap60 搜索步长" [ref=f2e2507]: "1"
+                    - cell "0" [ref=f2e2508]
+                  - row [ref=f2e2509]:
+                    - rowheader "Post-tap61 index 62" [ref=f2e2510]:
+                      - text: Post-tap61
+                      - generic [ref=f2e2511]: index 62
+                    - cell "Rx FFE 搜索范围 Post-tap61 启用状态只读" [ref=f2e2512]: "False"
+                    - cell [ref=f2e2513]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap61 最小权重" [ref=f2e2514]: "0"
+                    - cell [ref=f2e2515]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap61 最大权重" [ref=f2e2516]: "0"
+                    - cell [ref=f2e2517]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap61 搜索步长" [ref=f2e2518]: "1"
+                    - cell "0" [ref=f2e2519]
+                  - row [ref=f2e2520]:
+                    - rowheader "Post-tap62 index 63" [ref=f2e2521]:
+                      - text: Post-tap62
+                      - generic [ref=f2e2522]: index 63
+                    - cell "Rx FFE 搜索范围 Post-tap62 启用状态只读" [ref=f2e2523]: "False"
+                    - cell [ref=f2e2524]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap62 最小权重" [ref=f2e2525]: "0"
+                    - cell [ref=f2e2526]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap62 最大权重" [ref=f2e2527]: "0"
+                    - cell [ref=f2e2528]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap62 搜索步长" [ref=f2e2529]: "1"
+                    - cell "0" [ref=f2e2530]
+                  - row [ref=f2e2531]:
+                    - rowheader "Post-tap63 index 64" [ref=f2e2532]:
+                      - text: Post-tap63
+                      - generic [ref=f2e2533]: index 64
+                    - cell "Rx FFE 搜索范围 Post-tap63 启用状态只读" [ref=f2e2534]: "False"
+                    - cell [ref=f2e2535]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap63 最小权重" [ref=f2e2536]: "0"
+                    - cell [ref=f2e2537]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap63 最大权重" [ref=f2e2538]: "0"
+                    - cell [ref=f2e2539]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap63 搜索步长" [ref=f2e2540]: "1"
+                    - cell "0" [ref=f2e2541]
+                  - row [ref=f2e2542]:
+                    - rowheader "Post-tap64 index 65" [ref=f2e2543]:
+                      - text: Post-tap64
+                      - generic [ref=f2e2544]: index 65
+                    - cell "Rx FFE 搜索范围 Post-tap64 启用状态只读" [ref=f2e2545]: "False"
+                    - cell [ref=f2e2546]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap64 最小权重" [ref=f2e2547]: "0"
+                    - cell [ref=f2e2548]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap64 最大权重" [ref=f2e2549]: "0"
+                    - cell [ref=f2e2550]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap64 搜索步长" [ref=f2e2551]: "1"
+                    - cell "0" [ref=f2e2552]
+                  - row [ref=f2e2553]:
+                    - rowheader "Post-tap65 index 66" [ref=f2e2554]:
+                      - text: Post-tap65
+                      - generic [ref=f2e2555]: index 66
+                    - cell "Rx FFE 搜索范围 Post-tap65 启用状态只读" [ref=f2e2556]: "False"
+                    - cell [ref=f2e2557]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap65 最小权重" [ref=f2e2558]: "0"
+                    - cell [ref=f2e2559]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap65 最大权重" [ref=f2e2560]: "0"
+                    - cell [ref=f2e2561]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap65 搜索步长" [ref=f2e2562]: "1"
+                    - cell "0" [ref=f2e2563]
+                  - row [ref=f2e2564]:
+                    - rowheader "Post-tap66 index 67" [ref=f2e2565]:
+                      - text: Post-tap66
+                      - generic [ref=f2e2566]: index 67
+                    - cell "Rx FFE 搜索范围 Post-tap66 启用状态只读" [ref=f2e2567]: "False"
+                    - cell [ref=f2e2568]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap66 最小权重" [ref=f2e2569]: "0"
+                    - cell [ref=f2e2570]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap66 最大权重" [ref=f2e2571]: "0"
+                    - cell [ref=f2e2572]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap66 搜索步长" [ref=f2e2573]: "1"
+                    - cell "0" [ref=f2e2574]
+                  - row [ref=f2e2575]:
+                    - rowheader "Post-tap67 index 68" [ref=f2e2576]:
+                      - text: Post-tap67
+                      - generic [ref=f2e2577]: index 68
+                    - cell "Rx FFE 搜索范围 Post-tap67 启用状态只读" [ref=f2e2578]: "False"
+                    - cell [ref=f2e2579]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap67 最小权重" [ref=f2e2580]: "0"
+                    - cell [ref=f2e2581]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap67 最大权重" [ref=f2e2582]: "0"
+                    - cell [ref=f2e2583]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap67 搜索步长" [ref=f2e2584]: "1"
+                    - cell "0" [ref=f2e2585]
+                  - row [ref=f2e2586]:
+                    - rowheader "Post-tap68 index 69" [ref=f2e2587]:
+                      - text: Post-tap68
+                      - generic [ref=f2e2588]: index 69
+                    - cell "Rx FFE 搜索范围 Post-tap68 启用状态只读" [ref=f2e2589]: "False"
+                    - cell [ref=f2e2590]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap68 最小权重" [ref=f2e2591]: "0"
+                    - cell [ref=f2e2592]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap68 最大权重" [ref=f2e2593]: "0"
+                    - cell [ref=f2e2594]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap68 搜索步长" [ref=f2e2595]: "1"
+                    - cell "0" [ref=f2e2596]
+                  - row [ref=f2e2597]:
+                    - rowheader "Post-tap69 index 70" [ref=f2e2598]:
+                      - text: Post-tap69
+                      - generic [ref=f2e2599]: index 70
+                    - cell "Rx FFE 搜索范围 Post-tap69 启用状态只读" [ref=f2e2600]: "False"
+                    - cell [ref=f2e2601]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap69 最小权重" [ref=f2e2602]: "0"
+                    - cell [ref=f2e2603]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap69 最大权重" [ref=f2e2604]: "0"
+                    - cell [ref=f2e2605]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap69 搜索步长" [ref=f2e2606]: "1"
+                    - cell "0" [ref=f2e2607]
+                  - row [ref=f2e2608]:
+                    - rowheader "Post-tap70 index 71" [ref=f2e2609]:
+                      - text: Post-tap70
+                      - generic [ref=f2e2610]: index 71
+                    - cell "Rx FFE 搜索范围 Post-tap70 启用状态只读" [ref=f2e2611]: "False"
+                    - cell [ref=f2e2612]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap70 最小权重" [ref=f2e2613]: "0"
+                    - cell [ref=f2e2614]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap70 最大权重" [ref=f2e2615]: "0"
+                    - cell [ref=f2e2616]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap70 搜索步长" [ref=f2e2617]: "1"
+                    - cell "0" [ref=f2e2618]
+                  - row [ref=f2e2619]:
+                    - rowheader "Post-tap71 index 72" [ref=f2e2620]:
+                      - text: Post-tap71
+                      - generic [ref=f2e2621]: index 72
+                    - cell "Rx FFE 搜索范围 Post-tap71 启用状态只读" [ref=f2e2622]: "False"
+                    - cell [ref=f2e2623]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap71 最小权重" [ref=f2e2624]: "0"
+                    - cell [ref=f2e2625]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap71 最大权重" [ref=f2e2626]: "0"
+                    - cell [ref=f2e2627]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap71 搜索步长" [ref=f2e2628]: "1"
+                    - cell "0" [ref=f2e2629]
+                  - row [ref=f2e2630]:
+                    - rowheader "Post-tap72 index 73" [ref=f2e2631]:
+                      - text: Post-tap72
+                      - generic [ref=f2e2632]: index 73
+                    - cell "Rx FFE 搜索范围 Post-tap72 启用状态只读" [ref=f2e2633]: "False"
+                    - cell [ref=f2e2634]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap72 最小权重" [ref=f2e2635]: "0"
+                    - cell [ref=f2e2636]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap72 最大权重" [ref=f2e2637]: "0"
+                    - cell [ref=f2e2638]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap72 搜索步长" [ref=f2e2639]: "1"
+                    - cell "0" [ref=f2e2640]
+                  - row [ref=f2e2641]:
+                    - rowheader "Post-tap73 index 74" [ref=f2e2642]:
+                      - text: Post-tap73
+                      - generic [ref=f2e2643]: index 74
+                    - cell "Rx FFE 搜索范围 Post-tap73 启用状态只读" [ref=f2e2644]: "False"
+                    - cell [ref=f2e2645]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap73 最小权重" [ref=f2e2646]: "0"
+                    - cell [ref=f2e2647]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap73 最大权重" [ref=f2e2648]: "0"
+                    - cell [ref=f2e2649]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap73 搜索步长" [ref=f2e2650]: "1"
+                    - cell "0" [ref=f2e2651]
+                  - row [ref=f2e2652]:
+                    - rowheader "Post-tap74 index 75" [ref=f2e2653]:
+                      - text: Post-tap74
+                      - generic [ref=f2e2654]: index 75
+                    - cell "Rx FFE 搜索范围 Post-tap74 启用状态只读" [ref=f2e2655]: "False"
+                    - cell [ref=f2e2656]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap74 最小权重" [ref=f2e2657]: "0"
+                    - cell [ref=f2e2658]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap74 最大权重" [ref=f2e2659]: "0"
+                    - cell [ref=f2e2660]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap74 搜索步长" [ref=f2e2661]: "1"
+                    - cell "0" [ref=f2e2662]
+                  - row [ref=f2e2663]:
+                    - rowheader "Post-tap75 index 76" [ref=f2e2664]:
+                      - text: Post-tap75
+                      - generic [ref=f2e2665]: index 76
+                    - cell "Rx FFE 搜索范围 Post-tap75 启用状态只读" [ref=f2e2666]: "False"
+                    - cell [ref=f2e2667]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap75 最小权重" [ref=f2e2668]: "0"
+                    - cell [ref=f2e2669]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap75 最大权重" [ref=f2e2670]: "0"
+                    - cell [ref=f2e2671]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap75 搜索步长" [ref=f2e2672]: "1"
+                    - cell "0" [ref=f2e2673]
+                  - row [ref=f2e2674]:
+                    - rowheader "Post-tap76 index 77" [ref=f2e2675]:
+                      - text: Post-tap76
+                      - generic [ref=f2e2676]: index 77
+                    - cell "Rx FFE 搜索范围 Post-tap76 启用状态只读" [ref=f2e2677]: "False"
+                    - cell [ref=f2e2678]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap76 最小权重" [ref=f2e2679]: "0"
+                    - cell [ref=f2e2680]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap76 最大权重" [ref=f2e2681]: "0"
+                    - cell [ref=f2e2682]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap76 搜索步长" [ref=f2e2683]: "1"
+                    - cell "0" [ref=f2e2684]
+                  - row [ref=f2e2685]:
+                    - rowheader "Post-tap77 index 78" [ref=f2e2686]:
+                      - text: Post-tap77
+                      - generic [ref=f2e2687]: index 78
+                    - cell "Rx FFE 搜索范围 Post-tap77 启用状态只读" [ref=f2e2688]: "False"
+                    - cell [ref=f2e2689]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap77 最小权重" [ref=f2e2690]: "0"
+                    - cell [ref=f2e2691]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap77 最大权重" [ref=f2e2692]: "0"
+                    - cell [ref=f2e2693]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap77 搜索步长" [ref=f2e2694]: "1"
+                    - cell "0" [ref=f2e2695]
+                  - row [ref=f2e2696]:
+                    - rowheader "Post-tap78 index 79" [ref=f2e2697]:
+                      - text: Post-tap78
+                      - generic [ref=f2e2698]: index 79
+                    - cell "Rx FFE 搜索范围 Post-tap78 启用状态只读" [ref=f2e2699]: "False"
+                    - cell [ref=f2e2700]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap78 最小权重" [ref=f2e2701]: "0"
+                    - cell [ref=f2e2702]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap78 最大权重" [ref=f2e2703]: "0"
+                    - cell [ref=f2e2704]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap78 搜索步长" [ref=f2e2705]: "1"
+                    - cell "0" [ref=f2e2706]
+                  - row [ref=f2e2707]:
+                    - rowheader "Post-tap79 index 80" [ref=f2e2708]:
+                      - text: Post-tap79
+                      - generic [ref=f2e2709]: index 80
+                    - cell "Rx FFE 搜索范围 Post-tap79 启用状态只读" [ref=f2e2710]: "False"
+                    - cell [ref=f2e2711]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap79 最小权重" [ref=f2e2712]: "0"
+                    - cell [ref=f2e2713]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap79 最大权重" [ref=f2e2714]: "0"
+                    - cell [ref=f2e2715]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap79 搜索步长" [ref=f2e2716]: "1"
+                    - cell "0" [ref=f2e2717]
+                  - row [ref=f2e2718]:
+                    - rowheader "Post-tap80 index 81" [ref=f2e2719]:
+                      - text: Post-tap80
+                      - generic [ref=f2e2720]: index 81
+                    - cell "Rx FFE 搜索范围 Post-tap80 启用状态只读" [ref=f2e2721]: "False"
+                    - cell [ref=f2e2722]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap80 最小权重" [ref=f2e2723]: "0"
+                    - cell [ref=f2e2724]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap80 最大权重" [ref=f2e2725]: "0"
+                    - cell [ref=f2e2726]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap80 搜索步长" [ref=f2e2727]: "1"
+                    - cell "0" [ref=f2e2728]
+                  - row [ref=f2e2729]:
+                    - rowheader "Post-tap81 index 82" [ref=f2e2730]:
+                      - text: Post-tap81
+                      - generic [ref=f2e2731]: index 82
+                    - cell "Rx FFE 搜索范围 Post-tap81 启用状态只读" [ref=f2e2732]: "False"
+                    - cell [ref=f2e2733]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap81 最小权重" [ref=f2e2734]: "0"
+                    - cell [ref=f2e2735]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap81 最大权重" [ref=f2e2736]: "0"
+                    - cell [ref=f2e2737]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap81 搜索步长" [ref=f2e2738]: "1"
+                    - cell "0" [ref=f2e2739]
+                  - row [ref=f2e2740]:
+                    - rowheader "Post-tap82 index 83" [ref=f2e2741]:
+                      - text: Post-tap82
+                      - generic [ref=f2e2742]: index 83
+                    - cell "Rx FFE 搜索范围 Post-tap82 启用状态只读" [ref=f2e2743]: "False"
+                    - cell [ref=f2e2744]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap82 最小权重" [ref=f2e2745]: "0"
+                    - cell [ref=f2e2746]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap82 最大权重" [ref=f2e2747]: "0"
+                    - cell [ref=f2e2748]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap82 搜索步长" [ref=f2e2749]: "1"
+                    - cell "0" [ref=f2e2750]
+                  - row [ref=f2e2751]:
+                    - rowheader "Post-tap83 index 84" [ref=f2e2752]:
+                      - text: Post-tap83
+                      - generic [ref=f2e2753]: index 84
+                    - cell "Rx FFE 搜索范围 Post-tap83 启用状态只读" [ref=f2e2754]: "False"
+                    - cell [ref=f2e2755]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap83 最小权重" [ref=f2e2756]: "0"
+                    - cell [ref=f2e2757]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap83 最大权重" [ref=f2e2758]: "0"
+                    - cell [ref=f2e2759]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap83 搜索步长" [ref=f2e2760]: "1"
+                    - cell "0" [ref=f2e2761]
+                  - row [ref=f2e2762]:
+                    - rowheader "Post-tap84 index 85" [ref=f2e2763]:
+                      - text: Post-tap84
+                      - generic [ref=f2e2764]: index 85
+                    - cell "Rx FFE 搜索范围 Post-tap84 启用状态只读" [ref=f2e2765]: "False"
+                    - cell [ref=f2e2766]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap84 最小权重" [ref=f2e2767]: "0"
+                    - cell [ref=f2e2768]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap84 最大权重" [ref=f2e2769]: "0"
+                    - cell [ref=f2e2770]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap84 搜索步长" [ref=f2e2771]: "1"
+                    - cell "0" [ref=f2e2772]
+                  - row [ref=f2e2773]:
+                    - rowheader "Post-tap85 index 86" [ref=f2e2774]:
+                      - text: Post-tap85
+                      - generic [ref=f2e2775]: index 86
+                    - cell "Rx FFE 搜索范围 Post-tap85 启用状态只读" [ref=f2e2776]: "False"
+                    - cell [ref=f2e2777]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap85 最小权重" [ref=f2e2778]: "0"
+                    - cell [ref=f2e2779]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap85 最大权重" [ref=f2e2780]: "0"
+                    - cell [ref=f2e2781]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap85 搜索步长" [ref=f2e2782]: "1"
+                    - cell "0" [ref=f2e2783]
+                  - row [ref=f2e2784]:
+                    - rowheader "Post-tap86 index 87" [ref=f2e2785]:
+                      - text: Post-tap86
+                      - generic [ref=f2e2786]: index 87
+                    - cell "Rx FFE 搜索范围 Post-tap86 启用状态只读" [ref=f2e2787]: "False"
+                    - cell [ref=f2e2788]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap86 最小权重" [ref=f2e2789]: "0"
+                    - cell [ref=f2e2790]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap86 最大权重" [ref=f2e2791]: "0"
+                    - cell [ref=f2e2792]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap86 搜索步长" [ref=f2e2793]: "1"
+                    - cell "0" [ref=f2e2794]
+                  - row [ref=f2e2795]:
+                    - rowheader "Post-tap87 index 88" [ref=f2e2796]:
+                      - text: Post-tap87
+                      - generic [ref=f2e2797]: index 88
+                    - cell "Rx FFE 搜索范围 Post-tap87 启用状态只读" [ref=f2e2798]: "False"
+                    - cell [ref=f2e2799]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap87 最小权重" [ref=f2e2800]: "0"
+                    - cell [ref=f2e2801]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap87 最大权重" [ref=f2e2802]: "0"
+                    - cell [ref=f2e2803]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap87 搜索步长" [ref=f2e2804]: "1"
+                    - cell "0" [ref=f2e2805]
+                  - row [ref=f2e2806]:
+                    - rowheader "Post-tap88 index 89" [ref=f2e2807]:
+                      - text: Post-tap88
+                      - generic [ref=f2e2808]: index 89
+                    - cell "Rx FFE 搜索范围 Post-tap88 启用状态只读" [ref=f2e2809]: "False"
+                    - cell [ref=f2e2810]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap88 最小权重" [ref=f2e2811]: "0"
+                    - cell [ref=f2e2812]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap88 最大权重" [ref=f2e2813]: "0"
+                    - cell [ref=f2e2814]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap88 搜索步长" [ref=f2e2815]: "1"
+                    - cell "0" [ref=f2e2816]
+                  - row [ref=f2e2817]:
+                    - rowheader "Post-tap89 index 90" [ref=f2e2818]:
+                      - text: Post-tap89
+                      - generic [ref=f2e2819]: index 90
+                    - cell "Rx FFE 搜索范围 Post-tap89 启用状态只读" [ref=f2e2820]: "False"
+                    - cell [ref=f2e2821]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap89 最小权重" [ref=f2e2822]: "0"
+                    - cell [ref=f2e2823]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap89 最大权重" [ref=f2e2824]: "0"
+                    - cell [ref=f2e2825]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap89 搜索步长" [ref=f2e2826]: "1"
+                    - cell "0" [ref=f2e2827]
+                  - row [ref=f2e2828]:
+                    - rowheader "Post-tap90 index 91" [ref=f2e2829]:
+                      - text: Post-tap90
+                      - generic [ref=f2e2830]: index 91
+                    - cell "Rx FFE 搜索范围 Post-tap90 启用状态只读" [ref=f2e2831]: "False"
+                    - cell [ref=f2e2832]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap90 最小权重" [ref=f2e2833]: "0"
+                    - cell [ref=f2e2834]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap90 最大权重" [ref=f2e2835]: "0"
+                    - cell [ref=f2e2836]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap90 搜索步长" [ref=f2e2837]: "1"
+                    - cell "0" [ref=f2e2838]
+                  - row [ref=f2e2839]:
+                    - rowheader "Post-tap91 index 92" [ref=f2e2840]:
+                      - text: Post-tap91
+                      - generic [ref=f2e2841]: index 92
+                    - cell "Rx FFE 搜索范围 Post-tap91 启用状态只读" [ref=f2e2842]: "False"
+                    - cell [ref=f2e2843]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap91 最小权重" [ref=f2e2844]: "0"
+                    - cell [ref=f2e2845]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap91 最大权重" [ref=f2e2846]: "0"
+                    - cell [ref=f2e2847]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap91 搜索步长" [ref=f2e2848]: "1"
+                    - cell "0" [ref=f2e2849]
+                  - row [ref=f2e2850]:
+                    - rowheader "Post-tap92 index 93" [ref=f2e2851]:
+                      - text: Post-tap92
+                      - generic [ref=f2e2852]: index 93
+                    - cell "Rx FFE 搜索范围 Post-tap92 启用状态只读" [ref=f2e2853]: "False"
+                    - cell [ref=f2e2854]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap92 最小权重" [ref=f2e2855]: "0"
+                    - cell [ref=f2e2856]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap92 最大权重" [ref=f2e2857]: "0"
+                    - cell [ref=f2e2858]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap92 搜索步长" [ref=f2e2859]: "1"
+                    - cell "0" [ref=f2e2860]
+                  - row [ref=f2e2861]:
+                    - rowheader "Post-tap93 index 94" [ref=f2e2862]:
+                      - text: Post-tap93
+                      - generic [ref=f2e2863]: index 94
+                    - cell "Rx FFE 搜索范围 Post-tap93 启用状态只读" [ref=f2e2864]: "False"
+                    - cell [ref=f2e2865]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap93 最小权重" [ref=f2e2866]: "0"
+                    - cell [ref=f2e2867]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap93 最大权重" [ref=f2e2868]: "0"
+                    - cell [ref=f2e2869]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap93 搜索步长" [ref=f2e2870]: "1"
+                    - cell "0" [ref=f2e2871]
+                  - row [ref=f2e2872]:
+                    - rowheader "Post-tap94 index 95" [ref=f2e2873]:
+                      - text: Post-tap94
+                      - generic [ref=f2e2874]: index 95
+                    - cell "Rx FFE 搜索范围 Post-tap94 启用状态只读" [ref=f2e2875]: "False"
+                    - cell [ref=f2e2876]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap94 最小权重" [ref=f2e2877]: "0"
+                    - cell [ref=f2e2878]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap94 最大权重" [ref=f2e2879]: "0"
+                    - cell [ref=f2e2880]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap94 搜索步长" [ref=f2e2881]: "1"
+                    - cell "0" [ref=f2e2882]
+                  - row [ref=f2e2883]:
+                    - rowheader "Post-tap95 index 96" [ref=f2e2884]:
+                      - text: Post-tap95
+                      - generic [ref=f2e2885]: index 96
+                    - cell "Rx FFE 搜索范围 Post-tap95 启用状态只读" [ref=f2e2886]: "False"
+                    - cell [ref=f2e2887]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap95 最小权重" [ref=f2e2888]: "0"
+                    - cell [ref=f2e2889]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap95 最大权重" [ref=f2e2890]: "0"
+                    - cell [ref=f2e2891]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap95 搜索步长" [ref=f2e2892]: "1"
+                    - cell "0" [ref=f2e2893]
+                  - row [ref=f2e2894]:
+                    - rowheader "Post-tap96 index 97" [ref=f2e2895]:
+                      - text: Post-tap96
+                      - generic [ref=f2e2896]: index 97
+                    - cell "Rx FFE 搜索范围 Post-tap96 启用状态只读" [ref=f2e2897]: "False"
+                    - cell [ref=f2e2898]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap96 最小权重" [ref=f2e2899]: "0"
+                    - cell [ref=f2e2900]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap96 最大权重" [ref=f2e2901]: "0"
+                    - cell [ref=f2e2902]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap96 搜索步长" [ref=f2e2903]: "1"
+                    - cell "0" [ref=f2e2904]
+                  - row [ref=f2e2905]:
+                    - rowheader "Post-tap97 index 98" [ref=f2e2906]:
+                      - text: Post-tap97
+                      - generic [ref=f2e2907]: index 98
+                    - cell "Rx FFE 搜索范围 Post-tap97 启用状态只读" [ref=f2e2908]: "False"
+                    - cell [ref=f2e2909]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap97 最小权重" [ref=f2e2910]: "0"
+                    - cell [ref=f2e2911]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap97 最大权重" [ref=f2e2912]: "0"
+                    - cell [ref=f2e2913]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap97 搜索步长" [ref=f2e2914]: "1"
+                    - cell "0" [ref=f2e2915]
+                  - row [ref=f2e2916]:
+                    - rowheader "Post-tap98 index 99" [ref=f2e2917]:
+                      - text: Post-tap98
+                      - generic [ref=f2e2918]: index 99
+                    - cell "Rx FFE 搜索范围 Post-tap98 启用状态只读" [ref=f2e2919]: "False"
+                    - cell [ref=f2e2920]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap98 最小权重" [ref=f2e2921]: "0"
+                    - cell [ref=f2e2922]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap98 最大权重" [ref=f2e2923]: "0"
+                    - cell [ref=f2e2924]:
+                      - spinbutton "Rx FFE 搜索范围 Post-tap98 搜索步长" [ref=f2e2925]: "1"
+                    - cell "0" [ref=f2e2926]
+        - region "Native run analysis" [ref=f2e238]:
+          - generic [ref=f2e239]:
+            - generic [ref=f2e240]:
+              - text: Selected record
+              - combobox "Selected record" [ref=f2e241]:
+                - option "Select record…"
+                - option "Run · PAM-4 · 01fab8db-c71"
+                - option "Run · PAM-4 · 6591b4c8-aa2" [selected]
+            - generic [ref=f2e667]: Older input · draft or resource binding changed
+            - generic [ref=f2e242]:
+              - text: 比较参考
+              - combobox "比较参考" [ref=f2e243]:
+                - option "自动选择另一条" [selected]
+                - option "Run · PAM-4 · 01fab8db-c71"
+                - option "Run · PAM-4 · 6591b4c8-aa2"
+          - generic [ref=f2e244]:
+            - generic [ref=f2e245]:
+              - text: Analysis
+              - combobox "Analysis" [ref=f2e246]:
+                - option "Responses" [selected]
+                - option "Waveform"
+                - option "Eye"
+                - option "Jitter Dist."
+                - option "Jitter Spec."
+                - option "Jitter Bathtub"
+                - option "Jitter Info"
+                - option "DFE Adaptation"
+                - option "CDR Adaptation"
+                - option "CDR Histogram"
+                - option "CDR Spectrum"
+                - option "Run overview"
+                - option "Run input comparison"
+            - combobox "Response type" [ref=f2e247]:
+              - option "Impulse" [selected]
+              - option "Step"
+              - option "Pulse"
+              - option "Frequency"
+            - combobox "Response scope" [ref=f2e248]:
+              - option "Cumulative" [selected]
+              - option "Single stage"
+          - generic [ref=f2e249]:
+            - generic [ref=f2e250]:
+              - text: Point
+              - combobox "Point" [ref=f2e251]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=f2e252]:
+              - text: Compare
+              - combobox "Compare" [ref=f2e253]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Expand viewer" [ref=f2e256] [cursor=pointer]
+          - generic "Selected run plot" [ref=f2e257]:
+            - generic [ref=f2e2928]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: "3"
+                      - generic: "4"
+                      - generic: "5"
+                      - generic: "6"
+                    - generic:
+                      - generic: "0"
+                      - generic: "0.05"
+              - img:
+                - generic:
+                  - generic: ffe_out_h · cumulative
+                  - generic: ns
+                  - generic: V/sample
+              - toolbar [ref=f2e2942]:
+                - button "Download plot as a PNG" [ref=f2e2944] [cursor=pointer]
+                - generic [ref=f2e2945]:
+                  - button "Zoom" [ref=f2e2946] [cursor=pointer]
+                  - button "Pan" [ref=f2e2947] [cursor=pointer]
+                - generic [ref=f2e2948]:
+                  - button "Zoom in" [ref=f2e2949] [cursor=pointer]
+                  - button "Zoom out" [ref=f2e2950] [cursor=pointer]
+                  - button "Autoscale" [ref=f2e2951] [cursor=pointer]
+                  - button "Reset axes" [ref=f2e2952] [cursor=pointer]
+          - generic [ref=f2e259]:
+            - paragraph [ref=f2e2953]: DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling. Zoom/pan and switching views do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.
+            - group [ref=f2e2954]:
+              - generic "6591b4c8-aa28-4cba-a816-2c7c14359232 · source 6591b4c8-aa28-4cba-a816-2c7c14359232 · ffe_out_h · PAM-4 · input 28033d96a48b" [ref=f2e2955]
+      - group [ref=f2e260]:
+        - generic "Native EQ 优化 · 候选与真实 Run 独立" [ref=f2e261]
+        - paragraph [ref=f2e420]: 在 Tx FFE / CTLE / Rx FFE / DFE 节点编辑搜索约束；Use MMSE 与 RLM 见优化节点。AMI 优化未接入（#10）。
+        - generic [ref=f2e421]:
+          - button "检查候选预算" [ref=f2e422] [cursor=pointer]
+          - button "Tune EQ" [ref=f2e423] [cursor=pointer]
+          - button "Abort EQ" [disabled] [ref=f2e424]
+          - button "Reset EQ" [ref=f2e425] [cursor=pointer]
+        - status [ref=f2e426]: Selected optimization values/response disagree with native candidate arrays.
+        - paragraph [ref=f2e427]: MMSE 使用固定 Tx level 0.5 V、SNR 25 dB、DJ/RJ=0 与空 aggressor；Rn 进入 eta0。优化 pulse 假设 bounded ideal DFE，MMSE cursor=1 归一化；FOM 不是 COM、BER 或时域效果。RLM 只进入 MMSE。
+        - generic [ref=f2e428]:
+          - generic [ref=f2e429]:
+            - text: 优化记录
+            - combobox "优化记录" [ref=f2e430]:
+              - option "选择优化记录…"
+              - option "succeeded · db86e583 · MMSE"
+              - option "succeeded · 2e3d0d79 · cursor/ISI grid" [selected]
+          - generic [ref=f2e431]:
+            - text: 候选
+            - combobox "候选" [ref=f2e432]:
+              - option "candidate-000000 · FOM 5.518257753484902" [selected]
+              - option "candidate-000001 · FOM 5.908259133664224"
+              - option "candidate-000002 · FOM 5.274318492414494"
+              - option "candidate-000003 · FOM 5.9933444469229045 · 获选"
+          - button "Use EQ · 预览差异" [ref=f2e433] [cursor=pointer]
+          - button "保存优化记录" [active] [ref=f2e434] [cursor=pointer]
+          - button "打开优化记录" [ref=f2e435] [cursor=pointer]
+        - paragraph [ref=f2e436]: opt 2e3d0d79-061f-4084-96bc-53d651486c2d · candidate-000000 · cursor/ISI grid · FOM 5.518257753484902 · input 89d7048859f960546cb1ce3e885e93f9af29d098bf2ac7425e337a45a37261bf · resource 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945。当前 Run 未改变；仅获选候选可 Use EQ。
+        - generic [ref=f2e2957]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: "0"
+                  - generic: "5"
+                  - generic: "10"
+                  - generic: "15"
+                  - generic: "20"
+                  - generic: "25"
+                  - generic: "30"
+                - generic:
+                  - generic: "0"
+                  - generic: "0.1"
+                  - generic: "0.2"
+                  - generic: "0.3"
+          - img:
+            - generic [ref=f2e2974]:
+              - generic [ref=f2e2975]:
+                - generic [ref=f2e2976]: 同输入 Channel pulse
+                - generic [ref=f2e2977] [cursor=pointer]
+              - generic [ref=f2e2978]:
+                - generic [ref=f2e2979]: candidate-000000 · 其他候选
+                - generic [ref=f2e2980] [cursor=pointer]
+          - toolbar [ref=f2e2981]:
+            - button "Download plot as a PNG" [ref=f2e2983] [cursor=pointer]
+            - generic [ref=f2e2984]:
+              - button "Zoom" [ref=f2e2985] [cursor=pointer]
+              - button "Pan" [ref=f2e2986] [cursor=pointer]
+            - generic [ref=f2e2987]:
+              - button "Zoom in" [ref=f2e2988] [cursor=pointer]
+              - button "Zoom out" [ref=f2e2989] [cursor=pointer]
+              - button "Autoscale" [ref=f2e2990] [cursor=pointer]
+              - button "Reset axes" [ref=f2e2991] [cursor=pointer]
+        - group [ref=f2e486]:
+          - generic "评分 / 权重 / 原始输入与版本" [ref=f2e487]
+      - group [ref=f2e262]:
+        - generic "Task logs / selected run logs" [ref=f2e263]
+```
+### Events
+- New console entries: .playwright-cli\console-2026-10-24T04-26-12-714Z.log#L6
