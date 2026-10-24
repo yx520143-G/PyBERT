@@ -1,0 +1,22 @@
+{
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\docs\\webui\\issue10\\d1-sampling-20261025\\run_guarded.py",
+    "02-planner-green",
+    "PlannerCases.test_zero_edge_and_last_grid_sample_are_planned"
+  ],
+  "timeout_s": 60,
+  "plan_sha256": "819ba0c4668e6f33fd2e2e78fac6b392cc5b2009b49fa002c978d66e08d4c365",
+  "scope": "hard bounded child; no product imports in launcher",
+  "task_wall_peak_RSS": "UNKNOWN",
+  "exit_code": 0,
+  "status": "returned",
+  "elapsed_s": 2.223991799983196,
+  "output_sha256": {
+    "stdout.txt": "06ddba77ce54adae8c9c7bcc582363a427808fe9d2c5d2d6e5c3a9a7d9d7d282",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "timeout_note": "events.jsonl and line-buffered child logs retain actual starts; timeout is never pass"
+}

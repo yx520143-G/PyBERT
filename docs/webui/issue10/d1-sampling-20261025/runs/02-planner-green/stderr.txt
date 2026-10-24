@@ -1,0 +1,6 @@
+test_zero_edge_and_last_grid_sample_are_planned (d1_cases.PlannerCases.test_zero_edge_and_last_grid_sample_are_planned) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+OK
