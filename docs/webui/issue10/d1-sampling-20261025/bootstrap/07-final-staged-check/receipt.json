@@ -1,0 +1,17 @@
+{
+  "command": [
+    "git",
+    "--no-optional-locks",
+    "diff",
+    "--cached",
+    "--check"
+  ],
+  "exit_code": 2,
+  "elapsed_s": 0.05081420001806691,
+  "scope": "new read-only recapture of unchanged staged inputs before report-only CRLF repair; not original-output recovery",
+  "first_failure": "prior wrapper kept stdout prefix1800 chars in tool transcript, full first output not saved; no dynamic batch",
+  "output_sha256": {
+    "stdout.txt": "ce2cd4965e75fff9810dc6a7f158c210f6896391da97951ed87f793526942e60",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
