@@ -1,8 +1,8 @@
 {
-  "phase": "planner format, context, quantization and no-clocks contract red",
-  "run_id": "03-planner-contract-red",
+  "phase": "strict planner contract green plus original tracer regression",
+  "run_id": "04-planner-contract-green",
   "selection": [
-    "PlannerCases.test_planner_contract_without_claiming_consumption"
+    "PlannerCases"
   ],
   "snapshot_paths": {
     "helpers.py.txt": "src/pybert/utility/ami_clock.py",
@@ -21,7 +21,7 @@
     "clarification.json": "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/utility/ami_clock.py": "c400a7154d0df3443da5207b5a4671736dca346572a14457984e36fb57e96e42",
+    "src/pybert/utility/ami_clock.py": "874dffeef57ea49934660a6ec4bb22afdf9d57f80fba6bc7e4dfe4da1ac8b3c8",
     "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
     "src/pybert/utility/sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
     "src/pybert/pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
@@ -35,16 +35,18 @@
     "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b"
   },
   "expected_counts": {
-    "pure": 50,
+    "pure": 70,
     "calc_eye": 0,
     "histogram": 0,
     "rfft": 0,
     "NumPy_imports": 1
   },
   "expected_result": {
-    "tests": 1,
-    "subtests": 25,
-    "result": "fails because minimal tracer planner lacks strict format/context/collision/empty/deferred/Ignore/profile contract"
+    "methods": 2,
+    "contract_subtests": 25,
+    "failures": 0,
+    "errors": 0,
+    "pure_breakdown": "26 factory +26 planner +18 reject =70"
   },
   "case_inputs": {
     "source": "25 hand-authored literal subcases in frozen cases.py.txt; nonfinite inputs explicitly float(NaN/inf), not invalid JSON numbers"
@@ -73,5 +75,5 @@
   "future_vertical_slices": "bounded planner formats/window/index cases; actual partial consumer; optional Eye indices/Native exact; masked period/FFT/PlotData projection; AST wiring, one final relevant green; each actual new input/source first frozen and committed",
   "restricted_entries": "full PyBERT/Main/update_results/run_dfe/DFE/decode/run_ami_model/PyAMI/modelmodule/grammar/SciPy/otherDSP/CmodelDLL/COM/coopt/Web/GUI/CLI/service/browser/model resource operations all0",
   "task_wall_peak_RSS": "UNKNOWN",
-  "previous_plan": "runs/02-planner-green/plan.json"
+  "previous_plan": "runs/03-planner-contract-red/plan.json"
 }
