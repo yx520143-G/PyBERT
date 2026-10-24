@@ -79,13 +79,30 @@ def read_arrays(content):
 
 def validate_run(run, arrays):
     """Validate stored contracts without normalizing inputs or rebuilding plots."""
-    if not isinstance(run, dict) or not isinstance(run.get("run_id"), str):
-        raise ValueError("Missing source run identity.")
-    if run.get("status") != "succeeded" or run.get("raw_schema_version") not in (2, 3, 4):
+    if not isinstance(run, dict) or not isinstance(run.get("run_id"), str) or not run["run_id"].strip():
+        raise ValueError("Missing/invalid source run_id identity.")
+    if run.get("status") != "succeeded" or type(run.get("raw_schema_version")) is not int or run["raw_schema_version"] not in (2, 3, 4):
         raise ValueError("Unsupported run status/raw schema; no executable defaults substituted.")
-    for name in ("requested_input", "effective_input", "summary", "datasets", "plots", "window"):
+    if type(run.get("schema_version")) is not int or run["schema_version"] != 1 or type(run.get("draft_revision")) is not int or run["draft_revision"] < 0:
+        raise ValueError("Missing/invalid run schema_version or draft_revision.")
+    for name, length in (("input_hash", 64), ("native_sha", 40), ("prototype_sha", 40), ("adapter_sha", 40)):
+        value = run.get(name)
+        if not isinstance(value, str) or len(value) != length or any(char not in "0123456789abcdefABCDEF" for char in value):
+            raise ValueError(f"Missing/invalid run identity metadata: {name}")
+    for name in ("requested_input", "effective_input", "summary", "datasets", "plots", "window", "packages"):
         if not isinstance(run.get(name), dict):
             raise ValueError(f"Missing required run metadata: {name}")
+    for name in ("resources", "warnings"):
+        if not isinstance(run.get(name), list):
+            raise ValueError(f"Missing required run metadata: {name}")
+    if run["raw_schema_version"] == 4:
+        for name in ("input_identity_hash", "resource_hash"):
+            value = run.get(name)
+            if not isinstance(value, str) or len(value) != 64 or any(char not in "0123456789abcdefABCDEF" for char in value):
+                raise ValueError(f"Missing/invalid run identity metadata: {name}")
+        for name in ("resource_bindings", "runtime_extensions", "execution_strategy"):
+            if not isinstance(run.get(name), dict):
+                raise ValueError(f"Missing required raw4 metadata: {name}")
     if set(arrays) != set(run["datasets"]):
         raise ValueError("Array/dataset inventory mismatch.")
     for key, array in arrays.items():

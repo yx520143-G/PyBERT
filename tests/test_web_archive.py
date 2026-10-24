@@ -11,7 +11,7 @@ from chaco.api import ArrayPlotData
 from fastapi.testclient import TestClient
 
 from pybert.results import PyBertData
-from pybert.web.archive import array_identity, load_archive, read_arrays, save_archive
+from pybert.web.archive import array_identity, load_archive, read_arrays, save_archive, sha256
 from pybert.web.legacy_results import load_legacy, legacy_report, export_legacy
 from pybert.web.records import References, verify_replay_resources
 from pybert.web.server import create_app
@@ -33,6 +33,10 @@ def saved(tmp_path):
                           clock_basis="nominal", availability="available", axis="t" if key == "raw" else None)
                 for key, a in arrays.items()}
     run = {"run_id": "original-run", "status": "succeeded", "raw_schema_version": 4,
+           "schema_version": 1, "draft_revision": 0, "input_hash": "a" * 64,
+           "native_sha": "b" * 40, "prototype_sha": "c" * 40, "adapter_sha": "d" * 40,
+           "packages": {}, "resources": [], "warnings": [], "resource_bindings": {},
+           "input_identity_hash": "e" * 64, "resource_hash": "f" * 64, "execution_strategy": {},
            "requested_input": {"decision_scaler": .5}, "effective_input": {"decision_scaler": .5}, "summary": {"final_level_v": .7},
            "datasets": datasets, "window": {}, "plots": {"wave": {"title": "test", "traces": [{"x": "t", "y": "raw", "name": "raw", "xunit": "s", "yunit": "V"}]}},
            "runtime_extensions": {"version": 1, "future": {"retained": True}}}
@@ -79,6 +83,54 @@ def test_failed_import_preserves_existing_reference_inventory(saved, tmp_path, d
         refs.add(rewrite(saved[1].read_bytes(), damage), "broken.pybert_run")
     assert refs.index() == before
     assert refs.manifest(loaded["record_id"])["run_id"] == "original-run"
+
+
+@pytest.mark.parametrize("field,value", [("input_hash", None), ("input_hash", 123), ("input_hash", []),
+    ("input_hash", ""), ("input_hash", "bad"), ("native_sha", None), ("prototype_sha", 42),
+    ("adapter_sha", ""), ("run_id", ""), ("schema_version", None), ("draft_revision", "0"),
+    ("packages", []), ("resources", {}), ("warnings", {}), ("input_identity_hash", None),
+    ("resource_hash", 123), ("resource_bindings", []), ("runtime_extensions", []), ("execution_strategy", [])])
+def test_self_consistent_incomplete_identity_rejected_before_publication(saved, tmp_path, monkeypatch, field, value):
+    manager = Tasks(tmp_path / "tasks")
+    monkeypatch.setattr(manager, "start", lambda *args, **kwargs: pytest.fail("metadata check ran engine"))
+    client = TestClient(create_app(manager))
+    record = client.post("/api/references?name=good.pybert_run", content=saved[1].read_bytes()).json()
+    before = client.get("/api/state").json()
+    original = client.get(f"/api/runs/{record['record_id']}").json()
+
+    def change(manifest):
+        if value is None:
+            del manifest["run"][field]
+        else:
+            manifest["run"][field] = value
+        # Keep the archive internally self-consistent; reject the missing/type-invalid field itself.
+        manifest["source_manifest_utf8"] = json.dumps(manifest["run"])
+        manifest["source_files"]["manifest.json"] = sha256(manifest["source_manifest_utf8"].encode("utf-8"))
+
+    content = rewrite(saved[1].read_bytes(), change)
+    rejected = client.post("/api/references?name=incomplete.pybert_run", content=content)
+    assert rejected.status_code == 422
+    assert field in rejected.json()["detail"]
+    assert client.get("/api/state").json() == before
+    assert client.get(f"/api/runs/{record['record_id']}").json() == original
+    assert not manager.tasks and not list(manager.references.root.glob(".loading-*"))
+
+
+@pytest.mark.parametrize("schema", [2, 3, 4])
+def test_supported_raw_schemas_keep_identity_metadata(saved, tmp_path, schema):
+    source = saved[0]
+    run = json.loads((source / "manifest.json").read_text(encoding="utf-8"))
+    run["raw_schema_version"] = schema
+    if schema < 4:
+        for field in ("input_identity_hash", "resource_hash", "resource_bindings", "runtime_extensions", "execution_strategy"):
+            del run[field]
+    (source / "manifest.json").write_text(json.dumps(run), encoding="utf-8")
+    output = tmp_path / "compatible.pybert_run"
+    save_archive(source, output)
+    target = tmp_path / "compatible"
+    target.mkdir()
+    restored, _ = load_archive(output.read_bytes(), target)
+    assert restored == run
 
 
 def test_object_array_forbidden_before_load():

@@ -112,15 +112,28 @@
     if (pendingValidation && !activeTask && !normalizing) normalizeDraft().catch(inputError);
   }
   function persistNative() {
+    if(snapshotRecoveryRequired) return;
     try { localStorage.setItem('pybert-native-snapshot-v2',JSON.stringify({schema:2,sources:sourceVersion,config:base,name:logicalName,source_record_id:sourceRecordId,replay_guard:replayGuard,...extraInput()})); }
     catch { $('config-status').textContent='本地配置快照写入失败；当前页面草稿仍保留，属于存储故障。'; }
   }
+  window.addEventListener('pybert-before-reset', event => {
+    event.detail.native=clone({base,captured,patches,runtimeExtensions,sourceRecordId,replayGuard,snapshotRecoveryRequired,normalized,resource_bindings:resourceBindings()});
+    try {event.detail.native.storedSnapshot=localStorage.getItem('pybert-native-snapshot-v2');} catch { /* Keep storage failure independent of the in-memory undo. */ }
+  });
   window.addEventListener('pybert-draft', event => {
-    if(event.detail.resetAll) {
+    if(event.detail.undoNative) {
+      ({base,captured,patches,runtimeExtensions,sourceRecordId,replayGuard,snapshotRecoveryRequired,normalized}=event.detail.undoNative);
+      normalizedRevision=-1;
+      window.PYBERT_RESOURCES?.restore(event.detail.undoNative.resource_bindings,base);
+      if(snapshotRecoveryRequired && event.detail.undoNative.storedSnapshot!==undefined) {
+        try {if(event.detail.undoNative.storedSnapshot===null) localStorage.removeItem('pybert-native-snapshot-v2');else localStorage.setItem('pybert-native-snapshot-v2',event.detail.undoNative.storedSnapshot);} catch { $('config-status').textContent='撤销已恢复页面状态；原配置快照存储恢复失败。'; }
+      }
+    } else if(event.detail.resetAll) {
       sourceRecordId=null;replayGuard=null;snapshotRecoveryRequired=false;
       if(constructedConfig) {base=clone(constructedConfig);captured=clone(base);patches=[];runtimeExtensions=clone(constructedRuntime);window.PYBERT_RESOURCES?.restore({},base);}
     }
     revision++; controls();
+    if(event.detail.undoNative) persistNative();
     if (event.detail.commit) {
       record();
       pendingValidation = true;

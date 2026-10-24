@@ -278,18 +278,20 @@
     updateDraftStatus();
   }
 
-  function edited({ render = false, commit = true, resetAll = false } = {}) {
+  function edited({ render = false, commit = true, resetAll = false, undoNative = null } = {}) {
     saveDraft();
     renderMap();
     renderOverview();
     if (render) renderSettings();
     else updateFieldFeedback();
-    window.dispatchEvent(new CustomEvent('pybert-draft', { detail: { commit, resetAll } }));
+    window.dispatchEvent(new CustomEvent('pybert-draft', { detail: { commit, resetAll, undoNative } }));
   }
 
   function showReset(keys, message) {
+    lastReset = {draft:settings.clone(draft),retainedFields:settings.clone(retainedFields),recoveryRequired,loadMessage,migrationSource,restored};
+    try {lastReset.storedDraft=localStorage.getItem(storageKey);} catch { /* Storage remains independently unavailable. */ }
+    window.dispatchEvent(new CustomEvent('pybert-before-reset', {detail:lastReset}));
     if(keys.length===Object.keys(settings.defaults).length) {recoveryRequired=false;retainedFields={};loadMessage='已显式恢复默认；旧schema1原存储仍保留。';}
-    lastReset = settings.clone(draft);
     for (const key of keys) draft[key] = settings.clone(settings.defaults[key]);
     for (const key of keys) settings.reconcile(key, draft);
     for (const key of ['tx_pkg_case', 'rx_pkg_case']) if (!settings.optionsFor(key, draft).includes(draft[key])) draft[key] = settings.optionsFor(key, draft)[0];
@@ -476,9 +478,13 @@
   $('close-toast').addEventListener('click', clearUndo);
   $('undo-reset').addEventListener('click', () => {
     if (!lastReset) return;
-    draft = lastReset;
+    const saved=lastReset;
+    ({draft,retainedFields,recoveryRequired,loadMessage,migrationSource,restored}=saved);
+    if(recoveryRequired && saved.storedDraft!==undefined) {
+      try {if(saved.storedDraft===null) localStorage.removeItem(storageKey);else localStorage.setItem(storageKey,saved.storedDraft);} catch {storageAvailable=false;}
+    }
     clearUndo();
-    edited({ render: true });
+    edited({ render: true,undoNative:saved.native });
   });
   $('settings-panel').addEventListener('input', event => {
     const target = event.target;
@@ -543,7 +549,7 @@
     getDraft: () => settings.clone(draft),
     getStage: () => state.stageId,
     replaceDraft: values => { draft = values; saveDraft(); renderStage(); },
-    replaceLoadedDraft: values => {recoveryRequired=false;retainedFields={};loadMessage='已显式载入完整配置；旧草稿原件未删除。';draft=values;saveDraft();renderStage();},
+    replaceLoadedDraft: values => {clearUndo();recoveryRequired=false;retainedFields={};loadMessage='已显式载入完整配置；旧草稿原件未删除。';draft=values;saveDraft();renderStage();},
     setSources: version=>{sources=version;},
     migrationError: ()=>recoveryRequired?'本地草稿恢复失败：请显式恢复默认或Load Config。':Object.values(retainedFields).some(row=>row.blocking!==false)?'有未应用的历史字段，原值保留；请检查迁移明细并显式恢复默认或载入完整配置。':null,
     setDefaults: values => { Object.assign(settings.defaults, settings.clone(values)); for (const [key, value] of Object.entries(values)) if (settings.fields[key]) settings.fields[key].value = value; },

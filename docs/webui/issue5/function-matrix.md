@@ -19,7 +19,7 @@
 | Jitter / Spec. | Jitter Spec. ×5；各自频率轴/窗口 | 已接入；没有另造公式 |
 | Jitter / Info | all-points表、原统计/拒斥比、单位和来源；截图09 | 已接入；保持CTLE→DFE统计含RxFFE的原语义 |
 | 新Rx FFE jitter/bathtub | 上述ffe独立观察点 | 已接入；本票往返exact，producer基线与identity-FFE核对沿用#3 |
-| Viterbi/FEC、error/bit/symbol窗口 | Viterbi/FEC节点与未计算状态 | **#10待专项验收**；本票只保留已产生记录，未计算不冒充DFE真实误码 |
+| Viterbi/FEC、error/bit/symbol窗口 | Viterbi/FEC节点与未计算状态 | **#9待专项验收**；本票只保留已产生记录，未计算不冒充DFE真实误码 |
 | 状态栏 BitErrs/Jitter/ChnlDly/TxPwr | 所选run overview与日志/summary；两真实成功Run | 已接入；PAM4 DFE errors20保留，性能不作严格数值equal |
 | 状态栏/工具 COM | 原任务独立ID、完整子快照与文件可用性；phase11c历史快照回放 | 有界旧真实XLS记录可归档；本票0 COM；#4默认COM gate仍BLOCKED_BUDGET/NOT_EXECUTED |
 | File / Load Config | 工具栏Load Config；真实frozen NRZ/PAM4 YAML、失败/恢复输入统一状态提交 | 已接入；完整配置/资源身份沿用#4，失败保留原草稿 |
@@ -29,7 +29,7 @@
 | View / Clear Loaded Waveforms | 移除所选参考/清除加载参考 | 本票新增；保留2成功、草稿、原source与文件；第五参考超预算不淘汰 |
 | Simulation / Run / Abort | 顶栏任务ID/阶段/取消request、observed、exited | 本票2成功+1取消真实Chrome；刷新不断任务；旧成功仍独立可选 |
 | Optimization / Tune / Abort / Use / Reset EQ | Optimizer节点与既有输入表、未来computed metadata保留 | **#8未实现专项运行/候选应用验收**；保留字段不等于已运行；Reset EQ不冒充恢复全默认 |
-| AMI模型加载/能力/优化 | Device models/IBIS-AMI节点 | **#9待专项验收**；本票不执行模型DLL或声称完整AMI支持 |
+| AMI模型加载/能力/优化 | Device models/IBIS-AMI节点 | **#10待专项验收**；本票不执行模型DLL或声称完整AMI支持 |
 | View / Debug Mode、Info / Console | debug字段与当前task/所选run两份日志 | 已接入且归档保留；本票未要求可编辑控制台 |
 | Info / Performance | run overview原summary | 已接入；费用created→finished另列，不拿开发wall-clock当物理结果 |
 | Help / Getting Started / User's Guide / About | 现有Help/About与原帮助链接/版本/SHA/fork | 沿用已交付入口，#5更新存档操作提示；未重写原帮助内容 |
