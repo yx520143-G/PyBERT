@@ -1,0 +1,11 @@
+{
+  "kind": "corrected read-only static hook rule evaluation; hooks not executed",
+  "initial_report": "raw-hook-check.json retained; its EOF calculation compared CRLF view with LF view and reported false positives. No actual hook or source failure.",
+  "large_file_exclusion_count": 20,
+  "all_20_oversize_files_are_excluded": true,
+  "EOF_violations_outside_raw": [],
+  "mixed_EOL_violations_outside_raw": [],
+  "regex_scoped_only_issue25_raw": true,
+  "all_original_output_hashes_still_match": true,
+  "production_fake_C_model_calls": 0
+}

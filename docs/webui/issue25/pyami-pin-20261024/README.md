@@ -48,7 +48,7 @@ Python 为 `3.13.15`，uv `0.11.23`，B pip `26.2.2`；完整版本输出见 com
 
 本票 owner 未调用 Main、COM、coopt、AMI C Init/GW/Close、模型 CDLL/engine、原生 DSP helper、AMI grammar parser；生产 wrapper 方法/fake callbacks、额外模型包下载/模型编译均 0。依赖 Git 传输可能包含其既有 example binaries，但没有加载它们。#24 的 37 项旧回归、失败和费用维持原封存，没有重跑或重置预算。没有写共享 venv/global/site-packages 或旧子模块补丁。
 
-本证据目录用 `.gitattributes` 保持原 bytes，仅对 commands/inputs 的 raw 快照关闭 whitespace 解释；普通文档和两个新脚本仍检查。保留所有原输出，不修剪失败/警告或通过修改 lock 掩盖来源。
+本证据目录用 `.gitattributes` 保持原 bytes，仅对 commands/inputs 的 raw 快照关闭 whitespace 解释。首次 Standards 自审发现 check-added-large-files 的 500 KiB 限制及 end-of-file-fixer 会与原件保存冲突；`.gitattributes` 不会豁免 hooks。因此 `.pre-commit-config.yaml` 仅对本票 20 个超限的 startup/lock/pip-report 快照配置 large-file 排除，并对本票 commands/inputs 排除 EOF/mixed-line-ending 自动改写。没有改动原始 bytes；check-ast/json/yaml/merge-conflict 等仍有效，普通文档和两个新脚本继续检查。保留所有原输出，不修剪失败/警告或通过修改 lock 掩盖来源。
 
 F 的 strict clocks 适用于所有 GW（含 Tx、response probes、Init 内 probes）；合法 prefix/epoch/status 等由 #24 定义。历史 B+8 只是兼容容量，不能证明任意 DLL 的容量上界或防止写越界。F **尚无可选 rng、probe 隔离、D/Web/归档接入或 E 资源资格修复**，这些另票处理。本来源迁移不是有效 NRZ/PAM4 clocks 或真实模型资格，#10/#4/#1 的剩余 gate 保留。
 
