@@ -1,0 +1,13 @@
+{
+  "scope": "owner-written static hook simulation failed; no hooks/test/product executed",
+  "enclosing_exit_code": 1,
+  "enclosing_exec_wall_s": 1.0314798,
+  "combined_output": "{\"staged\": 81, \"hook_simulation\": {\"large\": [], \"EOF\": [], \"mixed\": [\"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/Makefile.txt\", \"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/bert.py.txt\", \"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/conftest.py.txt\", \"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/launch.stdout.txt\", \"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/pyproject.toml.txt\", \"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/Makefile.txt\", \"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/bert.py.txt\", \"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/conftest.py.txt\", \"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/launch.stdout.txt\", \"docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/pyproject.toml.txt\", \"docs/webui/issue30/probe-main-20261025/runs/11-entry-green/bert.py.txt\", \"docs/webui/issue30/probe-main-20261025/runs/11-entry-green/launch.stdout.txt\"]}, \"diff_exit\": 0, \"diff_stdout_bytes\": 0, \"report_sha256\": \"c9fce1c1641854d06ca7a457df363cca4213c9fc25aa28b7d1799df0a1cb1164\"}\r\nTraceback (most recent call last):\r\n  File \"<stdin>\", line 29, in <module>\r\nAssertionError\r\n",
+  "internal_elapsed_s": "UNKNOWN",
+  "cause": "mixed-line-ending predicate replaced CRLF with LF, then searched for LF; therefore pure CRLF was falsely flagged",
+  "incorrect_predicate": "b'\\r\\n' in b and b'\\n' in b.replace(b'\\r\\n', b'\\n')",
+  "corrected_predicate": "b'\\r\\n' in b and b'\\n' in b.replace(b'\\r\\n', b'')",
+  "original_report": "staged-check-initial.json (initial misleading filename staged-check-green.json renamed without changing bytes)",
+  "diff_cached_check_exit_code": 0,
+  "product_test_calls": 0
+}

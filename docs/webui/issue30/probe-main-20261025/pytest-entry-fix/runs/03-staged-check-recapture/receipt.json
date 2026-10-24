@@ -1,0 +1,23 @@
+{
+  "command": [
+    "git",
+    "--no-optional-locks",
+    "diff",
+    "--cached",
+    "--check"
+  ],
+  "input_sha256": {
+    "staged-index.txt": "583682849d26beb08a6bc583cc490b6319270c8487c69981b6615bb0c9cfc273",
+    "attributes.txt": "ba095dc5110b38c2bbbf71657f8d660632ac28119441c1cc31ad3ae33fb3faa3"
+  },
+  "exit_code": 2,
+  "elapsed_s": 0.08657980000134557,
+  "output_sha256": {
+    "stdout.txt": "c482f76750660e98d2ed9fbc679767a0de6457d4f801cb1b5461322fcc6669c3",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "raw_stdout_bytes": 617339,
+  "raw_stderr_bytes": 0,
+  "task_wall_peak_RSS": "UNKNOWN",
+  "scope": "new observation, not fabricated recovery of original failed command output; pure Git read only"
+}

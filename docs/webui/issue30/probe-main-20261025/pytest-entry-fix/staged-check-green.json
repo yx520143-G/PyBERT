@@ -1,0 +1,21 @@
+{
+  "scope": "corrected staged-only static checks, no actual hooks or product/test rerun",
+  "changed_staged_regular_files": 83,
+  "UTF8_no_BOM_JSON_AST310_text": true,
+  "binary_lossless_raw_archive": [
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/stdout.txt.gz"
+  ],
+  "simulated_hook_checks": {
+    "large": [],
+    "EOF": [],
+    "mixed": []
+  },
+  "correct_mixed_predicate": "CRLF present and bare LF remains after removing CRLF pairs",
+  "git_diff_cached_check": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "elapsed_s": 0.088507300009951
+  },
+  "source_caller_dependencies_and_config_unchanged": true
+}

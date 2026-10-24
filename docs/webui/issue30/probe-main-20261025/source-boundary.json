@@ -21,11 +21,13 @@
   "raw_inputs": {
     "src\\pybert\\utility\\ibisami.py": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2",
     "src\\pybert\\models\\bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
-    "tests\\test_ami_probe_main.py": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
-    "docs\\webui\\issue30\\probe-main-20261025\\run_guarded.py": "e5f9226383a9a28191f7eb96f90caab8d076a8f3c0d059bcacfb0d7d1a536723",
+    "docs\\webui\\issue30\\probe-main-20261025\\run_guarded.py": "a4a3d1475af4dbacd045384ec64c8483b19d7604b9692578076e412ce459026e",
     "docs\\webui\\issue30\\probe-main-20261025\\inputs\\fixed-contract-README.txt": "991e85d26399362392862a4f849bde1652d38125ccbb2d5c6cbb877ed26baa10",
     "pyproject.toml": "8703f9d4381f4bfe0b4f504e0a854129a1c7eb8677ac2d679739e49481d65e66",
-    "uv.lock": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12"
+    "uv.lock": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+    "docs\\webui\\issue30\\probe-main-20261025\\guarded_probe_main_cases.py": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624"
   },
-  "full_helper_adapter_model_execution": 0
+  "full_helper_adapter_model_execution": 0,
+  "last_current_batch": "11-entry-green",
+  "P2_entry_fix": "byte-exact case relocation outside tests/default filename discovery; runner AST only path changed; original source-boundary saved in pytest-entry-fix/inputs"
 }

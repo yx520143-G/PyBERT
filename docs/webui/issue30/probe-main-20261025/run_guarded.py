@@ -20,7 +20,7 @@ def main():
     destination = evidence / "runs" / run_id
     destination.mkdir(parents=True, exist_ok=False)
     source = root / "src/pybert/utility/ibisami.py"
-    test = root / "tests/test_ami_probe_main.py"
+    test = evidence / "guarded_probe_main_cases.py"
     inputs = {}
     original_files = {
         "source.py.txt": source, "bert.py.txt": root / "src/pybert/models/bert.py",

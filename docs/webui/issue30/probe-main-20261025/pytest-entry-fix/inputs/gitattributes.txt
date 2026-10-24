@@ -1,0 +1,4 @@
+* -text
+runs/** -whitespace
+bootstrap/** -whitespace
+inputs/** -whitespace

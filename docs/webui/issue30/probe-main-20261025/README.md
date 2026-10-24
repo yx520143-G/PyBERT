@@ -2,6 +2,8 @@
 
 2026-10-25（Asia/Shanghai）。[live #30](https://github.com/yx520143-G/PyBERT/issues/30) 完整合同保存在 [issue-30.json](issue-30.json)；固定设计为 `e0e6424f606ef28ebd217ac8c14098b1962a9ea4` 的 §4/§6，原文 Git bytes 在 [inputs/fixed-contract-README.txt](inputs/fixed-contract-README.txt)。本票交付 C1 软件协调，不是有效 clocks、模型 ABI 或 NRZ/PAM4 数值资格。
 
+PM 对初次交付 `2f0a601` 的 fresh review 发现普通 pytest 收集入口 P2；本次 [入口修复](pytest-entry-fix/README.md) 将 runner 专用 case 原字节移出 `tests/`，runner 只改路径。最新相关通过批次为 [11-entry-green](runs/11-entry-green/receipt.json)：9 methods、35 次纯协调器。产品源码不变。下文原 01–10 结果继续作为历史，当前审查和封存见 [review-v2.md](review-v2.md)、[verification-v2.json](verification-v2.json)。
+
 ## 来源和选择范围
 
 全新独立 clone `E:/serial-bus-simulator-dependencies/pybert-issue30-probe-main`，branch `codex/pybert-issue30-probe-main`。起点 `3d942f30d892e038a2b52b5e876d11d94c511820` / tree `c5c0b8b4828ebf666eb571aa5fde7cc409c651a3`，写证据前 clean。独立 .git、无 alternates、objects link1；两个新子模块的 metadata 仅在本 clone 的 .git/modules 下。见 [startup.json](startup.json) 和 [bootstrap-plan.json](bootstrap-plan.json)。
@@ -43,7 +45,7 @@ TDD 所需 seam 已由 live 合同明确授权：从实际生产文件 AST 提�
 
 新 bare `.venv` 使用 Python `3.13.15`，只有 stdlib，没有 pip/test dependency 安装。实际 executable/prefix/sys.path 和 venv.cfg 绑定在 receipt；guards 拒绝预加载的产品/NumPy/ctypes 模块，任何 blocked attempt 都使批次失败。每批执行前冻结 source、caller、test、runner、plan；最后批次同时验证它们执行后字节未变。
 
-最后 [10-contract-green](runs/10-contract-green/receipt.json) **9 个测试方法通过、35 次实际纯协调器执行**：26 个 failure points、4 个 seed/B 组合、成功路径、双错误、primary/Close/双诊断错误、可变 Init/FEXT/params/info/ts/UI 与 x alias、以及中断双异常。另有两个静态测试方法，核对真实 initializer、默认路径、旧 positional/6元返回、唯一目标 caller、rx_use_clocks 两值与旧 main RNG/A 接线。动态与静态证据分别陈述，不把它们称为完整数值 helper 通过。
+初次交付最后 [10-contract-green](runs/10-contract-green/receipt.json) **9 个测试方法通过、35 次实际纯协调器执行**：26 个 failure points、4 个 seed/B 组合、成功路径、双错误、primary/Close/双诊断错误、可变 Init/FEXT/params/info/ts/UI 与 x alias、以及中断双异常。另有两个静态测试方法，核对真实 initializer、默认路径、旧 positional/6元返回、唯一目标 caller、rx_use_clocks 两值与旧 main RNG/A 接线。动态与静态证据分别陈述，不把它们称为完整数值 helper 通过；迁移后的 11 批完整复核同一当前矩阵。
 
 fake Close 会破坏其 buffers/记录；测试确认已复制响应、main 结果、Init 诊断仍完整。事件账确认 P Close 后才 W，实际 fake handle 不重叠；所有失败点停止前进，Close/失败点不重试。clocks/wave/params 为固定手工值，不是 golden 或 DSP 结果。
 
@@ -57,9 +59,9 @@ fake Close 会破坏其 buffers/记录；测试确认已复制响应、main 结�
 | 07-wiring-red / 08-wiring-green | 缺实际 caller/adapter selector 的静态 red；接线及当前矩阵 green |
 | 09-interrupt-red / 10-contract-green | 中断+Close 信息丢失的 red；最终完整当前矩阵 green |
 
-首次 line119 静态 preflight 因 runner 一行 123 列停止，测试尚未执行；[preflight-static.json](preflight-static.json) 与 [原 runner](inputs/runner-preflight-v1.py.txt) 保留该失败，修正后才开始 01。所有 red/green、原始 stdout/stderr、每批 input/receipt/hash 及原版本均保留；文件名 green 不代替实际 exit。最后文件必须与 10 receipt hash 一致。
+首次 line119 静态 preflight 因 runner 一行 123 列停止，测试尚未执行；[preflight-static.json](preflight-static.json) 与 [原 runner](inputs/runner-preflight-v1.py.txt) 保留该失败，修正后才开始 01。所有 red/green、原始 stdout/stderr、每批 input/receipt/hash 及原版本均保留；文件名 green 不代替实际 exit。初次交付绑定 10 receipt；当前 case/runner/plan/source/env 绑定 11 receipt。
 
-[cost-ledger.json](cost-ledger.json) 记录十批全部成本：累计实际纯协调器 **130** 次、内部 error constructor **106** 次；selected stub entries 为 model factory193、initializer177、initialize169、private RNG factory102、get_responses98、main getWave40、Close183；copy/message 辅助计数另列。06起补充完整 observed test Python entry histogram，旧批次未冒称此观察范围。以上均为非零 Python 软件活动，不能写为模型 C 调用。
+初次十批累计实际纯协调器 **130** 次、内部 error constructor **106** 次；selected stub entries 为 model factory193、initializer177、initialize169、private RNG factory102、get_responses98、main getWave40、Close183；[原账](pytest-entry-fix/inputs/cost-ledger.json) 保留。06起补充完整 observed test Python entry histogram，旧批次未冒称此观察范围。当前 [cost-ledger.json](cost-ledger.json) 增加 11 批后为 **165/135** 次，guarded 内部 elapsed 合计 `4.152754799972172 s`；入口静态 red/green 内部 elapsed 合计 `0.20216790001722984 s`，与 guarded 分列。以上均为非零 Python 软件活动，不能写为模型 C 调用。
 
 十批内部 elapsed 合计 `2.624448799979291 s`；三个 Git/venv bootstrap 合计 `18.391242700003204 s`；clone/switch `51.39330739999423 s`。首次静态 preflight 内部 elapsed UNKNOWN，tool wall 单列；整任务 wall/peak RSS UNKNOWN。没有将历史失败或花费归零，也没有重复 #24/#27/fullsuite/安装矩阵。
 
@@ -73,8 +75,8 @@ fake Close 会破坏其 buffers/记录；测试确认已复制响应、main 结�
 
 D1 Native 采样、D2 Web 消费/保存、E1/E2 合法 fixture 与真实配对均属后续票；#10 有效 clocks/E SOURCE_BLOCKED、#4 COM BLOCKED_BUDGET/NOT_EXECUTED、#1 最终 fresh 数值 review gate 不变。
 
-固定候选 `ec72c92e3b8dca2b4cd2b972f5d0a8852e412aca` 的独立 [Standards/Spec 审查](review.md) 均为 0 findings；审查不运行测试或产品 import。owner 提供了错误解释器路径，导致两个首次只读入口在 stdin 脚本前停止；[原 command/output](review-entry-failures.json) 保留，精确退出码、分流日志和内部 elapsed 未捕获，均 UNKNOWN。functions 展示 wall 分别 0.7/0.6 s，单列于费用账，不混入十批运行成本。
+初次候选 `ec72c92e3b8dca2b4cd2b972f5d0a8852e412aca` 的独立 [owner Standards/Spec 审查](review.md) 均为 0 findings；随后 PM 对初次最终 `2f0a601` 发现入口 P2，原自审不覆盖该缺陷。owner 提供了错误解释器路径，导致两个首次只读入口在 stdin 脚本前停止；[原 command/output](review-entry-failures.json) 保留，精确退出码、分流日志和内部 elapsed 未捕获，均 UNKNOWN。functions 展示 wall 分别 0.7/0.6 s，单列于费用账，不混入十批运行成本。
 
 首次 seal 静态核对将 `--untracked-files=all` 的展开状态与 startup 的默认目录分组状态相比，产生断言失败；未执行产品、测试或写文件。按原命令口径复核时状态一致，保护文件另做完整 hash 核对。[原失败与观察缺口](seal-preflight-failure.json) 保留，未重写 startup。
 
-[verification.json](verification.json) 封存全部 changed regular files（排除 manifest 自身），并核对最后批次原件、历史保护与新 Git metadata 隔离。最终封存提交仅补文档，未重跑测试。交付只向本人 PyBERT master 创建唯一 Draft PR（Refs #30）；固定最终 HEAD/tree/clean 后停写停测，交 PM fresh review，不自行 merge/close。开发期公开 push/PR 已授权，私有化由 PM 在全项目最终验收后统筹。
+[verification.json](verification.json) 和 [review.md](review.md) 是初次交付 v1 历史，原字节保持，不能用作修复后的当前 manifest。当前 v2 封存在 [verification-v2.json](verification-v2.json)，复审在 [review-v2.md](review-v2.md)；原 01–10 snapshot/receipt/log 与修复前说明/计划/runner/case 均保留。修复只更新同一 [Draft PR31](https://github.com/yx520143-G/PyBERT/pull/31)，不创建新 issue；D1→D2→E 按 PM 最新要求在既有 #10 内串行跟踪。固定新最终 HEAD/tree/clean 后停写停测，交 PM fresh review，不自行 merge/close。开发期公开 push/PR 已授权，私有化由 PM 在全项目最终验收后统筹。

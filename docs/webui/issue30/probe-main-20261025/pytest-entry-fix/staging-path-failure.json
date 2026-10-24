@@ -1,0 +1,17 @@
+{
+  "scope": "repeat staging after deletion was already staged; commit not reached; no product/test execution",
+  "enclosing_exit_code": 1,
+  "enclosing_exec_wall_s": 0.8751112,
+  "combined_output": "Traceback (most recent call last):\r\n  File \"<stdin>\", line 11, in <module>\r\n  File \"<stdin>\", line 6, in git\r\nAssertionError: (['add', '--', 'docs/webui/issue30/probe-main-20261025', 'tests/test_ami_probe_main.py'], \"fatal: pathspec 'tests/test_ami_probe_main.py' did not match any files\\n\")\r\n",
+  "command": [
+    "git",
+    "add",
+    "--",
+    "docs/webui/issue30/probe-main-20261025",
+    "tests/test_ami_probe_main.py"
+  ],
+  "inner_exact_exit": "UNKNOWN (wrapper omitted returncode)",
+  "internal_elapsed_s": "UNKNOWN",
+  "cause": "the removed old test path no longer existed in the worktree or index after prior successful staging",
+  "correction": "stage only the evidence directory; existing test deletion remains staged; verify changed scope before commit"
+}
