@@ -4,6 +4,9 @@ import copy
 
 import numpy as np
 
+CLOCK_FIELDS = ("edges_s", "targets_s", "sample_indices", "consumed_tick_positions", "sample_targets_s",
+                "sample_grid_times_s", "sample_quantization_delay_s", "analysis_sample_indices")
+
 
 def validate_period(t, period_ps, known):
     """Validate the exact dense masked exception; return compact references without changing raw bytes."""
@@ -202,3 +205,123 @@ def period_segments(t, period_ps, known, limit=4096):
                 known_segment_count=int(groups[-1]), display_segment_count=len(segments),
                 omitted_segments=int(groups[-1]) - len(segments))
     return segments, meta
+
+
+def store_clock_context(context, arrays, datasets):
+    """Store the exact masked raw exception and its producer-owned coordinate arrays."""
+    info, raw = context["info"], context["raw"]
+    t = raw["t"]
+    full = dict(scope="full_record", time_axis="t", start_index=0, stop_index=len(t),
+                start_s=float(t[0]), stop_s_inclusive=float(t[-1]))
+
+    def add(key, value, unit, axis=None, **extra):
+        arrays[key] = value
+        datasets[key] = dict(field=key, producer="fresh Main ami_clock_info host snapshot", point="cdr",
+            kind="raw", dtype=str(value.dtype), shape=list(value.shape), unit=unit, axis=axis,
+            window=dict(full), clock_basis="producer absolute grid indices", display_noise=False,
+            availability="available", source_fields=[key], invocation_id=info["invocation_id"], **extra)
+
+    count = len(context["known_compact"][0])
+    add("ui_ests", raw["ui_ests"], "ps", "t", numerical_availability="masked",
+        mask_field="ami.cdr.period_known", known_count=count, unknown_count=len(t) - count)
+    add("ami.cdr.period_known", info["period_known"], "bool", "t")
+    for name in CLOCK_FIELDS:
+        add("ami.clock." + name, info[name], "s" if name.endswith("_s") else "sample index")
+    for name, values, unit, axis in zip(("known_grid_indices", "known_times_s", "known_period_ps"),
+            context["known_compact"], ("sample index", "s", "ps"),
+            (None, None, "ami.cdr.known_times_s")):
+        add("ami.cdr." + name, values, unit, axis)
+        datasets["ami.cdr." + name].update(kind="compact reference", source_fields=["t", "ui_ests",
+                                                              "ami.cdr.period_known"])
+    fields = ("requested", "mode", "role", "main_origin", "format_status", "eligible", "actual_branch",
+              "consumption_status", "consumed_count", "run_status", "full_analysis_eligible", "reason",
+              "last_tick_status", "deferred_reasons", "ignore_ui", "symbol_ui_s", "nspui", "analysis", "profile",
+              "profile_source", "model_qualification", "epoch_basis", "producer_contract_version", "invocation_id")
+    return {"version": 2, **{name: copy.deepcopy(info.get(name)) for name in fields},
+            "array_fields": {name: "ami.clock." + name for name in CLOCK_FIELDS},
+            "period_field": "ui_ests", "mask_field": "ami.cdr.period_known", "grid_field": "t",
+            "snapshot_phase": context["snapshot_phase"]}
+
+
+def clock_features(run, archive_features=None):
+    """Version, actual branch and required feature are one indivisible stored contract."""
+    contract = run.get("ami", {}).get("clock_contract")
+    features = run.get("required_features", [])
+    masked = run.get("raw_schema_version") == 6
+    if masked:
+        if (type(run.get("raw_schema_version")) is not int
+                or features != ["ami-clock-grid-v2"] or not isinstance(contract, dict)
+                or type(contract.get("version")) is not int or contract["version"] != 2
+                or contract.get("actual_branch") != "ami"):
+            raise ValueError("raw6 requires AMI clock_contract2 and ami-clock-grid-v2 together")
+    elif features or contract is not None:
+        raise ValueError("AMI clock contract/feature cannot be downgraded or attached to a Native raw version")
+    if archive_features is not None and archive_features != features:
+        raise ValueError("Unsupported or mismatched required archive features")
+    return list(features)
+
+
+def validate_clock_arrays(run, arrays):
+    """Validate stored references without rebuilding decisions, Eye, histogram or FFT."""
+    if not clock_features(run):
+        return
+    contract = run["ami"]["clock_contract"]
+    if (contract.get("array_fields") != {name: "ami.clock." + name for name in CLOCK_FIELDS}
+            or contract.get("period_field") != "ui_ests" or contract.get("grid_field") != "t"
+            or contract.get("mask_field") != "ami.cdr.period_known"
+            or contract.get("producer_contract_version") != 2 or not contract.get("invocation_id")
+            or contract.get("main_origin") != "c1_fresh_main" or contract.get("role") != "main"
+            or contract.get("mode") != "rx_getwave" or contract.get("format_status") != "valid"
+            or not contract.get("requested") or not contract.get("eligible")
+            or contract.get("run_status") != "completed" or contract.get("consumption_status") != "completed"
+            or not contract.get("full_analysis_eligible")):
+        raise ValueError("Incomplete saved producer clock contract")
+    profile = contract.get("profile", {})
+    if (type(contract.get("nspui")) is not int or contract["nspui"] < 1
+            or not np.isfinite(contract["symbol_ui_s"]) or contract["symbol_ui_s"] <= 0
+            or not np.isfinite(contract["ignore_ui"]) or contract["ignore_ui"] < 0
+            or profile.get("ignore_ui_units") != "symbol_ui" or profile.get("nominal_eye_offset_ui") != 0
+            or profile.get("mapping") not in ("native_nrz", "native_pam4")):
+        raise ValueError("Invalid saved producer units, offset or mapping declaration")
+    required = ("t", "ui_ests", "clock_times", "ami.cdr.period_known", "ami.cdr.known_grid_indices",
+                "ami.cdr.known_times_s", "ami.cdr.known_period_ps", *contract["array_fields"].values())
+    if any(name not in arrays for name in required):
+        raise ValueError("Missing saved AMI producer arrays")
+    for name, value in arrays.items():
+        if value.dtype.kind not in "biufc" or name != "ui_ests" and not np.isfinite(value).all():
+            raise ValueError("Nonfinite/nonnumeric array outside the exact ui_ests exception: " + name)
+    t, known = arrays["t"], arrays["ami.cdr.period_known"]
+    compact = validate_period(t, arrays["ui_ests"], known)
+    if not len(compact[0]):
+        raise ValueError("All-unknown AMI period is diagnostic only")
+    for name, expected in zip(("known_grid_indices", "known_times_s", "known_period_ps"), compact):
+        value = arrays["ami.cdr." + name]
+        if value.dtype != expected.dtype or value.shape != expected.shape or value.tobytes() != expected.tobytes():
+            raise ValueError("Saved known compact reference mismatch: " + name)
+    values = {name: arrays[field] for name, field in contract["array_fields"].items()}
+    indices, targets, times = (values[name] for name in ("sample_indices", "sample_targets_s", "sample_grid_times_s"))
+    positions, edges = values["consumed_tick_positions"], values["edges_s"]
+    if (indices.ndim != 1 or indices.dtype.kind not in "iu" or not len(indices)
+            or np.any(indices < 0) or np.any(indices >= len(t)) or np.any(np.diff(indices) <= 0)
+            or contract["consumed_count"] != len(indices) or np.any(np.diff(t) <= 0)
+            or positions.shape != indices.shape or positions.dtype.kind not in "iu"
+            or np.any(positions < 0) or np.any(positions >= len(edges)) or np.any(np.diff(positions) <= 0)
+            or targets.shape != indices.shape or times.shape != indices.shape
+            or edges.ndim != 1 or edges.dtype.kind != "f" or np.any(edges < 0) or np.any(np.diff(edges) <= 0)
+            or not np.array_equal(values["targets_s"], edges + contract["symbol_ui_s"] / 2)
+            or not np.array_equal(targets, values["targets_s"][positions])
+            or not np.array_equal(times, t[indices]) or not np.array_equal(arrays["clock_times"], times)
+            or np.any(targets < t[0]) or np.any(targets > t[-1]) or np.any(times < targets)
+            or np.any(t[indices[indices > 0] - 1] >= targets[indices > 0])
+            or not np.array_equal(values["sample_quantization_delay_s"], times - targets)):
+        raise ValueError("Invalid saved producer indices/targets/grid times")
+    window = contract["analysis"]
+    start, stop, count = window["start_index"], window["stop_index"], window["required_decisions"]
+    if (any(type(value) is not int for value in (start, stop, count)) or not 0 <= start < stop <= len(t)
+            or count < 1 or not t[0] <= window["start_s"] <= window["stop_s"] <= t[-1]):
+        raise ValueError("Invalid saved frozen analysis window")
+    inside = ((indices >= start) & (indices < stop) & (targets >= window["start_s"])
+              & (targets <= window["stop_s"]) & (times >= window["start_s"]) & (times <= window["stop_s"])
+              & (targets >= contract["ignore_ui"] * contract["symbol_ui_s"]))
+    if len(indices[inside]) < count or not np.array_equal(values["analysis_sample_indices"], indices[inside][-count:]):
+        raise ValueError("Saved final W producer indices disagree")

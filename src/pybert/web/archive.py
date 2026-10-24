@@ -13,6 +13,7 @@ from pathlib import Path
 import numpy as np
 
 from pybert.web.data import adapter_sha
+from pybert.web.clocks import clock_features, validate_clock_arrays
 
 MAX_FILE_BYTES = 256 * 1024**2
 MAX_ARRAY_BYTES = 768 * 1024**2
@@ -47,9 +48,12 @@ def array_identity(array):
             "sha256": sha256(array.tobytes(order="C"))}
 
 
-def read_arrays(content, *, require_finite=True):
+def read_arrays(content, *, require_finite=True, run=None):
     """Check NPY headers and byte bounds before NumPy can allocate any arrays."""
     arrays = {}
+    masked = bool(clock_features(run)) if run is not None else False
+    if masked and not require_finite:
+        raise ValueError("AMI masked records require the exact field/mask validation, not a global finite bypass")
     total = 0
     with zipfile.ZipFile(io.BytesIO(content)) as archive:
         for entry in archive.infolist():
@@ -69,11 +73,13 @@ def read_arrays(content, *, require_finite=True):
                 if total > MAX_ARRAY_BYTES or stream.tell() + size != entry.file_size:
                     raise ValueError("Array byte budget or NPY shape/body mismatch.")
             array = np.lib.format.read_array(io.BytesIO(archive.read(entry)), allow_pickle=False)
-            if require_finite and not np.isfinite(array).all():
+            if require_finite and not (masked and entry.filename == "ui_ests.npy") and not np.isfinite(array).all():
                 raise ValueError(f"Nonfinite array: {entry.filename}")
             arrays[entry.filename[:-4]] = array
     if not arrays:
         raise ValueError("No numerical arrays in this record.")
+    if masked:
+        validate_clock_arrays(run, arrays)
     return arrays
 
 
@@ -83,7 +89,7 @@ def validate_run(run, arrays):
         raise ValueError("Missing/invalid source run_id identity.")
     if run.get("legacy"):
         raise ValueError("Legacy缺少完整原输入和物理轴，无法保存/打开为完整Web archive；请保留原文件与可用sidecar。")
-    if run.get("status") != "succeeded" or type(run.get("raw_schema_version")) is not int or run["raw_schema_version"] not in (2, 3, 4, 5):
+    if run.get("status") != "succeeded" or type(run.get("raw_schema_version")) is not int or run["raw_schema_version"] not in (2, 3, 4, 5, 6):
         raise ValueError("Unsupported run status/raw schema; no executable defaults substituted.")
     if run["raw_schema_version"] < 5 and "decoding" in run:
         raise ValueError("Decoding requires raw schema 5; older schema cannot bypass its validation.")
@@ -109,6 +115,8 @@ def validate_run(run, arrays):
                 raise ValueError(f"Missing required raw4 metadata: {name}")
     if set(arrays) != set(run["datasets"]):
         raise ValueError("Array/dataset inventory mismatch.")
+    clock_features(run)
+    validate_clock_arrays(run, arrays)
     for key, array in arrays.items():
         dataset = run["datasets"][key]
         required = ("dtype", "shape", "producer", "unit", "window", "clock_basis", "availability")
@@ -157,10 +165,11 @@ def save_archive(directory, destination, subfunctions=None):
     raw = (directory / "arrays.npz").read_bytes()
     source = (directory / "manifest.json").read_bytes()
     run = read_json(source)
-    arrays = read_arrays(raw)
+    features = clock_features(run)
+    arrays = read_arrays(raw, run=run)
     validate_run(run, arrays)
     manifest = {
-        "format": FORMAT, "archive_schema": 1, "required_features": [],
+        "format": FORMAT, "archive_schema": 1, "required_features": features,
         "saved_at": datetime.now(timezone.utc).isoformat(), "saved_by_adapter_sha": adapter_sha(),
         "source_files": {"manifest.json": sha256(source), "arrays.npz": sha256(raw)},
         "source_manifest_utf8": source.decode("utf-8"),
@@ -194,14 +203,13 @@ def load_archive(content, directory):
             raw = archive.read("arrays.npz")
         if manifest.get("format") != FORMAT or manifest.get("archive_schema") != 1:
             raise ValueError("Unknown archive format/version; existing records retained.")
-        if manifest.get("required_features"):
-            raise ValueError("Unsupported required archive features; read/execution refused.")
+        clock_features(manifest["run"], manifest.get("required_features", []))
         if sha256(raw) != manifest["source_files"]["arrays.npz"]:
             raise ValueError("Archive NPZ checksum mismatch.")
         original = manifest["source_manifest_utf8"].encode("utf-8")
         if sha256(original) != manifest["source_files"]["manifest.json"] or read_json(original) != manifest["run"]:
             raise ValueError("Archive source manifest checksum/content mismatch.")
-        arrays = read_arrays(raw)
+        arrays = read_arrays(raw, run=manifest["run"])
         if {key: array_identity(value) for key, value in arrays.items()} != manifest["arrays"]:
             raise ValueError("Archive array dtype/shape/bytes checksum mismatch.")
         size = validate_run(manifest["run"], arrays)

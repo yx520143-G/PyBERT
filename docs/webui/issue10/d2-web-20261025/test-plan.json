@@ -1,6 +1,6 @@
 {
-  "phase": "masked archive version and finite-gate red",
-  "run_id": "07-archive-red",
+  "phase": "masked archive version and finite-gate green",
+  "run_id": "08-archive-green",
   "selection": [
     "ArchiveCases"
   ],
@@ -26,7 +26,7 @@
     "pybert.web.txt": "src/pybert/web/__init__.py"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/web/clocks.py": "cf61411c6b41f5ad510b8b1110dc94bb8ac2321c48f331a7a28e8fab8cff0992",
+    "src/pybert/web/clocks.py": "f60d94b8d006d979b7313358b56243e9ff580b6f36758a2e9bc3eab1976cfd3a",
     "docs/webui/issue10/d2-web-20261025/d2_cases.py": "959fe330de282d719535e5abd2bccaf9b30e008a96ea1627e9111f897b6a8d09",
     "docs/webui/issue10/d2-web-20261025/run_guarded.py": "9fb566a761711fa7c08ec5ab057d46254e453315f825c1dfe7b6e2b3479ce2f2",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "0363ea36878cef57f1ed281d0f9d193cd3384c243314a0d7717e15e1c3203762",
@@ -38,7 +38,7 @@
     "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
     "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
-    "src/pybert/web/archive.py": "38f2b1967488ef7b6e6cdb768863da525226bf9bf11e71ccd292cccec6e3c676",
+    "src/pybert/web/archive.py": "e66ce58a7c5d55f500dd9d24ef03819a2959fc13f1a4ffc3b6fe6ad61c4dec6c",
     "src/pybert/web/viterbi.py": "8c8768f9b4ada62dd370786a8d4f4129118bc14cc1eb9925012abce445d92a3f",
     "src/pybert/web/data.py": "34b317a4c512c5cf17f05ec60e66bb567059cbf02dfa34e97dd7406702326e35",
     "src/pybert/web/__init__.py": "3f06f9f54e5a61c3261fb7f5dee91d100b5e1d5b0dc9a69d74735456a5d74b92"
@@ -46,7 +46,10 @@
   "modules": {
     "pybert.web.clocks": {
       "path": "src/pybert/web/clocks.py",
-      "names": null
+      "names": null,
+      "constants": [
+        "CLOCK_FIELDS"
+      ]
     },
     "pybert.utility.ami_clock": {
       "path": "src/pybert/utility/ami_clock.py",
@@ -190,7 +193,7 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 0,
+    "pure": 2000,
     "collect": 0,
     "extend_analysis": 0,
     "eye_data": 0,
@@ -200,13 +203,13 @@
     "histogram": 0,
     "rfft": 0,
     "safe_log10": 0,
-    "viterbi_extend": 0,
-    "viterbi_validate": 0,
-    "resize_zero_pad": 0,
-    "read_arrays": 0,
-    "validate_run": 0,
-    "save_archive": 0,
-    "load_archive": 0,
+    "viterbi_extend": 1,
+    "viterbi_validate": 16,
+    "resize_zero_pad": 16,
+    "read_arrays": 32,
+    "validate_run": 16,
+    "save_archive": 1,
+    "load_archive": 3,
     "annotate": 0,
     "execution_write": 0,
     "partial_save": 0,
@@ -214,9 +217,8 @@
   },
   "expected_result": {
     "tests": 1,
-    "failures": 1,
-    "errors": 0,
-    "reason": "stored clock contract seam absent; first assertion before archive or numerical calls"
+    "failures": 0,
+    "errors": 0
   },
   "case_inputs": "literal16-grid actual producer factory/host snapshot, distinct NaN payloads42/21, disabled decoding BER row bits0101/test01, full metadata hashes manuallydeclared; newraw6 archive byte-exact originalmanifest/NPZ; outerfeature mismatch, missing/unknown/downgrade/native version labels, compact tamper, otherNaN/objectheader, legacyraw2-5finite.",
   "expected_values": {
@@ -231,16 +233,17 @@
   "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
   "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
   "expected_function_entries": {
-    "period_projection": 9,
-    "validate_period": 12,
-    "period_segments": 3,
-    "baseline.eye_data": 2,
-    "candidate.eye_data": 6,
-    "baseline.calc_eye": 2,
-    "candidate.calc_eye": 3
+    "archive.read_arrays_upper": 32,
+    "archive.validate_run_upper": 16,
+    "archive.save_archive": 1,
+    "archive.load_archive": 3,
+    "viterbi.extend": 1,
+    "viterbi.validate_upper": 16,
+    "resize_zero_pad_upper": 16,
+    "other_actual_necessary_validation_and_serialization_pure_upper": 2000
   },
-  "previous_plan": "runs/06-projection-green/plan.json",
-  "expected_counts_policy": "upper bounds, actual trace separately reported",
+  "previous_plan": "runs/07-archive-red/plan.json",
+  "expected_counts_policy": "conservative upper bounds, actual event counts separately reported; nested JSON pairs/hash/array_identity/atomic_write also conservatively included in pure4000 and serialization ledgers",
   "serialization_policy": "from04 count each ndarray copy/deepcopy C completion incl bytes and elapsed;02 lacked per-copy trace (20 case fixture copies inferable from10 completed rows, elapsed UNKNOWN); preserve02 unchanged, full final matrix will include instrumented rows. No numerical re-run solely for instrumentation.",
   "FFT_uniformity": "original full-grid differences compared to original t[1]-t[0], rtol1e-12/atol0 for floating-grid representation only; no sample-target tolerance, no window change",
   "display_policy": "known ordinals evenly including endpoints up to total cap4096; split by original contiguous-known groups; singletons markers; omitted segments/count explicit; no unknown line bridge",
