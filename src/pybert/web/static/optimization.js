@@ -13,8 +13,9 @@
   }
   async function render() {
     const own=++token,id=$('selected-opt').value;
-    selected=id ? await runs.api(`optimizations/${id}`) : null;
-    if(own!==token) return;
+    const result=id ? await runs.api(`optimizations/${id}`) : null;
+    if(own!==token || $('selected-opt').value!==id) return;
+    selected=result;
     $('optimizer-record').textContent=selected ? JSON.stringify(selected,null,2) : '';
     $('selected-candidate').replaceChildren();
     if(selected) for(const row of selected.candidates || []) {
@@ -51,18 +52,21 @@
     status(`opt ${task.task_id} · validating；不自动 Use EQ。`);
   }));
   $('abort-eq').addEventListener('click',()=>action(async()=>{if(active) {const task=await runs.api(`tasks/${active}/cancel`,{});status(`${task.task_id} · ${task.state}；等待原生检查点与进程实际退出。`);}}));
-  $('reset-eq').addEventListener('click',()=>action(async()=>{const result=await runs.optimizerAction('reset_eq');runs.applyOptimizer(result);status('已按原 Reset EQ 同步当前实际 EQ 的初值/enable；搜索 min/max/step、DFE 与旧 Run 保留。');}));
+  $('reset-eq').addEventListener('click',()=>action(async()=>{const result=await runs.optimizerAction('reset_eq');if(result.source_draft_revision!==runs.revision())throw new Error('Reset 等待期间草稿已改变；请重新执行。');runs.applyOptimizer(result);status('已按原 Reset EQ 同步当前实际 EQ 的初值/enable；搜索 min/max/step、DFE 与旧 Run 保留。');}));
   $('selected-opt').addEventListener('change',()=>action(render));
   $('selected-candidate').addEventListener('change',()=>action(plot));
   $('use-eq').addEventListener('click',()=>action(async()=>{
+    const source=selected,recordId=$('selected-opt').value;
+    if(!source || source.status!=='succeeded')throw new Error('请选择成功优化记录。');
     const current=await runs.optimizationInput();
-    const result=await runs.api('optimizer-actions/use_eq',{...current,record_id:$('selected-opt').value});
-    const changed=Object.keys(current.config).filter(key=>!eq(current.config[key],selected.requested_input[key]));
-    const runtimeConflict=!eq(current.runtime_extensions,selected.runtime_extensions);
-    pending={result,revision:runs.revision(),recordId:$('selected-opt').value};
-    $('eq-differences').textContent=JSON.stringify({source_opt_id:selected.opt_id,candidate_id:selected.selected_candidate_id,
-      draft_conflicts:changed.map(field=>({field,frozen:selected.requested_input[field],current:current.config[field]})),
-      runtime_conflict:runtimeConflict ? {frozen:selected.runtime_extensions,current:current.runtime_extensions} : null,
+    const result=await runs.api('optimizer-actions/use_eq',{...current,record_id:recordId});
+    if(current.draft_revision!==runs.revision() || recordId!==$('selected-opt').value)throw new Error('Use EQ 等待期间草稿或记录已改变；请重新预览差异。');
+    const changed=Object.keys(current.config).filter(key=>!eq(current.config[key],source.requested_input[key]));
+    const runtimeConflict=!eq(current.runtime_extensions,source.runtime_extensions);
+    pending={result,revision:current.draft_revision,recordId,source};
+    $('eq-differences').textContent=JSON.stringify({source_opt_id:source.opt_id,candidate_id:source.selected_candidate_id,
+      draft_conflicts:changed.map(field=>({field,frozen:source.requested_input[field],current:current.config[field]})),
+      runtime_conflict:runtimeConflict ? {frozen:source.runtime_extensions,current:current.runtime_extensions} : null,
       application:result.import_report},null,2);
     controls();$('eq-dialog').showModal();
   }));
@@ -70,11 +74,12 @@
   $('eq-dialog').addEventListener('cancel',()=>{pending=null;controls();});
   $('confirm-use-eq').addEventListener('click',()=>action(async()=>{
     if(!pending || pending.revision!==runs.revision() || pending.recordId!==$('selected-opt').value) throw new Error('预览后草稿或候选已改变；请关闭并重新预览差异。');
-    runs.applyOptimizer(pending.result);status(`已显式应用 ${selected.opt_id} / ${selected.selected_candidate_id}；请新 Run 评估时域效果。`);pending=null;$('eq-dialog').close();
+    runs.applyOptimizer(pending.result);status(`已显式应用 ${pending.source.opt_id} / ${pending.source.selected_candidate_id}；请新 Run 评估时域效果。`);pending=null;$('eq-dialog').close();
   }));
   $('save-opt').addEventListener('click',()=>action(async()=>{
-    const response=await fetch(`/api/optimizations/${$('selected-opt').value}/archive`);if(!response.ok) throw new Error((await response.json()).detail);
-    const url=URL.createObjectURL(await response.blob()),a=document.createElement('a');a.href=url;a.download=`${selected.opt_id}.pybert_opt`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status('已提交优化记录下载；含冻结输入、RLM、候选数组/评分、状态/成本；资源 bytes 不附带。');
+    const source=selected,recordId=$('selected-opt').value;
+    const response=await fetch(`/api/optimizations/${recordId}/archive`);if(!response.ok) throw new Error((await response.json()).detail);
+    const url=URL.createObjectURL(await response.blob()),a=document.createElement('a');a.href=url;a.download=`${source.opt_id}.pybert_opt`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status('已提交优化记录下载；含冻结输入、RLM、候选数组/评分、状态/成本；资源 bytes 不附带。');
   }));
   $('open-opt').addEventListener('click',()=>$('opt-file').click());
   $('opt-file').addEventListener('change',()=>action(async()=>{

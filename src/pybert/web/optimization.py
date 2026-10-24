@@ -31,6 +31,37 @@ MAX_INNER = 256
 MAX_EVALUATIONS = 4096
 
 
+class NativeObservations(dict):
+    """Bound retained observation arrays, including their exported pulse axes."""
+
+    def __init__(self, reserved_bytes):
+        super().__init__()
+        self.used = reserved_bytes
+
+    def charge(self, values, axis=False):
+        size = sum(value.nbytes for value in values.values() if isinstance(value, np.ndarray))
+        if axis:
+            size += values["pulse"].nbytes
+        if self.used + size > MAX_ARRAY_BYTES:
+            raise ValueError("Native observation storage budget exceeded; partial observations retained.")
+        self.used += size
+
+    def update(self, **values):
+        owner = self
+
+        class Rows(list):
+            def __init__(self, axis):
+                super().__init__()
+                self.axis = axis
+
+            def append(self, row):
+                owner.charge(row, self.axis)
+                super().append(row)
+
+        self.charge(values["mmse_context"])
+        super().update(values | {"candidates": Rows(True), "mmse_calls": Rows(False)})
+
+
 class OptimizationCancelled(RuntimeError):
     """Raised only by the original OptThread.stopped checkpoint bridge."""
 
@@ -66,7 +97,7 @@ def preflight(p):
     # Bound the original producer grids before their cached properties allocate them.
     time_samples = p.nui * p.nspui
     frequency_samples = math.ceil((p.f_max * 1e9 + p.f_step * 1e6) / (p.f_step * 1e6))
-    mmse_samples = round((.5 / (p.ui / p.nspui)) / 100e6) + 1
+    mmse_samples = math.ceil((.5 / (p.ui / p.nspui)) / 100e6 + .5)
     if time_samples > 2_000_000 or frequency_samples > 200_001 or mmse_samples > 200_001:
         raise ValueError(f"Optimization grid budget refused: time={time_samples}/2000000, channel frequency={frequency_samples}/200001, MMSE frequency={mmse_samples}/200001; inputs unchanged.")
     if not 0 < p.rlm <= 1:
@@ -95,7 +126,14 @@ def preflight(p):
     upper = peaks * counts["tx_tap_tuners"]
     if upper > MAX_OUTER or inner > MAX_INNER or upper * inner > MAX_EVALUATIONS:
         raise ValueError(f"Optimization budget refused: outer<={upper}/{MAX_OUTER}, inner<={inner}/{MAX_INNER}, total<={upper*inner}/{MAX_EVALUATIONS}; ranges unchanged.")
-    estimated_bytes = upper * (max(time_samples, 2 * mmse_samples, p.nspui * 105) * 16 + 8192)
+    # Bound every exported float64/complex128 array, including all actual MMSE inputs.
+    pulse_samples = max(2 * mmse_samples, p.nspui * 105) + 100 * p.nspui
+    reserved_bytes = 16 * time_samples + 24 * pulse_samples + 8 * (6 + 100 + 20 + 4)
+    context_bytes = 8 * (3 * mmse_samples + 40)
+    per_candidate = 16 * pulse_samples + 8 * (6 + 100 + 20)
+    if c["use_mmse"]:
+        per_candidate += 64 * mmse_samples + 16 * 100  # p_tx, three H, Rx bounds
+    estimated_bytes = reserved_bytes + context_bytes + upper * per_candidate
     if estimated_bytes > MAX_ARRAY_BYTES:
         raise ValueError(f"Optimization candidate storage budget refused: conservative estimate {estimated_bytes}/{MAX_ARRAY_BYTES} bytes; ranges unchanged.")
     tx = mk_tap_weight_combs(p.tx_tap_tuners)
@@ -110,6 +148,7 @@ def preflight(p):
     return {"outer_count": len(order), "rx_inner_count": None if c["use_mmse"] else len(rx) or 1,
             "outer_order": order, "rx_inner_order": [w.tolist() for w in rx], "dfe_prefix": prefix,
             "estimated_candidate_bytes_upper": estimated_bytes,
+            "reserved_export_bytes_upper": reserved_bytes,
             "limits": {"max_outer": MAX_OUTER, "max_inner": MAX_INNER, "max_evaluations": MAX_EVALUATIONS,
                        "max_time_samples": 2_000_000, "max_frequency_samples": 200_001, "max_array_bytes": MAX_ARRAY_BYTES}}
 
@@ -213,6 +252,7 @@ def run_optimization(opt_id, request, directory, check, emit):
         p.observe(lambda e: emit("phase", phase=str(e.new)), "status")
         p.observe(lambda e: emit("log", text=e.new[len(e.old):].rstrip()), "console_log")
         plan = preflight(p)
+        observations = NativeObservations(plan["reserved_export_bytes_upper"])
         record.update(plan=plan, effective_input=snapshot(p), score_mode="MMSE" if p.use_mmse else "cursor/ISI grid")
         record["resources"] = inspect_channels(request["config"], request.get("frozen_resources", []))
         projected = projection(request["config"], request.get("frozen_resources", []))

@@ -49,6 +49,41 @@ def test_dfe_gap_and_ffe_identity_rejected():
         preflight(p)
 
 
+def test_mmse_observation_storage_refused_before_computation():
+    p = prepare(fixture("O-PAM4-MMSE"))
+    p.bit_rate, p.nspui, p.nbits = 200, 64, 1024
+    p.eye_bits = 512
+    p.min_mag_tune, p.max_mag_tune, p.step_mag_tune = 0., 127., 1.
+    with pytest.raises(ValueError, match="storage budget"):
+        preflight(p)
+
+
+def test_observation_collection_retains_only_within_budget(monkeypatch):
+    import pybert.web.optimization as module
+
+    monkeypatch.setattr(module, "MAX_ARRAY_BYTES", 64)
+    collector = module.NativeObservations(8)
+    collector.update(candidates=[], mmse_calls=[], mmse_context={"t_s": np.zeros(1)})
+    collector["candidates"].append({"pulse": np.zeros(2)})  # pulse plus exported axis
+    assert collector.used == 48
+    with pytest.raises(ValueError, match="storage budget"):
+        collector["mmse_calls"].append({"tx_H": np.zeros(2, dtype=complex)})
+    assert collector.used == 48 and not collector["mmse_calls"]
+
+
+def test_archive_open_cannot_consume_active_optimization_reservation(tmp_path, monkeypatch):
+    from pybert.web.tasks import Tasks, BusyError
+    import pybert.web.tasks as module
+
+    tasks = Tasks(tmp_path)
+    tasks.active = "working"
+    tasks.tasks["working"] = {"data": {"operation": "optimization"}}
+    monkeypatch.setattr(module, "load_optimization", lambda *_: pytest.fail("Must refuse before reading archive"))
+    with pytest.raises(BusyError, match="reservation"):
+        tasks.open_optimization(b"unused")
+    assert not tasks.optimization_references
+
+
 def test_native_reset_exact_and_does_not_reset_ranges():
     request = fixture()
     p, q = prepare(request), prepare(request)

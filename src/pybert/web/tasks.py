@@ -318,6 +318,8 @@ class Tasks:
 
     def open_optimization(self, content):
         with self.lock:
+            if self.active is not None and self.tasks[self.active]["data"]["operation"] == "optimization":
+                raise BusyError("Optimization archive loading waits until the active worker exits; its storage reservation remains in force.")
             if len(self.optimization_references) >= 4:
                 raise ValueError("Four optimization archive references already loaded; restart/save before adding more.")
             record_id = "opt-ref-" + str(uuid.uuid4())
