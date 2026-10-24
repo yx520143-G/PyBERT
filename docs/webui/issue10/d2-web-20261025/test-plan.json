@@ -1,6 +1,6 @@
 {
-  "phase": "approved integer review regression red; no product source fix yet",
-  "run_id": "17-integer-review-red",
+  "phase": "approved exactinteger branch green; float arithmetic statically bound to16",
+  "run_id": "18-integer-review-green",
   "selection": [
     "IntegerReviewCases"
   ],
@@ -36,10 +36,11 @@
     "review-broken.worker.txt": "docs/webui/issue10/d2-web-20261025/inputs/worker.review-broken.py.txt",
     "review-fix-rule.md": "docs/webui/issue10/d2-web-20261025/review-fix-rule.md",
     "integer-approved.json": "docs/webui/issue10/d2-web-20261025/PM-integer-increment-6389806920.json",
-    "integer-proposal.json": "docs/webui/issue10/d2-web-20261025/integer-review-followup-plan.json"
+    "integer-proposal.json": "docs/webui/issue10/d2-web-20261025/integer-review-followup-plan.json",
+    "integer-float-math-static.json": "docs/webui/issue10/d2-web-20261025/integer-float-math-static.json"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/web/clocks.py": "3a989fade0926e5818c348edc685585d40410dcb792454b81cc928345304256b",
+    "src/pybert/web/clocks.py": "f198246b11d5d6427879c830d18ebf34bf89d41924042e2ab98c56ed7eed546b",
     "docs/webui/issue10/d2-web-20261025/d2_cases.py": "32daba1e8f328943fe67108c50dbb7467b76441c5e72db37f7baa2ade070d66f",
     "docs/webui/issue10/d2-web-20261025/run_guarded.py": "22111c85d46b7ab2826b7eced06ea7f63028faf37c5de199ab64b3678afdf0f1",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "8309db69ac4463add59db505adc51f34fbd49217646200e5f53a538ea4938f7a",
@@ -68,7 +69,8 @@
     "docs/webui/issue10/d2-web-20261025/inputs/worker.review-broken.py.txt": "efaa716fd64b971175950c5126ec6ffa7149fad19b89dbf743b60a0661dd875e",
     "docs/webui/issue10/d2-web-20261025/review-fix-rule.md": "b84b88337753bd1c55c8cd3fb5bd828e6d23bbd5bbb43dce4b402b6c286fd9c0",
     "docs/webui/issue10/d2-web-20261025/PM-integer-increment-6389806920.json": "4ab6101ae01db168f488b1f1125ff65be1db938fde4664dfec2d7d861e2f52d5",
-    "docs/webui/issue10/d2-web-20261025/integer-review-followup-plan.json": "48831a12d86779b5e963edcca59e0bb4c0a2a31c3463b6dc9f3775fda6fc3d7d"
+    "docs/webui/issue10/d2-web-20261025/integer-review-followup-plan.json": "48831a12d86779b5e963edcca59e0bb4c0a2a31c3463b6dc9f3775fda6fc3d7d",
+    "docs/webui/issue10/d2-web-20261025/integer-float-math-static.json": "e498fcd9415b341a8dd65983d863e32bd69f5a18e850dacaaede61a80d303959"
   },
   "modules": {
     "pybert.web.clocks": {
@@ -150,7 +152,7 @@
     "clock_data": 0,
     "clock_display": 0,
     "histogram": 6,
-    "rfft": 6,
+    "rfft": 2,
     "safe_log10": 0,
     "viterbi_extend": 0,
     "viterbi_validate": 0,
@@ -166,9 +168,8 @@
   },
   "expected_result": {
     "tests": 2,
-    "failures": 6,
-    "errors": 0,
-    "reason": "four nonuniform/reversed cases incorrectlyFFT, two uniform controls lack exactinteger metadata; all subTests retain originalfailure"
+    "failures": 0,
+    "errors": 0
   },
   "case_inputs": "Approved six3-point integer fixtures from immutable proposalSHA48831a12d86779b5e963edcca59e0bb4c0a2a31c3463b6dc9f3775fda6fc3d7d; IntegerReviewCases only, actualperiod_projection/validate_period <=6 each; no oldfloat/worker/coordinator rerun. Each raw t/period also retained as .bin.",
   "expected_values": {
@@ -185,7 +186,7 @@
     "validate_period_upper": 6,
     "all_pure_upper_per_batch": 12
   },
-  "previous_plan": "runs/16-review-green/plan.json",
+  "previous_plan": "runs/17-integer-review-red/plan.json",
   "expected_counts_policy": "Upperbounds per approvedintegercomment; no new producthelper,12 pure each/24total added,D<=42/999. Original17redand18green only, no categoryreallocation.",
   "serialization_policy": "Raw read_arrays/load_archive/read_json inputs and NPZ/JSON outputs now retain content-addressed original bytes, including malformed buffers/failed-save metadata; nested artifacts hash inventory. Prior08/10 did not bind every in-memory malformedbuffer individually; preserve original scope/gaps, no fabricated retro-capture. Original08 conservative pure event definition remains unchanged.",
   "FFT_uniformity": "Replacement rule predeclared in expected_values before red; no arbitrary relative constant, compare each original interval vs original first with timestamp-scaledULP roundoff bound, finite/strictly increasing gates. Metadata rule,dtype,maxerror,maxbound + staticactualanalysis carry-through. No resample/shrink/window/index/ts change.",

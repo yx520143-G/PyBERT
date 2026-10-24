@@ -176,28 +176,41 @@ def period_projection(context, t, period_ps, ui):
         spectrum["reason"] = "outside_analysis_window"
     elif not np.all(known[fft_first:fft_stop]):
         spectrum["reason"] = "unknown_period"
+    elif t.dtype.kind in "iu" and np.any(t[1:] <= t[:-1]):
+        spectrum["reason"] = "nonuniform_grid"
     else:
         ts = float(t[1] - t[0]) if len(t) >= 2 else None
         if ts is None or not np.isfinite(ts) or ts <= 0:
             spectrum["reason"] = "unknown_or_nonpositive_sample_interval"
         else:
             steps = np.diff(t)
-            # Each rounded timestamp and subtraction contributes at most one conservative ULP.
-            # Compare both intervals' endpoint/subtraction uncertainty; never change t or the reference ts.
-            timestamp_ulps = np.spacing(np.abs(t))
-            step_ulps = np.spacing(np.abs(steps))
-            bounds = (timestamp_ulps[:-1] + timestamp_ulps[1:] + timestamp_ulps[0] + timestamp_ulps[1]
-                      + step_ulps + step_ulps[0])
-            errors = np.abs(steps - ts)
-            increasing = bool(np.all(steps > 0))
-            finite = bool(np.isfinite(bounds).all() and np.isfinite(errors).all() and np.isfinite(steps).all())
-            spectrum["uniform_grid_validation"] = {
-                "rule": "one ULP per endpoint and subtraction for tested and reference intervals",
-                "reference": "original t[1]-t[0]; every interval in the original full grid",
-                "timestamp_dtype": t.dtype.str, "strictly_increasing": increasing,
-                "max_interval_error_s": float(np.max(errors)) if np.isfinite(errors).all() else None,
-                "max_bound_s": float(np.max(bounds)) if np.isfinite(bounds).all() else None}
-            if not finite or not increasing or np.any(errors > bounds):
+            if t.dtype.kind in "iu":
+                increasing = bool(np.all(t[1:] > t[:-1]) and np.all(steps > 0))
+                equal = bool(np.all(steps == steps[0]))
+                uniform = increasing and equal
+                spectrum["uniform_grid_validation"] = {
+                    "rule": "exact integer intervals; zero floating timestamp tolerance",
+                    "reference": "original t[1]-t[0]; every interval in the original full grid",
+                    "timestamp_dtype": t.dtype.str, "strictly_increasing": increasing,
+                    "integer_intervals_equal": equal, "max_bound_s": 0., "max_interval_error_s": None}
+            else:
+                # Each rounded timestamp and subtraction contributes at most one conservative ULP.
+                # Compare both intervals' endpoint/subtraction uncertainty; never change t or the reference ts.
+                timestamp_ulps = np.spacing(np.abs(t))
+                step_ulps = np.spacing(np.abs(steps))
+                bounds = (timestamp_ulps[:-1] + timestamp_ulps[1:] + timestamp_ulps[0] + timestamp_ulps[1]
+                          + step_ulps + step_ulps[0])
+                errors = np.abs(steps - ts)
+                increasing = bool(np.all(steps > 0))
+                finite = bool(np.isfinite(bounds).all() and np.isfinite(errors).all() and np.isfinite(steps).all())
+                spectrum["uniform_grid_validation"] = {
+                    "rule": "one ULP per endpoint and subtraction for tested and reference intervals",
+                    "reference": "original t[1]-t[0]; every interval in the original full grid",
+                    "timestamp_dtype": t.dtype.str, "strictly_increasing": increasing,
+                    "max_interval_error_s": float(np.max(errors)) if np.isfinite(errors).all() else None,
+                    "max_bound_s": float(np.max(bounds)) if np.isfinite(bounds).all() else None}
+                uniform = finite and increasing and not np.any(errors > bounds)
+            if not uniform:
                 spectrum["reason"] = "nonuniform_grid"
             else:
                 values = period_ps[fft_first:fft_stop]
