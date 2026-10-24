@@ -1,5 +1,5 @@
 {
-  "status": "bounded software checks completed; review pending",
+  "status": "software checks passed within supplemented budgets; one explicit P2 evidence limitation; pending PM fresh review",
   "actual_counts": {
     "pure": 17273,
     "collect": 1,
@@ -535,5 +535,39 @@
     "NumPy ctypes/pyd observations are scoped Python audit events, not whole-system DLL trace",
     "OS/stdlib atomic filename entropy not classified as NumPy/display/simulation RNG",
     "13 original preflight stdout/traceback only in tool transcript; explicit failure receipt preserved; duration UNKNOWN"
-  ]
+  ],
+  "evidence_partial_JSON14": {
+    "severity": "P2",
+    "status": "EVIDENCE_PARTIAL",
+    "source": {
+      "write": "src/pybert/web/data.py:462",
+      "read": "src/pybert/web/data.py:469"
+    },
+    "scope": "14-coordinator-check only; historical execution cannot be retroactively timed",
+    "count_basis": "Frozen source + normal completion of actual collect and plot_payload; not a per-JSON-call timing trace",
+    "write_calls": 1,
+    "read_calls": 1,
+    "manifest_physical_file_bytes": 539230,
+    "manifest_sha256": "f03eb1516d8440067ede78351357ae9c6f8ce4b295a16c13826f1deb4d4d2b1c",
+    "read_input_text_utf8_bytes": 521995,
+    "write_input_text_before_platform_newline_bytes": "UNKNOWN",
+    "write_elapsed_s": "UNKNOWN",
+    "read_elapsed_s": "UNKNOWN",
+    "disposition": "Preserved original artifact and explicit limitation; no rerun or inferred historical elapsed; PM fresh review remains required"
+  },
+  "review": {
+    "baseline": "0f04562c50a12fae637fece04da100c44c86617e",
+    "candidate": "9808277a53f95e5815e97652290d65727c76fbf0",
+    "Standards": {
+      "documented": 0,
+      "heuristic": 0
+    },
+    "Spec": {
+      "partial": 1,
+      "scope_creep": 0,
+      "wrong_implementation": 0,
+      "finding": "P2 JSON14 elapsed UNKNOWN; product behavior findings0"
+    },
+    "read_only_agents_product_NumPy_tests_calls": 0
+  }
 }

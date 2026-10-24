@@ -1,0 +1,35 @@
+{
+  "protected_startup_sha256": "d1e94a32e133a26382e8567f278c64f52fa6ef4f5f1134b743552e6053c1aeeb",
+  "mismatches": [],
+  "counts": {
+    "old_metadata_sha256": 271,
+    "old_materials_and_installed_source_sha256": 2394,
+    "old_raw_sha256": 4874,
+    "old30_v2_seal": 1,
+    "old_D1_seal": 1,
+    "old_repository_states": 16,
+    "old_env_cache_dirs": 16,
+    "new_installed_files_sha256": 952
+  },
+  "old_env_cache_dirs_exist": {
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.venv": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.uv-cache": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.pip-cache": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv": true,
+    "E:\\serial-bus-simulator-dependencies\\pyami-response-rng\\.uv-cache": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.uv-cache": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.pip-cache": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-bootstrap-cache": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-bootstrap-cache-initial": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-bootstrap-cache": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv": true,
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-bootstrap-cache": true
+  },
+  "elapsed_s": 12.247930500016082,
+  "all_matched": true,
+  "scope": "Read-only exact old files/HEAD/tree/default-status and directory presence; no old product or environment executed."
+}
