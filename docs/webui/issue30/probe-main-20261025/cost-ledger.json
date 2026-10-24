@@ -291,5 +291,22 @@
   "test_dependencies": "new bare stdlib venv, no package/test dependency installation or installation matrix",
   "old24_old27_fullsuite_CLI_GUI_services_browser": "not run",
   "model_download_compile": "no model-resource acquisition or compilation; Git dependency source transport may contain existing tracked example binaries, never loaded",
-  "wall_and_peak_RSS": "UNKNOWN"
+  "wall_and_peak_RSS": "UNKNOWN",
+  "read_only_review_entry_failures": {
+    "record": "review-entry-failures.json",
+    "count": 2,
+    "functions_display_wall_sum_s": 1.3,
+    "exact_exit_stdout_stderr_and_internal_elapsed": "UNKNOWN; original wrappers retained only combined output",
+    "not_in_guarded_batch_elapsed": true,
+    "product_test_runner_entries": 0
+  },
+  "final_seal_static_failure": {
+    "record": "seal-preflight-failure.json",
+    "exit_code": 1,
+    "exec_command_wall_s": 1.105302,
+    "internal_elapsed_s": "UNKNOWN",
+    "cause": "status comparison options mismatch; corrected to original default untracked grouping",
+    "not_in_guarded_batch_elapsed": true,
+    "product_test_runner_entries": 0
+  }
 }

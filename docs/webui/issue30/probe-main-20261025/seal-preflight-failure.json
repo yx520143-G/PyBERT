@@ -1,0 +1,21 @@
+{
+  "scope": "first final-seal static preflight; no product/test/runner execution",
+  "exit_code": 1,
+  "exec_command_wall_s": 1.105302,
+  "internal_elapsed_s": "UNKNOWN",
+  "combined_output": "Traceback (most recent call last):\r\n  File \"<stdin>\", line 12, in <module>\r\nAssertionError: E:\\serial-bus-simulator\r\n",
+  "stdout": "UNKNOWN (combined exec_command output retained)",
+  "stderr": "UNKNOWN (combined exec_command output retained)",
+  "failed_assertion": "assert git(['status','--porcelain=v1','--untracked-files=all'], r['path']) == r['status']",
+  "cause": "startup stored default git status untracked directory grouping; seal script requested --untracked-files=all, expanding unchanged directories into files; comparison options mismatched",
+  "correction": "compare with original ['status','--porcelain=v1'] options; preserve baseline without rewriting it; independently verify protected file hashes",
+  "old_workspace_modifications": 0,
+  "files_written_before_failure": 0,
+  "full_inline_script": "tool transcript only; not separately persisted as an input file",
+  "followup_observation": {
+    "path": "E:/serial-bus-simulator",
+    "baseline_default_status": "?? docs/research/\n?? source/\n",
+    "current_default_status": "?? docs/research/\n?? source/\n",
+    "detail": "read-only follow-up confirmed only the main repo had grouped untracked paths; full expanded output was display-truncated, not used to prove file identity; protected hash check follows"
+  }
+}

@@ -73,4 +73,8 @@ fake Close 会破坏其 buffers/记录；测试确认已复制响应、main 结�
 
 D1 Native 采样、D2 Web 消费/保存、E1/E2 合法 fixture 与真实配对均属后续票；#10 有效 clocks/E SOURCE_BLOCKED、#4 COM BLOCKED_BUDGET/NOT_EXECUTED、#1 最终 fresh 数值 review gate 不变。
 
-交付只向本人 PyBERT master 创建唯一 Draft PR（Refs #30）；双轴审查与最终 hash 封存另记。固定 HEAD/tree/clean 后停写停测，交 PM fresh review，不自行 merge/close。开发期公开 push/PR 已授权，私有化由 PM 在全项目最终验收后统筹。
+固定候选 `ec72c92e3b8dca2b4cd2b972f5d0a8852e412aca` 的独立 [Standards/Spec 审查](review.md) 均为 0 findings；审查不运行测试或产品 import。owner 提供了错误解释器路径，导致两个首次只读入口在 stdin 脚本前停止；[原 command/output](review-entry-failures.json) 保留，精确退出码、分流日志和内部 elapsed 未捕获，均 UNKNOWN。functions 展示 wall 分别 0.7/0.6 s，单列于费用账，不混入十批运行成本。
+
+首次 seal 静态核对将 `--untracked-files=all` 的展开状态与 startup 的默认目录分组状态相比，产生断言失败；未执行产品、测试或写文件。按原命令口径复核时状态一致，保护文件另做完整 hash 核对。[原失败与观察缺口](seal-preflight-failure.json) 保留，未重写 startup。
+
+[verification.json](verification.json) 封存全部 changed regular files（排除 manifest 自身），并核对最后批次原件、历史保护与新 Git metadata 隔离。最终封存提交仅补文档，未重跑测试。交付只向本人 PyBERT master 创建唯一 Draft PR（Refs #30）；固定最终 HEAD/tree/clean 后停写停测，交 PM fresh review，不自行 merge/close。开发期公开 push/PR 已授权，私有化由 PM 在全项目最终验收后统筹。
