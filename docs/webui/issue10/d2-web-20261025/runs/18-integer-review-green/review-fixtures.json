@@ -1,0 +1,61 @@
+{
+  "grid_hex": [
+    "0x1.b7c03f2d8eefdp-24",
+    "0x1.b7c3aec98a2adp-24",
+    "0x1.b7c71e658565cp-24",
+    "0x1.b7ca8e0180a0cp-24",
+    "0x1.b7cdfd9d7bdbbp-24",
+    "0x1.b7d16d397716ap-24",
+    "0x1.b7d4dcd57251ap-24",
+    "0x1.b7d84c716d8c9p-24",
+    "0x1.b7dbbc0d68c79p-24",
+    "0x1.b7df2ba964028p-24",
+    "0x1.b7e29b455f3d8p-24",
+    "0x1.b7e60ae15a787p-24",
+    "0x1.b7e97a7d55b37p-24",
+    "0x1.b7ecea1950ee6p-24",
+    "0x1.b7f059b54c296p-24",
+    "0x1.b7f3c95147645p-24"
+  ],
+  "nominal_ts_hex": "0x1.b7cdfd9d7bdbbp-39",
+  "actual_first_interval_hex": "0x1.b7cdfd9d80000p-39",
+  "expected_frequency_hex": [
+    "0x0.0p+0",
+    "0x1.2a05f1fffd318p+35",
+    "0x1.2a05f1fffd318p+36",
+    "0x1.bf08eafffbca4p+36",
+    "0x1.2a05f1fffd318p+37"
+  ],
+  "period_ps": [
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0
+  ],
+  "fft_slice": [
+    2,
+    10
+  ],
+  "expected_fft_real": [
+    40.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_abs_interval_error_s": 1.3234889800848443e-23,
+  "expected_roundoff_bound_s": 5.294036699696072e-23,
+  "scope": "stdlib scalar generation, no NumPy/product. Expected constant FFT worked DC40, other bins0; frequency exact rational k/(8*saved first interval), stored as binary64 literals. Never constructs the full32768/480000 grid."
+}

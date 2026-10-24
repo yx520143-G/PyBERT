@@ -1,0 +1,13 @@
+# PM review fixes: frozen floating-grid rule
+
+Review 5640070393 on fixed9331c38 identified two product errors: local snapshot shadowing and a fixed relative tolerance rejecting timestamp rounding. Red15 reproduced both exact failures; no worker/Main ran.
+
+Let d_i=fl(t[i+1]-t[i]), reference ts=d_0, S(x)=spacing(abs(x)) in the original dtype. Compare abs(d_i-ts) to B_i=S(t_i)+S(t_(i+1))+S(t_0)+S(t_1)+S(d_i)+S(d_0). A full ULP per rounded stored endpoint/subtraction conservatively covers nearest rounding (half ULP) and the bound arithmetic; the tested interval and reference interval both contribute. This is a representation uncertainty check. It does not introduce a physical jitter tolerance or prove exact uniformity below timestamp resolution. Finite positive intervals and finite bounds are required separately; duplicate/reversed timestamps cannot pass the tolerance. A real perturbation greater than the local representation bound is rejected.
+
+The reference remains the original t[1]-t[0], with its own representational uncertainty; no nominal-ts substitution, averaging, detrending, interpolation, zero-fill, index conversion or window change. Every interval in the original t is checked. Report the rule, original dtype, strict-increasing status, maximum measured interval error and maximum bound in spectrum.uniform_grid_validation; extend_analysis carries this actual field into period_analysis.spectrum (static wiring check only).
+
+The 16-point frozen grid spans i32764..32779 at ts3.125e-12; interval deviations1.3234889800848443e-23s fit the predeclared5.294036699696072e-23s bound. Constant5ps over the unchanged8-point FFT gives rawDC40ps, other bins0; original first-interval frequencies are independently frozen binary64 literals using stdlib Fraction. A nominaldt/16 perturbation and duplicate/reverse/zero-first/nonfinite cases test rejection; exact0.25 zero-origin grid controls unchanged raw FFT/frequency semantics. No full32768/480000 vector is constructed.
+
+[NumPy spacing](https://numpy.org/doc/stable/reference/generated/numpy.spacing.html) documents representable spacing; [Python floating-point](https://docs.python.org/3.13/tutorial/floatingpoint.html) explains representation/operation rounding and exact hex representations. The six-ULP sum is our conservative bound derived from those rounding terms, not a quoted library validation algorithm.
+
+D review budget remains999 including red/green attempted entries. All full worker/Main/model/decoder/E calls0; old JSON14 elapsed and all prior failures remainUNKNOWN/preserved. Last14 green is historical source binding, not a rerun of the fixed worker or coordinator. Original external final-seal.json is preserved; final-seal-v2.json will bind the new fixed delivery.

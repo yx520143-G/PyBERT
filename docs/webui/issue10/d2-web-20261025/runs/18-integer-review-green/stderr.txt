@@ -1,0 +1,7 @@
+test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) ... ok
+test_exact_integer_uniform_preserves_original_bytes_and_frequency (d2_cases.IntegerReviewCases.test_exact_integer_uniform_preserves_original_bytes_and_frequency) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.023s
+
+OK
