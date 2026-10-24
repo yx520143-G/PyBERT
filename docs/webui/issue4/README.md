@@ -13,7 +13,7 @@
 | Ordered cascade A→B / B→A | 两个原顺序/反序数值 case 通过；Chrome 实际重排并分别 Run，输入身份等于计算前冻结 | 保留顺序和重复项；不声称存在每段独立 waveform |
 | Victim / FEXT | 原 M 两个 victim，各自 OFF/ON 四 case 全部通过；每路贡献及总干扰源数据保留 | 实际数值覆盖 .s8p 的 2 lanes；.s12p/其它端口约定不据此获全部物理资格 |
 | 端口识别/自动置换 | 直接使用已验收 #13 helper；manifest 记录实际端口、输入/输出 pair、aggressor 路径 | 不是任意 pin-map 编辑器；不以 single-ended 跨 lane 非零替代差分证据 |
-| Package / 普通端接 | KR/A1 + partial host 的代表性数值 case 对比 A 普通端接通过 | 其它 13 个合法 group/case 的 26 个 Tx/Rx model 仅预检；未做物理大矩阵 |
+| Package / 普通端接 | KR/A1 + partial host 的代表性数值 case 对比 A 普通端接通过 | 全部 13 个合法 group/case 的 26 个 Tx/Rx model 仅预检；未做物理大矩阵 |
 | Raised-cosine window | 同一冻结 A、`use_window=True`，原类/current helper 的 h/H/s/p/时间轴/trim 起点/延迟 7 项 exact | helper-only，不冒充新增完整 Run；GUI 仅文件模式可编辑，engine 的消费条件照原代码 |
 | Duo-binary | 完整 NRZ 长度/采样及原窗口下 direct/worker 对照通过 | 展示真实 source x；ideal_signal 是另一个参考，不替换实际驱动 |
 | 基础 noise / FEXT / 总干扰 | `self.noise` 只标基础 noise；各路和局部最终 noise 在原 producer 收集，raw/display/window/path 检查通过 | 每 aggressor 与 victim 使用同一 x；Rs/Rin 独立端接，原 trim 后从离散 index0 卷积；无新增幅度/延迟补偿 |
@@ -80,3 +80,13 @@ Chrome 实际执行上传、修改/恢复 Vod、A/B 顺序调整、Run、frequen
 本轮生产服务 8767 与只读显示服务 8768 均已停止，Chrome 独立 session 已关闭；最后生产 index 的 active_task_id=null。主 checkout 仍为 `codex/webui-gui-baseline` / `b9c56fe76bafb901d58dd53cda54e2ad5093fe6c`，其 docs/research/、source/ 未触碰。固定交付后的后续工作为 PM fresh review / 预算处置；本票不派发 #5/#8/#9/#10。
 
 最终追加 [delivery-final-source-v2.json](evidence/delivery-final-source-v2.json)，SHA-256 `1dd7ee7878a80f0896787b935f2abaa8cb27c038430b71542378cdf76ef4a8e3`。它连接上面的 v1 seal，固定最终 implementation cut `5fff0412b4cde14591ef0b9c1986be7505ac0e2b`：相对主体 cut 只改 app.js 的 inactive 文件选择/提示（3 行加入、2 行删除）。Channel/cascade/COM 三字段继续上传内容，其余未消费文件字段只明确保留文件名。实际 Chrome 用 disabled CTLE File 选择一个明确标作 inactive-reference-only 的 CSV 并 Save：全95字段匹配，resource_bindings 为空，真实下载一致，0 Run / 0 COM / 0 resource upload，slot idle；不是新物理 fixture。截图/原件位于 `chrome-20261024/inactive-file-picker-v5/`，另有原 storage 故障/恢复脚本及 syntax 检查通过。其它 v1 source hash 全部相同。最终 12 个 Chrome 数值任务间隔之和为84.99642396s；最后一次 filename-only 与只读 Noise 复验均无新增数值任务。
+
+## COM 历史来源与日志补齐（固定复审修正）
+
+最新实现 cut 为 `a36bc22a7361ff7669693e1522f76960ddc3c607`，在首轮固定交付 `f15b27e8291cdf55d6f5c5aea78621a62a5ee2c8` 上只改变两个产品文件：`server.py` 的 COM 保存记录 GET 和 `resources.js` 的历史展示。成功 GET 保留原顶层字段，追加对应 task、已保存计算前输入及明确 availability；失败/取消仍能读取实际生成的输入快照，未生成/未退出/无法读取/身份不匹配均明确标出，不补造参数或版本。
+
+每个 COM 历史项按 com_id 按需读取实际参数、parameters_sha256、库版本、adapter SHA、helper/engine source hashes 与 schema；资源/request 来源独立标记。日志和 traceback 使用该 COM 自己的 task 记录，与后续 current normalize/Run 或选中的 core 无关。终态来源按 ID 缓存，轮询保持展开内容和滚动位置；读取失败可重试，不触发 Run/COM。
+
+[com-history-p2/report-v1.json](evidence/com-history-p2/report-v1.json) SHA-256 `59425e49c7ef62ae897273d35750bdfc4becb089edfed19515ea60fbedc0ce1a`：62 项只读审计通过，覆盖真实成功/失败/helper取消/预检取消产物、逆序返回、展开/轮询/切换 core、缺少来源、读取故障/恢复及对应日志/完整参数逐项匹配。7 项新增 API 契约通过（`com-history-p2-tests-v1.xml`），不调用数值 worker。Chrome headed1280×720 的关键 PNG 已逐张检查像素；只读服务请求审计只有历史 GET 和一次 defaults 初始化，0 main / 0 COM / 0 worker，未重跑原数值 case。服务工具首次审计 URL 被 StaticFiles 遮挡导致404，原 UI 结果保留，`harness-correction-v2.json` 记录工具修正和第二次只读审计；两轮产品源码相同。
+
+原270项artifact在 README 本次修订前逐字节匹配、52份 raw 全部 hash 保持，旧冻结/v1/v2 seal/index 未覆盖。新增证据只追加；原生 producer、任务编排和已验收数值 source 不变，原41项契约适用性保留，新7项覆盖本次 GET 增量，定向lint/syntax/compile检查通过。没有新增 CI checks/statuses 的通过声明。8769只读服务及Chrome已关闭；default COM 仍 BLOCKED_BUDGET / NOT_EXECUTED，#4 OPEN，后续预算/集成由PM处置。

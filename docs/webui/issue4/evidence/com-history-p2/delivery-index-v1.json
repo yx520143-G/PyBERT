@@ -1,0 +1,188 @@
+{
+  "implementation_cut": "a36bc22a7361ff7669693e1522f76960ddc3c607",
+  "parent_head": "f15b27e8291cdf55d6f5c5aea78621a62a5ee2c8",
+  "changed_product_files": [
+    "src/pybert/web/server.py",
+    "src/pybert/web/static/resources.js"
+  ],
+  "files": [
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\before-review-v1.json",
+      "sha256": "56538d6978990dc8c71d196384a31a95e2dec86d01cec60fe2e46a53f5f46b19",
+      "bytes": 1004
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\harness-correction-v2.json",
+      "sha256": "fcb1c377e9ee387dbc93e8740e3dc97916f97130d1a0af6bad4a5fd213a51743",
+      "bytes": 395
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\report-v1.json",
+      "sha256": "59425e49c7ef62ae897273d35750bdfc4becb089edfed19515ea60fbedc0ce1a",
+      "bytes": 81818
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\01-ready.yaml",
+      "sha256": "c247f0994435ba07bd9f14a7d11f9eeb5d86e1f86b37e0fee82706befbb35ee5",
+      "bytes": 14458
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\02-history.yaml",
+      "sha256": "40526c5e3036c30bbb1b497240a6ebc3d00b6811c1c8a13987d353f01cff27c1",
+      "bytes": 15284
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\03-loaded-history.yaml",
+      "sha256": "7fc95291ec2571c765362ef6c8c2e9b44be86122a73351fb083759a56b798e6e",
+      "bytes": 25663
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\03-out-of-order-and-poll.txt",
+      "sha256": "03f43266f64bbabbceaec7c708a088e2436bea216d450a0c39b9091ea25f84c6",
+      "bytes": 8214
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\04-success-identity.png",
+      "sha256": "b8c6d6ca67858e11109afb668af46355cac413caadeaa6d9f9c7c0b0887f8c72",
+      "bytes": 96481
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\05-success-old-logs.png",
+      "sha256": "4e431f7c246125a9696c82b35edd799c44da02100246c0e400091eec519cfcd1",
+      "bytes": 123275
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\06-failed-source-missing.png",
+      "sha256": "4e431f7c246125a9696c82b35edd799c44da02100246c0e400091eec519cfcd1",
+      "bytes": 123275
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\07-cancelled-history.yaml",
+      "sha256": "2fc9223bb7d2e78476e17eba9dccbc0217c8d62e0b0245986021fc7a7e98fbb2",
+      "bytes": 34661
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\08-cancel-and-retry.txt",
+      "sha256": "cca21fcf058798bf015d7c46a13e02a16599f31ffc6c8a3f04cc6228341e33f8",
+      "bytes": 13552
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\09-cancelled-saved-input.png",
+      "sha256": "a2813c40401483f294bb4554876d37e3a6dc296f65cf906a39a1a53e7e217ec0",
+      "bytes": 108859
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\10-early-cancel-no-source.png",
+      "sha256": "79cb765ea336dbc3d59be3c9c177a6a2bc44cf422a80a6ab2ecd5692dc00c9ac",
+      "bytes": 113596
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\11-switch-core-ready.yaml",
+      "sha256": "164b1e435620742d6911036bf452108d612bcfc994990d5d115fd8fa908cdebd",
+      "bytes": 11123
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\12-switched-core.yaml",
+      "sha256": "65d6ebead7b717aeb29e7726d5525083cb04a4acb91208ecb47cb54815818975",
+      "bytes": 41296
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\13-after-core-switch.txt",
+      "sha256": "40b776e0b4c575f6f0eed121f2a408d5be4156000de29a4b3a4332a42fa4c820",
+      "bytes": 11460
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\14-linked-com-after-core-switch.png",
+      "sha256": "9f5cbd80644d7bbbc79c053d74fec55339b1356354c22a8d2b957e2a201d90d6",
+      "bytes": 110679
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\15-console.txt",
+      "sha256": "963d0391312637cd8a08fc07ff03ad3e114a5a897931fccdd265620f81f4b6fc",
+      "bytes": 353
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\15-environment.txt",
+      "sha256": "1e2ca216051336c2f4686eb3b3952a7fa07fe9c224a65f2558753edda79f2335",
+      "bytes": 348
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\16-audit-replay-history.yaml",
+      "sha256": "61139045ace89781257ae667e61f636d9662438114a593573b0ebaae90570f0a",
+      "bytes": 18619
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\16-audit-replay-ready.yaml",
+      "sha256": "c247f0994435ba07bd9f14a7d11f9eeb5d86e1f86b37e0fee82706befbb35ee5",
+      "bytes": 14458
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\17-audited-out-of-order.txt",
+      "sha256": "03f43266f64bbabbceaec7c708a088e2436bea216d450a0c39b9091ea25f84c6",
+      "bytes": 8214
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\18-audited-cancel-and-retry.txt",
+      "sha256": "fd311420199f26cb625d0f8c189648638f484e7a4548e692ee095cf9d3ce9e6b",
+      "bytes": 13543
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\18-audited-cancel-ready.yaml",
+      "sha256": "26176050f60df4b948533dfb60f69e5846a9914893559072d3d8dae4ab7f0256",
+      "bytes": 37996
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\19-audited-history.png",
+      "sha256": "11671bd8a3ce2d0b0e1b450a7af21a17abbe4bd3e9ae5dc249523dd077b94019",
+      "bytes": 114139
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\19-server-audit-v2.json",
+      "sha256": "db19772c72de63575c0455539907cfd849d2f44727e850cb10a310d7108cf515",
+      "bytes": 67205
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\cancel-and-retry.js",
+      "sha256": "04a57cbf46965f272e85b14053c2833175ca76dc2a3d1f75d1a882d21ae49805",
+      "bytes": 1891
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\read-history.js",
+      "sha256": "8c6e00349f62a0248004b317605b99ca24780b9a09e963a6d0fcd119dd825782",
+      "bytes": 2382
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\server-audit-v2.log",
+      "sha256": "ce2ffa1526da7da5c4c32e1a77205be53ad2a3b7014de64e29105d6a2ac7b28e",
+      "bytes": 201
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\server.log",
+      "sha256": "d8457387f0231f92da92dace9de27b6b7c30c7f2c75c4e71ee85306592acee86",
+      "bytes": 202
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2\\ui\\verify-evidence.py",
+      "sha256": "a20443153b8bfcadd9a89fbe5e9dc2699345dbea54f43fa2c0d8bc0baa370cfd",
+      "bytes": 6803
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2-tests-v1.log",
+      "sha256": "112c1afe2674a90905feeee106f7944979074cab3077cfefcfa3cf1617d3d630",
+      "bytes": 13152
+    },
+    {
+      "path": "docs\\webui\\issue4\\evidence\\com-history-p2-tests-v1.xml",
+      "sha256": "1a3bf2d4afdd1b3db3f49eb5dd445dcf13de29a49b4f033151117c5437655749",
+      "bytes": 1508
+    },
+    {
+      "path": "docs\\webui\\issue4\\README.md",
+      "sha256": "d7118e6222ca37e0812a80446a2a51a4942c3aa6550cf6653ab29250e7120f56",
+      "bytes": 16750
+    }
+  ],
+  "old_seal_index_preserved": true,
+  "no_numerical_rerun": true,
+  "default_COM": "BLOCKED_BUDGET / NOT_EXECUTED"
+}
