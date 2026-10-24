@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "url": "https://github.com/yx520143-G/PyBERT/issues/28",
+    "title": "[Dependency integration] 将 PyAMI RNG 接口固定 SHA 接入 PyBERT",
+    "issue_number": 28,
+    "body": "父票 [#10](https://github.com/yx520143-G/PyBERT/issues/10) 的下一步依赖来源接入。#27 已通过 [PyAMI PR2](https://github.com/yx520143-G/PyAMI/pull/2) 的 PM fresh review 并关闭；新 API 已在本人 fork 合并，但 PyBERT 仍固定旧 F。本票把安装来源推进到已审查的新完整 SHA，为后续 C1 做准备，不实施 C1 或新增模型预算。\n\n唯一 owner 沿用 chat `01a16ccd-6cf3-79d1-bfc3-7d77aa7f7b61`（local，6.1-sol/xhigh）。用户已明确授权本人 fork+完整 SHA 接入，并确认开发期间恢复公开 push/PR，全部开发与最终审查后再备份私有化。无需重复询问该授权；禁止写 capn-freako 两上游。\n\n固定来源：\n- PyBERT 起点 `1fde555ecf1120ba245e2249c1b2b777a42ce762` / tree `922e31c4c037e71f6f9a8d6fbeb64fcb5d4ee40e`（#25/PR26）。\n- 新 PyAMI **F2=`d6d1f7fe7e58536546a1cfb9430c750cc2cb103e`** / tree `1a74ae9844f657e5567c435345fdd561a1f747fe`，父为旧F `e222e4094629e1ce9a2f8058ab42439fc21fadd8` 与审查交付 `3bc5d43f81160bd022624c6c48b4a42651a874b8`。PM已fetch确认tree/祖先/clean。\n- 新独立clone/branch，建议 `E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin`、`codex/pybert-issue28-rng-pin`。不能在已封存#24/#25/#27或旧submodule写入；无hardlinks/alternates，共享Git元数据的worktree不满足该隔离。startup回报实际路径、branch、HEAD/tree、clean与子模块隔离。\n\n最小实施：\n1. 更新 PyAMI gitlink 到F2、`pyproject.toml` 的 `pyibis-ami[gui]` direct URL完整SHA到F2。本人fork URL已正确，不为本票改.gitmodules或PyChOpMarg。保留extras、许可证和其他依赖。\n2. 运行真正的 `uv lock` 并保留命令/原始输出/前后hash；workspace editable覆盖可能使lock字节不变，应如实解释，不手工把SHA塞进lock，不引入无关升级。\n3. 必要来源验证/中文说明/原始证据；不改PyBERT或PyAMI计算源码、不调用新rng API、不做seed策略/C1 probe-main隔离/D/Web/archive/E。#27软件测试不重跑，#25两旧环境与材料全部保留。\n\n验证与成功标准：\n- 安装前固定命令、实际Python/uv/pip、源码与Git身份、输入、isolated环境路径、guards与预算。创建两个本票全新隔离环境：A实际uv workspace安装；B普通pip安装项目、无uv source override。普通包下载/构建允许，仅在本票新env/cache，不修改共享/global或已封存环境。\n- 两路都核验实际安装的PyAMI来源/版本/文件路径与source bytes、gitlink/checkout/F2 tree和已审查源码一致；确认该实际文件的get_responses AST具有keyword-only rng默认None，不能只看元数据或gitlink。A editable local path和B PEP610 VCS commit_id/requested_revision各按真实格式记录，不伪造A有VCS metadata。普通pip的完整F2来源必须可追溯。\n- 保留安装日志、pip report/direct_url、dist metadata及本票源码/验证脚本hash；同时核验PyBERT installed source对应本票固定输入，PyChOpMarg来源以及两环境registry差异如实列明，不称两环境整体相等。只为来源/签名做必要静态检查与guard后的安全顶层import；不导入AMIModel模块体来构造response-key常量，不执行AMIModel/Initializer构造或任何生产方法。\n- Main/COM/coopt、生产initialize/getWave/close/get_responses、模型C/CDLL、engine/DSP/helper/AMI parser、模型下载编译均0。禁止fullsuite、旧DLL test_init、#24/#27测试、CLI `python -m pybert --version`、GUI服务/浏览器。通用安装器/系统库活动未完整trace须明确；0专指上述模型/产品入口。\n- 失败、原始stdout/stderr、原件、每批source、费用/elapsed、UNKNOWN保留。旧raw与新旧环境/cache均不清理；hash核对前序封存，不反复运行安装或测试当作只读验证。读取旧receipt可复用其方法，不复用旧安装结果冒充F2。\n\n交付：同owner自主完成→双轴自审→本人PyBERT master唯一Draft PR，明确Refs本票→固定HEAD/tree、source/验证脚本/rawhash/成本/clean停写返权。owner不selfmerge/关闭；PM fresh review后再集成和派C1。当前三个仓库仍public，私有化留待全部开发与最终数值审查后统一备份处理。本票不解除#10有效clocks/E SOURCE_BLOCKED、#4默认COM BLOCKED_BUDGET/NOT_EXECUTED、父#1最终fresh数值review。\n\n验收清单：\n- [ ] 新独立clone基线与前序封存/环境保护确认。\n- [ ] direct URL、gitlink均固定F2，实际uv lock结果保留，无无关产品改动。\n- [ ] A uv/B普通pip实际安装来源与文件/AST/PEP610按各自语义核实。\n- [ ] 产品/模型入口0、失败/成本/UNKNOWN与原始材料可追溯。\n- [ ] 唯一Draft PR固定、停写返权，PM fresh review通过。\n",
+    "state": "open",
+    "user": {
+      "login": "yx520143-G",
+      "name": "yx520143-G",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+      "id": 269540313
+    },
+    "assignees": null,
+    "labels": null,
+    "milestone": null,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-10-24T15:24:31Z",
+    "updated_at": "2026-10-24T15:24:31Z",
+    "closed_at": null,
+    "display_url": "https://github.com/yx520143-G/PyBERT/issues/28",
+    "display_title": "[Dependency integration] 将 PyAMI RNG 接口固定 SHA 接入 PyBERT"
+  },
+  "url": "https://github.com/yx520143-G/PyBERT/issues/28",
+  "title": "[Dependency integration] 将 PyAMI RNG 接口固定 SHA 接入 PyBERT",
+  "display_url": "https://github.com/yx520143-G/PyBERT/issues/28",
+  "display_title": "[Dependency integration] 将 PyAMI RNG 接口固定 SHA 接入 PyBERT"
+}

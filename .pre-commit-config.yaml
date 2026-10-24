@@ -13,14 +13,24 @@ repos:
     hooks:
       # - id: trailing-whitespace
       - id: end-of-file-fixer
-        exclude: ^docs/webui/issue25/pyami-pin-20261024/(commands|inputs)/
+        exclude: |
+          (?x)^docs/webui/(
+            issue25/pyami-pin-20261024
+            | issue28/pyami-rng-pin-20261024
+          )/(commands|inputs)/
       - id: check-added-large-files
         exclude: |
-          (?x)^docs/webui/issue25/pyami-pin-20261024/(
-            startup\.json
-            | commands/[^/]+/uv\.lock\.txt
-            | inputs/uv\.baseline\.lock\.txt
-            | commands/12-pip-install/pip-report\.json
+          (?x)^(
+            docs/webui/issue25/pyami-pin-20261024/(
+              startup\.json
+              | commands/[^/]+/uv\.lock\.txt
+              | inputs/uv\.baseline\.lock\.txt
+              | commands/12-pip-install/pip-report\.json
+            )
+            | docs/webui/issue28/pyami-rng-pin-20261024/(
+              inputs/cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12\.txt
+              | commands/13-pip-install/pip-report\.json
+            )
           )$
       - id: check-ast
       - id: check-json
@@ -29,4 +39,8 @@ repos:
       - id: check-merge-conflict
       - id: debug-statements
       - id: mixed-line-ending
-        exclude: ^docs/webui/issue25/pyami-pin-20261024/(commands|inputs)/
+        exclude: |
+          (?x)^docs/webui/(
+            issue25/pyami-pin-20261024
+            | issue28/pyami-rng-pin-20261024
+          )/(commands|inputs)/

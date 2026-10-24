@@ -1,0 +1,7 @@
+{
+  "chunk_id": "6daeb2",
+  "wall_time_seconds": 1.114339,
+  "exit_code": 1,
+  "original_token_count": 53,
+  "output": "WARN `--no-project` was provided, but no project was found\nTraceback (most recent call last):\r\n  File \"<stdin>\", line 6, in <module>\r\nAssertionError: E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\r\n"
+}

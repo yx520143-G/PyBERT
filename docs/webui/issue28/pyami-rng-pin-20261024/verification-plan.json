@@ -1,0 +1,46 @@
+{
+  "phase": "before source verification; installer/product inputs unchanged",
+  "reason": "Resolve real PyBERT/PyChOpMarg package origins using PathFinder without importing either; prove editable/registry import route as well as metadata and file bytes",
+  "previous_verifier_sha256": "17f4e156910a3d6454f4a0a394a823027d38d5993119c6708ae748a9a6ff126a",
+  "verifier_sha256": "5589ff19c1557e67e4060fdce5e74602f7f91f86aed446c9bd56175df6e192ac",
+  "commands": {
+    "14-source-A": [
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv\\Scripts\\python.exe",
+      "-I",
+      "-B",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\docs\\webui\\issue28\\pyami-rng-pin-20261024\\verify_source.py",
+      "A",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\docs\\webui\\issue28\\pyami-rng-pin-20261024\\commands\\14-source-A\\source-receipt.json"
+    ],
+    "15-source-B": [
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv\\Scripts\\python.exe",
+      "-I",
+      "-B",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\docs\\webui\\issue28\\pyami-rng-pin-20261024\\verify_source.py",
+      "B",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\docs\\webui\\issue28\\pyami-rng-pin-20261024\\commands\\15-source-B\\source-receipt.json"
+    ]
+  },
+  "budget": {
+    "Main": 0,
+    "COM": 0,
+    "coopt": 0,
+    "AMIModel_or_Initializer_construction": 0,
+    "production_initialize": 0,
+    "production_getWave": 0,
+    "production_close": 0,
+    "production_get_responses": 0,
+    "model_module_body": 0,
+    "response_key_construction": 0,
+    "C_Init": 0,
+    "C_GetWave": 0,
+    "C_Close": 0,
+    "model_CDLL": 0,
+    "engine": 0,
+    "DSP_helper": 0,
+    "AMI_parser": 0,
+    "model_download": 0,
+    "model_compile": 0
+  },
+  "rerun_policy": "No repeated installation or old tests; first verification uses this frozen script, previous bytes retained in A command inputs"
+}

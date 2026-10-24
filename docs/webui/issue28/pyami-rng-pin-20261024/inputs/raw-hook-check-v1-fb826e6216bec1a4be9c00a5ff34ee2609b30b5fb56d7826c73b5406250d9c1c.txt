@@ -1,0 +1,35 @@
+{
+  "scope": "static byte inspection; hooks not executed",
+  "issues_before_precise_raw_preservation_exceptions": {
+    "large": [
+      {
+        "path": "docs/webui/issue28/pyami-rng-pin-20261024/commands/13-pip-install/pip-report.json",
+        "bytes": 522996
+      },
+      {
+        "path": "docs/webui/issue28/pyami-rng-pin-20261024/inputs/cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12.txt",
+        "bytes": 841394
+      }
+    ],
+    "EOF": [
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/13-pip-install/pip-report.json",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/14-source-A/dist-metadata/pipbert-direct_url.json",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/14-source-A/dist-metadata/pipbert-INSTALLER",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/14-source-A/dist-metadata/pipbert-WHEEL",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/14-source-A/dist-metadata/pychopmarg-direct_url.json",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/14-source-A/dist-metadata/pychopmarg-INSTALLER",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/14-source-A/dist-metadata/pychopmarg-WHEEL",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/14-source-A/dist-metadata/pyibis-ami-direct_url.json",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/14-source-A/dist-metadata/pyibis-ami-INSTALLER",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/14-source-A/dist-metadata/pyibis-ami-WHEEL",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/15-source-B/dist-metadata/pipbert-direct_url.json",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/15-source-B/dist-metadata/pipbert-WHEEL",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/15-source-B/dist-metadata/pychopmarg-WHEEL",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/15-source-B/dist-metadata/pyibis-ami-direct_url.json",
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/15-source-B/dist-metadata/pyibis-ami-WHEEL"
+    ],
+    "mixed": [
+      "docs/webui/issue28/pyami-rng-pin-20261024/commands/11-pip-version/stdout.txt"
+    ]
+  }
+}

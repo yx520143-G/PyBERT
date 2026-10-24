@@ -1,0 +1,80 @@
+{
+  "commands": {
+    "08-uv-lock": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "lock",
+      "--python",
+      "C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/.venv/Scripts/python.exe"
+    ],
+    "09-A-venv": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "venv",
+      "--python",
+      "C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/.venv/Scripts/python.exe",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv"
+    ],
+    "10-B-venv": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "venv",
+      "--seed",
+      "--python",
+      "C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/.venv/Scripts/python.exe",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv"
+    ],
+    "11-pip-version": [
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv\\Scripts\\python.exe",
+      "-I",
+      "-B",
+      "-m",
+      "pip",
+      "--version"
+    ]
+  },
+  "environment": {
+    "UV_CACHE_DIR": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.uv-cache",
+    "UV_LINK_MODE": "copy",
+    "UV_PROJECT_ENVIRONMENT": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv",
+    "PIP_CACHE_DIR": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.pip-cache",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "TMP": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp",
+    "TEMP": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp"
+  },
+  "source_inputs_sha256": "ab0e28ce7f4fdebc08b3216feff97f754deafe5575adc73d014f6f4c5451491e",
+  "capture_sha256": "b734dbac90f3cae86df9d192ed0363830425c24917586287fee6bc83e9456f89",
+  "verifier_sha256": "1e73b3cb919bc55e1ca1ba062ac0609be044bfc87c558556ff095a6392f8a6a4",
+  "actual_uv_version": "uv 0.11.23 (3cdf50e09 2026-06-19 x86_64-pc-windows-msvc)\n",
+  "actual_bootstrap_python": {
+    "executable": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+    "version": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+    "prefix": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv",
+    "base_prefix": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none"
+  },
+  "B_pip": "seed a fresh ordinary installer, capture actual version before project install",
+  "A_new_environment": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv",
+  "B_new_environment": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv",
+  "no_product_model_budget": {
+    "Main": 0,
+    "COM": 0,
+    "coopt": 0,
+    "AMIModel_or_Initializer_construction": 0,
+    "production_initialize": 0,
+    "production_getWave": 0,
+    "production_close": 0,
+    "production_get_responses": 0,
+    "model_module_body": 0,
+    "response_key_construction": 0,
+    "C_Init": 0,
+    "C_GetWave": 0,
+    "C_Close": 0,
+    "model_CDLL": 0,
+    "engine": 0,
+    "DSP_helper": 0,
+    "AMI_parser": 0,
+    "model_download": 0,
+    "model_compile": 0
+  },
+  "capture_amendment": "after bootstrap Git-only commands, add verifier and frozen plans/source map to every subsequent batch input snapshot; first script version remains in content-addressed inputs",
+  "uv_lock_before_sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+  "wall_peak_RSS": "UNKNOWN"
+}

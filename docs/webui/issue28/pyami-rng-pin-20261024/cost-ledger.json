@@ -1,0 +1,190 @@
+{
+  "captured_commands": [
+    {
+      "run": "01-uv-version",
+      "exit_code": 0,
+      "elapsed_s": 0.09799879998899996,
+      "receipt_sha256": "d1995b1b53dde813e5babc29a9294e70294f217d4e8d9d10f1c2df30d6ed1591"
+    },
+    {
+      "run": "02-python-version",
+      "exit_code": 0,
+      "elapsed_s": 0.13463809998938814,
+      "receipt_sha256": "970835619bb9e6fe8fb3996207059abaf1def3d109ab8df5e4f2910f652df9ff"
+    },
+    {
+      "run": "03-git-version",
+      "exit_code": 0,
+      "elapsed_s": 0.059565500007010996,
+      "receipt_sha256": "3c25a2bda3e4f73d0798ef839c96e51a663514c4db2b4fdf2d654d8330cfac3d"
+    },
+    {
+      "run": "04-chopmarg-https",
+      "exit_code": 0,
+      "elapsed_s": 0.06198270000459161,
+      "receipt_sha256": "3d9d3635e16623521bc27c7ae77e973baa84eea8d2b3f243dbd6e4a0af57aae0"
+    },
+    {
+      "run": "05-init-submodules",
+      "exit_code": 0,
+      "elapsed_s": 16.933833500006585,
+      "receipt_sha256": "7adc2ea46b45dfd56d61847d4743d3d55dcd740b894223fe6b5446bd05b67f3e"
+    },
+    {
+      "run": "06-pyami-F2",
+      "exit_code": 0,
+      "elapsed_s": 0.15698840000550263,
+      "receipt_sha256": "8f12a298383e406a2394ccdf84a0471db51b5ed4e86f04103ea54a753cf61687"
+    },
+    {
+      "run": "07-pyami-gitlink",
+      "exit_code": 0,
+      "elapsed_s": 0.4707695000106469,
+      "receipt_sha256": "99fd4d08f8d5197e8fa4f00281bdd2b449be41405431573abcaec5ae6defa29e"
+    },
+    {
+      "run": "08-uv-lock",
+      "exit_code": 0,
+      "elapsed_s": 0.4525138000026345,
+      "receipt_sha256": "e7b962d22e891cd8a46141442ba3bda06c75b78acbe5bc3a23c679773cec87fe"
+    },
+    {
+      "run": "09-A-venv",
+      "exit_code": 0,
+      "elapsed_s": 0.09220369999820832,
+      "receipt_sha256": "22cbdd407fd118ec582707fb3b755fda09fd8e408abebf4d4f6f3a9a8dad391a"
+    },
+    {
+      "run": "10-B-venv",
+      "exit_code": 0,
+      "elapsed_s": 5.975766100003966,
+      "receipt_sha256": "3316272e69d313231c6b4f673ac7184e997250b0ba4b6fdc27e09e9fd9bb169a"
+    },
+    {
+      "run": "11-pip-version",
+      "exit_code": 0,
+      "elapsed_s": 1.067593500003568,
+      "receipt_sha256": "2ac1d9326b97426932ffb262239ec59eb820bfe4f4bde9be8969d52c4e3acd3c"
+    },
+    {
+      "run": "11a-A-python",
+      "exit_code": 0,
+      "elapsed_s": 0.1725373000081163,
+      "receipt_sha256": "73b98e00d221bb9ce94d34cf9d79f352aa24b29af8c20939bb2fbade5b084ece"
+    },
+    {
+      "run": "11b-B-python",
+      "exit_code": 0,
+      "elapsed_s": 0.1039903999917442,
+      "receipt_sha256": "25e777b827f37e41da3ce4aa883f90949a7aff79673c708fe0dba37384fad6e7"
+    },
+    {
+      "run": "12-uv-sync",
+      "exit_code": 0,
+      "elapsed_s": 54.7916714999883,
+      "receipt_sha256": "ce04db69e8a80fd1feb83fd9b69bf1abb76616072e5d703412f52fc4d2cd7db6"
+    },
+    {
+      "run": "13-pip-install",
+      "exit_code": 0,
+      "elapsed_s": 147.57298740000988,
+      "receipt_sha256": "f5dcdacae2f0495a7b38b7d9126659011ee70d273fed9e17dad3376da2e5f71e"
+    },
+    {
+      "run": "14-source-A",
+      "exit_code": 0,
+      "elapsed_s": 0.6605348000011873,
+      "receipt_sha256": "1b9a53008d1804da565614f4a4ee089ca48a764bacc23fbc338eb58a3eebe35b"
+    },
+    {
+      "run": "15-source-B",
+      "exit_code": 0,
+      "elapsed_s": 0.6897317999973893,
+      "receipt_sha256": "14cee26fe43b149784a52951a00b0fd1094254af47a73e2bb0f6b128fd087865"
+    },
+    {
+      "run": "18-diffcheck-red",
+      "exit_code": 2,
+      "elapsed_s": 0.1266518000047654,
+      "receipt_sha256": "e883ff9ebb98e0995a04d7c81ea13e185a408fe125e7c6ce51520047242b87bf"
+    },
+    {
+      "run": "19-diffcheck-green",
+      "exit_code": 0,
+      "elapsed_s": 0.11044249999395106,
+      "receipt_sha256": "9770aeee018006c61d8fa8f6533586301d146381dc78aaa210465fa87e0abfb4"
+    }
+  ],
+  "captured_commands_count": 19,
+  "captured_internal_elapsed_sum_s": 229.73240110001643,
+  "A_sync_elapsed_s": 54.7916714999883,
+  "B_pip_elapsed_s": 147.57298740000988,
+  "clone_switch_elapsed_s": 55.753896100010024,
+  "bootstrap_guard_failure": {
+    "evidence": "bootstrap-attempt-01.json",
+    "exit_code": 1,
+    "internal_elapsed_s": "UNKNOWN",
+    "reason": "task bootstrap cache created clone target before existence guard; cache retained in separate task path, then clone succeeded"
+  },
+  "all_install_and_verification_commands_exit0": true,
+  "source_checks": {
+    "routes": 2,
+    "actual_safe_top_package_module_bodies": 2,
+    "source_files_per_route": 91,
+    "model_module_bodies": 0,
+    "response_key_constructors": 0,
+    "production_methods": 0,
+    "blocked_attempts": []
+  },
+  "restricted_actual_calls": {
+    "Main": 0,
+    "COM": 0,
+    "coopt": 0,
+    "AMIModel_or_Initializer_construction": 0,
+    "production_initialize": 0,
+    "production_getWave": 0,
+    "production_close": 0,
+    "production_get_responses": 0,
+    "model_module_body": 0,
+    "response_key_construction": 0,
+    "C_Init": 0,
+    "C_GetWave": 0,
+    "C_Close": 0,
+    "model_CDLL": 0,
+    "engine": 0,
+    "DSP_helper": 0,
+    "AMI_parser": 0,
+    "model_download": 0,
+    "model_compile": 0
+  },
+  "ordinary_Python_download_build_install": "allowed, happened; logs preserved; not model download/compile",
+  "generic_installer_system_library_activity": "not fully traced; zero refers to listed model/product entries",
+  "old24_old27_tests_fullsuite_CLI_GUI_services_browser": "not run",
+  "old25_old27_failure_cost_records": "retained unchanged, not reset",
+  "task_wall_and_peak_RSS": "UNKNOWN",
+  "installation_and_provenance_command_count": 17,
+  "installation_and_provenance_internal_elapsed_sum_s": 229.49530680001772,
+  "static_Git_checks": [
+    {
+      "run": "18-diffcheck-red",
+      "exit_code": 2,
+      "elapsed_s": 0.1266518000047654,
+      "receipt_sha256": "e883ff9ebb98e0995a04d7c81ea13e185a408fe125e7c6ce51520047242b87bf"
+    },
+    {
+      "run": "19-diffcheck-green",
+      "exit_code": 0,
+      "elapsed_s": 0.11044249999395106,
+      "receipt_sha256": "9770aeee018006c61d8fa8f6533586301d146381dc78aaa210465fa87e0abfb4"
+    }
+  ],
+  "static_first_commit_check": {
+    "artifact": "static-commit-attempt-01.json",
+    "exit_code": 2,
+    "internal_elapsed_s": "UNKNOWN",
+    "first_tool_display_truncated": true,
+    "complete_repeat_on_same_index": "commands/18-diffcheck-red",
+    "repair_pass": "commands/19-diffcheck-green",
+    "model_product_calls": 0
+  }
+}

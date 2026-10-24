@@ -1,0 +1,84 @@
+warning: `VIRTUAL_ENV=C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+Resolved 234 packages in 3ms
+   Building pychopmarg @ file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin/PyChOpMarg
+   Building pyibis-ami @ file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin/PyAMI
+   Building pipbert @ file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin
+   Building parsec==3.17
+Downloading traitsui (1.5MiB)
+Downloading chaco (1.1MiB)
+Downloading enable (1.8MiB)
+Downloading pyside6-essentials (71.1MiB)
+Downloading scipy (34.9MiB)
+Downloading pyside6-addons (157.1MiB)
+Downloading sqlalchemy (2.0MiB)
+Downloading pandas (9.3MiB)
+Downloading fonttools (2.2MiB)
+Downloading pillow (6.9MiB)
+Downloading pyface (1.2MiB)
+Downloading shiboken6 (1.2MiB)
+Downloading traits (4.8MiB)
+Downloading numpy (11.9MiB)
+   Building empy==4.2.1
+ Downloaded chaco
+ Downloaded shiboken6
+ Downloaded pyface
+ Downloaded traitsui
+ Downloaded enable
+ Downloaded sqlalchemy
+ Downloaded fonttools
+ Downloaded traits
+      Built parsec==3.17
+      Built empy==4.2.1
+      Built pyibis-ami @ file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin/PyAMI
+      Built pipbert @ file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin
+ Downloaded pillow
+ Downloaded pandas
+      Built pychopmarg @ file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin/PyChOpMarg
+ Downloaded numpy
+ Downloaded scipy
+ Downloaded pyside6-essentials
+ Downloaded pyside6-addons
+Prepared 42 packages in 42.54s
+Installed 42 packages in 10.77s
+ + alembic==1.18.5
+ + chaco==6.1.1
+ + click==8.4.2
+ + colorama==0.4.6
+ + colorlog==6.12.0
+ + empy==4.2.1
+ + enable==6.1.0
+ + et-xmlfile==2.0.0
+ + fonttools==4.63.0
+ + greenlet==3.5.4
+ + kiwisolver==1.5.0
+ + mako==1.4.2
+ + markupsafe==3.0.3
+ + numpy==2.5.1
+ + openpyxl==3.1.5
+ + optuna==4.9.0
+ + packaging==26.2
+ + pandas==3.0.3
+ + parsec==3.17
+ + pillow==12.3.0
+ + pipbert==11.1.0 (from file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin)
+ + pychopmarg==3.4.0 (from file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin/PyChOpMarg)
+ + pyface==8.0.0
+ + pyibis-ami==10.0.0 (from file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin/PyAMI)
+ + pyparsing==3.3.2
+ + pyside6==6.10.2
+ + pyside6-addons==6.10.2
+ + pyside6-essentials==6.10.2
+ + python-dateutil==2.9.0.post0
+ + pyyaml==6.0.3
+ + scikit-rf==2.0.1
+ + scipy==1.18.0
+ + setuptools==83.0.0
+ + shiboken6==6.10.2
+ + six==1.17.0
+ + sqlalchemy==2.0.51
+ + tqdm==4.69.0
+ + traits==7.1.0
+ + traitsui==8.0.0
+ + typing-extensions==4.16.0
+ + tzdata==2026.3
+ + xlrd==2.0.2

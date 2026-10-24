@@ -1,0 +1,184 @@
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:1: trailing whitespace.
++{
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:2: trailing whitespace.
++  "baseline_HEAD": "1fde555ecf1120ba245e2249c1b2b777a42ce762",
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:3: trailing whitespace.
++  "PyAMI_F2": "d6d1f7fe7e58536546a1cfb9430c750cc2cb103e",
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:4: trailing whitespace.
++  "gitlink_index": "160000 d6d1f7fe7e58536546a1cfb9430c750cc2cb103e 0\tPyAMI",
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:5: trailing whitespace.
++  "all_other_project_metadata_equal_baseline": true,
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:6: trailing whitespace.
++  "gui_extra_preserved": true,
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:7: trailing whitespace.
++  "native_source_LICENSE_gitmodules_PyChOpMarg_diff_empty": true,
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:8: trailing whitespace.
++  "uv_lock": {
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:9: trailing whitespace.
++    "actual_receipt": "commands/08-uv-lock/receipt.json",
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:10: trailing whitespace.
++    "exit_code": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:11: trailing whitespace.
++    "resolved_packages": 234,
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:12: trailing whitespace.
++    "before_after_raw_sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:13: trailing whitespace.
++    "unchanged": true,
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:14: trailing whitespace.
++    "source": "workspace editable PyAMI; no fabricated VCS SHA in lock",
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:15: trailing whitespace.
++    "registry_upgrade_diff": 0
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:16: trailing whitespace.
++  },
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:17: trailing whitespace.
++  "actual_metadata_inputs": {
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:18: trailing whitespace.
++    "pyproject.toml": "8703f9d4381f4bfe0b4f504e0a854129a1c7eb8677ac2d679739e49481d65e66",
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:19: trailing whitespace.
++    "uv.lock": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:20: trailing whitespace.
++    ".gitmodules": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:21: trailing whitespace.
++    "PyAMI\\pyproject.toml": "0a8810b7aa87d054d64897a511d660e39c9a3342aabcca43af60786c101cf5be"
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:22: trailing whitespace.
++  },
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:23: trailing whitespace.
++  "build_config_unchanged_from_accepted_F": true,
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:24: trailing whitespace.
++  "checked_with": "stdlib/Git only; no product module import or methods"
+docs/webui/issue28/pyami-rng-pin-20261024/metadata-check.json:25: trailing whitespace.
++}
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:1: trailing whitespace.
++{
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:2: trailing whitespace.
++  "commands": {
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:3: trailing whitespace.
++    "11a-A-python": [
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:4: trailing whitespace.
++      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv\\Scripts\\python.exe",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:5: trailing whitespace.
++      "-I",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:6: trailing whitespace.
++      "-B",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:7: trailing whitespace.
++      "-c",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:8: trailing whitespace.
++      "import json,sys; print(json.dumps({\"executable\":sys.executable,\"version\":sys.version,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix}))"
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:9: trailing whitespace.
++    ],
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:10: trailing whitespace.
++    "11b-B-python": [
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:11: trailing whitespace.
++      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv\\Scripts\\python.exe",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:12: trailing whitespace.
++      "-I",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:13: trailing whitespace.
++      "-B",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:14: trailing whitespace.
++      "-c",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:15: trailing whitespace.
++      "import json,sys; print(json.dumps({\"executable\":sys.executable,\"version\":sys.version,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix}))"
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:16: trailing whitespace.
++    ]
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:17: trailing whitespace.
++  },
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:18: trailing whitespace.
++  "verifier_preflight_correction": "Actual source AST names the second old argument max_run_length, not the initially typed pad_bits; corrected expected AST before any verifier execution/product import; earlier verifier bytes remain in content-addressed inputs",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:19: trailing whitespace.
++  "verifier_sha256": "17f4e156910a3d6454f4a0a394a823027d38d5993119c6708ae748a9a6ff126a",
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:20: trailing whitespace.
++  "product_model_module_and_method_calls": 0
+docs/webui/issue28/pyami-rng-pin-20261024/preflight-amendment.json:21: trailing whitespace.
++}
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:1: trailing whitespace.
++{
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:2: trailing whitespace.
++  "phase": "before source verification; installer/product inputs unchanged",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:3: trailing whitespace.
++  "reason": "Resolve real PyBERT/PyChOpMarg package origins using PathFinder without importing either; prove editable/registry import route as well as metadata and file bytes",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:4: trailing whitespace.
++  "previous_verifier_sha256": "17f4e156910a3d6454f4a0a394a823027d38d5993119c6708ae748a9a6ff126a",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:5: trailing whitespace.
++  "verifier_sha256": "5589ff19c1557e67e4060fdce5e74602f7f91f86aed446c9bd56175df6e192ac",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:6: trailing whitespace.
++  "commands": {
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:7: trailing whitespace.
++    "14-source-A": [
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:8: trailing whitespace.
++      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv\\Scripts\\python.exe",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:9: trailing whitespace.
++      "-I",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:10: trailing whitespace.
++      "-B",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:11: trailing whitespace.
++      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\docs\\webui\\issue28\\pyami-rng-pin-20261024\\verify_source.py",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:12: trailing whitespace.
++      "A",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:13: trailing whitespace.
++      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\docs\\webui\\issue28\\pyami-rng-pin-20261024\\commands\\14-source-A\\source-receipt.json"
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:14: trailing whitespace.
++    ],
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:15: trailing whitespace.
++    "15-source-B": [
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:16: trailing whitespace.
++      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv\\Scripts\\python.exe",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:17: trailing whitespace.
++      "-I",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:18: trailing whitespace.
++      "-B",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:19: trailing whitespace.
++      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\docs\\webui\\issue28\\pyami-rng-pin-20261024\\verify_source.py",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:20: trailing whitespace.
++      "B",
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:21: trailing whitespace.
++      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\docs\\webui\\issue28\\pyami-rng-pin-20261024\\commands\\15-source-B\\source-receipt.json"
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:22: trailing whitespace.
++    ]
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:23: trailing whitespace.
++  },
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:24: trailing whitespace.
++  "budget": {
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:25: trailing whitespace.
++    "Main": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:26: trailing whitespace.
++    "COM": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:27: trailing whitespace.
++    "coopt": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:28: trailing whitespace.
++    "AMIModel_or_Initializer_construction": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:29: trailing whitespace.
++    "production_initialize": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:30: trailing whitespace.
++    "production_getWave": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:31: trailing whitespace.
++    "production_close": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:32: trailing whitespace.
++    "production_get_responses": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:33: trailing whitespace.
++    "model_module_body": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:34: trailing whitespace.
++    "response_key_construction": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:35: trailing whitespace.
++    "C_Init": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:36: trailing whitespace.
++    "C_GetWave": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:37: trailing whitespace.
++    "C_Close": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:38: trailing whitespace.
++    "model_CDLL": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:39: trailing whitespace.
++    "engine": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:40: trailing whitespace.
++    "DSP_helper": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:41: trailing whitespace.
++    "AMI_parser": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:42: trailing whitespace.
++    "model_download": 0,
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:43: trailing whitespace.
++    "model_compile": 0
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:44: trailing whitespace.
++  },
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:45: trailing whitespace.
++  "rerun_policy": "No repeated installation or old tests; first verification uses this frozen script, previous bytes retained in A command inputs"
+docs/webui/issue28/pyami-rng-pin-20261024/verification-plan.json:46: trailing whitespace.
++}

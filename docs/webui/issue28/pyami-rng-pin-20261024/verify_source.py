@@ -1,0 +1,191 @@
+"""Inspect real installed sources without executing model, parser, or engine code."""
+
+import ast
+import hashlib
+from importlib import machinery, metadata
+import json
+from pathlib import Path
+import re
+import sys
+import traceback
+from urllib.parse import unquote, urlparse
+
+
+def local_url_path(url):
+    """Resolve the Windows file URLs emitted by the actual installers."""
+    return Path(unquote(urlparse(url).path).lstrip("/")).resolve()
+
+
+def main():
+    """Allow only the inert top-level package; use ModuleSpec and AST for its model."""
+    route, output_name = sys.argv[1:]
+    assert route in ("A", "B")
+    evidence = Path(__file__).resolve().parent
+    root = evidence.parents[3]
+    expected = json.loads((evidence / "source-inputs.json").read_text(encoding="utf-8"))
+    output = Path(output_name).resolve()
+    assert not output.exists()
+    environment = root / ".venv" if route == "A" else root.parent / "pybert-issue28-pip-venv"
+    result = {
+        "route": route, "executable": sys.executable, "python": sys.version,
+        "prefix": sys.prefix, "base_prefix": sys.base_prefix, "sys_path": sys.path,
+        "F2": expected["F2"], "F2_tree": expected["F2_tree"],
+        "blocked_attempts": [], "safe_top_package_module_bodies": 0,
+        "production_methods": 0, "model_module_bodies": 0, "response_key_constructors": 0,
+        "restricted_actual_calls": expected["restricted_actual_calls"],
+        "boundary": "guards before product import; top pyibisami only; model ModuleSpec/AST, never model body",
+        "installer_system_library_activity": "not traced here; this receipt covers only this source-check process",
+    }
+
+    def blocked(reason):
+        result["blocked_attempts"].append(reason)
+        raise RuntimeError("Source-only guard: " + reason)
+
+    class ImportGuard:
+        def find_spec(self, fullname, path=None, target=None):
+            if fullname.split(".")[0] in {
+                "ctypes", "pybert", "pychopmarg", "numpy", "scipy", "parsec",
+                "matplotlib", "traits", "traitsui", "chaco", "enable", "PySide6",
+            } or fullname.startswith("pyibisami."):
+                blocked("import " + fullname)
+            return None
+
+    def audit(event, args):
+        if event in ("ctypes.dlopen", "ctypes.dlsym"):
+            blocked(event)
+
+    def profile(frame, event, arg):
+        if event == "call":
+            filename = frame.f_code.co_filename.replace("\\", "/")
+            if "/pyibisami/" in filename:
+                if filename.endswith("/pyibisami/__init__.py") and frame.f_code.co_name == "<module>":
+                    result["safe_top_package_module_bodies"] += 1
+                else:
+                    blocked("product Python execution " + frame.f_code.co_qualname)
+
+    guard = ImportGuard()
+    sys.meta_path.insert(0, guard)
+    sys.addaudithook(audit)
+    sys.setprofile(profile)
+    try:
+        assert Path(sys.prefix).resolve() == environment.resolve()
+        assert sys.prefix != sys.base_prefix
+        assert "include-system-site-packages = false" in (environment / "pyvenv.cfg").read_text().lower()
+        import pyibisami  # pylint: disable=import-outside-toplevel
+
+        package = Path(pyibisami.__file__).resolve().parent
+        ami_spec = machinery.PathFinder.find_spec("pyibisami.ami", [str(package)])
+        model_spec = machinery.PathFinder.find_spec("pyibisami.ami.model", ami_spec.submodule_search_locations)
+        model = Path(model_spec.origin).resolve()
+        assert model == package / "ami/model.py"
+        assert not any(name.startswith("pyibisami.ami") for name in sys.modules)
+        result.update(package_module_file=pyibisami.__file__, package_version=pyibisami.__version__)
+        result["model_spec_origin"] = str(model)
+        distributions = {}
+        raw_metadata = output.parent / "dist-metadata"
+        raw_metadata.mkdir(exist_ok=False)
+        for name in ("pipbert", "pyibis-ami", "pychopmarg"):
+            dist = metadata.distribution(name)
+            direct = dist.read_text("direct_url.json")
+            saved = {}
+            for entry in dist.files:
+                if entry.parts[-1] in {"METADATA", "direct_url.json", "WHEEL", "INSTALLER", "RECORD"}:
+                    if any(part.endswith(".dist-info") for part in entry.parts):
+                        data = Path(dist.locate_file(entry)).read_bytes()
+                        target = raw_metadata / (name + "-" + entry.parts[-1])
+                        target.write_bytes(data)
+                        saved[target.name] = hashlib.sha256(data).hexdigest()
+            distributions[name] = {
+                "name": dist.metadata["Name"], "version": dist.version, "requires_dist": dist.requires,
+                "metadata_root": str(dist.locate_file("")),
+                "direct_url": json.loads(direct) if direct else None, "raw_metadata_sha256": saved,
+            }
+        result["distributions"] = distributions
+        assert distributions["pipbert"]["version"] == expected["PyBERT_version"]
+        assert distributions["pyibis-ami"]["version"] == expected["PyAMI_project"]["version"]
+        assert distributions["pychopmarg"]["version"] == expected["PyChOpMarg_version"]
+        assert any("pyibis-ami[gui]@git+https://github.com/yx520143-G/PyAMI.git@" + expected["F2"]
+                   in item.replace(" ", "") for item in distributions["pipbert"]["requires_dist"])
+        ami_url = distributions["pyibis-ami"]["direct_url"]
+        bert_url = distributions["pipbert"]["direct_url"]
+        chop_url = distributions["pychopmarg"]["direct_url"]
+        assert local_url_path(bert_url["url"]) == root
+        if route == "A":
+            assert package == root / "PyAMI/src/pyibisami"
+            assert ami_url["dir_info"]["editable"] is True and "vcs_info" not in ami_url
+            assert local_url_path(ami_url["url"]) == root / "PyAMI"
+            assert bert_url["dir_info"]["editable"] is True
+            assert chop_url["dir_info"]["editable"] is True
+            assert local_url_path(chop_url["url"]) == root / "PyChOpMarg"
+            bert_package = root / "src/pybert"
+            chop_package = root / "PyChOpMarg/src/pychopmarg"
+        else:
+            assert package.is_relative_to(environment)
+            assert ami_url["url"] == "https://github.com/yx520143-G/PyAMI.git"
+            assert ami_url["vcs_info"] == {
+                "vcs": "git", "commit_id": expected["F2"], "requested_revision": expected["F2"],
+            }
+            assert not bert_url.get("dir_info", {}).get("editable", False)
+            assert chop_url is None
+            bert_package = Path(metadata.distribution("pipbert").locate_file("pybert"))
+            chop_package = Path(metadata.distribution("pychopmarg").locate_file("pychopmarg"))
+            assert bert_package.is_relative_to(environment) and chop_package.is_relative_to(environment)
+            report = json.loads((evidence / "commands/13-pip-install/pip-report.json").read_text(encoding="utf-8"))
+            result["pip_report_download_info"] = {
+                item["metadata"]["name"]: item["download_info"] for item in report["install"]
+                if item["metadata"]["name"].lower() in {"pipbert", "pyibis-ami", "pychopmarg"}
+            }
+        for name, directory in (("pybert", bert_package), ("pychopmarg", chop_package)):
+            spec = machinery.PathFinder.find_spec(name)
+            assert Path(spec.origin).resolve() == directory / "__init__.py"
+            result[name + "_spec_origin_not_imported"] = spec.origin
+            assert name not in sys.modules
+        result["PyBERT_source_directory_not_imported"] = str(bert_package)
+        result["installed_python_source_sha256"] = {}
+        for key, parent in (("PyAMI_sources", package.parent), ("PyBERT_sources", bert_package.parent)):
+            for relative, info in expected[key].items():
+                source = parent / relative
+                raw = source.read_bytes()
+                digest = hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest()
+                assert digest == info["LF_normalized_sha256"], str(source)
+                result["installed_python_source_sha256"][str(source)] = {
+                    "raw": hashlib.sha256(raw).hexdigest(), "LF_normalized": digest,
+                }
+        result["PyChOpMarg_source_sha256_not_claimed_equal_across_routes"] = {
+            str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(chop_package.rglob("*.py"))
+        }
+        classes = {node.name: node for node in ast.parse(model.read_text(encoding="utf-8")).body
+                   if isinstance(node, ast.ClassDef)}
+        response = next(node for node in classes["AMIModel"].body
+                        if isinstance(node, ast.FunctionDef) and node.name == "get_responses")
+        assert [node.arg for node in response.args.args] == [
+            "self", "bits_per_call", "max_run_length", "nbits", "calc_getw", "debug",
+        ]
+        assert [node.arg for node in response.args.kwonlyargs] == ["rng"]
+        assert len(response.args.kw_defaults) == 1
+        assert isinstance(response.args.kw_defaults[0], ast.Constant) and response.args.kw_defaults[0].value is None
+        result["get_responses_rng_AST"] = ast.dump(response.args, include_attributes=False)
+        result["gui_extra_installed_distributions"] = {
+            re.match(r"[A-Za-z0-9_.-]+", item).group(): metadata.version(re.match(r"[A-Za-z0-9_.-]+", item).group())
+            for item in expected["PyAMI_project"]["optional-dependencies"]["gui"]
+        }
+        result["installed_distribution_versions"] = {
+            item.metadata["Name"]: item.version for item in metadata.distributions()
+        }
+        assert not result["blocked_attempts"]
+        assert result["safe_top_package_module_bodies"] == 1
+        assert not any(name.startswith("pyibisami.ami") for name in sys.modules)
+        result["status"] = "passed"
+    except Exception:
+        result.update(status="failed", traceback=traceback.format_exc())
+        raise
+    finally:
+        sys.setprofile(None)
+        sys.meta_path.remove(guard)
+        output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({"route": route, "status": result["status"],
+                      "source_files": len(result["installed_python_source_sha256"])}))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,21 @@
+{
+  "commands": {
+    "11a-A-python": [
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv\\Scripts\\python.exe",
+      "-I",
+      "-B",
+      "-c",
+      "import json,sys; print(json.dumps({\"executable\":sys.executable,\"version\":sys.version,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix}))"
+    ],
+    "11b-B-python": [
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv\\Scripts\\python.exe",
+      "-I",
+      "-B",
+      "-c",
+      "import json,sys; print(json.dumps({\"executable\":sys.executable,\"version\":sys.version,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix}))"
+    ]
+  },
+  "verifier_preflight_correction": "Actual source AST names the second old argument max_run_length, not the initially typed pad_bits; corrected expected AST before any verifier execution/product import; earlier verifier bytes remain in content-addressed inputs",
+  "verifier_sha256": "17f4e156910a3d6454f4a0a394a823027d38d5993119c6708ae748a9a6ff126a",
+  "product_model_module_and_method_calls": 0
+}
