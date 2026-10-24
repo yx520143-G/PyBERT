@@ -1,0 +1,6 @@
+test_actual_eye_indices_masked_histogram_fft_and_segments (d2_cases.ProjectionCases.test_actual_eye_indices_masked_histogram_fft_and_segments) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.111s
+
+OK

@@ -62,6 +62,7 @@ def main():
     paths.update({str(root / spec["path"]): name for name, spec in plan.get("extra_sources", {}).items()})
     cases = str(evidence / "d2_cases.py")
     copies = {}
+    serial_calls = {}
 
     def block(reason):
         receipt["blocked_attempts"].append(reason)
@@ -115,6 +116,24 @@ def main():
 
     def profile(frame, event, arg):
         filename, name = frame.f_code.co_filename, frame.f_code.co_qualname
+        if filename in paths and paths[filename] == "pybert.web.archive" and name in (
+                "sha256", "json_bytes", "read_json", "atomic_write"):
+            if event == "call":
+                content = frame.f_locals.get("content")
+                size = len(content) if isinstance(content, (bytes, str)) else None
+                serial_calls[id(frame)] = (time.perf_counter(), size)
+                if name == "atomic_write" and size is not None and size > 16 * 1024**2:
+                    block("serialized artifact exceeds16MiB")
+            elif event == "return" and id(frame) in serial_calls:
+                begin, size = serial_calls.pop(id(frame))
+                elapsed = time.perf_counter() - begin
+                output_size = len(arg) if isinstance(arg, (bytes, str)) else None
+                item = receipt["serialization"].setdefault(name, {"calls": 0, "elapsed_s": 0.})
+                item["calls"] += 1
+                item["elapsed_s"] += elapsed
+                events.write(json.dumps({"kind": "serialization", "name": name, "input_bytes": size,
+                                         "output_bytes": output_size, "elapsed_s": elapsed,
+                                         "event": "return_or_exception"}) + "\n")
         if event in ("c_call", "c_return", "c_exception") and receipt["stage"] == "execution":
             owner = getattr(arg, "__self__", None)
             method = getattr(arg, "__name__", "")
@@ -201,10 +220,44 @@ def main():
         np.convolve = np.correlate = np.fft.fft = np.fft.irfft = forbidden
         np.random = types.SimpleNamespace(default_rng=forbidden, seed=forbidden, normal=forbidden)
         receipt["stage"] = "execution"
+
+        def serialization(name, function):
+            def call(*args, **kwargs):
+                before = time.perf_counter()
+                count = receipt["serialization"].setdefault(name, {"calls": 0, "elapsed_s": 0.})
+                count["calls"] += 1
+                size = sum(value.nbytes for value in kwargs.values() if isinstance(value, np.ndarray))
+                if size > 16 * 1024**2:
+                    block("NPZ uncompressed input exceeds16MiB")
+                stream = args[0] if args else None
+                position = stream.tell() if hasattr(stream, "tell") else None
+                returned = False
+                try:
+                    result = function(*args, **kwargs)
+                    returned = True
+                    return result
+                finally:
+                    elapsed = time.perf_counter() - before
+                    count["elapsed_s"] += elapsed
+                    output_size = (len(stream.getbuffer()) if hasattr(stream, "getbuffer") else
+                                   Path(stream).stat().st_size if isinstance(stream, (str, Path))
+                                   and Path(stream).is_file() else None)
+                    if output_size is not None and output_size > 16 * 1024**2:
+                        block("serialized artifact exceeds16MiB")
+                    events.write(json.dumps({"kind": "serialization", "name": name, "input_array_bytes": size,
+                        "output_or_stream_bytes": output_size, "consumed_stream_bytes":
+                        stream.tell() - position if position is not None else None,
+                        "elapsed_s": elapsed, "returned": returned}) + "\n")
+            return call
+
+        for name in ("savez_compressed", "savez", "load"):
+            setattr(np, name, serialization("numpy." + name, getattr(np, name)))
+        for name in ("read_magic", "read_array_header_1_0", "read_array_header_2_0", "read_array"):
+            setattr(np.lib.format, name, serialization("numpy.format." + name, getattr(np.lib.format, name)))
         modules = {}
         base = dict(np=np, Path=Path, json=json, hashlib=hashlib, copy=copy, time=time, math=math,
                     os=os, tempfile=tempfile, io=io, zipfile=zipfile, warnings=warnings,
-                    contextlib=contextlib, datetime=datetime, timezone=timezone,
+                    contextlib=contextlib, datetime=datetime, timezone=timezone, subprocess=subprocess,
                     SimpleNamespace=types.SimpleNamespace, monotonic_ns=time.monotonic_ns)
         base.update({name: getattr(np, name) for name in
                      ("array", "zeros", "where", "diff", "sign", "integer", "log10", "maximum", "pad")})
@@ -213,6 +266,16 @@ def main():
             module = types.ModuleType(name)
             module.__dict__.update(base, __file__=str(path))
             tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+            for node in tree.body:
+                if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name):
+                    constant = node.targets[0].id
+                    if constant in spec.get("constants", []):
+                        allowed = (ast.Constant, ast.Tuple, ast.List, ast.Dict, ast.Name, ast.Load,
+                                   ast.BinOp, ast.Add, ast.Mult, ast.Pow)
+                        if not all(isinstance(item, allowed) for item in ast.walk(node.value)):
+                            block("nonliteral source constant " + constant)
+                        module.__dict__[constant] = eval(compile(ast.Expression(node.value), str(path), "eval"),
+                                                         {"__builtins__": {}}, module.__dict__)
             definitions = [node for node in tree.body if isinstance(node, (ast.FunctionDef, ast.ClassDef))
                            and (spec.get("names") is None or node.name in spec["names"])]
             wrapped = ast.Module(body=[ast.ImportFrom(module="__future__", names=[ast.alias(name="annotations")],
@@ -220,6 +283,23 @@ def main():
             ast.fix_missing_locations(wrapped)
             exec(compile(wrapped, str(path), "exec"), module.__dict__)
             modules[name] = module
+        for name in ("pybert", "pybert.web", "pybert.utility", "pybert.models", "chaco", "chaco.api"):
+            module = modules.get(name, types.ModuleType(name))
+            module.__path__ = []
+            sys.modules[name] = module
+        for name, module in modules.items():
+            sys.modules[name] = module
+        sys.modules["chaco.api"].ArrayPlotData = None
+        bert_stub = types.ModuleType("pybert.models.bert")
+        bert_stub.update_trellis = forbidden
+        sys.modules[bert_stub.__name__] = bert_stub
+        if "pybert.utility.sigproc" in modules and hasattr(modules["pybert.utility.sigproc"], "resize_zero_pad"):
+            sys.modules["pybert.utility"].resize_zero_pad = modules["pybert.utility.sigproc"].resize_zero_pad
+        if "pybert.web.archive" in modules:
+            modules["pybert.web.archive"].adapter_sha = modules["pybert.web.data"].adapter_sha
+            for name in ("clock_features", "validate_clock_arrays"):
+                if hasattr(modules["pybert.web.clocks"], name):
+                    setattr(modules["pybert.web.archive"], name, getattr(modules["pybert.web.clocks"], name))
         for name in ("pybert.web.analysis", "baseline.analysis"):
             if name in modules:
                 eye = "baseline.sigproc" if name.startswith("baseline") else "pybert.utility.sigproc"

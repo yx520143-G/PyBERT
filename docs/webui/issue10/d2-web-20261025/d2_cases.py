@@ -221,3 +221,138 @@ class ProjectionCases(unittest.TestCase):
             analysis.eye_data(1., 2, native, clocks=np.array([0.]), clock_indices=np.array([0]))
         with self.assertRaisesRegex(ValueError, "crossing"):
             analysis.eye_data(1., 2, np.array([1.] * 12))
+
+
+class ArchiveCases(unittest.TestCase):
+    def test_masked_archive_features_and_lossless_original_files(self):
+        import io
+        import zipfile
+        from types import SimpleNamespace
+        from d2_under_test import destination
+        clocks = modules["pybert.web.clocks"]
+        self.assertTrue(callable(getattr(clocks, "store_clock_context", None)), "stored clock contract is missing")
+        archive, viterbi = modules["pybert.web.archive"], modules["pybert.web.viterbi"]
+        factory = modules["pybert.utility.ami_clock"].new_clock_info
+        t = np.array([i * 0.25 for i in range(16)])
+        indices = np.array([2, 6, 10, 14])
+        ps = np.array([np.nan] * 2 + [1e12] * 12 + [np.nan] * 2)
+        ps.view(np.uint64)[0] = 0x7FF8000000000042
+        ps.view(np.uint64)[15] = 0x7FF8000000000021
+        mask = np.array([False] * 2 + [True] * 12 + [False] * 2)
+        info = factory(True, "rx_getwave", "c1_fresh_main")
+        info.update(actual_branch="ami", format_status="valid", eligible=True, full_analysis_eligible=True,
+                    run_status="completed", consumption_status="completed", consumed_count=4,
+                    grid_s=t, edges_s=np.array([0., 1., 2., 3.]), targets_s=t[indices],
+                    sample_indices=indices, sample_targets_s=t[indices], sample_grid_times_s=t[indices],
+                    consumed_tick_positions=np.array([0, 1, 2, 3]), sample_quantization_delay_s=np.array([0.] * 4),
+                    analysis_sample_indices=np.array([10, 14]), period_s=ps / 1e12, period_known=mask,
+                    nspui=4, symbol_ui_s=1., ignore_ui=0.,
+                    analysis={"start_index": 4, "stop_index": 16, "start_s": 1., "stop_s": 3.75,
+                              "fft_slice": [6, 10], "required_decisions": 2, "required_eye_traces": 1},
+                    profile={"ignore_ui_units": "symbol_ui", "nominal_eye_offset_ui": 0, "mapping": "native_nrz"},
+                    profile_source="nrz_ui_contract", model_qualification="UNKNOWN")
+        engine = SimpleNamespace(ami_clock_info=info, t=t, ui_ests=ps, ami_period_known=mask,
+                                 clock_times=t[indices], dfe_out=np.array([1.] * 16), n_errs_viterbi=-1)
+        context = clocks.clock_context(engine, clocks.snapshot_producer(engine))
+        arrays, datasets = {}, {}
+        contract = clocks.store_clock_context(context, arrays, datasets)
+        config = dict(nbits=4, eye_bits=2, nspui=4, rx_use_viterbi=False, rx_viterbi_fec=False,
+                      rx_viterbi_symbols=2, mod_type="NRZ")
+        run = dict(run_id="manual-masked-record", schema_version=1, raw_schema_version=6, draft_revision=0,
+                   status="succeeded", input_hash="1" * 64, native_sha="2" * 40, prototype_sha="3" * 40,
+                   adapter_sha="4" * 40, requested_input=config, effective_input=config, datasets=datasets, plots={},
+                   summary={"n_errs_dfe": 0, "n_errs_viterbi": -1}, window={}, packages={}, resources=[], warnings=[],
+                   input_identity_hash="5" * 64, resource_hash="6" * 64, resource_bindings={}, runtime_extensions={},
+                   execution_strategy={}, ami={"schema_version": 1, "clock_contract": contract},
+                   required_features=["ami-clock-grid-v2"], actual_source_sha256={
+                       "models/bert.py": "a" * 64, "models/viterbi.py": "b" * 64, "web/viterbi.py": "c" * 64})
+        def add(key, value):
+            arrays[key] = value
+            datasets[key] = dict(dtype=str(value.dtype), shape=list(value.shape), producer="manual frozen input",
+                                 unit="1", window={}, clock_basis="manual", availability="available")
+        add("t", t)
+        add("clock_times", t[indices])
+        add("bits", np.array([0, 1, 0, 1]))
+        add("bit_errs_dfe", np.array([], dtype=int))
+        captured = {"dfe": dict(bits_out=np.array([0, 1, 0, 1]), bits_test=np.array([0, 1]),
+                               bits_reference=np.array([0, 1]), auto_corr=np.array([1.]), errors=np.array([], dtype=int),
+                               count=0, bit_delay=0, test_start_bit=2, test_stop_bit=4,
+                               reference_start_bit=2, reference_stop_bit=4)}
+        viterbi.extend(engine, captured, arrays, run)
+        directory = destination / "manual-run"
+        directory.mkdir()
+        np.savez_compressed(directory / "arrays.npz", **arrays)
+        original_manifest = archive.json_bytes(run)
+        (directory / "manifest.json").write_bytes(original_manifest)
+        original_npz = (directory / "arrays.npz").read_bytes()
+        saved = archive.save_archive(directory, directory / "record.pybert_run")
+        self.assertEqual(saved["required_features"], ["ami-clock-grid-v2"])
+        opened = destination / "opened"
+        opened.mkdir()
+        result, size = archive.load_archive((directory / "record.pybert_run").read_bytes(), opened)
+        self.assertEqual((opened / "manifest.json").read_bytes(), original_manifest)
+        self.assertEqual((opened / "arrays.npz").read_bytes(), original_npz)
+        self.assertEqual(result, run)
+        read = archive.read_arrays(original_npz, run=run)
+        self.assertEqual(read["ui_ests"].tobytes(), ps.tobytes())
+        self.assertEqual(size, sum(value.nbytes for value in arrays.values()))
+        with self.assertRaises(ValueError):
+            archive.read_arrays(original_npz)  # ordinary finite gate is still closed
+        for feature in ([], ["unsupported-feature"]):
+            with self.subTest(archive_features=feature):
+                with zipfile.ZipFile(io.BytesIO((directory / "record.pybert_run").read_bytes())) as source:
+                    envelope = archive.read_json(source.read("manifest.json"))
+                envelope["required_features"] = feature
+                broken = io.BytesIO()
+                with zipfile.ZipFile(broken, "w", compression=zipfile.ZIP_STORED) as output:
+                    output.writestr("manifest.json", archive.json_bytes(envelope))
+                    output.writestr("arrays.npz", original_npz)
+                with self.assertRaises(ValueError):
+                    archive.load_archive(broken.getvalue(), opened)
+                self.assertEqual((opened / "arrays.npz").read_bytes(), original_npz)
+        for case in ("missing_feature", "unknown_feature", "downgrade", "missing_contract", "native_label"):
+            with self.subTest(version=case):
+                current = archive.read_json(original_manifest)
+                if case == "missing_feature":
+                    current.pop("required_features")
+                elif case == "unknown_feature":
+                    current["required_features"].append("unsupported-feature")
+                elif case == "downgrade":
+                    current["raw_schema_version"] = 5
+                elif case == "missing_contract":
+                    current["ami"].pop("clock_contract")
+                else:
+                    current["ami"]["clock_contract"]["actual_branch"] = "native"
+                with self.assertRaises(ValueError):
+                    archive.read_arrays(original_npz, run=current)
+        tampered = {key: value.copy() for key, value in arrays.items()}
+        tampered["ami.cdr.known_period_ps"][0] = 99.
+        with self.assertRaises(ValueError):
+            archive.validate_run(run, tampered)
+        for key, value in (("other", np.array([np.nan])), ("ui_ests", np.array(["blocked"], dtype=object))):
+            with self.subTest(npy_gate=key):
+                buffer = io.BytesIO()
+                np.savez_compressed(buffer, **{key: value})
+                with self.assertRaises(ValueError):
+                    archive.read_arrays(buffer.getvalue(), run=run)
+        # Native and historical records keep their own finite/raw2-5 rules and original bytes.
+        for raw_version in (2, 3, 4, 5):
+            current = archive.read_json(original_manifest)
+            current.pop("ami")
+            current.pop("required_features")
+            current["raw_schema_version"] = raw_version
+            values = {key: value for key, value in arrays.items() if not key.startswith("ami.")}
+            values["ui_ests"] = np.array([1e12] * 16)
+            if raw_version < 5:
+                current.pop("decoding")
+                values = {key: value for key, value in values.items() if not key.startswith("ber.")}
+            current["datasets"] = {key: dict(datasets[key], dtype=str(value.dtype), shape=list(value.shape))
+                                   for key, value in values.items()}
+            for dataset in current["datasets"].values():
+                dataset.update(axis=None, clock_basis="native", availability="available")
+            buffer = io.BytesIO()
+            np.savez_compressed(buffer, **values)
+            original = buffer.getvalue()
+            reread = archive.read_arrays(original, run=current)
+            archive.validate_run(current, reread)
+            self.assertEqual(reread["ui_ests"].tobytes(), values["ui_ests"].tobytes())

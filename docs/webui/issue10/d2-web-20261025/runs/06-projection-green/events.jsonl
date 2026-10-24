@@ -1,0 +1,85 @@
+{"kind": "serialization", "name": "host_copy", "input_bytes": 6, "elapsed_s": 1.1299998732283711e-05, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "pure", "name": "pybert.web.clocks.period_projection"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "histogram", "name": "numpy.histogram"}
+{"kind": "rfft", "name": "numpy.fft.rfft"}
+{"kind": "clock_display", "name": "pybert.web.analysis.clock_display"}
+{"kind": "safe_log10", "name": "pybert.utility.math.safe_log10"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 6, "elapsed_s": 6.999995093792677e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 8.600007276982069e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 4.9000082071870565e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "pure", "name": "pybert.web.clocks.period_projection"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "histogram", "name": "numpy.histogram"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 6, "elapsed_s": 5.799985956400633e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 3.5999983083456755e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 2.9999937396496534e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "pure", "name": "pybert.web.clocks.period_projection"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "histogram", "name": "numpy.histogram"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 6, "elapsed_s": 4.999979864805937e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 3.2999960239976645e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 2.500019036233425e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "pure", "name": "pybert.web.clocks.period_projection"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "histogram", "name": "numpy.histogram"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 6, "elapsed_s": 6.699992809444666e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 3.5999983083456755e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 2.7999922167509794e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "pure", "name": "pybert.web.clocks.period_projection"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "histogram", "name": "numpy.histogram"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 6, "elapsed_s": 5.4000120144337416e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 3.3999967854470015e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 2.700020559132099e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "pure", "name": "pybert.web.clocks.period_projection"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "histogram", "name": "numpy.histogram"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 6, "elapsed_s": 5.199981387704611e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 3.5999983083456755e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 2.8999929782003164e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "pure", "name": "pybert.web.clocks.period_projection"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 6, "elapsed_s": 5.2000104915350676e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 3.5999983083456755e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 48, "elapsed_s": 2.7999922167509794e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "pure", "name": "pybert.web.clocks.period_projection"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "histogram", "name": "numpy.histogram"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 6, "elapsed_s": 4.5000051613897085e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\d2_cases.py"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "pure", "name": "pybert.web.clocks.period_projection"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "histogram", "name": "numpy.histogram"}
+{"kind": "rfft", "name": "numpy.fft.rfft"}
+{"kind": "clock_display", "name": "pybert.web.analysis.clock_display"}
+{"kind": "clock_data", "name": "pybert.web.analysis.clock_data"}
+{"kind": "histogram", "name": "numpy.histogram"}
+{"kind": "rfft", "name": "numpy.fft.rfft"}
+{"kind": "pure", "name": "pybert.web.clocks.period_segments"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "pure", "name": "pybert.web.clocks.period_segments"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "pure", "name": "pybert.web.clocks.period_segments"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "eye_data", "name": "baseline.analysis.eye_data"}
+{"kind": "calc_eye", "name": "baseline.sigproc.calc_eye"}
+{"kind": "eye_data", "name": "pybert.web.analysis.eye_data"}
+{"kind": "calc_eye", "name": "pybert.utility.sigproc.calc_eye"}
+{"kind": "eye_data", "name": "baseline.analysis.eye_data"}
+{"kind": "calc_eye", "name": "baseline.sigproc.calc_eye"}
+{"kind": "eye_data", "name": "pybert.web.analysis.eye_data"}
+{"kind": "calc_eye", "name": "pybert.utility.sigproc.calc_eye"}
+{"kind": "eye_data", "name": "pybert.web.analysis.eye_data"}
+{"kind": "calc_eye", "name": "pybert.utility.sigproc.calc_eye"}
+{"kind": "eye_data", "name": "pybert.web.analysis.eye_data"}
+{"kind": "eye_data", "name": "pybert.web.analysis.eye_data"}
+{"kind": "eye_data", "name": "pybert.web.analysis.eye_data"}

@@ -1,8 +1,8 @@
 {
-  "phase": "actual Eye and period projections green",
-  "run_id": "06-projection-green",
+  "phase": "masked archive version and finite-gate red",
+  "run_id": "07-archive-red",
   "selection": [
-    "ProjectionCases"
+    "ArchiveCases"
   ],
   "snapshot_paths": {
     "clocks.py.txt": "src/pybert/web/clocks.py",
@@ -19,12 +19,16 @@
     "pybert.utility.sigproc.txt": "src/pybert/utility/sigproc.py",
     "pybert.utility.math.txt": "src/pybert/utility/math.py",
     "baseline.analysis.txt": "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt",
-    "baseline.sigproc.txt": "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt"
+    "baseline.sigproc.txt": "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt",
+    "pybert.web.archive.txt": "src/pybert/web/archive.py",
+    "pybert.web.viterbi.txt": "src/pybert/web/viterbi.py",
+    "pybert.web.data.txt": "src/pybert/web/data.py",
+    "pybert.web.txt": "src/pybert/web/__init__.py"
   },
   "source_test_runner_raw_sha256": {
     "src/pybert/web/clocks.py": "cf61411c6b41f5ad510b8b1110dc94bb8ac2321c48f331a7a28e8fab8cff0992",
-    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "f858db5a912f434e53c32e0509b438fbf81ead55e4bc6e2041ccf10fe25d5918",
-    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "4446186dfcb524f2fb11aaa4f1668141b44ff7adc66cafe3dee9b4e8bdb77b66",
+    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "adf0a96217c0ea5ec2a4e263f88506651d22529e7c6b93f250f31ae3156d901e",
+    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "9fb566a761711fa7c08ec5ab057d46254e453315f825c1dfe7b6e2b3479ce2f2",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "0363ea36878cef57f1ed281d0f9d193cd3384c243314a0d7717e15e1c3203762",
     "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
     "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
@@ -33,7 +37,11 @@
     "src/pybert/web/analysis.py": "f3f37c5e03be90f6ecd29417d7c983b3cefbfc53831400e8747b3dd9bbb9b1ae",
     "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
-    "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2"
+    "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "src/pybert/web/archive.py": "38f2b1967488ef7b6e6cdb768863da525226bf9bf11e71ccd292cccec6e3c676",
+    "src/pybert/web/viterbi.py": "8c8768f9b4ada62dd370786a8d4f4129118bc14cc1eb9925012abce445d92a3f",
+    "src/pybert/web/data.py": "34b317a4c512c5cf17f05ec60e66bb567059cbf02dfa34e97dd7406702326e35",
+    "src/pybert/web/__init__.py": "3f06f9f54e5a61c3261fb7f5dee91d100b5e1d5b0dc9a69d74735456a5d74b92"
   },
   "modules": {
     "pybert.web.clocks": {
@@ -57,7 +65,8 @@
     "pybert.utility.sigproc": {
       "path": "src/pybert/utility/sigproc.py",
       "names": [
-        "calc_eye"
+        "calc_eye",
+        "resize_zero_pad"
       ]
     },
     "pybert.utility.math": {
@@ -77,6 +86,47 @@
       "names": [
         "calc_eye"
       ]
+    },
+    "pybert.web.archive": {
+      "path": "src/pybert/web/archive.py",
+      "names": null,
+      "constants": [
+        "MAX_FILE_BYTES",
+        "MAX_ARRAY_BYTES",
+        "MAX_METADATA_BYTES",
+        "FORMAT"
+      ]
+    },
+    "pybert.web.viterbi": {
+      "path": "src/pybert/web/viterbi.py",
+      "names": null,
+      "constants": [
+        "MAX_STATES",
+        "MAX_STATE_SAMPLES",
+        "MAX_DENSE_WORK",
+        "MAX_TIME_SAMPLES",
+        "TRELLIS_FIELDS",
+        "BER_ARRAYS",
+        "ISI_ARRAYS",
+        "DEBUG_ARRAYS"
+      ]
+    },
+    "pybert.web.data": {
+      "path": "src/pybert/web/data.py",
+      "names": [
+        "adapter_sha"
+      ],
+      "constants": []
+    },
+    "pybert.web": {
+      "path": "src/pybert/web/__init__.py",
+      "names": [],
+      "constants": [
+        "SCHEMA_VERSION",
+        "RAW_SCHEMA_VERSION",
+        "AMI_RAW_SCHEMA_VERSION",
+        "AMI_CLOCK_FEATURE"
+      ]
     }
   },
   "function_kinds": {
@@ -88,16 +138,23 @@
     "baseline.analysis.clock_display": "clock_display",
     "pybert.utility.sigproc.calc_eye": "calc_eye",
     "baseline.sigproc.calc_eye": "calc_eye",
-    "pybert.utility.math.safe_log10": "safe_log10"
+    "pybert.utility.math.safe_log10": "safe_log10",
+    "pybert.utility.sigproc.resize_zero_pad": "resize_zero_pad",
+    "pybert.web.archive.read_arrays": "read_arrays",
+    "pybert.web.archive.validate_run": "validate_run",
+    "pybert.web.archive.save_archive": "save_archive",
+    "pybert.web.archive.load_archive": "load_archive",
+    "pybert.web.viterbi.extend": "viterbi_extend",
+    "pybert.web.viterbi.validate": "viterbi_validate"
   },
   "forbidden_definitions": [],
   "observe": [
-    "period_projection",
-    "period_segments",
-    "eye_data",
-    "calc_eye",
-    "clock_data",
-    "clock_display"
+    "store_clock_context",
+    "validate_clock_arrays",
+    "read_arrays",
+    "validate_run",
+    "save_archive",
+    "load_archive"
   ],
   "limits": {
     "pure": 4000,
@@ -133,16 +190,16 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 64,
+    "pure": 0,
     "collect": 0,
     "extend_analysis": 0,
-    "eye_data": 8,
-    "calc_eye": 5,
-    "clock_data": 10,
-    "clock_display": 2,
-    "histogram": 9,
-    "rfft": 3,
-    "safe_log10": 1,
+    "eye_data": 0,
+    "calc_eye": 0,
+    "clock_data": 0,
+    "clock_display": 0,
+    "histogram": 0,
+    "rfft": 0,
+    "safe_log10": 0,
     "viterbi_extend": 0,
     "viterbi_validate": 0,
     "resize_zero_pad": 0,
@@ -157,38 +214,17 @@
   },
   "expected_result": {
     "tests": 1,
-    "failures": 0,
-    "errors": 0
+    "failures": 1,
+    "errors": 0,
+    "reason": "stored clock contract seam absent; first assertion before archive or numerical calls"
   },
-  "case_inputs": "literal4-point DFT1,2,3,4ps at grid10+index*.25; six unavailableFFT cases, constant raw spectrum, oldNative nonzero-origin basis; segments3,4/6,7 cap3; Native eye exact, constant timed indices0/8 at exacttail and empty/conflicting/nominal boundaries. Also zero-ts FFT refusal; Native seconds baseline/candidate exact with .5,1.5,2.5s.",
+  "case_inputs": "literal16-grid actual producer factory/host snapshot, distinct NaN payloads42/21, disabled decoding BER row bits0101/test01, full metadata hashes manuallydeclared; newraw6 archive byte-exact originalmanifest/NPZ; outerfeature mismatch, missing/unknown/downgrade/native version labels, compact tamper, otherNaN/objectheader, legacyraw2-5finite.",
   "expected_values": {
-    "DFT": [
-      "10+0j",
-      "-2+2j",
-      "-2+0j"
-    ],
-    "frequency_Hz": [
-      0,
-      1,
-      2
-    ],
-    "relative_frequency": [
-      0.5,
-      1
-    ],
-    "origin_s": 10.25,
-    "histogram": "100bins with1at0/33/66/99; grid-sample weighted",
-    "segments": [
-      [
-        3,
-        4
-      ],
-      [
-        6,
-        7
-      ]
-    ],
-    "timed_eye": "8 counts total, pixel954 each column2; zero indices no actual calc_eye; Native baseline exact"
+    "dense": "originalCbytes including NaN payloads survive save/open; source manifestUTF8 and NPZfiles byte-exact, no recompute",
+    "feature": "raw6+clock_contract2+ami-clock-grid-v2 pair; native/unknown/missing/downgrade reject",
+    "finite": "ordinarydefaultread rejects denseNaN; otherNaN/object reject evenwithrun6",
+    "legacy": "raw2-5 finite records keep legacy validation, raw5 still actual viterbi.validate/resize",
+    "disabled": "viterbi=-1 and no trellis/decoder algorithm"
   },
   "expected_basis": "independent literal bit patterns and index table, actual AST seam only; no product algorithm copies",
   "guards_order": "stdlib/input snapshots => import/audit/profile guards => installed-file verification => NumPy import/C extensions => selected actual definitions => tests",
@@ -203,9 +239,11 @@
     "baseline.calc_eye": 2,
     "candidate.calc_eye": 3
   },
-  "previous_plan": "runs/05-projection-red/plan.json",
+  "previous_plan": "runs/06-projection-green/plan.json",
   "expected_counts_policy": "upper bounds, actual trace separately reported",
   "serialization_policy": "from04 count each ndarray copy/deepcopy C completion incl bytes and elapsed;02 lacked per-copy trace (20 case fixture copies inferable from10 completed rows, elapsed UNKNOWN); preserve02 unchanged, full final matrix will include instrumented rows. No numerical re-run solely for instrumentation.",
   "FFT_uniformity": "original full-grid differences compared to original t[1]-t[0], rtol1e-12/atol0 for floating-grid representation only; no sample-target tolerance, no window change",
-  "display_policy": "known ordinals evenly including endpoints up to total cap4096; split by original contiguous-known groups; singletons markers; omitted segments/count explicit; no unknown line bridge"
+  "display_policy": "known ordinals evenly including endpoints up to total cap4096; split by original contiguous-known groups; singletons markers; omitted segments/count explicit; no unknown line bridge",
+  "guarded_serialization": "from07 real NPZwrite/load/formatheader/read_array wrappers record each call/input array bytes/stream consumption/output bytes/elapsed; archiveJSON/hash/atomic_write actual function trace separately recordsbytes/elapsed. Harness snapshots/log JSON is instrumentation, not a product serialization call.",
+  "selected_module_constants": "only namedliteral AST constants (literal/name/tuple/dict/add/mul/pow), no imports/arbitrary modulebody; real function definitions AST extracted. chaco import resolves injected placeholder and update_trellis is forbidden; disabled test neverconstructs either."
 }
