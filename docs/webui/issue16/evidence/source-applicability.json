@@ -1,0 +1,2479 @@
+{
+  "Main": 0,
+  "importer": 0,
+  "exports": [
+    {
+      "label": "pre",
+      "git_revision": "9a33d08458aa00782e90169c699857b8b19455a2",
+      "files": [
+        {
+          "path": ".gitmodules",
+          "actual_sha256": "a3c595b156509c95e69d2ccae7e1289b4e5120a17b2699e61b11281d1911cdff",
+          "git_blob_sha256": "916cb62eba6f53c909b9fd84994c36af9a3733ce33e3e95048ff25904b93dd18",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "pyproject.toml",
+          "actual_sha256": "01413cacd9686f957349a9533f60670076a3d7022f08c42c43b6a117741ed9f9",
+          "git_blob_sha256": "7282b23a0b688af26a1971518f76056d51f74d47216dc0dca684aad8f735527e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/__init__.py",
+          "actual_sha256": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2",
+          "git_blob_sha256": "c060ab85e7170e13cccaee05f6fd4f8ce49a3e9a9a82d7e53c852377e6deb02a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/__main__.py",
+          "actual_sha256": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9",
+          "git_blob_sha256": "773a2d77a8cb783e620929072050926c850a776cb23cd432f7afbc7ff9614717",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/cli.py",
+          "actual_sha256": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56",
+          "git_blob_sha256": "1be7abf981ba6cabf5717db69a196957b57def5cea86f9415e2d61ab7cc65dea",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/common.py",
+          "actual_sha256": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9",
+          "git_blob_sha256": "e9ca26ff8b24c65e9844618efb1f2eb1bcbc5c579e5d43d13c75585e046ed7c2",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/configuration.py",
+          "actual_sha256": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a",
+          "git_blob_sha256": "e02adfc343691cc205c518cf33e533bcefd0ebecc6d00441b06af6a71a597e2a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/__init__.py",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/handler.py",
+          "actual_sha256": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7",
+          "git_blob_sha256": "1ba6a117263cbf0dd17d712806e779e6386e995f67ee2030fcc60a0e554d9166",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/help.py",
+          "actual_sha256": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845",
+          "git_blob_sha256": "f3b7bc51abea9a314091c6116833c51ca70a420d6fd5d6ab0052eaeea16d8a0f",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/images/icon.png",
+          "actual_sha256": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311",
+          "git_blob_sha256": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/plot.py",
+          "actual_sha256": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+          "git_blob_sha256": "3efdad39c915a2fe22045caa319f30ac2f6f4af714e222475d6b50262b39adfe",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/view.py",
+          "actual_sha256": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4",
+          "git_blob_sha256": "e0c717e09fba3bd9e22f2eaf5428803d7f55076d55624ec8d285e8cba9b8ee8c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/mcp/__init__.py",
+          "actual_sha256": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92",
+          "git_blob_sha256": "7dc036fd53159628b4b3b06b718683809848351d86d9ba652bca532662c95acc",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/mcp/server.py",
+          "actual_sha256": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb",
+          "git_blob_sha256": "b4c247918ed0b6cb0b5a8822851aa9b3c627af3b76d755fea5c709391d152530",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/__init__.py",
+          "actual_sha256": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239",
+          "git_blob_sha256": "b07564cfe251bbc47e8ba4a607487283803a7af84de4de5d7ada001f5d3b4622",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/bert.py",
+          "actual_sha256": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302",
+          "git_blob_sha256": "b8311ca6b0fc038c47b7443fc1d5f7ab896cc15eaa54dacea1247883754402f0",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/cdr.py",
+          "actual_sha256": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286",
+          "git_blob_sha256": "f2a2022814004dc4b13a4659b728fc392e85016554104cdeaf55c2a97b758014",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/com.py",
+          "actual_sha256": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+          "git_blob_sha256": "86780089766cfef221a508de5f713e787d4b72929b19a0fdb6f42700dfc2d4eb",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/dfe.py",
+          "actual_sha256": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966",
+          "git_blob_sha256": "71c9355269b2f6978eb99182ec6b1ba8812e8d91be4d27b217a6875109df2f20",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/fec.py",
+          "actual_sha256": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0",
+          "git_blob_sha256": "d2a9fbe8dadd5df1f6615ff97abc0423ac4e6df8627b5427ec942a7f59220ab4",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/tx_tap.py",
+          "actual_sha256": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a",
+          "git_blob_sha256": "b4ecf945fbc0639dd07a510ab8abf1c0a1c69cab3c73c85227385941919fd130",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/viterbi.py",
+          "actual_sha256": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e",
+          "git_blob_sha256": "29c8a53fd5c4528cd32e233e00619a105b013673d427b6bf2dbb0db3bf1aa10f",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/parsers/__init__.py",
+          "actual_sha256": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622",
+          "git_blob_sha256": "11838bd084c8f05fe6e85de55bcb2ddc2e8e73f1facbc76d5e7044ddc7916f57",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/parsers/hspice.py",
+          "actual_sha256": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1",
+          "git_blob_sha256": "738a100a6bfbf8b31e4418c82987822f466c0de7a01bb4967592e11441adb96b",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/py.typed",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/pybert.py",
+          "actual_sha256": "2a9401c95d67f35c6e28e6d80fcd852e211776be185957702a958422b46a816a",
+          "git_blob_sha256": "288484c67101820f70db99f7f0a7892038103e1aad82c7961a5076432cc96382",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/results.py",
+          "actual_sha256": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc",
+          "git_blob_sha256": "ac9c25198049936847a28e356e73e334b3a8def93419ad3ca89288a583830c27",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/solvers/__init__.py",
+          "actual_sha256": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269",
+          "git_blob_sha256": "e351201aff899e290a15e2539c4cd5c673d08de00e154479de654c37c1390f2e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/solvers/simbeor/__init__.py",
+          "actual_sha256": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373",
+          "git_blob_sha256": "aba5fd2a2d42c5605fe55761fd99fad9f1c6595fd52a693b2529c473e5f9f57e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/solvers/solver.py",
+          "actual_sha256": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256",
+          "git_blob_sha256": "2c6cf924935aac4d9e3e1d35bf9ecf2cf048ce2bbf1cf57b20ef523f1098306a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/__init__.py",
+          "actual_sha256": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860",
+          "git_blob_sha256": "31aa21246855de8ee830c79aabcb5d078c023bf85e0bfe42a4269103bfac28ef",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/optimization.py",
+          "actual_sha256": "56261d1cc49437a33578eb187d64db89e4b56d97ab3558c3f9726bd3e494bec0",
+          "git_blob_sha256": "9a0c247774e61f39f34a2a416d9ba2570862512f91f62c94e9dd58f3499bb074",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/sim.py",
+          "actual_sha256": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164",
+          "git_blob_sha256": "f18fbbed044f9da63b975278e2d776c7f230110e7f8fa7f456cf24f205dfc852",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/stoppable.py",
+          "actual_sha256": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8",
+          "git_blob_sha256": "f642005705dace15a2a34df1144bad75c8798e4d4086c5a1b8d261f07b8c74cf",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/__init__.py",
+          "actual_sha256": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d",
+          "git_blob_sha256": "353b4aced534b60e57f87022e7c56eb34943d539bf57e089fce05b7e54f5899c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/channel.py",
+          "actual_sha256": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898",
+          "git_blob_sha256": "0c49010fc0b69eea0982eef6296d250fa558077ce4dcdc1d914ef37360301181",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/functional.py",
+          "actual_sha256": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3",
+          "git_blob_sha256": "bc87df5b55c7ef8f1ee255d4614007cfc2cf81660781b609e7c51fb63bcdedc6",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/ibisami.py",
+          "actual_sha256": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+          "git_blob_sha256": "8e0961b5ee0241a0bf130e46a904115c7687b304c3a51f95c55e3cfd25294f36",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/jitter.py",
+          "actual_sha256": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a",
+          "git_blob_sha256": "00877c46d570cfa48cbf3819b9368d79ab556c4667ab189373aa80ff55633710",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/math.py",
+          "actual_sha256": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
+          "git_blob_sha256": "a39f2e32074279fff6c320fae8906f804719df6992f1a1adca9f5071400a4dca",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/python.py",
+          "actual_sha256": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02",
+          "git_blob_sha256": "1818b4ce0a2b52cf13a20cba1fe289bdd14b5f5839b18dfc8a5c89ee623cf136",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/sigproc.py",
+          "actual_sha256": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+          "git_blob_sha256": "0e8e0415930a926941a0f83c025b3a4f0857c1e9653e7a1bfc611e6b5183a1ab",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/sparam.py",
+          "actual_sha256": "4f4955a304aaa330ae2a1b5e98dc7cf1ddf541027d6e3f046df10b8d3dd50c84",
+          "git_blob_sha256": "a7ed41af1a0d01e9486d0c7e612bd423dc608b89a2a643b5fcea18f911030ee3",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/__init__.py",
+          "actual_sha256": "7375370164273cec896d7eca0265b87f3e109a9a86e0f980b5b3896380606554",
+          "git_blob_sha256": "848d61723507643f4c8071e90c793041ebd3b2d2b656eadf58990426f1dce4b9",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/analysis.py",
+          "actual_sha256": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+          "git_blob_sha256": "6cf618bdd59661f73d8e1b02ce746f5958853b5c39d1fc24f7de699e0384c5d8",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/config.py",
+          "actual_sha256": "d742f08e64878fed1b71d6a44a4594eb8f9ef0b137751719302672606218005b",
+          "git_blob_sha256": "6e47c5c5f09de4161fc41738f2c5aaa6db34a792755080ad084d490df59d59b4",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/data.py",
+          "actual_sha256": "2d15d8b02c7772d7c0fc4874cf15bcf20867447e090a43d2f34aaca8dde50a10",
+          "git_blob_sha256": "041d1ff0479aae4d40ca7792df75b6b878cc3352774049f6ebfeb812d22cc3e4",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/server.py",
+          "actual_sha256": "bd96fc49eca6f3aae1daf471fb50271e18fed3cfda4b54edd1e1b444bbb050b4",
+          "git_blob_sha256": "59baed9aa94bcc18749a75551ca6be45901507659a06debe794deb60b5822dda",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/app.js",
+          "actual_sha256": "e727c3b284f089eafb6af8dbd4c209511a97604fa8fb0d920d7c0b33e95b16f8",
+          "git_blob_sha256": "a222d8bae693e9697f0620ae2e41b532d4a1c4a3f94755dd6762208833e4fab1",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/catalog.js",
+          "actual_sha256": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+          "git_blob_sha256": "5d3d980915916f4a9129670385e2ab46ca0998f08b65789f7ad023a527a2c11c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/gui-map.js",
+          "actual_sha256": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+          "git_blob_sha256": "ebdd4dfb409d1cce38b9bdd8d4d87c4309b6ff9bec45be9a83ad92ce595d497d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/index.html",
+          "actual_sha256": "bcc431244d7565e13817772987cfa1e5ab595715fb76cc09bfe343ff374b861c",
+          "git_blob_sha256": "469e93656deb4a7c7b0923a74b8e88cb076a59d52615108607528b2a5dd09e92",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/settings.js",
+          "actual_sha256": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+          "git_blob_sha256": "50a2fad3437d75873869be07f8d3849063265f8caf52456a523f9020f40c264d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/styles.css",
+          "actual_sha256": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+          "git_blob_sha256": "715e1e6e7c530a88e961fc947fa5a0424bba0704f8f955880a6140eba1c1a38d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/workbench.css",
+          "actual_sha256": "358817f13da2975000ba5d89f532c453d4ef4dc5228ccbd9534b1fa50135da2a",
+          "git_blob_sha256": "89c28df1e69fdd6955528ba2695dc004c76c4046a846c6957fd1958c7d35e40d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/workbench.js",
+          "actual_sha256": "f0151805c6dd60e30ff3b53b78fca1b6262c73d19d2b201b42fcc22847507215",
+          "git_blob_sha256": "ce7fc0bb7832bdb4d8605ac6d757c0c3e6449a13f7d584265363dbe1b6691520",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/tasks.py",
+          "actual_sha256": "23e773f28edb73af50ec400711e8eddb0f874027abc63977815db3f8be10afae",
+          "git_blob_sha256": "5d9c704f1329ee61645be3133bed736fc5261567d2de29d7df11fdd31454300e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/worker.py",
+          "actual_sha256": "b22c54df41f33b3955d5e6e973779a9a611e4452dde24d45dbf266952221027c",
+          "git_blob_sha256": "fe3595d9085f20d3967f8a3507ad875d36b9e68a4b7a6073fec7c59d08b95b57",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        }
+      ],
+      "byte_exact": 3,
+      "only_EOL_difference": 56,
+      "unexplained": 0,
+      "zip_sha256": "4c3e85b572ae93bb3cfbd14f7786fc289baaf25b845b87415d3330a24767ca6d"
+    },
+    {
+      "label": "post",
+      "git_revision": "92c317401e723e13b5a04a809547dc77f4cf8269",
+      "files": [
+        {
+          "path": ".gitmodules",
+          "actual_sha256": "a3c595b156509c95e69d2ccae7e1289b4e5120a17b2699e61b11281d1911cdff",
+          "git_blob_sha256": "916cb62eba6f53c909b9fd84994c36af9a3733ce33e3e95048ff25904b93dd18",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "pyproject.toml",
+          "actual_sha256": "01413cacd9686f957349a9533f60670076a3d7022f08c42c43b6a117741ed9f9",
+          "git_blob_sha256": "7282b23a0b688af26a1971518f76056d51f74d47216dc0dca684aad8f735527e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/__init__.py",
+          "actual_sha256": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2",
+          "git_blob_sha256": "c060ab85e7170e13cccaee05f6fd4f8ce49a3e9a9a82d7e53c852377e6deb02a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/__main__.py",
+          "actual_sha256": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9",
+          "git_blob_sha256": "773a2d77a8cb783e620929072050926c850a776cb23cd432f7afbc7ff9614717",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/cli.py",
+          "actual_sha256": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56",
+          "git_blob_sha256": "1be7abf981ba6cabf5717db69a196957b57def5cea86f9415e2d61ab7cc65dea",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/common.py",
+          "actual_sha256": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9",
+          "git_blob_sha256": "e9ca26ff8b24c65e9844618efb1f2eb1bcbc5c579e5d43d13c75585e046ed7c2",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/configuration.py",
+          "actual_sha256": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a",
+          "git_blob_sha256": "e02adfc343691cc205c518cf33e533bcefd0ebecc6d00441b06af6a71a597e2a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/__init__.py",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/handler.py",
+          "actual_sha256": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7",
+          "git_blob_sha256": "1ba6a117263cbf0dd17d712806e779e6386e995f67ee2030fcc60a0e554d9166",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/help.py",
+          "actual_sha256": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845",
+          "git_blob_sha256": "f3b7bc51abea9a314091c6116833c51ca70a420d6fd5d6ab0052eaeea16d8a0f",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/images/icon.png",
+          "actual_sha256": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311",
+          "git_blob_sha256": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/plot.py",
+          "actual_sha256": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+          "git_blob_sha256": "3efdad39c915a2fe22045caa319f30ac2f6f4af714e222475d6b50262b39adfe",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/view.py",
+          "actual_sha256": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4",
+          "git_blob_sha256": "e0c717e09fba3bd9e22f2eaf5428803d7f55076d55624ec8d285e8cba9b8ee8c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/mcp/__init__.py",
+          "actual_sha256": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92",
+          "git_blob_sha256": "7dc036fd53159628b4b3b06b718683809848351d86d9ba652bca532662c95acc",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/mcp/server.py",
+          "actual_sha256": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb",
+          "git_blob_sha256": "b4c247918ed0b6cb0b5a8822851aa9b3c627af3b76d755fea5c709391d152530",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/__init__.py",
+          "actual_sha256": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239",
+          "git_blob_sha256": "b07564cfe251bbc47e8ba4a607487283803a7af84de4de5d7ada001f5d3b4622",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/bert.py",
+          "actual_sha256": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302",
+          "git_blob_sha256": "b8311ca6b0fc038c47b7443fc1d5f7ab896cc15eaa54dacea1247883754402f0",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/cdr.py",
+          "actual_sha256": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286",
+          "git_blob_sha256": "f2a2022814004dc4b13a4659b728fc392e85016554104cdeaf55c2a97b758014",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/com.py",
+          "actual_sha256": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+          "git_blob_sha256": "86780089766cfef221a508de5f713e787d4b72929b19a0fdb6f42700dfc2d4eb",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/dfe.py",
+          "actual_sha256": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966",
+          "git_blob_sha256": "71c9355269b2f6978eb99182ec6b1ba8812e8d91be4d27b217a6875109df2f20",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/fec.py",
+          "actual_sha256": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0",
+          "git_blob_sha256": "d2a9fbe8dadd5df1f6615ff97abc0423ac4e6df8627b5427ec942a7f59220ab4",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/tx_tap.py",
+          "actual_sha256": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a",
+          "git_blob_sha256": "b4ecf945fbc0639dd07a510ab8abf1c0a1c69cab3c73c85227385941919fd130",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/viterbi.py",
+          "actual_sha256": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e",
+          "git_blob_sha256": "29c8a53fd5c4528cd32e233e00619a105b013673d427b6bf2dbb0db3bf1aa10f",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/parsers/__init__.py",
+          "actual_sha256": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622",
+          "git_blob_sha256": "11838bd084c8f05fe6e85de55bcb2ddc2e8e73f1facbc76d5e7044ddc7916f57",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/parsers/hspice.py",
+          "actual_sha256": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1",
+          "git_blob_sha256": "738a100a6bfbf8b31e4418c82987822f466c0de7a01bb4967592e11441adb96b",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/py.typed",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/pybert.py",
+          "actual_sha256": "2a9401c95d67f35c6e28e6d80fcd852e211776be185957702a958422b46a816a",
+          "git_blob_sha256": "288484c67101820f70db99f7f0a7892038103e1aad82c7961a5076432cc96382",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/results.py",
+          "actual_sha256": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc",
+          "git_blob_sha256": "ac9c25198049936847a28e356e73e334b3a8def93419ad3ca89288a583830c27",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/solvers/__init__.py",
+          "actual_sha256": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269",
+          "git_blob_sha256": "e351201aff899e290a15e2539c4cd5c673d08de00e154479de654c37c1390f2e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/solvers/simbeor/__init__.py",
+          "actual_sha256": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373",
+          "git_blob_sha256": "aba5fd2a2d42c5605fe55761fd99fad9f1c6595fd52a693b2529c473e5f9f57e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/solvers/solver.py",
+          "actual_sha256": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256",
+          "git_blob_sha256": "2c6cf924935aac4d9e3e1d35bf9ecf2cf048ce2bbf1cf57b20ef523f1098306a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/__init__.py",
+          "actual_sha256": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860",
+          "git_blob_sha256": "31aa21246855de8ee830c79aabcb5d078c023bf85e0bfe42a4269103bfac28ef",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/optimization.py",
+          "actual_sha256": "56261d1cc49437a33578eb187d64db89e4b56d97ab3558c3f9726bd3e494bec0",
+          "git_blob_sha256": "9a0c247774e61f39f34a2a416d9ba2570862512f91f62c94e9dd58f3499bb074",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/sim.py",
+          "actual_sha256": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164",
+          "git_blob_sha256": "f18fbbed044f9da63b975278e2d776c7f230110e7f8fa7f456cf24f205dfc852",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/stoppable.py",
+          "actual_sha256": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8",
+          "git_blob_sha256": "f642005705dace15a2a34df1144bad75c8798e4d4086c5a1b8d261f07b8c74cf",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/__init__.py",
+          "actual_sha256": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d",
+          "git_blob_sha256": "353b4aced534b60e57f87022e7c56eb34943d539bf57e089fce05b7e54f5899c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/channel.py",
+          "actual_sha256": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898",
+          "git_blob_sha256": "0c49010fc0b69eea0982eef6296d250fa558077ce4dcdc1d914ef37360301181",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/functional.py",
+          "actual_sha256": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3",
+          "git_blob_sha256": "bc87df5b55c7ef8f1ee255d4614007cfc2cf81660781b609e7c51fb63bcdedc6",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/ibisami.py",
+          "actual_sha256": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+          "git_blob_sha256": "8e0961b5ee0241a0bf130e46a904115c7687b304c3a51f95c55e3cfd25294f36",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/jitter.py",
+          "actual_sha256": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a",
+          "git_blob_sha256": "00877c46d570cfa48cbf3819b9368d79ab556c4667ab189373aa80ff55633710",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/math.py",
+          "actual_sha256": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
+          "git_blob_sha256": "a39f2e32074279fff6c320fae8906f804719df6992f1a1adca9f5071400a4dca",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/python.py",
+          "actual_sha256": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02",
+          "git_blob_sha256": "1818b4ce0a2b52cf13a20cba1fe289bdd14b5f5839b18dfc8a5c89ee623cf136",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/sigproc.py",
+          "actual_sha256": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+          "git_blob_sha256": "0e8e0415930a926941a0f83c025b3a4f0857c1e9653e7a1bfc611e6b5183a1ab",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/sparam.py",
+          "actual_sha256": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+          "git_blob_sha256": "9d881b261481c9daf7ca9adfd89b951613b9777d5718d1e850e59c9fa007b5b8",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/__init__.py",
+          "actual_sha256": "7375370164273cec896d7eca0265b87f3e109a9a86e0f980b5b3896380606554",
+          "git_blob_sha256": "848d61723507643f4c8071e90c793041ebd3b2d2b656eadf58990426f1dce4b9",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/analysis.py",
+          "actual_sha256": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+          "git_blob_sha256": "6cf618bdd59661f73d8e1b02ce746f5958853b5c39d1fc24f7de699e0384c5d8",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/config.py",
+          "actual_sha256": "d742f08e64878fed1b71d6a44a4594eb8f9ef0b137751719302672606218005b",
+          "git_blob_sha256": "6e47c5c5f09de4161fc41738f2c5aaa6db34a792755080ad084d490df59d59b4",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/data.py",
+          "actual_sha256": "2d15d8b02c7772d7c0fc4874cf15bcf20867447e090a43d2f34aaca8dde50a10",
+          "git_blob_sha256": "041d1ff0479aae4d40ca7792df75b6b878cc3352774049f6ebfeb812d22cc3e4",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/server.py",
+          "actual_sha256": "bd96fc49eca6f3aae1daf471fb50271e18fed3cfda4b54edd1e1b444bbb050b4",
+          "git_blob_sha256": "59baed9aa94bcc18749a75551ca6be45901507659a06debe794deb60b5822dda",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/app.js",
+          "actual_sha256": "e727c3b284f089eafb6af8dbd4c209511a97604fa8fb0d920d7c0b33e95b16f8",
+          "git_blob_sha256": "a222d8bae693e9697f0620ae2e41b532d4a1c4a3f94755dd6762208833e4fab1",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/catalog.js",
+          "actual_sha256": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+          "git_blob_sha256": "5d3d980915916f4a9129670385e2ab46ca0998f08b65789f7ad023a527a2c11c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/gui-map.js",
+          "actual_sha256": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+          "git_blob_sha256": "ebdd4dfb409d1cce38b9bdd8d4d87c4309b6ff9bec45be9a83ad92ce595d497d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/index.html",
+          "actual_sha256": "bcc431244d7565e13817772987cfa1e5ab595715fb76cc09bfe343ff374b861c",
+          "git_blob_sha256": "469e93656deb4a7c7b0923a74b8e88cb076a59d52615108607528b2a5dd09e92",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/settings.js",
+          "actual_sha256": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+          "git_blob_sha256": "50a2fad3437d75873869be07f8d3849063265f8caf52456a523f9020f40c264d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/styles.css",
+          "actual_sha256": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+          "git_blob_sha256": "715e1e6e7c530a88e961fc947fa5a0424bba0704f8f955880a6140eba1c1a38d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/workbench.css",
+          "actual_sha256": "358817f13da2975000ba5d89f532c453d4ef4dc5228ccbd9534b1fa50135da2a",
+          "git_blob_sha256": "89c28df1e69fdd6955528ba2695dc004c76c4046a846c6957fd1958c7d35e40d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/workbench.js",
+          "actual_sha256": "f0151805c6dd60e30ff3b53b78fca1b6262c73d19d2b201b42fcc22847507215",
+          "git_blob_sha256": "ce7fc0bb7832bdb4d8605ac6d757c0c3e6449a13f7d584265363dbe1b6691520",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/tasks.py",
+          "actual_sha256": "23e773f28edb73af50ec400711e8eddb0f874027abc63977815db3f8be10afae",
+          "git_blob_sha256": "5d9c704f1329ee61645be3133bed736fc5261567d2de29d7df11fdd31454300e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/worker.py",
+          "actual_sha256": "b22c54df41f33b3955d5e6e973779a9a611e4452dde24d45dbf266952221027c",
+          "git_blob_sha256": "fe3595d9085f20d3967f8a3507ad875d36b9e68a4b7a6073fec7c59d08b95b57",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        }
+      ],
+      "byte_exact": 3,
+      "only_EOL_difference": 56,
+      "unexplained": 0,
+      "zip_sha256": "cf33a5b8aa4e3529ca91401d3309b6df9264092f583fcabb9b62bbdc28f0bdc6"
+    },
+    {
+      "label": "final",
+      "git_revision": "153fcd5a426935387cbdccb1880cabb43f5f4e01",
+      "files": [
+        {
+          "path": ".gitmodules",
+          "actual_sha256": "a3c595b156509c95e69d2ccae7e1289b4e5120a17b2699e61b11281d1911cdff",
+          "git_blob_sha256": "916cb62eba6f53c909b9fd84994c36af9a3733ce33e3e95048ff25904b93dd18",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "pyproject.toml",
+          "actual_sha256": "01413cacd9686f957349a9533f60670076a3d7022f08c42c43b6a117741ed9f9",
+          "git_blob_sha256": "7282b23a0b688af26a1971518f76056d51f74d47216dc0dca684aad8f735527e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/__init__.py",
+          "actual_sha256": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2",
+          "git_blob_sha256": "c060ab85e7170e13cccaee05f6fd4f8ce49a3e9a9a82d7e53c852377e6deb02a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/__main__.py",
+          "actual_sha256": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9",
+          "git_blob_sha256": "773a2d77a8cb783e620929072050926c850a776cb23cd432f7afbc7ff9614717",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/cli.py",
+          "actual_sha256": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56",
+          "git_blob_sha256": "1be7abf981ba6cabf5717db69a196957b57def5cea86f9415e2d61ab7cc65dea",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/common.py",
+          "actual_sha256": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9",
+          "git_blob_sha256": "e9ca26ff8b24c65e9844618efb1f2eb1bcbc5c579e5d43d13c75585e046ed7c2",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/configuration.py",
+          "actual_sha256": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a",
+          "git_blob_sha256": "e02adfc343691cc205c518cf33e533bcefd0ebecc6d00441b06af6a71a597e2a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/__init__.py",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/handler.py",
+          "actual_sha256": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7",
+          "git_blob_sha256": "1ba6a117263cbf0dd17d712806e779e6386e995f67ee2030fcc60a0e554d9166",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/help.py",
+          "actual_sha256": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845",
+          "git_blob_sha256": "f3b7bc51abea9a314091c6116833c51ca70a420d6fd5d6ab0052eaeea16d8a0f",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/images/icon.png",
+          "actual_sha256": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311",
+          "git_blob_sha256": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/plot.py",
+          "actual_sha256": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+          "git_blob_sha256": "3efdad39c915a2fe22045caa319f30ac2f6f4af714e222475d6b50262b39adfe",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/gui/view.py",
+          "actual_sha256": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4",
+          "git_blob_sha256": "e0c717e09fba3bd9e22f2eaf5428803d7f55076d55624ec8d285e8cba9b8ee8c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/mcp/__init__.py",
+          "actual_sha256": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92",
+          "git_blob_sha256": "7dc036fd53159628b4b3b06b718683809848351d86d9ba652bca532662c95acc",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/mcp/server.py",
+          "actual_sha256": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb",
+          "git_blob_sha256": "b4c247918ed0b6cb0b5a8822851aa9b3c627af3b76d755fea5c709391d152530",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/__init__.py",
+          "actual_sha256": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239",
+          "git_blob_sha256": "b07564cfe251bbc47e8ba4a607487283803a7af84de4de5d7ada001f5d3b4622",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/bert.py",
+          "actual_sha256": "5879ea9520feca96d0f366d1283424194d02425806605fb0069ffb1f893ee622",
+          "git_blob_sha256": "b64260ef188be2e7685521e3978ba77a7949a41e294f22ac5b27693635e7a6b1",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/cdr.py",
+          "actual_sha256": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286",
+          "git_blob_sha256": "f2a2022814004dc4b13a4659b728fc392e85016554104cdeaf55c2a97b758014",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/com.py",
+          "actual_sha256": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+          "git_blob_sha256": "86780089766cfef221a508de5f713e787d4b72929b19a0fdb6f42700dfc2d4eb",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/dfe.py",
+          "actual_sha256": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966",
+          "git_blob_sha256": "71c9355269b2f6978eb99182ec6b1ba8812e8d91be4d27b217a6875109df2f20",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/fec.py",
+          "actual_sha256": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0",
+          "git_blob_sha256": "d2a9fbe8dadd5df1f6615ff97abc0423ac4e6df8627b5427ec942a7f59220ab4",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/tx_tap.py",
+          "actual_sha256": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a",
+          "git_blob_sha256": "b4ecf945fbc0639dd07a510ab8abf1c0a1c69cab3c73c85227385941919fd130",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/models/viterbi.py",
+          "actual_sha256": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e",
+          "git_blob_sha256": "29c8a53fd5c4528cd32e233e00619a105b013673d427b6bf2dbb0db3bf1aa10f",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/parsers/__init__.py",
+          "actual_sha256": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622",
+          "git_blob_sha256": "11838bd084c8f05fe6e85de55bcb2ddc2e8e73f1facbc76d5e7044ddc7916f57",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/parsers/hspice.py",
+          "actual_sha256": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1",
+          "git_blob_sha256": "738a100a6bfbf8b31e4418c82987822f466c0de7a01bb4967592e11441adb96b",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/py.typed",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/pybert.py",
+          "actual_sha256": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+          "git_blob_sha256": "eb8e71264a5b71a9d45b02a4f46562d23d7b71beead583ca463ae15b16805c55",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/results.py",
+          "actual_sha256": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc",
+          "git_blob_sha256": "ac9c25198049936847a28e356e73e334b3a8def93419ad3ca89288a583830c27",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/solvers/__init__.py",
+          "actual_sha256": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269",
+          "git_blob_sha256": "e351201aff899e290a15e2539c4cd5c673d08de00e154479de654c37c1390f2e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/solvers/simbeor/__init__.py",
+          "actual_sha256": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373",
+          "git_blob_sha256": "aba5fd2a2d42c5605fe55761fd99fad9f1c6595fd52a693b2529c473e5f9f57e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/solvers/solver.py",
+          "actual_sha256": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256",
+          "git_blob_sha256": "2c6cf924935aac4d9e3e1d35bf9ecf2cf048ce2bbf1cf57b20ef523f1098306a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/__init__.py",
+          "actual_sha256": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860",
+          "git_blob_sha256": "31aa21246855de8ee830c79aabcb5d078c023bf85e0bfe42a4269103bfac28ef",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/optimization.py",
+          "actual_sha256": "1e058d9a96c67f29c1e8a432e78c19e5675634028f78871e727796b04e5afea5",
+          "git_blob_sha256": "bebc94d4df432d90bdc8b161ad7747e09aaa89a969416a42fd81fb5ab3f87664",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/sim.py",
+          "actual_sha256": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164",
+          "git_blob_sha256": "f18fbbed044f9da63b975278e2d776c7f230110e7f8fa7f456cf24f205dfc852",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/threads/stoppable.py",
+          "actual_sha256": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8",
+          "git_blob_sha256": "f642005705dace15a2a34df1144bad75c8798e4d4086c5a1b8d261f07b8c74cf",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/__init__.py",
+          "actual_sha256": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d",
+          "git_blob_sha256": "353b4aced534b60e57f87022e7c56eb34943d539bf57e089fce05b7e54f5899c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/channel.py",
+          "actual_sha256": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898",
+          "git_blob_sha256": "0c49010fc0b69eea0982eef6296d250fa558077ce4dcdc1d914ef37360301181",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/functional.py",
+          "actual_sha256": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3",
+          "git_blob_sha256": "bc87df5b55c7ef8f1ee255d4614007cfc2cf81660781b609e7c51fb63bcdedc6",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/ibisami.py",
+          "actual_sha256": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+          "git_blob_sha256": "8e0961b5ee0241a0bf130e46a904115c7687b304c3a51f95c55e3cfd25294f36",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/jitter.py",
+          "actual_sha256": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a",
+          "git_blob_sha256": "00877c46d570cfa48cbf3819b9368d79ab556c4667ab189373aa80ff55633710",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/math.py",
+          "actual_sha256": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
+          "git_blob_sha256": "a39f2e32074279fff6c320fae8906f804719df6992f1a1adca9f5071400a4dca",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/python.py",
+          "actual_sha256": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02",
+          "git_blob_sha256": "1818b4ce0a2b52cf13a20cba1fe289bdd14b5f5839b18dfc8a5c89ee623cf136",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/sigproc.py",
+          "actual_sha256": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+          "git_blob_sha256": "0e8e0415930a926941a0f83c025b3a4f0857c1e9653e7a1bfc611e6b5183a1ab",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/utility/sparam.py",
+          "actual_sha256": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+          "git_blob_sha256": "9d881b261481c9daf7ca9adfd89b951613b9777d5718d1e850e59c9fa007b5b8",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/__init__.py",
+          "actual_sha256": "b1896655d91bfaefd0cedd7ebdef5a97581e00ed934e418d9921fa7e9f10fe3c",
+          "git_blob_sha256": "6654d33bc9eee2a12b3e51a8c98f5d1a76062d14465e2d1bfcb4dd1b9cf6d5fb",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/ami.py",
+          "actual_sha256": "eeb737efe19e041ff8d4891bb514fc0a7e20d156f1c19565bca33cf2353e05a8",
+          "git_blob_sha256": "07ef79faafa80cc4cdd4d090c8e2e1480c74f61183b1d75bbca162dd224b45a8",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/analysis.py",
+          "actual_sha256": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+          "git_blob_sha256": "6cf618bdd59661f73d8e1b02ce746f5958853b5c39d1fc24f7de699e0384c5d8",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/archive.py",
+          "actual_sha256": "38f2b1967488ef7b6e6cdb768863da525226bf9bf11e71ccd292cccec6e3c676",
+          "git_blob_sha256": "4b82a2f0f9d891a8e745fc199969d5ceb9facefb721cacd712908637b1069d30",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/com.py",
+          "actual_sha256": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f",
+          "git_blob_sha256": "b6c453fc1c934c75839218f4207f6b5362ce979f62290fef92a0861ee3e181e2",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/config.py",
+          "actual_sha256": "dd12dfcfe48419058c0bd8d4ed68c59979f0918c4c3e97a6f2ec827841e0bb49",
+          "git_blob_sha256": "57717c2f1fbc243e971c1fef30dc0ee9eddb0401f8b368cd5f8fcf30ca5abab8",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/data.py",
+          "actual_sha256": "34b317a4c512c5cf17f05ec60e66bb567059cbf02dfa34e97dd7406702326e35",
+          "git_blob_sha256": "6321c11788eba2f584c176b6aa5d538afec157bf588b4f1e09254d7081f3763c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/legacy_results.py",
+          "actual_sha256": "f10ad1c1131510eb889300149195cabbdd9fc43594f966d5dea9ce715ef77be1",
+          "git_blob_sha256": "0a639e0c4b1510482a47dc4019aa1dce87d572acc66ebab5cb7eb777bcd31f83",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/optimization.py",
+          "actual_sha256": "dafd7f2bee5687b6f3732fd4aab6fa5527da480db6c17c306c883d5fd8b7d526",
+          "git_blob_sha256": "e629d1d2ba5528672309c5295cbe6347e480f1745df746185df855c82c9bc460",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/records.py",
+          "actual_sha256": "85b41a7c4135e5e893600b09ffa5cdb44239700cf542d281a85933c9056f5e3d",
+          "git_blob_sha256": "e5d4b345d984659cdecb3e90e16fe5296b2c961b07478b97ff0e03868f0dd82a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/resource_data.py",
+          "actual_sha256": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3",
+          "git_blob_sha256": "504420d86287f73ed60cf7a3a881a80600972e8180446b4d368fdf2ce8d6e626",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/resources.py",
+          "actual_sha256": "045b086767e4e20d872aa233b9fbb59e8ae4c74494cfdd649ced82b0ac296c42",
+          "git_blob_sha256": "b892ac79a252d1905892380285d98682c37f3ca18c2fe5fc00fd083e06cf9dc2",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/server.py",
+          "actual_sha256": "9468621edc8ce2e20d8dcadb5e258aa0525ebe0f0eb851689854cf3b7c3fc4b2",
+          "git_blob_sha256": "707701d58821426d36c163b41a2cb2b3877229a51f0e2a8d2b8fdfb4557b7a93",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/ami.js",
+          "actual_sha256": "f0c4c2b155a7182fb09e82279f78e5f6a1feaedfb026e203e6b241c8bc37aaef",
+          "git_blob_sha256": "38c3e538054405e268f95c96fd62d313d4e2fbdc21ec163c6928d8d506fa79c3",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/app.js",
+          "actual_sha256": "717869941318417cef07ceaabf3203e31718fbd3a8abba24efb1e95ced08fbac",
+          "git_blob_sha256": "0d61b3d4ce2731a5db4625b2b4159a8619d8e450a1aae546882c713dd717923b",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/catalog.js",
+          "actual_sha256": "2fe354afd9708bc5fe8d3208c3172903d11aa45ce0e1d54ef1cf0ae807f7ac00",
+          "git_blob_sha256": "9c911750a7d00a121397022dea72aa0a7b5b87e87cf8373d93cb817a438609b0",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/draft.js",
+          "actual_sha256": "ee831427c6f44699ca554d8c00ed3ea6108bd5f7a627a8ade63a0d7e2674eb87",
+          "git_blob_sha256": "43cd36b77a3ae982973a9760108cc36f74dc8622fc406c7b140bf44d2ec842d2",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/gui-map.js",
+          "actual_sha256": "4aa549b5ebd11004a4539c74e6127e18c726f9c359978168f0d43a77b926fbb3",
+          "git_blob_sha256": "2e07055a1f50bc9245052eb0f29577227b20a0eae950617ee82b02ac8e6bd729",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/index.html",
+          "actual_sha256": "d34ee84305197fec8bbc39e9c4b030cc0978c9480cbbc5b22dba93f9c3fc318d",
+          "git_blob_sha256": "3423394f58f7678992718bdc789d1ecaace9fc2ecf8994dd0809970dd0cbefa1",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/optimization.js",
+          "actual_sha256": "a5d2c40739b70c112e8ebe746f2676d7ce96980eef7b6f88f0db59243303f4e8",
+          "git_blob_sha256": "85e7eb6fd310c5aa3c7a0cdc6de70605644af73e0a5b6d16689e3d164302e3ac",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/resources.js",
+          "actual_sha256": "4afe5b579e812ae3b6d3efc370d4ed188ff00aa2889608366c5bda222d1b4872",
+          "git_blob_sha256": "86dbce163376724d35d0117ed6fc948e0175d995447b76ce8a37d4ab39c52a8f",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/results.js",
+          "actual_sha256": "ca2d05e602162100475e19ba60869722438a255960e33fb036bfaff61e7ff7aa",
+          "git_blob_sha256": "b7e3ac7b0b10c87232ba9460fc14f6a178f53a7a76a7f6d005992c628b0cf7ce",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/settings.js",
+          "actual_sha256": "3a91e4914c03dccfa5fb0251b19bd7b4954bac4667fedbe19d604cd134216eb3",
+          "git_blob_sha256": "fc3a318c2b193d2c72a7d231f305a95bfe722dd8ea9dddb2cd6ff46aa938ce92",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/styles.css",
+          "actual_sha256": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+          "git_blob_sha256": "715e1e6e7c530a88e961fc947fa5a0424bba0704f8f955880a6140eba1c1a38d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/viterbi.js",
+          "actual_sha256": "9f9f5b5a19988254a1a46b37f73b67113194a02d39847caad44bc90ec65b4f9b",
+          "git_blob_sha256": "0533dd4f824bc86c075ca98c6cb5fa58cc4de52ecb2367c7824949658482c66a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/workbench.css",
+          "actual_sha256": "7afd190a03bf8149c3fca5ff7913084ab7d48a03c7a8a181b69e899922f0a442",
+          "git_blob_sha256": "0e34fddd7ca28e18d2c960a9786f3417fd124b619c9dd4b2427bccc934531ea9",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/static/workbench.js",
+          "actual_sha256": "1b973c9703e5644aa84eba66821ab781b57f8e317756f582c14b5a68d3462d80",
+          "git_blob_sha256": "2891c791a2856a365eb8c9c43adade930657b9cb0ece892f469b21914b05e6fc",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/tasks.py",
+          "actual_sha256": "572331ddc3b96a6f5f8bfa5a6020806de9e4e991d215ea6be3479b06f36087dd",
+          "git_blob_sha256": "feedc122d9709b93dd548292635e0f4dc91bb9faecd72d10e3e663327fe3918a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/viterbi.py",
+          "actual_sha256": "8c8768f9b4ada62dd370786a8d4f4129118bc14cc1eb9925012abce445d92a3f",
+          "git_blob_sha256": "a1a39baf2a3236c3ea5e3508b039b56a76f695bf151d4ff94a368231ef852d1a",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pybert/web/worker.py",
+          "actual_sha256": "f34e4734639c0a8d3e169a55b35e11a8dc4019fd6d7d5b93ec272871e58b4bf4",
+          "git_blob_sha256": "59238e27537942353db508e16b076d5961f746619bc288ef34074f68df071e66",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        }
+      ],
+      "byte_exact": 3,
+      "only_EOL_difference": 71,
+      "unexplained": 0,
+      "zip_sha256": "a4b7504dcca2be51b8dc751dec5f46fc97e8eddc3bf5c0ae47af545833f4e1a0"
+    },
+    {
+      "label": "PyAMI",
+      "git_revision": "5270d713e40bac2be5747bef09b92df79df9085b",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "actual_sha256": "0a8810b7aa87d054d64897a511d660e39c9a3342aabcca43af60786c101cf5be",
+          "git_blob_sha256": "76393cd7ca6d08f0fa807df126c6b7f7af22e6d3e782afb0611235cfba7db57d",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/__init__.py",
+          "actual_sha256": "fbc42a1fc4b0c2c91f81cff926a0b110e010c84a37aa61c87ddccd2cdf2bcb56",
+          "git_blob_sha256": "ae60fbc170bdb8f792302d30ffce9c63c088a6343f3f68a4cc6ac0747b4fb747",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/__main__.py",
+          "actual_sha256": "2ebe052fef6b334f0d481e08b11f9b33df34549f8382c1081dc7e5b9ae1eeea7",
+          "git_blob_sha256": "a1ffebac1963a093bc861c3c011ced42cabd26870906354d682b0e7bf952e888",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ami/__init__.py",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ami/config.py",
+          "actual_sha256": "ffd859918022ad3cfcf3fd50b6fd8dddb269ce6b58bbbe9c2845fa6a1aef2a31",
+          "git_blob_sha256": "46593e025cfcbd4d88886d7edaf7c390c666b3695ad214d22e1e57c0a200e46f",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ami/configurator.py",
+          "actual_sha256": "a1e1242424fb7951ab3aba0ad717acf3169c8d091fdf33db805d6747fe077874",
+          "git_blob_sha256": "e6f5adf66be3cf1acc9105ec4a3428853aa05c25586ac25925d9cbfeb392f93b",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ami/generic.ami.em",
+          "actual_sha256": "b34d2acec84193f807d00e314f7eb27104874b43202c464b9abc04a50bfd8c86",
+          "git_blob_sha256": "119a6cc1989dfa24430c19d4b91de52f47ddd4cea8e9209aa0928678600bc192",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ami/generic.ibs.em",
+          "actual_sha256": "7f224e4c02b47b40e0b867f80e087747e3cc433c88a23616b8b7910095829843",
+          "git_blob_sha256": "82ef61442b16a7c522a1d0ca47c3f1fe64cd0c414123f44cb5e857cd6692d36c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ami/model.py",
+          "actual_sha256": "6dd6ae1f9381c596bb25606199a6fe404c24aa1ffbcefc4d5ffb5e4df22b6be3",
+          "git_blob_sha256": "da13265b383771600b810a183ddbbe3e2ab2706a33e368d72287e1040e195165",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ami/parameter.py",
+          "actual_sha256": "d0233fd737b85f96e76863f19079eb70f71a7b6da52f28e8c282f339cfc120e7",
+          "git_blob_sha256": "1b5acb16fb83d56c15bd02ee0d4e6d944d6b2176cd98268f0569d6e5f5963d56",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ami/parser.py",
+          "actual_sha256": "2c2e688e3257476d38c175bcd37bb8050b253ad822139c55001eff920ba65594",
+          "git_blob_sha256": "9d9f66a930895aea156d4cbdd377ea47650b7f96ddff82a4e9ae5f5e1e5335ed",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ami/reserved_parameter_names.py",
+          "actual_sha256": "8ae84418fa427239e757044ef475bed39d8b95814c7569ee717982bb237debe6",
+          "git_blob_sha256": "d3a88a9b6e5be73bdd872b97ba1a7a30d10c45477df9998b4d6776fe20a620b6",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/cli_logging.py",
+          "actual_sha256": "258a8818ba11d5e99b90dfdfc759fe070e81b61c817ff3e5f02c8ec05281869d",
+          "git_blob_sha256": "b8a2b18d2f82ce5aa0af65281372aac5531d97c11d5256a23b56f766d772a024",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/common.py",
+          "actual_sha256": "29d822c729682cf1fd68829a21ece71324c51c6cde785303cb2165b197d27929",
+          "git_blob_sha256": "56c77cac466b47f17edffdec88800b25a65c66f4cec9e51948862b9c99903d16",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/gui/__init__.py",
+          "actual_sha256": "485231c50b8a395db0d9cb617f2ca68af40fdeb1c74f00de3f4c384911d690e6",
+          "git_blob_sha256": "39fde72e91da3c36b9b7cffa886731b7634300a986651b90fa098858ac672d7b",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/gui/ami_config.py",
+          "actual_sha256": "f81e8b9035504a7e55ba49a40d2239451320deeeb88e9fd976b1f857c78642f8",
+          "git_blob_sha256": "2bbb61a2a559ad4e4178065293fe2e9f5624b330ccd5ba12bfd469b78744fbe8",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/gui/ibis.py",
+          "actual_sha256": "d843afd471659c046687637a6d2aec07e06b063181a2272f74a8ac065d425aa9",
+          "git_blob_sha256": "4f42d1856cbdec08c40c3803379a853b0155ecdda6ad97d67c43ae72bc5099e4",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ibis/__init__.py",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ibis/file.py",
+          "actual_sha256": "87d09a048bc77fc1559a3eb8c256b654598bf0ef8574b3819d17f26af497c372",
+          "git_blob_sha256": "9cc41cd0114d88f1dda7ce4817d4a2a3a563d59bb5214293f80d85bde3c50690",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ibis/iv.py",
+          "actual_sha256": "0eca1c03681d5f6ca5eff7802da0726b104c3b608a2aa40cb59fee836c6ccc03",
+          "git_blob_sha256": "ff7e668d7d724d64608874f9974630d86fc6f6e407f91fac53a0bc212beee0c5",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ibis/model.py",
+          "actual_sha256": "5e136717109a56bd28dd9e14fb9490e80042e18738ec6466a8975fa21bc8c2e2",
+          "git_blob_sha256": "d65dec708395ae601d5ebde78ed150049cba2ebc242abf856cf0992ebe8740fd",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/ibis/parser.py",
+          "actual_sha256": "579506ce86d347b859d1e9ee8c939dd33068dfc8c3b068ff9d45605732fe26aa",
+          "git_blob_sha256": "1b001be9d369712ed981f07c9ac0894e751a8ab42ca135f3a5b45572ed89abb3",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/IBIS_AMI_Checker.ipynb",
+          "actual_sha256": "e2b3f7510e733cf7f2e5120bdf6388b95f3d02f003918ef6fbe241a8824b2778",
+          "git_blob_sha256": "175c73eedaeecc028ab1b44e352660d1df45fa1d05a4685fd046f494f95932a1",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/IBIS_AMI_Tester.ipynb",
+          "actual_sha256": "1438cbf25ad3396d1c0c81b4fb83e6562ca3ddc2405c4411a465f7366e045f28",
+          "git_blob_sha256": "1897860fed86cad195e5b41e8e35a10b6ac77a87d96185e55117d3cc35d31cd1",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/report/__init__.py",
+          "actual_sha256": "50a5395f7c53746530b968917c75752f774429ab6800d62908eacdeef718b53e",
+          "git_blob_sha256": "7671b5f15a4a8c93074f989c95cd036293ccd8a93e7affbb3c1e61c3355d0856",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/report/ami_tests.py",
+          "actual_sha256": "47b044bd9ac7d540a81ec48237730783de69dcee2d5157f0778f6af9cf967be5",
+          "git_blob_sha256": "72da4b0a5938b0664d865dea951c44daafbd10735298391619a398fb4d6ad475",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/report/ami_tests_helpers.py",
+          "actual_sha256": "e712a4bfd7a33a10f0e2d4a30c0c9f5d6270e55a45212e2f62395f15d7876040",
+          "git_blob_sha256": "037628310a362abdc4c12f153c46ed85e5bde4f3476d081091b6eeac6b8e0292",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/report/ibis_file_tests.py",
+          "actual_sha256": "3bac0e6cda86310de0764bb5c739b39aad7586b54f3cee515cfa3a139eba4341",
+          "git_blob_sha256": "b12c67403ef1312d3b79f8570384d75f576a7e8d76f77201451cbc24af2bf92c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/report/pdf.py",
+          "actual_sha256": "56fe886bf827b52f20bc0c5b15f1a8511d29728082100930378f2cc0aaaa6187",
+          "git_blob_sha256": "f6828144c3dfa621717c65ac114d3c6025253ee91a93f217fb818e0aef4e0b77",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/report/plot.py",
+          "actual_sha256": "b83701897b00d3a0e1f0732e8659a48ce146201d936f63bd4f194f99ffc972fe",
+          "git_blob_sha256": "02a5e5eb278efa47425e380755f0b6816df70a961d0b05774bd5e41ef463f161",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/report/test_models.py",
+          "actual_sha256": "8203e1d518d8c5c03ffccce8bcf562df12899e8958f9df097499e5c94e615629",
+          "git_blob_sha256": "b6822080e5919a2d17fdb08b4747a1289d2428b81681544582e9fc4ff11d4fdb",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/testing/__init__.py",
+          "actual_sha256": "38653eca7fae90e6a0a11ba577e40497c4d3b7c7d314f592988bd8bdbba6321d",
+          "git_blob_sha256": "a4245e6135660cdb1f8218329df628d5ea1da82dd7b210cebc857bba35bd1f50",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/testing/ami_test_config.py",
+          "actual_sha256": "1882316ddb3ea28f031ec38cb93f657381443db7fb9dfd04e72360354462acd6",
+          "git_blob_sha256": "6e967fc794c7de8ab7f0b31dd259958fadb09d4791c83a48268d06e97807018c",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/testing/generic_test_sweep.py.em",
+          "actual_sha256": "80bb171d53c10c5d55d8dbb6d62a5a2146defe5fd9b42c5813567acff7e48783",
+          "git_blob_sha256": "b3cd7ab0294323356301946d9ab644c6b4262fd8a67b532390ce5ce3f7fe4c8e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/testing/test_defs.py",
+          "actual_sha256": "58d1cf62cc56dabdf223071b9e3c12bfef265c4a67b45800b63d7adb44a78d73",
+          "git_blob_sha256": "8a81d3cf5461f6946aef99aab67583aed5ca95072b708f9ae7ec18967d9a95a5",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/testing/util.py",
+          "actual_sha256": "b223b5bf105e4d2068a7a02abae806bca557322048bd511f00a296c06c1f8759",
+          "git_blob_sha256": "e03d2487309098816938afcdd023de51a75a1a117f8c1d085bfe92a4aca0ae56",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/tools/__init__.py",
+          "actual_sha256": "12c5bac38e661e129034a955a8ebb4b3dcb86b5e8ad1415f48a2b8545fdf8609",
+          "git_blob_sha256": "89d8043ddd26574345ebfb0920e7bd65e12cc2cf3fa3b43d883ef645ff26e0a1",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/tools/run_notebook.py",
+          "actual_sha256": "8d576c2b80762b6f2fd93bfbcdf112aa9d0f7151a9d1160d262b31bc0ac435a1",
+          "git_blob_sha256": "8ace4106da6e2640d38a0e2ba0bc7c67b386e194c4cd4fca7061184dd5c01a43",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/tools/run_tests.py",
+          "actual_sha256": "4e9a4863f7eb4f1d51d2e6b0cf1d39e717f1cb04a5b5b8d397635e08c48e4a0b",
+          "git_blob_sha256": "0107c84ae2a72ff9ce8248be0c76f4ce8a60ed7f205b06d0caa0b4416f56e6a4",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/tools/test_results.xsl",
+          "actual_sha256": "096dd17429a5f639f69c18993b1a95b5712a9d633e94e0c7cde0e4112996c018",
+          "git_blob_sha256": "450bfda22bba5d0f10fecc0ed1a93514674bdbc877b9c26bfc5016b200f4d352",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/util/ami.py",
+          "actual_sha256": "22d7336b8a2b6abff716d8c21d5086c9e41618d83e30229ceaf2e82b0d433232",
+          "git_blob_sha256": "92de2f3f4601910b1c62027a7de05f075255ea3f0fb7bc36be7040070df2a0ba",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pyibisami/util/misc.py",
+          "actual_sha256": "cdf109e3c3839d087a7c04da420b637a4d76e3c485777c0999b9866ba1816579",
+          "git_blob_sha256": "ca228ebefa3fb8aebc7e38f2f0f78a81f2cca8bf56b90e73d62f9f813f53f927",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        }
+      ],
+      "byte_exact": 2,
+      "only_EOL_difference": 40,
+      "unexplained": 0,
+      "zip_sha256": "e11442669a2924a8945af1a57f2e1b3a0ed36958e40a0513b663b3e9419f0338"
+    },
+    {
+      "label": "PyChOpMarg",
+      "git_revision": "ca905e793fcf6330929471317ca32e7611578e5d",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "actual_sha256": "5fa7fc982ad0e3eded0de77642dab1858106819b9250e6a6ce2770351fab0c7c",
+          "git_blob_sha256": "bebd3744740ee875d59923a3a7a53677c32f69dee13a2016dea4aaa5b66f4fb5",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/__init__.py",
+          "actual_sha256": "9cac78d91bff4690fea7f60b85881fed116e7b09f17615c9821d7dfc372d531d",
+          "git_blob_sha256": "5fdbdfc45b0e827e09557a4d24b04f037dc39fb0b0a4180de7d31c456dc01ae8",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/__main__.py",
+          "actual_sha256": "504f028fc5be635691d6c7f4a07c729144edffbd94faaee31db7038b5132fa6a",
+          "git_blob_sha256": "2c84763f0579c0168dd3258a14438580bf3788f05646ee313865fb29dfec7261",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/cli.py",
+          "actual_sha256": "b89a14005737e3730731253d47a1691246c4fee5ced238cc96572659320f6fc0",
+          "git_blob_sha256": "05ddf77dad9a7bc1e4b113cea20542f5d6af16db47ea113a995a629c4942a024",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/com.py",
+          "actual_sha256": "04010ac20bf154b91715c34130db531ce0c9f350881973053f2691ccb24680e9",
+          "git_blob_sha256": "a48eb5f414f6c6d6efc96e9bf542908179f146d8a8274321beb670491e69b2a7",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/common.py",
+          "actual_sha256": "08658837f977c06428241522cbaa8221ea9ea3dcc303b1a9c437606e01d0d163",
+          "git_blob_sha256": "ae4c841c597fd66a6dabbe44b5b4219067eab33c6d383ac163c5bdfd3897b289",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/config/__init__.py",
+          "actual_sha256": "4868fe79668025474562148e96ab901a2e056034684519151512a46657c05780",
+          "git_blob_sha256": "d952ca1ea07085ab4b0d9b1f425e9634354bc8a4ccc5ddbee4f4e7c57f329836",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/config/ieee_8023by.py",
+          "actual_sha256": "9f6d96162f079498ea93a94642e1e780755ca63ee7dc128f07a23563fe62abf5",
+          "git_blob_sha256": "365a81595ab2c4f1069f3a7bc4118cfa02927bb427f7ce780b998b834fcb5894",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/config/ieee_8023dj.py",
+          "actual_sha256": "8915ffff247b2981e6c4b86afd6c7e3c9a5b0c1dcc240bc26058e02585b23e23",
+          "git_blob_sha256": "f44ad6c3c8cb86961fd4d5205f9641ea8c9adcefcd84a68492bf750c2de821be",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/config/ieee_8023dj_d3p3.py",
+          "actual_sha256": "47436b07c0843da6fcba4923fa6dcd16e5e536de06e617d68180107d9f76d1e2",
+          "git_blob_sha256": "3de72036cd9dfa27f400cfdcd4c61fa50b602e2e3b3b252b36bdde641c333b89",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/config/template.py",
+          "actual_sha256": "801119da1f9acfa470e4640e37b281e20cf07cdfb92c82b8ad0ae86e2bf2a2f4",
+          "git_blob_sha256": "e57d6ee251452b961aeb5ba73b0da12e5a79186a41d03cadf9271f26d28de750",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/devmodel.py",
+          "actual_sha256": "a1504554a943c539e0914a7b4e6b6ae56cbc38c922ce7a783655abe5f427d2d1",
+          "git_blob_sha256": "b9382a240b5dd410ab2790693dce156476e88cc416ac7b20757389769459e38e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/excel.py",
+          "actual_sha256": "ece620356d52c910d8d26b8c77d1175ed57f475292e88f76547b7f1eaa278881",
+          "git_blob_sha256": "779f6a3c6b677288d8dbc99da5b8ee89ae68898710729b32faf866f68a62d966",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/matlab.py",
+          "actual_sha256": "3a0899c7f496cadf66ef144c8cfcfbc499b91a7d5975b1051ba8ebb5efe903ef",
+          "git_blob_sha256": "0418afa405d8b09fc8fc49f52e755abe98818a57ac82952e10fc6117f098b681",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/mfiles/pychopmarg_com.m",
+          "actual_sha256": "8fd889c2b2db180aa52996efe4f256a7be2fb0f0610c93d99c5db946e01487c7",
+          "git_blob_sha256": "148858d39c4696bcf8ea9690da8881b3adb1fbcba25ea48c06c9df84e88d9332",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/mlsd.py",
+          "actual_sha256": "6961b8ee772dc2e64bb0add34c115e2510afe0972edd4566498d8355b1a54cf5",
+          "git_blob_sha256": "07584379e218b254439192bf7feabfa0ace85ce938d4bc71f23c93c2e5e7b29b",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/noise.py",
+          "actual_sha256": "e638940f963d8df714686e6e6e9f5efdcfe8cc7e62857b33a09948c4eebf84ef",
+          "git_blob_sha256": "82e1a58459a71bec437b7083a4ef09668ba6f69039fc708847daf4e7ad757016",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/optimize.py",
+          "actual_sha256": "432bff254c9043e333f99fa1eb26eaa384cdc574dad5f2437efa6a5b3640835d",
+          "git_blob_sha256": "5af8770ccb2890352132b530c9a4cde3d456805f0f77e0226780ec1872ff3c86",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/plot.py",
+          "actual_sha256": "e75b8b7e8bc2c8aa65ea1da47d93a5a40192984518e247b673d00fc1bff146f6",
+          "git_blob_sha256": "6f27f8826b5413486c00296f146a6bda6af7028309cb550f0f45598c9b1d4db3",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/py.typed",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_exact": true,
+          "only_EOL_difference": false,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/utility/__init__.py",
+          "actual_sha256": "e0b9fb64bbdf55f4a77acfdc8c70561eb0253f0097a7a05c7423d17e48c08cb1",
+          "git_blob_sha256": "2164008698e97dfb335022b566bfc210958ea4e21cf47eb078cbecc01a9c8dbc",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/utility/filter.py",
+          "actual_sha256": "4aaf60d9ba2c03fd867b3753c12c87ad64d0768b9bb3b0dd35876ec28481513c",
+          "git_blob_sha256": "fb172177ebd0aff1466b60b119cb2b6fd0aa1f19f2d1f621d5eef7baa86b7f6e",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/utility/general.py",
+          "actual_sha256": "845b78ec063548a38741bf39ebb473216dcf017aa9276331906223c5372ac614",
+          "git_blob_sha256": "1abcf9f8796e04d593413aaa1840482880b8fa6edb10f8851776149677ba0fd9",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/utility/jupyter.py",
+          "actual_sha256": "be9693d759ac8c3e15814f5acb8d534658e94836844124051f788abb30188b58",
+          "git_blob_sha256": "b7a88d5fadaf5f3d03c5f9a5d4d5c9d5a16be6d9bab9584ed3bd6ecbabb508f0",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/utility/probability.py",
+          "actual_sha256": "33fe735736b3477c704e5283d8d0b929092e731e8b8a8bad2f41824364f15d85",
+          "git_blob_sha256": "bc4aa9c19a04783039893e552ca3d5986a3bc5dcda4e08a328f06f55b44e1cc1",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        },
+        {
+          "path": "src/pychopmarg/utility/sparams.py",
+          "actual_sha256": "59a5e253af93fc894d157c6ec8c445d83bb14c8a5e06282ad93416a47be16595",
+          "git_blob_sha256": "0298e606be557b9c6f407a5944f335b19e606ec1d563f77414eef30b77fc3a70",
+          "byte_exact": false,
+          "only_EOL_difference": true,
+          "zip_export_exact": true,
+          "read_only": true
+        }
+      ],
+      "byte_exact": 1,
+      "only_EOL_difference": 25,
+      "unexplained": 0,
+      "zip_sha256": "eb952e3c8c64c942fc96c3824d8d9e560ab881e48b13421019c0566f344ec4f9"
+    }
+  ],
+  "permutations": [
+    {
+      "resource": "LL8",
+      "variant": "interleaved",
+      "full_matrix_bitwise_equal": true,
+      "frequency_bitwise_equal": true,
+      "z0_equal": true
+    },
+    {
+      "resource": "LL8",
+      "variant": "grouped",
+      "full_matrix_bitwise_equal": true,
+      "frequency_bitwise_equal": true,
+      "z0_equal": true
+    },
+    {
+      "resource": "SI12",
+      "variant": "interleaved",
+      "full_matrix_bitwise_equal": true,
+      "frequency_bitwise_equal": true,
+      "z0_equal": true
+    },
+    {
+      "resource": "SI12",
+      "variant": "grouped",
+      "full_matrix_bitwise_equal": true,
+      "frequency_bitwise_equal": true,
+      "z0_equal": true
+    }
+  ],
+  "AST": {
+    "cap_mag": {
+      "pre_post_equal": true,
+      "post_final_equal": true
+    },
+    "mon_mag": {
+      "pre_post_equal": true,
+      "post_final_equal": true
+    },
+    "sdd_21": {
+      "pre_post_equal": true,
+      "post_final_equal": true
+    },
+    "thru_is_1to3": {
+      "pre_post_equal": true,
+      "post_final_equal": true
+    },
+    "se2mm": {
+      "pre_post_equal": true,
+      "post_final_equal": true
+    },
+    "interp_s2p": {
+      "pre_post_equal": true,
+      "post_final_equal": true
+    },
+    "H_2_s2p": {
+      "pre_post_equal": true,
+      "post_final_equal": true
+    },
+    "pulse_response": {
+      "pre_post_equal": true,
+      "post_final_equal": true
+    },
+    "import_channel": {
+      "pre_post_equal": true,
+      "post_final_equal": true
+    },
+    "import_freq": {
+      "pre_post_equal": false,
+      "post_final_equal": true
+    },
+    "import_fext": {
+      "pre_post_equal": false,
+      "post_final_equal": true
+    }
+  },
+  "freeze_bytes": {
+    "actual_sha256": "a2b85d54e603571a613999bb7f72f86771eb493ceb94b63c0049aa94c7a5ea70",
+    "git_LF_sha256": "9f0b368f7df7428a9621c1310e19104a32d08eeed70b0dd17d13f94179a03023",
+    "byte_exact": false,
+    "EOL_normalized_equal": true
+  },
+  "passed_provenance": true
+}

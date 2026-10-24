@@ -1,0 +1,9 @@
+{
+  "rejected_before_bind": true,
+  "rejected_before_reserve": true,
+  "importer_not_called": true,
+  "ledger_unchanged": true,
+  "Main": 0,
+  "importer": 0,
+  "constructors": 0
+}

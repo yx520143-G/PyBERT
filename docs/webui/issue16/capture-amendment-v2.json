@@ -1,0 +1,14 @@
+{
+  "parent_freeze_sha256": "a2b85d54e603571a613999bb7f72f86771eb493ceb94b63c0049aa94c7a5ea70",
+  "status": "capture fix frozen before remaining Main calls",
+  "cause": "tx_out is a response prefix, not a waveform trait; use native RAW_FIELDS + response names",
+  "original_failure": "local/results/pre-direct-20261024-175842; two Main completed Ready but captures failed; keep unchanged",
+  "files_override": {
+    "tools\\verify_external_lanes.py": "9419aee143299f1fa5f439176001f6fa1dd4a55c1f6831319b14a0d245438664"
+  },
+  "unchanged": "all external original/derived bytes, input, source snapshots, reference transform/interpolation, tolerances, windows, numerical algorithms, and original budget",
+  "cost_label_erratum": "original COM=1 fields counted compute_com disabled early return; enable_com false in effective inputs, calc_com unreachable; numerical_COM=0, original raw labels retained",
+  "additional_Main_authorized": 0,
+  "additional_Main_requested": 2,
+  "PM_notice_sent": true
+}

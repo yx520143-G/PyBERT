@@ -1,0 +1,7 @@
+pre D-LL8-NRZ True 
+C:\Users\yx\.codex\worktrees\pybert-issue16-external\serial-bus-simulator\docs\webui\issue16\local\sources\pre\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+C:\Users\yx\.codex\worktrees\pybert-issue16-external\serial-bus-simulator\docs\webui\issue16\local\sources\pre\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+pre D-SI12-PAM4 True 
+OUTPUT C:\Users\yx\.codex\worktrees\pybert-issue16-external\serial-bus-simulator\docs\webui\issue16\local\results\pre-direct-20261024-180355

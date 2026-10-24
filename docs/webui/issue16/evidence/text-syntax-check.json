@@ -1,0 +1,216 @@
+{
+  "Main": 0,
+  "importer": 0,
+  "tracked_text_count": 40,
+  "all_utf8_without_BOM": true,
+  "syntax_checked": [
+    "tools/audit_external_sources.py",
+    "tools/check_external_capture_fields.py",
+    "tools/external_lane_reference.py",
+    "tools/freeze_external_lanes.py",
+    "tools/report_external_lanes.py",
+    "tools/verify_external_lanes.py"
+  ],
+  "files": [
+    {
+      "path": "docs/webui/issue16/README.md",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/budget-amendment-v3.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/capture-amendment-v2.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/environment-final.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/environment-post.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/environment-pre.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/D-LL8-NRZ-final-direct-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/D-LL8-NRZ-post-direct-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/D-LL8-NRZ-pre-direct-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/D-LL8-NRZ-worker-manifest.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/D-SI12-PAM4-final-direct-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/D-SI12-PAM4-post-direct-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/D-SI12-PAM4-pre-direct-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/D-SI12-PAM4-worker-manifest.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/capture-v1.py.txt",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/execution-ledger-before-capture-fix.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/final-importer-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/final-worker-execution.log",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/no-engine-capture-fields.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/observed-native-warnings.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/post-importer-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/pre-importer-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/pre-retry-execution.log",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/report-analysis-attempt-1.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/report-analyzer-v1-failed.py.txt",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/saved-data-report.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/evidence/source-applicability.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/fixtures/D-LL8-NRZ.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/fixtures/D-SI12-PAM4.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/freeze-v1.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/live-contract.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/preparation-attempt-1.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/resources.json",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "docs/webui/issue16/source-research.md",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "tools/audit_external_sources.py",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "tools/check_external_capture_fields.py",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "tools/external_lane_reference.py",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "tools/freeze_external_lanes.py",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "tools/report_external_lanes.py",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    },
+    {
+      "path": "tools/verify_external_lanes.py",
+      "utf8_without_BOM": true,
+      "decode_ok": true
+    }
+  ]
+}

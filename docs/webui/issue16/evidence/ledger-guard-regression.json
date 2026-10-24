@@ -1,0 +1,10 @@
+{
+  "method": "call reservation with forbidden importer selector; rejection occurs before guard/engine/importer/ledger mutation",
+  "rejected": true,
+  "reason": "Importer scope is a frozen full batch; individual case selectors are unsupported",
+  "ledger_unchanged": true,
+  "ledger_sha256": "ba4e869d9e14b44f1f62dfaad601b47b50a23f72589d99ab75ece2dc7eb0b974",
+  "Main": 0,
+  "importer": 0,
+  "constructors": 0
+}

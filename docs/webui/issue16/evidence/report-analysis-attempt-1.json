@@ -1,0 +1,15 @@
+{
+  "stage": "read-only saved artifact analysis",
+  "exit_code": 1,
+  "error": "TypeError: numpy boolean subtract, the '-' operator, is not supported",
+  "cause": "shared numeric difference function was given native boolean arrays; analyzer now casts only boolean operands to int8 for the already frozen exact-equality comparison",
+  "preserved_source": "evidence/report-analyzer-v1-failed.py.txt",
+  "unchanged": "all source snapshots, original/derived resources, raw outputs, inputs, thresholds, and physical reference; no engine rerun",
+  "Main": 0,
+  "importer": 0,
+  "coopt": 0,
+  "COM": 0,
+  "AMI": 0,
+  "elapsed_s": 2.6383342,
+  "peak_rss": "UNKNOWN"
+}

@@ -1,0 +1,1050 @@
+{
+  "created_utc": "2026-10-24T09:57:48.914624+00:00",
+  "status": "FROZEN / NOT_EXECUTED",
+  "versions": {
+    "pre": "9a33d08458aa00782e90169c699857b8b19455a2",
+    "post": "92c317401e723e13b5a04a809547dc77f4cf8269",
+    "final": "153fcd5a426935387cbdccb1880cabb43f5f4e01"
+  },
+  "source_export": "git archive src/pyproject.toml/.gitmodules at each fixed commit; separate source export of both pinned gitlinks; all imports assert selected snapshot paths",
+  "versions_importer": [
+    "pre",
+    "post",
+    "final"
+  ],
+  "importer_cases": [
+    {
+      "id": "LL8-interleaved-r0-v0",
+      "original": "docs\\webui\\issue16\\local\\resources\\LinkLab\\backplane_25g_xtalk.s8p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\LL8-interleaved.s8p",
+      "numbering": "interleaved",
+      "renumber": false,
+      "victim": 0,
+      "aggressors": [
+        1
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            4,
+            5
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "LL8-interleaved-r0-v1",
+      "original": "docs\\webui\\issue16\\local\\resources\\LinkLab\\backplane_25g_xtalk.s8p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\LL8-interleaved.s8p",
+      "numbering": "interleaved",
+      "renumber": false,
+      "victim": 1,
+      "aggressors": [
+        0
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            4,
+            5
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "LL8-interleaved-r1-v0",
+      "original": "docs\\webui\\issue16\\local\\resources\\LinkLab\\backplane_25g_xtalk.s8p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\LL8-interleaved.s8p",
+      "numbering": "interleaved",
+      "renumber": true,
+      "victim": 0,
+      "aggressors": [
+        1
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            4,
+            5
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "LL8-interleaved-r1-v1",
+      "original": "docs\\webui\\issue16\\local\\resources\\LinkLab\\backplane_25g_xtalk.s8p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\LL8-interleaved.s8p",
+      "numbering": "interleaved",
+      "renumber": true,
+      "victim": 1,
+      "aggressors": [
+        0
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            4,
+            5
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "LL8-grouped-r1-v0",
+      "original": "docs\\webui\\issue16\\local\\resources\\LinkLab\\backplane_25g_xtalk.s8p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\LL8-grouped.s8p",
+      "numbering": "grouped",
+      "renumber": true,
+      "victim": 0,
+      "aggressors": [
+        1
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            4,
+            5
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "LL8-grouped-r1-v1",
+      "original": "docs\\webui\\issue16\\local\\resources\\LinkLab\\backplane_25g_xtalk.s8p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\LL8-grouped.s8p",
+      "numbering": "grouped",
+      "renumber": true,
+      "victim": 1,
+      "aggressors": [
+        0
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            4,
+            5
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "SI12-interleaved-r0-v0",
+      "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-interleaved.s12p",
+      "numbering": "interleaved",
+      "renumber": false,
+      "victim": 0,
+      "aggressors": [
+        1,
+        2
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            8,
+            9
+          ]
+        },
+        {
+          "tx": [
+            4,
+            5
+          ],
+          "rx": [
+            10,
+            11
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "SI12-interleaved-r0-v1",
+      "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-interleaved.s12p",
+      "numbering": "interleaved",
+      "renumber": false,
+      "victim": 1,
+      "aggressors": [
+        0,
+        2
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            8,
+            9
+          ]
+        },
+        {
+          "tx": [
+            4,
+            5
+          ],
+          "rx": [
+            10,
+            11
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "SI12-interleaved-r0-v2",
+      "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-interleaved.s12p",
+      "numbering": "interleaved",
+      "renumber": false,
+      "victim": 2,
+      "aggressors": [
+        0,
+        1
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            8,
+            9
+          ]
+        },
+        {
+          "tx": [
+            4,
+            5
+          ],
+          "rx": [
+            10,
+            11
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "SI12-interleaved-r1-v0",
+      "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-interleaved.s12p",
+      "numbering": "interleaved",
+      "renumber": true,
+      "victim": 0,
+      "aggressors": [
+        1,
+        2
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            8,
+            9
+          ]
+        },
+        {
+          "tx": [
+            4,
+            5
+          ],
+          "rx": [
+            10,
+            11
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "SI12-interleaved-r1-v1",
+      "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-interleaved.s12p",
+      "numbering": "interleaved",
+      "renumber": true,
+      "victim": 1,
+      "aggressors": [
+        0,
+        2
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            8,
+            9
+          ]
+        },
+        {
+          "tx": [
+            4,
+            5
+          ],
+          "rx": [
+            10,
+            11
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "SI12-interleaved-r1-v2",
+      "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-interleaved.s12p",
+      "numbering": "interleaved",
+      "renumber": true,
+      "victim": 2,
+      "aggressors": [
+        0,
+        1
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            8,
+            9
+          ]
+        },
+        {
+          "tx": [
+            4,
+            5
+          ],
+          "rx": [
+            10,
+            11
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "SI12-grouped-r1-v0",
+      "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-grouped.s12p",
+      "numbering": "grouped",
+      "renumber": true,
+      "victim": 0,
+      "aggressors": [
+        1,
+        2
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            8,
+            9
+          ]
+        },
+        {
+          "tx": [
+            4,
+            5
+          ],
+          "rx": [
+            10,
+            11
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "SI12-grouped-r1-v1",
+      "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-grouped.s12p",
+      "numbering": "grouped",
+      "renumber": true,
+      "victim": 1,
+      "aggressors": [
+        0,
+        2
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            8,
+            9
+          ]
+        },
+        {
+          "tx": [
+            4,
+            5
+          ],
+          "rx": [
+            10,
+            11
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    },
+    {
+      "id": "SI12-grouped-r1-v2",
+      "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "input": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-grouped.s12p",
+      "numbering": "grouped",
+      "renumber": true,
+      "victim": 2,
+      "aggressors": [
+        0,
+        1
+      ],
+      "physical_lanes": [
+        {
+          "tx": [
+            0,
+            1
+          ],
+          "rx": [
+            6,
+            7
+          ]
+        },
+        {
+          "tx": [
+            2,
+            3
+          ],
+          "rx": [
+            8,
+            9
+          ]
+        },
+        {
+          "tx": [
+            4,
+            5
+          ],
+          "rx": [
+            10,
+            11
+          ]
+        }
+      ],
+      "frequency_grid": "all original frequencies, no subsampling",
+      "s_unit": "dimensionless complex power-wave Sdd",
+      "z0_diff_ohm": 100.0
+    }
+  ],
+  "downstream_cases": [
+    {
+      "id": "D-LL8-NRZ",
+      "config": "docs\\webui\\issue16\\fixtures\\D-LL8-NRZ.json",
+      "parent_fixture": "F4-L0-ON",
+      "fext_count": 1,
+      "resource": "LL8",
+      "victim": 0,
+      "versions_direct": [
+        "pre",
+        "post",
+        "final"
+      ],
+      "versions_worker": [
+        "final"
+      ],
+      "native_grid": "f=arange(0,f_max*1e9+f_step*1e6/2,f_step*1e6), from actual trait",
+      "package": "disabled; native Rs/RL=100 ohm, Cout/Cin=0.5 pF; no IBIS/AMI",
+      "window": "inherit exact #2/#3/#4 full input and eye_uis/ignore convention; no extra ignore clipping"
+    },
+    {
+      "id": "D-SI12-PAM4",
+      "config": "docs\\webui\\issue16\\fixtures\\D-SI12-PAM4.json",
+      "parent_fixture": "F4-SINGLE-PAM4",
+      "fext_count": 2,
+      "resource": "SI12",
+      "victim": 1,
+      "versions_direct": [
+        "pre",
+        "post",
+        "final"
+      ],
+      "versions_worker": [
+        "final"
+      ],
+      "native_grid": "f=arange(0,f_max*1e9+f_step*1e6/2,f_step*1e6), from actual trait",
+      "package": "disabled; native Rs/RL=100 ohm, Cout/Cin=0.5 pF; no IBIS/AMI",
+      "window": "inherit exact #2/#3/#4 full input and eye_uis/ignore convention; no extra ignore clipping"
+    }
+  ],
+  "reference": "external_lane_reference.py reads full original single-ended matrix independently; B rows (+1,-1)/sqrt(2), Sdd=B*S*B.T, equal real Zse=50 -> Zdiff=100 ohm. Unselected SE incident waves zero (matched); no unequal/complex-Z0 generalization. FEXT two-port includes aggressor-input/victim-output reflections and both transfer directions.",
+  "reference_interpolation": "independent scipy magnitude/unwrap-phase linear interpolation; outside original band transfer=0, reflections extrapolated/capped at1 per native convention. Original-grid importer avoids extrapolation. LL8 has no DC: downstream native transfer at0=0, explicitly not measured or supplied DC.",
+  "phase_magnitude_floor": 1e-08,
+  "phase_atol_rad": 1e-08,
+  "tolerances": {
+    "complex_real_and_imag_separately": {
+      "rtol": 1e-10,
+      "atol": 1e-12
+    },
+    "z0_ohm": {
+      "rtol": 1e-10,
+      "atol": 1e-12
+    },
+    "frequency_hz": {
+      "rtol": 1e-12,
+      "atol": 1e-06
+    },
+    "native_direct_worker": "inherit docs/webui/issue2/fixtures/tolerances.json exactly; no requirement that pre equals physical expected"
+  },
+  "budget": {
+    "importer": {
+      "top_import_freq_calls": 45,
+      "top_import_fext_calls": 45,
+      "independent_skrf_reader_checks": 45,
+      "wall_timeout_per_version_s": 180
+    },
+    "Main_direct": {
+      "calls": 6,
+      "max_per_case_s": 120,
+      "constructors": 6
+    },
+    "Main_final_worker": {
+      "calls": 2,
+      "max_per_case_s": 180,
+      "single_active_worker": true
+    },
+    "worker_timeout_s": 180,
+    "total_Main_cap": 8,
+    "COM": 0,
+    "coopt": 0,
+    "AMI_Init": 0,
+    "AMI_GetWave": 0,
+    "binary_loads": 0,
+    "raw_disk_cap_bytes": 2147483648,
+    "peak_policy": "UNKNOWN unless actually measured; no invented peak; observe elapsed and preserve failures",
+    "overrun": "stop new calls, retain original outputs/costs and report minimum scope to PM before extending"
+  },
+  "preexisting_saved_evidence": "#13/native13 only old TwoLaneModel/constructed networks; #4 saved downstream only its original resources. Source hashes show corrected importer same as final, but none answers these new resources; do not relabel/recompute them.",
+  "remaining_gaps": {
+    "measured_S8P": "SOURCE_BLOCKED / NOT_EXECUTED",
+    "measured_S12P": "SOURCE_BLOCKED / NOT_EXECUTED",
+    "original_arbitrary_port_layout_direct_support": "OUTSIDE_PLAIN_SUPPORT; frozen documented permutation used, no product fix",
+    "IEEE_COM_correlation": "NOT_IN_SCOPE",
+    "default_COM": "BLOCKED_BUDGET / NOT_EXECUTED",
+    "valid_AMI_clocks": "BLOCKED, separate #10"
+  },
+  "files": {
+    "tools\\external_lane_reference.py": "2867e205513975b758b758359c860c859d56dddcc8637be85e92ccdf78a05a3c",
+    "tools\\verify_external_lanes.py": "c1f8236e1dd1ce0ed73a959ab9dc056d10b7cd6489e53fac61ad3785678dadb6",
+    "tools\\freeze_external_lanes.py": "70503656202e8215129b6127a7f97ae33cebb0e09c87ac763130519451320de1",
+    "docs\\webui\\issue16\\environment-final.json": "b8a8f76f0f3b95a8b7143d0a3e6e6e17c330890545f4c2e84271a9b907486919",
+    "docs\\webui\\issue16\\environment-post.json": "e0ef928b1d20bf1573f091df1d53f2c98cbf10ad2be7b2e541dd2b98cca5f0d3",
+    "docs\\webui\\issue16\\environment-pre.json": "36ac07ea239f7092ee7eddd9aae85381f39dbdf4c0d15602642206a23013f4e9",
+    "docs\\webui\\issue16\\resources.json": "1b7fa907fd0be7b642343838962c29f97de5185c5141566000f04851758614c9",
+    "docs\\webui\\issue16\\live-contract.json": "88a9e34b40a335974448b02a8787368646d0e27aeab3432ab7b14537f007263a",
+    "docs\\webui\\issue16\\source-research.md": "caa41a68dc14d17c7cfa92d86cf728dfcac84a9837f4442d928697fd0620e1fc",
+    "docs\\webui\\issue16\\preparation-attempt-1.json": "0b1643f16b3d7145fd8969680ef101254741d47881298e5d94e879e351c84a2e",
+    "docs\\webui\\issue16\\fixtures\\D-LL8-NRZ.json": "84acedf31d534d5c250defb823724dd639cd750ebb8b152e3a83a22194adc025",
+    "docs\\webui\\issue16\\fixtures\\D-SI12-PAM4.json": "e5bb1fcd1df5068017d535d2f98929a96c4737322185b8902d4d8de889602710",
+    "docs\\webui\\issue2\\fixtures\\tolerances.json": "fe3a4e0c30ff8cb607219a51e94f8c806b5efcb8f616c931cf55ccdb477cc378",
+    "docs\\webui\\issue3\\fixtures\\frozen-manifest.json": "457a66a4af98087eb5ad6ac4dfcfa103787d1bcb3cd035eab0133b272da12c5a",
+    "docs\\webui\\issue16\\local\\resources\\derived\\LL8-grouped.s8p": "c93a8ee73cafc59358b9bbd380ef66f49905d18d513ec0f2177df0c2a882a07c",
+    "docs\\webui\\issue16\\local\\resources\\derived\\LL8-interleaved.s8p": "b28c8d5bd2983a5488b5265b6b635562eb33f557429db65a058b8d111b7a9685",
+    "docs\\webui\\issue16\\local\\resources\\derived\\SI12-grouped.s12p": "324c09a6ebd061f1fc15ad6921fd86ff84cedae1a8c7171a5c59c864065b5c58",
+    "docs\\webui\\issue16\\local\\resources\\derived\\SI12-interleaved.s12p": "aafe369e4853d369580560081a83b467d913fe913df78c8cbbd7dc4ce21b6198",
+    "docs\\webui\\issue16\\local\\resources\\historical-control\\TwoLaneModel.s8p": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+    "docs\\webui\\issue16\\local\\resources\\LinkLab\\backplane_25g_xtalk.s8p": "454b0a18c6f9c00b37186e3196ff4fd23fef049e1f2a3285b4fa75452f14016a",
+    "docs\\webui\\issue16\\local\\resources\\LinkLab\\manual.html": "c49e018446e7cdddb1157f5bc879a3f214281746cbebc3bba86c01f3cd28abfe",
+    "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\LICENSE.txt": "42135739ce0c16b1044dadf7a53c17007ae48b04b7fccff48b340b10fda1837c",
+    "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\SignalIntegrity\\Lib\\Devices\\MixedModeConverter.py": "d2e0ff79f0221b8de8d8c7a8c3c94d019f94eff2c0359033f78e0098f374b7b3",
+    "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\SignalIntegrity\\Lib\\SParameters\\Devices\\WElement.py": "5d06f2ace712539731ed38b89aceb893b8d913a904aafdd0fbcd76534f0c6281",
+    "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElement.py": "7728b787070ef5883c6db7b6f8f035df3f93efb2b5facb4a794c8b63639bc3bd",
+    "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.net": "531cb6dc086b7e2a6f08c5b8ce572be4e2a8089b559161be3e1460d80f10d4cd",
+    "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p": "cbf87cf893b869a2eb899e4172e3daec1410829126a49c5d48d3de109bd4483e",
+    "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\WireBond3Pairs.net": "baa7cc659a4a263043419d577dfe0559822102e81afb943572af05391474ccb2",
+    "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\wires_1mil_80um_3.8_3pair.txt": "418a02e0465febbb69647755e54e1ff4b77837f4bfa4d3598603be41ddaee231"
+  },
+  "local_source_files": {
+    "local\\sources\\final.zip": "a4b7504dcca2be51b8dc751dec5f46fc97e8eddc3bf5c0ae47af545833f4e1a0",
+    "local\\sources\\post.zip": "cf33a5b8aa4e3529ca91401d3309b6df9264092f583fcabb9b62bbdc28f0bdc6",
+    "local\\sources\\pre.zip": "4c3e85b572ae93bb3cfbd14f7786fc289baaf25b845b87415d3330a24767ca6d",
+    "local\\sources\\PyAMI.zip": "e11442669a2924a8945af1a57f2e1b3a0ed36958e40a0513b663b3e9419f0338",
+    "local\\sources\\PyChOpMarg.zip": "eb952e3c8c64c942fc96c3824d8d9e560ab881e48b13421019c0566f344ec4f9",
+    "local\\sources\\final\\.gitmodules": "a3c595b156509c95e69d2ccae7e1289b4e5120a17b2699e61b11281d1911cdff",
+    "local\\sources\\final\\pyproject.toml": "01413cacd9686f957349a9533f60670076a3d7022f08c42c43b6a117741ed9f9",
+    "local\\sources\\post\\.gitmodules": "a3c595b156509c95e69d2ccae7e1289b4e5120a17b2699e61b11281d1911cdff",
+    "local\\sources\\post\\pyproject.toml": "01413cacd9686f957349a9533f60670076a3d7022f08c42c43b6a117741ed9f9",
+    "local\\sources\\pre\\.gitmodules": "a3c595b156509c95e69d2ccae7e1289b4e5120a17b2699e61b11281d1911cdff",
+    "local\\sources\\pre\\pyproject.toml": "01413cacd9686f957349a9533f60670076a3d7022f08c42c43b6a117741ed9f9",
+    "local\\sources\\PyAMI\\pyproject.toml": "0a8810b7aa87d054d64897a511d660e39c9a3342aabcca43af60786c101cf5be",
+    "local\\sources\\PyChOpMarg\\pyproject.toml": "5fa7fc982ad0e3eded0de77642dab1858106819b9250e6a6ce2770351fab0c7c",
+    "local\\sources\\final\\src\\pybert\\cli.py": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56",
+    "local\\sources\\final\\src\\pybert\\common.py": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9",
+    "local\\sources\\final\\src\\pybert\\configuration.py": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a",
+    "local\\sources\\final\\src\\pybert\\py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local\\sources\\final\\src\\pybert\\pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+    "local\\sources\\final\\src\\pybert\\results.py": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc",
+    "local\\sources\\final\\src\\pybert\\__init__.py": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2",
+    "local\\sources\\final\\src\\pybert\\__main__.py": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9",
+    "local\\sources\\final\\src\\pybert\\gui\\handler.py": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7",
+    "local\\sources\\final\\src\\pybert\\gui\\help.py": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845",
+    "local\\sources\\final\\src\\pybert\\gui\\plot.py": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+    "local\\sources\\final\\src\\pybert\\gui\\view.py": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4",
+    "local\\sources\\final\\src\\pybert\\gui\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local\\sources\\final\\src\\pybert\\mcp\\server.py": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb",
+    "local\\sources\\final\\src\\pybert\\mcp\\__init__.py": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92",
+    "local\\sources\\final\\src\\pybert\\models\\bert.py": "5879ea9520feca96d0f366d1283424194d02425806605fb0069ffb1f893ee622",
+    "local\\sources\\final\\src\\pybert\\models\\cdr.py": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286",
+    "local\\sources\\final\\src\\pybert\\models\\com.py": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+    "local\\sources\\final\\src\\pybert\\models\\dfe.py": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966",
+    "local\\sources\\final\\src\\pybert\\models\\fec.py": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0",
+    "local\\sources\\final\\src\\pybert\\models\\tx_tap.py": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a",
+    "local\\sources\\final\\src\\pybert\\models\\viterbi.py": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e",
+    "local\\sources\\final\\src\\pybert\\models\\__init__.py": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239",
+    "local\\sources\\final\\src\\pybert\\parsers\\hspice.py": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1",
+    "local\\sources\\final\\src\\pybert\\parsers\\__init__.py": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622",
+    "local\\sources\\final\\src\\pybert\\solvers\\solver.py": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256",
+    "local\\sources\\final\\src\\pybert\\solvers\\__init__.py": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269",
+    "local\\sources\\final\\src\\pybert\\threads\\optimization.py": "1e058d9a96c67f29c1e8a432e78c19e5675634028f78871e727796b04e5afea5",
+    "local\\sources\\final\\src\\pybert\\threads\\sim.py": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164",
+    "local\\sources\\final\\src\\pybert\\threads\\stoppable.py": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8",
+    "local\\sources\\final\\src\\pybert\\threads\\__init__.py": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860",
+    "local\\sources\\final\\src\\pybert\\utility\\channel.py": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898",
+    "local\\sources\\final\\src\\pybert\\utility\\functional.py": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3",
+    "local\\sources\\final\\src\\pybert\\utility\\ibisami.py": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+    "local\\sources\\final\\src\\pybert\\utility\\jitter.py": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a",
+    "local\\sources\\final\\src\\pybert\\utility\\math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
+    "local\\sources\\final\\src\\pybert\\utility\\python.py": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02",
+    "local\\sources\\final\\src\\pybert\\utility\\sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+    "local\\sources\\final\\src\\pybert\\utility\\sparam.py": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+    "local\\sources\\final\\src\\pybert\\utility\\__init__.py": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d",
+    "local\\sources\\final\\src\\pybert\\web\\ami.py": "eeb737efe19e041ff8d4891bb514fc0a7e20d156f1c19565bca33cf2353e05a8",
+    "local\\sources\\final\\src\\pybert\\web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "local\\sources\\final\\src\\pybert\\web\\archive.py": "38f2b1967488ef7b6e6cdb768863da525226bf9bf11e71ccd292cccec6e3c676",
+    "local\\sources\\final\\src\\pybert\\web\\com.py": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f",
+    "local\\sources\\final\\src\\pybert\\web\\config.py": "dd12dfcfe48419058c0bd8d4ed68c59979f0918c4c3e97a6f2ec827841e0bb49",
+    "local\\sources\\final\\src\\pybert\\web\\data.py": "34b317a4c512c5cf17f05ec60e66bb567059cbf02dfa34e97dd7406702326e35",
+    "local\\sources\\final\\src\\pybert\\web\\legacy_results.py": "f10ad1c1131510eb889300149195cabbdd9fc43594f966d5dea9ce715ef77be1",
+    "local\\sources\\final\\src\\pybert\\web\\optimization.py": "dafd7f2bee5687b6f3732fd4aab6fa5527da480db6c17c306c883d5fd8b7d526",
+    "local\\sources\\final\\src\\pybert\\web\\records.py": "85b41a7c4135e5e893600b09ffa5cdb44239700cf542d281a85933c9056f5e3d",
+    "local\\sources\\final\\src\\pybert\\web\\resources.py": "045b086767e4e20d872aa233b9fbb59e8ae4c74494cfdd649ced82b0ac296c42",
+    "local\\sources\\final\\src\\pybert\\web\\resource_data.py": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3",
+    "local\\sources\\final\\src\\pybert\\web\\server.py": "9468621edc8ce2e20d8dcadb5e258aa0525ebe0f0eb851689854cf3b7c3fc4b2",
+    "local\\sources\\final\\src\\pybert\\web\\tasks.py": "572331ddc3b96a6f5f8bfa5a6020806de9e4e991d215ea6be3479b06f36087dd",
+    "local\\sources\\final\\src\\pybert\\web\\viterbi.py": "8c8768f9b4ada62dd370786a8d4f4129118bc14cc1eb9925012abce445d92a3f",
+    "local\\sources\\final\\src\\pybert\\web\\worker.py": "f34e4734639c0a8d3e169a55b35e11a8dc4019fd6d7d5b93ec272871e58b4bf4",
+    "local\\sources\\final\\src\\pybert\\web\\__init__.py": "b1896655d91bfaefd0cedd7ebdef5a97581e00ed934e418d9921fa7e9f10fe3c",
+    "local\\sources\\final\\src\\pybert\\gui\\images\\icon.png": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311",
+    "local\\sources\\final\\src\\pybert\\solvers\\simbeor\\__init__.py": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373",
+    "local\\sources\\final\\src\\pybert\\web\\static\\ami.js": "f0c4c2b155a7182fb09e82279f78e5f6a1feaedfb026e203e6b241c8bc37aaef",
+    "local\\sources\\final\\src\\pybert\\web\\static\\app.js": "717869941318417cef07ceaabf3203e31718fbd3a8abba24efb1e95ced08fbac",
+    "local\\sources\\final\\src\\pybert\\web\\static\\catalog.js": "2fe354afd9708bc5fe8d3208c3172903d11aa45ce0e1d54ef1cf0ae807f7ac00",
+    "local\\sources\\final\\src\\pybert\\web\\static\\draft.js": "ee831427c6f44699ca554d8c00ed3ea6108bd5f7a627a8ade63a0d7e2674eb87",
+    "local\\sources\\final\\src\\pybert\\web\\static\\gui-map.js": "4aa549b5ebd11004a4539c74e6127e18c726f9c359978168f0d43a77b926fbb3",
+    "local\\sources\\final\\src\\pybert\\web\\static\\index.html": "d34ee84305197fec8bbc39e9c4b030cc0978c9480cbbc5b22dba93f9c3fc318d",
+    "local\\sources\\final\\src\\pybert\\web\\static\\optimization.js": "a5d2c40739b70c112e8ebe746f2676d7ce96980eef7b6f88f0db59243303f4e8",
+    "local\\sources\\final\\src\\pybert\\web\\static\\resources.js": "4afe5b579e812ae3b6d3efc370d4ed188ff00aa2889608366c5bda222d1b4872",
+    "local\\sources\\final\\src\\pybert\\web\\static\\results.js": "ca2d05e602162100475e19ba60869722438a255960e33fb036bfaff61e7ff7aa",
+    "local\\sources\\final\\src\\pybert\\web\\static\\settings.js": "3a91e4914c03dccfa5fb0251b19bd7b4954bac4667fedbe19d604cd134216eb3",
+    "local\\sources\\final\\src\\pybert\\web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "local\\sources\\final\\src\\pybert\\web\\static\\viterbi.js": "9f9f5b5a19988254a1a46b37f73b67113194a02d39847caad44bc90ec65b4f9b",
+    "local\\sources\\final\\src\\pybert\\web\\static\\workbench.css": "7afd190a03bf8149c3fca5ff7913084ab7d48a03c7a8a181b69e899922f0a442",
+    "local\\sources\\final\\src\\pybert\\web\\static\\workbench.js": "1b973c9703e5644aa84eba66821ab781b57f8e317756f582c14b5a68d3462d80",
+    "local\\sources\\post\\src\\pybert\\cli.py": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56",
+    "local\\sources\\post\\src\\pybert\\common.py": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9",
+    "local\\sources\\post\\src\\pybert\\configuration.py": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a",
+    "local\\sources\\post\\src\\pybert\\py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local\\sources\\post\\src\\pybert\\pybert.py": "2a9401c95d67f35c6e28e6d80fcd852e211776be185957702a958422b46a816a",
+    "local\\sources\\post\\src\\pybert\\results.py": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc",
+    "local\\sources\\post\\src\\pybert\\__init__.py": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2",
+    "local\\sources\\post\\src\\pybert\\__main__.py": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9",
+    "local\\sources\\post\\src\\pybert\\gui\\handler.py": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7",
+    "local\\sources\\post\\src\\pybert\\gui\\help.py": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845",
+    "local\\sources\\post\\src\\pybert\\gui\\plot.py": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+    "local\\sources\\post\\src\\pybert\\gui\\view.py": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4",
+    "local\\sources\\post\\src\\pybert\\gui\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local\\sources\\post\\src\\pybert\\mcp\\server.py": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb",
+    "local\\sources\\post\\src\\pybert\\mcp\\__init__.py": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92",
+    "local\\sources\\post\\src\\pybert\\models\\bert.py": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302",
+    "local\\sources\\post\\src\\pybert\\models\\cdr.py": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286",
+    "local\\sources\\post\\src\\pybert\\models\\com.py": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+    "local\\sources\\post\\src\\pybert\\models\\dfe.py": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966",
+    "local\\sources\\post\\src\\pybert\\models\\fec.py": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0",
+    "local\\sources\\post\\src\\pybert\\models\\tx_tap.py": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a",
+    "local\\sources\\post\\src\\pybert\\models\\viterbi.py": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e",
+    "local\\sources\\post\\src\\pybert\\models\\__init__.py": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239",
+    "local\\sources\\post\\src\\pybert\\parsers\\hspice.py": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1",
+    "local\\sources\\post\\src\\pybert\\parsers\\__init__.py": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622",
+    "local\\sources\\post\\src\\pybert\\solvers\\solver.py": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256",
+    "local\\sources\\post\\src\\pybert\\solvers\\__init__.py": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269",
+    "local\\sources\\post\\src\\pybert\\threads\\optimization.py": "56261d1cc49437a33578eb187d64db89e4b56d97ab3558c3f9726bd3e494bec0",
+    "local\\sources\\post\\src\\pybert\\threads\\sim.py": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164",
+    "local\\sources\\post\\src\\pybert\\threads\\stoppable.py": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8",
+    "local\\sources\\post\\src\\pybert\\threads\\__init__.py": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860",
+    "local\\sources\\post\\src\\pybert\\utility\\channel.py": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898",
+    "local\\sources\\post\\src\\pybert\\utility\\functional.py": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3",
+    "local\\sources\\post\\src\\pybert\\utility\\ibisami.py": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+    "local\\sources\\post\\src\\pybert\\utility\\jitter.py": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a",
+    "local\\sources\\post\\src\\pybert\\utility\\math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
+    "local\\sources\\post\\src\\pybert\\utility\\python.py": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02",
+    "local\\sources\\post\\src\\pybert\\utility\\sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+    "local\\sources\\post\\src\\pybert\\utility\\sparam.py": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+    "local\\sources\\post\\src\\pybert\\utility\\__init__.py": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d",
+    "local\\sources\\post\\src\\pybert\\web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "local\\sources\\post\\src\\pybert\\web\\config.py": "d742f08e64878fed1b71d6a44a4594eb8f9ef0b137751719302672606218005b",
+    "local\\sources\\post\\src\\pybert\\web\\data.py": "2d15d8b02c7772d7c0fc4874cf15bcf20867447e090a43d2f34aaca8dde50a10",
+    "local\\sources\\post\\src\\pybert\\web\\server.py": "bd96fc49eca6f3aae1daf471fb50271e18fed3cfda4b54edd1e1b444bbb050b4",
+    "local\\sources\\post\\src\\pybert\\web\\tasks.py": "23e773f28edb73af50ec400711e8eddb0f874027abc63977815db3f8be10afae",
+    "local\\sources\\post\\src\\pybert\\web\\worker.py": "b22c54df41f33b3955d5e6e973779a9a611e4452dde24d45dbf266952221027c",
+    "local\\sources\\post\\src\\pybert\\web\\__init__.py": "7375370164273cec896d7eca0265b87f3e109a9a86e0f980b5b3896380606554",
+    "local\\sources\\post\\src\\pybert\\gui\\images\\icon.png": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311",
+    "local\\sources\\post\\src\\pybert\\solvers\\simbeor\\__init__.py": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373",
+    "local\\sources\\post\\src\\pybert\\web\\static\\app.js": "e727c3b284f089eafb6af8dbd4c209511a97604fa8fb0d920d7c0b33e95b16f8",
+    "local\\sources\\post\\src\\pybert\\web\\static\\catalog.js": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+    "local\\sources\\post\\src\\pybert\\web\\static\\gui-map.js": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+    "local\\sources\\post\\src\\pybert\\web\\static\\index.html": "bcc431244d7565e13817772987cfa1e5ab595715fb76cc09bfe343ff374b861c",
+    "local\\sources\\post\\src\\pybert\\web\\static\\settings.js": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+    "local\\sources\\post\\src\\pybert\\web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "local\\sources\\post\\src\\pybert\\web\\static\\workbench.css": "358817f13da2975000ba5d89f532c453d4ef4dc5228ccbd9534b1fa50135da2a",
+    "local\\sources\\post\\src\\pybert\\web\\static\\workbench.js": "f0151805c6dd60e30ff3b53b78fca1b6262c73d19d2b201b42fcc22847507215",
+    "local\\sources\\pre\\src\\pybert\\cli.py": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56",
+    "local\\sources\\pre\\src\\pybert\\common.py": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9",
+    "local\\sources\\pre\\src\\pybert\\configuration.py": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a",
+    "local\\sources\\pre\\src\\pybert\\py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local\\sources\\pre\\src\\pybert\\pybert.py": "2a9401c95d67f35c6e28e6d80fcd852e211776be185957702a958422b46a816a",
+    "local\\sources\\pre\\src\\pybert\\results.py": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc",
+    "local\\sources\\pre\\src\\pybert\\__init__.py": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2",
+    "local\\sources\\pre\\src\\pybert\\__main__.py": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9",
+    "local\\sources\\pre\\src\\pybert\\gui\\handler.py": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7",
+    "local\\sources\\pre\\src\\pybert\\gui\\help.py": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845",
+    "local\\sources\\pre\\src\\pybert\\gui\\plot.py": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+    "local\\sources\\pre\\src\\pybert\\gui\\view.py": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4",
+    "local\\sources\\pre\\src\\pybert\\gui\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local\\sources\\pre\\src\\pybert\\mcp\\server.py": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb",
+    "local\\sources\\pre\\src\\pybert\\mcp\\__init__.py": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92",
+    "local\\sources\\pre\\src\\pybert\\models\\bert.py": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302",
+    "local\\sources\\pre\\src\\pybert\\models\\cdr.py": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286",
+    "local\\sources\\pre\\src\\pybert\\models\\com.py": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+    "local\\sources\\pre\\src\\pybert\\models\\dfe.py": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966",
+    "local\\sources\\pre\\src\\pybert\\models\\fec.py": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0",
+    "local\\sources\\pre\\src\\pybert\\models\\tx_tap.py": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a",
+    "local\\sources\\pre\\src\\pybert\\models\\viterbi.py": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e",
+    "local\\sources\\pre\\src\\pybert\\models\\__init__.py": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239",
+    "local\\sources\\pre\\src\\pybert\\parsers\\hspice.py": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1",
+    "local\\sources\\pre\\src\\pybert\\parsers\\__init__.py": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622",
+    "local\\sources\\pre\\src\\pybert\\solvers\\solver.py": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256",
+    "local\\sources\\pre\\src\\pybert\\solvers\\__init__.py": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269",
+    "local\\sources\\pre\\src\\pybert\\threads\\optimization.py": "56261d1cc49437a33578eb187d64db89e4b56d97ab3558c3f9726bd3e494bec0",
+    "local\\sources\\pre\\src\\pybert\\threads\\sim.py": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164",
+    "local\\sources\\pre\\src\\pybert\\threads\\stoppable.py": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8",
+    "local\\sources\\pre\\src\\pybert\\threads\\__init__.py": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860",
+    "local\\sources\\pre\\src\\pybert\\utility\\channel.py": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898",
+    "local\\sources\\pre\\src\\pybert\\utility\\functional.py": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3",
+    "local\\sources\\pre\\src\\pybert\\utility\\ibisami.py": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+    "local\\sources\\pre\\src\\pybert\\utility\\jitter.py": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a",
+    "local\\sources\\pre\\src\\pybert\\utility\\math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
+    "local\\sources\\pre\\src\\pybert\\utility\\python.py": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02",
+    "local\\sources\\pre\\src\\pybert\\utility\\sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+    "local\\sources\\pre\\src\\pybert\\utility\\sparam.py": "4f4955a304aaa330ae2a1b5e98dc7cf1ddf541027d6e3f046df10b8d3dd50c84",
+    "local\\sources\\pre\\src\\pybert\\utility\\__init__.py": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d",
+    "local\\sources\\pre\\src\\pybert\\web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "local\\sources\\pre\\src\\pybert\\web\\config.py": "d742f08e64878fed1b71d6a44a4594eb8f9ef0b137751719302672606218005b",
+    "local\\sources\\pre\\src\\pybert\\web\\data.py": "2d15d8b02c7772d7c0fc4874cf15bcf20867447e090a43d2f34aaca8dde50a10",
+    "local\\sources\\pre\\src\\pybert\\web\\server.py": "bd96fc49eca6f3aae1daf471fb50271e18fed3cfda4b54edd1e1b444bbb050b4",
+    "local\\sources\\pre\\src\\pybert\\web\\tasks.py": "23e773f28edb73af50ec400711e8eddb0f874027abc63977815db3f8be10afae",
+    "local\\sources\\pre\\src\\pybert\\web\\worker.py": "b22c54df41f33b3955d5e6e973779a9a611e4452dde24d45dbf266952221027c",
+    "local\\sources\\pre\\src\\pybert\\web\\__init__.py": "7375370164273cec896d7eca0265b87f3e109a9a86e0f980b5b3896380606554",
+    "local\\sources\\pre\\src\\pybert\\gui\\images\\icon.png": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311",
+    "local\\sources\\pre\\src\\pybert\\solvers\\simbeor\\__init__.py": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373",
+    "local\\sources\\pre\\src\\pybert\\web\\static\\app.js": "e727c3b284f089eafb6af8dbd4c209511a97604fa8fb0d920d7c0b33e95b16f8",
+    "local\\sources\\pre\\src\\pybert\\web\\static\\catalog.js": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+    "local\\sources\\pre\\src\\pybert\\web\\static\\gui-map.js": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+    "local\\sources\\pre\\src\\pybert\\web\\static\\index.html": "bcc431244d7565e13817772987cfa1e5ab595715fb76cc09bfe343ff374b861c",
+    "local\\sources\\pre\\src\\pybert\\web\\static\\settings.js": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+    "local\\sources\\pre\\src\\pybert\\web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "local\\sources\\pre\\src\\pybert\\web\\static\\workbench.css": "358817f13da2975000ba5d89f532c453d4ef4dc5228ccbd9534b1fa50135da2a",
+    "local\\sources\\pre\\src\\pybert\\web\\static\\workbench.js": "f0151805c6dd60e30ff3b53b78fca1b6262c73d19d2b201b42fcc22847507215",
+    "local\\sources\\PyAMI\\src\\pyibisami\\cli_logging.py": "258a8818ba11d5e99b90dfdfc759fe070e81b61c817ff3e5f02c8ec05281869d",
+    "local\\sources\\PyAMI\\src\\pyibisami\\common.py": "29d822c729682cf1fd68829a21ece71324c51c6cde785303cb2165b197d27929",
+    "local\\sources\\PyAMI\\src\\pyibisami\\IBIS_AMI_Checker.ipynb": "e2b3f7510e733cf7f2e5120bdf6388b95f3d02f003918ef6fbe241a8824b2778",
+    "local\\sources\\PyAMI\\src\\pyibisami\\IBIS_AMI_Tester.ipynb": "1438cbf25ad3396d1c0c81b4fb83e6562ca3ddc2405c4411a465f7366e045f28",
+    "local\\sources\\PyAMI\\src\\pyibisami\\__init__.py": "fbc42a1fc4b0c2c91f81cff926a0b110e010c84a37aa61c87ddccd2cdf2bcb56",
+    "local\\sources\\PyAMI\\src\\pyibisami\\__main__.py": "2ebe052fef6b334f0d481e08b11f9b33df34549f8382c1081dc7e5b9ae1eeea7",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ami\\config.py": "ffd859918022ad3cfcf3fd50b6fd8dddb269ce6b58bbbe9c2845fa6a1aef2a31",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ami\\configurator.py": "a1e1242424fb7951ab3aba0ad717acf3169c8d091fdf33db805d6747fe077874",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ami\\generic.ami.em": "b34d2acec84193f807d00e314f7eb27104874b43202c464b9abc04a50bfd8c86",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ami\\generic.ibs.em": "7f224e4c02b47b40e0b867f80e087747e3cc433c88a23616b8b7910095829843",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ami\\model.py": "6dd6ae1f9381c596bb25606199a6fe404c24aa1ffbcefc4d5ffb5e4df22b6be3",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ami\\parameter.py": "d0233fd737b85f96e76863f19079eb70f71a7b6da52f28e8c282f339cfc120e7",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ami\\parser.py": "2c2e688e3257476d38c175bcd37bb8050b253ad822139c55001eff920ba65594",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ami\\reserved_parameter_names.py": "8ae84418fa427239e757044ef475bed39d8b95814c7569ee717982bb237debe6",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ami\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local\\sources\\PyAMI\\src\\pyibisami\\gui\\ami_config.py": "f81e8b9035504a7e55ba49a40d2239451320deeeb88e9fd976b1f857c78642f8",
+    "local\\sources\\PyAMI\\src\\pyibisami\\gui\\ibis.py": "d843afd471659c046687637a6d2aec07e06b063181a2272f74a8ac065d425aa9",
+    "local\\sources\\PyAMI\\src\\pyibisami\\gui\\__init__.py": "485231c50b8a395db0d9cb617f2ca68af40fdeb1c74f00de3f4c384911d690e6",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\file.py": "87d09a048bc77fc1559a3eb8c256b654598bf0ef8574b3819d17f26af497c372",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\iv.py": "0eca1c03681d5f6ca5eff7802da0726b104c3b608a2aa40cb59fee836c6ccc03",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\model.py": "5e136717109a56bd28dd9e14fb9490e80042e18738ec6466a8975fa21bc8c2e2",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\parser.py": "579506ce86d347b859d1e9ee8c939dd33068dfc8c3b068ff9d45605732fe26aa",
+    "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local\\sources\\PyAMI\\src\\pyibisami\\report\\ami_tests.py": "47b044bd9ac7d540a81ec48237730783de69dcee2d5157f0778f6af9cf967be5",
+    "local\\sources\\PyAMI\\src\\pyibisami\\report\\ami_tests_helpers.py": "e712a4bfd7a33a10f0e2d4a30c0c9f5d6270e55a45212e2f62395f15d7876040",
+    "local\\sources\\PyAMI\\src\\pyibisami\\report\\ibis_file_tests.py": "3bac0e6cda86310de0764bb5c739b39aad7586b54f3cee515cfa3a139eba4341",
+    "local\\sources\\PyAMI\\src\\pyibisami\\report\\pdf.py": "56fe886bf827b52f20bc0c5b15f1a8511d29728082100930378f2cc0aaaa6187",
+    "local\\sources\\PyAMI\\src\\pyibisami\\report\\plot.py": "b83701897b00d3a0e1f0732e8659a48ce146201d936f63bd4f194f99ffc972fe",
+    "local\\sources\\PyAMI\\src\\pyibisami\\report\\test_models.py": "8203e1d518d8c5c03ffccce8bcf562df12899e8958f9df097499e5c94e615629",
+    "local\\sources\\PyAMI\\src\\pyibisami\\report\\__init__.py": "50a5395f7c53746530b968917c75752f774429ab6800d62908eacdeef718b53e",
+    "local\\sources\\PyAMI\\src\\pyibisami\\testing\\ami_test_config.py": "1882316ddb3ea28f031ec38cb93f657381443db7fb9dfd04e72360354462acd6",
+    "local\\sources\\PyAMI\\src\\pyibisami\\testing\\generic_test_sweep.py.em": "80bb171d53c10c5d55d8dbb6d62a5a2146defe5fd9b42c5813567acff7e48783",
+    "local\\sources\\PyAMI\\src\\pyibisami\\testing\\test_defs.py": "58d1cf62cc56dabdf223071b9e3c12bfef265c4a67b45800b63d7adb44a78d73",
+    "local\\sources\\PyAMI\\src\\pyibisami\\testing\\util.py": "b223b5bf105e4d2068a7a02abae806bca557322048bd511f00a296c06c1f8759",
+    "local\\sources\\PyAMI\\src\\pyibisami\\testing\\__init__.py": "38653eca7fae90e6a0a11ba577e40497c4d3b7c7d314f592988bd8bdbba6321d",
+    "local\\sources\\PyAMI\\src\\pyibisami\\tools\\run_notebook.py": "8d576c2b80762b6f2fd93bfbcdf112aa9d0f7151a9d1160d262b31bc0ac435a1",
+    "local\\sources\\PyAMI\\src\\pyibisami\\tools\\run_tests.py": "4e9a4863f7eb4f1d51d2e6b0cf1d39e717f1cb04a5b5b8d397635e08c48e4a0b",
+    "local\\sources\\PyAMI\\src\\pyibisami\\tools\\test_results.xsl": "096dd17429a5f639f69c18993b1a95b5712a9d633e94e0c7cde0e4112996c018",
+    "local\\sources\\PyAMI\\src\\pyibisami\\tools\\__init__.py": "12c5bac38e661e129034a955a8ebb4b3dcb86b5e8ad1415f48a2b8545fdf8609",
+    "local\\sources\\PyAMI\\src\\pyibisami\\util\\ami.py": "22d7336b8a2b6abff716d8c21d5086c9e41618d83e30229ceaf2e82b0d433232",
+    "local\\sources\\PyAMI\\src\\pyibisami\\util\\misc.py": "cdf109e3c3839d087a7c04da420b637a4d76e3c485777c0999b9866ba1816579",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\cli.py": "b89a14005737e3730731253d47a1691246c4fee5ced238cc96572659320f6fc0",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\com.py": "04010ac20bf154b91715c34130db531ce0c9f350881973053f2691ccb24680e9",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\common.py": "08658837f977c06428241522cbaa8221ea9ea3dcc303b1a9c437606e01d0d163",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\devmodel.py": "a1504554a943c539e0914a7b4e6b6ae56cbc38c922ce7a783655abe5f427d2d1",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\excel.py": "ece620356d52c910d8d26b8c77d1175ed57f475292e88f76547b7f1eaa278881",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\matlab.py": "3a0899c7f496cadf66ef144c8cfcfbc499b91a7d5975b1051ba8ebb5efe903ef",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\mlsd.py": "6961b8ee772dc2e64bb0add34c115e2510afe0972edd4566498d8355b1a54cf5",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\noise.py": "e638940f963d8df714686e6e6e9f5efdcfe8cc7e62857b33a09948c4eebf84ef",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\optimize.py": "432bff254c9043e333f99fa1eb26eaa384cdc574dad5f2437efa6a5b3640835d",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\plot.py": "e75b8b7e8bc2c8aa65ea1da47d93a5a40192984518e247b673d00fc1bff146f6",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\__init__.py": "9cac78d91bff4690fea7f60b85881fed116e7b09f17615c9821d7dfc372d531d",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\__main__.py": "504f028fc5be635691d6c7f4a07c729144edffbd94faaee31db7038b5132fa6a",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023by.py": "9f6d96162f079498ea93a94642e1e780755ca63ee7dc128f07a23563fe62abf5",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj.py": "8915ffff247b2981e6c4b86afd6c7e3c9a5b0c1dcc240bc26058e02585b23e23",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj_d3p3.py": "47436b07c0843da6fcba4923fa6dcd16e5e536de06e617d68180107d9f76d1e2",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\template.py": "801119da1f9acfa470e4640e37b281e20cf07cdfb92c82b8ad0ae86e2bf2a2f4",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\__init__.py": "4868fe79668025474562148e96ab901a2e056034684519151512a46657c05780",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\mfiles\\pychopmarg_com.m": "8fd889c2b2db180aa52996efe4f256a7be2fb0f0610c93d99c5db946e01487c7",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\filter.py": "4aaf60d9ba2c03fd867b3753c12c87ad64d0768b9bb3b0dd35876ec28481513c",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\general.py": "845b78ec063548a38741bf39ebb473216dcf017aa9276331906223c5372ac614",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\jupyter.py": "be9693d759ac8c3e15814f5acb8d534658e94836844124051f788abb30188b58",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\probability.py": "33fe735736b3477c704e5283d8d0b929092e731e8b8a8bad2f41824364f15d85",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\sparams.py": "59a5e253af93fc894d157c6ec8c445d83bb14c8a5e06282ad93416a47be16595",
+    "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\__init__.py": "e0b9fb64bbdf55f4a77acfdc8c70561eb0253f0097a7a05c7423d17e48c08cb1"
+  }
+}

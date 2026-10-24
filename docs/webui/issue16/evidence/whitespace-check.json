@@ -1,0 +1,13 @@
+{
+  "base": "153fcd5a426935387cbdccb1880cabb43f5f4e01",
+  "review_head": "e9b19ff164fbcf9bfe71c3a6218786fdf1d93e50",
+  "full_diff_check_exit_code": 1,
+  "full_diff_check_findings": [
+    {"file": "docs/webui/issue16/evidence/final-worker-execution.log", "lines": [1, 2], "reason": "trailing space emitted by original print with empty error string"},
+    {"file": "docs/webui/issue16/evidence/pre-retry-execution.log", "lines": [1, 6], "reason": "trailing space emitted by original print with empty error string"}
+  ],
+  "raw_policy": "original logs retained byte-for-byte; no cleanup or silent replacement",
+  "excluding_only_these_two_raw_logs_diff_check_exit_code": 0,
+  "Main": 0,
+  "importer": 0
+}
