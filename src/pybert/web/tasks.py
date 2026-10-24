@@ -281,6 +281,8 @@ class Tasks:
             return copy.deepcopy(self.tasks[task_id]["data"])
 
     def normalize(self, request):
+        if "rx_viterbi_fec" in request or "rx_viterbi_fec" in request.get("config", {}):
+            raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
         # A cached constructor snapshot is plain immutable metadata, not an observer operation.
         with self.lock:
             if request.get("mode") == "defaults" and self.defaults is not None:

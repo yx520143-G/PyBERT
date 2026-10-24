@@ -67,7 +67,7 @@ def extend(engine, captured, arrays, manifest):
 
     config = manifest["effective_input"]
     enabled = config["rx_use_viterbi"]
-    record = {"schema_version": 1, "availability": "available" if enabled else "disabled",
+    record = {"schema_version": 2, "availability": "available" if enabled else "disabled",
               "reason": None if enabled else "Use Viterbi was disabled for this run; -1 means not calculated",
               "plan": plan(config, execution=True), "ber": {}, "producer": "models.bert / models.viterbi",
               "probability": "native raw state probability, dimensionless; not BER",
@@ -113,9 +113,23 @@ def extend(engine, captured, arrays, manifest):
             unit = "s" if key in ("sample_times", "ui", "ts") else "V" if key in ("sigma", "decision_scaler", "decided_levels") else "1"
             add(f"viterbi.{key}", local[key], unit, axis, window)
         for key in DEBUG_ARRAYS:
+            if key == "symbols_dfe":
+                continue
             axis = "viterbi.symbol_index" if key in ("sig_samps", "probs", "prevs", "path", "symbols_viterbi") else None
             add(f"viterbi.{key}", debug[key], "V" if key in ("sig_samps", "pulse_resp_samps") else "1", axis, window,
                 producer=f"native dbg_dict_viterbi[{key}]")
+        full_count = len(debug["symbols_dfe"])
+        full_window = {"kind": "full native DFE decision sequence", "symbol_start": 0,
+                       "symbol_stop_exclusive": full_count}
+        record["dfe_decisions"] = {"symbol_count": full_count, "decoder_start_symbol": full_count - count,
+                                   "decoder_stop_symbol_exclusive": full_count, "decoder_axis": "viterbi.symbol_index",
+                                   "selection": "symbols_dfe[-len(sig_samps):] * decision_scaler"}
+        for key, value, producer, axis in (
+            ("dfe_symbol_index", np.arange(full_count), "full DFE decision sequence index", None),
+            ("symbols_dfe", debug["symbols_dfe"], "native dbg_dict_viterbi[symbols_dfe]", "viterbi.dfe_symbol_index"),
+        ):
+            add(f"viterbi.{key}", value, axis=axis, window=full_window, producer=producer)
+            datasets[f"viterbi.{key}"]["clock_basis"] = "native DFE decisions in returned order; decoder uses the tail independently of sample clocks"
         add("viterbi.states", debug["decoder"].states, axis="viterbi.state_index", producer="original ISI decoder.states")
         add("viterbi.trans", debug["decoder"].trans, axis="viterbi.state_index", producer="original ISI decoder.trans")
         sink = SimpleNamespace(rx_use_viterbi=True, dbg_dict_viterbi=debug, mod_type=engine.mod_type,
@@ -132,7 +146,7 @@ def extend(engine, captured, arrays, manifest):
 def validate(run, arrays):
     """Validate the complete primitive decoding contract before archive publication."""
     record = run.get("decoding")
-    if not isinstance(record, dict) or type(record.get("schema_version")) is not int or record["schema_version"] != 1:
+    if not isinstance(record, dict) or type(record.get("schema_version")) is not int or record["schema_version"] not in (1, 2):
         raise ValueError("Missing/unknown decoding schema")
     config = run["effective_input"]
     hashes = {key.replace("\\", "/"): value for key, value in run.get("actual_source_sha256", {}).items()}
@@ -234,6 +248,29 @@ def validate(run, arrays):
     for key in ("sigma", "decision_scaler", "ui", "ts"):
         if arrays[f"viterbi.{key}"].item() <= 0:
             raise ValueError(f"Invalid decoder {key}")
+    decisions = get("viterbi.symbols_dfe")
+    full_count = len(decisions) if decisions.ndim == 1 else 0
+    if (full_count < count or not np.array_equal(decisions[-count:] * arrays["viterbi.decision_scaler"], arrays["viterbi.decided_levels"])):
+        raise ValueError("Inconsistent original DFE decision tail/scaler")
+    if record["schema_version"] == 2:
+        expected = {"symbol_count": full_count, "decoder_start_symbol": full_count - count,
+                    "decoder_stop_symbol_exclusive": full_count, "decoder_axis": "viterbi.symbol_index",
+                    "selection": "symbols_dfe[-len(sig_samps):] * decision_scaler"}
+        if record.get("dfe_decisions") != expected:
+            raise ValueError("Invalid full DFE decision tail mapping")
+        if not np.array_equal(get("viterbi.dfe_symbol_index", integer=True, shape=(full_count,)), np.arange(full_count)):
+            raise ValueError("Invalid full DFE decision axis")
+        full_window = {"kind": "full native DFE decision sequence", "symbol_start": 0,
+                       "symbol_stop_exclusive": full_count}
+        for key, axis in (("symbols_dfe", "viterbi.dfe_symbol_index"), ("dfe_symbol_index", None)):
+            meta = run["datasets"][f"viterbi.{key}"]
+            if (meta.get("axis") != axis or meta["window"] != full_window
+                    or meta.get("clock_basis") != "native DFE decisions in returned order; decoder uses the tail independently of sample clocks"):
+                raise ValueError("Invalid full DFE decision axis/window/clock basis")
+    elif ("dfe_decisions" in record or "viterbi.dfe_symbol_index" in arrays
+          or run["datasets"]["viterbi.symbols_dfe"].get("axis") is not None
+          or run["datasets"]["viterbi.symbols_dfe"]["window"] != run["datasets"]["viterbi.sig_samps"]["window"]):
+        raise ValueError("Invalid legacy decoding schema 1 metadata; schema 2 cannot bypass its validation")
     for key in ("sig_samps", "sample_times", "sample_indices", "decided_levels", "probs", "prevs", "path", "symbols_viterbi"):
         meta = run["datasets"][f"viterbi.{key}"]
         if meta.get("axis") != "viterbi.symbol_index" or meta["window"].get("symbol_stop_exclusive") != count or meta["window"].get("symbol_start") != 0:
@@ -322,4 +359,6 @@ def payload(directory, position=0, error=0):
         return {"run_id": run["run_id"], "availability": "available", "position": position, "max_position": maximum,
                 "stop_exclusive": stop, "symbol_count": count, "error": error, "error_count": len(errors),
                 "selected_error": selected_error, "ber": record["ber"], "data": traces, "top3": probabilities,
-                "state_count": record["state_count"], "probability": record["probability"], "display": record["display"]}
+                "state_count": record["state_count"], "probability": record["probability"], "display": record["display"],
+                "metadata_warning": ("历史 decoding schema 1 的 symbols_dfe 是完整 DFE decisions，但其 axis/window 被误标为 decoder 窗口；该字段元数据不可用于窗口对齐。原数组/manifest 保留，未自动修订。"
+                                     if record["schema_version"] == 1 else None)}

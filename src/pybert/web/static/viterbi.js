@@ -55,6 +55,7 @@
     await Promise.all(panes);
     if (!isCurrent()) return;
     $('analysis-info').innerHTML=`<p>原 producer 的连线、路径和前三状态。raw probability 无量纲，不能解释为 BER；颜色为 log10(raw)，仅显示裁剪到 −20。Position/拖动/Error/比较/存档均读取原数组，不 Run。PAM4 两个 bit 错误落在同一 symbol 时保留两条。</p>${charts.map((chart,index)=>`<details><summary>${escape(records[index].run_id)} · ${berText(chart.ber||records[index].decoding?.ber)}${chart.selected_error?` · Error ${chart.selected_error.entry}: bit ${chart.selected_error.bit_index} → symbol ${chart.selected_error.symbol_index}`:''}</summary><pre>${escape(JSON.stringify({ber:chart.ber,selected_error:chart.selected_error,display:chart.display},null,2))}</pre>${chart.top3?`<table><tr><th>symbol</th><th>rank/state</th><th>raw probability</th><th>display log10 (floor −20)</th></tr>${chart.top3.flatMap(row=>row.symbol_indices.map((symbol,j)=>`<tr><td>${symbol}</td><td>${row.rank} / ${row.state_indices[j]}</td><td>${row.raw_probabilities[j]}</td><td>${row.display_log10[j]}</td></tr>`)).join('')}</table>`:''}</details>`).join('')}`;
+    $('analysis-info').insertAdjacentHTML('afterbegin',charts.map((chart,index)=>chart.metadata_warning?`<p>${escape(records[index].run_id)} · ${escape(chart.metadata_warning)}</p>`:'').join(''));
   }
   window.PYBERT_VITERBI={render};
 })();

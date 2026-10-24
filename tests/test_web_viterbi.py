@@ -86,6 +86,56 @@ def test_windows_source_identity_paths_are_portable(captured):
     validate(manifest, arrays)
 
 
+def test_full_dfe_decisions_have_own_axis_and_explicit_decoder_tail(captured):
+    _, arrays, manifest = captured
+    assert manifest["decoding"]["schema_version"] == 2
+    assert arrays["viterbi.symbols_dfe"].shape == (16,)
+    assert np.array_equal(arrays["viterbi.dfe_symbol_index"], np.arange(16))
+    meta = manifest["datasets"]["viterbi.symbols_dfe"]
+    assert meta["axis"] == "viterbi.dfe_symbol_index"
+    assert meta["window"] == {"kind": "full native DFE decision sequence", "symbol_start": 0,
+                              "symbol_stop_exclusive": 16}
+    assert manifest["decoding"]["dfe_decisions"] == {
+        "symbol_count": 16, "decoder_start_symbol": 4, "decoder_stop_symbol_exclusive": 16,
+        "decoder_axis": "viterbi.symbol_index", "selection": "symbols_dfe[-len(sig_samps):] * decision_scaler"}
+    validate(manifest, arrays)
+    arrays["viterbi.symbols_dfe"][-1] = 1
+    with pytest.raises(ValueError, match="DFE decision tail"):
+        validate(manifest, arrays)
+
+
+@pytest.mark.parametrize("damage", ["axis", "window", "mapping", "full_index", "schema_downgrade"])
+def test_dfe_full_sequence_metadata_damage_rejected(captured, damage):
+    _, arrays, manifest = captured
+    if damage == "axis":
+        manifest["datasets"]["viterbi.symbols_dfe"]["axis"] = None
+    elif damage == "window":
+        manifest["datasets"]["viterbi.symbols_dfe"]["window"] = manifest["datasets"]["viterbi.sig_samps"]["window"]
+    elif damage == "mapping":
+        manifest["decoding"]["dfe_decisions"]["decoder_start_symbol"] = 0
+    elif damage == "full_index":
+        arrays["viterbi.dfe_symbol_index"][0] = 1
+    else:
+        manifest["decoding"]["schema_version"] = 1
+    with pytest.raises(ValueError):
+        validate(manifest, arrays)
+
+
+def test_legacy_schema1_retained_with_explicit_metadata_erratum(captured, tmp_path):
+    _, arrays, manifest = captured
+    manifest["decoding"]["schema_version"] = 1
+    del manifest["decoding"]["dfe_decisions"]
+    del arrays["viterbi.dfe_symbol_index"]
+    del manifest["datasets"]["viterbi.dfe_symbol_index"]
+    meta = manifest["datasets"]["viterbi.symbols_dfe"]
+    meta.update(axis=None, window=copy.deepcopy(manifest["datasets"]["viterbi.sig_samps"]["window"]))
+    validate(manifest, arrays)
+    save_view(tmp_path, arrays, manifest)
+    before = (tmp_path / "manifest.json").read_bytes()
+    assert "schema 1" in payload(tmp_path)["metadata_warning"]
+    assert (tmp_path / "manifest.json").read_bytes() == before
+
+
 @pytest.mark.parametrize("damage", ["source", "missing_bits", "axis", "window", "count", "error_mapping", "states", "sample_time", "schema"])
 def test_incomplete_self_consistent_decoding_rejected(captured, damage):
     _, arrays, manifest = captured
@@ -159,6 +209,32 @@ def test_fec_rejected_in_config_yaml_runtime_and_request(tmp_path):
     response = client.post("/api/runs", json={"config": defaults, "input_hash": input_hash(defaults), "rx_viterbi_fec": True})
     assert response.status_code == 422 and "unsupported_native_fec" in response.json()["detail"]
     assert manager.active is None and not manager.tasks
+
+
+def test_http_cached_defaults_reject_fec_without_worker_or_losing_success(tmp_path, monkeypatch):
+    manager = Tasks(tmp_path)
+    client = TestClient(create_app(manager))
+    warm = client.post("/api/normalize", json={"mode": "defaults"})
+    assert warm.status_code == 200 and manager.defaults == warm.json()
+    existing_tasks = set(manager.tasks)
+    manager.runs = ["old-success"]
+    retained = tmp_path / "old-success"
+    retained.mkdir()
+    (retained / "manifest.json").write_text('{"status":"succeeded"}', encoding="utf-8")
+    (retained / "arrays.npz").write_bytes(b"old raw bytes")
+    before = {path.name: path.read_bytes() for path in retained.iterdir()}
+
+    def no_worker(*_args, **_kwargs):
+        pytest.fail("cached defaults must not start any worker")
+
+    monkeypatch.setattr(manager.context, "Process", no_worker)
+    assert client.post("/api/normalize", json={"mode": "defaults"}).json() == manager.defaults
+    for request in ({"mode": "defaults", "rx_viterbi_fec": True},
+                    {"mode": "defaults", "config": {"rx_viterbi_fec": True}}):
+        response = client.post("/api/normalize", json=request)
+        assert response.status_code == 422 and "unsupported_native_fec" in response.json()["detail"]
+    assert manager.active is None and set(manager.tasks) == existing_tasks and manager.runs == ["old-success"]
+    assert before == {path.name: path.read_bytes() for path in retained.iterdir()}
 
 
 def test_original_trellis_producer_body_is_unchanged():
