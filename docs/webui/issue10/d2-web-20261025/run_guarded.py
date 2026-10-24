@@ -243,10 +243,12 @@ def main():
         events.close()
         observations.close()
         receipt["output_sha256"] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in destination.iterdir() if path.is_file() and path.name not in hashes and path.name != "before.json"}
+            for path in destination.iterdir()
+            if path.is_file() and path.name not in hashes and path.name != "before.json"}
         receipt["array_output_sha256"] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
                                            for path in sorted(arrays_dir.iterdir())}
-        receipt["inputs_unchanged_after"] = all(hashlib.sha256((root / relative).read_bytes()).hexdigest() == hashes[name]
+        receipt["inputs_unchanged_after"] = all(
+            hashlib.sha256((root / relative).read_bytes()).hexdigest() == hashes[name]
             for name, relative in plan["snapshot_paths"].items())
         if not receipt["inputs_unchanged_after"]:
             receipt["exit_code"], code = 1, 1

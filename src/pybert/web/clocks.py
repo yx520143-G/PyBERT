@@ -127,5 +127,6 @@ def eye_selection(context, slice_start, slice_stop):
                       "slice_start": slice_start, "slice_stop": stop, "width": width,
                       "invocation_id": info["invocation_id"], "source_fields": ["ami.clock.sample_indices",
                       "ami.clock.sample_targets_s", "ami.clock.sample_grid_times_s"],
-                      "window": dict(info["analysis"]), "availability": "available" if len(relative) else "unavailable",
+                      "window": dict(info["analysis"]),
+                      "availability": "available" if len(relative) else "unavailable",
                       "reason": None if len(relative) else "no_complete_timed_trace"}

@@ -1,7 +1,8 @@
 """Native Rx GetWave sampling and its producer-owned analysis coordinates."""
 
-import numpy as np
 from time import monotonic_ns
+
+import numpy as np
 
 
 def new_clock_info(requested=False, mode="native", origin=None):
