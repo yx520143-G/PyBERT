@@ -93,4 +93,6 @@ uv run --no-project --python <既有解释器> python docs/webui/issue22/params-
 | 已测批次内部 elapsed 总和 | 3.725872899958631 s |
 | 全任务 wall time / peak RSS | UNKNOWN，未连续测量 |
 
-只读 Standards/Spec 自审：候选版本固定后执行，结果另存本目录。最终 Draft PR、HEAD/tree、停止写入与返权状态由最终交接消息固定；本报告不自引用提交 hash。不得自行 merge/关闭 #22/#10/#4/#1。
+只读 Standards/Spec 自审已完成，两轴各 0 findings，未重跑 parser/测试或引擎。详见 [review.md](review.md)：固定候选 `80100e262e433076396819e3d29aedc20bdad30a` / tree `6d283adc05ff6c7fd76c4e67c4ee724c55084b7d`。之后只增加报告和交接文档，green05 的生产/测试/runner hash 均未变；不扩大回归。
+
+最终 Draft PR、HEAD/tree、停止写入与返权状态由最终交接消息固定；本报告不自引用提交 hash。不得自行 merge/关闭 #22/#10/#4/#1。
