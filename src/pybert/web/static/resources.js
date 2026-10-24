@@ -134,6 +134,7 @@
   $('compute-com').onclick=async()=>{try{const task=await api('com',{thru_resource_id:$('com-thru').value,config_resource_id:$('com-config').value || null,parameter_source:$('com-config').value?'spreadsheet':'IEEE_8023dj defaults',parent_run_id:$('com-parent').checked?selectedParent:null});busy=true;$('resource-status').textContent=`COM ${task.task_id} 已提交`;render();}catch(error){$('resource-status').textContent=error.message;}};
   $('com-thru').onchange=render;$('com-config').onchange=render;
   window.PYBERT_RESOURCES = {
+    bindModel:(side,id)=>{bindings[`${side}_model_bundle`]=id;notify();},
     bindings:()=>clone(bindings), pending:()=>uploading,
     restore:(value,config)=>{bindings=clone(value || {});refs=Object.fromEntries(Object.keys(bindings).map(key=>[key,clone(config[key])]));render();},
     importReport:result=>{configReport={import_report:result.import_report,runtime_extensions:result.runtime_extensions,runtime_status:result.runtime_status,unresolved_references:result.unresolved_references};render();},

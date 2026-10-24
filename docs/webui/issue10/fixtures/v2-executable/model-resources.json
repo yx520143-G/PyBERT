@@ -1,0 +1,72 @@
+{
+  "tx": {
+    "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+    "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+    "format": ".model",
+    "files": [
+      {
+        "relative_path": "example_tx.ami",
+        "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+        "bytes": 1461
+      },
+      {
+        "relative_path": "example_tx.cpp",
+        "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+        "bytes": 3151
+      },
+      {
+        "relative_path": "example_tx.cpp.em",
+        "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+        "bytes": 3212
+      },
+      {
+        "relative_path": "example_tx.ibs",
+        "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+        "bytes": 3046
+      },
+      {
+        "relative_path": "example_tx_x86_amd64.dll",
+        "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+        "bytes": 347136
+      }
+    ],
+    "bytes": 358006,
+    "source": {
+      "kind": "local_directory",
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+    },
+    "original_name": "model bundle",
+    "permission": "explicitly supplied for this local session",
+    "parse_status": "not checked; binary loading requires a child task"
+  },
+  "rx": {
+    "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+    "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+    "format": ".model",
+    "files": [
+      {
+        "relative_path": "example_rx.ami",
+        "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+        "bytes": 4067
+      },
+      {
+        "relative_path": "example_rx.ibs",
+        "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+        "bytes": 2804
+      },
+      {
+        "relative_path": "example_rx_x86_amd64.dll",
+        "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+        "bytes": 363008
+      }
+    ],
+    "bytes": 369879,
+    "source": {
+      "kind": "local_directory",
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+    },
+    "original_name": "model bundle",
+    "permission": "explicitly supplied for this local session",
+    "parse_status": "not checked; binary loading requires a child task"
+  }
+}

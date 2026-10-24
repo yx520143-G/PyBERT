@@ -13,6 +13,7 @@ from pybert.web.data import collect
 from pybert.web.resources import inspect_channels, projection
 from pybert.web.com import ComCancelled, run_com
 from pybert.web.optimization import OptimizationCancelled, run_optimization
+from pybert.web.ami import AMICancelled, Execution, configure
 
 
 class Stream:
@@ -47,6 +48,13 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
         return False
 
     terminal = {}
+    execution = Execution(cancelled)
+    model_report = {}
+
+    def checkpoint():
+        if cancelled():
+            raise AMICancelled("Native task checkpoint observed cancellation")
+        return False
     try:
         with contextlib.redirect_stdout(Stream(emit)), contextlib.redirect_stderr(Stream(emit)):
             if cancelled():
@@ -54,11 +62,11 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                     raise ComCancelled("Cancelled before validation")
                 if operation == "optimization":
                     raise OptimizationCancelled("Cancelled before optimization validation")
-                raise RuntimeError("Cancelled before validation")
+                raise AMICancelled("Cancelled before validation")
             if operation == "normalize":
-                result = normalize(request)
+                result = normalize(request, cancelled, emit)
                 if cancelled():
-                    raise RuntimeError("Cancelled after normalization")
+                    raise AMICancelled("Cancelled after normalization")
                 terminal = {"status": "succeeded", "result": result}
             elif operation == "com":
                 handler = logging.StreamHandler(Stream(emit))
@@ -84,28 +92,35 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                 if request.get("input_identity_hash", identity_hash) != identity_hash:
                     raise ValueError("Full input identity hash mismatch.")
                 load_config(p, config, snapshot(p))
+                runtime = extensions(request.get("runtime_extensions", {}))
+                frozen_runtime = json.loads(json.dumps(runtime))
+                model_report = configure(p, config, runtime, request.get("frozen_resources", []), check=cancelled, emit=emit)
+                if runtime != frozen_runtime:
+                    raise ValueError("Complete frozen AMI parameter tree required; validate before Run.")
                 effective = snapshot(p)
+                effective.update({key: config[key] for side in ("tx", "rx") for key in (side + "_dll_file", side + "_ami_file", side + "_ibis_file")})
                 if input_hash(effective) != request["input_hash"]:
                     raise ValueError("Effective input differs from frozen snapshot; normalize before Run.")
                 validate(effective, snapshot(new_engine()), execution=True)
-                runtime = extensions(request.get("runtime_extensions", {}))
                 resources = inspect_channels(config, request.get("frozen_resources", []))
+                resources += [r for r in request.get("frozen_resources", []) if r["field"].endswith("_model_bundle")]
                 projected = projection(effective, request.get("frozen_resources", []))
                 p.trait_setq(ch_file=projected["ch_file"], ch_files=projected["ch_files"], enable_com=False)
                 if cancelled():
-                    raise RuntimeError("Cancelled before simulation")
+                    raise AMICancelled("Cancelled before simulation")
                 emit("phase", phase="running")
                 observations = {}
                 decoding = {}
-                my_run_simulation(
-                    p, initial_run=True, update_plots=False, aborted_sim=cancelled, observations=observations,
-                    decoding=decoding,
-                )
+                with execution.capture():
+                    my_run_simulation(
+                        p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,
+                        decoding=decoding,
+                    )
                 # Native early returns and partial producers cannot become successful runs.
                 if p.status != "Ready." or set(observations) != {"source", "chnl", "tx", "ctle", "dfe"}:
                     raise RuntimeError(f"Native producer did not complete: {p.status}")
                 if cancelled():
-                    raise RuntimeError("Cancelled after simulation")
+                    raise AMICancelled("Cancelled after simulation")
                 emit("phase", phase="building native analyses")
                 identity = {
                     "run_id": task_id,
@@ -128,9 +143,10 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                                            "worker_projection": projected},
                     "warnings": warnings(effective),
                 }
-                collect(p, observations, directory, identity, cancelled, decoding=decoding)
+                collect(p, observations, directory, identity, checkpoint, decoding=decoding,
+                        ami=(execution, model_report) if model_report else None)
                 if cancelled():
-                    raise RuntimeError("Cancelled before publication")
+                    raise AMICancelled("Cancelled before publication")
                 terminal = {"status": "succeeded", "result": {"run_id": task_id}}
             else:
                 raise ValueError(f"Unknown worker operation {operation}")
@@ -138,14 +154,19 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
         terminal = {"status": "cancelled", "error": str(err), "error_type": type(err).__name__}
     except OptimizationCancelled as err:
         terminal = {"status": "cancelled", "error": str(err), "error_type": type(err).__name__}
+    except AMICancelled as err:
+        terminal = {"status": "cancelled", "error": str(err), "error_type": type(err).__name__}
     except Exception as err:
+        model_report = getattr(err, "ami_report", model_report)
         terminal = {
-            "status": "cancelled" if observed and operation not in ("com", "optimization") else "failed",
+            "status": "failed",
             "error": str(err),
             "error_type": type(err).__name__,
             "traceback": traceback.format_exc(),
         }
     finally:
+        if execution.calls or model_report:
+            execution.write(directory, model_report)
         terminal.update(cancel_observed=observed, cancel_requested=cancel_event.is_set())
         Path(directory, "terminal.json").write_text(json.dumps(terminal, indent=2), encoding="utf-8")
         emit("terminal", **terminal)

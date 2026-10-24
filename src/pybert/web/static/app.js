@@ -160,10 +160,10 @@
   function inputControl(key, label) {
     const field = settings.fields[key];
     if (field.kind === 'unavailable') {
-      const result=window.PYBERT_OPTIMIZER?.field(key);
+      const result=window.PYBERT_AMI?.field(key) || window.PYBERT_OPTIMIZER?.field(key);
       return `<output id="control-${key}" class="unavailable-value" aria-label="${escape(label)}">${result ? escape(result) : `未提供 · ${escape(field.readonly)}`}</output>`;
     }
-    if (field.kind === 'action') return `<button id="control-${key}" class="secondary-button" type="button" disabled>${escape(label)}</button>`;
+    if (field.kind === 'action') return `<button id="control-${key}" class="secondary-button" type="button" data-ami-open="${key.endsWith('_tx')?'tx':'rx'}">${escape(label)}</button>`;
     const value = draft[key];
     const reason = settings.disabledReason(key, draft);
     const error = settings.fieldError(key, draft);

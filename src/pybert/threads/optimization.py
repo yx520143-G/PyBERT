@@ -570,6 +570,11 @@ def coopt(pybert, observations=None) -> tuple[list[float], float, list[float], f
                 rx_ami_vals = array([])
 
             fom, rx_weights, dfe_weights_c, p_tot = score_candidate(p_ctle_out, ctle_H, h_tx)
+            if observations is not None:
+                observations["candidates"].append(dict(index=trials_run, peak_mag=float(peak_mag),
+                    tx_weights=array(tx_weights if tx_weights is not None else []), rx_weights=rx_weights.copy(),
+                    dfe_weights=dfe_weights_c.copy(), fom=float(fom), pulse=p_tot.copy(),
+                    ami_values={"tx": tx_ami_vals.tolist(), "rx": rx_ami_vals.tolist()}))
             if study is not None:
                 study.tell(trial, fom)
             _report_progress(pybert, trials_run, n_trials, trials_run_inc)

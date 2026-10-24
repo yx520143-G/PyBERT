@@ -86,7 +86,7 @@ def source_identity():
     return {str(path.relative_to(package)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths if path.is_file()}
 
 
-def collect(engine, observations, directory, identity, cancelled=lambda: False, *, decoding=None):
+def collect(engine, observations, directory, identity, cancelled=lambda: False, *, decoding=None, ami=None):
     """Publish only complete finite raw data, with independent axes per observation."""
     p = engine
     arrays, datasets, plots = {}, {}, {}
@@ -389,6 +389,10 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
     else:
         # Historical helper callers did not request the new local capture.
         manifest["raw_schema_version"] = 4
+    if ami is not None:
+        from pybert.web.ami import annotate
+
+        annotate(p, ami[0], ami[1], arrays, manifest)
     np.savez_compressed(directory / "arrays.npz", **arrays)
     (directory / "manifest.json").write_text(json.dumps(manifest, indent=2, allow_nan=False), encoding="utf-8")
     return manifest

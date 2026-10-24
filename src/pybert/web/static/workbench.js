@@ -104,6 +104,7 @@
       base = result.config; normalized = result; patches = []; runtimeExtensions=result.runtime_extensions;
       window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
       window.PYBERT_RESOURCES?.importReport(result);
+      window.dispatchEvent(new CustomEvent('pybert-model-state',{detail:result}));
       ui.replaceDraft(toDraft(base)); captured = toNative(ui.getDraft());
       persistNative();
       normalizedRevision = expectedRevision;
@@ -356,6 +357,7 @@
     $('config-name').textContent=name || 'Untitled';
     window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
     window.PYBERT_RESOURCES?.importReport(result);
+    window.dispatchEvent(new CustomEvent('pybert-model-state',{detail:result}));
     ui.replaceLoadedDraft(toDraft(base));captured=toNative(ui.getDraft());persistNative();
   }
   $('config-file').addEventListener('change',async event => {
@@ -396,6 +398,8 @@
   $('help').addEventListener('click',() => $('help-dialog').showModal()); $('close-help').addEventListener('click',() => $('help-dialog').close());
   $('quit').addEventListener('click',() => { disconnected=true; controls(); $('task-state').textContent='Disconnected. You may close this tab; backend tasks continue.'; });
   window.PYBERT_RUNS={api,selected:()=>selected,references:()=>references.slice(),refresh:()=>poll(true),
+    modelDraft:()=>({config:toNative(ui.getDraft()),...extraInput(),draft_revision:revision}),
+    configureModel:async body=>{if(activeTask || normalizing)throw new Error('计算槽忙；等待实际退出。');clearTimeout(timer);normalizing=api('normalize',{mode:'ami_configure',...body});controls();try{const result=await normalizing;applyLoadedInput(result,sourceRecordId,logicalName,replayGuard);return result;}finally{normalizing=null;controls();}},
     optimizationInput:async()=>{clearTimeout(timer);const input=await normalizeDraft();return {...input,draft_revision:revision,source_record_id:sourceRecordId,replay_guard:replayGuard};},
     optimizerAction:async(action,record_id)=>{const input=await normalizeDraft(),sourceRevision=revision;const result=await api(`optimizer-actions/${action}`,{config:input.config,...extraInput(),record_id,draft_revision:sourceRevision});return {...result,source_draft_revision:sourceRevision};},
     applyOptimizer:result=>{applyLoadedInput(result,sourceRecordId,logicalName,replayGuard);controls();},
