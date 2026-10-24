@@ -126,7 +126,7 @@ def validate(run, arrays):
     if not isinstance(record, dict) or type(record.get("schema_version")) is not int or record["schema_version"] != 1:
         raise ValueError("Missing/unknown decoding schema")
     config = run["effective_input"]
-    hashes = run.get("actual_source_sha256", {})
+    hashes = {key.replace("\\", "/"): value for key, value in run.get("actual_source_sha256", {}).items()}
     for name in ("models/bert.py", "models/viterbi.py", "web/viterbi.py"):
         value = hashes.get(name)
         if not isinstance(value, str) or len(value) != 64 or any(c not in "0123456789abcdef" for c in value):

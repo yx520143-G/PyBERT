@@ -34,7 +34,7 @@ def captured(tmp_path):
            "auto_corr": np.zeros(12), "bit_delay": 0, "test_start_bit": 8, "test_stop_bit": 32,
            "reference_start_bit": 8, "reference_stop_bit": 32, "errors": np.array([2, 3]), "count": 2}
     probs = np.zeros((count, states))
-    probs[:, :3] = [.6, .3, .1]
+    probs[:, :2] = [.6, .4]
     trans = np.zeros((states, states))
     trans[:, 0] = 1
     debug = {"decoder": SimpleNamespace(states=np.zeros((states, n)), trans=trans),
@@ -71,9 +71,17 @@ def test_original_error_mapping_view_clamp_raw_log_and_zero(captured, tmp_path):
     assert payload(tmp_path)["error"] == 0
     assert result["top3"][0]["raw_probabilities"] == [.6] * 10
     assert np.allclose(result["top3"][0]["display_log10"], np.log10(.6))
+    assert result["top3"][2]["raw_probabilities"] == [0.] * 10
+    assert result["top3"][2]["display_log10"] == [-20.] * 10
     assert all(arrays[k].tobytes() == value for k, value in before.items())
     with pytest.raises(ValueError, match="1-based"):
         payload(tmp_path, error=3)
+
+
+def test_windows_source_identity_paths_are_portable(captured):
+    _, arrays, manifest = captured
+    manifest["actual_source_sha256"] = {key.replace("/", "\\"): value for key, value in manifest["actual_source_sha256"].items()}
+    validate(manifest, arrays)
 
 
 @pytest.mark.parametrize("damage", ["source", "missing_bits", "axis", "window", "count", "error_mapping", "states", "sample_time", "schema"])

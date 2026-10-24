@@ -137,13 +137,24 @@ def main():
         report["main_calls"] += 1
         entry = manager.tasks[task["task_id"]]
         peak = 0
+        worker_started = time.time()
+        budget_timeout = False
         while not entry["done"].wait(.05):
             try:
                 peak = max(peak, rss(entry["process"].pid))
             except (OSError, ValueError):
                 pass
+            if time.time() - worker_started > 180:
+                budget_timeout = True
+                manager.cancel(task["task_id"])
+                if not entry["done"].wait(10):
+                    # Test harness budget termination, never cooperative cancellation evidence.
+                    entry["process"].terminate()
+                if not entry["done"].wait(10):
+                    raise RuntimeError(f"{name}: worker exit still unconfirmed after test budget termination")
+                break
         status = manager.get(task["task_id"])
-        row.update(adapter=status, adapter_peak_working_set_bytes=peak or None)
+        row.update(adapter=status, adapter_peak_working_set_bytes=peak or None, adapter_budget_timeout=budget_timeout)
         if status["state"] == "succeeded" and result["status"] == "succeeded":
             manifest = manager.manifest(task["task_id"])
             with np.load(directory / "reference.npz", allow_pickle=False) as a, np.load(entry["directory"] / "arrays.npz", allow_pickle=False) as b:
