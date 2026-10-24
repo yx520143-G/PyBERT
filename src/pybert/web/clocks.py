@@ -202,7 +202,8 @@ def period_projection(context, t, period_ps, ui):
                           + step_ulps + step_ulps[0])
                 errors = np.abs(steps - ts)
                 increasing = bool(np.all(steps > 0))
-                finite = bool(np.isfinite(bounds).all() and np.isfinite(errors).all() and np.isfinite(steps).all())
+                finite = bool(np.isfinite(bounds).all() and np.isfinite(errors).all()
+                              and np.isfinite(steps).all())
                 spectrum["uniform_grid_validation"] = {
                     "rule": "one ULP per endpoint and subtraction for tested and reference intervals",
                     "reference": "original t[1]-t[0]; every interval in the original full grid",

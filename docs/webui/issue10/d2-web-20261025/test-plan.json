@@ -40,7 +40,7 @@
     "integer-float-math-static.json": "docs/webui/issue10/d2-web-20261025/integer-float-math-static.json"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/web/clocks.py": "f198246b11d5d6427879c830d18ebf34bf89d41924042e2ab98c56ed7eed546b",
+    "src/pybert/web/clocks.py": "09d5cb713c5df9d0a20b7b22d4b5f65a46d7af010db74768c864fad88ba15ce6",
     "docs/webui/issue10/d2-web-20261025/d2_cases.py": "32daba1e8f328943fe67108c50dbb7467b76441c5e72db37f7baa2ade070d66f",
     "docs/webui/issue10/d2-web-20261025/run_guarded.py": "22111c85d46b7ab2826b7eced06ea7f63028faf37c5de199ab64b3678afdf0f1",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "8309db69ac4463add59db505adc51f34fbd49217646200e5f53a538ea4938f7a",
