@@ -1,0 +1,146 @@
+{
+  "runs": [
+    {
+      "case": "F4-SINGLE-NRZ",
+      "input": "F4-SINGLE-NRZ.json",
+      "inherits": "F-NRZ-01",
+      "resources": [
+        "A"
+      ],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-SINGLE-PAM4",
+      "input": "F4-SINGLE-PAM4.json",
+      "inherits": "F-PAM4-01",
+      "resources": [
+        "A"
+      ],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-CASCADE-AB",
+      "input": "F4-CASCADE-AB.json",
+      "inherits": "F-NRZ-01",
+      "resources": [
+        "A",
+        "B"
+      ],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-CASCADE-BA",
+      "input": "F4-CASCADE-BA.json",
+      "inherits": "F-NRZ-01",
+      "resources": [
+        "B",
+        "A"
+      ],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-L0-OFF",
+      "input": "F4-L0-OFF.json",
+      "inherits": "F-NRZ-01",
+      "resources": [
+        "M"
+      ],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-L0-ON",
+      "input": "F4-L0-ON.json",
+      "inherits": "F-NRZ-01",
+      "resources": [
+        "M"
+      ],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-L1-OFF",
+      "input": "F4-L1-OFF.json",
+      "inherits": "F-NRZ-01",
+      "resources": [
+        "M"
+      ],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-L1-ON",
+      "input": "F4-L1-ON.json",
+      "inherits": "F-NRZ-01",
+      "resources": [
+        "M"
+      ],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-PACKAGE",
+      "input": "F4-PACKAGE.json",
+      "inherits": "F-NRZ-01",
+      "resources": [
+        "A"
+      ],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-DUO",
+      "input": "F4-DUO.json",
+      "inherits": "F-NRZ-01",
+      "resources": [],
+      "status_before_calculation": "PLANNED",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    },
+    {
+      "case": "F4-TIME",
+      "input": "F4-TIME.json",
+      "inherits": "F-NRZ-01",
+      "resources": [
+        "T"
+      ],
+      "status_before_calculation": "NATIVE_BOUNDARY_PENDING_REPRODUCTION",
+      "enabled_analyses": "all #3 analysis_version2 datasets",
+      "noise_seed_window_tolerance": "unchanged from inherited fixture"
+    }
+  ],
+  "com": [
+    {
+      "case": "F4-COM-DEFAULT",
+      "thru": "A",
+      "parameters": "IEEE_8023dj defaults",
+      "status": "BLOCKED_BUDGET / NOT_EXECUTED",
+      "parameters_ref": "budget-correction-v2.json#default"
+    },
+    {
+      "case": "F4-COM-XLS",
+      "thru": "A",
+      "config": "C",
+      "status": "PLANNED",
+      "parameters_ref": "budget-correction-v2.json#spreadsheet"
+    }
+  ],
+  "com_tolerance_db": {
+    "rtol": 1e-10,
+    "atol": 1e-09
+  },
+  "cost_policy": "serial direct then one fresh worker; one representative per listed case; no port/rate matrix; preserve failures; no resource/case substitution"
+}

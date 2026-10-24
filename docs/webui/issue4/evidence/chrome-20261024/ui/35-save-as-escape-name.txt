@@ -1,0 +1,6 @@
+### Result
+"F-NRZ-01.yaml"
+### Ran Playwright code
+```js
+await page.evaluate('() => (document.querySelector("#config-name").textContent)');
+```

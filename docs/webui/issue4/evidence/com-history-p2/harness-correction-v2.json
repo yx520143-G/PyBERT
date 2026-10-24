@@ -1,0 +1,7 @@
+{
+  "reason": "v1 audit URL was shadowed by StaticFiles mount; UI metadata tests passed, but final urllib audit GET returned404. Original UI/outputs retained. Audit is now handled by read-only middleware before routing.",
+  "product_sources_unchanged": true,
+  "helper_sha256": "8224cc02b800efaafdf80d0e446483d8abde8ed2279564c766dd41abd9f5cfb1",
+  "main_simulations": 0,
+  "COM_calls": 0
+}

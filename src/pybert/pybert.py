@@ -1410,7 +1410,7 @@ class PyBERT(HasTraits):  # pylint: disable=too-many-instance-attributes
         self.pkg_s2p = total
         return terminated_h21(total, gamma_term(tx_dev.Rd, R0), gamma_term(rx_dev.Rd, R0)) / 2
 
-    def calc_chnl_h(self):
+    def calc_chnl_h(self, observations=None):
         """Calculates the channel impulse response.
 
         Also sets, in 'self':
@@ -1617,7 +1617,11 @@ class PyBERT(HasTraits):  # pylint: disable=too-many-instance-attributes
                     h = irfft(fext_H)
                 krnl = interp1d(t_irfft, h, kind="cubic", bounds_error=False, fill_value=0, assume_sorted=True)
                 h_t = krnl(t) * t[1] / t_irfft[1]
-                h_t, _ = trim_impulse(h_t, min_len=min_len, max_len=max_len, front_porch=True, kept_energy=0.999)
+                h_t, fext_start_ix = trim_impulse(h_t, min_len=min_len, max_len=max_len, front_porch=True, kept_energy=0.999)
+                if observations is not None:
+                    index = len(self.fext_h)
+                    observations.update({f"fext_{index}_h": h_t, f"fext_{index}_H": fext_H,
+                                         f"fext_{index}_start_ix": fext_start_ix})
                 self.fext_h.append(h_t)
 
         return chnl_h

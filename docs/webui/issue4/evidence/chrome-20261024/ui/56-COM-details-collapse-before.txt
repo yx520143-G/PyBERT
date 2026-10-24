@@ -1,0 +1,6 @@
+### Result
+{"immediate":"","after_poll":null}
+### Ran Playwright code
+```js
+await (async page => { await page.getByText(/^c922f333.*failed/).click(); const immediate=await page.locator("#com-results details").nth(1).getAttribute("open"); await page.waitForTimeout(1700); return {immediate,after_poll:await page.locator("#com-results details").nth(1).getAttribute("open")}; })(page);
+```

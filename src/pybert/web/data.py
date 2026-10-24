@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 
 from pybert.utility import calc_eye, safe_log10
-from pybert.web import NATIVE_SHA, PROTOTYPE_SHA, RAW_SCHEMA_VERSION, SCHEMA_VERSION
+from pybert.web import NATIVE_SHA, NATIVE_IMPORTER_SHA, PROTOTYPE_SHA, RAW_SCHEMA_VERSION, SCHEMA_VERSION
 
 RESPONSES = ("chnl", "tx", "tx_out", "ctle", "ctle_out", "ffe", "ffe_out", "dfe", "dfe_out")
 WAVEFORMS = ("ideal_signal", "chnl_out", "rx_in", "ctle_out", "ffe_out", "dfe_out")
@@ -138,6 +138,7 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
             axis="t" if key in WAVEFORMS or key in ("noise", "ui_ests", "clocks", "lockeds") else None,
         )
     datasets["start_ix"].update(unit="sample index", producer="PyBERT.calc_chnl_h.start_ix", point="chnl")
+    datasets["noise"].update(producer="my_run_simulation.noise before FEXT addition", point="noise")
     for key in WAVEFORMS + ("noise", "ui_ests", "clocks", "lockeds"):
         if arrays[key].shape != arrays["t"].shape:
             raise ValueError(f"{key}: incomplete time record")
@@ -209,7 +210,7 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
                     "Hz"
                     if key == "spectrum_freqs"
                     else "V"
-                    if key in ("x", "ideal_signal", "decision_scaler")
+                    if key in ("x", "ideal_signal", "decision_scaler", "noise_total") or key.endswith("_voltage")
                     else "1"
                     if key
                     in ("xing_mask", "valid", "nspui", "nui", "eye_uis", "pattern_len", "rel_thresh", "mod_type")
@@ -223,6 +224,30 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
                     kind="context",
                     producer="my_run_simulation locals",
                 )
+    source = observations["source"]
+    noise_traces = []
+    for key in ("x", "noise_total", *(k for k in source if k.endswith("_voltage"))):
+        field = f"context.source.{key}"
+        if field not in arrays:
+            continue
+        datasets[field].update(axis="t", unit="V", point="source" if key == "x" else "noise",
+                               window={"kind": "full_record", "sample_start": 0, "sample_stop_exclusive": len(p.t)},
+                               producer="my_run_simulation.x" if key == "x" else "my_run_simulation FEXT injection locals")
+        label = "Actual source x" if key == "x" else "Total base noise + coherent FEXT" if key == "noise_total" else key
+        trace = line(f"wave.{key}", p.t[indices] * 1e9, arrays[field][indices], label, "ns", "V")
+        plots[f"wave.{key}"] = {"title": label, "traces": [trace], "projection": "waveform_indices"}
+        if key != "x":
+            noise_traces.append(trace)
+    noise_traces.insert(0, line("wave.noise_base", p.t[indices] * 1e9, arrays["noise"][indices], "Base periodic + random noise (self.noise)", "ns", "V"))
+    plots["noise"] = {"title": "Base noise / coherent FEXT contributions / total injection", "traces": noise_traces,
+                      "fext_availability": "active" if source.get("fext_count", 0) else "disabled"}
+    for index in range(source.get("fext_count", 0)):
+        prefix = f"context.source.fext_{index}"
+        start_ix = int(arrays[f"{prefix}_start_ix"])
+        axis = add(f"axis.fext_{index}_h", p.t[start_ix:start_ix + len(arrays[f"{prefix}_h"])] * 1e9, "ns", kind="axis")
+        datasets[f"{prefix}_h"].update(axis=axis, unit="V/sample", point="noise", producer="PyBERT.calc_chnl_h FEXT trim_impulse")
+        datasets[f"{prefix}_H"].update(axis="f", unit="complex gain", point="noise", producer="PyBERT.calc_chnl_h FEXT terminated s21")
+        datasets[f"{prefix}_start_ix"].update(unit="sample index", producer="PyBERT.calc_chnl_h FEXT trim_impulse")
     for point in JITTER_POINTS:
         if point not in observations or not observations[point]["valid"]:
             raise ValueError(f"{point}: native jitter did not complete")
@@ -323,8 +348,9 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
     manifest = dict(
         schema_version=SCHEMA_VERSION,
         raw_schema_version=RAW_SCHEMA_VERSION,
-        **{k: v for k, v in identity.items() if k != "warnings"},
+        **{k: v for k, v in identity.items() if k not in ("warnings", "resources")},
         native_sha=NATIVE_SHA,
+        native_importer_sha=NATIVE_IMPORTER_SHA,
         prototype_sha=PROTOTYPE_SHA,
         adapter_sha=adapter_sha(),
         status="succeeded",
@@ -332,7 +358,7 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
         plots=plots,
         summary=summary,
         window=window,
-        resources=[],
+        resources=identity.get("resources", []),
         warnings=identity.get("warnings", []),
         packages={
             name: importlib.metadata.version(name)
@@ -343,6 +369,9 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
     from pybert.web.analysis import extend_analysis
 
     extend_analysis(arrays, manifest, cancelled)
+    from pybert.web.resource_data import annotate_interference
+
+    annotate_interference(arrays, manifest)
     np.savez_compressed(directory / "arrays.npz", **arrays)
     (directory / "manifest.json").write_text(json.dumps(manifest, indent=2, allow_nan=False), encoding="utf-8")
     return manifest
@@ -381,6 +410,8 @@ def plot_payload(directory, plot_id):
     first = plot["traces"][0] if plot["traces"] else {"xunit": "ps", "yunit": "V"}
     fields = list(plot.get("heatmap", {}).values()) or [trace[axis] for trace in plot["traces"] for axis in ("x", "y")]
     metadata = dict(plot.get("metadata", {}))
+    if plot_id == "noise":
+        metadata["interference"] = manifest.get("interference", {"availability": plot.get("fext_availability", "unknown")})
     if fields:
         metadata.update(window=manifest["datasets"][fields[0]]["window"],
                         datasets={key:manifest["datasets"][key] for key in fields})
@@ -388,7 +419,7 @@ def plot_payload(directory, plot_id):
         "run_id": manifest["run_id"],
         "plot_id": plot_id,
         "data": traces,
-        "title": plot["title"],
+        "title": plot["title"] + (" · FEXT disabled" if plot_id == "noise" and metadata["interference"]["availability"] == "disabled" else ""),
         "xunit": first["xunit"],
         "yunit": first["yunit"],
         "logx": first.get("logx", False),

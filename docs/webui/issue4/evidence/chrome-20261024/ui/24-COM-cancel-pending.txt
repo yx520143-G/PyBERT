@@ -1,0 +1,25 @@
+### Result
+{"before":{"task_id":"a4dbc128-d042-43fd-b4a8-ede21c019527","operation":"com","state":"validating","phase":"validating","cancel_requested":false,"cancel_requested_at":null,"cancel_observed_at":null,"cancel_observed":false,"worker_exited":false,"logs":[],"created_at":1792803220.0009913,"request_hash":null,"parent_run_id":null,"resource_inputs":[{"resource_id":"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p","original_name":"example2_THRU.s4p","format":".s4p","bytes":2454034,"sha256":"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde","source":{"kind":"browser_upload"},"permission":"explicitly supplied for this local session","parse_status":"pending task validation","intended_uses":["channel","COM THRU"],"field":"com_thru","index":null,"reference":"","worker_path":"C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"},{"resource_id":"18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls","original_name":"config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls","format":".xls","bytes":30208,"sha256":"18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78","source":{"kind":"local_path","path":"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"},"permission":"explicitly supplied for this local session","parse_status":"pending task validation","intended_uses":["COM configuration"],"field":"com_cfg_file","index":null,"reference":"","worker_path":"C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"}],"parameter_source":"spreadsheet"},"pending":{"task_id":"a4dbc128-d042-43fd-b4a8-ede21c019527","operation":"com","state":"cancel_requested","phase":"validating","cancel_requested":true,"cancel_requested_at":1792803220.8748772,"cancel_observed_at":null,"cancel_observed":false,"worker_exited":false,"logs":[],"created_at":1792803220.0009913,"request_hash":null,"parent_run_id":null,"resource_inputs":[{"resource_id":"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p","original_name":"example2_THRU.s4p","format":".s4p","bytes":2454034,"sha256":"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde","source":{"kind":"browser_upload"},"permission":"explicitly supplied for this local session","parse_status":"pending task validation","intended_uses":["channel","COM THRU"],"field":"com_thru","index":null,"reference":"","worker_path":"C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"},{"resource_id":"18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls","original_name":"config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls","format":".xls","bytes":30208,"sha256":"18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78","source":{"kind":"local_path","path":"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"},"permission":"explicitly supplied for this local session","parse_status":"pending task validation","intended_uses":["COM configuration"],"field":"com_cfg_file","index":null,"reference":"","worker_path":"C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"}],"parameter_source":"spreadsheet"}}
+### Ran Playwright code
+```js
+await (async page => {
+  await page.getByRole('button', {name:'独立计算 COM',exact:true}).click();
+  await page.waitForFunction(async () => {
+    const state = await (await fetch('/api/state')).json();
+    if (!state.active_task_id) return false;
+    const task = await (await fetch('/api/tasks/'+state.active_task_id)).json();
+    return task.operation === 'com' && task.phase.startsWith('native COM helper');
+  });
+  const before = await page.evaluate(async () => {
+    const s = await (await fetch('/api/state')).json();
+    return (await fetch('/api/tasks/'+s.active_task_id)).json();
+  });
+  await page.getByRole('button', {name:'关闭',exact:true}).click();
+  await page.getByRole('button', {name:'Abort',exact:true}).click();
+  const pending = await page.evaluate(async id => (await fetch('/api/tasks/'+id)).json(), before.task_id);
+  await page.screenshot({path:'output/playwright/24-COM-cancel-pending.png'});
+  if (!pending.cancel_requested || pending.cancel_observed || pending.worker_exited) throw Error('Missing actual helper cancellation interval');
+  return {before,pending};
+}
+)(page);
+```

@@ -1,0 +1,2 @@
+C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\src\pybert\models\com.py:54: UserWarning: PyChOpMarg doesn't read these rows of 'C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\docs\webui\issue4\local\resources\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls', and ignores them: 'N-g', 'N-max'.
+  com_params = get_com_params(Path(cfg_file))

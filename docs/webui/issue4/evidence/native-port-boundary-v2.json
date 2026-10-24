@@ -1,0 +1,116 @@
+{
+  "parent_precheck_sha256": "d6997605aacf6ba5f8c3469919e4e1d039dc5ff309f89acf79554dd0ec33f755",
+  "frozen_manifest_sha256": "8d953b64ccc1e9afd57ac336679bf4e47156258e4cec4d4d023ce4c6d08ce381",
+  "resource_sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+  "source_sha256": {
+    "tools\\diagnose_web_native_ports.py": "747b79523197950206860e5d6c5915249e68d7bf2ed2ad799054fdb231379b80",
+    "src\\pybert\\utility\\sparam.py": "4f4955a304aaa330ae2a1b5e98dc7cf1ddf541027d6e3f046df10b8d3dd50c84"
+  },
+  "native_source_matches_semantic_baseline": true,
+  "native_formula": "0.5*(sub_S21-sub_S23-sub_S41+sub_S43), input subports0&2, output subports1&3",
+  "convention_source": "native import_freq/import_fext docs and frozen SignalIntegrity model: lane (+A,+B,-A,-B)",
+  "diagnostic_only": true,
+  "main_simulation_performed": false,
+  "limitation": "multilane reorder passes grouped [input+,input-,output+,output-] into helper expecting interleaved [input+,output+,input-,output-]; FEXT renumber is intentionally omitted; real physical mapping is not qualified",
+  "tests_boundary": "existing test_multilane_sparam deliberately puts -2*T in S[-B,+A] to fit this formula; it does not validate physical pair mapping",
+  "status": "NATIVE_PORT_MAPPING_BLOCKER_PENDING_PM",
+  "cases_unchanged": true,
+  "rows": [
+    {
+      "victim": 0,
+      "aggressor": 1,
+      "fext_subnetwork": [
+        4,
+        6,
+        1,
+        3
+      ],
+      "native_sdd_input_pair_0based": [
+        4,
+        1
+      ],
+      "native_sdd_output_pair_0based": [
+        6,
+        3
+      ],
+      "physical_input_pair_0based": [
+        4,
+        6
+      ],
+      "physical_output_pair_0based": [
+        1,
+        3
+      ],
+      "native_fext_max_abs": 0.08650814328619873,
+      "physical_differential_fext_max_abs": 0.037524804721059866,
+      "native_fext_after_zeroing_all_crosslane_s_max_abs": 0.08637375992859227,
+      "nonzero_native_fext_without_crosslane_coupling": true,
+      "native_victim_subnetwork": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "native_victim_max_abs_s21": 0.01886374635707194,
+      "physical_victim_max_abs_sdd21": 0.9866371803355182,
+      "precheck_v1_through_pair_label_correction": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "victim": 1,
+      "aggressor": 0,
+      "fext_subnetwork": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "native_sdd_input_pair_0based": [
+        0,
+        5
+      ],
+      "native_sdd_output_pair_0based": [
+        2,
+        7
+      ],
+      "physical_input_pair_0based": [
+        0,
+        2
+      ],
+      "physical_output_pair_0based": [
+        5,
+        7
+      ],
+      "native_fext_max_abs": 0.0795863113834513,
+      "physical_differential_fext_max_abs": 0.04870507987391056,
+      "native_fext_after_zeroing_all_crosslane_s_max_abs": 0.07947754988996367,
+      "nonzero_native_fext_without_crosslane_coupling": true,
+      "native_victim_subnetwork": [
+        4,
+        6,
+        5,
+        7
+      ],
+      "native_victim_max_abs_s21": 0.14883556066607156,
+      "physical_victim_max_abs_sdd21": 0.985224463540313,
+      "precheck_v1_through_pair_label_correction": [
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ]
+    }
+  ]
+}

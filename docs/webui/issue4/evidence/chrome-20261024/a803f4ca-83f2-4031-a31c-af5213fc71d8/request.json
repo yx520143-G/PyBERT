@@ -1,0 +1,46 @@
+{
+  "parent_run_id": "c3cadfdc-13e8-4ed9-bee3-b3b11462cd96",
+  "frozen_resources": [
+    {
+      "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+      "original_name": "example2_THRU.s4p",
+      "format": ".s4p",
+      "bytes": 2454034,
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+      "source": {
+        "kind": "browser_upload"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "channel",
+        "COM THRU"
+      ],
+      "field": "com_thru",
+      "index": null,
+      "reference": "example2_THRU.s4p",
+      "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+    },
+    {
+      "resource_id": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls",
+      "original_name": "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+      "format": ".xls",
+      "bytes": 30208,
+      "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+      "source": {
+        "kind": "local_path",
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "COM configuration"
+      ],
+      "field": "com_cfg_file",
+      "index": null,
+      "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+      "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls"
+    }
+  ],
+  "parameter_source": "spreadsheet"
+}

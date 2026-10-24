@@ -1,0 +1,489 @@
+- generic [active] [ref=e1]:
+  - link "跳到参数详情" [ref=e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=e3]:
+    - link "PyBERT 数据源" [ref=e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=e8]:
+        - strong [ref=e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=e10]:
+      - text: 模块目录
+      - generic [ref=e11]: 16 MODULES
+    - navigation "选择模块" [ref=e12]:
+      - generic [ref=e1701]:
+        - heading "主信号链" [level=2] [ref=e1702]
+        - button "Source" [ref=e1703] [cursor=pointer]
+        - button "Tx EQ" [ref=e1705] [cursor=pointer]: •
+        - button "Channel" [ref=e1707] [cursor=pointer]: •
+        - button "Noise" [ref=e1709] [cursor=pointer]
+        - button "Rx CTLE" [ref=e1711] [cursor=pointer]
+        - button "Rx FFE" [ref=e1713] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=e1715] [cursor=pointer]
+        - button "Observe" [ref=e1717] [cursor=pointer]
+      - generic [ref=e1719]:
+        - heading "控制与判决旁支" [level=2] [ref=e1720]
+        - button "CDR" [ref=e1721] [cursor=pointer]
+        - button "AGC" [ref=e1723] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=e1725] [cursor=pointer]
+      - generic [ref=e1727]:
+        - heading "全局设置与工具" [level=2] [ref=e1728]
+        - button "Simulation" [ref=e1729] [cursor=pointer]
+        - button "Device models" [ref=e1731] [cursor=pointer]
+        - button "IBIS-AMI" [ref=e1733] [cursor=pointer]
+        - button "Optimizer" [ref=e1735] [cursor=pointer]
+        - button "COM" [ref=e1737] [cursor=pointer]
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - searchbox "搜索所有模块和参数" [ref=e62]
+          - generic [aria-hidden] [ref=e63]: /
+        - status [ref=e64]:
+          - strong [ref=e1739]: 草稿已保留
+          - generic [ref=e1740]: 4 项设置已修改
+        - button "恢复全部默认" [ref=e67] [cursor=pointer]
+    - generic [ref=e68]:
+      - button "Run" [ref=e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=e70]
+      - status [ref=e71]: run 57183d8c · succeeded · succeeded
+      - generic [ref=e72]: F-NRZ-01.yaml
+      - button "Load Config" [ref=e73] [cursor=pointer]
+      - button "资源 / COM" [ref=e74] [cursor=pointer]
+      - button "Save" [ref=e75] [cursor=pointer]
+      - button "Save As…" [ref=e76] [cursor=pointer]
+      - button "Help / About" [ref=e77] [cursor=pointer]
+      - button "Disconnect" [ref=e78] [cursor=pointer]
+    - status [ref=e79]: "DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it."
+    - status [ref=e80]: 已载入 F-NRZ-01.yaml；未自动 Run。
+    - status "run_id=57183d8c-6a6d-4567-b0d6-628f55c48c61; com_id=none" [ref=e2050]: 核心结果成功 · 57183d8c；COM 未随此 Run 启用
+    - main [ref=e82]:
+      - group [ref=e83]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=e84] [cursor=pointer]
+      - region "链路总览" [ref=e85]:
+        - generic "切换实现图示" [ref=e86]:
+          - generic [ref=e87]: 实现方案
+          - generic [ref=e88]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=e89] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e90]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=e91] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e92]:
+            - checkbox "请求模型时钟" [disabled] [ref=e93]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=e94] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e1741]:
+              - button "Source：NRZ · PRBS-7，查看设置" [ref=e1742] [cursor=pointer]:
+                - strong [ref=e1743]: Source
+                - generic [ref=e1744]: NRZ · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=e1746] [cursor=pointer]:
+                - strong [ref=e1747]: Tx EQ
+                - generic [ref=e1748]: Native FFE
+              - button "Channel：文件串接 · 两端电气，查看设置" [ref=e1750] [cursor=pointer]:
+                - strong [ref=e1751]: Channel
+                - generic [ref=e1752]: 文件串接 · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=e1754] [cursor=pointer]:
+                - strong [ref=e1755]: Noise
+                - generic [ref=e1756]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=e1758] [cursor=pointer]:
+                - strong [ref=e1759]: Rx CTLE
+                - generic [ref=e1760]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=e1762] [cursor=pointer]:
+                - strong [ref=e1763]: Rx FFE
+                - generic [ref=e1764]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=e1766] [cursor=pointer]:
+                - strong [ref=e1767]: DFE / Slicer
+                - generic [ref=e1768]: 自适应反馈 / 判决
+            - generic [ref=e1769]:
+              - button "Device models" [ref=e1771] [cursor=pointer]
+              - button "Observe" [ref=e1773] [cursor=pointer]
+              - generic [ref=e1774]:
+                - button "CDR" [ref=e1775] [cursor=pointer]
+                - button "AGC" [ref=e1776] [cursor=pointer]
+                - button "↗ Viterbi" [ref=e1777] [cursor=pointer]
+        - status [ref=e134]:
+          - generic [aria-hidden] [ref=e1778]: i
+          - generic [ref=e1779]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=e137]:
+        - region [ref=e684]:
+          - heading "互连与两端电气模型Channel" [level=2] [ref=e1782]
+          - generic [ref=e143]:
+            - tablist "模块详情" [ref=e144]:
+              - tab "设置" [selected] [ref=e145] [cursor=pointer]
+              - tab "参数说明 21" [ref=e688] [cursor=pointer]:
+                - text: 参数说明
+                - generic [ref=e147]: "21"
+              - tab "实现映射 4" [ref=e689] [cursor=pointer]:
+                - text: 实现映射
+                - generic [ref=e149]: "4"
+            - button "恢复本模块默认" [ref=e150] [cursor=pointer]
+          - tabpanel "设置" [ref=e151]:
+            - generic [ref=e1783]:
+              - generic [ref=e1784]:
+                - heading "互连来源" [level=3] [ref=e1785]
+                - generic [ref=e1786]: 本地草稿
+              - generic [ref=e1787]:
+                - generic [ref=e1788]:
+                  - generic [ref=e1789]:
+                    - generic [ref=e1790]: Interconnect · 通道来源
+                    - button "恢复 Interconnect · 通道来源 默认值" [ref=e1791] [cursor=pointer]: 恢复
+                  - combobox "Interconnect · 通道来源" [ref=e1792] [cursor=pointer]:
+                    - option "Native · 原生模型"
+                    - option "Single · 单个文件"
+                    - option "Multiple · 文件串接" [selected]
+                  - paragraph [ref=e1793]: 原生解析模型、单文件、多个文件串接。
+                  - generic [ref=e1794]:
+                    - code [ref=e1795]: inter_sel
+                    - generic [ref=e1796]: 默认 native
+                  - text: ↳
+                  - group [ref=e1797]:
+                    - generic "范围与来源" [ref=e1798] [cursor=pointer]
+                - generic [ref=e1799]:
+                  - generic [ref=e1800]: Single File · 通道文件
+                  - generic [ref=e1802]:
+                    - textbox "Single File · 通道文件" [disabled] [ref=e1803]:
+                      - /placeholder: 输入文件名或路径
+                    - generic [ref=e1804]:
+                      - text: 选择文件
+                      - button "选择 Single File · 通道文件" [disabled] [ref=e1805] [cursor=pointer]
+                  - generic [ref=e1806]: 选择文件上传并冻结内容。手工路径需在“资源 / COM”显式登记；YAML 相对路径需明确绑定。
+                  - paragraph [ref=e1807]: GUI 支持的单文件入口。
+                  - generic [ref=e1808]:
+                    - code [ref=e1809]: ch_file
+                    - generic [ref=e1810]: 默认 空
+                  - paragraph [ref=e1811]: ↳ 选择 Single 文件模式后可设置。
+                  - group [ref=e1812]:
+                    - generic "范围与来源" [ref=e1813] [cursor=pointer]
+                - generic [ref=e1814]:
+                  - generic [ref=e1815]:
+                    - generic [ref=e1816]: Multiple Files · 有序列表
+                    - button "恢复 Multiple Files · 有序列表 默认值" [ref=e1817] [cursor=pointer]: 恢复
+                  - generic [ref=e1818]:
+                    - textbox "Multiple Files · 有序列表" [ref=e1819]:
+                      - /placeholder: 每行一个文件名或路径，按串接顺序排列
+                      - text: example2_THRU.s4p 002_peters_01_0605_B1_thru.s4p
+                    - generic [ref=e1820] [cursor=pointer]:
+                      - text: 选择文件
+                      - button "选择 Multiple Files · 有序列表" [ref=e1821]
+                  - generic [ref=e1822]: 选择文件上传并冻结内容。手工路径需在“资源 / COM”显式登记；YAML 相对路径需明确绑定。
+                  - paragraph [ref=e1823]: 文件按列表顺序串接。
+                  - generic [ref=e1824]:
+                    - code [ref=e1825]: ch_files
+                    - generic [ref=e1826]: 默认 空列表
+                  - text: ↳
+                  - group [ref=e1827]:
+                    - generic "范围与来源" [ref=e1828] [cursor=pointer]
+                - generic [ref=e1829]:
+                  - generic [ref=e1830]: Fix port numbering · 端口修正
+                  - generic [ref=e1832] [cursor=pointer]:
+                    - switch "Fix port numbering · 端口修正" [ref=e1833]
+                    - generic [ref=e1835]: 已关闭
+                  - paragraph [ref=e1836]: 检测并修正 4-port through-path 编号约定。
+                  - generic [ref=e1837]:
+                    - code [ref=e1838]: renumber
+                    - generic [ref=e1839]: 默认 关闭
+                  - text: ↳
+                  - group [ref=e1840]:
+                    - generic "范围与来源" [ref=e1841] [cursor=pointer]
+                - generic [ref=e1842]:
+                  - generic [ref=e1843]: Apply window · 频域窗
+                  - generic [ref=e1845] [cursor=pointer]:
+                    - switch "Apply window · 频域窗" [ref=e1846]
+                    - generic [ref=e1848]: 已关闭
+                  - paragraph [ref=e1849]: IFFT 前应用 raised-cosine 窗。GUI 在 native 时禁用编辑，但计算代码仍会读取已有值。
+                  - generic [ref=e1850]:
+                    - code [ref=e1851]: use_window
+                    - generic [ref=e1852]: 默认 关闭
+                  - text: ↳
+                  - group [ref=e1853]:
+                    - generic "范围与来源" [ref=e1854] [cursor=pointer]
+                - generic [ref=e1855]:
+                  - generic [ref=e1856]: Victim Lane · 受害通道
+                  - spinbutton "Victim Lane · 受害通道" [disabled] [ref=e1859]: "0"
+                  - paragraph [ref=e1860]: 索引从 0 开始，选择单文件内的 victim lane。
+                  - generic [ref=e1861]:
+                    - code [ref=e1862]: lane_sel
+                    - generic [ref=e1863]: 默认 0
+                  - paragraph [ref=e1864]: ↳ 选择 Single .s8p / .s12p 通道后可设置。
+                  - group [ref=e1865]:
+                    - generic "范围与来源" [ref=e1866] [cursor=pointer]
+            - generic [ref=e1867]:
+              - generic [ref=e1868]:
+                - heading "Native 损耗模型" [level=3] [ref=e1869]
+                - generic [ref=e1870]: 本地草稿
+              - generic [ref=e1871]:
+                - generic [ref=e1872]:
+                  - generic [ref=e1873]: Length · 通道长度
+                  - generic [ref=e1875]:
+                    - spinbutton "Length · 通道长度" [disabled] [ref=e1876]: "0.5"
+                    - generic [ref=e1877]: m
+                  - paragraph [ref=e1878]: Howard Johnson UTP 参数化通道的长度。
+                  - generic [ref=e1879]:
+                    - code [ref=e1880]: l_ch
+                    - generic [ref=e1881]: 默认 0.5 m
+                  - paragraph [ref=e1882]: ↳ 当前采用文件通道；Native 参数保留。
+                  - group [ref=e1883]:
+                    - generic "范围与来源" [ref=e1884] [cursor=pointer]
+                - generic [ref=e1885]:
+                  - generic [ref=e1886]: Z0 · 差分特性阻抗
+                  - generic [ref=e1888]:
+                    - spinbutton "Z0 · 差分特性阻抗" [disabled] [ref=e1889]: "100"
+                    - generic [ref=e1890]: Ω
+                  - paragraph [ref=e1891]: LC 区的特性阻抗。
+                  - generic [ref=e1892]:
+                    - code [ref=e1893]: Z0
+                    - generic [ref=e1894]: 默认 100 Ω
+                  - paragraph [ref=e1895]: ↳ 当前采用文件通道；Native 参数保留。
+                  - group [ref=e1896]:
+                    - generic "范围与来源" [ref=e1897] [cursor=pointer]
+                - generic [ref=e1898]:
+                  - generic [ref=e1899]: v_rel · 相对传播速度
+                  - generic [ref=e1901]:
+                    - spinbutton "v_rel · 相对传播速度" [disabled] [ref=e1902]: "0.67"
+                    - generic [ref=e1903]: c
+                  - paragraph [ref=e1904]: 以光速 c 为单位。
+                  - generic [ref=e1905]:
+                    - code [ref=e1906]: v0
+                    - generic [ref=e1907]: 默认 0.67 c
+                  - paragraph [ref=e1908]: ↳ 当前采用文件通道；Native 参数保留。
+                  - group [ref=e1909]:
+                    - generic "范围与来源" [ref=e1910] [cursor=pointer]
+                - generic [ref=e1911]:
+                  - generic [ref=e1912]: Rdc · 直流电阻
+                  - generic [ref=e1914]:
+                    - spinbutton "Rdc · 直流电阻" [disabled] [ref=e1915]: "0.1876"
+                    - generic [ref=e1916]: Ω/m
+                  - paragraph [ref=e1917]: 实际是单位长度电阻，GUI 单位标签简写为 Ohms。
+                  - generic [ref=e1918]:
+                    - code [ref=e1919]: Rdc
+                    - generic [ref=e1920]: 默认 0.1876 Ω/m
+                  - paragraph [ref=e1921]: ↳ 当前采用文件通道；Native 参数保留。
+                  - group [ref=e1922]:
+                    - generic "范围与来源" [ref=e1923] [cursor=pointer]
+                - generic [ref=e1924]:
+                  - generic [ref=e1925]: R0 · 趋肤效应电阻
+                  - generic [ref=e1927]:
+                    - spinbutton "R0 · 趋肤效应电阻" [disabled] [ref=e1928]: "1.452"
+                    - generic [ref=e1929]: Ω/m
+                  - paragraph [ref=e1930]: 频率相关损耗模型的电阻参数。
+                  - generic [ref=e1931]:
+                    - code [ref=e1932]: R0
+                    - generic [ref=e1933]: 默认 1.452 Ω/m
+                  - paragraph [ref=e1934]: ↳ 当前采用文件通道；Native 参数保留。
+                  - group [ref=e1935]:
+                    - generic "范围与来源" [ref=e1936] [cursor=pointer]
+                - generic [ref=e1937]:
+                  - generic [ref=e1938]: ω0 · 过渡角频率
+                  - generic [ref=e1940]:
+                    - spinbutton "ω0 · 过渡角频率" [disabled] [ref=e1941]: "10000000"
+                    - generic [ref=e1942]: rad/s
+                  - paragraph [ref=e1943]: 这是角频率，不能将默认值直接读作 10 MHz。
+                  - generic [ref=e1944]:
+                    - code [ref=e1945]: w0
+                    - generic [ref=e1946]: 默认 10000000 rad/s
+                  - paragraph [ref=e1947]: ↳ 当前采用文件通道；Native 参数保留。
+                  - group [ref=e1948]:
+                    - generic "范围与来源" [ref=e1949] [cursor=pointer]
+                - generic [ref=e1950]:
+                  - generic [ref=e1951]: Loss tangent · 损耗角正切
+                  - spinbutton "Loss tangent · 损耗角正切" [disabled] [ref=e1954]: "0.02"
+                  - paragraph [ref=e1955]: 描述介质损耗。
+                  - generic [ref=e1956]:
+                    - code [ref=e1957]: Theta0
+                    - generic [ref=e1958]: 默认 0.02
+                  - paragraph [ref=e1959]: ↳ 当前采用文件通道；Native 参数保留。
+                  - group [ref=e1960]:
+                    - generic "范围与来源" [ref=e1961] [cursor=pointer]
+            - generic [ref=e1962]:
+              - generic [ref=e1963]:
+                - heading "Tx / Rx 电气端接" [level=3] [ref=e1964]
+                - generic [ref=e1965]: 本地草稿
+              - generic [ref=e1966]:
+                - generic [ref=e1967]:
+                  - generic [ref=e1968]: Tx electrical · 电气来源
+                  - combobox "Tx electrical · 电气来源" [ref=e1970] [cursor=pointer]:
+                    - option "Native · 集总端接" [selected]
+                    - option "IBIS · 电气模型"
+                  - paragraph [ref=e1971]: 电气模型来源与 tx_eq_sel 相互独立。
+                  - generic [ref=e1972]:
+                    - code [ref=e1973]: tx_sel
+                    - generic [ref=e1974]: 默认 native
+                  - text: ↳
+                  - group [ref=e1975]:
+                    - generic "范围与来源" [ref=e1976] [cursor=pointer]
+                - generic [ref=e1977]:
+                  - generic [ref=e1978]: Tx_Rs · 差分源阻抗
+                  - generic [ref=e1980]:
+                    - spinbutton "Tx_Rs · 差分源阻抗" [ref=e1981]: "100"
+                    - generic [ref=e1982]: Ω
+                  - paragraph [ref=e1983]: Native Tx 端接。
+                  - generic [ref=e1984]:
+                    - code [ref=e1985]: rs
+                    - generic [ref=e1986]: 默认 100 Ω
+                  - text: ↳
+                  - group [ref=e1987]:
+                    - generic "范围与来源" [ref=e1988] [cursor=pointer]
+                - generic [ref=e1989]:
+                  - generic [ref=e1990]: Tx_Cout · 每 pin 电容
+                  - generic [ref=e1992]:
+                    - spinbutton "Tx_Cout · 每 pin 电容" [ref=e1993]: "0.5"
+                    - generic [ref=e1994]: pF
+                  - paragraph [ref=e1995]: Native Tx 寄生输出电容。
+                  - generic [ref=e1996]:
+                    - code [ref=e1997]: cout
+                    - generic [ref=e1998]: 默认 0.5 pF
+                  - text: ↳
+                  - group [ref=e1999]:
+                    - generic "范围与来源" [ref=e2000] [cursor=pointer]
+                - generic [ref=e2001]:
+                  - generic [ref=e2002]: Rx electrical · 电气来源
+                  - combobox "Rx electrical · 电气来源" [ref=e2004] [cursor=pointer]:
+                    - option "Native · 集总端接" [selected]
+                    - option "IBIS · 电气模型"
+                  - paragraph [ref=e2005]: 电气模型来源与 rx_eq_sel 相互独立。
+                  - generic [ref=e2006]:
+                    - code [ref=e2007]: rx_sel
+                    - generic [ref=e2008]: 默认 native
+                  - text: ↳
+                  - group [ref=e2009]:
+                    - generic "范围与来源" [ref=e2010] [cursor=pointer]
+                - generic [ref=e2011]:
+                  - generic [ref=e2012]: Rx_Rin · 差分输入阻抗
+                  - generic [ref=e2014]:
+                    - spinbutton "Rx_Rin · 差分输入阻抗" [ref=e2015]: "100"
+                    - generic [ref=e2016]: Ω
+                  - paragraph [ref=e2017]: Native Rx 端接。
+                  - generic [ref=e2018]:
+                    - code [ref=e2019]: rin
+                    - generic [ref=e2020]: 默认 100 Ω
+                  - text: ↳
+                  - group [ref=e2021]:
+                    - generic "范围与来源" [ref=e2022] [cursor=pointer]
+                - generic [ref=e2023]:
+                  - generic [ref=e2024]: Rx_Cin · 每 pin 电容
+                  - generic [ref=e2026]:
+                    - spinbutton "Rx_Cin · 每 pin 电容" [ref=e2027]: "0.5"
+                    - generic [ref=e2028]: pF
+                  - paragraph [ref=e2029]: Native Rx 寄生输入电容。
+                  - generic [ref=e2030]:
+                    - code [ref=e2031]: cin
+                    - generic [ref=e2032]: 默认 0.5 pF
+                  - text: ↳
+                  - group [ref=e2033]:
+                    - generic "范围与来源" [ref=e2034] [cursor=pointer]
+                - generic [ref=e2035]:
+                  - generic [ref=e2036]: Rx_Cac · AC 耦合电容
+                  - generic [ref=e2038]:
+                    - spinbutton "Rx_Cac · AC 耦合电容" [ref=e2039]: "1"
+                    - generic [ref=e2040]: μF
+                  - paragraph [ref=e2041]: 原 GUI 允许编辑 Rx_Cac；当前 Native 通道计算没有读取此字段。草稿保留该值，不承诺波形变化。
+                  - generic [ref=e2042]:
+                    - code [ref=e2043]: cac
+                    - generic [ref=e2044]: 默认 1 μF
+                  - text: ↳
+                  - group [ref=e2045]:
+                    - generic "范围与来源" [ref=e2046] [cursor=pointer]
+            - generic [ref=e2047]:
+              - generic [ref=e2048]: 还有 1 个结果、内部状态或参考条目。
+              - button "查看参数说明 →" [ref=e2049] [cursor=pointer]
+          - text: ↳ ↳ ↳ ↳ ↳ ↳ ↳ ↳
+        - region "Native run analysis" [ref=e241]:
+          - generic [ref=e242]:
+            - generic [ref=e243]:
+              - text: Selected run
+              - combobox "Selected run" [ref=e244]:
+                - option "Select successful run…"
+                - option "NRZ · 57183d8c" [selected]
+            - generic [ref=e2051]: Matches validated input
+          - generic [ref=e245]:
+            - generic [ref=e246]:
+              - text: Analysis
+              - combobox "Analysis" [ref=e247]:
+                - option "Responses" [selected]
+                - option "Waveform"
+                - option "Eye"
+                - option "Jitter Dist."
+                - option "Jitter Spec."
+                - option "Jitter Bathtub"
+                - option "Jitter Info"
+                - option "DFE Adaptation"
+                - option "CDR Adaptation"
+                - option "CDR Histogram"
+                - option "CDR Spectrum"
+                - option "Run overview"
+                - option "Run input comparison"
+            - combobox "Response type" [ref=e248]:
+              - option "Impulse" [selected]
+              - option "Step"
+              - option "Pulse"
+              - option "Frequency"
+            - combobox "Response scope" [ref=e249]:
+              - option "Cumulative" [selected]
+              - option "Single stage"
+          - generic [ref=e250]:
+            - generic [ref=e251]:
+              - text: Point
+              - combobox "Point" [ref=e252]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=e253]:
+              - text: Compare
+              - combobox "Compare" [ref=e254]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Expand viewer" [ref=e257] [cursor=pointer]
+          - generic "Selected run plot" [ref=e258]:
+            - generic [ref=e2053]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: "0"
+                      - generic: "2"
+                      - generic: "4"
+                      - generic: "6"
+                      - generic: "8"
+                    - generic:
+                      - generic: "0"
+                      - generic: "0.001"
+                      - generic: "0.002"
+                      - generic: "0.003"
+                      - generic: "0.004"
+              - img:
+                - generic:
+                  - generic: chnl_h · diagnostic
+                  - generic: ns
+                  - generic: V/sample
+              - toolbar [ref=e2067]:
+                - button "Download plot as a PNG" [ref=e2069] [cursor=pointer]
+                - generic [ref=e2070]:
+                  - button "Zoom" [ref=e2071] [cursor=pointer]
+                  - button "Pan" [ref=e2072] [cursor=pointer]
+                - generic [ref=e2073]:
+                  - button "Zoom in" [ref=e2074] [cursor=pointer]
+                  - button "Zoom out" [ref=e2075] [cursor=pointer]
+                  - button "Autoscale" [ref=e2076] [cursor=pointer]
+                  - button "Reset axes" [ref=e2077] [cursor=pointer]
+          - generic [ref=e260]:
+            - paragraph [ref=e2078]: DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling. Zoom/pan and double-click reset do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.
+            - group [ref=e2079]:
+              - generic "57183d8c-6a6d-4567-b0d6-628f55c48c61 · chnl_h · NRZ · input 6d5c8d173853" [ref=e2080]
+      - group [ref=e261]:
+        - generic "Task logs / selected run logs" [ref=e262]

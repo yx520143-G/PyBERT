@@ -1,0 +1,58 @@
+{
+  "implementation_cut": "5fff0412b4cde14591ef0b9c1986be7505ac0e2b",
+  "parent_delivery_sha256": "3fd573724604ddd055446a7c308f6775ce0f1dc3cab4d5cae4ceee25b3a66ecf",
+  "source_files": {
+    "src\\pybert\\web\\__init__.py": "07511ce2fefebaaeed0cb403bdd7d9c9db335f517422c5892fd485b409708d30",
+    "src\\pybert\\web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "src\\pybert\\web\\com.py": "b6c453fc1c934c75839218f4207f6b5362ce979f62290fef92a0861ee3e181e2",
+    "src\\pybert\\web\\config.py": "55b25db261e7fe16942e24d03465223633614c4a8e35863789242b38f5e52c48",
+    "src\\pybert\\web\\data.py": "beaff312718a52025887cacdebd6b1243cdfc302f30b78959f5af01a53e746f6",
+    "src\\pybert\\web\\resource_data.py": "504420d86287f73ed60cf7a3a881a80600972e8180446b4d368fdf2ce8d6e626",
+    "src\\pybert\\web\\resources.py": "8369ed3ea1f812dc811390812450a92ef52769cd125250eac0b8beceeff96730",
+    "src\\pybert\\web\\server.py": "e837d5c89d6c2577da49670ab9de9a709846f47678251b5a7e8e49189d724fc1",
+    "src\\pybert\\web\\tasks.py": "5d15a52da216dc14985173ae3531722f948b21d22fe736adccb5c28fbaac9d26",
+    "src\\pybert\\web\\worker.py": "33b2382cef18d199363ad58a5e31b3344e58550e3e6a6f49f4090151a3b6b556",
+    "src\\pybert\\web\\static\\app.js": "75e2ce61933959e0da5954f21dd008024c15ee927cd656a40a64c32fbefbe21d",
+    "src\\pybert\\web\\static\\catalog.js": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+    "src\\pybert\\web\\static\\gui-map.js": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+    "src\\pybert\\web\\static\\index.html": "330c5d3723a0e2e16c7b6b4bc615476a79687366fd74f1ea2a87066fc43dab4a",
+    "src\\pybert\\web\\static\\resources.js": "057506fc886356ac4432271b957ef429a1f7d03a7f924b931c3ea882c78a9aa1",
+    "src\\pybert\\web\\static\\settings.js": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+    "src\\pybert\\web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "src\\pybert\\web\\static\\workbench.css": "8073d39aab282a2439a17875738fb1df88671c133c191fa865078192ba99b51f",
+    "src\\pybert\\web\\static\\workbench.js": "71219c91d453d4c1ea99e902725ead5cdc5e773df21103621aded8e561bfc5c0"
+  },
+  "since_parent_cut_changed_files": [
+    "src/pybert/web/static/app.js"
+  ],
+  "source_delta": "app.js 3 insertions/2 deletions: channel/cascade/COM keep actual content upload; unconsumed CTLE/model file chooser retains explicit filename and explains bytes not uploaded; activation gates unchanged",
+  "inactive_file_Chrome": {
+    "frozen_before_numerical_execution": "no numerical execution planned/performed; inactive filename-only fixture",
+    "viewport": [
+      1280,
+      720
+    ],
+    "pixel_checked": "74-inactive-reference-saved.png",
+    "whole_95_field_config_matches": true,
+    "resource_bindings_empty": true,
+    "actual_download_matches": true,
+    "engine_runs": 0,
+    "COM": 0,
+    "uploaded_resources": 0,
+    "slot_idle": true
+  },
+  "source_compatibility": "all other v1 raw source hashes exactly unchanged; no main/COM rerun",
+  "source_applicability": "41 unit contracts preceded only read-only noise payload and inactive file-picker presentation edits; both independently exercised on real Chrome/saved data and syntax checks; original producers unchanged",
+  "cost_summary": {
+    "nine_direct_elapsed_s": 66.76168889997643,
+    "nine_worker_created_to_finished_sum_s": 89.52834129333496,
+    "Chrome_task_intervals_sum_s": 84.99642395973206,
+    "cost_limits": "serial stage sums, not total development wall-clock; see preserved individual raw reports for warnings, failures, retries and costs"
+  },
+  "service_ports_closed": {
+    "8767": true,
+    "8768": true
+  },
+  "default_COM": "BLOCKED_BUDGET / NOT_EXECUTED",
+  "passed": true
+}

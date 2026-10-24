@@ -1,0 +1,1767 @@
+#! /usr/bin/env python
+
+# pylint: disable=too-many-lines
+
+"""
+Bit error rate tester (BERT) simulator, written in Python.
+
+Original Author: David Banas <capn.freako@gmail.com>
+
+Original Date:   17 June 2014
+
+Testing by: Mark Marlett <mark.marlett@gmail.com>
+
+This Python script provides a GUI interface to a BERT simulator, which
+can be used to explore the concepts of serial communication link design.
+
+Copyright (c) 2014 by David Banas; All rights reserved World wide.
+
+ToDo:
+    1. Add optional AFE (4th-order Bessel-Thomson).
+    2. Add eye contour plots.
+"""
+
+import platform
+import time
+from copy import deepcopy
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+import numpy as np
+import skrf as rf
+from chaco.api import ArrayPlotData, GridPlotContainer
+from numpy import arange, array, exp, pad, pi, where, zeros
+from numpy.fft import irfft, rfft
+from numpy.random import randint
+from traits.api import (
+    Array,
+    Bool,
+    Button,
+    Enum,
+    File,
+    Float,
+    HasTraits,
+    Instance,
+    Int,
+    List,
+    Map,
+    Property,
+    Range,
+    String,
+    Trait,
+    cached_property,
+    observe,
+)
+from traits.etsconfig.api import ETSConfig
+from traitsui.message import message, error
+from scipy.interpolate import interp1d
+
+from pyibisami import __version__ as PyAMI_VERSION  # type: ignore
+from pyibisami.ami.model import AMIModel
+from pyibisami.ami.parser import AMIParamConfigurator
+from pyibisami.ibis.file import IBISModel
+
+from pychopmarg import __version__ as PyChOpMarg_VERSION  # type: ignore
+from pychopmarg.config.ieee_8023dj_d3p3 import R0 as DJ_R0, device_model  # type: ignore
+from pychopmarg.devmodel import gamma_term, renormalize_to, s_rx_model, s_tx_model, terminated_h21  # type: ignore
+
+from pybert import __version__ as VERSION
+from pybert.configuration import InvalidFileType, PyBertCfg
+from pybert.gui.help import help_str
+from pybert.gui.plot import make_plots
+from pybert.models.bert import my_run_simulation
+from pybert.models.tx_tap import TxTapTuner
+from pybert.models.fec import FEC_Encoder
+from pybert.results import PyBertData
+from pybert.threads.optimization import OptThread
+from pybert.utility import (
+    calc_G,
+    calc_gamma,
+    import_channel,
+    import_fext,
+    lfsr_bits,
+    raised_cosine,
+    safe_log10,
+    sdd_21,
+    trim_impulse,
+)
+from pybert.utility.ibisami import (
+    PYBERT_RX_MODEL_TYPES,
+    PYBERT_TX_MODEL_TYPES,
+    resolve_ami_files,
+    set_pyibisami_logging,
+)
+
+gDebugStatus = False
+gUseDfe      = True     # Include DFE when running simulation.
+gMaxCTLEPeak =    20.0  # max. allowed CTLE peaking (dB) (when optimizing, only)
+gPeakFreq    =     5.0  # CTLE peaking frequency (GHz)
+gPeakMag     =     1.7  # CTLE peaking magnitude (dB)
+gCTLEOffset  =     0.0  # CTLE d.c. offset (dB)
+gNtaps       =     5
+RX_FFE_TAPS  =   100    # Number of taps in Rx FFE, including cursor.
+
+
+def _make_rx_ffe_tap_tuners() -> list:
+    """
+    Build a fresh list of ``TxTapTuner`` objects for the Rx FFE tap optimizer/filter.
+
+    Note:
+        This is a factory function, rather than a module-level constant, so that
+        every ``PyBERT`` instance gets its own independent set of ``TxTapTuner``
+        objects. (Otherwise, mutating one instance's tap values -- e.g. via the
+        EQ optimizer -- would corrupt every other instance's taps, since they'd
+        all be referencing the very same ``TxTapTuner`` objects.)
+    """
+
+    tuners = [
+        TxTapTuner(
+            name="Pre-tap1", pos=-1, enabled=False,
+            min_val=-1.0, max_val=1.0, step=0.1, value=0.0
+        ),
+        TxTapTuner(
+            name="Cursor", pos=0, enabled=True,
+            min_val=-1.0, max_val=1.0, step=0.1, value=1.0
+        ),
+        TxTapTuner(
+            name="Post-tap1", pos=1, enabled=False,
+            min_val=-1.0, max_val=1.0, step=0.1, value=0.0
+        ),
+    ]
+    for n in range(RX_FFE_TAPS - 3):
+        tuners.append(
+            TxTapTuner(
+                name=f"Post-tap{n + 2}", pos=(n + 2), enabled=False,
+                min_val=-1.0, max_val=1.0, step=0.1, value=0.0
+            )
+        )
+    return tuners
+
+
+class PyBERT(HasTraits):  # pylint: disable=too-many-instance-attributes
+    """
+    A serial communication link bit error rate tester (BERT) simulator with
+    a GUI interface.
+
+    Useful for exploring the concepts of serial communication link
+    design.
+    """
+
+    # Independent variables
+
+    # - Simulation Control
+    bit_rate = Range(low=0.1, high=250.0, value=10.0)    #: (Gbps)
+    nbits = Range(low=1000, high=10000000, value=15000)  #: Number of bits to simulate.
+    eye_bits = Int(10160)                                #: Number of bits used to form eye.
+    pattern = Map(
+        {
+            "PRBS-7": [7, 6],
+            "PRBS-9": [9, 5],
+            "PRBS-11": [11, 9],
+            "PRBS-13": [13, 12, 2, 1],
+            "PRBS-15": [15, 14],
+            "PRBS-20": [20, 3],
+            "PRBS-23": [23, 18],
+            "PRBS-31": [31, 28],
+        },
+        default_value="PRBS-7",
+    )
+    seed = Int(1)  # LFSR seed. 0 means regenerate bits, using a new random seed, each run.
+    nspui = Range(low=2, high=256, value=32)  #: Signal vector samples per unit interval.
+    mod_type   = Trait("NRZ", {"NRZ": 0, "Duo-binary": 1, "PAM-4": 2})
+    do_sweep   = Bool(False)  #: Run sweeps? (Default = False)
+    debug      = Bool(False)  #: Send log messages to terminal, as well as console, when True. (Default = False)
+    thresh     = Float(3.0)   #: Spectral threshold for identifying periodic components (sigma). (Default = 3.0)
+    rlm        = Float(0.95)  #: Relative level mismatch. (Default = 0.95)
+
+    # - Interconnect Control
+    inter_sel = Enum("native", "single", "multiple")
+    # -- file(s)
+    ch_file  = File("")        #: Channel file (for browsing).
+    ch_files = List(File)    #: Ordered list of channel files for composite interconnect.
+    renumber = Bool(False)  #: Automatically fix "1=>3/2=>4" port numbering? (Default = False)
+    lane_sel     = Int(0)        #: Lane index for 8/12-port Touchstone files (0-based). (Default = 0)
+    include_fext = Bool(False)   #: Add FEXT from aggressor lanes to simulation noise? (Default = False)
+    f_step = Float(10)  #: Frequency step to use when constructing H(f) (MHz). (Default = 10 MHz)
+    f_max = Float(40)  #: Frequency maximum to use when constructing H(f) (GHz). (Default = 40 GHz)
+    impulse_length = Float(0.0)  #: Impulse response length. (Determined automatically, when 0.)
+    # -- native
+    Rdc = Float(0.1876)  #: Channel d.c. resistance (Ohms/m).
+    w0 = Float(10e6)  #: Channel transition frequency (rads./s).
+    R0 = Float(1.452)  #: Channel skin effect resistance (Ohms/m).
+    Theta0 = Float(0.02)  #: Channel loss tangent (unitless).
+    Z0 = Float(100)  #: Channel characteristic impedance, in LC region (Ohms).
+    v0 = Float(0.67)  #: Channel relative propagation velocity (c).
+    l_ch = Float(0.5)  #: Channel length (m).
+    use_window = Bool(False)  #: Apply raised cosine to frequency response before FFT()-ing? (Default = False)
+
+    # - EQ Tune
+    # Note: These `List` traits are given empty defaults here and populated,
+    # per-instance, by the `_default` factory methods below. (Providing a
+    # literal list of `TxTapTuner` objects here, instead, would cause every
+    # `PyBERT` instance to share the very same `TxTapTuner` objects, so that
+    # mutating one instance's tap values -- e.g. via the EQ optimizer -- would
+    # corrupt every other instance's taps.)
+    tx_c0_min = Float(0.0)  #: Minimum Tx FFE cursor (1 - sum of other tap magnitudes) the EQ optimizer may use.
+    tx_tap_tuners: List = List()  #: EQ optimizer list of TxTapTuner objects.
+
+    def _tx_tap_tuners_default(self):
+        return [
+            TxTapTuner(name="Pre-tap3",  pos=-3, enabled=False, min_val=-0.05, max_val=0.05, step=0.025),
+            TxTapTuner(name="Pre-tap2",  pos=-2, enabled=True, min_val=-0.1,  max_val=0.1,  step=0.05),
+            TxTapTuner(name="Pre-tap1",  pos=-1, enabled=True, min_val=-0.2,  max_val=0.2,  step=0.1),
+            TxTapTuner(name="Post-tap1", pos=1,  enabled=False, min_val=-0.2,  max_val=0.2,  step=0.1),
+            TxTapTuner(name="Post-tap2", pos=2,  enabled=False, min_val=-0.1,  max_val=0.1,  step=0.05),
+            TxTapTuner(name="Post-tap3", pos=3,  enabled=False, min_val=-0.05, max_val=0.05, step=0.025),
+        ]
+
+    rx_bw_tune = Float(12.0)  #: EQ optimizer CTLE bandwidth (GHz).
+    peak_freq_tune = Float(gPeakFreq)  #: EQ optimizer CTLE peaking freq. (GHz).
+    peak_mag_tune = Float(gPeakMag)  #: EQ optimizer CTLE peaking mag. (dB).
+    min_mag_tune = Float(2)   #: EQ optimizer CTLE peaking mag. min. (dB).
+    max_mag_tune = Float(12)  #: EQ optimizer CTLE peaking mag. max. (dB).
+    step_mag_tune = Float(1)  #: EQ optimizer CTLE peaking mag. step (dB).
+    ctle_enable_tune = Bool(True)  #: EQ optimizer CTLE enable
+    dfe_tap_tuners: List = List()  #: EQ optimizer list of DFE tap tuner objects.
+
+    def _dfe_tap_tuners_default(self):
+        return [
+            TxTapTuner(name="Tap1",  enabled=True,  min_val=-0.2,  max_val=0.4,  value=0.0),
+            TxTapTuner(name="Tap2",  enabled=True,  min_val=-0.15, max_val=0.15, value=0.0),
+            TxTapTuner(name="Tap3",  enabled=True,  min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap4",  enabled=True,  min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap5",  enabled=True,  min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap6",  enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap7",  enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap8",  enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap9",  enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap10", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap11", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap12", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap13", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap14", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap15", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap16", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap17", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap18", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap19", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+            TxTapTuner(name="Tap20", enabled=False, min_val=-0.05, max_val=0.1,  value=0.0),
+        ]
+
+    # Rx FFE tap optimization tuners.
+    ffe_tap_tuners = List()  # type: ignore
+
+    def _ffe_tap_tuners_default(self):
+        return _make_rx_ffe_tap_tuners()
+
+    # IBIS-AMI Model_Specific parameter tuners, auto-populated by the
+    # `_tx_ami_file_changed`/`_rx_ami_file_changed` handlers, below, from
+    # whichever AMI file was just parsed. (Same empty-default-plus-`_default`-
+    # factory pattern as `tx_tap_tuners`, above, for the same reason.)
+    tx_ami_tap_tuners: List = List()  #: EQ optimizer list of Tx AmiParamTuner objects.
+    rx_ami_tap_tuners: List = List()  #: EQ optimizer list of Rx AmiParamTuner objects.
+
+    #: Number of TPE (Optuna) trials to run against the real AMI model(s),
+    #: when Tx and/or Rx equalization is IBIS-AMI.
+    ami_opt_trials = Int(100)
+
+    opt_thread = Instance(OptThread)  #: EQ optimization thread.
+    use_mmse = Bool(True)
+
+    # - Tx
+    tx_sel = Enum("native", "ibis")
+    tx_eq_sel = Enum("Native", "IBIS-AMI")
+    # -- native
+    vod = Float(1.0)  #: Tx differential output voltage (V)
+    rs = Float(100)  #: Tx source impedance (Ohms)
+    cout = Range(low=0.001, high=1000, value=0.5)  #: Tx parasitic output capacitance (pF)
+    pn_mag = Float(0.01)  #: Periodic noise magnitude (V).
+    pn_freq = Float(11)  #: Periodic noise frequency (MHz).
+    rn = Float(0.01)  #: Standard deviation of Gaussian random noise (V).
+    tx_taps: List = List()  #: List of Tx deemphasis tap tuner objects.
+
+    def _tx_taps_default(self):
+        return [
+            TxTapTuner(name="Pre-tap3",  pos=-3, enabled=False, min_val=-0.05, max_val=0.05),
+            TxTapTuner(name="Pre-tap2",  pos=-2, enabled=True, min_val=-0.1,  max_val=0.1),
+            TxTapTuner(name="Pre-tap1",  pos=-1, enabled=True, min_val=-0.2,  max_val=0.2),
+            TxTapTuner(name="Post-tap1", pos=1,  enabled=False, min_val=-0.2,  max_val=0.2),
+            TxTapTuner(name="Post-tap2", pos=2,  enabled=False, min_val=-0.1,  max_val=0.1),
+            TxTapTuner(name="Post-tap3", pos=3,  enabled=False, min_val=-0.05, max_val=0.05),
+        ]
+    rel_power = Float(1.0)  #: Tx power dissipation (W).
+    # -- ibis
+    tx_use_ami = Bool(False)  #: (Bool)
+    tx_has_ts4 = Bool(False)  #: (Bool)
+    tx_use_ts4 = Bool(False)  #: (Bool)
+    tx_use_getwave = Bool(False)  #: (Bool)
+    tx_has_getwave = Bool(False)  #: (Bool)
+    tx_ami_file = File("", entries=5, filter=["*.ami"])  # type: ignore
+    tx_ami_valid = Bool(False)  #: (Bool)
+    tx_dll_file = File("", entries=5, filter=["*.dll", "*.so"])  # type: ignore
+    tx_dll_valid = Bool(False)  #: (Bool)
+    tx_ibis_file = File("")  #: (File)
+    tx_ibis_valid = Bool(False)  #: (Bool)
+
+    # - Rx
+    rx_sel = Enum("native", "ibis")
+    rx_eq_sel = Enum("Native", "IBIS-AMI")
+    # -- native
+    rin = Float(100)  #: Rx input impedance (Ohm)
+    cin = Float(0.5)  #: Rx parasitic input capacitance (pF)
+
+    # - Device termination, package, and partial host channel models (P802.3dj/D3.3 Annex 178A),
+    #   for native Tx and Rx. When enabled, they replace `rs`/`cout` and `rin`/`cin`.
+    pkg_enable = Bool(False)  #: Use the P802.3dj Annex 178A Tx/Rx device models.
+    pkg_group = Enum("KR", "C2C", "CR", "C2M")  #: Channel group, selecting the P802.3dj table used.
+    tx_pkg_case = String("A1")  #: Tx package case (KR/C2C: "A1"/"A2"/"B1"/"B2"; CR: "HL"/"HN"/"HH"; C2M: "host"/"module").
+    rx_pkg_case = String("A1")  #: Rx package case (as for `tx_pkg_case`).
+    pkg_include_host = Bool(True)  #: Include the partial host channel, where the case defines one (CR, C2M host).
+    cac = Float(1.0)  #: Rx a.c. coupling capacitance (uF)
+    use_ctle_file = Bool(False)  #: For importing CTLE impulse/step response directly.
+    ctle_sel = Enum("Native", "File")
+    ctle_file = File("")  #: CTLE response file (when use_ctle_file = True).
+    rx_bw = Float(12.0)  #: CTLE bandwidth (GHz).
+    peak_freq = Float(gPeakFreq)  #: CTLE peaking frequency (GHz)
+    peak_mag = Float(gPeakMag)  #: CTLE peaking magnitude (dB)
+    ctle_enable = Bool(True)  #: CTLE enable.
+    # -- ibis
+    rx_use_ami = Bool(False)  #: (Bool)
+    rx_has_ts4 = Bool(False)  #: (Bool)
+    rx_use_ts4 = Bool(False)  #: (Bool)
+    rx_use_getwave = Bool(False)  #: (Bool)
+    rx_has_getwave = Bool(False)  #: (Bool)
+    rx_use_clocks = Bool(False)  #: (Bool)
+    rx_ami_file = File("", entries=5, filter=["*.ami"])  # type: ignore
+    rx_ami_valid = Bool(False)  #: (Bool)
+    rx_dll_file = File("", entries=5, filter=["*.dll", "*.so"])  # type: ignore
+    rx_dll_valid = Bool(False)  #: (Bool)
+    rx_ibis_file = File("")  #: (File)
+    rx_ibis_valid = Bool(False)  #: (Bool)
+    rx_use_viterbi = Bool(False)  #: (Bool)
+    rx_viterbi_symbols = Int(4)  #: Number of symbols to track in Viterbi decoder.
+    rx_viterbi_fec = Bool(False)  #: Use FEC, as opposed to ISI, for Viterbi decoding when True.
+    trellis_max_x = Int(10_150)
+    trellis_pan_control = Range(low=0, high='trellis_max_x', value=0)
+    trellis_max_err = Int(0)
+    trellis_err_select = Range(low=0, high='trellis_max_err', value=0)
+
+    # - DFE
+    sum_ideal = Bool(True)  #: True = use an ideal (i.e. - infinite bandwidth) summing node (Bool).
+    decision_scaler = Float(0.5)  #: DFE slicer output voltage (V).
+    gain = Float(0.1)  #: DFE error gain (unitless).
+    n_ave = Float(100)  #: DFE # of averages to take, before making tap corrections.
+    sum_bw = Float(12.0)  #: DFE summing node bandwidth (Used when sum_ideal=False.) (GHz).
+    use_agc = Bool(True)  #: Continuously adjust ``decision_scalar`` when True.
+
+    # - CDR
+    #: CDR type: an adaptive bang-bang loop, or a Mueller-Muller clock, which samples at the
+    #: fixed phase where the slicer-input pulse response meets the Mueller-Muller criterion.
+    cdr_type = Enum("Bang-Bang", "Mueller-Muller")
+    delta_t_ui = Float(0.001)  #: CDR proportional branch magnitude (UI).
+    alpha = Float(0.01)  #: CDR integral branch magnitude (unitless).
+    n_lock_ave = Int(500)  #: CDR # of averages to take in determining lock.
+    rel_lock_tol = Float(0.1)  #: CDR relative tolerance to use in determining lock.
+    lock_sustain = Int(500)  #: CDR hysteresis to use in determining lock.
+
+    # - Rx FFE
+    rx_taps: List = List()
+
+    def _rx_taps_default(self):
+        return _make_rx_ffe_tap_tuners()
+
+    rx_n_taps = Int(15)  #: Total number of taps in Rx FFE.
+    rx_n_pre = Int(4)  #: Number of pre-cursor taps in Rx FFE.
+
+    # Misc.
+    #: PyBERT configuration data storage file (File).
+    cfg_file = File("", entries=5, filter=["*.pybert_cfg"])  # type: ignore
+    #: PyBERT results data storage file (File).
+    data_file = File("", entries=5, filter=["*.pybert_data"])  # type: ignore
+
+    # Plots (plot containers, actually)
+    plotdata = ArrayPlotData()
+    plots_h = Instance(GridPlotContainer)
+    plots_s = Instance(GridPlotContainer)
+    plots_p = Instance(GridPlotContainer)
+    plots_H = Instance(GridPlotContainer)
+    plots_dfe = Instance(GridPlotContainer)
+    plots_eye = Instance(GridPlotContainer)
+    plots_jitter_dist = Instance(GridPlotContainer)
+    plots_jitter_spec = Instance(GridPlotContainer)
+    plots_bathtub = Instance(GridPlotContainer)
+
+    # Status
+    status = String("Ready.")  #: PyBERT status (String).
+    jitter_perf = Float(0.0)
+    total_perf = Float(0.0)
+    sweep_results = List()  # type: ignore
+    len_h = Int(0)
+    chnl_dly = Float(0.0)  #: Estimated channel delay (s).
+    n_errs_dfe = Int(0)  #: # of DFE bit errors observed in last run.
+    n_errs_viterbi = Int(0)  #: # of Viterbi bit errors observed in last run.
+    run_count = Int(0)  # Used as a mechanism to force bit stream regeneration.
+
+    # COM (Channel Operating Margin) — computed post-simulation via PyChOpMarg.
+    enable_com   = Bool(False)  #: Compute COM after each simulation run when True. (Default = False)
+    com_cfg_file = File("")     #: Optional COM configuration spreadsheet (.xls/.xlsx); uses IEEE 802.3dj defaults when empty.
+    com_value    = Float(-999.0)  #: COM value (dB); -999.0 means not computed.
+    com_msg      = String("")   #: Status/error message from the last COM computation attempt.
+
+    # About
+    perf_info = Property(String, depends_on=["total_perf"])
+    com_info = Property(String, depends_on=["com_value", "com_msg"])
+
+    # Help
+    instructions = help_str
+
+    # Console
+    console_log = String("PyBERT Console Log\n\n")
+
+    # Dependent variables
+    # - Handled by the Traits/UI machinery. (Should only contain "low overhead" variables,
+    #   which don't freeze the GUI noticeably.)
+    #
+    # - Note: Don't make properties, which have a high calculation overhead,
+    #         dependencies of other properties!
+    #         This will slow the GUI down noticeably.
+    jitter_info = Property(String, depends_on=["jitter_perf"])
+    status_str = Property(String, depends_on=["status"])
+    sweep_info = Property(String, depends_on=["sweep_results"])
+    t = Property(Array, depends_on=["ui", "nspui", "nui"])
+    t_ns = Property(Array, depends_on=["t"])
+    f = Property(Array, depends_on=["f_step", "f_max"])
+    w = Property(Array, depends_on=["f"])
+    t_irfft = Property(Array, depends_on=["f"])
+    L = Property(Int, depends_on=["mod_type"])
+    bits = Property(Array, depends_on=["pattern", "nbits", "mod_type", "run_count", "rx_use_viterbi", "rx_viterbi_fec"])
+    symbols = Property(Array, depends_on=["bits", "vod"])
+    ffe = Property(Array, depends_on=["tx_taps.value", "tx_taps.enabled"])
+    rx_ffe = Property(Array, depends_on=["rx_taps.value", "rx_taps.enabled"])
+    ui = Property(Float, depends_on=["bit_rate", "mod_type", "rx_use_viterbi", "rx_viterbi_fec"])
+    nui = Property(Int, depends_on=["nbits", "mod_type", "rx_use_viterbi", "rx_viterbi_fec"])
+    eye_uis = Property(Int, depends_on=["eye_bits", "mod_type", "rx_use_viterbi", "rx_viterbi_fec"])
+    dfe_out_p = Array()
+
+    # Custom buttons, which we'll use in particular tabs.
+    # (Globally applicable buttons, such as "Run" and "Ok", are handled more simply, in the View.)
+    btn_disable = Button(label="Disable All")  # Disable all DFE taps in optimizer.
+    btn_enable = Button(label="Enable All")  # Enable all DFE taps in optimizer.
+    btn_disable_ffe = Button(label="Disable All")  # Disable all FFE taps in optimizer.
+    btn_enable_ffe = Button(label="Enable All")  # Enable all FFE taps in optimizer.
+    btn_cfg_tx = Button(label="Configure")  # Configure AMI parameters.
+    btn_cfg_rx = Button(label="Configure")
+    btn_sel_tx = Button(label="Select")  # Select IBIS model.
+    btn_sel_rx = Button(label="Select")
+    btn_view_tx = Button(label="View")  # View IBIS model.
+    btn_view_rx = Button(label="View")
+
+    # Logger & Pop-up
+    def log(self, msg, alert=False, exception=None):
+        """Log a message to the console and, optionally, to terminal and/or pop-up dialog."""
+        _msg = msg.strip()
+        txt = f"[{datetime.now(tz=timezone(timedelta(hours=0)))}]: PyBERT: {_msg}"
+        if self.debug:
+            # In case PyBERT crashes, before we can read this in its `Console` tab:
+            print(txt, flush=True)
+        self.console_log += txt + "\n"
+        if exception:
+            raise exception
+        if alert and self.GUI:
+            message(_msg, title="PyBERT Alert")
+
+    # User "yes"/"no" alert box.
+    def alert(self, msg):
+        "Prompt for a yes/no response, using simple alert dialog."
+        _msg = msg.strip()
+        if self.GUI:
+            return error(_msg, "PyBERT Alert")
+        raise RuntimeError("Alert box requested, but no GUI!")
+
+    # Default initialization
+    def __init__(self, run_simulation=True, gui=True):
+        """Initial plot setup occurs here.
+
+        In order to populate the data structure we need to
+        construct the plots, we must run the simulation.
+
+        Args:
+            run_simulation(Bool): If true, run the simulation, as part
+                of class initialization. This is provided as an argument
+                for the sake of larger applications, which may be
+                importing PyBERT for its attributes and methods, and may
+                not want to run the full simulation. (Optional;
+                default = True)
+            gui(Bool): Set to `False` for script based usage.
+        """
+
+        # Super-class initialization is ABSOLUTELY NECESSARY, in order
+        # to get all the Traits/UI machinery setup correctly.
+        super().__init__()
+
+        self.GUI = gui
+        set_pyibisami_logging(self.debug)
+        self.log("Started.")
+        self.log_information()
+        if self.debug:
+            self.log("Debug Mode Enabled.")
+
+        INIT_LEN = 640
+        self.plotdata.set_data("t_ns_opt", self.t_ns[:INIT_LEN])
+        self.plotdata.set_data("clocks_tune", zeros(INIT_LEN))
+        self.plotdata.set_data("ctle_out_h_tune", zeros(INIT_LEN))
+        self.plotdata.set_data("s_ctle", zeros(INIT_LEN))
+        self.plotdata.set_data("s_ctle_out", zeros(INIT_LEN))
+        self.plotdata.set_data("s_tx", zeros(INIT_LEN))
+        self.plotdata.set_data("p_chnl", zeros(INIT_LEN))
+        self.plotdata.set_data("p_ctle", zeros(INIT_LEN))
+        self.plotdata.set_data("p_ctle_out", zeros(INIT_LEN))
+        self.plotdata.set_data("p_tx", zeros(INIT_LEN))
+        self.plotdata.set_data("p_tx_out", zeros(INIT_LEN))
+        self.plotdata.set_data("curs_ix", [0, 0])
+        self.plotdata.set_data("curs_amp", [0, 0])
+
+        self.rx_n_pre = 5  # To trigger adjustment of Rx FFE taps, both actual and tuner.
+
+        if run_simulation:
+            self.simulate(initial_run=True)
+
+    def _btn_disable_fired(self):
+        if self.opt_thread and self.opt_thread.is_alive():
+            pass
+        else:
+            for tap in self.dfe_tap_tuners:
+                tap.enabled = False
+
+    def _btn_enable_fired(self):
+        if self.opt_thread and self.opt_thread.is_alive():
+            pass
+        else:
+            for tap in self.dfe_tap_tuners:
+                tap.enabled = True
+
+    def _btn_disable_ffe_fired(self):
+        if self.opt_thread and self.opt_thread.is_alive():
+            pass
+        else:
+            for tap in self.ffe_tap_tuners:
+                tap.enabled = False
+
+    def _btn_enable_ffe_fired(self):
+        if self.opt_thread and self.opt_thread.is_alive():
+            pass
+        else:
+            for tap in self.ffe_tap_tuners:
+                tap.enabled = True
+
+    def _btn_cfg_tx_fired(self):
+        self._tx_cfg()
+
+    def _btn_cfg_rx_fired(self):
+        self._rx_cfg()
+        if self.debug:
+            self.log(f"User configuration resulted in the following `In`/`InOut` parameter dictionary:\n{self._rx_cfg.input_ami_params}")
+
+    def _btn_sel_tx_fired(self):
+        self._tx_ibis()
+        self.tx_dll_file, self.tx_ami_file = resolve_ami_files(self._tx_ibis, is_tx=True)
+
+    def _btn_sel_rx_fired(self):
+        self._rx_ibis()
+        self.rx_dll_file, self.rx_ami_file = resolve_ami_files(self._rx_ibis, is_tx=False)
+
+    def _btn_view_tx_fired(self):
+        self._tx_ibis.model()
+
+    def _btn_view_rx_fired(self):
+        self._rx_ibis.model()
+
+    # Independent variable setting intercepts
+    # (Primarily, for debugging.)
+    def _set_ctle_peak_mag_tune(self, val):
+        if val > gMaxCTLEPeak or val < 0.0:
+            raise RuntimeError("CTLE peak magnitude out of range!")
+        self.peak_mag_tune = val
+
+    # Dependent variable definitions
+    @cached_property
+    def _get_t(self):
+        """Calculate the system time vector, in seconds."""
+
+        ui = self.ui
+        nspui = self.nspui
+        nui = self.nui
+
+        t0 = ui / nspui
+        npts = nui * nspui
+
+        return array([i * t0 for i in range(npts)])
+
+    @cached_property
+    def _get_t_ns(self):
+        """Calculate the system time vector, in ns."""
+
+        return self.t * 1.0e9
+
+    @cached_property
+    def _get_f(self):
+        """
+        Calculate the frequency vector for channel model construction.
+        """
+        fstep = self.f_step * 1e6
+        fmax  = self.f_max  * 1e9
+        return arange(0, fmax + fstep, fstep)  # "+fstep", so fmax gets included
+
+    @cached_property
+    def _get_w(self):
+        """
+        Channel modeling frequency vector, in rads./sec.
+        """
+        return 2 * pi * self.f
+
+    @cached_property
+    def _get_t_irfft(self):
+        """
+        Calculate the time vector appropriate for indexing `irfft()` output.
+        """
+        f = self.f
+        tmax = 1 / f[1]
+        tstep = 0.5 / f[-1]
+        return arange(0, tmax, tstep)
+
+    @cached_property
+    def _get_bits(self):
+        """Generate the bit stream."""
+
+        pattern = self.pattern_
+        seed = self.seed
+        nbits = self.nbits
+
+        if not seed:  # The user sets `seed` to zero when she wants a new random seed generated for each run.
+            seed = randint(128)
+            while not seed:  # We don't want to seed our LFSR with zero.
+                seed = randint(128)
+
+        bit_gen = lfsr_bits(pattern, seed)
+        bits = [next(bit_gen) for _ in range(nbits)]
+
+        return array(bits)
+
+    @cached_property
+    def _get_ui(self):
+        """Returns the "unit interval" (i.e. - the nominal time span of each symbol moving through the channel)."""
+
+        ui = 1.0 / (self.bit_rate * 1.0e9)
+        if self.mod_type == "PAM-4" and not (self.rx_use_viterbi and self.rx_viterbi_fec):
+            ui *= 2.0
+
+        return ui
+
+    @cached_property
+    def _get_nui(self):
+        """Returns the number of unit intervals in the test vectors."""
+
+        nui = self.nbits
+        if self.mod_type == "PAM-4" and not (self.rx_use_viterbi and self.rx_viterbi_fec):
+            nui //= 2
+
+        return nui
+
+    @cached_property
+    def _get_eye_uis(self):
+        """Returns the number of unit intervals to use for eye construction."""
+
+        eye_uis = self.eye_bits
+        if self.mod_type == "PAM-4" and not (self.rx_use_viterbi and self.rx_viterbi_fec):
+            eye_uis //= 2
+
+        return eye_uis
+
+    @cached_property
+    def _get_L(self):
+        """Number of symbols in alphabet."""
+
+        match(self.mod_type_):
+            case 0:  # NRZ
+                return 2
+            case 1:  # Duobinary
+                return 3
+            case 2:  # PAM-4
+                return 4
+            case _:  # Unrecognized!
+                raise ValueError("Unknown modulation type found!")
+
+    @cached_property
+    def _get_symbols(self):
+        """Generate the symbol stream."""
+
+        mod_type = self.mod_type_
+        vod = self.vod
+        bits = self.bits
+
+        if mod_type == 0:  # NRZ
+            symbols = 2 * bits - 1
+        elif mod_type == 1:  # Duo-binary
+            symbols = [bits[0]]
+            for bit in bits[1:]:  # XOR pre-coding prevents infinite error propagation.
+                symbols.append(bit ^ symbols[-1])
+            symbols = 2 * array(symbols) - 1
+        elif mod_type == 2:  # PAM-4
+            symbols = []
+            if self.rx_use_viterbi and self.rx_viterbi_fec:
+                encoder = FEC_Encoder()
+                gbitss = encoder.encode(bits)
+            else:
+                gbitss = zip(bits[0::2], bits[1::2])
+            for gbits in gbitss:
+                match gbits:
+                    case (0, 0):
+                        symbols.append(-1.0)
+                    case (0, 1):
+                        symbols.append(-1.0 / 3.0)
+                    case (1, 1):  # Gray coding required for correct FEC Viterbi decoding.
+                        symbols.append(1.0 / 3.0)
+                    case (1, 0):
+                        symbols.append(1.0)
+                    case _:
+                        raise ValueError(f"Invalid bit pair: {gbits}!")
+        else:
+            raise ValueError(f"ERROR: _get_symbols(): Unknown modulation type: {mod_type}, requested!")
+
+        return array(symbols) * vod
+
+    @cached_property
+    def _get_ffe(self):
+        """Generate the Tx pre-emphasis FIR numerator."""
+
+        tap_tuners = self.tx_taps
+
+        taps = []
+        for tuner in tap_tuners:
+            if tuner.enabled:
+                taps.append(tuner.value)
+            else:
+                taps.append(0.0)
+        curs_pos = -tap_tuners[0].pos
+        curs_val = 1.0 - sum(abs(array(taps)))
+        if curs_pos < 0:
+            taps.insert(0, curs_val)
+        else:
+            taps.insert(curs_pos, curs_val)
+
+        return taps
+
+    @cached_property
+    def _get_rx_ffe(self):
+        """Generate the Rx FFE FIR numerator."""
+
+        tap_tuners = self.rx_taps
+
+        taps = []
+        for tuner in tap_tuners:
+            if tuner.enabled:
+                taps.append(tuner.value)
+            else:
+                taps.append(0.0)
+        curs_pos = -tap_tuners[0].pos
+        curs_val = 1.0 - sum(abs(array(taps)))
+        if curs_pos < 0:
+            taps.insert(0, curs_val)
+        else:
+            taps.insert(curs_pos, curs_val)
+
+        return taps
+
+    # pylint: disable=too-many-locals,consider-using-f-string,too-many-branches,too-many-statements
+    def _get_jitter_info(self):
+        isi_chnl = self.isi_chnl * 1.0e12
+        dcd_chnl = self.dcd_chnl * 1.0e12
+        pj_chnl = self.pj_chnl * 1.0e12
+        rj_chnl = self.rj_chnl * 1.0e12
+        isi_tx = self.isi_tx * 1.0e12
+        dcd_tx = self.dcd_tx * 1.0e12
+        pj_tx = self.pj_tx * 1.0e12
+        rj_tx = self.rj_tx * 1.0e12
+        isi_ctle = self.isi_ctle * 1.0e12
+        dcd_ctle = self.dcd_ctle * 1.0e12
+        pj_ctle = self.pj_ctle * 1.0e12
+        rj_ctle = self.rj_ctle * 1.0e12
+        isi_dfe = self.isi_dfe * 1.0e12
+        dcd_dfe = self.dcd_dfe * 1.0e12
+        pj_dfe = self.pj_dfe * 1.0e12
+        rj_dfe = self.rj_dfe * 1.0e12
+
+        isi_rej_tx = 1.0e20
+        dcd_rej_tx = 1.0e20
+        isi_rej_ctle = 1.0e20
+        dcd_rej_ctle = 1.0e20
+        pj_rej_ctle = 1.0e20
+        rj_rej_ctle = 1.0e20
+        isi_rej_dfe = 1.0e20
+        dcd_rej_dfe = 1.0e20
+        pj_rej_dfe = 1.0e20
+        rj_rej_dfe = 1.0e20
+        isi_rej_total = 1.0e20
+        dcd_rej_total = 1.0e20
+        pj_rej_total = 1.0e20
+        rj_rej_total = 1.0e20
+
+        if isi_tx:
+            isi_rej_tx = isi_chnl / isi_tx
+        if dcd_tx:
+            dcd_rej_tx = dcd_chnl / dcd_tx
+        if isi_ctle:
+            isi_rej_ctle = isi_tx / isi_ctle
+        if dcd_ctle:
+            dcd_rej_ctle = dcd_tx / dcd_ctle
+        if pj_ctle:
+            pj_rej_ctle = pj_tx / pj_ctle
+        if rj_ctle:
+            rj_rej_ctle = rj_tx / rj_ctle
+        if isi_dfe:
+            isi_rej_dfe = isi_ctle / isi_dfe
+        if dcd_dfe:
+            dcd_rej_dfe = dcd_ctle / dcd_dfe
+        if pj_dfe:
+            pj_rej_dfe = pj_ctle / pj_dfe
+        if rj_dfe:
+            rj_rej_dfe = rj_ctle / rj_dfe
+        if isi_dfe:
+            isi_rej_total = isi_chnl / isi_dfe
+        if dcd_dfe:
+            dcd_rej_total = dcd_chnl / dcd_dfe
+        if pj_dfe:
+            pj_rej_total = pj_tx / pj_dfe
+        if rj_dfe:
+            rj_rej_total = rj_tx / rj_dfe
+
+        # Temporary, until I figure out DPI independence.
+        info_str = "<style>\n"
+        info_str += " table td {font-size: 12em;}\n"
+        info_str += " table th {font-size: 14em;}\n"
+        info_str += "</style>\n"
+        # End Temp.
+
+        info_str = "<H1>Jitter Rejection by Equalization Component</H1>\n"
+
+        info_str += "<H2>Tx Preemphasis</H2>\n"
+        info_str += '<TABLE border="1">\n'
+        info_str += '<TR align="center">\n'
+        info_str += "<TH>Jitter Component</TH><TH>Input (ps)</TH><TH>Output (ps)</TH><TH>Rejection (dB)</TH>\n"
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">ISI</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            isi_chnl,
+            isi_tx,
+            10.0 * safe_log10(isi_rej_tx),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += f'<TD align="center">DCD</TD><TD>{dcd_chnl:6.3f}</TD><TD>{dcd_tx:6.3f}</TD><TD>{10.0 * safe_log10(dcd_rej_tx):4.1f}</TD>\n'
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">Pj</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>n/a</TD>\n' % (
+            pj_chnl,
+            pj_tx,
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">Rj</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>n/a</TD>\n' % (
+            rj_chnl,
+            rj_tx,
+        )
+        info_str += "</TR>\n"
+        info_str += "</TABLE>\n"
+
+        info_str += "<H2>CTLE (+ AMI DFE)</H2>\n"
+        info_str += '<TABLE border="1">\n'
+        info_str += '<TR align="center">\n'
+        info_str += "<TH>Jitter Component</TH><TH>Input (ps)</TH><TH>Output (ps)</TH><TH>Rejection (dB)</TH>\n"
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">ISI</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            isi_tx,
+            isi_ctle,
+            10.0 * safe_log10(isi_rej_ctle),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">DCD</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            dcd_tx,
+            dcd_ctle,
+            10.0 * safe_log10(dcd_rej_ctle),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">Pj</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            pj_tx,
+            pj_ctle,
+            10.0 * safe_log10(pj_rej_ctle),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">Rj</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            rj_tx,
+            rj_ctle,
+            10.0 * safe_log10(rj_rej_ctle),
+        )
+        info_str += "</TR>\n"
+        info_str += "</TABLE>\n"
+
+        info_str += "<H2>DFE</H2>\n"
+        info_str += '<TABLE border="1">\n'
+        info_str += '<TR align="center">\n'
+        info_str += "<TH>Jitter Component</TH><TH>Input (ps)</TH><TH>Output (ps)</TH><TH>Rejection (dB)</TH>\n"
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">ISI</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            isi_ctle,
+            isi_dfe,
+            10.0 * safe_log10(isi_rej_dfe),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">DCD</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            dcd_ctle,
+            dcd_dfe,
+            10.0 * safe_log10(dcd_rej_dfe),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">Pj</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            pj_ctle,
+            pj_dfe,
+            10.0 * safe_log10(pj_rej_dfe),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">Rj</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            rj_ctle,
+            rj_dfe,
+            10.0 * safe_log10(rj_rej_dfe),
+        )
+        info_str += "</TR>\n"
+        info_str += "</TABLE>\n"
+
+        info_str += "<H2>TOTAL</H2>\n"
+        info_str += '<TABLE border="1">\n'
+        info_str += '<TR align="center">\n'
+        info_str += "<TH>Jitter Component</TH><TH>Input (ps)</TH><TH>Output (ps)</TH><TH>Rejection (dB)</TH>\n"
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">ISI</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            isi_chnl,
+            isi_dfe,
+            10.0 * safe_log10(isi_rej_total),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">DCD</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            dcd_chnl,
+            dcd_dfe,
+            10.0 * safe_log10(dcd_rej_total),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">Pj</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            pj_tx,
+            pj_dfe,
+            10.0 * safe_log10(pj_rej_total),
+        )
+        info_str += "</TR>\n"
+        info_str += '<TR align="right">\n'
+        info_str += '<TD align="center">Rj</TD><TD>%6.3f</TD><TD>%6.3f</TD><TD>%4.1f</TD>\n' % (
+            rj_tx,
+            rj_dfe,
+            10.0 * safe_log10(rj_rej_total),
+        )
+        info_str += "</TR>\n"
+        info_str += "</TABLE>\n"
+
+        return info_str
+
+    def _get_perf_info(self):
+        info_str = "<H2>Performance by Component</H2>\n"
+        info_str += '  <TABLE border="1">\n'
+        info_str += '    <TR align="center">\n'
+        info_str += "      <TH>Component</TH><TH>Performance (Msmpls./min.)</TH>\n"
+        info_str += "    </TR>\n"
+        info_str += '    <TR align="right">\n'
+        info_str += f'      <TD align="center">Channel</TD><TD>{self.channel_perf * 6e-05:6.3f}</TD>\n'
+        info_str += "    </TR>\n"
+        info_str += '    <TR align="right">\n'
+        info_str += f'      <TD align="center">Tx Preemphasis</TD><TD>{self.tx_perf * 6e-05:6.3f}</TD>\n'
+        info_str += "    </TR>\n"
+        info_str += '    <TR align="right">\n'
+        info_str += f'      <TD align="center">CTLE</TD><TD>{self.ctle_perf * 6e-05:6.3f}</TD>\n'
+        info_str += "    </TR>\n"
+        info_str += '    <TR align="right">\n'
+        info_str += f'      <TD align="center">FFE</TD><TD>{self.ffe_perf * 6e-05:6.3f}</TD>\n'
+        info_str += "    </TR>\n"
+        info_str += '    <TR align="right">\n'
+        info_str += f'      <TD align="center">DFE</TD><TD>{self.dfe_perf * 6e-05:6.3f}</TD>\n'
+        info_str += "    </TR>\n"
+        info_str += '    <TR align="right">\n'
+        info_str += f'      <TD align="center">Viterbi</TD><TD>{self.viterbi_perf * 6e-05:6.3f}</TD>\n'
+        info_str += "    </TR>\n"
+        info_str += '    <TR align="right">\n'
+        info_str += f'      <TD align="center">Jitter Analysis</TD><TD>{self.jitter_perf * 6e-05:6.3f}</TD>\n'
+        info_str += "    </TR>\n"
+        info_str += '    <TR align="right">\n'
+        info_str += f'      <TD align="center"><strong>TOTAL</strong></TD><TD><strong>{self.total_perf * 60.0e-6:6.3f}</strong></TD>\n'
+        info_str += "    </TR>\n"
+        info_str += '    <TR align="right">\n'
+        info_str += f'      <TD align="center">Plotting</TD><TD>{self.plotting_perf * 6e-05:6.3f}</TD>\n'
+        info_str += "    </TR>\n"
+        info_str += "  </TABLE>\n"
+
+        return info_str
+
+    def _get_com_info(self):
+        com_value = self.com_value
+        com_msg   = self.com_msg
+        info_str = "<H1>Channel Operating Margin (COM)</H1>\n"
+        info_str += "<p>Computed via <em>PyChOpMarg</em> using IEEE 802.3dj parameters.</p>\n"
+        if com_msg.startswith("ERROR:"):
+            info_str += f"<p><strong>COM failed:</strong> {com_msg[6:].strip()}</p>\n"
+        elif com_msg == "RUNNING":
+            info_str += "<p><strong>COM:</strong> Computing (may take several minutes)&hellip;</p>\n"
+        elif com_value <= -999.0:
+            info_str += "<p><strong>COM:</strong> Not computed.</p>\n"
+            info_str += "<p>(Enable <em>Compute COM</em> in the Interconnect panel and use a single .s4p channel file.)</p>\n"
+        else:
+            info_str += f"<p><strong>COM:</strong> {com_value:.2f} dB</p>\n"
+        return info_str
+
+    def _get_sweep_info(self):
+        sweep_results = self.sweep_results
+
+        info_str = "<H2>Sweep Results</H2>\n"
+        info_str += '  <TABLE border="1">\n'
+        info_str += '    <TR align="center">\n'
+        info_str += "      <TH>Pretap</TH><TH>Posttap</TH><TH>Mean(bit errors)</TH><TH>StdDev(bit errors)</TH>\n"
+        info_str += "    </TR>\n"
+
+        for item in sweep_results:
+            info_str += '    <TR align="center">\n'
+            info_str += str(item)
+            info_str += "    </TR>\n"
+
+        info_str += "  </TABLE>\n"
+
+        return info_str
+
+    def _get_status_str(self):
+        status_str = f"{self.status:30} | Perf. (Msmpls./min.): {self.total_perf * 60.0e-6:4.1f}"
+        dly_str = f"    | ChnlDly (ns): {self.chnl_dly * 1000000000.0:5.3f}"
+        err_str = f"    | BitErrs: {int(self.n_errs_dfe)} ({int(self.n_errs_viterbi)})"
+        pwr_str = f"    | TxPwr (mW): {self.rel_power * 1e3:3.0f}"
+        status_str += dly_str + err_str + pwr_str
+        jit_str = "    | Jitter (ps):  ISI=%6.1f  DCD=%6.1f  Pj=%6.1f (%6.1f)  Rj=%6.1f (%6.1f)" % (
+            self.isi_dfe * 1.0e12,
+            self.dcd_dfe * 1.0e12,
+            self.pj_dfe * 1.0e12,
+            self.pjDD_dfe * 1.0e12,
+            self.rj_dfe * 1.0e12,
+            self.rjDD_dfe * 1.0e12,
+        )
+        com_str = f"    | COM: {self.com_value:.2f} dB"
+        status_str += jit_str + com_str
+
+        return status_str
+
+    # Changed property handlers.
+    def _status_str_changed(self):
+        if gDebugStatus:
+            print(self.status_str, flush=True)
+
+    def _use_dfe_changed(self, new_value):
+        if not new_value:
+            for i in range(1, 4):
+                self.tx_taps[i].enabled = True
+        else:
+            for i in range(1, 4):
+                self.tx_taps[i].enabled = False
+
+    def _dfe_tap_tuners_changed(self, new_value):
+        limits = []
+        for tuner in new_value:
+            limits.append((tuner.min_val, tuner.max_val))
+        self.dfe.limits = limits
+
+    def _rx_n_taps_changed(self, new_value):
+        if new_value < 0:
+            self.rx_n_taps = 0
+            return
+        for n, tuner in enumerate(self.ffe_tap_tuners):
+            if n >= new_value:
+                tuner.enabled = False
+            else:
+                tuner.enabled = True
+        for n, tap in enumerate(self.rx_taps):
+            if n >= new_value:
+                tap.enabled = False
+            else:
+                tap.enabled = True
+        if self.rx_n_pre >= new_value:
+            self.rx_n_pre = max(0, new_value - 1)
+
+    @observe("rx_n_pre")
+    def rx_n_pre_changed(self, event):
+        """Handle user change to number of Rx FFE pre-cursor taps."""
+        old_value = event.old
+        new_value = event.new
+
+        def set_tap_attrs(taps):
+            for n, tuner in enumerate(taps):
+                tuner.pos = n - new_value
+                if tuner.pos == 0:
+                    tuner.name = "Cursor"
+                else:
+                    if tuner.pos < 0:
+                        pref = "Pre"
+                    else:
+                        pref = "Post"
+                    tuner.name = pref + "-tap" + str(abs(tuner.pos))
+                if n >= self.rx_n_taps:
+                    tuner.enabled = False
+                else:
+                    tuner.enabled = True
+
+        n_shift = new_value - old_value
+        if n_shift < 0:  # left shift
+            n_shift = -n_shift
+            rx_taps = self.rx_taps[n_shift:]
+            ffe_tap_tuners = self.ffe_tap_tuners[n_shift:]
+            for _ in range(n_shift):
+                rx_taps.append(deepcopy(self.rx_taps[-1]))
+                ffe_tap_tuners.append(deepcopy(self.ffe_tap_tuners[-1]))
+        else:  # right shift
+            rx_taps = []
+            ffe_tap_tuners = []
+            for _ in range(n_shift):
+                rx_taps.append(deepcopy(self.rx_taps[0]))
+                ffe_tap_tuners.append(deepcopy(self.ffe_tap_tuners[0]))
+            rx_taps += self.rx_taps[: -n_shift]
+            ffe_tap_tuners += self.ffe_tap_tuners[: -n_shift]
+        set_tap_attrs(rx_taps)
+        set_tap_attrs(ffe_tap_tuners)
+        self.rx_taps = rx_taps
+        self.ffe_tap_tuners = ffe_tap_tuners
+
+    def _tx_sel_changed(self, new):
+        if new != "ibis":
+            self.tx_eq_sel = "Native"
+
+    def _tx_eq_sel_changed(self, new):
+        if new == "IBIS-AMI" and not (self.tx_sel == "ibis" and self.tx_ami_valid and self.tx_dll_valid):
+            self.log("Tx equalization: select an IBIS model with AMI configuration before switching to IBIS-AMI mode.")
+            return
+        self.tx_use_ami = new == "IBIS-AMI"
+
+    def _debug_changed(self, new):
+        "Show pyibisami's debugging details on the terminal, too (e.g. - IBIS parsing, failed AMI calls)."
+        set_pyibisami_logging(new)
+
+    def _log_ibis_alert(self, event):
+        "Copy an ``IBISModel`` notice into the console log. (Its own GUI pops it up.)"
+        self.log(event.new)
+
+    def _ibis_load_notice(self, ibis, has_ami_files):
+        "Tell the user whether the newly loaded IBIS model offers a usable AMI model."
+        if has_ami_files:
+            msg = (
+                "There was an [Algorithmic Model] keyword in this model.\n"
+                "If you wish to use the AMI model associated with this IBIS model,\n"
+                "please, go to the 'Equalization' tab and enable it now."
+            )
+        elif ibis.model.is_ami:
+            msg = (
+                "There was an [Algorithmic Model] keyword for this model,\n"
+                "but no executable for your platform and this direction (Tx/Rx);\n"
+                "PyBERT native equalization modeling being used instead."
+            )
+        else:
+            msg = (
+                "There was no [Algorithmic Model] keyword for this model;\n"
+                "PyBERT native equalization modeling being used instead."
+            )
+        self.log(msg, alert=True)
+
+    def _load_ibis(self, ibis_file, is_tx):
+        """
+        Load an IBIS file for one side, offering only the ``Model_type`` s PyBERT can simulate there.
+
+        Returns:
+            The IBIS model, and its selected model's ``(dll, ami)`` files for that side
+            (``("", "")`` if it has none).
+
+        Raises:
+            ValueError: The file has no pin with a model PyBERT can simulate on that side.
+        """
+        side = "Tx" if is_tx else "Rx"
+        model_types = PYBERT_TX_MODEL_TYPES if is_tx else PYBERT_RX_MODEL_TYPES
+        self.log(f"Parsing {side} IBIS file, '{ibis_file}'...")
+        try:
+            ibis = IBISModel(ibis_file, model_types=model_types)
+        except ValueError as err:
+            raise ValueError(
+                f"No {side} model PyBERT can simulate (Model_type: {', '.join(sorted(model_types))}).\n{err}"
+            ) from err
+        self.log(f"  Result:\n{ibis.ibis_parsing_errors}")
+        ibis.observe(self._log_ibis_alert, "alert")
+        ami_files = resolve_ami_files(ibis, is_tx)
+        self._ibis_load_notice(ibis, all(ami_files))
+        return ibis, ami_files
+
+    def _tx_ibis_file_changed(self, new_value):
+        self.status = f"Parsing IBIS file: {new_value}"
+        try:
+            self.tx_ibis_valid = False
+            self.tx_use_ami = False
+            self.tx_eq_sel = "Native"
+            self._tx_ibis, (self.tx_dll_file, self.tx_ami_file) = self._load_ibis(new_value, is_tx=True)
+            self.tx_ibis_valid = True
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            self.status = "IBIS file parsing error!"
+            error_message = f"Failed to open and/or parse IBIS file!\n{err}"
+            self.log(error_message, alert=True, exception=err)
+        self.status = "Done."
+
+    def _tx_ami_file_changed(self, new_value):
+        try:
+            self.tx_ami_valid = False
+            if new_value:
+                self.log(f"Parsing Tx AMI file, '{new_value}'...")
+                with open(new_value, mode="r", encoding="utf-8") as pfile:
+                    pcfg = AMIParamConfigurator(pfile.read())
+                if pcfg.ami_parsing_errors:
+                    self.log(f"Non-fatal parsing errors:\n{pcfg.ami_parsing_errors}")
+                else:
+                    self.log("Success.")
+                self.tx_has_getwave = pcfg.fetch_param_val(["Reserved_Parameters", "GetWave_Exists"])
+                _tx_returns_impulse = pcfg.fetch_param_val(["Reserved_Parameters", "Init_Returns_Impulse"])
+                if not _tx_returns_impulse:
+                    self.tx_use_getwave = True
+                if pcfg.fetch_param_val(["Reserved_Parameters", "Ts4file"]):
+                    self.tx_has_ts4 = True
+                else:
+                    self.tx_has_ts4 = False
+                self._tx_cfg = pcfg
+                self.tx_ami_tap_tuners = pcfg.mk_tap_tuners()
+                self.tx_ami_valid = True
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            error_message = f"Failed to open and/or parse AMI file!\n{err}"
+            self.log(error_message, alert=True)
+            raise
+
+    def _tx_dll_file_changed(self, new_value):
+        try:
+            self.tx_dll_valid = False
+            if new_value:
+                model = AMIModel(str(new_value))
+                self._tx_model = model
+                self.tx_dll_valid = True
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            error_message = f"Failed to open DLL/SO file!\n{err}"
+            self.log(error_message, alert=True)
+
+    def _ctle_sel_changed(self, new):
+        self.use_ctle_file = new == "File"
+
+    def _rx_sel_changed(self, new):
+        if new != "ibis":
+            self.rx_eq_sel = "Native"
+
+    def _rx_eq_sel_changed(self, new):
+        if new == "IBIS-AMI" and not (self.rx_sel == "ibis" and self.rx_ami_valid and self.rx_dll_valid):
+            self.log("Rx equalization: select an IBIS model with AMI configuration before switching to IBIS-AMI mode.")
+            return
+        self.rx_use_ami = new == "IBIS-AMI"
+
+    def _rx_ibis_file_changed(self, new_value):
+        self.status = f"Parsing IBIS file: {new_value}"
+        try:
+            self.rx_ibis_valid = False
+            self.rx_use_ami = False
+            self.rx_eq_sel = "Native"
+            self._rx_ibis, (self.rx_dll_file, self.rx_ami_file) = self._load_ibis(new_value, is_tx=False)
+            self.rx_ibis_valid = True
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            self.status = "IBIS file parsing error!"
+            error_message = f"Failed to open and/or parse IBIS file!\n{err}"
+            self.log(error_message, alert=True)
+            raise
+        self.status = "Done."
+
+    def _rx_ami_file_changed(self, new_value):
+        try:
+            self.rx_ami_valid = False
+            if new_value:
+                with open(new_value, mode="r", encoding="utf-8") as pfile:
+                    pcfg = AMIParamConfigurator(pfile.read())
+                self.log(f"Parsing Rx AMI file, '{new_value}'...")
+                if pcfg.ami_parsing_errors:
+                    self.log(f"Encountered the following errors:\n{pcfg.ami_parsing_errors}")
+                else:
+                    self.log("Success!")
+                self.rx_has_getwave = pcfg.fetch_param_val(["Reserved_Parameters", "GetWave_Exists"])
+                _rx_returns_impulse = pcfg.fetch_param_val(["Reserved_Parameters", "Init_Returns_Impulse"])
+                if not _rx_returns_impulse:
+                    self.rx_use_getwave = True
+                if pcfg.fetch_param_val(["Reserved_Parameters", "Ts4file"]):
+                    self.rx_has_ts4 = True
+                else:
+                    self.rx_has_ts4 = False
+                self._rx_cfg = pcfg
+                self.rx_ami_tap_tuners = pcfg.mk_tap_tuners()
+                self.rx_ami_valid = True
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            error_message = f"Failed to open and/or parse AMI file!\n{err}"
+            self.log(error_message, alert=True)
+
+    def _rx_dll_file_changed(self, new_value):
+        try:
+            self.rx_dll_valid = False
+            if new_value:
+                model = AMIModel(str(new_value))
+                self._rx_model = model
+                self.rx_dll_valid = True
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            error_message = f"Failed to open DLL/SO file!\n{err}"
+            self.log(error_message, alert=True)
+
+    def _rx_use_ami_changed(self, new_value):
+        if new_value:
+            self._btn_disable_fired()
+            self._btn_disable_ffe_fired()
+
+    def check_pat_len(self):
+        "Validate chosen pattern length against number of bits being run."
+        taps = self.pattern_
+        pat_len = 2 * pow(2, max(taps))  # "2 *", to accommodate PAM-4.
+        if self.eye_bits < 5 * pat_len:
+            self.log("\n".join([  # noqa: FLY002
+                "Accurate jitter decomposition may not be possible with the current configuration!",
+                "Try to keep `EyeBits` > 10 * 2^n, where `n` comes from `PRBS-n`.",]),
+                alert=True,
+            )
+
+    def check_eye_bits(self):
+        "Validate user selected number of eye bits."
+        if self.eye_bits > self.nbits:
+            self.eye_bits = self.nbits
+            self.log("`EyeBits` has been held at `Nbits`.", alert=True)
+
+    def _pattern_changed(self):
+        self.check_pat_len()
+
+    def _nbits_changed(self):
+        self.check_eye_bits()
+
+    def _eye_bits_changed(self, new_value):
+        self.check_eye_bits()
+        self.check_pat_len()
+        self.trellis_max_x = new_value - 10
+
+    def _f_max_changed(self, new_value):
+        fmax = 0.5e-9 / self.t[1]  # Nyquist frequency, given our sampling rate (GHz).
+        if new_value > fmax:
+            self.f_max = fmax
+            self.log("`fMax` has been held at the Nyquist frequency.", alert=True)
+
+    def _trellis_pan_control_changed(self, new_value):
+        self.plot_viterbi.components[0].index_range.set_bounds(new_value, new_value + 10)
+
+    def _trellis_err_select_changed(self, new_value):
+        if new_value > 0:
+            self.trellis_pan_control = max(0, self.trellis_err_xs[new_value - 1] - 5)
+
+    def _rx_viterbi_fec_changed(self, new_value):
+        if new_value:
+            self.mod_type = "PAM-4"
+
+    # This function has been pulled outside of the standard Traits/UI "depends_on / @cached_property" mechanism,
+    # in order to more tightly control when it executes. I wasn't able to get truly lazy evaluation, and
+    # this was causing noticeable GUI slowdown.
+    # pylint: disable=attribute-defined-outside-init
+    def calc_pkg_chnl_H(self, ch_s2p: rf.Network) -> np.ndarray:
+        """
+        Channel transfer function with the P802.3dj/D3.3 Annex 178A transmitter and receiver device models
+        (device termination, device package, and optional partial host channel), per (178A-2) and (178A-3).
+
+        The channel is renormalized to ``2 * R0`` (the differential-mode equivalent of 178A-4), cascaded between
+        the Tx and Rx models, and terminated in each device's ``Rd``. Like ``calc_G()``, the result is referenced
+        to the driver's open-circuit voltage: half of (178A-3)'s transfer function, which is referenced to the wave
+        launched into a matched line.
+
+        Args:
+            ch_s2p: The channel's differential-mode 2-port network, on the frequencies ``self.f``.
+
+        Returns:
+            The channel's transfer function, including the Tx and Rx device models, at ``self.f``.
+        """
+        f = self.f
+        tx_dev = device_model(self.pkg_group, self.tx_pkg_case, False, include_host=self.pkg_include_host)
+        rx_dev = device_model(self.pkg_group, self.rx_pkg_case, True, include_host=self.pkg_include_host)
+        R0 = DJ_R0
+        chnl = renormalize_to(rf.Network(s=ch_s2p.s, f=f, z0=ch_s2p.z0), 2 * R0)
+        total = s_tx_model(f, tx_dev, R0) ** chnl ** s_rx_model(f, rx_dev, R0)
+        self.pkg_s2p = total
+        return terminated_h21(total, gamma_term(tx_dev.Rd, R0), gamma_term(rx_dev.Rd, R0)) / 2
+
+    def calc_chnl_h(self):
+        """Calculates the channel impulse response.
+
+        Also sets, in 'self':
+         - chnl_dly:
+             group delay of channel
+         - start_ix:
+             first element of trimmed response
+         - t_ns_chnl:
+             the x-values, in ns, for plotting 'chnl_h'
+         - chnl_H:
+             channel frequency response
+         - chnl_s:
+             channel step response
+         - chnl_p:
+             channel pulse response
+        """
+
+        t = self.t  # This time vector has NO relationship to `f`/`w`!
+        t_irfft = self.t_irfft  # This time vector IS related to `f`/`w`.
+        f = self.f
+        w = self.w
+        nspui = self.nspui
+        impulse_length = self.impulse_length * 1.0e-9
+        Rs = self.rs
+        Cs = self.cout * 1.0e-12
+        RL = self.rin
+        Cp = self.cin * 1.0e-12
+        # CL = self.cac * 1.0e-6  # pylint: disable=unused-variable
+
+        ts = t[1]
+        len_f = len(f)
+
+        # Form the pre-on-die S-parameter 2-port network for the channel.
+        match(self.inter_sel):
+            case "native":
+                # Construct PyBERT default channel model (i.e. - Howard Johnson's UTP model).
+                # - Grab model parameters from PyBERT instance.
+                l_ch = self.l_ch
+                v0 = self.v0 * 3.0e8
+                R0 = self.R0
+                w0 = self.w0
+                Rdc = self.Rdc
+                Z0 = self.Z0
+                Theta0 = self.Theta0
+                # - Calculate propagation constant, characteristic impedance, and transfer function.
+                gamma, Zc = calc_gamma(R0, w0, Rdc, Z0, v0, Theta0, w)
+                self.Zc = Zc
+                H = exp(-l_ch * gamma)  # pylint: disable=invalid-unary-operand-type
+                self.H = H
+                # - Use the transfer function and characteristic impedance to form "perfectly matched" network.
+                tmp = np.array(list(zip(zip(zeros(len_f), H), zip(H, zeros(len_f)))))
+                ch_s2p_pre = rf.Network(s=tmp, f=f / 1e9, z0=Zc)
+                # - And, finally, renormalize to driver impedance.
+                ch_s2p_pre.renormalize(Rs)
+            case "single":
+                file = self.ch_file
+                if not file:
+                    raise RuntimeError("'single' is selected but no channel file is specified!")
+                ch_s2p_pre = import_channel(file, ts, f, renumber=self.renumber, lane=self.lane_sel)
+                self.log(str(ch_s2p_pre))
+                H = ch_s2p_pre.s21.s.flatten()
+            case "multiple":
+                files = self.ch_files
+                if not files:
+                    raise RuntimeError("'multiple' is selected but no channel files are specified!")
+                networks = [import_channel(fname, ts, f, renumber=self.renumber) for fname in files]
+                ch_s2p_pre = networks[0]
+                for ntwk in networks[1:]:
+                    ch_s2p_pre = ch_s2p_pre ** ntwk
+                self.log(str(ch_s2p_pre))
+                H = ch_s2p_pre.s21.s.flatten()
+            case _:
+                raise RuntimeError("Unrecognized interconnect type!")
+        ch_s2p_pre.name = "ch_s2p_pre"
+        self.ch_s2p_pre = ch_s2p_pre
+        ch_s2p = ch_s2p_pre  # In case neither set of on-die S-parameters is being invoked, below.
+
+        # Augment w/ IBIS-AMI on-die S-parameters, if appropriate.
+        def add_ondie_s(s2p, ts4f, isRx=False):
+            """Add the effect of on-die S-parameters to channel network.
+
+            Args:
+                s2p(skrf.Network): initial 2-port network.
+                ts4f(string): on-die S-parameter file name.
+
+            Keyword Args:
+                isRx(bool): True when Rx on-die S-params. are being added. (Default = False).
+
+            Returns:
+                skrf.Network: Resultant 2-port network.
+            """
+            ts4N = rf.Network(ts4f)  # Grab the 4-port single-ended on-die network.
+            ntwk = sdd_21(ts4N)  # Convert it to a differential, 2-port network.
+            # Interpolate to system freqs.
+            ntwk2 = ntwk.extrapolate_to_dc().windowed(normalize=False).interpolate(
+                s2p.f, coords='polar', bounds_error=False, fill_value='extrapolate')
+            if isRx:
+                res = s2p**ntwk2
+            else:  # Tx
+                res = ntwk2**s2p
+            return (res, ts4N, ntwk2)
+
+        def ibis_value(ibis, name):
+            "A value PyBERT needs from the selected IBIS model; pyibisami gives ``None`` when the model has none."
+            value = getattr(ibis.model, name)
+            if value is None:
+                raise ValueError(f"IBIS model `{ibis.mod}` (Model_type: {ibis.model.mtype}) has no `{name}` value.")
+            return value
+
+        def ts4_file(ibis, cfg):
+            "The AMI model's ``Ts4file``, resolved against the IBIS file's directory."
+            fname = cfg.fetch_param_val(["Reserved_Parameters", "Ts4file"])
+            fpath = ibis.resolve_file(fname) if fname else None
+            if fpath is None:
+                raise ValueError(f"The AMI model of IBIS model `{ibis.mod}` has an empty `Ts4file`.")
+            return str(fpath)
+
+        if self.tx_sel == "ibis":
+            Rs = ibis_value(self._tx_ibis, "zout") * 2
+            Cs = ibis_value(self._tx_ibis, "ccomp")[0] / 2  # They're in series.
+            self.Rs = Rs  # Primarily for debugging.
+            self.Cs = Cs
+            if self.tx_use_ts4:
+                ch_s2p, ts4N, ntwk = add_ondie_s(ch_s2p, ts4_file(self._tx_ibis, self._tx_cfg))
+                self.ts4N = ts4N
+                self.ntwk = ntwk
+        if self.rx_sel == "ibis":
+            RL = ibis_value(self._rx_ibis, "zin") * 2
+            Cp = ibis_value(self._rx_ibis, "ccomp")[0] / 2
+            self.RL = RL  # Primarily for debugging.
+            self.Cp = Cp
+            if self.debug:
+                self.log(f"RL: {RL}, Cp: {Cp}")
+            if self.rx_use_ts4:
+                ch_s2p, ts4N, ntwk = add_ondie_s(ch_s2p, ts4_file(self._rx_ibis, self._rx_cfg), isRx=True)
+                self.ts4N = ts4N
+                self.ntwk = ntwk
+        ch_s2p.name = "ch_s2p"
+        self.ch_s2p = ch_s2p
+
+        # Calculate channel impulse response.
+        _z = ch_s2p.s21.z0.flatten()
+        if len(_z) == 1:
+            _z = _z * np.ones(len(w))
+        # `calc_G()` returns the channel's transfer function referenced to the
+        # driver's open-circuit (EMF) amplitude. The `(Rs + RL) / RL` factor
+        # accounts for the natural voltage divider formed by the Tx output and
+        # Rx input resistances, so that `chnl_h` alone captures its effect,
+        # keeping it consistent w/ all the other (derived) pulse responses
+        # (`tx_p`, `ffe_out_p`, `dfe_out_p`, etc.), which are computed from it.
+        if self.pkg_enable:
+            chnl_H = self.calc_pkg_chnl_H(ch_s2p_pre)
+        else:
+            chnl_H = calc_G(ch_s2p.s21.s.flatten(), Rs, Cs, _z, RL, Cp, w)
+        if self.use_window:
+            chnl_h = irfft(raised_cosine(chnl_H))
+        else:
+            chnl_h = irfft(chnl_H)
+        krnl = interp1d(t_irfft, chnl_h, kind="cubic",
+                        bounds_error=False, fill_value=0, assume_sorted=True)
+        temp = krnl(t)
+        chnl_h = temp * t[1] / t_irfft[1]
+        chnl_dly = where(chnl_h == max(chnl_h))[0][0] * ts
+
+        min_len = 20 * nspui
+        max_len = 100 * nspui
+        if impulse_length:
+            min_len = max_len = int(impulse_length / ts)
+        chnl_h, start_ix = trim_impulse(chnl_h, min_len=min_len, max_len=max_len,
+                                        front_porch=True, kept_energy=0.999)
+        krnl = interp1d(t[:len(chnl_h)], chnl_h, kind="cubic",
+                        bounds_error=False, fill_value=0, assume_sorted=True)
+        chnl_trimmed_H = rfft(krnl(t_irfft)) * t_irfft[1] / t[1]
+
+        chnl_s = chnl_h.cumsum()
+        chnl_p = chnl_s - pad(chnl_s[:-nspui], (nspui, 0), "constant", constant_values=(0, 0))  # pylint: disable=invalid-unary-operand-type
+
+        self.chnl_h = chnl_h
+        self.len_h = len(chnl_h)
+        self.chnl_dly = chnl_dly
+        self.chnl_H = chnl_H
+        self.chnl_H_raw = H
+        self.chnl_trimmed_H = chnl_trimmed_H
+        self.start_ix = start_ix
+        self.t_ns_chnl = array(t[start_ix: start_ix + len(chnl_h)]) * 1.0e9
+        self.chnl_s = chnl_s
+        self.chnl_p = chnl_p
+
+        # Compute FEXT impulse responses when enabled.
+        # Each aggressor lane's signal convolved with its FEXT impulse response
+        # is added to the noise floor in my_run_simulation().
+        self.fext_h = []
+        if self.include_fext and self.inter_sel == "single":
+            for fext_ntwk in import_fext(self.ch_file, f, self.lane_sel, renumber=self.renumber):
+                fext_term = fext_ntwk.copy()
+                fext_z0 = fext_term.z0.copy()
+                fext_z0[:, 0] = Rs
+                fext_z0[:, 1] = RL
+                fext_term.renormalize(fext_z0)
+                fext_H = fext_term.s21.s.flatten() * np.sqrt(fext_term.z0[:, 1] / fext_term.z0[:, 0])
+                if self.use_window:
+                    h = irfft(raised_cosine(fext_H))
+                else:
+                    h = irfft(fext_H)
+                krnl = interp1d(t_irfft, h, kind="cubic", bounds_error=False, fill_value=0, assume_sorted=True)
+                h_t = krnl(t) * t[1] / t_irfft[1]
+                h_t, _ = trim_impulse(h_t, min_len=min_len, max_len=max_len, front_porch=True, kept_energy=0.999)
+                self.fext_h.append(h_t)
+
+        return chnl_h
+
+    def simulate(self, initial_run: bool = False, update_plots: bool = True) -> None:
+        """
+        Run all queued simulations.
+
+        Keyword Args:
+            initial_run: Set to ``True`` only for the first run.
+                Default: ``False``
+            update_plots: Set to ``False`` for notebook operation.
+                Default: ``True``
+        """
+
+        # Running the simulation will fill in the required data structure.
+        my_run_simulation(self, initial_run=initial_run, update_plots=update_plots)
+        # Once the required data structure is filled in, we can create the plots.
+        if update_plots:
+            n_dfe_taps = 0
+            for tap in self.dfe_tap_tuners:
+                if tap.enabled:
+                    n_dfe_taps += 1
+                else:
+                    break
+            make_plots(self, n_dfe_taps=n_dfe_taps)
+
+    def load_configuration(self, filepath: Path):
+        """Load in a configuration into pybert.
+
+        Args:
+            filepath: A full filepath include the suffix.
+        """
+        try:
+            PyBertCfg.load_from_file(filepath, self)
+            self.cfg_file = filepath
+            self.status = "Loaded configuration."
+        except InvalidFileType:
+            self.log("This filetype is not currently supported.")
+            raise
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            self.log("Failed to load configuration. See the console for more detail.")
+            self.log(str(err))
+            raise
+
+    def save_configuration(self, filepath: Path):
+        """Save out a configuration from pybert.
+
+        Args:
+            filepath: A full filepath include the suffix.
+        """
+        try:
+            PyBertCfg(self, time.asctime(), VERSION).save(filepath)
+            self.cfg_file = filepath
+            self.status = "Configuration saved."
+        except InvalidFileType:
+            self.log("This filetype is not currently supported. Please try again as a yaml file.")
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            self.log(f"Failed to save configuration:\n\t{err}", alert=True)
+
+    def load_results(self, filepath: Path):
+        """Load results from a file into pybert.
+
+        Args:
+            filepath: A full filepath include the suffix.
+        """
+        try:
+            PyBertData.load_from_file(filepath, self)
+            self.data_file = filepath
+            self.status = "Loaded results."
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            self.log("Failed to load results from file. See the console for more detail.")
+            self.log(str(err))
+
+    def save_results(self, filepath: Path):
+        """Save the existing results to a pickle file.
+
+        Args:
+            filepath: A full filepath include the suffix.
+        """
+        try:
+            PyBertData(self, time.asctime(), VERSION).save(filepath)
+            self.data_file = filepath
+            self.status = "Saved results."
+        except Exception as err:  # pylint: disable=broad-exception-caught
+            self.log("Failed to save results to file. See the console for more detail.")
+            self.log(str(err))
+
+    def clear_reference_from_plots(self):
+        """If any plots have ref in the name, delete them and then regenerate the plots.
+
+        If we don't actually delete any data, skip regenerating the plots.
+        """
+        atleast_one_reference_removed = False
+
+        for reference_plot in self.plotdata.list_data():
+            if "ref" in reference_plot:
+                try:
+                    atleast_one_reference_removed = True
+                    self.plotdata.del_data(reference_plot)
+                except KeyError:
+                    pass
+
+        if atleast_one_reference_removed:
+            make_plots(self, n_dfe_taps=len(self.dfe_tap_tuners))
+
+    def log_information(self):
+        """Log the system information."""
+        self.log(f"System: {platform.system()} {platform.release()}")
+        self.log(f"Python Version: {platform.python_version()}")
+        self.log(f"PyBERT Version: {VERSION}")
+        self.log(f"PyAMI Version: {PyAMI_VERSION}")
+        self.log(f"PyChOpMarg Version: {PyChOpMarg_VERSION}")
+        self.log(f"GUI Toolkit: {ETSConfig.toolkit}")
+        self.log(f"Kiva Backend: {ETSConfig.kiva_backend}")
+
+    _tx_ibis = Instance(IBISModel)
+    _tx_cfg = Instance(AMIParamConfigurator)
+    _tx_model = Instance(AMIModel)
+    _rx_ibis = Instance(IBISModel)
+    _rx_cfg = Instance(AMIParamConfigurator)
+    _rx_model = Instance(AMIModel)
+
+    isi_chnl = 0
+    dcd_chnl = 0
+    pj_chnl = 0
+    rj_chnl = 0
+    pjDD_chnl = 0
+    rjDD_chnl = 0
+    isi_tx = 0
+    dcd_tx = 0
+    pj_tx = 0
+    rj_tx = 0
+    pjDD_tx = 0
+    rjDD_tx = 0
+    isi_ctle = 0
+    dcd_ctle = 0
+    pj_ctle = 0
+    rj_ctle = 0
+    pjDD_ctle = 0
+    rjDD_ctle = 0
+    isi_dfe = 0
+    dcd_dfe = 0
+    pj_dfe = 0
+    rj_dfe = 0
+    pjDD_dfe = 0
+    rjDD_dfe = 0

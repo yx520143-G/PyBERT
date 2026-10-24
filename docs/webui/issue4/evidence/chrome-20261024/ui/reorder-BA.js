@@ -1,0 +1,1 @@
+async page => { await page.getByRole("button",{name:"down",exact:true}).first().click(); await page.waitForFunction(()=>!document.querySelector("#resource-dialog").inert && !document.querySelector("#run").disabled); await page.getByRole("button",{name:"关闭",exact:true}).click(); }

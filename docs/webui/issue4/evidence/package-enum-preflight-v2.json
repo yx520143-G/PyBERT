@@ -1,0 +1,168 @@
+{
+  "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj_d3p3.py",
+  "source_sha256": "47436b07c0843da6fcba4923fa6dcd16e5e536de06e617d68180107d9f76d1e2",
+  "mapping_only": true,
+  "main_simulation": false,
+  "COM": false,
+  "frequency_response_calculated": false,
+  "models": [
+    {
+      "group": "KR",
+      "case": "A1",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "KR",
+      "case": "A1",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "KR",
+      "case": "A2",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "KR",
+      "case": "A2",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "KR",
+      "case": "B1",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "KR",
+      "case": "B1",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "KR",
+      "case": "B2",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "KR",
+      "case": "B2",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "A1",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "A1",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "A2",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "A2",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "B1",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "B1",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "B2",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "B2",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HL",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HL",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HN",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HN",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HH",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HH",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2M",
+      "case": "host",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2M",
+      "case": "host",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2M",
+      "case": "module",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2M",
+      "case": "module",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    }
+  ],
+  "invalid_group_case_rejected": true,
+  "passed": true
+}

@@ -1,0 +1,320 @@
+- generic [active] [ref=e1]:
+  - link "跳到参数详情" [ref=e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=e3]:
+    - link "PyBERT 数据源" [ref=e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=e8]:
+        - strong [ref=e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=e10]:
+      - text: 模块目录
+      - generic [ref=e11]: 16 MODULES
+    - navigation "选择模块" [ref=e12]:
+      - generic [ref=e437]:
+        - heading "主信号链" [level=2] [ref=e438]
+        - button "Source" [ref=e439] [cursor=pointer]
+        - button "Tx EQ" [ref=e441] [cursor=pointer]
+        - button "Channel" [ref=e443] [cursor=pointer]
+        - button "Noise" [ref=e445] [cursor=pointer]
+        - button "Rx CTLE" [ref=e447] [cursor=pointer]
+        - button "Rx FFE" [ref=e449] [cursor=pointer]
+        - button "DFE / Slicer" [ref=e451] [cursor=pointer]
+        - button "Observe" [ref=e453] [cursor=pointer]
+      - generic [ref=e455]:
+        - heading "控制与判决旁支" [level=2] [ref=e456]
+        - button "CDR" [ref=e457] [cursor=pointer]
+        - button "AGC" [ref=e459] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=e461] [cursor=pointer]
+      - generic [ref=e463]:
+        - heading "全局设置与工具" [level=2] [ref=e464]
+        - button "Simulation" [ref=e465] [cursor=pointer]
+        - button "Device models" [ref=e467] [cursor=pointer]
+        - button "IBIS-AMI" [ref=e469] [cursor=pointer]
+        - button "Optimizer" [ref=e471] [cursor=pointer]
+        - button "COM" [ref=e473] [cursor=pointer]
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - searchbox "搜索所有模块和参数" [ref=e62]
+          - generic [aria-hidden] [ref=e63]: /
+        - status [ref=e64]:
+          - strong [ref=e475]: 草稿已保留
+          - generic [ref=e476]: 源码默认配置
+        - button "恢复全部默认" [ref=e67] [cursor=pointer]
+    - generic [ref=e68]:
+      - button "Run" [ref=e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=e70]
+      - status [ref=e71]: normalize bde979b3 · succeeded · succeeded
+      - generic [ref=e72]: Untitled
+      - button "Load Config" [ref=e73] [cursor=pointer]
+      - button "资源 / COM" [ref=e74] [cursor=pointer]
+      - button "Save" [ref=e75] [cursor=pointer]
+      - button "Save As…" [ref=e76] [cursor=pointer]
+      - button "Help / About" [ref=e77] [cursor=pointer]
+      - button "Disconnect" [ref=e78] [cursor=pointer]
+    - status [ref=e79]: "DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it."
+    - status [ref=e80]
+    - status "run_id=c630ff19-02aa-4e21-89b3-a1842a74e78a; com_id=a8642af8-3ded-45a2-901a-f5c0d8b54948" [ref=e303]: 核心结果成功 · c630ff19；COM 子任务 a8642af8：succeeded · -15.419984103 dB
+    - main [ref=e82]:
+      - group [ref=e83]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=e84] [cursor=pointer]
+      - region "链路总览" [ref=e85]:
+        - generic "切换实现图示" [ref=e86]:
+          - generic [ref=e87]: 实现方案
+          - generic [ref=e88]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=e89] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e90]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=e91] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e92]:
+            - checkbox "请求模型时钟" [disabled] [ref=e93]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=e94] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e477]:
+              - button "Source：NRZ · PRBS-7，查看设置" [ref=e478] [cursor=pointer]:
+                - strong [ref=e479]: Source
+                - generic [ref=e480]: NRZ · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=e482] [cursor=pointer]:
+                - strong [ref=e483]: Tx EQ
+                - generic [ref=e484]: Native FFE
+              - button "Channel：Native · 两端电气，查看设置" [ref=e486] [cursor=pointer]:
+                - strong [ref=e487]: Channel
+                - generic [ref=e488]: Native · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=e490] [cursor=pointer]:
+                - strong [ref=e491]: Noise
+                - generic [ref=e492]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=e494] [cursor=pointer]:
+                - strong [ref=e495]: Rx CTLE
+                - generic [ref=e496]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=e498] [cursor=pointer]:
+                - strong [ref=e499]: Rx FFE
+                - generic [ref=e500]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=e502] [cursor=pointer]:
+                - strong [ref=e503]: DFE / Slicer
+                - generic [ref=e504]: 自适应反馈 / 判决
+            - generic [ref=e505]:
+              - button "Device models" [ref=e507] [cursor=pointer]
+              - button "Observe" [ref=e509] [cursor=pointer]
+              - generic [ref=e510]:
+                - button "CDR" [ref=e511] [cursor=pointer]
+                - button "AGC" [ref=e512] [cursor=pointer]
+                - button "↗ Viterbi" [ref=e513] [cursor=pointer]
+        - status [ref=e134]:
+          - generic [aria-hidden] [ref=e514]: i
+          - generic [ref=e515]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=e137]:
+        - region [ref=e516]:
+          - heading "误码与链路观察Observe" [level=2] [ref=e519]
+          - tablist "模块详情" [ref=e144]:
+            - tab "设置" [selected] [ref=e145] [cursor=pointer]
+            - tab "参数说明 20" [ref=e520] [cursor=pointer]:
+              - text: 参数说明
+              - generic [ref=e147]: "20"
+            - tab "实现映射 3" [ref=e148] [cursor=pointer]:
+              - text: 实现映射
+              - generic [ref=e149]: "3"
+          - tabpanel "设置" [ref=e151]:
+            - generic [ref=e521]: 此模块显示分析结果，当前没有仿真数据。可以在“参数说明”中查看支持的输出与入口。
+            - generic [ref=e522]:
+              - generic [ref=e523]: 还有 20 个结果、内部状态或参考条目。
+              - button "查看参数说明 →" [ref=e524] [cursor=pointer]
+        - region "Native run analysis" [ref=e241]:
+          - generic [ref=e242]:
+            - generic [ref=e243]:
+              - text: Selected run
+              - combobox "Selected run" [ref=e244]:
+                - option "Select successful run…"
+                - option "NRZ · c3cadfdc"
+                - option "NRZ · c630ff19" [selected]
+            - generic [ref=e435]: Older input · draft or resource binding changed
+          - generic [ref=e245]:
+            - generic [ref=e246]:
+              - text: Analysis
+              - combobox "Analysis" [ref=e247]:
+                - option "Responses" [selected]
+                - option "Waveform"
+                - option "Eye"
+                - option "Jitter Dist."
+                - option "Jitter Spec."
+                - option "Jitter Bathtub"
+                - option "Jitter Info"
+                - option "DFE Adaptation"
+                - option "CDR Adaptation"
+                - option "CDR Histogram"
+                - option "CDR Spectrum"
+                - option "Run overview"
+                - option "Run input comparison"
+            - combobox "Response type" [ref=e248]:
+              - option "Impulse" [selected]
+              - option "Step"
+              - option "Pulse"
+              - option "Frequency"
+            - combobox "Response scope" [ref=e249]:
+              - option "Cumulative" [selected]
+              - option "Single stage"
+          - generic [ref=e250]:
+            - generic [ref=e251]:
+              - text: Point
+              - combobox "Point" [ref=e252]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=e253]:
+              - text: Compare
+              - combobox "Compare" [ref=e254]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Expand viewer" [ref=e257] [cursor=pointer]
+          - generic "Selected run plot" [ref=e258]:
+            - generic [ref=e526]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: "5"
+                      - generic: "5.5"
+                      - generic: "6"
+                      - generic: "6.5"
+                    - generic:
+                      - generic: "0"
+                      - generic: "0.002"
+                      - generic: "0.004"
+                      - generic: "0.006"
+                      - generic: "0.008"
+              - img:
+                - generic:
+                  - generic: dfe_out_h · equivalent
+                  - generic: ns
+                  - generic: V/sample
+              - toolbar [ref=e540]:
+                - button "Download plot as a PNG" [ref=e542] [cursor=pointer]
+                - generic [ref=e543]:
+                  - button "Zoom" [ref=e544] [cursor=pointer]
+                  - button "Pan" [ref=e545] [cursor=pointer]
+                - generic [ref=e546]:
+                  - button "Zoom in" [ref=e547] [cursor=pointer]
+                  - button "Zoom out" [ref=e548] [cursor=pointer]
+                  - button "Autoscale" [ref=e549] [cursor=pointer]
+                  - button "Reset axes" [ref=e550] [cursor=pointer]
+          - generic [ref=e260]:
+            - paragraph [ref=e551]: DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling. Zoom/pan and double-click reset do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.
+            - group [ref=e552]:
+              - generic "c630ff19-02aa-4e21-89b3-a1842a74e78a · dfe_out_h · NRZ · input 769673a42a84" [ref=e553]
+      - group [ref=e261]:
+        - generic "Task logs / selected run logs" [ref=e262]
+  - dialog [ref=e554]:
+    - button "关闭" [ref=e555] [cursor=pointer]
+    - heading "资源内容与独立 COM" [level=2] [ref=e556]
+    - paragraph [ref=e557]: 上传或显式登记路径后冻结 bytes / SHA-256。配置只保存引用和绑定身份，不附带资源；inactive 旧路径可保留。级联顺序和重复元素均保留。
+    - generic [ref=e558]:
+      - text: 目标字段
+      - combobox "目标字段" [ref=e559]:
+        - option "ch_file" [selected]
+        - option "ch_files"
+        - option "com_cfg_file"
+    - generic [ref=e560]:
+      - text: 本机绝对路径
+      - textbox "本机绝对路径" [ref=e561]:
+        - /placeholder: C:/.../channel.s4p
+    - button "登记并绑定" [ref=e562] [cursor=pointer]
+    - generic [ref=e563]:
+      - text: 已登记资源
+      - combobox "已登记资源" [ref=e564]:
+        - option "选择已冻结资源" [selected]
+        - option "example2_THRU.s4p · 41d8f6343771"
+        - option "002_peters_01_0605_B1_thru.s4p · e4be2f6cdd2f"
+        - option "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls · 18901409eeb0"
+        - option "invalid-com.xls · 9194e625c139"
+    - button "绑定当前引用" [ref=e565] [cursor=pointer]
+    - status
+    - generic [ref=e566]:
+      - heading "ch_file" [level=4] [ref=e618]
+      - generic [ref=e620]:
+        - text: "0: (empty)"
+        - code [ref=e621]: UNBOUND
+      - heading "ch_files" [level=4] [ref=e622]
+      - heading "com_cfg_file" [level=4] [ref=e623]
+      - generic [ref=e625]:
+        - text: "0: (empty)"
+        - code [ref=e626]: UNBOUND
+    - group [ref=e576]:
+      - generic "完整资源清单与内容身份" [ref=e577]
+    - group [ref=e578]:
+      - generic "配置导入 / 未解析引用 / runtime extensions" [ref=e579]
+    - group [ref=e580]:
+      - generic "所选成功 Run 的实际端口 / 覆盖 / 解析记录" [ref=e581]
+    - generic [ref=e582]:
+      - text: Load YAML 的显式本机基目录（可选）
+      - textbox "Load YAML 的显式本机基目录（可选）" [ref=e583]:
+        - /placeholder: 留空则保留未绑定相对引用
+    - separator [ref=e584]
+    - heading "COM · 单 THRU 工具" [level=3] [ref=e585]
+    - paragraph [ref=e586]: 使用原 calc_com；独立参数，不继承当前 EQ、bitrate、noise、FEXT 或 package。默认 IEEE_8023dj 搜索很大；调用内部没有取消检查点，Abort 在返回后观察。
+    - generic [ref=e587]:
+      - text: THRU .s4p
+      - combobox "THRU .s4p" [ref=e588]:
+        - option "选择 .s4p" [selected]
+        - option "example2_THRU.s4p · 41d8f6343771"
+        - option "002_peters_01_0605_B1_thru.s4p · e4be2f6cdd2f"
+    - generic [ref=e589]:
+      - text: COM 参数
+      - combobox "COM 参数" [ref=e590]:
+        - option "明确采用 IEEE_8023dj defaults" [selected]
+        - option "config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls · 18901409eeb0"
+        - option "invalid-com.xls · 9194e625c139"
+    - generic [ref=e591]:
+      - checkbox "关联当前选中成功 run（可选）" [ref=e592]
+      - text: 关联当前选中成功 run（可选）
+    - button "独立计算 COM" [ref=e593] [cursor=pointer]
+    - generic [ref=e594]:
+      - group [ref=e627]:
+        - generic "e6e6867a-a976-4e47-a7bd-ee53767a2f9e · succeeded · -15.419984103 dB · 旧输入 / 与当前工具选择不同" [ref=e628]
+        - paragraph [ref=e629]: parent none · requested=false / observed=false / exited=true
+        - heading "已保存计算来源" [level=4] [ref=e630]
+        - paragraph [ref=e631]: 计算前快照：已保存；结果记录：已保存
+        - generic [ref=e632]: "{ \"com_id\": \"e6e6867a-a976-4e47-a7bd-ee53767a2f9e\", \"parameter_source\": \"spreadsheet\", \"parameters_sha256\": \"7cb2e9ae70b9f7c3f823994535b33e6f6d8a778a4f8bee5e694e11bd9d4d19bd\", \"versions\": { \"pipbert\": \"11.1.0\", \"pychopmarg\": \"3.4.0\", \"numpy\": \"2.5.1\", \"scipy\": \"1.18.0\" }, \"adapter_sha\": \"c89cbd7cf0b59acc59d57eb07fc58399e482b4fe\", \"source_hashes\": { \"C:\\\\Users\\\\yx\\\\.codex\\\\worktrees\\\\pybert-issue4-resources\\\\serial-bus-simulator\\\\src\\\\pybert\\\\web\\\\com.py\": \"b6c453fc1c934c75839218f4207f6b5362ce979f62290fef92a0861ee3e181e2\", \"C:\\\\Users\\\\yx\\\\.codex\\\\worktrees\\\\pybert-issue4-resources\\\\serial-bus-simulator\\\\src\\\\pybert\\\\models\\\\com.py\": \"892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb\", \"C:\\\\Users\\\\yx\\\\.codex\\\\worktrees\\\\pybert-issue4-resources\\\\serial-bus-simulator\\\\PyChOpMarg\\\\src\\\\pychopmarg\\\\com.py\": \"04010ac20bf154b91715c34130db531ce0c9f350881973053f2691ccb24680e9\" }, \"helper\": \"pybert.models.com.calc_com\", \"parameter_schema\": { \"source\": \"C:\\\\Users\\\\yx\\\\.codex\\\\worktrees\\\\pybert-issue4-resources\\\\serial-bus-simulator\\\\PyChOpMarg\\\\src\\\\pychopmarg\\\\config\\\\template.py\", \"sha256\": \"801119da1f9acfa470e4640e37b281e20cf07cdfb92c82b8ad0ae86e2bf2a2f4\", \"unit_policy\": \"fixed native COMParams source documents parameter units; adapter passes values without conversion\" } }"
+        - heading "完整实际 COM 参数" [level=4] [ref=e633]
+        - generic [ref=e634]: "{ \"fb\": 106.25, \"fstep\": 0.05, \"L\": 4, \"M\": 32, \"DER_0\": 0.0002, \"T_r\": 0.004, \"RLM\": 0.95, \"A_v\": 0.413, \"A_fe\": 0.413, \"A_ne\": 0.45, \"R_0\": 50, \"A_DD\": 0.02, \"SNR_TX\": 33, \"eta_0\": 6e-9, \"sigma_Rj\": 0.01, \"f_z\": 42.5, \"f_p1\": 42.5, \"f_p2\": 106.25, \"f_LF\": 1.328125, \"g_DC\": [ -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2 ], \"g_DC2\": [ -3, -2.5, -2, -1.5, -1, -0.5, 0 ], \"tx_taps_min\": [ 0, -0.2, 0, -0.6, -0.6, 0, 0 ], \"tx_taps_max\": [ 0.2, 0, 0.4, -1.1102230246251565e-16, -1.1102230246251565e-16, 0, 0 ], \"tx_taps_step\": [ 0.1, 0.1, 0.1, 0.09999999999999998, 0.09999999999999998, 0, 0 ], \"c0_min\": 1, \"f_r\": 0.58, \"dfe_min\": [ 0 ], \"dfe_max\": [ 0.85 ], \"rx_taps_min\": [ -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ], \"rx_taps_max\": [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ], \"dw\": 5, \"R_d\": [ 50, 50 ], \"C_d\": [ [ 0.00004, 0.00009, 0.00011 ], [ 0.00004, 0.00009, 0.00011 ] ], \"C_b\": [ 0.00003, 0.00003 ], \"C_p\": [ 0.00004, 0.00004 ], \"L_s\": [ [ 0.13, 0.15, 0.14 ], [ 0.13, 0.15, 0.14 ] ], \"z_c\": [ 87.5, 92.5 ], \"z_p\": [ 33, 1.8 ], \"gamma0\": 0.0005, \"a1\": 0.00089, \"a2\": 0.0002, \"tau\": 0.006141, \"z_pB\": 1.8, \"zp_tx\": [ 34, 1.8 ], \"zp_rx\": [ 32, 1.8 ], \"zp_next\": [ 34, 1.8 ], \"zp_fext\": [ 34, 1.8 ], \"z_c_rx\": null, \"zp_cases\": null, \"local_search\": 2, \"ts_srch_mode\": \"middle\", \"ts_track\": false, \"ts_sample_adj\": [ -16, 16 ], \"f_p3\": null, \"N_qb\": 0, \"P_qc\": 0.0004, \"Nfix\": null, \"Nwg\": 0, \"Nwf\": 0, \"mlsd\": false, \"dCOM_an\": 3, \"include_pcb\": 0, \"zbp_tx\": 151, \"zbp_rx\": 151, \"zbp_next\": 72, \"zbp_fext\": 72, \"brd_Z_c\": [ 109.8, 109.8 ], \"brd_gamma0_a1_a2\": [ 0, 0.0004114, 0.0002547 ], \"brd_tau\": 0.006191, \"brd_C0\": [ 0, 0 ], \"brd_C1\": [ 0, 0 ] }"
+        - heading "资源与请求来源" [level=4] [ref=e635]
+        - generic [ref=e636]: "{ \"requested_parameter_source\": \"spreadsheet\", \"resource_inputs\": [ { \"resource_id\": \"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p\", \"original_name\": \"example2_THRU.s4p\", \"format\": \".s4p\", \"bytes\": 2454034, \"sha256\": \"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde\", \"source\": { \"kind\": \"browser_upload\" }, \"permission\": \"explicitly supplied for this local session\", \"parse_status\": \"pending task validation\", \"intended_uses\": [ \"channel\", \"COM THRU\" ], \"field\": \"com_thru\", \"index\": null, \"reference\": \"\", \"worker_path\": \"C:\\\\Users\\\\yx\\\\AppData\\\\Local\\\\Temp\\\\pybert-web-2dowdcql\\\\resources\\\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p\" }, { \"resource_id\": \"18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls\", \"original_name\": \"config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls\", \"format\": \".xls\", \"bytes\": 30208, \"sha256\": \"18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78\", \"source\": { \"kind\": \"local_path\", \"path\": \"C:\\\\Users\\\\yx\\\\.codex\\\\worktrees\\\\pybert-issue4-resources\\\\serial-bus-simulator\\\\docs\\\\webui\\\\issue4\\\\local\\\\resources\\\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls\" }, \"permission\": \"explicitly supplied for this local session\", \"parse_status\": \"pending task validation\", \"intended_uses\": [ \"COM configuration\" ], \"field\": \"com_cfg_file\", \"index\": null, \"reference\": \"\", \"worker_path\": \"C:\\\\Users\\\\yx\\\\AppData\\\\Local\\\\Temp\\\\pybert-web-2dowdcql\\\\resources\\\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls\" } ] }"
+        - heading "该 COM 历史任务日志 · e6e6867a-a976-4e47-a7bd-ee53767a2f9e" [level=4] [ref=e637]
+        - generic [ref=e638]: "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py:69: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'. cp = get_com_params(Path(cfg[\"worker_path\"])) if cfg else IEEE_8023dj C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\models\\com.py:54: UserWarning: PyChOpMarg doesn't read these rows of 'C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78.xls', and ignores them: 'N-g', 'N-max'. com_params = get_com_params(Path(cfg_file))"
+      - group [ref=e639]:
+        - generic "c922f333-2a39-4fe3-abd0-5793c9bba535 · failed · 旧输入 / 与当前工具选择不同" [ref=e640]
+        - paragraph [ref=e641]: parent none · requested=false / observed=false / exited=true · Excel file format cannot be determined, you must specify an engine manually.
+        - heading "已保存计算来源" [level=4] [ref=e642]
+        - paragraph [ref=e643]: 计算前快照：未生成；结果记录：未生成
+        - generic [ref=e644]: "\"未生成可用来源记录；请求来源不能替代实际参数/hash/版本。\""
+        - heading "完整实际 COM 参数" [level=4] [ref=e645]
+        - generic [ref=e646]: "\"未记录；不从当前信号链或请求默认值推定。\""
+        - heading "资源与请求来源" [level=4] [ref=e647]
+        - generic [ref=e648]: "{ \"requested_parameter_source\": \"spreadsheet\", \"resource_inputs\": [ { \"resource_id\": \"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p\", \"original_name\": \"example2_THRU.s4p\", \"format\": \".s4p\", \"bytes\": 2454034, \"sha256\": \"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde\", \"source\": { \"kind\": \"browser_upload\" }, \"permission\": \"explicitly supplied for this local session\", \"parse_status\": \"pending task validation\", \"intended_uses\": [ \"channel\", \"COM THRU\" ], \"field\": \"com_thru\", \"index\": null, \"reference\": \"\", \"worker_path\": \"C:\\\\Users\\\\yx\\\\AppData\\\\Local\\\\Temp\\\\pybert-web-2dowdcql\\\\resources\\\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p\" }, { \"resource_id\": \"9194e625c1397033daf106505c50864c62c49a23ca508ea9e2869cc012eafe41.xls\", \"original_name\": \"invalid-com.xls\", \"format\": \".xls\", \"bytes\": 90, \"sha256\": \"9194e625c1397033daf106505c50864c62c49a23ca508ea9e2869cc012eafe41\", \"source\": { \"kind\": \"local_path\", \"path\": \"C:\\\\Users\\\\yx\\\\.codex\\\\worktrees\\\\pybert-issue4-resources\\\\serial-bus-simulator\\\\docs\\\\webui\\\\issue4\\\\local\\\\chrome-inputs\\\\invalid-com.xls\" }, \"permission\": \"explicitly supplied for this local session\", \"parse_status\": \"pending task validation\", \"intended_uses\": [ \"COM configuration\" ], \"field\": \"com_cfg_file\", \"index\": null, \"reference\": \"\", \"worker_path\": \"C:\\\\Users\\\\yx\\\\AppData\\\\Local\\\\Temp\\\\pybert-web-2dowdcql\\\\resources\\\\9194e625c1397033daf106505c50864c62c49a23ca508ea9e2869cc012eafe41.xls\" } ] }"
+        - heading "该 COM 历史任务日志 · c922f333-2a39-4fe3-abd0-5793c9bba535" [level=4] [ref=e649]
+        - generic [ref=e650]: 该任务无保存日志。
+        - generic [ref=e651]: "Traceback (most recent call last): File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 66, in run_worker terminal = {\"status\": \"succeeded\", \"result\": run_com(task_id, request, directory, cancelled, emit, lambda: native_errors)} ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\web\\com.py\", line 69, in run_com cp = get_com_params(Path(cfg[\"worker_path\"])) if cfg else IEEE_8023dj ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^ File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\excel.py\", line 235, in get_com_params com_cfg = pd.read_excel(cfg_file) # (Engine chosen by extension: `xlrd` for *.xls, `openpyxl` for *.xlsx.) File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\pandas\\io\\excel\\_base.py\", line 481, in read_excel io = ExcelFile( io, ...<2 lines>... engine_kwargs=engine_kwargs, ) File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\pandas\\io\\excel\\_base.py\", line 1608, in __init__ raise ValueError( ...<2 lines>... ) ValueError: Excel file format cannot be determined, you must specify an engine manually."
+      - group [ref=e652]:
+        - generic "a4dbc128-d042-43fd-b4a8-ede21c019527 · cancelled · 旧输入 / 与当前工具选择不同" [ref=e653]
+      - group [ref=e654]:
+        - generic "b6b85201-e481-4c69-98ce-c66650043535 · cancelled · 旧输入 / 与当前工具选择不同" [ref=e655]
+      - group [ref=e656]:
+        - generic "a803f4ca-83f2-4031-a31c-af5213fc71d8 · succeeded · -15.419984103 dB · 旧输入 / 与当前工具选择不同" [ref=e657]
+      - group [ref=e658]:
+        - generic "a8642af8-3ded-45a2-901a-f5c0d8b54948 · succeeded · -15.419984103 dB · 旧输入 / 与当前工具选择不同" [ref=e659]

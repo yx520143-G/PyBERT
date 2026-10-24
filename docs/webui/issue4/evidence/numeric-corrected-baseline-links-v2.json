@@ -1,0 +1,679 @@
+{
+  "main_simulation_performed": false,
+  "purpose": "append explicit corrected-native association; original report bytes retained",
+  "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+  "original_execution_v1_sha256": "e63f467d2c844ffe005ed772bc85a68bbe5398039df4ebbecec5d97e36ae7e70",
+  "original_fixture_sha256": "8d953b64ccc1e9afd57ac336679bf4e47156258e4cec4d4d023ce4c6d08ce381",
+  "executed_driver_source_snapshot_sha256": "7b585d67160edb763283b842efcc89dd10184a9c37bcb140dba50a7922e9b5ee",
+  "cases": [
+    {
+      "case": "F4-L0-ON",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075721\\report.json",
+      "report_sha256": "d599a0d6b415c0d607744b61db93d689afe65000387bbe88b3ed861d1057f183",
+      "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+      "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+      "run_id": "d664e202-6f38-4b2e-b8ba-0901decd8268",
+      "input_hash": "2199c3e8b47588d94802e40f7563b2bf126ce714b058bb9e11c18ea697a44a40",
+      "raw_comparisons": 446,
+      "complex_component_checks": 26,
+      "independent_raw_checks": 1064,
+      "independent_display_checks": 149,
+      "direct_elapsed_s": 7.91517739999108,
+      "worker_elapsed_s": 10.435030698776245,
+      "resources": [
+        {
+          "resource_id": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf.s8p",
+          "original_name": "TwoLaneModel.s8p",
+          "format": ".s8p",
+          "bytes": 330007,
+          "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_file",
+          "index": null,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075721\\F4-L0-ON\\worker\\resources\\0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf.s8p",
+          "ports": 8,
+          "frequency_hz": [
+            0.0,
+            80000000000.0
+          ],
+          "frequency_samples": 161,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 0,
+          "port_mapping_0based": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "covered",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            0,
+            2
+          ],
+          "output_pair_0based": [
+            1,
+            3
+          ],
+          "aggressors": [
+            {
+              "lane": 1,
+              "port_mapping_0based": [
+                4,
+                1,
+                6,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "F4-L0-OFF",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "report_sha256": "944cd5e6006d414b6863c2148a8c262154df6a3810240677c2c580218e030ab0",
+      "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+      "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+      "run_id": "56f16c7f-bc76-4791-a043-987a0046f819",
+      "input_hash": "18dcaa71463cc61ecf89ebd6709b4453f096a459edd3b2f89b998f2946d52ea1",
+      "raw_comparisons": 439,
+      "complex_component_checks": 24,
+      "independent_raw_checks": 1050,
+      "independent_display_checks": 148,
+      "direct_elapsed_s": 7.531210999994073,
+      "worker_elapsed_s": 9.883056879043579,
+      "resources": [
+        {
+          "resource_id": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf.s8p",
+          "original_name": "TwoLaneModel.s8p",
+          "format": ".s8p",
+          "bytes": 330007,
+          "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_file",
+          "index": null,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-L0-OFF\\worker\\resources\\0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf.s8p",
+          "ports": 8,
+          "frequency_hz": [
+            0.0,
+            80000000000.0
+          ],
+          "frequency_samples": 161,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 0,
+          "port_mapping_0based": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "covered",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            0,
+            2
+          ],
+          "output_pair_0based": [
+            1,
+            3
+          ],
+          "aggressors": [
+            {
+              "lane": 1,
+              "port_mapping_0based": [
+                4,
+                1,
+                6,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "F4-L1-OFF",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "report_sha256": "944cd5e6006d414b6863c2148a8c262154df6a3810240677c2c580218e030ab0",
+      "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+      "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+      "run_id": "90a08c67-3b82-441b-8764-ca27281e7b4e",
+      "input_hash": "713ef87c527c2dfd314d32e96b285113c50ba3e7703b9047a0aa17af50397296",
+      "raw_comparisons": 439,
+      "complex_component_checks": 24,
+      "independent_raw_checks": 1050,
+      "independent_display_checks": 148,
+      "direct_elapsed_s": 7.461575299996184,
+      "worker_elapsed_s": 10.221951246261597,
+      "resources": [
+        {
+          "resource_id": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf.s8p",
+          "original_name": "TwoLaneModel.s8p",
+          "format": ".s8p",
+          "bytes": 330007,
+          "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_file",
+          "index": null,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-L1-OFF\\worker\\resources\\0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf.s8p",
+          "ports": 8,
+          "frequency_hz": [
+            0.0,
+            80000000000.0
+          ],
+          "frequency_samples": 161,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 1,
+          "port_mapping_0based": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "covered",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            4,
+            6
+          ],
+          "output_pair_0based": [
+            5,
+            7
+          ],
+          "aggressors": [
+            {
+              "lane": 0,
+              "port_mapping_0based": [
+                0,
+                5,
+                2,
+                7
+              ]
+            }
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "F4-L1-ON",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "report_sha256": "944cd5e6006d414b6863c2148a8c262154df6a3810240677c2c580218e030ab0",
+      "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+      "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+      "run_id": "ef453f87-4a40-4bad-aaca-8ec892515974",
+      "input_hash": "4716d9323493b9d5e0acac4d97d434adfccb8c0418c59c6e36b70bb1860babaa",
+      "raw_comparisons": 446,
+      "complex_component_checks": 26,
+      "independent_raw_checks": 1064,
+      "independent_display_checks": 149,
+      "direct_elapsed_s": 7.77665660000639,
+      "worker_elapsed_s": 10.215604305267334,
+      "resources": [
+        {
+          "resource_id": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf.s8p",
+          "original_name": "TwoLaneModel.s8p",
+          "format": ".s8p",
+          "bytes": 330007,
+          "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_file",
+          "index": null,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-L1-ON\\worker\\resources\\0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf.s8p",
+          "ports": 8,
+          "frequency_hz": [
+            0.0,
+            80000000000.0
+          ],
+          "frequency_samples": 161,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 1,
+          "port_mapping_0based": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "covered",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            4,
+            6
+          ],
+          "output_pair_0based": [
+            5,
+            7
+          ],
+          "aggressors": [
+            {
+              "lane": 0,
+              "port_mapping_0based": [
+                0,
+                5,
+                2,
+                7
+              ]
+            }
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "F4-SINGLE-PAM4",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "report_sha256": "944cd5e6006d414b6863c2148a8c262154df6a3810240677c2c580218e030ab0",
+      "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+      "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+      "run_id": "0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07",
+      "input_hash": "e4f717945382115c435e70f837c4c7cc209671c98e84e650ce7f7eef68d921c2",
+      "raw_comparisons": 440,
+      "complex_component_checks": 24,
+      "independent_raw_checks": 1053,
+      "independent_display_checks": 148,
+      "direct_elapsed_s": 4.073768100002781,
+      "worker_elapsed_s": 7.005752325057983,
+      "resources": [
+        {
+          "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "original_name": "example2_THRU.s4p",
+          "format": ".s4p",
+          "bytes": 2454034,
+          "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_file",
+          "index": null,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-SINGLE-PAM4\\worker\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "ports": 4,
+          "frequency_hz": [
+            0.0,
+            40000000000.0
+          ],
+          "frequency_samples": 4001,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 0,
+          "port_mapping_0based": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "covered",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            0,
+            2
+          ],
+          "output_pair_0based": [
+            1,
+            3
+          ],
+          "aggressors": []
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "F4-CASCADE-AB",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "report_sha256": "944cd5e6006d414b6863c2148a8c262154df6a3810240677c2c580218e030ab0",
+      "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+      "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+      "run_id": "5e57b0ab-25ed-4c26-9791-4b0242cd447a",
+      "input_hash": "3862db3f6d2136ec538914532d073f3e23b529ca478948d4ce6409696c5246e8",
+      "raw_comparisons": 439,
+      "complex_component_checks": 24,
+      "independent_raw_checks": 1050,
+      "independent_display_checks": 148,
+      "direct_elapsed_s": 7.985345799999777,
+      "worker_elapsed_s": 10.877468347549438,
+      "resources": [
+        {
+          "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "original_name": "example2_THRU.s4p",
+          "format": ".s4p",
+          "bytes": 2454034,
+          "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_files",
+          "index": 0,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-CASCADE-AB\\worker\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "ports": 4,
+          "frequency_hz": [
+            0.0,
+            40000000000.0
+          ],
+          "frequency_samples": 4001,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 0,
+          "port_mapping_0based": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "covered",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            0,
+            2
+          ],
+          "output_pair_0based": [
+            1,
+            3
+          ],
+          "aggressors": []
+        },
+        {
+          "resource_id": "e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e.s4p",
+          "original_name": "002_peters_01_0605_B1_thru.s4p",
+          "format": ".s4p",
+          "bytes": 1113125,
+          "sha256": "e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\002_peters_01_0605_B1_thru.s4p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_files",
+          "index": 1,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\002_peters_01_0605_B1_thru.s4p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-CASCADE-AB\\worker\\resources\\e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e.s4p",
+          "ports": 4,
+          "frequency_hz": [
+            50000000.0,
+            15000000000.0
+          ],
+          "frequency_samples": 1496,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 0,
+          "port_mapping_0based": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "native extrapolation above resource fmax",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            0,
+            2
+          ],
+          "output_pair_0based": [
+            1,
+            3
+          ],
+          "aggressors": []
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "F4-CASCADE-BA",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "report_sha256": "944cd5e6006d414b6863c2148a8c262154df6a3810240677c2c580218e030ab0",
+      "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+      "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+      "run_id": "62bfcc04-03e6-4f98-8d82-41fde0318682",
+      "input_hash": "cba1bc8cee1eafa13b3ef62fa2c597eb21396bf9c2cc9c0cb2d1b7d22cff63dc",
+      "raw_comparisons": 439,
+      "complex_component_checks": 24,
+      "independent_raw_checks": 1050,
+      "independent_display_checks": 148,
+      "direct_elapsed_s": 8.613779499995871,
+      "worker_elapsed_s": 10.71365475654602,
+      "resources": [
+        {
+          "resource_id": "e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e.s4p",
+          "original_name": "002_peters_01_0605_B1_thru.s4p",
+          "format": ".s4p",
+          "bytes": 1113125,
+          "sha256": "e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\002_peters_01_0605_B1_thru.s4p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_files",
+          "index": 0,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\002_peters_01_0605_B1_thru.s4p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-CASCADE-BA\\worker\\resources\\e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e.s4p",
+          "ports": 4,
+          "frequency_hz": [
+            50000000.0,
+            15000000000.0
+          ],
+          "frequency_samples": 1496,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 0,
+          "port_mapping_0based": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "native extrapolation above resource fmax",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            0,
+            2
+          ],
+          "output_pair_0based": [
+            1,
+            3
+          ],
+          "aggressors": []
+        },
+        {
+          "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "original_name": "example2_THRU.s4p",
+          "format": ".s4p",
+          "bytes": 2454034,
+          "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_files",
+          "index": 1,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-CASCADE-BA\\worker\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "ports": 4,
+          "frequency_hz": [
+            0.0,
+            40000000000.0
+          ],
+          "frequency_samples": 4001,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 0,
+          "port_mapping_0based": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "covered",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            0,
+            2
+          ],
+          "output_pair_0based": [
+            1,
+            3
+          ],
+          "aggressors": []
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "F4-PACKAGE",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "report_sha256": "944cd5e6006d414b6863c2148a8c262154df6a3810240677c2c580218e030ab0",
+      "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+      "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+      "run_id": "ff2421fc-3706-4831-acf7-ca02cc53216a",
+      "input_hash": "0116cf15f8a759542900acf1dbc23328b09f6d9396f703650a149159882db6a7",
+      "raw_comparisons": 439,
+      "complex_component_checks": 24,
+      "independent_raw_checks": 1050,
+      "independent_display_checks": 148,
+      "direct_elapsed_s": 7.732879099989077,
+      "worker_elapsed_s": 10.080125331878662,
+      "resources": [
+        {
+          "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "original_name": "example2_THRU.s4p",
+          "format": ".s4p",
+          "bytes": 2454034,
+          "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+          "source": {
+            "kind": "local_path",
+            "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p"
+          },
+          "permission": "explicitly supplied for this local session",
+          "parse_status": "validated for this task and frequency grid",
+          "field": "ch_file",
+          "index": null,
+          "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p",
+          "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\F4-PACKAGE\\worker\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+          "ports": 4,
+          "frequency_hz": [
+            0.0,
+            40000000000.0
+          ],
+          "frequency_samples": 4001,
+          "s_unit": "dimensionless complex",
+          "z0_unit": "ohm",
+          "victim_lane": 0,
+          "port_mapping_0based": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "renumber_swapped_1_2": false,
+          "requested_fmax_hz": 40000000000.0,
+          "coverage": "covered",
+          "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+          "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+          "input_pair_0based": [
+            0,
+            2
+          ],
+          "output_pair_0based": [
+            1,
+            3
+          ],
+          "aggressors": []
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "F4-DUO",
+      "report": "docs\\webui\\issue4\\evidence\\numeric-20261024-075832\\report.json",
+      "report_sha256": "944cd5e6006d414b6863c2148a8c262154df6a3810240677c2c580218e030ab0",
+      "corrected_native_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+      "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+      "run_id": "c543c1cb-cd3b-4192-bc36-ffdf14992726",
+      "input_hash": "88840f66415c0b11d0a154f6875bd142c7305546d2890740b00506882b1942e2",
+      "raw_comparisons": 439,
+      "complex_component_checks": 24,
+      "independent_raw_checks": 1050,
+      "independent_display_checks": 148,
+      "direct_elapsed_s": 7.6712961000012,
+      "worker_elapsed_s": 10.095697402954102,
+      "resources": [],
+      "passed": true
+    }
+  ],
+  "already_established_single_NRZ": {
+    "original_report": "numeric-20261024-073225/report.json",
+    "original_failure_retained": true,
+    "saved_independent_report": "saved-resource-check-20261024-073439/report.json",
+    "no_additional_main_run": true,
+    "applicability": "4-port path unchanged by #13; later metadata changes can be rebuilt from saved raw"
+  },
+  "default_COM": "BLOCKED_BUDGET / NOT_EXECUTED"
+}

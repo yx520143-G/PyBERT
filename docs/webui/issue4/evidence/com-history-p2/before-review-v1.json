@@ -1,0 +1,19 @@
+{
+  "before_Chrome": true,
+  "base_head": "f15b27e8291cdf55d6f5c5aea78621a62a5ee2c8",
+  "source_hashes": {
+    "src/pybert/web/server.py": "c260627adb50b2b0694169d7ceae7fcbfab0fde8a6dea562ad7e87a6d60d476f",
+    "src/pybert/web/static/resources.js": "1380fa216e0aa475d23bd6ee575aacdbc407e00bf1402455cc4ff8659d3eed82",
+    "tests/test_web_com_history.py": "d65b596ddf9c7ea20e8ffb021533eb646802c91a61e604714249e755b96df391",
+    "tools/serve_web_com_history_review.py": "7bb608932e824981f64b4858f4631b676a8c022fc43d245a60df7c8baaf92b3d"
+  },
+  "plan": [
+    "saved successful/failed/helper-cancel/prevalidation-cancel records by com_id",
+    "out-of-order read completion and unavailable/retry",
+    "expand/poll/change selection with correct immutable details and historical logs",
+    "actual headed Chrome1280x720 stable screenshot pixels"
+  ],
+  "no_main_simulation": true,
+  "no_COM": true,
+  "parent_index_sha256": "535a11c6f42d0f2a30d1ad80228e89ebad88833a75cc6dc178cce4e6c1f35f13"
+}

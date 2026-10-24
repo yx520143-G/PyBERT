@@ -1,0 +1,161 @@
+{
+  "original_report_sha256": "381f5e768c9c0db03fdf549c82501bee16c009f1cb1bde1ba14598855b31f913",
+  "driver_sha256": "e43598898497d4fbec3ab5d2a9da9ecb0fcca39e10789ad2c4d727554b4f2866",
+  "main_simulation_performed": false,
+  "correction": "v1 incorrectly expected Ready after native save_results, which deliberately changes status to Saved results; first saved-only recheck also needed to recognize ArrayPlotData's zero-dimensional None tx_out. Original successful run/cost/failed verifier retained; no main rerun.",
+  "unchanged_CLI_cost": {
+    "command": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "run",
+      "--extra",
+      "web",
+      "pybert",
+      "sim",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\light-compat-20261024-091034\\native-cli.yaml",
+      "--results",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\light-compat-20261024-091034\\native-cli.pybert_data"
+    ],
+    "exitcode": 0,
+    "elapsed_s": 7.73213050000777,
+    "result_exists": true
+  },
+  "raw_responses": [
+    {
+      "field": "chnl_h",
+      "passed": true
+    },
+    {
+      "field": "tx_out_h",
+      "passed": true
+    },
+    {
+      "field": "ctle_out_h",
+      "passed": true
+    },
+    {
+      "field": "dfe_out_h",
+      "passed": true
+    },
+    {
+      "field": "chnl_s",
+      "passed": true
+    },
+    {
+      "field": "tx_s",
+      "passed": true
+    },
+    {
+      "field": "ctle_s",
+      "passed": true
+    },
+    {
+      "field": "dfe_s",
+      "passed": true
+    },
+    {
+      "field": "tx_out_s",
+      "passed": true
+    },
+    {
+      "field": "ctle_out_s",
+      "passed": true
+    },
+    {
+      "field": "dfe_out_s",
+      "passed": true
+    },
+    {
+      "field": "chnl_p",
+      "passed": true
+    },
+    {
+      "field": "tx_out_p",
+      "passed": true
+    },
+    {
+      "field": "ctle_out_p",
+      "passed": true
+    },
+    {
+      "field": "dfe_out_p",
+      "passed": true
+    },
+    {
+      "field": "chnl_H",
+      "passed": true
+    },
+    {
+      "field": "tx_H",
+      "passed": true
+    },
+    {
+      "field": "ctle_H",
+      "passed": true
+    },
+    {
+      "field": "dfe_H",
+      "passed": true
+    },
+    {
+      "field": "tx_out_H",
+      "passed": true
+    },
+    {
+      "field": "ctle_out_H",
+      "passed": true
+    },
+    {
+      "field": "dfe_out_H",
+      "passed": true
+    }
+  ],
+  "native_tx_out": "pre-existing saved None plotdata field, not a numerical result",
+  "inactive_native_COM_sentinel": "CLI's -999 display is not a COM success; enable_com was false",
+  "checks": [
+    {
+      "check": "window helper exact native match h",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match chnl_H",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match chnl_s",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match chnl_p",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match t_ns_chnl",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match start_ix",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match chnl_dly",
+      "passed": true
+    },
+    {
+      "check": "all declared package enum models instantiate",
+      "passed": true
+    },
+    {
+      "check": "native GUI view imports",
+      "passed": true
+    },
+    {
+      "check": "MCP existing config functions preserve frozen whole config",
+      "passed": true
+    },
+    {
+      "check": "native CLI exited0 and Saved results status with 22 exact saved native responses",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

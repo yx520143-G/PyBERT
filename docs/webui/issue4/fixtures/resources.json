@@ -1,0 +1,114 @@
+{
+  "A": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p",
+    "bytes": 2454034,
+    "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+    "source_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\chnl_data\\example2_THRU.s4p",
+    "source": "PyChOpMarg ca905e793fcf6330929471317ca32e7611578e5d / chnl_data/example2_THRU.s4p",
+    "permission": "BSD-3-Clause submodule LICENSE",
+    "ports": 4,
+    "f_hz": [
+      0.0,
+      40000000000.0
+    ],
+    "n_frequency": 4001,
+    "s_unit": "dimensionless complex",
+    "z0_unit": "ohm",
+    "z0_ohm": [
+      50.0
+    ],
+    "finite": true,
+    "source_bytes_unmodified": true
+  },
+  "B": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\002_peters_01_0605_B1_thru.s4p",
+    "bytes": 1113125,
+    "sha256": "e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e",
+    "source_path": "E:\\serial-bus-simulator\\source\\Sam_Palermo_-_ECEN_720__High-Speed_Links_Circuits_and_Systems\\project\\002_peters_01_0605_B1_thru.s4p",
+    "source": "https://people.engr.tamu.edu/spalermo/ecen689/peters_01_0605_B1_thru.s4p; local course archive README",
+    "permission": "user local course material; local evaluation only, no redistribution license claimed",
+    "ports": 4,
+    "f_hz": [
+      50000000.0,
+      15000000000.0
+    ],
+    "n_frequency": 1496,
+    "s_unit": "dimensionless complex",
+    "z0_unit": "ohm",
+    "z0_ohm": [
+      50.0
+    ],
+    "finite": true,
+    "source_bytes_unmodified": true
+  },
+  "M": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\TwoLaneModel.s8p",
+    "bytes": 330007,
+    "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+    "source_path": "E:\\serdes-equalization-explorer\\SignalIntegrity-master\\Test\\TestSignalIntegrity\\TestStatisticalNoise\\TwoLaneModel.s8p",
+    "source": "https://github.com/Nubis-Communications/SignalIntegrity / Test/TestSignalIntegrity/TestStatisticalNoise/TwoLaneModel.s8p; header SignalIntegrity v1.5.1",
+    "permission": "GPL-3-or-later local LICENSE; existing physical model, not measured hardware",
+    "ports": 8,
+    "f_hz": [
+      0.0,
+      80000000000.0
+    ],
+    "n_frequency": 161,
+    "s_unit": "dimensionless complex",
+    "z0_unit": "ohm",
+    "z0_ohm": [
+      50.0
+    ],
+    "finite": true,
+    "source_bytes_unmodified": true,
+    "lane_port_convention_0based": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        4,
+        5,
+        6,
+        7
+      ]
+    ],
+    "native_victim_subnetwork_order": [
+      [
+        0,
+        2,
+        1,
+        3
+      ],
+      [
+        4,
+        6,
+        5,
+        7
+      ]
+    ],
+    "crosslane_max_abs_s": 0.09962340107500002
+  },
+  "T": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\impulse_response_8ma.txt",
+    "bytes": 27454,
+    "sha256": "2dccbb70485160f1c92238e2094e30149342cbb5262f69b41fd31b9f4325d14b",
+    "source_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyAMI\\examples\\impulse_response_8ma.txt",
+    "source": "PyAMI 5270d713e40bac2be5747bef09b92df79df9085b / examples/impulse_response_8ma.txt",
+    "permission": "BSD-style submodule LICENSE",
+    "time_unit": "s",
+    "ordinate_unit": "V/s",
+    "type_evidence": "t`s`float\t(deriv((v(txop_bump)-v(txon_bump)))/0.83873)`V/s",
+    "native_boundary": "H_2_s2p FIXME; preserve exact native direct reproduction and blocked state, no algorithm repair"
+  },
+  "C": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+    "bytes": 30208,
+    "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78",
+    "source_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\config\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+    "source": "PyChOpMarg ca905e793fcf6330929471317ca32e7611578e5d / config original spreadsheet",
+    "permission": "BSD-3-Clause submodule LICENSE"
+  }
+}

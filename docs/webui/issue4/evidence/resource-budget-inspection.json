@@ -1,0 +1,638 @@
+{
+  "calculation_performed": false,
+  "python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+  "version": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "PYTHONPATH": null,
+  "modules": {
+    "pybert": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\src\\pybert\\__init__.py",
+    "pychopmarg": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\__init__.py",
+    "pyibisami": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\__init__.py"
+  },
+  "packages": {
+    "alabaster": "1.0.0",
+    "alembic": "1.18.5",
+    "annotated-doc": "0.0.5",
+    "annotated-types": "0.8.0",
+    "anyio": "4.14.2",
+    "ast_serialize": "0.6.0",
+    "attrs": "26.1.0",
+    "babel": "2.18.0",
+    "certifi": "2026.6.17",
+    "cffi": "2.1.0",
+    "chaco": "6.1.1",
+    "charset-normalizer": "3.4.9",
+    "click": "8.4.2",
+    "colorama": "0.4.6",
+    "colorlog": "6.12.0",
+    "coverage": "7.15.2",
+    "cryptography": "50.0.0",
+    "docutils": "0.22.4",
+    "empy": "4.2.1",
+    "enable": "6.1.0",
+    "et_xmlfile": "2.0.0",
+    "execnet": "2.1.2",
+    "fastapi": "0.162.0",
+    "fonttools": "4.63.0",
+    "greenlet": "3.5.4",
+    "h11": "0.16.0",
+    "httpcore2": "2.12.0",
+    "httpx2": "2.12.0",
+    "idna": "3.18",
+    "imagesize": "2.0.0",
+    "iniconfig": "2.3.0",
+    "Jinja2": "3.1.6",
+    "jsonschema": "4.26.0",
+    "jsonschema-specifications": "2025.9.1",
+    "kiwisolver": "1.5.0",
+    "librt": "0.13.0",
+    "Mako": "1.4.2",
+    "markdown-it-py": "4.2.0",
+    "MarkupSafe": "3.0.3",
+    "mcp": "2.2.0",
+    "mcp-types": "2.2.0",
+    "mdit-py-plugins": "0.6.1",
+    "mdurl": "0.1.2",
+    "mypy": "2.3.0",
+    "mypy_extensions": "1.1.0",
+    "myst-parser": "5.1.0",
+    "narwhals": "2.27.1",
+    "numpy": "2.5.1",
+    "numpy-typing-compat": "20260602.2.5",
+    "openpyxl": "3.1.5",
+    "opentelemetry-api": "1.44.0",
+    "optuna": "4.9.0",
+    "optype": "0.18.0",
+    "packaging": "26.2",
+    "pandas": "3.0.3",
+    "parsec": "3.17",
+    "pathspec": "1.1.1",
+    "pillow": "12.3.0",
+    "pip": "26.2",
+    "pipbert": "11.1.0",
+    "plotly": "6.9.0",
+    "pluggy": "1.6.0",
+    "PyChOpMarg": "3.4.0",
+    "pycparser": "3.0",
+    "pydantic": "2.13.4",
+    "pydantic_core": "2.46.4",
+    "pyface": "8.0.0",
+    "Pygments": "2.20.0",
+    "pyibis-ami": "10.0.0",
+    "PyJWT": "2.15.0",
+    "pyparsing": "3.3.2",
+    "PySide6": "6.10.2",
+    "PySide6_Addons": "6.10.2",
+    "PySide6_Essentials": "6.10.2",
+    "pytest": "9.1.1",
+    "pytest-cov": "7.1.0",
+    "pytest-xdist": "3.8.0",
+    "python-dateutil": "2.9.0.post0",
+    "python-multipart": "0.0.32",
+    "pywin32": "312",
+    "PyYAML": "6.0.3",
+    "referencing": "0.37.0",
+    "requests": "2.34.2",
+    "roman-numerals": "4.1.0",
+    "rpds-py": "2026.6.3",
+    "scikit-rf": "2.0.1",
+    "scipy": "1.18.0",
+    "scipy-stubs": "1.18.0.1",
+    "setuptools": "83.0.0",
+    "shiboken6": "6.10.2",
+    "six": "1.17.0",
+    "snowballstemmer": "3.1.1",
+    "Sphinx": "9.1.0",
+    "sphinxcontrib-applehelp": "2.0.0",
+    "sphinxcontrib-devhelp": "2.0.0",
+    "sphinxcontrib-htmlhelp": "2.1.0",
+    "sphinxcontrib-jquery": "4.1",
+    "sphinxcontrib-jsmath": "1.0.1",
+    "sphinxcontrib-qthelp": "2.0.0",
+    "sphinxcontrib-serializinghtml": "2.0.0",
+    "sphinx_rtd_theme": "3.1.0",
+    "SQLAlchemy": "2.0.51",
+    "sse-starlette": "3.4.8",
+    "starlette": "1.6.0",
+    "tqdm": "4.69.0",
+    "traits": "7.1.0",
+    "traitsui": "8.0.0",
+    "truststore": "0.10.4",
+    "types-PyYAML": "6.0.12.20260518",
+    "typing_extensions": "4.16.0",
+    "typing-inspection": "0.4.4",
+    "tzdata": "2026.3",
+    "urllib3": "2.7.0",
+    "uvicorn": "0.52.4",
+    "xlrd": "2.0.2"
+  },
+  "base": "9a33d08458aa00782e90169c699857b8b19455a2",
+  "resources": [
+    {
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\chnl_data\\example2_THRU.s4p",
+      "bytes": 2454034,
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+      "ports": 4,
+      "frequencies": 4001,
+      "f_min_hz": 0.0,
+      "f_max_hz": 40000000000.0,
+      "finite": true,
+      "z0_ohm": [
+        50.0
+      ]
+    },
+    {
+      "path": "E:\\serdes-equalization-explorer\\SignalIntegrity-master\\Test\\TestSignalIntegrity\\TestStatisticalNoise\\TwoLaneModel.s8p",
+      "bytes": 330007,
+      "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+      "ports": 8,
+      "frequencies": 161,
+      "f_min_hz": 0.0,
+      "f_max_hz": 80000000000.0,
+      "finite": true,
+      "z0_ohm": [
+        50.0
+      ]
+    },
+    {
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyAMI\\examples\\impulse_response_8ma.txt",
+      "bytes": 27454,
+      "sha256": "2dccbb70485160f1c92238e2094e30149342cbb5262f69b41fd31b9f4325d14b"
+    }
+  ],
+  "spreadsheet": {
+    "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\PyChOpMarg\\config\\config_com_ieee8023dj_PyChOpMarg_vs_MATLAB.xls",
+    "bytes": 30208,
+    "sha256": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78"
+  },
+  "com_defaults": {
+    "parameters": {
+      "fb": 106.25,
+      "fstep": 0.01,
+      "L": 4,
+      "M": 32,
+      "DER_0": 0.0002,
+      "T_r": 0.004,
+      "RLM": 0.95,
+      "A_v": 0.413,
+      "A_fe": 0.413,
+      "A_ne": 0.45,
+      "R_0": 50,
+      "A_DD": 0.02,
+      "SNR_TX": 33,
+      "eta_0": 6e-09,
+      "sigma_Rj": 0.01,
+      "f_z": 42.5,
+      "f_p1": 42.5,
+      "f_p2": 106.25,
+      "f_LF": 1.328125,
+      "g_DC": [
+        0,
+        -1,
+        -2,
+        -3,
+        -4,
+        -5,
+        -6,
+        -7,
+        -8,
+        -9,
+        -10,
+        -11,
+        -12,
+        -13,
+        -14,
+        -15
+      ],
+      "g_DC2": [
+        0.0,
+        -0.5,
+        -1.0,
+        -1.5,
+        -2.0,
+        -2.5,
+        -3.0,
+        -3.5,
+        -4.0,
+        -4.5,
+        -5.0
+      ],
+      "tx_taps_min": [
+        -0.06,
+        0.0,
+        -0.34,
+        -0.2,
+        0.0,
+        0.0
+      ],
+      "tx_taps_max": [
+        0.0,
+        0.12,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tx_taps_step": [
+        0.005,
+        0.005,
+        0.005,
+        0.005,
+        0.0,
+        0.0
+      ],
+      "c0_min": 0.5,
+      "f_r": 0.58,
+      "dfe_min": [
+        0.0
+      ],
+      "dfe_max": [
+        0.85
+      ],
+      "rx_taps_min": [
+        -0.7,
+        -0.7,
+        -0.7,
+        -0.7,
+        -0.7,
+        1.0,
+        -0.7,
+        -0.7,
+        -0.7,
+        -0.7,
+        -0.7,
+        -0.7,
+        -0.7,
+        -0.7,
+        -0.7,
+        -0.7
+      ],
+      "rx_taps_max": [
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        1.0,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7
+      ],
+      "dw": 5,
+      "R_d": [
+        50.0
+      ],
+      "C_d": [
+        [
+          4e-05,
+          9e-05,
+          0.00011
+        ],
+        [
+          4e-05,
+          9e-05,
+          0.00011
+        ]
+      ],
+      "C_b": [
+        3e-05
+      ],
+      "C_p": [
+        4e-05
+      ],
+      "L_s": [
+        [
+          0.13,
+          0.15,
+          0.14
+        ],
+        [
+          0.13,
+          0.15,
+          0.14
+        ]
+      ],
+      "z_c": [
+        87.5,
+        92.5
+      ],
+      "z_p": [
+        33,
+        1.8
+      ],
+      "gamma0": 0.0005,
+      "a1": 0.00089,
+      "a2": 0.0002,
+      "tau": 0.006141,
+      "z_pB": 1.8,
+      "zp_tx": null,
+      "zp_rx": null,
+      "zp_next": null,
+      "zp_fext": null,
+      "z_c_rx": null,
+      "zp_cases": null,
+      "local_search": 0,
+      "ts_srch_mode": "full-sweep",
+      "ts_track": false,
+      "ts_sample_adj": null,
+      "f_p3": null,
+      "N_qb": 0,
+      "P_qc": 1e-07,
+      "Nfix": null,
+      "Nwg": 0,
+      "Nwf": 0,
+      "mlsd": false,
+      "dCOM_an": 3.0,
+      "include_pcb": 0,
+      "zbp_tx": 151.0,
+      "zbp_rx": 151.0,
+      "zbp_next": 72.0,
+      "zbp_fext": 72.0,
+      "brd_Z_c": [
+        109.8,
+        109.8
+      ],
+      "brd_gamma0_a1_a2": [
+        0.0,
+        0.0004114,
+        0.0002547
+      ],
+      "brd_tau": 0.006191,
+      "brd_C0": [
+        0.0,
+        0.0
+      ],
+      "brd_C1": [
+        0.0,
+        0.0
+      ]
+    },
+    "tx_grid_lengths": [
+      13,
+      25,
+      69,
+      41,
+      1,
+      1
+    ],
+    "unfiltered_tx_grid": 919425,
+    "valid_tx_candidates": 794148,
+    "fom_evaluations_full_search_per_package": 139770048,
+    "package_cases": 1,
+    "local_search": 0,
+    "timing_search": "full-sweep",
+    "helper_has_cancellation_callback": false,
+    "calculation_performed": false
+  },
+  "com_spreadsheet": {
+    "parameters": {
+      "fb": 106.25,
+      "fstep": 0.05,
+      "L": 4,
+      "M": 32,
+      "DER_0": 0.0002,
+      "T_r": 0.004,
+      "RLM": 0.95,
+      "A_v": 0.413,
+      "A_fe": 0.413,
+      "A_ne": 0.45,
+      "R_0": 50,
+      "A_DD": 0.02,
+      "SNR_TX": 33,
+      "eta_0": 6e-09,
+      "sigma_Rj": 0.01,
+      "f_z": 42.5,
+      "f_p1": 42.5,
+      "f_p2": 106.25,
+      "f_LF": 1.328125,
+      "g_DC": [
+        -12.0,
+        -11.0,
+        -10.0,
+        -9.0,
+        -8.0,
+        -7.0,
+        -6.0,
+        -5.0,
+        -4.0,
+        -3.0,
+        -2.0
+      ],
+      "g_DC2": [
+        -3.0,
+        -2.5,
+        -2.0,
+        -1.5,
+        -1.0,
+        -0.5,
+        0.0
+      ],
+      "tx_taps_min": [
+        0.0,
+        -0.2,
+        0.0,
+        -0.6,
+        -0.6,
+        0.0,
+        0.0
+      ],
+      "tx_taps_max": [
+        0.2,
+        0.0,
+        0.4,
+        -1.1102230246251565e-16,
+        -1.1102230246251565e-16,
+        0.0,
+        0.0
+      ],
+      "tx_taps_step": [
+        0.1,
+        0.1,
+        0.1,
+        0.09999999999999998,
+        0.09999999999999998,
+        0.0,
+        0.0
+      ],
+      "c0_min": 1,
+      "f_r": 0.58,
+      "dfe_min": [
+        0.0
+      ],
+      "dfe_max": [
+        0.85
+      ],
+      "rx_taps_min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "rx_taps_max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dw": 5,
+      "R_d": [
+        50.0,
+        50.0
+      ],
+      "C_d": [
+        [
+          4e-05,
+          9e-05,
+          0.00011
+        ],
+        [
+          4e-05,
+          9e-05,
+          0.00011
+        ]
+      ],
+      "C_b": [
+        3e-05,
+        3e-05
+      ],
+      "C_p": [
+        4e-05,
+        4e-05
+      ],
+      "L_s": [
+        [
+          0.13,
+          0.15,
+          0.14
+        ],
+        [
+          0.13,
+          0.15,
+          0.14
+        ]
+      ],
+      "z_c": [
+        87.5,
+        92.5
+      ],
+      "z_p": [
+        33,
+        1.8
+      ],
+      "gamma0": 0.0005,
+      "a1": 0.00089,
+      "a2": 0.0002,
+      "tau": 0.006141,
+      "z_pB": 1.8,
+      "zp_tx": [
+        34.0,
+        1.8
+      ],
+      "zp_rx": [
+        32.0,
+        1.8
+      ],
+      "zp_next": [
+        34.0,
+        1.8
+      ],
+      "zp_fext": [
+        34.0,
+        1.8
+      ],
+      "z_c_rx": null,
+      "zp_cases": null,
+      "local_search": 2,
+      "ts_srch_mode": "middle",
+      "ts_track": false,
+      "ts_sample_adj": [
+        -16,
+        16
+      ],
+      "f_p3": null,
+      "N_qb": 0,
+      "P_qc": 0.0004,
+      "Nfix": null,
+      "Nwg": 0,
+      "Nwf": 0,
+      "mlsd": false,
+      "dCOM_an": 3.0,
+      "include_pcb": 0,
+      "zbp_tx": 151.0,
+      "zbp_rx": 151.0,
+      "zbp_next": 72.0,
+      "zbp_fext": 72.0,
+      "brd_Z_c": [
+        109.8,
+        109.8
+      ],
+      "brd_gamma0_a1_a2": [
+        0.0,
+        0.0004114,
+        0.0002547
+      ],
+      "brd_tau": 0.006191,
+      "brd_C0": [
+        0.0,
+        0.0
+      ],
+      "brd_C1": [
+        0.0,
+        0.0
+      ]
+    },
+    "tx_grid_lengths": [
+      3,
+      3,
+      5,
+      7,
+      7,
+      1,
+      1
+    ],
+    "unfiltered_tx_grid": 2205,
+    "valid_tx_candidates": 1,
+    "fom_evaluations_full_search_per_package": 77,
+    "package_cases": 1,
+    "local_search": 2,
+    "timing_search": "middle",
+    "helper_has_cancellation_callback": false,
+    "calculation_performed": false
+  },
+  "source_hashes": {
+    "src\\pybert\\models\\com.py": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+    "PyChOpMarg\\src\\pychopmarg\\com.py": "04010ac20bf154b91715c34130db531ce0c9f350881973053f2691ccb24680e9",
+    "PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj.py": "8915ffff247b2981e6c4b86afd6c7e3c9a5b0c1dcc240bc26058e02585b23e23"
+  }
+}

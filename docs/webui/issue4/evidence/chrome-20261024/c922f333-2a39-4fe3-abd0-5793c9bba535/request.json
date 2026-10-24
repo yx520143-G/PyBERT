@@ -1,0 +1,48 @@
+{
+  "thru_resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+  "config_resource_id": "9194e625c1397033daf106505c50864c62c49a23ca508ea9e2869cc012eafe41.xls",
+  "parameter_source": "spreadsheet",
+  "parent_run_id": null,
+  "frozen_resources": [
+    {
+      "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+      "original_name": "example2_THRU.s4p",
+      "format": ".s4p",
+      "bytes": 2454034,
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+      "source": {
+        "kind": "browser_upload"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "channel",
+        "COM THRU"
+      ],
+      "field": "com_thru",
+      "index": null,
+      "reference": "",
+      "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+    },
+    {
+      "resource_id": "9194e625c1397033daf106505c50864c62c49a23ca508ea9e2869cc012eafe41.xls",
+      "original_name": "invalid-com.xls",
+      "format": ".xls",
+      "bytes": 90,
+      "sha256": "9194e625c1397033daf106505c50864c62c49a23ca508ea9e2869cc012eafe41",
+      "source": {
+        "kind": "local_path",
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\chrome-inputs\\invalid-com.xls"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "COM configuration"
+      ],
+      "field": "com_cfg_file",
+      "index": null,
+      "reference": "",
+      "worker_path": "C:\\Users\\yx\\AppData\\Local\\Temp\\pybert-web-2dowdcql\\resources\\9194e625c1397033daf106505c50864c62c49a23ca508ea9e2869cc012eafe41.xls"
+    }
+  ]
+}

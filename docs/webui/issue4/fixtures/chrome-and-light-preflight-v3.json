@@ -1,0 +1,114 @@
+{
+  "before_browser_main_runs": true,
+  "fixture_parent_sha256": "8d953b64ccc1e9afd57ac336679bf4e47156258e4cec4d4d023ce4c6d08ce381",
+  "corrected_execution_sha256": "a81448797a86f6d6c385554c9f45537b21fe608cb89ee2a768a1874edb2483c7",
+  "frozen_resource_hashes": {
+    "A": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+    "B": "e4be2f6cdd2fb8ed3cba58acd332fba0bedc311acd686c26f48dfcc330db843e",
+    "M": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf",
+    "T": "2dccbb70485160f1c92238e2094e30149342cbb5262f69b41fd31b9f4325d14b",
+    "C": "18901409eeb074e744a21a2d8ae3054afa5d0276f13f8f9bb6d443186c516c78"
+  },
+  "runtime_defaults_explicit": "constructor values; Native inactive extensions, no physical change",
+  "portable_ref_policy": "same immutable resources; browser upload names replace absolute references; inactive BA list retained in subsequent single mode",
+  "cases": {
+    "chrome-AB": {
+      "file": "docs\\webui\\issue4\\local\\chrome-inputs\\chrome-AB.json",
+      "input_hash": "6d5c8d173853ed73c096f72b8287d5f76f91d5aa32c66fa56989e04763e1bc1b",
+      "input_identity_hash": "94a5d14c99049c4ac698ce77c22598d6ffa7477c07fd71031473d0f62e997476"
+    },
+    "chrome-BA": {
+      "file": "docs\\webui\\issue4\\local\\chrome-inputs\\chrome-BA.json",
+      "input_hash": "f77ff35f1928afb7131951cb9ed74231b25f1bec1f22c2283ff3b8aea8d0bf87",
+      "input_identity_hash": "cdfec41675b650f4803ed7c9e9226e57e4fd56029938f3022e57708b60ca82cb"
+    },
+    "chrome-single-after-COM": {
+      "file": "docs\\webui\\issue4\\local\\chrome-inputs\\chrome-single-after-COM.json",
+      "input_hash": "769673a42a84604e38b41f1079ee7cff93d342ea65b8a91e0196c1cc103c8b2b",
+      "input_identity_hash": "d0867f7ff100b12525d0960e0b0e7575ea5adf2f3ea8a1226ea7a1e2d3a642d7"
+    }
+  },
+  "planned_actions": [
+    "Native full YAML load; upload A/B; modify and restore Vod; AB Run and Responses/Results/Jitter",
+    "explicit reorder BA then Run and compare; register C by explicit local path",
+    "independent real XLS COM; invalid XLS failed child and actual COM cancellation retain old success",
+    "single A Run-after-COM with serial core/child and immutable core",
+    "Save/Save As/Escape/download/load, unbound relative YAML, explicit base, safe legacy and unknown-object rejection",
+    "native blocked CTLE File failed Run and cooperative core Abort retain selected success"
+  ],
+  "extra_cases_are_lifecycle_only": "failure/cancel and inactive compatibility presets are not additional numerical qualifications",
+  "lightweight_domain_check": {
+    "window": "window-helper-only.json; direct original calc_chnl_h vs current; no main simulation",
+    "package_enums": "KR/C2C A1, CR HL/HN, C2M host/module native device_model preflight only; numeric qualification remains KR/A1"
+  },
+  "files": {
+    "chrome-AB.json": {
+      "sha256": "a4550fd32935bb711c98037b48feb9ab0fd24dab790c3b9ad144e1f2bc448287",
+      "bytes": 21678
+    },
+    "chrome-BA.json": {
+      "sha256": "80c005e31b9dce9625ccdd06de6f179bb4fe463639d2cec7ef26a1742570dd31",
+      "bytes": 21678
+    },
+    "chrome-single-after-COM.json": {
+      "sha256": "e444b42853a18c889b9fc55a511ae5c92e703545bb86b29e9b08b80194c2150e",
+      "bytes": 22039
+    },
+    "invalid-com.xls": {
+      "sha256": "9194e625c1397033daf106505c50864c62c49a23ca508ea9e2869cc012eafe41",
+      "bytes": 90
+    },
+    "legacy-inactive-expected.json": {
+      "sha256": "4254ea5ac8a238c37a8ad14a62df6d3717b4c526927016ca06faffbe275ad55e",
+      "bytes": 38165
+    },
+    "legacy-inactive.pybert_cfg": {
+      "sha256": "0fe33b467536e0d557a7d87c1549bca9da23a6ca47c5ff7f9331bb6f5209fa4a",
+      "bytes": 9163
+    },
+    "relative-unbound.yaml": {
+      "sha256": "dc15f9a02970cb98b00100fb53961b83b494751d0af32ab39a4f90cb7955f3be",
+      "bytes": 15794
+    },
+    "unknown-object.yaml": {
+      "sha256": "cbecbfa613ad58c516ee2ca9a661a21ff162cb1d5d974187cd86ad8ce0f9f62f",
+      "bytes": 35
+    },
+    "window-helper-only.json": {
+      "sha256": "6d6b1851e5d4efffcdebc6dfee9ed156e1488b9d933bf61c29ccb2eb8b80efed",
+      "bytes": 18191
+    }
+  },
+  "chrome": {
+    "browser": "installed Chrome, headed",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "device_scale_factor": 1
+  },
+  "actual_sources": {
+    "src\\pybert\\web\\__init__.py": "07511ce2fefebaaeed0cb403bdd7d9c9db335f517422c5892fd485b409708d30",
+    "src\\pybert\\web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "src\\pybert\\web\\com.py": "b6c453fc1c934c75839218f4207f6b5362ce979f62290fef92a0861ee3e181e2",
+    "src\\pybert\\web\\config.py": "55b25db261e7fe16942e24d03465223633614c4a8e35863789242b38f5e52c48",
+    "src\\pybert\\web\\data.py": "a29e49f6ccdb0d675ecd5bc031c4f90f6caff3367a45144443f633dd4e7e1c12",
+    "src\\pybert\\web\\resource_data.py": "504420d86287f73ed60cf7a3a881a80600972e8180446b4d368fdf2ce8d6e626",
+    "src\\pybert\\web\\resources.py": "8369ed3ea1f812dc811390812450a92ef52769cd125250eac0b8beceeff96730",
+    "src\\pybert\\web\\server.py": "e837d5c89d6c2577da49670ab9de9a709846f47678251b5a7e8e49189d724fc1",
+    "src\\pybert\\web\\tasks.py": "5d15a52da216dc14985173ae3531722f948b21d22fe736adccb5c28fbaac9d26",
+    "src\\pybert\\web\\worker.py": "33b2382cef18d199363ad58a5e31b3344e58550e3e6a6f49f4090151a3b6b556",
+    "src\\pybert\\web\\static\\app.js": "64b75225e6e773e6d7c6b3decda0f7b538ce3188d1d44a47127186746bf95674",
+    "src\\pybert\\web\\static\\catalog.js": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+    "src\\pybert\\web\\static\\gui-map.js": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+    "src\\pybert\\web\\static\\index.html": "330c5d3723a0e2e16c7b6b4bc615476a79687366fd74f1ea2a87066fc43dab4a",
+    "src\\pybert\\web\\static\\resources.js": "0a114d0904f84cf921a7bc085aecbaae71363b46961a093c259f4d8b544e78f4",
+    "src\\pybert\\web\\static\\settings.js": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+    "src\\pybert\\web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "src\\pybert\\web\\static\\workbench.css": "8073d39aab282a2439a17875738fb1df88671c133c191fa865078192ba99b51f",
+    "src\\pybert\\web\\static\\workbench.js": "71219c91d453d4c1ea99e902725ead5cdc5e773df21103621aded8e561bfc5c0",
+    "tools\\freeze_web_resource_chrome.py": "4e6e2a1946578051979ea850f2b79493ee8735db088d4dcd16d080a7545f09bc"
+  },
+  "head": "c89cbd7cf0b59acc59d57eb07fc58399e482b4fe",
+  "default_COM": "BLOCKED_BUDGET / NOT_EXECUTED"
+}

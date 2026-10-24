@@ -170,7 +170,8 @@
     if (field.kind === 'select') return `<select ${attrs}>${settings.optionsFor(key, draft).map((option, i) => `<option value="${escape(option)}"${value === option ? ' selected' : ''}>${escape(field.labels?.[i] || option)}</option>`).join('')}</select>`;
     if (field.kind === 'number') return `<div class="number-control"><input type="number" ${attrs} value="${escape(value)}" step="${field.integer ? '1' : 'any'}"${field.min !== undefined ? ` min="${field.min}"` : ''}${field.max !== undefined ? ` max="${field.max}"` : ''} autocomplete="off">${field.unit ? `<span class="input-unit">${field.unit}</span>` : ''}</div>`;
     const input = field.kind === 'files' ? `<textarea ${attrs} rows="3" placeholder="每行一个文件名或路径，按串接顺序排列" spellcheck="false">${escape(value.join('\n'))}</textarea>` : `<input type="text" ${attrs} value="${escape(value)}" placeholder="输入文件名或路径" spellcheck="false" autocomplete="off">`;
-    return `<div class="file-control">${input}<label class="file-picker${reason ? ' disabled' : ''}">选择文件<input type="file" data-file-key="${key}" accept="${field.accept}"${field.kind === 'files' ? ' multiple' : ''}${reason ? ' disabled' : ''} aria-label="选择 ${escape(label)}"></label></div><small class="file-hint">选择文件仅记录文件名；不读取或上传内容，可手工填写路径。</small>`;
+    const fileHint = window.PYBERT_NATIVE && !['ch_file','ch_files','com_cfg_file'].includes(key) ? '当前仅保存未消费的文件名引用，不上传资源。File CTLE / IBIS-AMI 激活仍受能力限制。' : '选择文件上传并冻结内容。手工路径需在“资源 / COM”显式登记；YAML 相对路径需明确绑定。';
+    return `<div class="file-control">${input}<label class="file-picker${reason ? ' disabled' : ''}">选择文件<input type="file" data-file-key="${key}" accept="${field.accept}"${field.kind === 'files' ? ' multiple' : ''}${reason ? ' disabled' : ''} aria-label="选择 ${escape(label)}"></label></div><small class="file-hint">${fileHint}</small>`;
   }
 
   function fieldCard(param, key, id, source) {
@@ -504,6 +505,10 @@
     if (target.matches('[data-file-key]') && target.files.length) {
       clearUndo();
       const key = target.dataset.fileKey;
+      if (window.PYBERT_NATIVE && ['ch_file','ch_files','com_cfg_file'].includes(key)) {
+        window.dispatchEvent(new CustomEvent('pybert-resource-files', {detail:{field:key,files:[...target.files]}}));
+        return;
+      }
       draft[key] = settings.fields[key].kind === 'files' ? [...target.files].map(file => file.name) : target.files[0].name;
       edited({ render: true });
     }
@@ -531,7 +536,7 @@
       const field = settings.fields[item.key];
       const status = item.analysis ? '真实分析 · 所选 run' : field?.readonly ? '能力限制 / 只读' : settings.fields[item.key] || settings.tableInfo[item.key] || item.key.startsWith('btn_') ? '输入 · Run 前校验' : '参考 · 后续票';
       return `<div class="gui-row"><div><strong>${escape(item.label)}</strong><code>${item.key}</code></div><span class="gui-status">${status}</span>${item.analysis || entry ? `<button type="button" class="text-button" data-gui-key="${item.key}">${item.analysis ? '查看分析' : entry.stage.name} →</button>` : '<span>未接入</span>'}<a class="source-link" href="${window.PYBERT_CATALOG.root}src/pybert/gui/view.py#L${item.line}" target="_blank" rel="noopener noreferrer">源码 ↗</a></div>`;
-    }).join('')}</div></details>`).join('')}<details class="gui-section"><summary>菜单与状态栏<span>操作范围</span></summary><div class="gui-menu-list">${window.PYBERT_GUI.menus.map(menu => `<p><strong>${menu.name}</strong> · ${menu.items.join(' / ')}</p>`).join('')}<p>Debug Mode uses the native debug field. Run / Abort, native YAML Load / Save, logs and help are connected. Persistent result archives: #5. Tune / Use / Reset EQ: #8. Restore defaults is a separate draft action.</p><p>Current task state and selected successful run are separate. Run overview reports native performance, delay, DFE bit errors, power and jitter. COM is tracked in #4.</p></div></details>`;
+    }).join('')}</div></details>`).join('')}<details class="gui-section"><summary>菜单与状态栏<span>操作范围</span></summary><div class="gui-menu-list">${window.PYBERT_GUI.menus.map(menu => `<p><strong>${menu.name}</strong> · ${menu.items.join(' / ')}</p>`).join('')}<p>Debug Mode uses the native debug field. Run / Abort, native YAML Load / Save, logs and help are connected. Persistent result archives: #5. Tune / Use / Reset EQ: #8. Restore defaults is a separate draft action.</p><p>Current task state and selected successful run are separate. Run overview reports native performance, delay, DFE bit errors, power and jitter. Independent COM and resource binding are available through 资源 / COM; core and COM child states remain separate.</p></div></details>`;
   }
   window.PYBERT_WORKBENCH = {
     getDraft: () => settings.clone(draft),

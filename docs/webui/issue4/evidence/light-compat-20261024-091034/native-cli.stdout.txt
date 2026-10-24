@@ -1,0 +1,1 @@
+Saved results.                 | Perf. (Msmpls./min.): 11.7    | ChnlDly (ns): 4.831    | BitErrs: 0 (-1)    | TxPwr (mW):   9    | Jitter (ps):  ISI=  29.1  DCD=   0.0  Pj=   8.1 (   0.0)  Rj=   1.5 (   6.3)    | COM: -999.00 dB

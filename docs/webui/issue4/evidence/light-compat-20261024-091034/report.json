@@ -1,0 +1,155 @@
+{
+  "frozen_plan_sha256": "cb7e464452c3b09f4d2b594b1e5e2f73d64febd7288ee51f22c4f8edd5c2dd6a",
+  "same_original_resource_case": "F4-SINGLE-NRZ",
+  "window_main_simulation": false,
+  "CLI_main_simulations_planned": 1,
+  "CLI_helper_collector": "default None through unchanged native simulate()",
+  "actual_sources": {
+    "src\\pybert\\pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+    "src\\pybert\\models\\bert.py": "83525dad2409cd3299f444422e8fbbd6ffefeb59ead9fb113fee34f47ff0925b",
+    "src\\pybert\\cli.py": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56",
+    "src\\pybert\\mcp\\server.py": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb",
+    "src\\pybert\\gui\\view.py": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4",
+    "tools\\verify_web_resource_compat.py": "1d6cb715c42d7bab3788fc268663d96c3f2538da821f95692d90472b8f250aa8"
+  },
+  "native_cli_input_sha256": "16f806863db8b9be86b31327d04a4cee514e9607580eab435be04ef9159e3171",
+  "checks": [
+    {
+      "check": "window helper exact native match h",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match chnl_H",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match chnl_s",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match chnl_p",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match t_ns_chnl",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match start_ix",
+      "passed": true
+    },
+    {
+      "check": "window helper exact native match chnl_dly",
+      "passed": true
+    },
+    {
+      "check": "all declared package enum models instantiate",
+      "passed": true
+    },
+    {
+      "check": "native GUI view imports",
+      "passed": true
+    },
+    {
+      "check": "MCP existing config functions preserve frozen whole config",
+      "passed": true
+    },
+    {
+      "check": "actual native CLI completed and saved native results",
+      "passed": false
+    }
+  ],
+  "window_helper_pair_elapsed_s": 0.5613186999980826,
+  "package_preflight": [
+    {
+      "group": "KR",
+      "case": "A1",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "KR",
+      "case": "A1",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "A1",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2C",
+      "case": "A1",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HL",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HL",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HN",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "CR",
+      "case": "HN",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2M",
+      "case": "host",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2M",
+      "case": "host",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2M",
+      "case": "module",
+      "is_rx": false,
+      "native_type": "DeviceModel"
+    },
+    {
+      "group": "C2M",
+      "case": "module",
+      "is_rx": true,
+      "native_type": "DeviceModel"
+    }
+  ],
+  "CLI": {
+    "command": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "run",
+      "--extra",
+      "web",
+      "pybert",
+      "sim",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\light-compat-20261024-091034\\native-cli.yaml",
+      "--results",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\evidence\\light-compat-20261024-091034\\native-cli.pybert_data"
+    ],
+    "exitcode": 0,
+    "elapsed_s": 7.73213050000777,
+    "result_exists": true
+  },
+  "native_GUI_limit": "view import plus native CLI plot construction only; no new desktop GUI qualification; prior issue2 GUI exceptions retained and GUI sources unchanged",
+  "passed": false
+}
