@@ -14,8 +14,8 @@ from pathlib import Path
 import numpy as np
 
 from pybert.threads.optimization import coopt
-from pybert.web.archive import json_bytes, sha256
-from pybert.web.config import load_config, new_engine
+from pybert.web.archive import array_identity, json_bytes, sha256
+from pybert.web.config import input_hash, load_config, new_engine
 from pybert.web.data import source_identity
 from pybert.web.tasks import Tasks
 
@@ -72,11 +72,19 @@ def direct(request, resource, output):
         for key, value in observations["mmse_context"].items():
             if isinstance(value, np.ndarray):
                 arrays[f"mmse_{key}"] = value
+        calls = []
+        for i, call in enumerate(observations.get("mmse_calls", [])):
+            prefix = f"mmse_call_{i:06d}"
+            for key, value in call.items():
+                if isinstance(value, np.ndarray):
+                    arrays[f"{prefix}_{key}"] = value
+            calls.append({"candidate_id": f"candidate-{i:06d}", "arrays": {key: array_identity(value) for key,value in call.items() if isinstance(value, np.ndarray)},
+                          "parameters": {key: value for key,value in call.items() if not isinstance(value,np.ndarray)}})
         np.savez_compressed(output / "arrays.npz", **arrays)
         winner = max(candidates, key=lambda row: row["fom"])
         report.update(status="succeeded", fom=float(fom), valid=bool(valid), selected_candidate_id=winner["candidate_id"], candidates=candidates,
                       context={key: value for key, value in observations["mmse_context"].items() if not isinstance(value, np.ndarray)},
-                      display_db=float(20*np.log10(fom)))
+                      mmse_calls=calls, display_db=float(20*np.log10(fom)))
     except Exception as err:
         report.update(status="failed", error=str(err), traceback=traceback.format_exc())
     finally:
@@ -93,6 +101,7 @@ def main():
     (output / "local").mkdir()
     freeze = json.loads((FIXTURES / "manifest.json").read_text(encoding="utf-8"))
     report = {"freeze_sha256": sha256((FIXTURES / "manifest.json").read_bytes()), "source_identity": source_identity(),
+              "verifier_sha256": sha256(Path(__file__).read_bytes()),
               "packages": {d.metadata["Name"]: d.version for d in importlib.metadata.distributions()},
               "python": sys.executable, "PYTHONPATH": os.environ.get("PYTHONPATH"), "cases": {}, "main_calls": 0, "COM_calls": 0}
     tasks = Tasks(output / "local/adapter")
@@ -141,6 +150,12 @@ def main():
             checks["inner_order"] = result["plan"]["rx_inner_order"] == (fixture["rx_inner_order"] or [])
             checks["candidate_scores"] = all(np.isclose(a["fom"], b["fom"], rtol=1e-10, atol=1e-12) and a["candidate_id"] == b["candidate_id"] and a["ctle_db"] == b["ctle_db"] for a, b in zip(direct_result["candidates"], result["candidates"]))
             checks["RLM_reached_MMSE_context"] = result["mmse_context"]["rlm"] == request["runtime_extensions"]["values"]["rlm"]
+            for i, call in enumerate(direct_result.get("mmse_calls", [])):
+                parameters = {k: v for k, v in call["parameters"].items() if k != "result_cursor_ix"} | direct_result["context"]
+                values = dict(call["arrays"])
+                with np.load(target / "arrays.npz", allow_pickle=False) as direct_arrays:
+                    values.update({key: array_identity(direct_arrays[f"mmse_{key}"]) for key in ("f_hz", "t_s", "dfe_min", "dfe_max")})
+                checks[f"MMSE_call_{i}_actual_inputs_exact"] = input_hash({"arrays": values, "parameters": parameters, "model": result["model"]}) == result["mmse_calls"][i]["input_hash"]
         report["cases"][name] = {"checks": {key: bool(value) for key, value in checks.items()}, "max_errors": errors,
                                   "direct": direct_result, "adapter_task": task, "adapter_record": result,
                                   "peak_rss_bytes": {"direct": peak, "adapter": adapter_peak},

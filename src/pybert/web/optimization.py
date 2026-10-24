@@ -104,6 +104,8 @@ def preflight(p):
              for i, (mag, w) in enumerate((m, w) for m in peak_values for w in tx)]
     # Let the native no-Tx-combination RuntimeError execute, preserving its real failure.
     rx = [] if c["use_mmse"] else mk_tap_weight_combs(p.ffe_tap_tuners)
+    if not c["use_mmse"] and not rx:
+        raise ValueError("Rx FFE grid has no nonzero candidate; native implicit identity fallback is unavailable for a bounded search.")
     return {"outer_count": len(order), "rx_inner_count": None if c["use_mmse"] else len(rx) or 1,
             "outer_order": order, "rx_inner_order": [w.tolist() for w in rx], "dfe_prefix": prefix,
             "estimated_candidate_bytes_upper": estimated_bytes,
@@ -190,7 +192,7 @@ def optimizer_action(p, runtime, mode, candidate=None):
 def run_optimization(opt_id, request, directory, check, emit):
     directory = Path(directory)
     started = time.time()
-    record = {"schema_version": 1, "opt_id": opt_id, "status": "failed", "draft_revision": request.get("draft_revision", 0),
+    record = {"schema_version": 1, "optimization_raw_schema": 2, "opt_id": opt_id, "status": "failed", "draft_revision": request.get("draft_revision", 0),
               "requested_input": request["config"], "runtime_extensions": request.get("runtime_extensions", {}),
               "resource_bindings": request.get("resource_bindings", {}), "input_hash": request["input_hash"],
               "input_identity_hash": request.get("input_identity_hash"), "resource_hash": request["resource_hash"],
@@ -257,9 +259,29 @@ def run_optimization(opt_id, request, directory, check, emit):
         for key, value in context.items():
             if isinstance(value, np.ndarray):
                 arrays[f"mmse_{key}"] = value
+        record["mmse_calls"] = []
+        for i, call in enumerate(observations.get("mmse_calls", [])):
+            prefix = f"mmse_call_{i:06d}"
+            values = {}
+            parameters = {key: value for key, value in call.items() if not isinstance(value, np.ndarray) and key != "result_cursor_ix"}
+            parameters.update(record["mmse_context"])
+            for key, value in call.items():
+                if isinstance(value, np.ndarray):
+                    arrays[f"{prefix}_{key}"] = value
+                    values[key] = array_identity(value)
+            for key in ("f_hz", "t_s", "dfe_min", "dfe_max"):
+                values[key] = array_identity(arrays[f"mmse_{key}"])
+            record["mmse_calls"].append({"candidate_id": f"candidate-{i:06d}", "parameters": parameters,
+                "result_cursor_ix": call.get("result_cursor_ix"),
+                "arrays_prefix": prefix, "input_hash": input_hash({"arrays": values, "parameters": parameters, "model": record["model"]})})
         record["finished_at"] = time.time()
         record["elapsed_s"] = record["finished_at"] - started
         record["arrays"] = {key: array_identity(value) for key, value in arrays.items()}
+        record["array_contracts"] = {key: {"producer": record["producer"], "unit": (
+            "ns" if key in ("t_ns_opt", "curs_ix", "channel_t_ns") or key.endswith("_t_ns") else
+            "Hz" if key == "mmse_f_hz" else "s" if key == "mmse_t_s" else
+            "V (native model; MMSE cursor normalized)" if key in ("ctle_out_h_tune", "p_chnl", "curs_amp", "clocks_tune") or key.endswith(("_pulse", "_p_tx")) else "1"),
+            "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR", "window": "entire producer array"} for key in arrays}
         record["nonfinite_arrays"] = {key: int(np.count_nonzero(~np.isfinite(value))) for key, value in arrays.items() if not np.isfinite(value).all()}
         if record["status"] == "succeeded" and (sum(a.nbytes for a in arrays.values()) > MAX_ARRAY_BYTES or any(not np.isfinite(a).all() for a in arrays.values())):
             record.update(status="failed", error="Nonfinite or over-budget native arrays; candidate unavailable.")
@@ -287,7 +309,7 @@ def save_optimization(directory, destination):
     record = read_json((directory / "optimization.json").read_bytes())
     raw = (directory / "arrays.npz").read_bytes()
     validate_record(record, read_arrays(raw, require_finite=record.get("status") == "succeeded") if record.get("arrays") else {})
-    envelope = {"format": "pybert-web-optimization", "archive_schema": 1, "record": record, "raw_sha256": sha256(raw)}
+    envelope = {"format": "pybert-web-optimization", "archive_schema": 1, "required_features": [], "record": record, "raw_sha256": sha256(raw)}
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_STORED) as archive:
         archive.writestr("manifest.json", json_bytes(envelope))
@@ -315,6 +337,8 @@ def _load_optimization(content, directory):
         raw = archive.read("arrays.npz")
     if envelope.get("format") != "pybert-web-optimization" or type(envelope.get("archive_schema")) is not int or envelope["archive_schema"] != 1 or sha256(raw) != envelope.get("raw_sha256"):
         raise ValueError("Unknown optimization archive/checksum mismatch.")
+    if envelope.get("required_features"):
+        raise ValueError("Unknown required optimization archive features.")
     record = envelope["record"]
     arrays = read_arrays(raw, require_finite=record.get("status") == "succeeded") if record.get("arrays") else {}
     validate_record(record, arrays)
@@ -325,6 +349,8 @@ def _load_optimization(content, directory):
 
 
 def validate_record(record, arrays):
+    if record.get("optimization_raw_schema", 1) not in (1, 2):
+        raise ValueError("Unknown optimization raw schema.")
     if (type(record.get("schema_version")) is not int or record["schema_version"] != 1 or record.get("status") not in ("succeeded", "failed", "cancelled") or
             not isinstance(record.get("opt_id"), str) or {k: array_identity(a) for k, a in arrays.items()} != record.get("arrays")):
         raise ValueError("Invalid optimization record/arrays.")
@@ -360,3 +386,14 @@ def validate_record(record, arrays):
             not np.array_equal(values["ffe"], arrays[prefix + "_rx_weights"]) or values["ctle_db"] != winner["ctle_db"] or
             not np.array_equal(arrays["ctle_out_h_tune"], arrays[prefix + "_pulse"])):
         raise ValueError("Selected optimization values/response disagree with native candidate arrays.")
+    if record.get("optimization_raw_schema") == 2 and record["requested_input"]["use_mmse"]:
+        calls = record.get("mmse_calls", [])
+        if len(calls) != len(rows):
+            raise ValueError("Incomplete actual MMSE input contexts.")
+        for call in calls:
+            prefix = call["arrays_prefix"]
+            identities = {key: array_identity(arrays[f"{prefix}_{key}"]) for key in ("p_tx", "tx_H", "chnl_H", "ctle_H", "rx_min", "rx_max")}
+            identities.update({key: array_identity(arrays[f"mmse_{key}"]) for key in ("f_hz", "t_s", "dfe_min", "dfe_max")})
+            if (call["parameters"]["rlm"] != record["runtime_extensions"]["values"]["rlm"] or
+                    input_hash({"arrays": identities, "parameters": call["parameters"], "model": record["model"]}) != call["input_hash"]):
+                raise ValueError("MMSE actual input context/hash mismatch.")

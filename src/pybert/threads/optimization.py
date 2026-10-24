@@ -244,7 +244,7 @@ def coopt(pybert, observations=None) -> tuple[list[float], float, list[float], f
     # i.e. - one-sided density `rn**2 / fN` over [0, fN]; `NoiseCalc` wants it in V^2/GHz.
     eta0 = pybert.rn**2 / fN * 1e9
     if observations is not None:
-        observations.update(candidates=[], mmse_context=dict(f_hz=f_t.copy(), t_s=_t.copy(), eta0=eta0,
+        observations.update(candidates=[], mmse_calls=[], mmse_context=dict(f_hz=f_t.copy(), t_s=_t.copy(), eta0=eta0,
                             num_levels=num_levels, rlm=pybert.rlm, rx_n_taps=rx_n_taps, rx_n_pre=rx_n_pre,
                             n_dfe_taps=n_dfe_taps, dfe_min=dfe_tap_mins.copy(), dfe_max=dfe_tap_maxs.copy()))
 
@@ -292,6 +292,11 @@ def coopt(pybert, observations=None) -> tuple[list[float], float, list[float], f
         if effective_use_mmse:
             curs_ix = where(p_tx == max(p_tx))[0][0]
             tx_H = rfft(resize_zero_pad(h_tx, len(_t)))
+            if observations is not None:
+                observations["mmse_calls"].append(dict(p_tx=p_tx.copy(), tx_H=tx_H.copy(), chnl_H=chnl_H.copy(),
+                    ctle_H=ctle_H.copy(), curs_ix=int(curs_ix),
+                    rx_min=array([t.min_val for t in rx_taps[:rx_n_taps]]),
+                    rx_max=array([t.max_val for t in rx_taps[:rx_n_taps]])))
             noise_calc = NoiseCalc(
                 num_levels, ui, curs_ix, _t, p_tx, [], f_t,
                 tx_H, chnl_H, ones(len(f_t)), ctle_H,
@@ -301,6 +306,8 @@ def coopt(pybert, observations=None) -> tuple[list[float], float, list[float], f
                 noise_calc, rx_n_taps, rx_n_pre, n_dfe_taps, pybert.rlm, pybert.mod_type_ + 2,
                 dfe_tap_mins, dfe_tap_maxs,
                 array([t.min_val for t in rx_taps[:rx_n_taps]]), array([t.max_val for t in rx_taps[:rx_n_taps]]))
+            if observations is not None:
+                observations["mmse_calls"][-1]["result_cursor_ix"] = int(mmse_rslts["cursor_ix"])
             rx_weights_better = mmse_rslts["rx_taps"]
             dfe_weights_better = mmse_rslts["dfe_tap_weights"]
             fom_better = mmse_rslts["fom"]
