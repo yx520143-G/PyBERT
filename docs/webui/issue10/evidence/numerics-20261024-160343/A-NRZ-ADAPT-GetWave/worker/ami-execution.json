@@ -1,0 +1,3122 @@
+{
+  "calls": [
+    {
+      "index": 0,
+      "binary": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-160343-A-NRZ-ADAPT-GetWave-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model\\example_rx_x86_amd64.dll",
+      "mode": "GetWave",
+      "ui_s": 1e-10,
+      "ts_s": 3.125e-12,
+      "requested_parameters": {
+        "root_name": "example_rx",
+        "ctle_mode": 1,
+        "ctle_freq": 5000000000.0,
+        "ctle_mag": 0.0,
+        "ctle_bandwidth": 12000000000.0,
+        "ctle_dcgain": 0.0,
+        "dfe_mode": 2,
+        "dfe_ntaps": 5,
+        "dfe_tap1": 0.0,
+        "dfe_tap2": 0.0,
+        "dfe_tap3": 0.0,
+        "dfe_tap4": 0.0,
+        "dfe_tap5": 0.0,
+        "dfe_vout": 1.0,
+        "dfe_gain": 0.1,
+        "debug": {
+          "dbg_enable": false,
+          "dump_dfe_adaptation": false,
+          "dump_adaptation_input": false
+        }
+      },
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "started_at": 1792829034.45205,
+      "status": "returned; engine postconditions pending",
+      "message": "Input parameters: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 2)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 2)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: 0 dB boost at 5 GHz\n\tDFE: mode: 2  vout: 1  gain: 0.1\n\t\ttap1: 0\n\t\ttap2: 0\n\t\ttap3: 0\n\t\ttap4: 0\n\t\ttap5: 0\n",
+      "params_out": [
+        "(example_rx\n\t(dfe_tap1 -0.232317)\n\t(dfe_tap2 -0.286812)\n\t(dfe_tap3 -0.186812)\n\t(dfe_tap4 -0.0610478)\n\t(dfe_tap5 0.0131884)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.277486)\n\t(dfe_tap2 -0.331981)\n\t(dfe_tap3 -0.231981)\n\t(dfe_tap4 -0.106217)\n\t(dfe_tap5 -0.0319811)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.223535)\n\t(dfe_tap2 -0.278029)\n\t(dfe_tap3 -0.178029)\n\t(dfe_tap4 -0.0522656)\n\t(dfe_tap5 0.0219706)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.317095)\n\t(dfe_tap2 -0.358194)\n\t(dfe_tap3 -0.258194)\n\t(dfe_tap4 -0.145826)\n\t(dfe_tap5 -0.0581936)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.266579)\n\t(dfe_tap2 -0.307678)\n\t(dfe_tap3 -0.207678)\n\t(dfe_tap4 -0.0953102)\n\t(dfe_tap5 -0.00767781)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.3067)\n\t(dfe_tap2 -0.347798)\n\t(dfe_tap3 -0.247798)\n\t(dfe_tap4 -0.13543)\n\t(dfe_tap5 -0.0477981)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.283982)\n\t(dfe_tap2 -0.320734)\n\t(dfe_tap3 -0.220734)\n\t(dfe_tap4 -0.112713)\n\t(dfe_tap5 -0.0207339)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.336183)\n\t(dfe_tap2 -0.372935)\n\t(dfe_tap3 -0.272935)\n\t(dfe_tap4 -0.164914)\n\t(dfe_tap5 -0.0729353)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.28206)\n\t(dfe_tap2 -0.318812)\n\t(dfe_tap3 -0.218812)\n\t(dfe_tap4 -0.110791)\n\t(dfe_tap5 -0.0188118)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.317938)\n\t(dfe_tap2 -0.352659)\n\t(dfe_tap3 -0.252659)\n\t(dfe_tap4 -0.146669)\n\t(dfe_tap5 -0.0526587)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.266045)\n\t(dfe_tap2 -0.300766)\n\t(dfe_tap3 -0.200766)\n\t(dfe_tap4 -0.0947761)\n\t(dfe_tap5 -0.000765803)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.279343)\n\t(dfe_tap2 -0.314063)\n\t(dfe_tap3 -0.214063)\n\t(dfe_tap4 -0.108073)\n\t(dfe_tap5 -0.0140632)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.305265)\n\t(dfe_tap2 -0.339985)\n\t(dfe_tap3 -0.239985)\n\t(dfe_tap4 -0.133996)\n\t(dfe_tap5 -0.0399853)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.270334)\n\t(dfe_tap2 -0.305055)\n\t(dfe_tap3 -0.205055)\n\t(dfe_tap4 -0.0990651)\n\t(dfe_tap5 -0.00505484)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.266199)\n\t(dfe_tap2 -0.300919)\n\t(dfe_tap3 -0.200919)\n\t(dfe_tap4 -0.0949296)\n\t(dfe_tap5 -0.000919357)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.327414)\n\t(dfe_tap2 -0.362135)\n\t(dfe_tap3 -0.262135)\n\t(dfe_tap4 -0.156145)\n\t(dfe_tap5 -0.062135)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.307683)\n\t(dfe_tap2 -0.342403)\n\t(dfe_tap3 -0.242403)\n\t(dfe_tap4 -0.136414)\n\t(dfe_tap5 -0.0424034)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.272359)\n\t(dfe_tap2 -0.307079)\n\t(dfe_tap3 -0.207079)\n\t(dfe_tap4 -0.10109)\n\t(dfe_tap5 -0.00707934)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.270697)\n\t(dfe_tap2 -0.305418)\n\t(dfe_tap3 -0.205418)\n\t(dfe_tap4 -0.0994282)\n\t(dfe_tap5 -0.00541791)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.286977)\n\t(dfe_tap2 -0.321037)\n\t(dfe_tap3 -0.221037)\n\t(dfe_tap4 -0.115708)\n\t(dfe_tap5 -0.0210367)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.271383)\n\t(dfe_tap2 -0.305443)\n\t(dfe_tap3 -0.205443)\n\t(dfe_tap4 -0.100114)\n\t(dfe_tap5 -0.00544322)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.276036)\n\t(dfe_tap2 -0.310096)\n\t(dfe_tap3 -0.210096)\n\t(dfe_tap4 -0.104767)\n\t(dfe_tap5 -0.0100956)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.349163)\n\t(dfe_tap2 -0.382973)\n\t(dfe_tap3 -0.282973)\n\t(dfe_tap4 -0.177894)\n\t(dfe_tap5 -0.0829734)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.27058)\n\t(dfe_tap2 -0.304391)\n\t(dfe_tap3 -0.204391)\n\t(dfe_tap4 -0.0993113)\n\t(dfe_tap5 -0.00439099)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.322935)\n\t(dfe_tap2 -0.356745)\n\t(dfe_tap3 -0.256745)\n\t(dfe_tap4 -0.151665)\n\t(dfe_tap5 -0.0567452)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.245189)\n\t(dfe_tap2 -0.277171)\n\t(dfe_tap3 -0.177171)\n\t(dfe_tap4 -0.0739198)\n\t(dfe_tap5 0.0228286)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.304181)\n\t(dfe_tap2 -0.336164)\n\t(dfe_tap3 -0.236164)\n\t(dfe_tap4 -0.132912)\n\t(dfe_tap5 -0.0361637)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.24319)\n\t(dfe_tap2 -0.275172)\n\t(dfe_tap3 -0.175172)\n\t(dfe_tap4 -0.0719205)\n\t(dfe_tap5 0.0248279)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.3266)\n\t(dfe_tap2 -0.356411)\n\t(dfe_tap3 -0.256411)\n\t(dfe_tap4 -0.155331)\n\t(dfe_tap5 -0.0564107)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.357492)\n\t(dfe_tap2 -0.387303)\n\t(dfe_tap3 -0.287303)\n\t(dfe_tap4 -0.186223)\n\t(dfe_tap5 -0.0873028)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.301582)\n\t(dfe_tap2 -0.331393)\n\t(dfe_tap3 -0.231393)\n\t(dfe_tap4 -0.130313)\n\t(dfe_tap5 -0.0313927)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.3143)\n\t(dfe_tap2 -0.344111)\n\t(dfe_tap3 -0.244111)\n\t(dfe_tap4 -0.143031)\n\t(dfe_tap5 -0.0441112)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.230132)\n\t(dfe_tap2 -0.259943)\n\t(dfe_tap3 -0.159943)\n\t(dfe_tap4 -0.058863)\n\t(dfe_tap5 0.040057)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.342668)\n\t(dfe_tap2 -0.372479)\n\t(dfe_tap3 -0.272479)\n\t(dfe_tap4 -0.171399)\n\t(dfe_tap5 -0.0724794)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.362269)\n\t(dfe_tap2 -0.39208)\n\t(dfe_tap3 -0.29208)\n\t(dfe_tap4 -0.191)\n\t(dfe_tap5 -0.0920802)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.299004)\n\t(dfe_tap2 -0.328815)\n\t(dfe_tap3 -0.228815)\n\t(dfe_tap4 -0.127735)\n\t(dfe_tap5 -0.0288153)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.231385)\n\t(dfe_tap2 -0.261196)\n\t(dfe_tap3 -0.161196)\n\t(dfe_tap4 -0.0601156)\n\t(dfe_tap5 0.0388043)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.216998)\n\t(dfe_tap2 -0.246809)\n\t(dfe_tap3 -0.146809)\n\t(dfe_tap4 -0.0457293)\n\t(dfe_tap5 0.0531906)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.300608)\n\t(dfe_tap2 -0.330419)\n\t(dfe_tap3 -0.230419)\n\t(dfe_tap4 -0.129339)\n\t(dfe_tap5 -0.0304189)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.27465)\n\t(dfe_tap2 -0.30446)\n\t(dfe_tap3 -0.20446)\n\t(dfe_tap4 -0.10338)\n\t(dfe_tap5 -0.00446047)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.284857)\n\t(dfe_tap2 -0.314668)\n\t(dfe_tap3 -0.214668)\n\t(dfe_tap4 -0.113588)\n\t(dfe_tap5 -0.0146679)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.316226)\n\t(dfe_tap2 -0.346037)\n\t(dfe_tap3 -0.246037)\n\t(dfe_tap4 -0.144957)\n\t(dfe_tap5 -0.0460367)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.340725)\n\t(dfe_tap2 -0.370536)\n\t(dfe_tap3 -0.270536)\n\t(dfe_tap4 -0.169456)\n\t(dfe_tap5 -0.0705362)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.260091)\n\t(dfe_tap2 -0.289902)\n\t(dfe_tap3 -0.189902)\n\t(dfe_tap4 -0.0888222)\n\t(dfe_tap5 0.0100978)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.306327)\n\t(dfe_tap2 -0.336138)\n\t(dfe_tap3 -0.236138)\n\t(dfe_tap4 -0.135058)\n\t(dfe_tap5 -0.0361377)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.329956)\n\t(dfe_tap2 -0.359767)\n\t(dfe_tap3 -0.259767)\n\t(dfe_tap4 -0.158687)\n\t(dfe_tap5 -0.0597666)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.286005)\n\t(dfe_tap2 -0.315816)\n\t(dfe_tap3 -0.215816)\n\t(dfe_tap4 -0.114736)\n\t(dfe_tap5 -0.0158157)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.361081)\n\t(dfe_tap2 -0.389462)\n\t(dfe_tap3 -0.289462)\n\t(dfe_tap4 -0.189462)\n\t(dfe_tap5 -0.0894621)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.332816)\n\t(dfe_tap2 -0.361197)\n\t(dfe_tap3 -0.261197)\n\t(dfe_tap4 -0.161197)\n\t(dfe_tap5 -0.0611972)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.313264)\n\t(dfe_tap2 -0.341645)\n\t(dfe_tap3 -0.241645)\n\t(dfe_tap4 -0.141645)\n\t(dfe_tap5 -0.0416454)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.372019)\n\t(dfe_tap2 -0.4)\n\t(dfe_tap3 -0.3)\n\t(dfe_tap4 -0.2)\n\t(dfe_tap5 -0.1)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.26528)\n\t(dfe_tap2 -0.293261)\n\t(dfe_tap3 -0.193261)\n\t(dfe_tap4 -0.0932613)\n\t(dfe_tap5 0.00673875)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.291621)\n\t(dfe_tap2 -0.319602)\n\t(dfe_tap3 -0.219602)\n\t(dfe_tap4 -0.119602)\n\t(dfe_tap5 -0.0196019)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.357926)\n\t(dfe_tap2 -0.385907)\n\t(dfe_tap3 -0.285907)\n\t(dfe_tap4 -0.185907)\n\t(dfe_tap5 -0.0859069)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.287318)\n\t(dfe_tap2 -0.315299)\n\t(dfe_tap3 -0.215299)\n\t(dfe_tap4 -0.115299)\n\t(dfe_tap5 -0.015299)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.271349)\n\t(dfe_tap2 -0.29933)\n\t(dfe_tap3 -0.19933)\n\t(dfe_tap4 -0.0993295)\n\t(dfe_tap5 0.000670455)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.229328)\n\t(dfe_tap2 -0.257308)\n\t(dfe_tap3 -0.157308)\n\t(dfe_tap4 -0.0573083)\n\t(dfe_tap5 0.0426917)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.28603)\n\t(dfe_tap2 -0.314011)\n\t(dfe_tap3 -0.214011)\n\t(dfe_tap4 -0.114011)\n\t(dfe_tap5 -0.014011)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.256636)\n\t(dfe_tap2 -0.284617)\n\t(dfe_tap3 -0.184617)\n\t(dfe_tap4 -0.0846166)\n\t(dfe_tap5 0.0153834)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.287665)\n\t(dfe_tap2 -0.315646)\n\t(dfe_tap3 -0.215646)\n\t(dfe_tap4 -0.115646)\n\t(dfe_tap5 -0.0156455)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.317157)\n\t(dfe_tap2 -0.345138)\n\t(dfe_tap3 -0.245138)\n\t(dfe_tap4 -0.145138)\n\t(dfe_tap5 -0.045138)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.303437)\n\t(dfe_tap2 -0.331418)\n\t(dfe_tap3 -0.231418)\n\t(dfe_tap4 -0.131418)\n\t(dfe_tap5 -0.0314179)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.31828)\n\t(dfe_tap2 -0.346261)\n\t(dfe_tap3 -0.246261)\n\t(dfe_tap4 -0.146261)\n\t(dfe_tap5 -0.0462605)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.345061)\n\t(dfe_tap2 -0.373042)\n\t(dfe_tap3 -0.273042)\n\t(dfe_tap4 -0.173042)\n\t(dfe_tap5 -0.0730421)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.252479)\n\t(dfe_tap2 -0.28046)\n\t(dfe_tap3 -0.18046)\n\t(dfe_tap4 -0.0804602)\n\t(dfe_tap5 0.0195398)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.2557)\n\t(dfe_tap2 -0.283681)\n\t(dfe_tap3 -0.183681)\n\t(dfe_tap4 -0.0836809)\n\t(dfe_tap5 0.0163191)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.338872)\n\t(dfe_tap2 -0.366853)\n\t(dfe_tap3 -0.266853)\n\t(dfe_tap4 -0.166853)\n\t(dfe_tap5 -0.0668529)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.264248)\n\t(dfe_tap2 -0.292229)\n\t(dfe_tap3 -0.192229)\n\t(dfe_tap4 -0.0922287)\n\t(dfe_tap5 0.00777131)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.300546)\n\t(dfe_tap2 -0.328527)\n\t(dfe_tap3 -0.228527)\n\t(dfe_tap4 -0.128527)\n\t(dfe_tap5 -0.0285268)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.352873)\n\t(dfe_tap2 -0.380854)\n\t(dfe_tap3 -0.280854)\n\t(dfe_tap4 -0.180854)\n\t(dfe_tap5 -0.0808536)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.33632)\n\t(dfe_tap2 -0.363685)\n\t(dfe_tap3 -0.263685)\n\t(dfe_tap4 -0.163685)\n\t(dfe_tap5 -0.0636852)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.260836)\n\t(dfe_tap2 -0.288201)\n\t(dfe_tap3 -0.188201)\n\t(dfe_tap4 -0.0882008)\n\t(dfe_tap5 0.0117992)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.319127)\n\t(dfe_tap2 -0.346492)\n\t(dfe_tap3 -0.246492)\n\t(dfe_tap4 -0.146492)\n\t(dfe_tap5 -0.0464923)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.262342)\n\t(dfe_tap2 -0.289623)\n\t(dfe_tap3 -0.189623)\n\t(dfe_tap4 -0.0896227)\n\t(dfe_tap5 0.0103773)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.260703)\n\t(dfe_tap2 -0.287984)\n\t(dfe_tap3 -0.187984)\n\t(dfe_tap4 -0.0879839)\n\t(dfe_tap5 0.0120161)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.256723)\n\t(dfe_tap2 -0.284004)\n\t(dfe_tap3 -0.184004)\n\t(dfe_tap4 -0.0840037)\n\t(dfe_tap5 0.0159963)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.314082)\n\t(dfe_tap2 -0.340956)\n\t(dfe_tap3 -0.240956)\n\t(dfe_tap4 -0.140956)\n\t(dfe_tap5 -0.0409565)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.304519)\n\t(dfe_tap2 -0.331393)\n\t(dfe_tap3 -0.231393)\n\t(dfe_tap4 -0.131393)\n\t(dfe_tap5 -0.0313934)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.298787)\n\t(dfe_tap2 -0.325661)\n\t(dfe_tap3 -0.225661)\n\t(dfe_tap4 -0.125661)\n\t(dfe_tap5 -0.0256609)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.240437)\n\t(dfe_tap2 -0.267312)\n\t(dfe_tap3 -0.167312)\n\t(dfe_tap4 -0.0673118)\n\t(dfe_tap5 0.0326882)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.328961)\n\t(dfe_tap2 -0.355836)\n\t(dfe_tap3 -0.255836)\n\t(dfe_tap4 -0.155836)\n\t(dfe_tap5 -0.0558355)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.238573)\n\t(dfe_tap2 -0.265448)\n\t(dfe_tap3 -0.165448)\n\t(dfe_tap4 -0.0654476)\n\t(dfe_tap5 0.0345524)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.29664)\n\t(dfe_tap2 -0.323515)\n\t(dfe_tap3 -0.223515)\n\t(dfe_tap4 -0.123515)\n\t(dfe_tap5 -0.0235147)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.309672)\n\t(dfe_tap2 -0.336546)\n\t(dfe_tap3 -0.236546)\n\t(dfe_tap4 -0.136546)\n\t(dfe_tap5 -0.0365461)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.319197)\n\t(dfe_tap2 -0.346072)\n\t(dfe_tap3 -0.246072)\n\t(dfe_tap4 -0.146072)\n\t(dfe_tap5 -0.0460718)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.281288)\n\t(dfe_tap2 -0.308162)\n\t(dfe_tap3 -0.208162)\n\t(dfe_tap4 -0.108162)\n\t(dfe_tap5 -0.00816234)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.232395)\n\t(dfe_tap2 -0.259269)\n\t(dfe_tap3 -0.159269)\n\t(dfe_tap4 -0.0592693)\n\t(dfe_tap5 0.0407307)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.298829)\n\t(dfe_tap2 -0.325703)\n\t(dfe_tap3 -0.225703)\n\t(dfe_tap4 -0.125703)\n\t(dfe_tap5 -0.0257029)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.318796)\n\t(dfe_tap2 -0.345671)\n\t(dfe_tap3 -0.245671)\n\t(dfe_tap4 -0.145671)\n\t(dfe_tap5 -0.0456705)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.2808)\n\t(dfe_tap2 -0.307675)\n\t(dfe_tap3 -0.207675)\n\t(dfe_tap4 -0.107675)\n\t(dfe_tap5 -0.00767469)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.235845)\n\t(dfe_tap2 -0.262719)\n\t(dfe_tap3 -0.162719)\n\t(dfe_tap4 -0.062719)\n\t(dfe_tap5 0.037281)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.225795)\n\t(dfe_tap2 -0.25267)\n\t(dfe_tap3 -0.15267)\n\t(dfe_tap4 -0.0526698)\n\t(dfe_tap5 0.0473302)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.331666)\n\t(dfe_tap2 -0.357557)\n\t(dfe_tap3 -0.257557)\n\t(dfe_tap4 -0.157557)\n\t(dfe_tap5 -0.0575571)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.307666)\n\t(dfe_tap2 -0.333558)\n\t(dfe_tap3 -0.233558)\n\t(dfe_tap4 -0.133558)\n\t(dfe_tap5 -0.0335575)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.314093)\n\t(dfe_tap2 -0.339984)\n\t(dfe_tap3 -0.239984)\n\t(dfe_tap4 -0.139984)\n\t(dfe_tap5 -0.0399839)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.347116)\n\t(dfe_tap2 -0.372702)\n\t(dfe_tap3 -0.272702)\n\t(dfe_tap4 -0.172702)\n\t(dfe_tap5 -0.0727018)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.303047)\n\t(dfe_tap2 -0.328632)\n\t(dfe_tap3 -0.228632)\n\t(dfe_tap4 -0.128632)\n\t(dfe_tap5 -0.0286325)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.304726)\n\t(dfe_tap2 -0.330312)\n\t(dfe_tap3 -0.230312)\n\t(dfe_tap4 -0.130312)\n\t(dfe_tap5 -0.0303122)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.274799)\n\t(dfe_tap2 -0.300385)\n\t(dfe_tap3 -0.200385)\n\t(dfe_tap4 -0.100385)\n\t(dfe_tap5 -0.000384702)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.346123)\n\t(dfe_tap2 -0.371709)\n\t(dfe_tap3 -0.271709)\n\t(dfe_tap4 -0.171709)\n\t(dfe_tap5 -0.0717088)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.270118)\n\t(dfe_tap2 -0.295704)\n\t(dfe_tap3 -0.195704)\n\t(dfe_tap4 -0.0957039)\n\t(dfe_tap5 0.00429608)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.322039)\n\t(dfe_tap2 -0.347565)\n\t(dfe_tap3 -0.247565)\n\t(dfe_tap4 -0.147565)\n\t(dfe_tap5 -0.0475655)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.353839)\n\t(dfe_tap2 -0.379366)\n\t(dfe_tap3 -0.279366)\n\t(dfe_tap4 -0.179366)\n\t(dfe_tap5 -0.0793658)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.333126)\n\t(dfe_tap2 -0.358653)\n\t(dfe_tap3 -0.258653)\n\t(dfe_tap4 -0.158653)\n\t(dfe_tap5 -0.058653)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.370821)\n\t(dfe_tap2 -0.396348)\n\t(dfe_tap3 -0.296348)\n\t(dfe_tap4 -0.196348)\n\t(dfe_tap5 -0.0963479)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.245294)\n\t(dfe_tap2 -0.270821)\n\t(dfe_tap3 -0.170821)\n\t(dfe_tap4 -0.0708208)\n\t(dfe_tap5 0.0291792)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.328621)\n\t(dfe_tap2 -0.354148)\n\t(dfe_tap3 -0.254148)\n\t(dfe_tap4 -0.154148)\n\t(dfe_tap5 -0.0541482)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.36827)\n\t(dfe_tap2 -0.393797)\n\t(dfe_tap3 -0.293797)\n\t(dfe_tap4 -0.193797)\n\t(dfe_tap5 -0.0937966)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.27316)\n\t(dfe_tap2 -0.298687)\n\t(dfe_tap3 -0.198687)\n\t(dfe_tap4 -0.0986869)\n\t(dfe_tap5 0.00131311)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.249978)\n\t(dfe_tap2 -0.275504)\n\t(dfe_tap3 -0.175504)\n\t(dfe_tap4 -0.0755045)\n\t(dfe_tap5 0.0244955)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.226021)\n\t(dfe_tap2 -0.251548)\n\t(dfe_tap3 -0.151548)\n\t(dfe_tap4 -0.0515476)\n\t(dfe_tap5 0.0484524)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.266216)\n\t(dfe_tap2 -0.291743)\n\t(dfe_tap3 -0.191743)\n\t(dfe_tap4 -0.0917434)\n\t(dfe_tap5 0.00825662)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.292934)\n\t(dfe_tap2 -0.318461)\n\t(dfe_tap3 -0.218461)\n\t(dfe_tap4 -0.118461)\n\t(dfe_tap5 -0.0184609)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.313047)\n\t(dfe_tap2 -0.338574)\n\t(dfe_tap3 -0.238574)\n\t(dfe_tap4 -0.138574)\n\t(dfe_tap5 -0.0385737)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.295549)\n\t(dfe_tap2 -0.321075)\n\t(dfe_tap3 -0.221075)\n\t(dfe_tap4 -0.121075)\n\t(dfe_tap5 -0.0210755)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.332673)\n\t(dfe_tap2 -0.358199)\n\t(dfe_tap3 -0.258199)\n\t(dfe_tap4 -0.158199)\n\t(dfe_tap5 -0.0581994)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.28803)\n\t(dfe_tap2 -0.313557)\n\t(dfe_tap3 -0.213557)\n\t(dfe_tap4 -0.113557)\n\t(dfe_tap5 -0.0135567)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.358863)\n\t(dfe_tap2 -0.38439)\n\t(dfe_tap3 -0.28439)\n\t(dfe_tap4 -0.18439)\n\t(dfe_tap5 -0.0843902)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.297941)\n\t(dfe_tap2 -0.323468)\n\t(dfe_tap3 -0.223468)\n\t(dfe_tap4 -0.123468)\n\t(dfe_tap5 -0.0234682)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.249717)\n\t(dfe_tap2 -0.275244)\n\t(dfe_tap3 -0.175244)\n\t(dfe_tap4 -0.0752438)\n\t(dfe_tap5 0.0247562)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.361808)\n\t(dfe_tap2 -0.387335)\n\t(dfe_tap3 -0.287335)\n\t(dfe_tap4 -0.187335)\n\t(dfe_tap5 -0.0873347)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.305085)\n\t(dfe_tap2 -0.330612)\n\t(dfe_tap3 -0.230612)\n\t(dfe_tap4 -0.130612)\n\t(dfe_tap5 -0.0306123)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.281006)\n\t(dfe_tap2 -0.306533)\n\t(dfe_tap3 -0.206533)\n\t(dfe_tap4 -0.106533)\n\t(dfe_tap5 -0.00653289)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.365854)\n\t(dfe_tap2 -0.39138)\n\t(dfe_tap3 -0.29138)\n\t(dfe_tap4 -0.19138)\n\t(dfe_tap5 -0.0913805)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.298966)\n\t(dfe_tap2 -0.324301)\n\t(dfe_tap3 -0.224301)\n\t(dfe_tap4 -0.124301)\n\t(dfe_tap5 -0.0243008)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.247696)\n\t(dfe_tap2 -0.27303)\n\t(dfe_tap3 -0.17303)\n\t(dfe_tap4 -0.0730302)\n\t(dfe_tap5 0.0269698)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.343168)\n\t(dfe_tap2 -0.368503)\n\t(dfe_tap3 -0.268503)\n\t(dfe_tap4 -0.168503)\n\t(dfe_tap5 -0.0685027)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.250719)\n\t(dfe_tap2 -0.276054)\n\t(dfe_tap3 -0.176054)\n\t(dfe_tap4 -0.0760535)\n\t(dfe_tap5 0.0239465)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.294601)\n\t(dfe_tap2 -0.319935)\n\t(dfe_tap3 -0.219935)\n\t(dfe_tap4 -0.119935)\n\t(dfe_tap5 -0.0199351)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.240643)\n\t(dfe_tap2 -0.265977)\n\t(dfe_tap3 -0.165977)\n\t(dfe_tap4 -0.0659773)\n\t(dfe_tap5 0.0340227)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.326727)\n\t(dfe_tap2 -0.352062)\n\t(dfe_tap3 -0.252062)\n\t(dfe_tap4 -0.152062)\n\t(dfe_tap5 -0.0520616)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.276255)\n\t(dfe_tap2 -0.30159)\n\t(dfe_tap3 -0.20159)\n\t(dfe_tap4 -0.10159)\n\t(dfe_tap5 -0.00158982)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.316256)\n\t(dfe_tap2 -0.34159)\n\t(dfe_tap3 -0.24159)\n\t(dfe_tap4 -0.14159)\n\t(dfe_tap5 -0.0415903)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.290422)\n\t(dfe_tap2 -0.315756)\n\t(dfe_tap3 -0.215756)\n\t(dfe_tap4 -0.115756)\n\t(dfe_tap5 -0.0157563)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.34258)\n\t(dfe_tap2 -0.367915)\n\t(dfe_tap3 -0.267915)\n\t(dfe_tap4 -0.167915)\n\t(dfe_tap5 -0.0679149)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.289333)\n\t(dfe_tap2 -0.314667)\n\t(dfe_tap3 -0.214667)\n\t(dfe_tap4 -0.114667)\n\t(dfe_tap5 -0.0146674)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.324718)\n\t(dfe_tap2 -0.350053)\n\t(dfe_tap3 -0.250053)\n\t(dfe_tap4 -0.150053)\n\t(dfe_tap5 -0.0500526)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.273439)\n\t(dfe_tap2 -0.298773)\n\t(dfe_tap3 -0.198773)\n\t(dfe_tap4 -0.0987732)\n\t(dfe_tap5 0.00122679)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.289324)\n\t(dfe_tap2 -0.314659)\n\t(dfe_tap3 -0.214659)\n\t(dfe_tap4 -0.114659)\n\t(dfe_tap5 -0.0146588)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.315551)\n\t(dfe_tap2 -0.340747)\n\t(dfe_tap3 -0.240747)\n\t(dfe_tap4 -0.140747)\n\t(dfe_tap5 -0.0407465)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.278022)\n\t(dfe_tap2 -0.303218)\n\t(dfe_tap3 -0.203218)\n\t(dfe_tap4 -0.103218)\n\t(dfe_tap5 -0.00321763)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.275609)\n\t(dfe_tap2 -0.300804)\n\t(dfe_tap3 -0.200804)\n\t(dfe_tap4 -0.100804)\n\t(dfe_tap5 -0.000804006)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.33727)\n\t(dfe_tap2 -0.362466)\n\t(dfe_tap3 -0.262466)\n\t(dfe_tap4 -0.162466)\n\t(dfe_tap5 -0.0624658)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.316687)\n\t(dfe_tap2 -0.341882)\n\t(dfe_tap3 -0.241882)\n\t(dfe_tap4 -0.141882)\n\t(dfe_tap5 -0.0418825)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.280967)\n\t(dfe_tap2 -0.306162)\n\t(dfe_tap3 -0.206162)\n\t(dfe_tap4 -0.106162)\n\t(dfe_tap5 -0.00616204)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.280713)\n\t(dfe_tap2 -0.305908)\n\t(dfe_tap3 -0.205908)\n\t(dfe_tap4 -0.105908)\n\t(dfe_tap5 -0.00590801)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.295862)\n\t(dfe_tap2 -0.320592)\n\t(dfe_tap3 -0.220592)\n\t(dfe_tap4 -0.120592)\n\t(dfe_tap5 -0.0205924)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.278165)\n\t(dfe_tap2 -0.302895)\n\t(dfe_tap3 -0.202895)\n\t(dfe_tap4 -0.102895)\n\t(dfe_tap5 -0.00289532)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.282913)\n\t(dfe_tap2 -0.307644)\n\t(dfe_tap3 -0.207644)\n\t(dfe_tap4 -0.107644)\n\t(dfe_tap5 -0.00764396)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.353234)\n\t(dfe_tap2 -0.377964)\n\t(dfe_tap3 -0.277964)\n\t(dfe_tap4 -0.177964)\n\t(dfe_tap5 -0.0779644)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.274521)\n\t(dfe_tap2 -0.299252)\n\t(dfe_tap3 -0.199252)\n\t(dfe_tap4 -0.0992519)\n\t(dfe_tap5 0.000748067)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.326956)\n\t(dfe_tap2 -0.351687)\n\t(dfe_tap3 -0.251687)\n\t(dfe_tap4 -0.151687)\n\t(dfe_tap5 -0.0516869)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.24999)\n\t(dfe_tap2 -0.274721)\n\t(dfe_tap3 -0.174721)\n\t(dfe_tap4 -0.0747206)\n\t(dfe_tap5 0.0252794)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.30702)\n\t(dfe_tap2 -0.33175)\n\t(dfe_tap3 -0.23175)\n\t(dfe_tap4 -0.13175)\n\t(dfe_tap5 -0.0317503)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.246598)\n\t(dfe_tap2 -0.271329)\n\t(dfe_tap3 -0.171329)\n\t(dfe_tap4 -0.0713288)\n\t(dfe_tap5 0.0286712)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.330042)\n\t(dfe_tap2 -0.354773)\n\t(dfe_tap3 -0.254773)\n\t(dfe_tap4 -0.154773)\n\t(dfe_tap5 -0.0547731)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.359794)\n\t(dfe_tap2 -0.384524)\n\t(dfe_tap3 -0.284524)\n\t(dfe_tap4 -0.184524)\n\t(dfe_tap5 -0.0845244)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.303052)\n\t(dfe_tap2 -0.327783)\n\t(dfe_tap3 -0.227783)\n\t(dfe_tap4 -0.127783)\n\t(dfe_tap5 -0.027783)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.31716)\n\t(dfe_tap2 -0.341891)\n\t(dfe_tap3 -0.241891)\n\t(dfe_tap4 -0.141891)\n\t(dfe_tap5 -0.0418912)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.235246)\n\t(dfe_tap2 -0.259977)\n\t(dfe_tap3 -0.159977)\n\t(dfe_tap4 -0.0599768)\n\t(dfe_tap5 0.0400232)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.347574)\n\t(dfe_tap2 -0.372305)\n\t(dfe_tap3 -0.272305)\n\t(dfe_tap4 -0.172305)\n\t(dfe_tap5 -0.072305)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.368407)\n\t(dfe_tap2 -0.393138)\n\t(dfe_tap3 -0.293138)\n\t(dfe_tap4 -0.193138)\n\t(dfe_tap5 -0.0931381)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.304617)\n\t(dfe_tap2 -0.329347)\n\t(dfe_tap3 -0.229347)\n\t(dfe_tap4 -0.129347)\n\t(dfe_tap5 -0.0293474)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.237541)\n\t(dfe_tap2 -0.262272)\n\t(dfe_tap3 -0.162272)\n\t(dfe_tap4 -0.0622722)\n\t(dfe_tap5 0.0377278)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.223013)\n\t(dfe_tap2 -0.247744)\n\t(dfe_tap3 -0.147744)\n\t(dfe_tap4 -0.047744)\n\t(dfe_tap5 0.052256)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.306535)\n\t(dfe_tap2 -0.331266)\n\t(dfe_tap3 -0.231266)\n\t(dfe_tap4 -0.131266)\n\t(dfe_tap5 -0.0312656)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.28043)\n\t(dfe_tap2 -0.305161)\n\t(dfe_tap3 -0.205161)\n\t(dfe_tap4 -0.105161)\n\t(dfe_tap5 -0.00516078)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.291542)\n\t(dfe_tap2 -0.316272)\n\t(dfe_tap3 -0.216272)\n\t(dfe_tap4 -0.116272)\n\t(dfe_tap5 -0.0162723)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.322198)\n\t(dfe_tap2 -0.346929)\n\t(dfe_tap3 -0.246929)\n\t(dfe_tap4 -0.146929)\n\t(dfe_tap5 -0.0469287)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.347965)\n\t(dfe_tap2 -0.372696)\n\t(dfe_tap3 -0.272696)\n\t(dfe_tap4 -0.172696)\n\t(dfe_tap5 -0.0726959)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.263874)\n\t(dfe_tap2 -0.288604)\n\t(dfe_tap3 -0.188604)\n\t(dfe_tap4 -0.0886045)\n\t(dfe_tap5 0.0113955)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.310564)\n\t(dfe_tap2 -0.335295)\n\t(dfe_tap3 -0.235295)\n\t(dfe_tap4 -0.135295)\n\t(dfe_tap5 -0.0352947)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.332122)\n\t(dfe_tap2 -0.356853)\n\t(dfe_tap3 -0.256853)\n\t(dfe_tap4 -0.156853)\n\t(dfe_tap5 -0.0568529)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.288046)\n\t(dfe_tap2 -0.312776)\n\t(dfe_tap3 -0.212776)\n\t(dfe_tap4 -0.112776)\n\t(dfe_tap5 -0.0127762)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.362792)\n\t(dfe_tap2 -0.387522)\n\t(dfe_tap3 -0.287522)\n\t(dfe_tap4 -0.187522)\n\t(dfe_tap5 -0.0875223)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.334873)\n\t(dfe_tap2 -0.359603)\n\t(dfe_tap3 -0.259603)\n\t(dfe_tap4 -0.159603)\n\t(dfe_tap5 -0.0596034)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.315082)\n\t(dfe_tap2 -0.339813)\n\t(dfe_tap3 -0.239813)\n\t(dfe_tap4 -0.139813)\n\t(dfe_tap5 -0.0398132)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.372797)\n\t(dfe_tap2 -0.397528)\n\t(dfe_tap3 -0.297528)\n\t(dfe_tap4 -0.197528)\n\t(dfe_tap5 -0.0975279)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.265556)\n\t(dfe_tap2 -0.290286)\n\t(dfe_tap3 -0.190286)\n\t(dfe_tap4 -0.0902865)\n\t(dfe_tap5 0.00971352)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.293499)\n\t(dfe_tap2 -0.31823)\n\t(dfe_tap3 -0.21823)\n\t(dfe_tap4 -0.11823)\n\t(dfe_tap5 -0.0182301)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.359157)\n\t(dfe_tap2 -0.383888)\n\t(dfe_tap3 -0.283888)\n\t(dfe_tap4 -0.183888)\n\t(dfe_tap5 -0.083888)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.290505)\n\t(dfe_tap2 -0.315236)\n\t(dfe_tap3 -0.215236)\n\t(dfe_tap4 -0.115236)\n\t(dfe_tap5 -0.0152361)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.274783)\n\t(dfe_tap2 -0.299514)\n\t(dfe_tap3 -0.199514)\n\t(dfe_tap4 -0.0995142)\n\t(dfe_tap5 0.000485803)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.23408)\n\t(dfe_tap2 -0.258811)\n\t(dfe_tap3 -0.158811)\n\t(dfe_tap4 -0.0588111)\n\t(dfe_tap5 0.0411889)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.290932)\n\t(dfe_tap2 -0.315658)\n\t(dfe_tap3 -0.215658)\n\t(dfe_tap4 -0.115658)\n\t(dfe_tap5 -0.015658)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.262088)\n\t(dfe_tap2 -0.286814)\n\t(dfe_tap3 -0.186814)\n\t(dfe_tap4 -0.0868141)\n\t(dfe_tap5 0.0131859)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.292773)\n\t(dfe_tap2 -0.317499)\n\t(dfe_tap3 -0.217499)\n\t(dfe_tap4 -0.117499)\n\t(dfe_tap5 -0.0174994)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.322573)\n\t(dfe_tap2 -0.347299)\n\t(dfe_tap3 -0.247299)\n\t(dfe_tap4 -0.147299)\n\t(dfe_tap5 -0.0472993)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.3095)\n\t(dfe_tap2 -0.334227)\n\t(dfe_tap3 -0.234227)\n\t(dfe_tap4 -0.134227)\n\t(dfe_tap5 -0.0342266)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.322329)\n\t(dfe_tap2 -0.347056)\n\t(dfe_tap3 -0.247056)\n\t(dfe_tap4 -0.147056)\n\t(dfe_tap5 -0.0470558)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.349982)\n\t(dfe_tap2 -0.374696)\n\t(dfe_tap3 -0.274696)\n\t(dfe_tap4 -0.174696)\n\t(dfe_tap5 -0.0746962)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.255668)\n\t(dfe_tap2 -0.280382)\n\t(dfe_tap3 -0.180382)\n\t(dfe_tap4 -0.0803815)\n\t(dfe_tap5 0.0196185)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.26045)\n\t(dfe_tap2 -0.285164)\n\t(dfe_tap3 -0.185164)\n\t(dfe_tap4 -0.0851636)\n\t(dfe_tap5 0.0148364)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.340569)\n\t(dfe_tap2 -0.365283)\n\t(dfe_tap3 -0.265283)\n\t(dfe_tap4 -0.165283)\n\t(dfe_tap5 -0.0652832)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.266799)\n\t(dfe_tap2 -0.291513)\n\t(dfe_tap3 -0.191513)\n\t(dfe_tap4 -0.0915127)\n\t(dfe_tap5 0.00848729)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.299922)\n\t(dfe_tap2 -0.324635)\n\t(dfe_tap3 -0.224635)\n\t(dfe_tap4 -0.124635)\n\t(dfe_tap5 -0.0246353)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.353173)\n\t(dfe_tap2 -0.377887)\n\t(dfe_tap3 -0.277887)\n\t(dfe_tap4 -0.177887)\n\t(dfe_tap5 -0.0778869)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.336421)\n\t(dfe_tap2 -0.361135)\n\t(dfe_tap3 -0.261135)\n\t(dfe_tap4 -0.161135)\n\t(dfe_tap5 -0.0611348)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.260923)\n\t(dfe_tap2 -0.285636)\n\t(dfe_tap3 -0.185636)\n\t(dfe_tap4 -0.0856363)\n\t(dfe_tap5 0.0143637)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.319146)\n\t(dfe_tap2 -0.343859)\n\t(dfe_tap3 -0.243859)\n\t(dfe_tap4 -0.143859)\n\t(dfe_tap5 -0.0438595)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.262105)\n\t(dfe_tap2 -0.286819)\n\t(dfe_tap3 -0.186819)\n\t(dfe_tap4 -0.0868188)\n\t(dfe_tap5 0.0131812)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.260839)\n\t(dfe_tap2 -0.285553)\n\t(dfe_tap3 -0.185553)\n\t(dfe_tap4 -0.0855528)\n\t(dfe_tap5 0.0144472)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.256862)\n\t(dfe_tap2 -0.281576)\n\t(dfe_tap3 -0.181576)\n\t(dfe_tap4 -0.0815757)\n\t(dfe_tap5 0.0184243)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.313576)\n\t(dfe_tap2 -0.33829)\n\t(dfe_tap3 -0.23829)\n\t(dfe_tap4 -0.13829)\n\t(dfe_tap5 -0.0382896)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.306421)\n\t(dfe_tap2 -0.331134)\n\t(dfe_tap3 -0.231134)\n\t(dfe_tap4 -0.131134)\n\t(dfe_tap5 -0.0311343)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.300321)\n\t(dfe_tap2 -0.325035)\n\t(dfe_tap3 -0.225035)\n\t(dfe_tap4 -0.125035)\n\t(dfe_tap5 -0.025035)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.243829)\n\t(dfe_tap2 -0.268543)\n\t(dfe_tap3 -0.168543)\n\t(dfe_tap4 -0.0685426)\n\t(dfe_tap5 0.0314574)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.33267)\n\t(dfe_tap2 -0.357383)\n\t(dfe_tap3 -0.257383)\n\t(dfe_tap4 -0.157383)\n\t(dfe_tap5 -0.0573834)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.242411)\n\t(dfe_tap2 -0.267125)\n\t(dfe_tap3 -0.167125)\n\t(dfe_tap4 -0.0671245)\n\t(dfe_tap5 0.0328755)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.300033)\n\t(dfe_tap2 -0.324747)\n\t(dfe_tap3 -0.224747)\n\t(dfe_tap4 -0.124747)\n\t(dfe_tap5 -0.0247471)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.312707)\n\t(dfe_tap2 -0.33742)\n\t(dfe_tap3 -0.23742)\n\t(dfe_tap4 -0.13742)\n\t(dfe_tap5 -0.0374203)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.324148)\n\t(dfe_tap2 -0.348862)\n\t(dfe_tap3 -0.248862)\n\t(dfe_tap4 -0.148862)\n\t(dfe_tap5 -0.0488618)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.283987)\n\t(dfe_tap2 -0.308701)\n\t(dfe_tap3 -0.208701)\n\t(dfe_tap4 -0.108701)\n\t(dfe_tap5 -0.00870057)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.23505)\n\t(dfe_tap2 -0.259764)\n\t(dfe_tap3 -0.159764)\n\t(dfe_tap4 -0.0597643)\n\t(dfe_tap5 0.0402357)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.302703)\n\t(dfe_tap2 -0.327417)\n\t(dfe_tap3 -0.227417)\n\t(dfe_tap4 -0.127417)\n\t(dfe_tap5 -0.0274169)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.31932)\n\t(dfe_tap2 -0.344033)\n\t(dfe_tap3 -0.244033)\n\t(dfe_tap4 -0.144033)\n\t(dfe_tap5 -0.0440335)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.281413)\n\t(dfe_tap2 -0.306127)\n\t(dfe_tap3 -0.206127)\n\t(dfe_tap4 -0.106127)\n\t(dfe_tap5 -0.00612704)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.234709)\n\t(dfe_tap2 -0.259423)\n\t(dfe_tap3 -0.159423)\n\t(dfe_tap4 -0.0594227)\n\t(dfe_tap5 0.0405773)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.224347)\n\t(dfe_tap2 -0.249061)\n\t(dfe_tap3 -0.149061)\n\t(dfe_tap4 -0.049061)\n\t(dfe_tap5 0.050939)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.330754)\n\t(dfe_tap2 -0.355468)\n\t(dfe_tap3 -0.255468)\n\t(dfe_tap4 -0.155468)\n\t(dfe_tap5 -0.0554678)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.306379)\n\t(dfe_tap2 -0.331093)\n\t(dfe_tap3 -0.231093)\n\t(dfe_tap4 -0.131093)\n\t(dfe_tap5 -0.0310928)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.311911)\n\t(dfe_tap2 -0.336625)\n\t(dfe_tap3 -0.236625)\n\t(dfe_tap4 -0.136625)\n\t(dfe_tap5 -0.0366251)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.346359)\n\t(dfe_tap2 -0.371072)\n\t(dfe_tap3 -0.271072)\n\t(dfe_tap4 -0.171072)\n\t(dfe_tap5 -0.0710723)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.301714)\n\t(dfe_tap2 -0.326428)\n\t(dfe_tap3 -0.226428)\n\t(dfe_tap4 -0.126428)\n\t(dfe_tap5 -0.026428)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.303806)\n\t(dfe_tap2 -0.328519)\n\t(dfe_tap3 -0.228519)\n\t(dfe_tap4 -0.128519)\n\t(dfe_tap5 -0.0285194)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.273792)\n\t(dfe_tap2 -0.298506)\n\t(dfe_tap3 -0.198506)\n\t(dfe_tap4 -0.098506)\n\t(dfe_tap5 0.00149401)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.345132)\n\t(dfe_tap2 -0.369846)\n\t(dfe_tap3 -0.269846)\n\t(dfe_tap4 -0.169846)\n\t(dfe_tap5 -0.0698459)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.270467)\n\t(dfe_tap2 -0.295181)\n\t(dfe_tap3 -0.195181)\n\t(dfe_tap4 -0.0951811)\n\t(dfe_tap5 0.00481887)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.321618)\n\t(dfe_tap2 -0.346332)\n\t(dfe_tap3 -0.246332)\n\t(dfe_tap4 -0.146332)\n\t(dfe_tap5 -0.0463321)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.357129)\n\t(dfe_tap2 -0.381843)\n\t(dfe_tap3 -0.281843)\n\t(dfe_tap4 -0.181843)\n\t(dfe_tap5 -0.0818425)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.335742)\n\t(dfe_tap2 -0.360455)\n\t(dfe_tap3 -0.260455)\n\t(dfe_tap4 -0.160455)\n\t(dfe_tap5 -0.0604554)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.37329)\n\t(dfe_tap2 -0.398004)\n\t(dfe_tap3 -0.298004)\n\t(dfe_tap4 -0.198004)\n\t(dfe_tap5 -0.0980043)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.247448)\n\t(dfe_tap2 -0.272162)\n\t(dfe_tap3 -0.172162)\n\t(dfe_tap4 -0.0721616)\n\t(dfe_tap5 0.0278384)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.331073)\n\t(dfe_tap2 -0.355786)\n\t(dfe_tap3 -0.255786)\n\t(dfe_tap4 -0.155786)\n\t(dfe_tap5 -0.0557865)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.370142)\n\t(dfe_tap2 -0.394856)\n\t(dfe_tap3 -0.294856)\n\t(dfe_tap4 -0.194856)\n\t(dfe_tap5 -0.0948561)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.277005)\n\t(dfe_tap2 -0.301719)\n\t(dfe_tap3 -0.201719)\n\t(dfe_tap4 -0.101719)\n\t(dfe_tap5 -0.00171914)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.252858)\n\t(dfe_tap2 -0.277572)\n\t(dfe_tap3 -0.177572)\n\t(dfe_tap4 -0.0775721)\n\t(dfe_tap5 0.0224279)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.228372)\n\t(dfe_tap2 -0.253086)\n\t(dfe_tap3 -0.153086)\n\t(dfe_tap4 -0.0530856)\n\t(dfe_tap5 0.0469144)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.266138)\n\t(dfe_tap2 -0.290851)\n\t(dfe_tap3 -0.190851)\n\t(dfe_tap4 -0.0908515)\n\t(dfe_tap5 0.00914855)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.292762)\n\t(dfe_tap2 -0.317476)\n\t(dfe_tap3 -0.217476)\n\t(dfe_tap4 -0.117476)\n\t(dfe_tap5 -0.0174756)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.312875)\n\t(dfe_tap2 -0.337589)\n\t(dfe_tap3 -0.237589)\n\t(dfe_tap4 -0.137589)\n\t(dfe_tap5 -0.0375886)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.293244)\n\t(dfe_tap2 -0.317958)\n\t(dfe_tap3 -0.217958)\n\t(dfe_tap4 -0.117958)\n\t(dfe_tap5 -0.0179575)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.330071)\n\t(dfe_tap2 -0.354784)\n\t(dfe_tap3 -0.254784)\n\t(dfe_tap4 -0.154784)\n\t(dfe_tap5 -0.0547844)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.286101)\n\t(dfe_tap2 -0.310815)\n\t(dfe_tap3 -0.210815)\n\t(dfe_tap4 -0.110815)\n\t(dfe_tap5 -0.0108145)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.357005)\n\t(dfe_tap2 -0.381719)\n\t(dfe_tap3 -0.281719)\n\t(dfe_tap4 -0.181719)\n\t(dfe_tap5 -0.0817186)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.297512)\n\t(dfe_tap2 -0.322226)\n\t(dfe_tap3 -0.222226)\n\t(dfe_tap4 -0.122226)\n\t(dfe_tap5 -0.0222262)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.2488)\n\t(dfe_tap2 -0.273514)\n\t(dfe_tap3 -0.173514)\n\t(dfe_tap4 -0.073514)\n\t(dfe_tap5 0.026486)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.359633)\n\t(dfe_tap2 -0.384347)\n\t(dfe_tap3 -0.284347)\n\t(dfe_tap4 -0.184347)\n\t(dfe_tap5 -0.0843467)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.303919)\n\t(dfe_tap2 -0.328632)\n\t(dfe_tap3 -0.228632)\n\t(dfe_tap4 -0.128632)\n\t(dfe_tap5 -0.0286324)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.279978)\n\t(dfe_tap2 -0.304692)\n\t(dfe_tap3 -0.204692)\n\t(dfe_tap4 -0.104692)\n\t(dfe_tap5 -0.00469157)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.365612)\n\t(dfe_tap2 -0.390326)\n\t(dfe_tap3 -0.290326)\n\t(dfe_tap4 -0.190326)\n\t(dfe_tap5 -0.0903257)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.299058)\n\t(dfe_tap2 -0.323772)\n\t(dfe_tap3 -0.223772)\n\t(dfe_tap4 -0.123772)\n\t(dfe_tap5 -0.0237719)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.250807)\n\t(dfe_tap2 -0.275521)\n\t(dfe_tap3 -0.175521)\n\t(dfe_tap4 -0.0755208)\n\t(dfe_tap5 0.0244792)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.345775)\n\t(dfe_tap2 -0.370489)\n\t(dfe_tap3 -0.270489)\n\t(dfe_tap4 -0.170489)\n\t(dfe_tap5 -0.0704892)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.252706)\n\t(dfe_tap2 -0.277419)\n\t(dfe_tap3 -0.177419)\n\t(dfe_tap4 -0.0774193)\n\t(dfe_tap5 0.0225807)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.297307)\n\t(dfe_tap2 -0.322021)\n\t(dfe_tap3 -0.222021)\n\t(dfe_tap4 -0.122021)\n\t(dfe_tap5 -0.0220211)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.242973)\n\t(dfe_tap2 -0.267686)\n\t(dfe_tap3 -0.167686)\n\t(dfe_tap4 -0.0676864)\n\t(dfe_tap5 0.0323136)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.329089)\n\t(dfe_tap2 -0.353803)\n\t(dfe_tap3 -0.253803)\n\t(dfe_tap4 -0.153803)\n\t(dfe_tap5 -0.0538032)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.277599)\n\t(dfe_tap2 -0.302313)\n\t(dfe_tap3 -0.202313)\n\t(dfe_tap4 -0.102313)\n\t(dfe_tap5 -0.00231323)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.317806)\n\t(dfe_tap2 -0.34252)\n\t(dfe_tap3 -0.24252)\n\t(dfe_tap4 -0.14252)\n\t(dfe_tap5 -0.0425196)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.292596)\n\t(dfe_tap2 -0.31731)\n\t(dfe_tap3 -0.21731)\n\t(dfe_tap4 -0.11731)\n\t(dfe_tap5 -0.0173099)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.343286)\n\t(dfe_tap2 -0.368)\n\t(dfe_tap3 -0.268)\n\t(dfe_tap4 -0.168)\n\t(dfe_tap5 -0.0680002)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.289159)\n\t(dfe_tap2 -0.313872)\n\t(dfe_tap3 -0.213872)\n\t(dfe_tap4 -0.113872)\n\t(dfe_tap5 -0.0138724)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.32353)\n\t(dfe_tap2 -0.348244)\n\t(dfe_tap3 -0.248244)\n\t(dfe_tap4 -0.148244)\n\t(dfe_tap5 -0.0482438)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.272403)\n\t(dfe_tap2 -0.297116)\n\t(dfe_tap3 -0.197116)\n\t(dfe_tap4 -0.0971164)\n\t(dfe_tap5 0.00288359)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.287698)\n\t(dfe_tap2 -0.312412)\n\t(dfe_tap3 -0.212412)\n\t(dfe_tap4 -0.112412)\n\t(dfe_tap5 -0.0124117)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.312552)\n\t(dfe_tap2 -0.337266)\n\t(dfe_tap3 -0.237266)\n\t(dfe_tap4 -0.137266)\n\t(dfe_tap5 -0.0372663)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.277511)\n\t(dfe_tap2 -0.302225)\n\t(dfe_tap3 -0.202225)\n\t(dfe_tap4 -0.102225)\n\t(dfe_tap5 -0.00222525)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.272728)\n\t(dfe_tap2 -0.297442)\n\t(dfe_tap3 -0.197442)\n\t(dfe_tap4 -0.0974419)\n\t(dfe_tap5 0.00255808)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.335955)\n\t(dfe_tap2 -0.360669)\n\t(dfe_tap3 -0.260669)\n\t(dfe_tap4 -0.160669)\n\t(dfe_tap5 -0.0606687)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.315683)\n\t(dfe_tap2 -0.340396)\n\t(dfe_tap3 -0.240396)\n\t(dfe_tap4 -0.140396)\n\t(dfe_tap5 -0.0403965)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.279753)\n\t(dfe_tap2 -0.304466)\n\t(dfe_tap3 -0.204466)\n\t(dfe_tap4 -0.104466)\n\t(dfe_tap5 -0.00446643)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.281246)\n\t(dfe_tap2 -0.305959)\n\t(dfe_tap3 -0.205959)\n\t(dfe_tap4 -0.105959)\n\t(dfe_tap5 -0.00595947)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.296317)\n\t(dfe_tap2 -0.321031)\n\t(dfe_tap3 -0.221031)\n\t(dfe_tap4 -0.121031)\n\t(dfe_tap5 -0.0210312)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.279656)\n\t(dfe_tap2 -0.304369)\n\t(dfe_tap3 -0.204369)\n\t(dfe_tap4 -0.104369)\n\t(dfe_tap5 -0.00436946)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.284838)\n\t(dfe_tap2 -0.309552)\n\t(dfe_tap3 -0.209552)\n\t(dfe_tap4 -0.109552)\n\t(dfe_tap5 -0.00955205)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.354924)\n\t(dfe_tap2 -0.37954)\n\t(dfe_tap3 -0.27954)\n\t(dfe_tap4 -0.17954)\n\t(dfe_tap5 -0.0795404)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.277158)\n\t(dfe_tap2 -0.301774)\n\t(dfe_tap3 -0.201774)\n\t(dfe_tap4 -0.101774)\n\t(dfe_tap5 -0.00177415)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.329284)\n\t(dfe_tap2 -0.353901)\n\t(dfe_tap3 -0.253901)\n\t(dfe_tap4 -0.153901)\n\t(dfe_tap5 -0.053901)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.250933)\n\t(dfe_tap2 -0.275549)\n\t(dfe_tap3 -0.175549)\n\t(dfe_tap4 -0.0755491)\n\t(dfe_tap5 0.0244509)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.309379)\n\t(dfe_tap2 -0.333996)\n\t(dfe_tap3 -0.233996)\n\t(dfe_tap4 -0.133996)\n\t(dfe_tap5 -0.0339956)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.249593)\n\t(dfe_tap2 -0.27421)\n\t(dfe_tap3 -0.17421)\n\t(dfe_tap4 -0.0742098)\n\t(dfe_tap5 0.0257902)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.331558)\n\t(dfe_tap2 -0.356174)\n\t(dfe_tap3 -0.256174)\n\t(dfe_tap4 -0.156174)\n\t(dfe_tap5 -0.0561742)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.362365)\n\t(dfe_tap2 -0.386982)\n\t(dfe_tap3 -0.286982)\n\t(dfe_tap4 -0.186982)\n\t(dfe_tap5 -0.0869816)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.301625)\n\t(dfe_tap2 -0.326242)\n\t(dfe_tap3 -0.226242)\n\t(dfe_tap4 -0.126242)\n\t(dfe_tap5 -0.0262416)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.317176)\n\t(dfe_tap2 -0.341792)\n\t(dfe_tap3 -0.241792)\n\t(dfe_tap4 -0.141792)\n\t(dfe_tap5 -0.0417923)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.232429)\n\t(dfe_tap2 -0.257046)\n\t(dfe_tap3 -0.157046)\n\t(dfe_tap4 -0.0570455)\n\t(dfe_tap5 0.0429545)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.345336)\n\t(dfe_tap2 -0.369953)\n\t(dfe_tap3 -0.269953)\n\t(dfe_tap4 -0.169953)\n\t(dfe_tap5 -0.0699529)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.366022)\n\t(dfe_tap2 -0.390639)\n\t(dfe_tap3 -0.290639)\n\t(dfe_tap4 -0.190639)\n\t(dfe_tap5 -0.0906388)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.302796)\n\t(dfe_tap2 -0.327412)\n\t(dfe_tap3 -0.227412)\n\t(dfe_tap4 -0.127412)\n\t(dfe_tap5 -0.0274121)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.23496)\n\t(dfe_tap2 -0.259577)\n\t(dfe_tap3 -0.159577)\n\t(dfe_tap4 -0.0595769)\n\t(dfe_tap5 0.0404231)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.22043)\n\t(dfe_tap2 -0.245046)\n\t(dfe_tap3 -0.145046)\n\t(dfe_tap4 -0.0450463)\n\t(dfe_tap5 0.0549537)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.305258)\n\t(dfe_tap2 -0.329875)\n\t(dfe_tap3 -0.229875)\n\t(dfe_tap4 -0.129875)\n\t(dfe_tap5 -0.0298746)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.278004)\n\t(dfe_tap2 -0.302621)\n\t(dfe_tap3 -0.202621)\n\t(dfe_tap4 -0.102621)\n\t(dfe_tap5 -0.00262051)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.289132)\n\t(dfe_tap2 -0.313749)\n\t(dfe_tap3 -0.213749)\n\t(dfe_tap4 -0.113749)\n\t(dfe_tap5 -0.013749)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.322845)\n\t(dfe_tap2 -0.347461)\n\t(dfe_tap3 -0.247461)\n\t(dfe_tap4 -0.147461)\n\t(dfe_tap5 -0.0474615)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.348006)\n\t(dfe_tap2 -0.372623)\n\t(dfe_tap3 -0.272623)\n\t(dfe_tap4 -0.172623)\n\t(dfe_tap5 -0.0726229)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.265701)\n\t(dfe_tap2 -0.290317)\n\t(dfe_tap3 -0.190317)\n\t(dfe_tap4 -0.0903173)\n\t(dfe_tap5 0.0096827)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.312188)\n\t(dfe_tap2 -0.336804)\n\t(dfe_tap3 -0.236804)\n\t(dfe_tap4 -0.136804)\n\t(dfe_tap5 -0.0368042)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.334279)\n\t(dfe_tap2 -0.358896)\n\t(dfe_tap3 -0.258896)\n\t(dfe_tap4 -0.158896)\n\t(dfe_tap5 -0.0588956)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.290692)\n\t(dfe_tap2 -0.315308)\n\t(dfe_tap3 -0.215308)\n\t(dfe_tap4 -0.115308)\n\t(dfe_tap5 -0.0153083)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.364137)\n\t(dfe_tap2 -0.388754)\n\t(dfe_tap3 -0.288754)\n\t(dfe_tap4 -0.188754)\n\t(dfe_tap5 -0.0887539)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.336045)\n\t(dfe_tap2 -0.360661)\n\t(dfe_tap3 -0.260661)\n\t(dfe_tap4 -0.160661)\n\t(dfe_tap5 -0.0606611)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.316179)\n\t(dfe_tap2 -0.340795)\n\t(dfe_tap3 -0.240795)\n\t(dfe_tap4 -0.140795)\n\t(dfe_tap5 -0.0407952)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.374631)\n\t(dfe_tap2 -0.399247)\n\t(dfe_tap3 -0.299247)\n\t(dfe_tap4 -0.199247)\n\t(dfe_tap5 -0.0992473)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.267169)\n\t(dfe_tap2 -0.291786)\n\t(dfe_tap3 -0.191786)\n\t(dfe_tap4 -0.0917857)\n\t(dfe_tap5 0.00821433)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.293235)\n\t(dfe_tap2 -0.317851)\n\t(dfe_tap3 -0.217851)\n\t(dfe_tap4 -0.117851)\n\t(dfe_tap5 -0.0178511)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.358571)\n\t(dfe_tap2 -0.383187)\n\t(dfe_tap3 -0.283187)\n\t(dfe_tap4 -0.183187)\n\t(dfe_tap5 -0.0831873)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.288155)\n\t(dfe_tap2 -0.312772)\n\t(dfe_tap3 -0.212772)\n\t(dfe_tap4 -0.112772)\n\t(dfe_tap5 -0.0127716)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.271971)\n\t(dfe_tap2 -0.296587)\n\t(dfe_tap3 -0.196587)\n\t(dfe_tap4 -0.0965874)\n\t(dfe_tap5 0.00341257)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.231454)\n\t(dfe_tap2 -0.25607)\n\t(dfe_tap3 -0.15607)\n\t(dfe_tap4 -0.0560704)\n\t(dfe_tap5 0.0439296)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.289491)\n\t(dfe_tap2 -0.314108)\n\t(dfe_tap3 -0.214108)\n\t(dfe_tap4 -0.114108)\n\t(dfe_tap5 -0.0141079)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.259994)\n\t(dfe_tap2 -0.284611)\n\t(dfe_tap3 -0.184611)\n\t(dfe_tap4 -0.0846109)\n\t(dfe_tap5 0.0153891)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.290865)\n\t(dfe_tap2 -0.315481)\n\t(dfe_tap3 -0.215481)\n\t(dfe_tap4 -0.115481)\n\t(dfe_tap5 -0.0154815)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.32074)\n\t(dfe_tap2 -0.345357)\n\t(dfe_tap3 -0.245357)\n\t(dfe_tap4 -0.145357)\n\t(dfe_tap5 -0.0453568)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.307333)\n\t(dfe_tap2 -0.33195)\n\t(dfe_tap3 -0.23195)\n\t(dfe_tap4 -0.13195)\n\t(dfe_tap5 -0.0319496)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.321197)\n\t(dfe_tap2 -0.345813)\n\t(dfe_tap3 -0.245813)\n\t(dfe_tap4 -0.145813)\n\t(dfe_tap5 -0.0458134)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.348961)\n\t(dfe_tap2 -0.373577)\n\t(dfe_tap3 -0.273577)\n\t(dfe_tap4 -0.173577)\n\t(dfe_tap5 -0.0735774)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.256441)\n\t(dfe_tap2 -0.281058)\n\t(dfe_tap3 -0.181058)\n\t(dfe_tap4 -0.0810577)\n\t(dfe_tap5 0.0189423)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.260116)\n\t(dfe_tap2 -0.284732)\n\t(dfe_tap3 -0.184732)\n\t(dfe_tap4 -0.0847321)\n\t(dfe_tap5 0.0152679)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.343118)\n\t(dfe_tap2 -0.367571)\n\t(dfe_tap3 -0.267571)\n\t(dfe_tap4 -0.167571)\n\t(dfe_tap5 -0.0675713)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.268722)\n\t(dfe_tap2 -0.293176)\n\t(dfe_tap3 -0.193176)\n\t(dfe_tap4 -0.0931758)\n\t(dfe_tap5 0.00682424)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.302996)\n\t(dfe_tap2 -0.32745)\n\t(dfe_tap3 -0.22745)\n\t(dfe_tap4 -0.12745)\n\t(dfe_tap5 -0.0274499)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.355458)\n\t(dfe_tap2 -0.379912)\n\t(dfe_tap3 -0.279912)\n\t(dfe_tap4 -0.179912)\n\t(dfe_tap5 -0.0799119)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.338558)\n\t(dfe_tap2 -0.363012)\n\t(dfe_tap3 -0.263012)\n\t(dfe_tap4 -0.163012)\n\t(dfe_tap5 -0.0630116)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.26378)\n\t(dfe_tap2 -0.288234)\n\t(dfe_tap3 -0.188234)\n\t(dfe_tap4 -0.0882336)\n\t(dfe_tap5 0.0117664)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.32043)\n\t(dfe_tap2 -0.344883)\n\t(dfe_tap3 -0.244883)\n\t(dfe_tap4 -0.144883)\n\t(dfe_tap5 -0.044883)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.265351)\n\t(dfe_tap2 -0.289803)\n\t(dfe_tap3 -0.189803)\n\t(dfe_tap4 -0.0898029)\n\t(dfe_tap5 0.0101971)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.262728)\n\t(dfe_tap2 -0.28718)\n\t(dfe_tap3 -0.18718)\n\t(dfe_tap4 -0.0871805)\n\t(dfe_tap5 0.0128195)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.257188)\n\t(dfe_tap2 -0.28164)\n\t(dfe_tap3 -0.18164)\n\t(dfe_tap4 -0.0816402)\n\t(dfe_tap5 0.0183598)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.313503)\n\t(dfe_tap2 -0.337956)\n\t(dfe_tap3 -0.237956)\n\t(dfe_tap4 -0.137956)\n\t(dfe_tap5 -0.0379558)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.303686)\n\t(dfe_tap2 -0.328139)\n\t(dfe_tap3 -0.228139)\n\t(dfe_tap4 -0.128139)\n\t(dfe_tap5 -0.0281385)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.29842)\n\t(dfe_tap2 -0.322873)\n\t(dfe_tap3 -0.222873)\n\t(dfe_tap4 -0.122873)\n\t(dfe_tap5 -0.0228727)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.241621)\n\t(dfe_tap2 -0.266073)\n\t(dfe_tap3 -0.166073)\n\t(dfe_tap4 -0.0660734)\n\t(dfe_tap5 0.0339266)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.329895)\n\t(dfe_tap2 -0.354347)\n\t(dfe_tap3 -0.254347)\n\t(dfe_tap4 -0.154347)\n\t(dfe_tap5 -0.0543475)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.240329)\n\t(dfe_tap2 -0.264781)\n\t(dfe_tap3 -0.164781)\n\t(dfe_tap4 -0.0647813)\n\t(dfe_tap5 0.0352187)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.297719)\n\t(dfe_tap2 -0.322171)\n\t(dfe_tap3 -0.222171)\n\t(dfe_tap4 -0.122171)\n\t(dfe_tap5 -0.0221714)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.311552)\n\t(dfe_tap2 -0.336005)\n\t(dfe_tap3 -0.236005)\n\t(dfe_tap4 -0.136005)\n\t(dfe_tap5 -0.0360047)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.321125)\n\t(dfe_tap2 -0.345578)\n\t(dfe_tap3 -0.245578)\n\t(dfe_tap4 -0.145578)\n\t(dfe_tap5 -0.0455778)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.282407)\n\t(dfe_tap2 -0.306859)\n\t(dfe_tap3 -0.206859)\n\t(dfe_tap4 -0.106859)\n\t(dfe_tap5 -0.006859)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.235645)\n\t(dfe_tap2 -0.260098)\n\t(dfe_tap3 -0.160098)\n\t(dfe_tap4 -0.0600978)\n\t(dfe_tap5 0.0399022)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.303077)\n\t(dfe_tap2 -0.32753)\n\t(dfe_tap3 -0.22753)\n\t(dfe_tap4 -0.12753)\n\t(dfe_tap5 -0.0275297)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.322219)\n\t(dfe_tap2 -0.346672)\n\t(dfe_tap3 -0.246672)\n\t(dfe_tap4 -0.146672)\n\t(dfe_tap5 -0.0466719)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.284081)\n\t(dfe_tap2 -0.308533)\n\t(dfe_tap3 -0.208533)\n\t(dfe_tap4 -0.108533)\n\t(dfe_tap5 -0.00853344)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.237168)\n\t(dfe_tap2 -0.261621)\n\t(dfe_tap3 -0.161621)\n\t(dfe_tap4 -0.0616206)\n\t(dfe_tap5 0.0383794)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.22617)\n\t(dfe_tap2 -0.250622)\n\t(dfe_tap3 -0.150622)\n\t(dfe_tap4 -0.0506222)\n\t(dfe_tap5 0.0493778)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.332944)\n\t(dfe_tap2 -0.357396)\n\t(dfe_tap3 -0.257396)\n\t(dfe_tap4 -0.157396)\n\t(dfe_tap5 -0.057396)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.308233)\n\t(dfe_tap2 -0.332685)\n\t(dfe_tap3 -0.232685)\n\t(dfe_tap4 -0.132685)\n\t(dfe_tap5 -0.0326851)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.314227)\n\t(dfe_tap2 -0.338679)\n\t(dfe_tap3 -0.238679)\n\t(dfe_tap4 -0.138679)\n\t(dfe_tap5 -0.0386791)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.347693)\n\t(dfe_tap2 -0.372146)\n\t(dfe_tap3 -0.272146)\n\t(dfe_tap4 -0.172146)\n\t(dfe_tap5 -0.0721456)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.303835)\n\t(dfe_tap2 -0.328288)\n\t(dfe_tap3 -0.228288)\n\t(dfe_tap4 -0.128288)\n\t(dfe_tap5 -0.0282875)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.305286)\n\t(dfe_tap2 -0.329738)\n\t(dfe_tap3 -0.229738)\n\t(dfe_tap4 -0.129738)\n\t(dfe_tap5 -0.0297379)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.273851)\n\t(dfe_tap2 -0.298303)\n\t(dfe_tap3 -0.198303)\n\t(dfe_tap4 -0.0983033)\n\t(dfe_tap5 0.00169667)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.344864)\n\t(dfe_tap2 -0.369316)\n\t(dfe_tap3 -0.269316)\n\t(dfe_tap4 -0.169316)\n\t(dfe_tap5 -0.0693164)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.269)\n\t(dfe_tap2 -0.293453)\n\t(dfe_tap3 -0.193453)\n\t(dfe_tap4 -0.0934525)\n\t(dfe_tap5 0.00654745)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.3198)\n\t(dfe_tap2 -0.344252)\n\t(dfe_tap3 -0.244252)\n\t(dfe_tap4 -0.144252)\n\t(dfe_tap5 -0.0442519)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.354978)\n\t(dfe_tap2 -0.37943)\n\t(dfe_tap3 -0.27943)\n\t(dfe_tap4 -0.17943)\n\t(dfe_tap5 -0.0794299)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.33418)\n\t(dfe_tap2 -0.358633)\n\t(dfe_tap3 -0.258633)\n\t(dfe_tap4 -0.158633)\n\t(dfe_tap5 -0.0586325)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.371599)\n\t(dfe_tap2 -0.396051)\n\t(dfe_tap3 -0.296051)\n\t(dfe_tap4 -0.196051)\n\t(dfe_tap5 -0.0960514)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.246943)\n\t(dfe_tap2 -0.271396)\n\t(dfe_tap3 -0.171396)\n\t(dfe_tap4 -0.0713955)\n\t(dfe_tap5 0.0286045)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.329619)\n\t(dfe_tap2 -0.354072)\n\t(dfe_tap3 -0.254072)\n\t(dfe_tap4 -0.154072)\n\t(dfe_tap5 -0.0540715)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.368214)\n\t(dfe_tap2 -0.392666)\n\t(dfe_tap3 -0.292666)\n\t(dfe_tap4 -0.192666)\n\t(dfe_tap5 -0.0926661)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.275261)\n\t(dfe_tap2 -0.299714)\n\t(dfe_tap3 -0.199714)\n\t(dfe_tap4 -0.0997136)\n\t(dfe_tap5 0.000286354)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.253574)\n\t(dfe_tap2 -0.278027)\n\t(dfe_tap3 -0.178027)\n\t(dfe_tap4 -0.0780267)\n\t(dfe_tap5 0.0219733)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.228873)\n\t(dfe_tap2 -0.253325)\n\t(dfe_tap3 -0.153325)\n\t(dfe_tap4 -0.0533253)\n\t(dfe_tap5 0.0466747)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.268532)\n\t(dfe_tap2 -0.292985)\n\t(dfe_tap3 -0.192985)\n\t(dfe_tap4 -0.0929846)\n\t(dfe_tap5 0.00701542)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.296166)\n\t(dfe_tap2 -0.320619)\n\t(dfe_tap3 -0.220619)\n\t(dfe_tap4 -0.120619)\n\t(dfe_tap5 -0.0206188)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.314252)\n\t(dfe_tap2 -0.338704)\n\t(dfe_tap3 -0.238704)\n\t(dfe_tap4 -0.138704)\n\t(dfe_tap5 -0.0387041)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.29636)\n\t(dfe_tap2 -0.320752)\n\t(dfe_tap3 -0.220752)\n\t(dfe_tap4 -0.120752)\n\t(dfe_tap5 -0.0207516)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.332452)\n\t(dfe_tap2 -0.356844)\n\t(dfe_tap3 -0.256844)\n\t(dfe_tap4 -0.156844)\n\t(dfe_tap5 -0.0568438)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.288415)\n\t(dfe_tap2 -0.312806)\n\t(dfe_tap3 -0.212806)\n\t(dfe_tap4 -0.112806)\n\t(dfe_tap5 -0.0128065)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.359065)\n\t(dfe_tap2 -0.383457)\n\t(dfe_tap3 -0.283457)\n\t(dfe_tap4 -0.183457)\n\t(dfe_tap5 -0.0834566)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.298241)\n\t(dfe_tap2 -0.322633)\n\t(dfe_tap3 -0.222633)\n\t(dfe_tap4 -0.122633)\n\t(dfe_tap5 -0.0226326)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.250109)\n\t(dfe_tap2 -0.274501)\n\t(dfe_tap3 -0.174501)\n\t(dfe_tap4 -0.0745008)\n\t(dfe_tap5 0.0254992)\n)\n",
+        "(example_rx\n\t(dfe_tap1 -0.361426)\n\t(dfe_tap2 -0.385818)\n\t(dfe_tap3 -0.285818)\n\t(dfe_tap4 -0.185818)\n\t(dfe_tap5 -0.0858182)\n)\n"
+      ],
+      "elapsed_s": 0.20547747611999512
+    }
+  ],
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829034.4548807,
+      "returned": true,
+      "elapsed_s": 0.00020051002502441406
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829034.5049703,
+      "returned": true,
+      "elapsed_s": 0.0002486705780029297
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829034.5052915,
+      "returned": true,
+      "elapsed_s": 0.00020194053649902344
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829034.5056117,
+      "returned": true,
+      "elapsed_s": 0.14916014671325684
+    }
+  ],
+  "dll_calls": [
+    {
+      "method": "AMI_Init",
+      "started_at": 1792829034.454926,
+      "returned": true,
+      "elapsed_s": 0.00015115737915039062
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.505096,
+      "returned": true,
+      "elapsed_s": 4.315376281738281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5053906,
+      "returned": true,
+      "elapsed_s": 2.5510787963867188e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5057623,
+      "returned": true,
+      "elapsed_s": 4.267692565917969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5060565,
+      "returned": true,
+      "elapsed_s": 3.552436828613281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5064628,
+      "returned": true,
+      "elapsed_s": 3.838539123535156e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.506757,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5070388,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5073211,
+      "returned": true,
+      "elapsed_s": 3.7670135498046875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5076401,
+      "returned": true,
+      "elapsed_s": 3.647804260253906e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5079658,
+      "returned": true,
+      "elapsed_s": 3.409385681152344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.508253,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5085363,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5088181,
+      "returned": true,
+      "elapsed_s": 3.409385681152344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5090983,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.50938,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5097735,
+      "returned": true,
+      "elapsed_s": 5.14984130859375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.510139,
+      "returned": true,
+      "elapsed_s": 4.291534423828125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5105386,
+      "returned": true,
+      "elapsed_s": 4.076957702636719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.510841,
+      "returned": true,
+      "elapsed_s": 3.695487976074219e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.511147,
+      "returned": true,
+      "elapsed_s": 6.4849853515625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.511697,
+      "returned": true,
+      "elapsed_s": 4.172325134277344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5120785,
+      "returned": true,
+      "elapsed_s": 6.389617919921875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5124586,
+      "returned": true,
+      "elapsed_s": 8.988380432128906e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5129683,
+      "returned": true,
+      "elapsed_s": 5.435943603515625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5133204,
+      "returned": true,
+      "elapsed_s": 6.937980651855469e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5136478,
+      "returned": true,
+      "elapsed_s": 3.552436828613281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.513931,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.514209,
+      "returned": true,
+      "elapsed_s": 3.7670135498046875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.514503,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5148501,
+      "returned": true,
+      "elapsed_s": 4.076957702636719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.515165,
+      "returned": true,
+      "elapsed_s": 3.9577484130859375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5156512,
+      "returned": true,
+      "elapsed_s": 4.100799560546875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5159616,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5163002,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5166502,
+      "returned": true,
+      "elapsed_s": 3.910064697265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5169797,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5172617,
+      "returned": true,
+      "elapsed_s": 3.695487976074219e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5175688,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.517859,
+      "returned": true,
+      "elapsed_s": 3.3855438232421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5183237,
+      "returned": true,
+      "elapsed_s": 8.058547973632812e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5187957,
+      "returned": true,
+      "elapsed_s": 4.506111145019531e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5190892,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5193808,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.51967,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5199604,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5202694,
+      "returned": true,
+      "elapsed_s": 3.600120544433594e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5205781,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.520853,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5211356,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5214205,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5217042,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5219786,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5222645,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5225546,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5228405,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.523124,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.523408,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5236819,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.523968,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.524243,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.524537,
+      "returned": true,
+      "elapsed_s": 0.00012969970703125
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5249407,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.525219,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.525511,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.525948,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5265026,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5270474,
+      "returned": true,
+      "elapsed_s": 4.410743713378906e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5275455,
+      "returned": true,
+      "elapsed_s": 6.246566772460938e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5279007,
+      "returned": true,
+      "elapsed_s": 3.600120544433594e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.528263,
+      "returned": true,
+      "elapsed_s": 4.100799560546875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5286329,
+      "returned": true,
+      "elapsed_s": 3.838539123535156e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.528987,
+      "returned": true,
+      "elapsed_s": 4.100799560546875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.529294,
+      "returned": true,
+      "elapsed_s": 4.863739013671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.529613,
+      "returned": true,
+      "elapsed_s": 4.673004150390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5299168,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5302136,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5305212,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5308504,
+      "returned": true,
+      "elapsed_s": 3.838539123535156e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5312748,
+      "returned": true,
+      "elapsed_s": 6.29425048828125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5316274,
+      "returned": true,
+      "elapsed_s": 5.435943603515625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.532091,
+      "returned": true,
+      "elapsed_s": 3.9577484130859375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5324612,
+      "returned": true,
+      "elapsed_s": 4.792213439941406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5328257,
+      "returned": true,
+      "elapsed_s": 8.440017700195312e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5334249,
+      "returned": true,
+      "elapsed_s": 4.172325134277344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.533755,
+      "returned": true,
+      "elapsed_s": 3.504753112792969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5343468,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5346622,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.534962,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5352447,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5355766,
+      "returned": true,
+      "elapsed_s": 3.409385681152344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5358667,
+      "returned": true,
+      "elapsed_s": 4.458427429199219e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5361557,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5364544,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5367756,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5370715,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5373762,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5378902,
+      "returned": true,
+      "elapsed_s": 3.743171691894531e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5381737,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5384808,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5387666,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5390399,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5393238,
+      "returned": true,
+      "elapsed_s": 3.600120544433594e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.539605,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5399017,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.540192,
+      "returned": true,
+      "elapsed_s": 3.123283386230469e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.540481,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5407815,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5410824,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5416586,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5419555,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5422397,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5427673,
+      "returned": true,
+      "elapsed_s": 9.989738464355469e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5432546,
+      "returned": true,
+      "elapsed_s": 4.6253204345703125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5436416,
+      "returned": true,
+      "elapsed_s": 4.553794860839844e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5439436,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5444007,
+      "returned": true,
+      "elapsed_s": 5.7697296142578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5447736,
+      "returned": true,
+      "elapsed_s": 4.124641418457031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.545268,
+      "returned": true,
+      "elapsed_s": 8.916854858398438e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5458295,
+      "returned": true,
+      "elapsed_s": 5.793571472167969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.54636,
+      "returned": true,
+      "elapsed_s": 4.220008850097656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5466769,
+      "returned": true,
+      "elapsed_s": 3.9577484130859375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.547017,
+      "returned": true,
+      "elapsed_s": 4.2438507080078125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5476987,
+      "returned": true,
+      "elapsed_s": 3.600120544433594e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5480766,
+      "returned": true,
+      "elapsed_s": 6.437301635742188e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5484467,
+      "returned": true,
+      "elapsed_s": 3.695487976074219e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5487752,
+      "returned": true,
+      "elapsed_s": 5.269050598144531e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.549172,
+      "returned": true,
+      "elapsed_s": 5.340576171875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5495818,
+      "returned": true,
+      "elapsed_s": 4.1484832763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5499048,
+      "returned": true,
+      "elapsed_s": 4.673004150390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5503964,
+      "returned": true,
+      "elapsed_s": 4.1484832763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5507107,
+      "returned": true,
+      "elapsed_s": 3.4809112548828125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5510123,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.551352,
+      "returned": true,
+      "elapsed_s": 3.552436828613281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5517325,
+      "returned": true,
+      "elapsed_s": 3.647804260253906e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5520315,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.552326,
+      "returned": true,
+      "elapsed_s": 5.269050598144531e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5526314,
+      "returned": true,
+      "elapsed_s": 4.291534423828125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5529237,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5535963,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5538895,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.554175,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5544686,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.554805,
+      "returned": true,
+      "elapsed_s": 0.00012111663818359375
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.555199,
+      "returned": true,
+      "elapsed_s": 3.528594970703125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5555007,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5557878,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5560732,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.556361,
+      "returned": true,
+      "elapsed_s": 3.695487976074219e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5566492,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.556938,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5572224,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.557507,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.557784,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.558069,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.55836,
+      "returned": true,
+      "elapsed_s": 4.363059997558594e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5586984,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5594513,
+      "returned": true,
+      "elapsed_s": 3.504753112792969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5598202,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5601175,
+      "returned": true,
+      "elapsed_s": 3.4809112548828125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5604267,
+      "returned": true,
+      "elapsed_s": 3.814697265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5607433,
+      "returned": true,
+      "elapsed_s": 3.719329833984375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5611877,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5615356,
+      "returned": true,
+      "elapsed_s": 4.1961669921875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5619864,
+      "returned": true,
+      "elapsed_s": 4.076957702636719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5622907,
+      "returned": true,
+      "elapsed_s": 5.054473876953125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5626264,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5629249,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5632393,
+      "returned": true,
+      "elapsed_s": 3.552436828613281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5635774,
+      "returned": true,
+      "elapsed_s": 3.504753112792969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5638564,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5641437,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.564505,
+      "returned": true,
+      "elapsed_s": 6.031990051269531e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5648305,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5651674,
+      "returned": true,
+      "elapsed_s": 5.9604644775390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5655453,
+      "returned": true,
+      "elapsed_s": 4.100799560546875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5658765,
+      "returned": true,
+      "elapsed_s": 3.600120544433594e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5668347,
+      "returned": true,
+      "elapsed_s": 3.910064697265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5671287,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.567424,
+      "returned": true,
+      "elapsed_s": 4.1484832763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5678325,
+      "returned": true,
+      "elapsed_s": 3.7670135498046875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.568128,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5684192,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.568714,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5690038,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5692787,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5695763,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.569872,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.570169,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5704577,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.570734,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.571025,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5713203,
+      "returned": true,
+      "elapsed_s": 3.504753112792969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5715985,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.571883,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5721698,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5724533,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5727527,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5731628,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.574065,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5744812,
+      "returned": true,
+      "elapsed_s": 4.1961669921875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5748878,
+      "returned": true,
+      "elapsed_s": 4.315376281738281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.575239,
+      "returned": true,
+      "elapsed_s": 4.076957702636719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5755794,
+      "returned": true,
+      "elapsed_s": 3.886222839355469e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5758774,
+      "returned": true,
+      "elapsed_s": 5.6743621826171875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.576183,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5764742,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5768847,
+      "returned": true,
+      "elapsed_s": 4.863739013671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5772471,
+      "returned": true,
+      "elapsed_s": 4.172325134277344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5775745,
+      "returned": true,
+      "elapsed_s": 3.838539123535156e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5778952,
+      "returned": true,
+      "elapsed_s": 4.291534423828125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5782444,
+      "returned": true,
+      "elapsed_s": 5.841255187988281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5785942,
+      "returned": true,
+      "elapsed_s": 3.933906555175781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5790246,
+      "returned": true,
+      "elapsed_s": 3.7670135498046875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5795345,
+      "returned": true,
+      "elapsed_s": 6.985664367675781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.579935,
+      "returned": true,
+      "elapsed_s": 4.220008850097656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.580276,
+      "returned": true,
+      "elapsed_s": 4.38690185546875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5806158,
+      "returned": true,
+      "elapsed_s": 4.124641418457031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5809245,
+      "returned": true,
+      "elapsed_s": 3.528594970703125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5812058,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5815163,
+      "returned": true,
+      "elapsed_s": 3.528594970703125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5819247,
+      "returned": true,
+      "elapsed_s": 3.790855407714844e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5822303,
+      "returned": true,
+      "elapsed_s": 6.556510925292969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5826066,
+      "returned": true,
+      "elapsed_s": 3.838539123535156e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5838497,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5841553,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5844777,
+      "returned": true,
+      "elapsed_s": 4.076957702636719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.584789,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.585073,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.585409,
+      "returned": true,
+      "elapsed_s": 3.62396240234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5857103,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5859861,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5862815,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5865884,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5868654,
+      "returned": true,
+      "elapsed_s": 4.601478576660156e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5871663,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5874608,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.587738,
+      "returned": true,
+      "elapsed_s": 3.123283386230469e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5880203,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5883083,
+      "returned": true,
+      "elapsed_s": 3.981590270996094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5886073,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5888927,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5891771,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5894601,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5897458,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5900548,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5903342,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5906534,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5909503,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5912254,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5915637,
+      "returned": true,
+      "elapsed_s": 3.647804260253906e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5918477,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.593036,
+      "returned": true,
+      "elapsed_s": 4.172325134277344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5933619,
+      "returned": true,
+      "elapsed_s": 3.8623809814453125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5936503,
+      "returned": true,
+      "elapsed_s": 6.246566772460938e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5941129,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5944595,
+      "returned": true,
+      "elapsed_s": 3.7670135498046875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5947938,
+      "returned": true,
+      "elapsed_s": 5.53131103515625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5951612,
+      "returned": true,
+      "elapsed_s": 3.886222839355469e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5955155,
+      "returned": true,
+      "elapsed_s": 4.076957702636719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5958228,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5961335,
+      "returned": true,
+      "elapsed_s": 4.172325134277344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5964513,
+      "returned": true,
+      "elapsed_s": 3.8623809814453125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.596748,
+      "returned": true,
+      "elapsed_s": 3.504753112792969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.597045,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5973978,
+      "returned": true,
+      "elapsed_s": 8.153915405273438e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5977607,
+      "returned": true,
+      "elapsed_s": 3.719329833984375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5981061,
+      "returned": true,
+      "elapsed_s": 3.62396240234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5984907,
+      "returned": true,
+      "elapsed_s": 3.8623809814453125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5988052,
+      "returned": true,
+      "elapsed_s": 6.0558319091796875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.599184,
+      "returned": true,
+      "elapsed_s": 4.100799560546875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.599537,
+      "returned": true,
+      "elapsed_s": 3.552436828613281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.5999029,
+      "returned": true,
+      "elapsed_s": 3.933906555175781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6002038,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6004877,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.600773,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6010587,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.601376,
+      "returned": true,
+      "elapsed_s": 3.4809112548828125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6017206,
+      "returned": true,
+      "elapsed_s": 3.62396240234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6020148,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6022906,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6025863,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6028843,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.603194,
+      "returned": true,
+      "elapsed_s": 3.504753112792969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6044006,
+      "returned": true,
+      "elapsed_s": 3.910064697265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6047013,
+      "returned": true,
+      "elapsed_s": 3.409385681152344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.604982,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.605269,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6055562,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6058445,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6061285,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6064475,
+      "returned": true,
+      "elapsed_s": 3.6716461181640625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6067312,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6070182,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6073048,
+      "returned": true,
+      "elapsed_s": 3.528594970703125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6075861,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6078718,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6081705,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6084597,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6087437,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6090186,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6093013,
+      "returned": true,
+      "elapsed_s": 3.4809112548828125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6097643,
+      "returned": true,
+      "elapsed_s": 4.1484832763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.610057,
+      "returned": true,
+      "elapsed_s": 4.649162292480469e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6104028,
+      "returned": true,
+      "elapsed_s": 3.62396240234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6107578,
+      "returned": true,
+      "elapsed_s": 0.0001163482666015625
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6113415,
+      "returned": true,
+      "elapsed_s": 4.2438507080078125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6116745,
+      "returned": true,
+      "elapsed_s": 4.1484832763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6121001,
+      "returned": true,
+      "elapsed_s": 4.076957702636719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6125138,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6128676,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.613162,
+      "returned": true,
+      "elapsed_s": 3.361701965332031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6134768,
+      "returned": true,
+      "elapsed_s": 3.62396240234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6137757,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6140761,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.614363,
+      "returned": true,
+      "elapsed_s": 3.3855438232421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6147838,
+      "returned": true,
+      "elapsed_s": 4.9114227294921875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6152027,
+      "returned": true,
+      "elapsed_s": 5.364418029785156e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6156034,
+      "returned": true,
+      "elapsed_s": 4.220008850097656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6160114,
+      "returned": true,
+      "elapsed_s": 8.7738037109375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6174922,
+      "returned": true,
+      "elapsed_s": 4.00543212890625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6177924,
+      "returned": true,
+      "elapsed_s": 3.504753112792969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6181037,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6184447,
+      "returned": true,
+      "elapsed_s": 3.8623809814453125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.618741,
+      "returned": true,
+      "elapsed_s": 3.3855438232421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.61903,
+      "returned": true,
+      "elapsed_s": 3.2901763916015625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6193101,
+      "returned": true,
+      "elapsed_s": 3.790855407714844e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6196003,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6198874,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.620174,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6204643,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6207523,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6210356,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.621336,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6216712,
+      "returned": true,
+      "elapsed_s": 3.743171691894531e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6219695,
+      "returned": true,
+      "elapsed_s": 3.3855438232421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6222563,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6228263,
+      "returned": true,
+      "elapsed_s": 7.62939453125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6234152,
+      "returned": true,
+      "elapsed_s": 4.1484832763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6237266,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6240158,
+      "returned": true,
+      "elapsed_s": 4.57763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6243103,
+      "returned": true,
+      "elapsed_s": 4.124641418457031e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.624607,
+      "returned": true,
+      "elapsed_s": 3.170967102050781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6248946,
+      "returned": true,
+      "elapsed_s": 3.147125244140625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.625166,
+      "returned": true,
+      "elapsed_s": 3.075599670410156e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6254673,
+      "returned": true,
+      "elapsed_s": 3.266334533691406e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6257484,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6260216,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6263,
+      "returned": true,
+      "elapsed_s": 4.100799560546875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6266026,
+      "returned": true,
+      "elapsed_s": 4.172325134277344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6269276,
+      "returned": true,
+      "elapsed_s": 3.314018249511719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6272178,
+      "returned": true,
+      "elapsed_s": 3.24249267578125e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6275184,
+      "returned": true,
+      "elapsed_s": 3.457069396972656e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.627863,
+      "returned": true,
+      "elapsed_s": 3.7670135498046875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6282358,
+      "returned": true,
+      "elapsed_s": 5.841255187988281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6286142,
+      "returned": true,
+      "elapsed_s": 4.1484832763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.629034,
+      "returned": true,
+      "elapsed_s": 4.863739013671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.629371,
+      "returned": true,
+      "elapsed_s": 4.172325134277344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6296759,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.629972,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6313212,
+      "returned": true,
+      "elapsed_s": 4.172325134277344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6316476,
+      "returned": true,
+      "elapsed_s": 3.814697265625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6319575,
+      "returned": true,
+      "elapsed_s": 3.552436828613281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.632317,
+      "returned": true,
+      "elapsed_s": 4.076957702636719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6326184,
+      "returned": true,
+      "elapsed_s": 3.4332275390625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6329746,
+      "returned": true,
+      "elapsed_s": 3.743171691894531e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6332958,
+      "returned": true,
+      "elapsed_s": 3.981590270996094e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6336458,
+      "returned": true,
+      "elapsed_s": 4.1484832763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6339574,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6342452,
+      "returned": true,
+      "elapsed_s": 3.409385681152344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.634549,
+      "returned": true,
+      "elapsed_s": 4.1484832763671875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.634849,
+      "returned": true,
+      "elapsed_s": 3.409385681152344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6351457,
+      "returned": true,
+      "elapsed_s": 3.3855438232421875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.635437,
+      "returned": true,
+      "elapsed_s": 3.409385681152344e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6357257,
+      "returned": true,
+      "elapsed_s": 4.5299530029296875e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6360228,
+      "returned": true,
+      "elapsed_s": 3.1948089599609375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6362963,
+      "returned": true,
+      "elapsed_s": 3.933906555175781e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792829034.6365888,
+      "returned": true,
+      "elapsed_s": 3.218650817871094e-05
+    }
+  ],
+  "models": {
+    "rx": {
+      "status": "ready",
+      "stage": "preflight only; no execution",
+      "model_hash": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+      "side": "rx",
+      "host": {
+        "OS": "Windows",
+        "architecture": "AMD64",
+        "bits": 64
+      },
+      "files": [
+        {
+          "relative_path": "example_rx.ami",
+          "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+          "bytes": 4067
+        },
+        {
+          "relative_path": "example_rx.ibs",
+          "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+          "bytes": 2804
+        },
+        {
+          "relative_path": "example_rx_x86_amd64.dll",
+          "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+          "bytes": 363008
+        }
+      ],
+      "selection": {
+        "comp": "Example_Rx",
+        "pin": "1p(Tx_1_P)",
+        "mod": "example_rx",
+        "ibis_path": "example_rx.ibs"
+      },
+      "components": [
+        "Example_Rx"
+      ],
+      "pins": [
+        "1p(Tx_1_P)",
+        "1n(Tx_1_N)",
+        "2p(Tx_2_P)",
+        "2n(Tx_2_N)",
+        "3p(Tx_3_P)",
+        "3n(Tx_3_N)"
+      ],
+      "models": [
+        "example_rx"
+      ],
+      "ibis_warnings": "Success!",
+      "model_type": "Input",
+      "view": {
+        "IBIS_source": "\n\n[IBIS Ver]   7.1\n[File Name]  example_rx.ibs\n[File Rev]   v0.1\n\n[Date]       2024-07-05\n\n[Source]     ibisami public domain infrastructure\n\n[Disclaimer]\nTHIS MODEL IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS MODEL, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n[Notes]\nThis IBIS file was generated using the template file: \"generic.ibs.em\".\n\n[Copyright]    Copyright (c) 2016 David Banas; all rights reserved World wide.\n[Component]    Example_Rx\n[Manufacturer] (n/a)\n\n[Package]\n\nR_pkg     0.10     0.00     0.50\nL_pkg    10.00n    0.10n   50.00n\nC_pkg     1.00p    0.01p    5.00p\n\n\n[Pin]  signal_name        model_name            R_pin  L_pin  C_pin\n1p     Tx_1_P             example_rx\n1n     Tx_1_N             example_rx\n2p     Tx_2_P             example_rx\n2n     Tx_2_N             example_rx\n3p     Tx_3_P             example_rx\n3n     Tx_3_N             example_rx\n\n[Diff_Pin] inv_pin vdiff tdelay_typ tdelay_min tdelay_max\n1p           1n     0.1V     NA         NA         NA\n2p           2n     0.1V     NA         NA         NA\n3p           3n     0.1V     NA         NA         NA\n\n[Model]   example_rx\nModel_type   Input\n\nC_comp     1.00p    0.01p    5.00p\nVinl = 0.875\nVinh = 0.925\n\n\n[Algorithmic Model]\nExecutable linux_gcc4.1.2_32          example_rx_x86.so         example_rx.ami\nExecutable linux_gcc4.1.2_64          example_rx_x86_amd64.so   example_rx.ami\nExecutable Windows_VisualStudio_32    example_rx_x86.dll        example_rx.ami\nExecutable Windows_VisualStudio_64    example_rx_x86_amd64.dll  example_rx.ami\n[End Algorithmic Model]\n\n[Temperature_Range]     25.0      0.0    100.0\n[Voltage_Range]         1.80     1.62     1.98\n\n\n[GND Clamp]\n-1.80    -1.000e+01    -1.000e+01    -1.000e+01\n0.00     0.000e+00     0.000e+00     0.000e+00 \n1.80     1.800e-02     2.000e-02     1.636e-02 \n3.60     3.600e-02     4.000e-02     3.273e-02 \n\n[Power Clamp]\n-1.80    1.000e+01     1.000e+01     1.000e+01 \n0.00     -0.000e+00    -0.000e+00    -0.000e+00\n1.80     -1.800e-02    -2.000e-02    -1.636e-02\n3.60     -3.600e-02    -4.000e-02    -3.273e-02\n\n\n\n[END]\n",
+        "zout": null,
+        "zin": 50.000000000000014,
+        "ccomp": [
+          1e-12,
+          1e-14,
+          5e-12
+        ]
+      },
+      "parameters": [
+        {
+          "path": [
+            "Reserved_Parameters",
+            "AMI_Version"
+          ],
+          "value": "5.1",
+          "editable": false,
+          "type": "String",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Version of IBIS standard we comply with.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Reserved_Parameters",
+            "Init_Returns_Impulse"
+          ],
+          "value": true,
+          "editable": false,
+          "type": "Boolean",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Model provides DFE adaptation approximation, in its AMI_Init() function.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Reserved_Parameters",
+            "GetWave_Exists"
+          ],
+          "value": true,
+          "editable": false,
+          "type": "Boolean",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "This model is dual-mode, with true DFE adaptation in GetWave().",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_mode"
+          ],
+          "value": 1,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "List",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "CTLE operating mode.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_freq"
+          ],
+          "value": 5000000000.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 1000000000.0,
+          "max": 5000000000.0,
+          "values": null,
+          "description": "CTLE peaking frequency (Hz).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_mag"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 0.0,
+          "max": 12.0,
+          "values": null,
+          "description": "CTLE peaking magnitude (dB).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_bandwidth"
+          ],
+          "value": 12000000000.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 5000000000.0,
+          "max": 50000000000.0,
+          "values": null,
+          "description": "CTLE bandwidth (Hz).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_dcgain"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": -20.0,
+          "max": 20.0,
+          "values": null,
+          "description": "CTLE d.c. gain (dB).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_mode"
+          ],
+          "value": 2,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "List",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE operating mode.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_ntaps"
+          ],
+          "value": 5,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Number of DFE taps.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap1"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 1 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap2"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 2 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap3"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 3 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap4"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 4 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap5"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 5 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_vout"
+          ],
+          "value": 1.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 0.0,
+          "max": 1.0,
+          "values": null,
+          "description": "DFE slicer output voltage magnitude.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_gain"
+          ],
+          "value": 0.1,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 0.0,
+          "max": 1.0,
+          "values": null,
+          "description": "DFE error feedback gain.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "debug",
+            "dbg_enable"
+          ],
+          "value": false,
+          "editable": true,
+          "type": "Boolean",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Master debug enable.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "debug",
+            "dump_dfe_adaptation"
+          ],
+          "value": false,
+          "editable": true,
+          "type": "Boolean",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Dump the DFE adaptation results.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "debug",
+            "dump_adaptation_input"
+          ],
+          "value": false,
+          "editable": true,
+          "type": "Boolean",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Dump the DFE summing node input.",
+          "unit": "not declared; see original description"
+        }
+      ],
+      "parser_warnings": [],
+      "capabilities": {
+        "Init_Returns_Impulse": true,
+        "GetWave_Exists": true,
+        "Ts4file": null,
+        "Ignore_Bits": null
+      },
+      "ami_path": "example_rx.ami",
+      "binary_path": "example_rx_x86_amd64.dll",
+      "ABI": {
+        "loader": "ctypes.CDLL",
+        "pointer_bits": 64,
+        "exports": {
+          "AMI_Init": true,
+          "AMI_Close": true,
+          "AMI_GetWave": true
+        }
+      },
+      "binary_load": "loaded"
+    }
+  }
+}

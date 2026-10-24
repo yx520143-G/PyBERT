@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "error": "rx: IBIS-AMI EQ requires an explicit IBIS electrical selection.",
+  "error_type": "ValueError",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 68, in run_worker\n    result = normalize(request, cancelled, emit)\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\config.py\", line 442, in normalize\n    load_config(engine, request[\"config\"], defaults)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\config.py\", line 370, in load_config\n    validate(config, defaults)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\config.py\", line 172, in validate\n    raise ValueError(f\"{side}: IBIS-AMI EQ requires an explicit IBIS electrical selection.\")\nValueError: rx: IBIS-AMI EQ requires an explicit IBIS electrical selection.\n",
+  "main_invocations": 0,
+  "cancel_observed": false,
+  "cancel_requested": false
+}

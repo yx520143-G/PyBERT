@@ -1,0 +1,24 @@
+### Result
+{"source_run":"823bfdbb-bc37-40b6-ae56-12e3bf6b3476","failure":"283457ea-cc74-455e-a92a-8940cf84a2ab · failed · Complete frozen AMI parameters/search required before Tune.；旧成功 Run/候选仍可选择。"}
+### Ran Playwright code
+```js
+await (async (page) => {
+  const source=await page.evaluate(()=>window.PYBERT_RUNS.selected().run_id);
+  const download=page.waitForEvent('download');
+  await page.locator('#save-results').click();
+  await (await download).saveAs('C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/chrome-v4/nrz-reopened-resaved.pybert_run');
+  await page.locator('#selected-opt').selectOption('283457ea-cc74-455e-a92a-8940cf84a2ab');
+  await page.waitForFunction(()=>JSON.parse(document.getElementById('optimizer-record').textContent||'{}').status==='failed');
+  const failure=await page.locator('#optimizer-provenance').textContent();
+  if(await page.evaluate(()=>window.PYBERT_RUNS.selected().run_id)!==source)throw new Error('Failed optimization replaced successful run');
+  await page.locator('#optimizer-provenance').scrollIntoViewIfNeeded();
+  await page.screenshot({path:'C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/chrome-v4/failed-opt-retains-run.png'});
+  await page.locator('#open-opt').click();
+  return {source_run:source,failure};
+}
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8785/#ctle
+### Modal state
+- [File chooser]: can be handled by upload

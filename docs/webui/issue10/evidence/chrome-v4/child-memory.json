@@ -1,0 +1,70 @@
+{
+  "service_pid": 50948,
+  "children": {
+    "48156": {
+      "first_seen": 1792830916.1570833,
+      "peak_working_set_bytes": 247107584,
+      "last_seen": 1792830921.6229792
+    },
+    "39892": {
+      "first_seen": 1792830933.2770107,
+      "peak_working_set_bytes": 246444032,
+      "last_seen": 1792830938.735734
+    },
+    "49496": {
+      "first_seen": 1792830972.2419124,
+      "peak_working_set_bytes": 247033856,
+      "last_seen": 1792830977.731206
+    },
+    "64436": {
+      "first_seen": 1792831011.7297187,
+      "peak_working_set_bytes": 246661120,
+      "last_seen": 1792831017.1018896
+    },
+    "7600": {
+      "first_seen": 1792831018.1086578,
+      "peak_working_set_bytes": 247431168,
+      "last_seen": 1792831023.421611
+    },
+    "43512": {
+      "first_seen": 1792831023.5078146,
+      "peak_working_set_bytes": 305098752,
+      "last_seen": 1792831033.7512093
+    },
+    "3604": {
+      "first_seen": 1792831034.885489,
+      "peak_working_set_bytes": 6537216,
+      "last_seen": 1792831034.8854911
+    },
+    "39696": {
+      "first_seen": 1792831255.436054,
+      "peak_working_set_bytes": 246743040,
+      "last_seen": 1792831261.1347365
+    },
+    "47732": {
+      "first_seen": 1792831261.2232356,
+      "peak_working_set_bytes": 280129536,
+      "last_seen": 1792831268.2324717
+    },
+    "60468": {
+      "first_seen": 1792831301.822682,
+      "peak_working_set_bytes": 247197696,
+      "last_seen": 1792831307.3237565
+    },
+    "28432": {
+      "first_seen": 1792831343.1084383,
+      "peak_working_set_bytes": 246427648,
+      "last_seen": 1792831348.4542725
+    },
+    "50868": {
+      "first_seen": 1792831348.5461662,
+      "peak_working_set_bytes": 256593920,
+      "last_seen": 1792831353.9595597
+    },
+    "61184": {
+      "first_seen": 1792831354.0028791,
+      "peak_working_set_bytes": 255361024,
+      "last_seen": 1792831359.5699685
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "status": "cancelled",
+  "error": "Native task checkpoint observed cancellation",
+  "error_type": "AMICancelled",
+  "main_invocations": 1,
+  "cancel_observed": true,
+  "cancel_requested": true
+}

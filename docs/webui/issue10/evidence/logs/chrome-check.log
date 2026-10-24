@@ -1,0 +1,12 @@
+### Ran Playwright code
+```js
+await page.getByRole('button', { name: '选择 / 检查模型' }).click();
+```
+### Page
+- Page URL: http://127.0.0.1:8785/
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 2 errors, 0 warnings
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T08-06-41-797Z.yml)
+### Events
+- New console entries: .playwright-cli\console-2026-10-24T08-05-06-942Z.log#L2

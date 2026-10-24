@@ -1,0 +1,20 @@
+{
+  "service_pid": 2308,
+  "children": {
+    "62316": {
+      "first_seen": 1792830216.7667773,
+      "peak_working_set_bytes": 247668736,
+      "last_seen": 1792830222.0515988
+    },
+    "64436": {
+      "first_seen": 1792830222.1380823,
+      "peak_working_set_bytes": 378540032,
+      "last_seen": 1792830236.6657531
+    },
+    "49492": {
+      "first_seen": 1792830237.6601763,
+      "peak_working_set_bytes": 6533120,
+      "last_seen": 1792830237.660179
+    }
+  }
+}

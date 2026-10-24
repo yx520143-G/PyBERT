@@ -1,0 +1,636 @@
+### Page
+- Page URL: http://127.0.0.1:8785/
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 2 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=e1]:
+  - link "跳到参数详情" [ref=e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=e3]:
+    - link "PyBERT 数据源" [ref=e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=e8]:
+        - strong [ref=e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=e10]:
+      - text: 模块目录
+      - generic [ref=e11]: 16 MODULES
+    - navigation "选择模块" [ref=e12]:
+      - generic [ref=e453]:
+        - heading "主信号链" [level=2] [ref=e454]
+        - button "Source" [ref=e455] [cursor=pointer]: •
+        - button "Tx EQ" [ref=e457] [cursor=pointer]: •
+        - button "Channel" [ref=e459] [cursor=pointer]: •
+        - button "Noise" [ref=e461] [cursor=pointer]
+        - button "Rx CTLE" [ref=e463] [cursor=pointer]: •
+        - button "Rx FFE" [ref=e465] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=e467] [cursor=pointer]: •
+        - button "Observe" [ref=e469] [cursor=pointer]
+      - generic [ref=e471]:
+        - heading "控制与判决旁支" [level=2] [ref=e472]
+        - button "CDR" [ref=e473] [cursor=pointer]
+        - button "AGC" [ref=e475] [cursor=pointer]
+        - button "Viterbi / MLSD" [ref=e477] [cursor=pointer]
+      - generic [ref=e479]:
+        - heading "全局设置与工具" [level=2] [ref=e480]
+        - button "Simulation" [ref=e481] [cursor=pointer]
+        - button "Device models" [ref=e483] [cursor=pointer]
+        - button "IBIS-AMI" [ref=e485] [cursor=pointer]: •
+        - button "Optimizer" [ref=e487] [cursor=pointer]: •
+        - button "COM" [ref=e489] [cursor=pointer]
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - searchbox "搜索所有模块和参数" [ref=e62]
+          - generic [aria-hidden] [ref=e63]: /
+        - status [ref=e64]:
+          - strong [ref=e491]: 草稿已保留
+          - generic [ref=e492]: 12 项设置已修改
+        - button "恢复全部默认" [ref=e67] [cursor=pointer]
+    - generic [ref=e68]:
+      - button "Run" [ref=e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=e70]
+      - status [ref=e71]: normalize 2b4e17b3 · succeeded · succeeded
+      - generic [ref=e72]: A-NRZ-Native-GetWave.yaml
+      - button "Load Config" [ref=e73] [cursor=pointer]
+      - button "资源 / COM" [ref=e74] [cursor=pointer]
+      - button "IBIS / AMI" [ref=e75] [cursor=pointer]
+      - button "Native EQ 优化" [ref=e76] [cursor=pointer]
+      - button "Save" [ref=e77] [cursor=pointer]
+      - button "Save As…" [ref=e78] [cursor=pointer]
+      - button "Help / About" [ref=e79] [cursor=pointer]
+      - button "Disconnect" [ref=e80] [cursor=pointer]
+    - status [ref=e81]: "DFE consumes the continuous enabled prefix: 0 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it. Rx AMI replaces Native CTLE/RxFFE. Effective clocks and Native CDR/DFE/AGC branch require actual returned evidence. 未解析引用 0 类；完整导入/扩展报告见“资源 / COM”。"
+    - status [ref=e82]: 已载入 A-NRZ-Native-GetWave.yaml；未自动 Run。
+    - status [ref=e83]
+    - generic [ref=e84]:
+      - button "打开结果 / 加入比较" [ref=e85] [cursor=pointer]
+      - generic [ref=e86]:
+        - checkbox "我选择的是可信本机 legacy pickle（可执行代码）" [ref=e87]
+        - text: 我选择的是可信本机 legacy pickle（可执行代码）
+      - button "保存所选结果" [disabled] [ref=e88]
+      - button "原生保存 / 损失清单" [disabled] [ref=e89]
+      - button "恢复所选输入到草稿" [disabled] [ref=e90]
+      - button "移除所选参考" [disabled] [ref=e91]
+      - button "清除加载的参考" [ref=e92] [cursor=pointer]
+    - status [ref=e93]
+    - generic [ref=e94]: 临时成功缓存 0/2 · 0 bytes（第三次成功淘汰最旧临时记录）；参考 0/4 · 0/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。
+    - main [ref=e95]:
+      - group [ref=e96]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=e97] [cursor=pointer]
+      - region "链路总览" [ref=e98]:
+        - generic "切换实现图示" [ref=e99]:
+          - generic [ref=e100]: 实现方案
+          - generic [ref=e101]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=e102] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e103]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=e104] [cursor=pointer]:
+              - option "Native"
+              - option "AMI Init"
+              - option "AMI GetWave" [selected]
+          - generic [ref=e105]:
+            - checkbox "请求模型时钟" [checked] [ref=e106]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=e107] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=e108]:
+          - generic [ref=e109]:
+            - generic [ref=e493]:
+              - button "Source：NRZ · PRBS-7，查看设置" [ref=e494] [cursor=pointer]:
+                - strong [ref=e495]: Source
+                - generic [ref=e496]: NRZ · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=e498] [cursor=pointer]:
+                - strong [ref=e499]: Tx EQ
+                - generic [ref=e500]: Native FFE
+              - button "Channel：Native · 两端电气，查看设置" [ref=e502] [cursor=pointer]:
+                - strong [ref=e503]: Channel
+                - generic [ref=e504]: Native · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=e506] [cursor=pointer]:
+                - strong [ref=e507]: Noise
+                - generic [ref=e508]: 加法注入
+              - button "Rx AMI：AMI GetWave，查看设置" [ref=e510] [cursor=pointer]:
+                - strong [ref=e511]: Rx AMI
+                - generic [ref=e512]: AMI GetWave
+              - button "Rx FFE：旁路 · Rx AMI，查看设置" [ref=e514] [cursor=pointer]:
+                - strong [ref=e515]: Rx FFE
+                - generic [ref=e516]: 旁路 · Rx AMI
+              - button "Slicer：条件采用模型时钟，查看设置" [ref=e518] [cursor=pointer]:
+                - strong [ref=e519]: Slicer
+                - generic [ref=e520]: 条件采用模型时钟
+            - generic [ref=e521]:
+              - button "Device models" [ref=e523] [cursor=pointer]
+              - button "Observe" [ref=e525] [cursor=pointer]
+              - generic [ref=e526]:
+                - button "CDR" [ref=e527] [cursor=pointer]
+                - button "AGC" [ref=e528] [cursor=pointer]
+                - button "↗ Viterbi" [ref=e529] [cursor=pointer]
+        - status [ref=e147]:
+          - generic [aria-hidden] [ref=e530]: i
+          - generic [ref=e531]: Rx GetWave：显式噪声随 rx_in 输入模型。 原生 Rx AMI 回调禁用 DFE taps 与 FFE 搜索表；实际 Rx FFE 系数保留并在仿真中旁路。本页保留 Native 草稿，不执行该回调。 模型时钟仍须实际有效，届时才跳过 Native CDR / AGC；此图不表示已返回时钟。
+      - generic [ref=e150]:
+        - region [ref=e151]:
+          - heading "数据源与调制Source" [level=2] [ref=e534]
+          - generic [ref=e156]:
+            - tablist "模块详情" [ref=e157]:
+              - tab "设置" [selected] [ref=e158] [cursor=pointer]
+              - tab "参数说明 6" [ref=e159] [cursor=pointer]:
+                - text: 参数说明
+                - generic [ref=e160]: "6"
+              - tab "实现映射 3" [ref=e161] [cursor=pointer]:
+                - text: 实现映射
+                - generic [ref=e162]: "3"
+            - button "恢复本模块默认" [ref=e163] [cursor=pointer]
+          - tabpanel "设置" [ref=e164]:
+            - paragraph [ref=e535]: 已显式载入完整配置；旧草稿原件未删除。
+            - group [ref=e536]:
+              - generic "迁移来源与未应用字段（保留原值）" [ref=e537]
+            - generic [ref=e538]:
+              - generic [ref=e539]:
+                - heading "速率与调制" [level=3] [ref=e540]
+                - generic [ref=e541]: 本地草稿
+              - generic [ref=e542]:
+                - generic [ref=e543]:
+                  - generic [ref=e544]: Modulation · 调制
+                  - radiogroup "Modulation · 调制" [ref=e546]:
+                    - generic [ref=e547] [cursor=pointer]:
+                      - radio "Modulation · 调制 NRZ 二电平调制" [checked] [ref=e548]
+                      - strong [ref=e549]: NRZ
+                      - generic [ref=e550]: 二电平调制
+                    - generic [ref=e551] [cursor=pointer]:
+                      - radio "PAM-4 四电平调制" [ref=e552]
+                      - strong [ref=e553]: PAM-4
+                      - generic [ref=e554]: 四电平调制
+                    - generic [ref=e555] [cursor=pointer]:
+                      - radio "Duo-binary 相关编码" [ref=e556]
+                      - strong [ref=e557]: Duo-binary
+                      - generic [ref=e558]: 相关编码
+                  - paragraph [ref=e559]: 选择符号电平与编码方式。
+                  - generic [ref=e560]:
+                    - code [ref=e561]: mod_type
+                    - generic [ref=e562]: 默认 NRZ
+                  - text: ↳
+                  - group [ref=e563]:
+                    - generic "范围与来源" [ref=e564] [cursor=pointer]
+                - generic [ref=e565]:
+                  - generic [ref=e566]: Bit Rate · 比特率
+                  - generic [ref=e568]:
+                    - spinbutton "Bit Rate · 比特率" [ref=e569]: "10"
+                    - generic [ref=e570]: Gbps
+                  - paragraph [ref=e571]: 普通 PAM-4 每个符号承载 2 bit，符号率是比特率的一半。
+                  - generic [ref=e572]:
+                    - code [ref=e573]: bit_rate
+                    - generic [ref=e574]: 默认 10 Gbps
+                  - text: ↳
+                  - group [ref=e575]:
+                    - generic "范围与来源" [ref=e576] [cursor=pointer]
+                - generic [ref=e577]:
+                  - generic [ref=e578]:
+                    - generic [ref=e579]: RLM · 电平失配指标
+                    - button "恢复 RLM · 电平失配指标 默认值" [ref=e580] [cursor=pointer]: 恢复
+                  - spinbutton "RLM · 电平失配指标" [disabled] [ref=e582]: "1"
+                  - paragraph [ref=e583]: 原 GUI 位于 Rate & Modulation，PAM-4 时可编辑。当前计算只被 MMSE 使用，不改变时域 PAM-4 电平。
+                  - generic [ref=e584]:
+                    - code [ref=e585]: rlm
+                    - generic [ref=e586]: 默认 0.95
+                  - paragraph [ref=e587]: ↳ 仅 PAM-4 的 Native MMSE 优化读取 RLM；普通 Run 和非 MMSE 网格不读取。
+                  - group [ref=e588]:
+                    - generic "范围与来源" [ref=e589] [cursor=pointer]
+                - generic [ref=e590]:
+                  - generic [ref=e591]: 发射电压 Vod
+                  - generic [ref=e593]:
+                    - spinbutton "发射电压 Vod" [ref=e594]: "1"
+                    - generic [ref=e595]: V
+                  - paragraph [ref=e596]: 对应 PyBERT 的 vod：发射电压尺度。Vdd 通常指电源电压，本模型未提供独立 Vdd 设置。
+                  - generic [ref=e597]:
+                    - code [ref=e598]: vod
+                    - generic [ref=e599]: 默认 1 V
+                  - text: ↳
+                  - group [ref=e600]:
+                    - generic "范围与来源" [ref=e601] [cursor=pointer]
+            - generic [ref=e602]:
+              - generic [ref=e603]:
+                - heading "测试码型" [level=3] [ref=e604]
+                - generic [ref=e605]: 本地草稿
+              - generic [ref=e606]:
+                - generic [ref=e607]:
+                  - generic [ref=e608]: Pattern · 测试序列
+                  - combobox "Pattern · 测试序列" [ref=e610] [cursor=pointer]:
+                    - option "PRBS-7" [selected]
+                    - option "PRBS-9"
+                    - option "PRBS-11"
+                    - option "PRBS-13"
+                    - option "PRBS-15"
+                    - option "PRBS-20"
+                    - option "PRBS-23"
+                    - option "PRBS-31"
+                  - paragraph [ref=e611]: 选择 LFSR 产生的伪随机序列。
+                  - generic [ref=e612]:
+                    - code [ref=e613]: pattern
+                    - generic [ref=e614]: 默认 PRBS-7
+                  - text: ↳
+                  - group [ref=e615]:
+                    - generic "范围与来源" [ref=e616] [cursor=pointer]
+                - generic [ref=e617]:
+                  - generic [ref=e618]: Seed · 随机种子
+                  - spinbutton "Seed · 随机种子" [ref=e621]: "1"
+                  - paragraph [ref=e622]: 非零种子用于 PRBS 和随机噪声的可重复生成。
+                  - generic [ref=e623]:
+                    - code [ref=e624]: seed
+                    - generic [ref=e625]: 默认 1
+                  - text: ↳
+                  - group [ref=e626]:
+                    - generic "范围与来源" [ref=e627] [cursor=pointer]
+            - button "查看优化候选 / Tune / Use / Reset EQ →" [ref=e628] [cursor=pointer]
+        - region "Native run analysis" [ref=e255]:
+          - generic [ref=e256]:
+            - generic [ref=e257]:
+              - text: Selected record
+              - combobox "Selected record" [ref=e258]:
+                - option "No successful run" [selected]
+            - generic [ref=e259]:
+              - text: 比较参考
+              - combobox "比较参考" [ref=e260]:
+                - option "自动选择另一条" [selected]
+          - generic [ref=e261]:
+            - generic [ref=e262]:
+              - text: Analysis
+              - combobox "Analysis" [ref=e263]:
+                - option "Responses" [selected]
+                - option "Waveform"
+                - option "Eye"
+                - option "Jitter Dist."
+                - option "Jitter Spec."
+                - option "Jitter Bathtub"
+                - option "Jitter Info"
+                - option "DFE Adaptation"
+                - option "CDR Adaptation"
+                - option "CDR Histogram"
+                - option "CDR Spectrum"
+                - option "Viterbi Trellis"
+                - option "Run overview"
+                - option "Run input comparison"
+            - combobox "Response type" [ref=e264]:
+              - option "Impulse" [selected]
+              - option "Step"
+              - option "Pulse"
+              - option "Frequency"
+            - combobox "Response scope" [ref=e265]:
+              - option "Cumulative" [selected]
+              - option "Single stage"
+          - generic [ref=e266]:
+            - generic [ref=e267]:
+              - text: Point
+              - combobox "Point" [ref=e268]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=e269]:
+              - text: Compare
+              - combobox "Compare" [ref=e270]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - generic [ref=e271]:
+              - checkbox "Channel eye +1mV display noise" [ref=e272]
+              - text: Channel eye +1mV display noise
+            - button "Expand viewer" [ref=e273] [cursor=pointer]
+          - generic "Selected run plot" [ref=e274]:
+            - paragraph [ref=e275]: Run the native engine to inspect real responses, waveforms, eyes and jitter.
+      - group [ref=e277]:
+        - generic "Native EQ 优化 · 候选与真实 Run 独立" [ref=e278]
+        - option "无优化记录" [selected]
+      - group [ref=e279]:
+        - generic "Task logs / selected run logs" [ref=e280]
+  - dialog [ref=e629]:
+    - button "关闭" [ref=e630] [cursor=pointer]
+    - heading "IBIS 电气 / AMI 模型" [level=2] [ref=e631]
+    - paragraph [ref=e632]: 两侧独立选择。AMI 替代对应 Native EQ。检查/Run/Tune 共用计算槽，每任务 fresh spawn；检查仅证明资源解析/库加载，执行另有 postcondition。
+    - generic [ref=e633]:
+      - text: Side
+      - combobox "Side" [ref=e634]:
+        - option "Tx"
+        - option "Rx" [selected]
+    - generic [ref=e635]:
+      - text: 本机模型完整目录
+      - textbox "本机模型完整目录" [ref=e636]:
+        - /placeholder: C:/models/example
+        - text: C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/models/ibisami
+    - button "登记目录" [ref=e637] [cursor=pointer]
+    - generic [ref=e638]:
+      - text: 或上传完整目录
+      - button "或上传完整目录" [ref=e639]
+    - generic [ref=e640]:
+      - text: 目录内 IBIS 相对路径
+      - textbox "目录内 IBIS 相对路径" [ref=e641]:
+        - /placeholder: example_rx.ibs
+        - text: example_rx.ibs
+    - generic [ref=e642]:
+      - checkbox "明确重绑新内容，并重新建立该侧参数树（旧结果保留）" [ref=e643]
+      - text: 明确重绑新内容，并重新建立该侧参数树（旧结果保留）
+    - paragraph [ref=e644]: 待绑定 8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model · 369879 bytes
+    - button "选择 / 检查模型" [ref=e645] [cursor=pointer]
+    - status [ref=e646]: 失败，原参数草稿保留：Optimizer actions require their dedicated endpoint and a registered record ID.
+    - generic [ref=e664]:
+      - generic [ref=e922]:
+        - text: comp
+        - combobox "comp" [ref=e923]:
+          - option "Example_Rx" [selected]
+      - generic [ref=e924]:
+        - text: pin
+        - combobox "pin" [ref=e925]:
+          - option "1p(Tx_1_P)" [selected]
+      - generic [ref=e926]:
+        - text: mod
+        - combobox "mod" [ref=e927]:
+          - option "example_rx" [selected]
+    - generic [ref=e647]:
+      - text: Electrical
+      - combobox "Electrical" [ref=e648]:
+        - option "Native"
+        - option "IBIS" [selected]
+    - generic [ref=e649]:
+      - text: EQ
+      - combobox "EQ" [ref=e650]:
+        - option "Native"
+        - option "IBIS-AMI" [selected]
+    - generic [ref=e651]:
+      - text: AMI mode
+      - combobox "AMI mode" [ref=e652]:
+        - option "Init"
+        - option "GetWave" [selected]
+    - generic [ref=e653]:
+      - checkbox "使用模型 Ts4file" [ref=e654]
+      - text: 使用模型 Ts4file
+    - generic [ref=e655]:
+      - checkbox "请求 Rx clocks（有效返回才采用）" [ref=e656]
+      - text: 请求 Rx clocks（有效返回才采用）
+    - paragraph [ref=e657]: Tx GetWave：rx_in 是诊断参考；下游显式 noise 路径有原生限制。双 GetWave 丢弃 Rx clocks。Rx AMI 绕过 Native RxFFE；无有效 clocks 继续 Native CDR/DFE/AGC 分支。Native/Init Tx 的 disabled CTLE File 不加载；Tx GetWave + Native Rx 的 File 即使 disabled 仍 blocked。
+    - generic [ref=e671]:
+      - heading "完整动态参数树" [level=3] [ref=e928]
+      - table [ref=e929]:
+        - rowgroup [ref=e930]:
+          - row [ref=e931]:
+            - columnheader "完整路径 / 类型 / usage / format" [ref=e932]
+            - columnheader "Value" [ref=e933]
+            - columnheader "范围 / 单位" [ref=e934]
+        - rowgroup [ref=e935]:
+          - row [ref=e936]:
+            - cell "Reserved_Parameters / AMI_Version String / Info / Value" [ref=e937]: Reserved_Parameters / AMI_VersionString / Info / Value
+            - cell [ref=e938]:
+              - textbox "Reserved_Parameters/AMI_Version" [disabled] [ref=e939]: "5.1"
+            - cell "[null,null,null] not declared; see original description Version of IBIS standard we comply with." [ref=e940]: "[null,null,null]not declared; see original descriptionVersion of IBIS standard we comply with."
+          - row [ref=e941]:
+            - cell "Reserved_Parameters / Init_Returns_Impulse Boolean / Info / Value" [ref=e942]: Reserved_Parameters / Init_Returns_ImpulseBoolean / Info / Value
+            - cell [ref=e943]:
+              - textbox "Reserved_Parameters/Init_Returns_Impulse" [disabled] [ref=e944]: "true"
+            - cell "[null,null,null] not declared; see original description Model provides DFE adaptation approximation, in its AMI_Init() function." [ref=e945]: "[null,null,null]not declared; see original descriptionModel provides DFE adaptation approximation, in its AMI_Init() function."
+          - row [ref=e946]:
+            - cell "Reserved_Parameters / GetWave_Exists Boolean / Info / Value" [ref=e947]: Reserved_Parameters / GetWave_ExistsBoolean / Info / Value
+            - cell [ref=e948]:
+              - textbox "Reserved_Parameters/GetWave_Exists" [disabled] [ref=e949]: "true"
+            - cell "[null,null,null] not declared; see original description This model is dual-mode, with true DFE adaptation in GetWave()." [ref=e950]: "[null,null,null]not declared; see original descriptionThis model is dual-mode, with true DFE adaptation in GetWave()."
+          - row [ref=e951]:
+            - cell "Model_Specific / ctle_mode Integer / In / List" [ref=e952]: Model_Specific / ctle_modeInteger / In / List
+            - cell [ref=e953]:
+              - textbox "Model_Specific/ctle_mode" [ref=e954]: "0"
+            - cell "[null,null,null] not declared; see original description CTLE operating mode." [ref=e955]: "[null,null,null]not declared; see original descriptionCTLE operating mode."
+          - row [ref=e956]:
+            - cell "Model_Specific / ctle_freq Float / In / Range" [ref=e957]: Model_Specific / ctle_freqFloat / In / Range
+            - cell [ref=e958]:
+              - textbox "Model_Specific/ctle_freq" [ref=e959]: "5000000000"
+            - cell "[1000000000,5000000000,null] not declared; see original description CTLE peaking frequency (Hz)." [ref=e960]: "[1000000000,5000000000,null]not declared; see original descriptionCTLE peaking frequency (Hz)."
+          - row [ref=e961]:
+            - cell "Model_Specific / ctle_mag Float / In / Range" [ref=e962]: Model_Specific / ctle_magFloat / In / Range
+            - cell [ref=e963]:
+              - textbox "Model_Specific/ctle_mag" [ref=e964]: "0"
+            - cell "[0,12,null] not declared; see original description CTLE peaking magnitude (dB)." [ref=e965]: "[0,12,null]not declared; see original descriptionCTLE peaking magnitude (dB)."
+          - row [ref=e966]:
+            - cell "Model_Specific / ctle_bandwidth Float / In / Range" [ref=e967]: Model_Specific / ctle_bandwidthFloat / In / Range
+            - cell [ref=e968]:
+              - textbox "Model_Specific/ctle_bandwidth" [ref=e969]: "12000000000"
+            - cell "[5000000000,50000000000,null] not declared; see original description CTLE bandwidth (Hz)." [ref=e970]: "[5000000000,50000000000,null]not declared; see original descriptionCTLE bandwidth (Hz)."
+          - row [ref=e971]:
+            - cell "Model_Specific / ctle_dcgain Float / In / Range" [ref=e972]: Model_Specific / ctle_dcgainFloat / In / Range
+            - cell [ref=e973]:
+              - textbox "Model_Specific/ctle_dcgain" [ref=e974]: "0"
+            - cell "[-20,20,null] not declared; see original description CTLE d.c. gain (dB)." [ref=e975]: "[-20,20,null]not declared; see original descriptionCTLE d.c. gain (dB)."
+          - row [ref=e976]:
+            - cell "Model_Specific / dfe_mode Integer / In / List" [ref=e977]: Model_Specific / dfe_modeInteger / In / List
+            - cell [ref=e978]:
+              - textbox "Model_Specific/dfe_mode" [ref=e979]: "0"
+            - cell "[null,null,null] not declared; see original description DFE operating mode." [ref=e980]: "[null,null,null]not declared; see original descriptionDFE operating mode."
+          - row [ref=e981]:
+            - cell "Model_Specific / dfe_ntaps Integer / In / Value" [ref=e982]: Model_Specific / dfe_ntapsInteger / In / Value
+            - cell [ref=e983]:
+              - textbox "Model_Specific/dfe_ntaps" [ref=e984]: "5"
+            - cell "[null,null,null] not declared; see original description Number of DFE taps." [ref=e985]: "[null,null,null]not declared; see original descriptionNumber of DFE taps."
+          - row [ref=e986]:
+            - cell "Model_Specific / dfe_tap1 Float / In / Value" [ref=e987]: Model_Specific / dfe_tap1Float / In / Value
+            - cell [ref=e988]:
+              - textbox "Model_Specific/dfe_tap1" [ref=e989]: "0"
+            - cell "[null,null,null] not declared; see original description DFE tap 1 initial value." [ref=e990]: "[null,null,null]not declared; see original descriptionDFE tap 1 initial value."
+          - row [ref=e991]:
+            - cell "Model_Specific / dfe_tap2 Float / In / Value" [ref=e992]: Model_Specific / dfe_tap2Float / In / Value
+            - cell [ref=e993]:
+              - textbox "Model_Specific/dfe_tap2" [ref=e994]: "0"
+            - cell "[null,null,null] not declared; see original description DFE tap 2 initial value." [ref=e995]: "[null,null,null]not declared; see original descriptionDFE tap 2 initial value."
+          - row [ref=e996]:
+            - cell "Model_Specific / dfe_tap3 Float / In / Value" [ref=e997]: Model_Specific / dfe_tap3Float / In / Value
+            - cell [ref=e998]:
+              - textbox "Model_Specific/dfe_tap3" [ref=e999]: "0"
+            - cell "[null,null,null] not declared; see original description DFE tap 3 initial value." [ref=e1000]: "[null,null,null]not declared; see original descriptionDFE tap 3 initial value."
+          - row [ref=e1001]:
+            - cell "Model_Specific / dfe_tap4 Float / In / Value" [ref=e1002]: Model_Specific / dfe_tap4Float / In / Value
+            - cell [ref=e1003]:
+              - textbox "Model_Specific/dfe_tap4" [ref=e1004]: "0"
+            - cell "[null,null,null] not declared; see original description DFE tap 4 initial value." [ref=e1005]: "[null,null,null]not declared; see original descriptionDFE tap 4 initial value."
+          - row [ref=e1006]:
+            - cell "Model_Specific / dfe_tap5 Float / In / Value" [ref=e1007]: Model_Specific / dfe_tap5Float / In / Value
+            - cell [ref=e1008]:
+              - textbox "Model_Specific/dfe_tap5" [ref=e1009]: "0"
+            - cell "[null,null,null] not declared; see original description DFE tap 5 initial value." [ref=e1010]: "[null,null,null]not declared; see original descriptionDFE tap 5 initial value."
+          - row [ref=e1011]:
+            - cell "Model_Specific / dfe_vout Float / In / Range" [ref=e1012]: Model_Specific / dfe_voutFloat / In / Range
+            - cell [ref=e1013]:
+              - textbox "Model_Specific/dfe_vout" [ref=e1014]: "1"
+            - cell "[0,1,null] not declared; see original description DFE slicer output voltage magnitude." [ref=e1015]: "[0,1,null]not declared; see original descriptionDFE slicer output voltage magnitude."
+          - row [ref=e1016]:
+            - cell "Model_Specific / dfe_gain Float / In / Range" [ref=e1017]: Model_Specific / dfe_gainFloat / In / Range
+            - cell [ref=e1018]:
+              - textbox "Model_Specific/dfe_gain" [ref=e1019]: "0.1"
+            - cell "[0,1,null] not declared; see original description DFE error feedback gain." [ref=e1020]: "[0,1,null]not declared; see original descriptionDFE error feedback gain."
+          - row [ref=e1021]:
+            - cell "Model_Specific / debug / dbg_enable Boolean / In / Value" [ref=e1022]: Model_Specific / debug / dbg_enableBoolean / In / Value
+            - cell [ref=e1023]:
+              - textbox "Model_Specific/debug/dbg_enable" [ref=e1024]: "false"
+            - cell "[null,null,null] not declared; see original description Master debug enable." [ref=e1025]: "[null,null,null]not declared; see original descriptionMaster debug enable."
+          - row [ref=e1026]:
+            - cell "Model_Specific / debug / dump_dfe_adaptation Boolean / In / Value" [ref=e1027]: Model_Specific / debug / dump_dfe_adaptationBoolean / In / Value
+            - cell [ref=e1028]:
+              - textbox "Model_Specific/debug/dump_dfe_adaptation" [ref=e1029]: "false"
+            - cell "[null,null,null] not declared; see original description Dump the DFE adaptation results." [ref=e1030]: "[null,null,null]not declared; see original descriptionDump the DFE adaptation results."
+          - row [ref=e1031]:
+            - cell "Model_Specific / debug / dump_adaptation_input Boolean / In / Value" [ref=e1032]: Model_Specific / debug / dump_adaptation_inputBoolean / In / Value
+            - cell [ref=e1033]:
+              - textbox "Model_Specific/debug/dump_adaptation_input" [ref=e1034]: "false"
+            - cell "[null,null,null] not declared; see original description Dump the DFE summing node input." [ref=e1035]: "[null,null,null]not declared; see original descriptionDump the DFE summing node input."
+    - heading "Init TPE 搜索" [level=3] [ref=e658]
+    - paragraph [ref=e659]: 只支持有效 Init response。无自由维度只评估1次；范围/步长/初值与本次预算保存于 runtime extension。Use 显式应用获选参数；Native Reset 仅 current→search，不重置 AMI。
+    - table [ref=e1036]:
+      - rowgroup [ref=e1037]:
+        - row [ref=e1038]:
+          - columnheader "Path" [ref=e1039]
+          - columnheader "Enabled" [ref=e1040]
+          - columnheader "Min" [ref=e1041]
+          - columnheader "Max" [ref=e1042]
+          - columnheader "Step" [ref=e1043]
+          - columnheader "初值" [ref=e1044]
+        - row [ref=e1045]:
+          - cell "Model_Specific/ctle_mode" [ref=e1046]
+          - cell [ref=e1047]:
+            - checkbox [ref=e1048]
+          - cell [ref=e1049]:
+            - spinbutton [ref=e1050]: "0"
+          - cell [ref=e1051]:
+            - spinbutton [ref=e1052]: "1"
+          - cell [ref=e1053]:
+            - spinbutton [ref=e1054]: "1"
+          - cell [ref=e1055]:
+            - spinbutton [disabled] [ref=e1056]: "0"
+        - row [ref=e1057]:
+          - cell "Model_Specific/ctle_freq" [ref=e1058]
+          - cell [ref=e1059]:
+            - checkbox [ref=e1060]
+          - cell [ref=e1061]:
+            - spinbutton [ref=e1062]: "1000000000"
+          - cell [ref=e1063]:
+            - spinbutton [ref=e1064]: "5000000000"
+          - cell [ref=e1065]:
+            - spinbutton [ref=e1066]: "400000000"
+          - cell [ref=e1067]:
+            - spinbutton [disabled] [ref=e1068]: "5000000000"
+        - row [ref=e1069]:
+          - cell "Model_Specific/ctle_mag" [ref=e1070]
+          - cell [ref=e1071]:
+            - checkbox [ref=e1072]
+          - cell [ref=e1073]:
+            - spinbutton [ref=e1074]: "0"
+          - cell [ref=e1075]:
+            - spinbutton [ref=e1076]: "12"
+          - cell [ref=e1077]:
+            - spinbutton [ref=e1078]: "1.2"
+          - cell [ref=e1079]:
+            - spinbutton [disabled] [ref=e1080]: "0"
+        - row [ref=e1081]:
+          - cell "Model_Specific/ctle_bandwidth" [ref=e1082]
+          - cell [ref=e1083]:
+            - checkbox [ref=e1084]
+          - cell [ref=e1085]:
+            - spinbutton [ref=e1086]: "5000000000"
+          - cell [ref=e1087]:
+            - spinbutton [ref=e1088]: "50000000000"
+          - cell [ref=e1089]:
+            - spinbutton [ref=e1090]: "4500000000"
+          - cell [ref=e1091]:
+            - spinbutton [disabled] [ref=e1092]: "12000000000"
+        - row [ref=e1093]:
+          - cell "Model_Specific/ctle_dcgain" [ref=e1094]
+          - cell [ref=e1095]:
+            - checkbox [ref=e1096]
+          - cell [ref=e1097]:
+            - spinbutton [ref=e1098]: "-20"
+          - cell [ref=e1099]:
+            - spinbutton [ref=e1100]: "20"
+          - cell [ref=e1101]:
+            - spinbutton [ref=e1102]: "4"
+          - cell [ref=e1103]:
+            - spinbutton [disabled] [ref=e1104]: "0"
+        - row [ref=e1105]:
+          - cell "Model_Specific/dfe_mode" [ref=e1106]
+          - cell [ref=e1107]:
+            - checkbox [ref=e1108]
+          - cell [ref=e1109]:
+            - spinbutton [ref=e1110]: "0"
+          - cell [ref=e1111]:
+            - spinbutton [ref=e1112]: "2"
+          - cell [ref=e1113]:
+            - spinbutton [ref=e1114]: "1"
+          - cell [ref=e1115]:
+            - spinbutton [disabled] [ref=e1116]: "0"
+        - row [ref=e1117]:
+          - cell "Model_Specific/dfe_vout" [ref=e1118]
+          - cell [ref=e1119]:
+            - checkbox [ref=e1120]
+          - cell [ref=e1121]:
+            - spinbutton [ref=e1122]: "0"
+          - cell [ref=e1123]:
+            - spinbutton [ref=e1124]: "1"
+          - cell [ref=e1125]:
+            - spinbutton [ref=e1126]: "0.1"
+          - cell [ref=e1127]:
+            - spinbutton [disabled] [ref=e1128]: "1"
+        - row [ref=e1129]:
+          - cell "Model_Specific/dfe_gain" [ref=e1130]
+          - cell [ref=e1131]:
+            - checkbox [ref=e1132]
+          - cell [ref=e1133]:
+            - spinbutton [ref=e1134]: "0"
+          - cell [ref=e1135]:
+            - spinbutton [ref=e1136]: "1"
+          - cell [ref=e1137]:
+            - spinbutton [ref=e1138]: "0.1"
+          - cell [ref=e1139]:
+            - spinbutton [disabled] [ref=e1140]: "0.1"
+        - row [ref=e1141]:
+          - cell "Model_Specific/debug/dbg_enable" [ref=e1142]
+          - cell [ref=e1143]:
+            - checkbox [ref=e1144]
+          - cell [ref=e1145]:
+            - spinbutton [ref=e1146]: "0"
+          - cell [ref=e1147]:
+            - spinbutton [ref=e1148]: "1"
+          - cell [ref=e1149]:
+            - spinbutton [ref=e1150]: "1"
+          - cell [ref=e1151]:
+            - spinbutton [disabled] [ref=e1152]: "0"
+        - row [ref=e1153]:
+          - cell "Model_Specific/debug/dump_dfe_adaptation" [ref=e1154]
+          - cell [ref=e1155]:
+            - checkbox [ref=e1156]
+          - cell [ref=e1157]:
+            - spinbutton [ref=e1158]: "0"
+          - cell [ref=e1159]:
+            - spinbutton [ref=e1160]: "1"
+          - cell [ref=e1161]:
+            - spinbutton [ref=e1162]: "1"
+          - cell [ref=e1163]:
+            - spinbutton [disabled] [ref=e1164]: "0"
+        - row [ref=e1165]:
+          - cell "Model_Specific/debug/dump_adaptation_input" [ref=e1166]
+          - cell [ref=e1167]:
+            - checkbox [ref=e1168]
+          - cell [ref=e1169]:
+            - spinbutton [ref=e1170]: "0"
+          - cell [ref=e1171]:
+            - spinbutton [ref=e1172]: "1"
+          - cell [ref=e1173]:
+            - spinbutton [ref=e1174]: "1"
+          - cell [ref=e1175]:
+            - spinbutton [disabled] [ref=e1176]: "0"
+    - button "Apply 参数 / 模式到草稿" [ref=e660] [cursor=pointer]
+    - group [ref=e661]:
+      - generic "View：真实只读解析 / 源文件 / 能力" [ref=e662]
+    - paragraph [ref=e663]: YAML 通过版本化 Web extension 保存完整树、选择、clocks、搜索预算；资源 bytes 另行提供。原生 YAML 字段本身不足以表示完整 AMI 工程。非 Windows / GetWave-only / Ts4 数值及未提供模型能力须按实际 fixture 报未验证。
+```

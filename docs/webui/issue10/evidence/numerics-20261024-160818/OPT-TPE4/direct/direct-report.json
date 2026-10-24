@@ -1,0 +1,182 @@
+{
+  "status": "succeeded",
+  "result": {
+    "fom": 4.451971155131284,
+    "trials": 4,
+    "candidate_metadata": [
+      {
+        "index": 0,
+        "peak_mag": 0.0,
+        "fom": 4.451971155131284,
+        "ami_values": {
+          "tx": [],
+          "rx": [
+            1.0,
+            5000000000.0,
+            12.0,
+            12000000000.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "index": 1,
+        "peak_mag": 0.0,
+        "fom": 1.5710561532675176,
+        "ami_values": {
+          "tx": [],
+          "rx": [
+            1.0,
+            5000000000.0,
+            0.0,
+            12000000000.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "peak_mag": 0.0,
+        "fom": 1.5710561532675176,
+        "ami_values": {
+          "tx": [],
+          "rx": [
+            1.0,
+            5000000000.0,
+            0.0,
+            12000000000.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "peak_mag": 0.0,
+        "fom": 1.5710561532675176,
+        "ami_values": {
+          "tx": [],
+          "rx": [
+            1.0,
+            5000000000.0,
+            0.0,
+            12000000000.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "elapsed_s": 0.47773027420043945,
+  "main_calls": 0,
+  "helper_calls": 4,
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.0251894,
+      "returned": true,
+      "elapsed_s": 0.0001900196075439453
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.0736256,
+      "returned": true,
+      "elapsed_s": 0.0003247261047363281
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.0740318,
+      "returned": true,
+      "elapsed_s": 0.0001888275146484375
+    },
+    {
+      "method": "AMI_Init",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.0857856,
+      "returned": true,
+      "elapsed_s": 0.00010442733764648438
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.1344998,
+      "returned": true,
+      "elapsed_s": 0.0003075599670410156
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.134886,
+      "returned": true,
+      "elapsed_s": 0.00023818016052246094
+    },
+    {
+      "method": "AMI_Init",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.1434908,
+      "returned": true,
+      "elapsed_s": 9.822845458984375e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.1932764,
+      "returned": true,
+      "elapsed_s": 0.00020003318786621094
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.1935468,
+      "returned": true,
+      "elapsed_s": 0.00016307830810546875
+    },
+    {
+      "method": "AMI_Init",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.2050552,
+      "returned": true,
+      "elapsed_s": 9.012222290039062e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.2549646,
+      "returned": true,
+      "elapsed_s": 0.00017595291137695312
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829308.2552059,
+      "returned": true,
+      "elapsed_s": 0.0001838207244873047
+    }
+  ]
+}

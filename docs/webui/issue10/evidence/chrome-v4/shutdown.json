@@ -1,0 +1,6 @@
+{
+  "stopped_utc": "2026-10-24T08:56:45Z",
+  "port8785_connect_error": 10061,
+  "active_task_before_stop": null,
+  "intentional_CtrlC": true
+}

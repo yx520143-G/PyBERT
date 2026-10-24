@@ -1,0 +1,9 @@
+### Ran Playwright code
+```js
+await fileChooser.setFiles(["C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\docs\\webui\\issue10\\fixtures\\v4-final\\OPT-FIXED.yaml"])
+```
+### Page
+- Page URL: http://127.0.0.1:8785/#ctle
+- Page Title: PyBERT · Signal Chain Workbench
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T08-41-47-869Z.yml)

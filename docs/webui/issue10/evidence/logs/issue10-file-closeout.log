@@ -1,0 +1,86 @@
+{
+  "tasks_preserved": 44,
+  "comparisons": {
+    "OPT-FIXED": {
+      "shared_exact": 30,
+      "left_only": [],
+      "right_only": []
+    },
+    "OPT-TPE4": {
+      "shared_exact": 78,
+      "left_only": [],
+      "right_only": []
+    },
+    "NRZ": {
+      "shared_exact": 440,
+      "left_only": [],
+      "right_only": [
+        "ami.call0.h_t_s",
+        "ami.call0.input_h_t_s",
+        "ami.call0.input_x_t_s",
+        "ami.call0.out_h_t_s",
+        "ami.call0.y_t_s"
+      ]
+    },
+    "PAM4": {
+      "shared_exact": 441,
+      "left_only": [],
+      "right_only": [
+        "ami.call0.h_t_s",
+        "ami.call0.input_h_t_s",
+        "ami.call0.input_x_t_s",
+        "ami.call0.out_h_t_s",
+        "ami.call0.y_t_s"
+      ]
+    }
+  },
+  "roundtrips": {
+    "Run": {
+      "arrays_npz_bytes_equal": true,
+      "original_manifest_keys": [
+        "archive_schema",
+        "arrays",
+        "format",
+        "required_features",
+        "resource_policy",
+        "run",
+        "saved_at",
+        "saved_by_adapter_sha",
+        "source_files",
+        "source_manifest_utf8",
+        "subfunctions"
+      ],
+      "resaved_manifest_keys": [
+        "archive_schema",
+        "arrays",
+        "format",
+        "required_features",
+        "resource_policy",
+        "run",
+        "saved_at",
+        "saved_by_adapter_sha",
+        "source_files",
+        "source_manifest_utf8",
+        "subfunctions"
+      ],
+      "source_manifest_utf8_equal": true
+    },
+    "Optimization": {
+      "arrays_npz_bytes_equal": true,
+      "original_manifest_keys": [
+        "archive_schema",
+        "format",
+        "raw_sha256",
+        "record",
+        "required_features"
+      ],
+      "resaved_manifest_keys": [
+        "archive_schema",
+        "format",
+        "raw_sha256",
+        "record",
+        "required_features"
+      ]
+    }
+  }
+}

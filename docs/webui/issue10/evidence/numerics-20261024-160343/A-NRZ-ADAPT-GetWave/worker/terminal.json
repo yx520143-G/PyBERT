@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "error": "'tuple' object has no attribute 'name'",
+  "error_type": "AttributeError",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 117, in run_worker\n    my_run_simulation(\n    ~~~~~~~~~~~~~~~~~^\n        p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        decoding=decoding,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 394, in my_run_simulation\n    param_vals.update(get_numeric_values(AmiName(\"\"), nd))\n                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 381, in get_numeric_values\n    pname_hier = AmiName(prefix + node.name)\n                                  ^^^^^^^^^\nAttributeError: 'tuple' object has no attribute 'name'\n",
+  "main_invocations": 1,
+  "cancel_observed": false,
+  "cancel_requested": false
+}

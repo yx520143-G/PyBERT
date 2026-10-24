@@ -1,0 +1,56 @@
+{
+  "status": "succeeded",
+  "result": {
+    "fom": 1.7130025427217692,
+    "trials": 1,
+    "candidate_metadata": [
+      {
+        "index": 0,
+        "peak_mag": 0.0,
+        "fom": 1.7130025427217692,
+        "ami_values": {
+          "tx": [],
+          "rx": [
+            0.0,
+            5000000000.0,
+            0.0,
+            12000000000.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "elapsed_s": 0.2774016857147217,
+  "main_calls": 0,
+  "helper_calls": 1,
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829303.3485436,
+      "returned": true,
+      "elapsed_s": 0.00016021728515625
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829303.3984942,
+      "returned": true,
+      "elapsed_s": 0.00021076202392578125
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829303.3987863,
+      "returned": true,
+      "elapsed_s": 0.00016999244689941406
+    }
+  ]
+}

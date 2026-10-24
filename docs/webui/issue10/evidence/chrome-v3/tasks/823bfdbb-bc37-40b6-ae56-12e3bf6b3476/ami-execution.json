@@ -1,0 +1,3219 @@
+{
+  "calls": [
+    {
+      "index": 0,
+      "binary": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-chrome-v3\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model\\example_rx_x86_amd64.dll",
+      "mode": "GetWave",
+      "ui_s": 1e-10,
+      "ts_s": 3.125e-12,
+      "requested_parameters": {
+        "root_name": "example_rx",
+        "ctle_mode": 0,
+        "ctle_freq": 5000000000.0,
+        "ctle_mag": 0.0,
+        "ctle_bandwidth": 12000000000.0,
+        "ctle_dcgain": 0.0,
+        "dfe_mode": 0,
+        "dfe_ntaps": 5,
+        "dfe_tap1": 0.0,
+        "dfe_tap2": 0.0,
+        "dfe_tap3": 0.0,
+        "dfe_tap4": 0.0,
+        "dfe_tap5": 0.0,
+        "dfe_vout": 1.0,
+        "dfe_gain": 0.1,
+        "debug": {
+          "dbg_enable": false,
+          "dump_dfe_adaptation": false,
+          "dump_adaptation_input": false
+        }
+      },
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "started_at": 1792830227.3390927,
+      "status": "returned; engine postconditions pending",
+      "message": "Input parameters: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: not present\n\tDFE: not present\n",
+      "params_out": [
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n",
+        "(example_rx\n)\n"
+      ],
+      "elapsed_s": 0.20489215850830078
+    }
+  ],
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792830227.3424087,
+      "returned": true,
+      "elapsed_s": 0.00021839141845703125
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792830227.3956616,
+      "returned": true,
+      "elapsed_s": 0.0002574920654296875
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792830227.3959992,
+      "returned": true,
+      "elapsed_s": 0.00018215179443359375
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792830227.3963096,
+      "returned": true,
+      "elapsed_s": 0.1434946060180664
+    }
+  ],
+  "dll_calls": [
+    {
+      "method": "AMI_Init",
+      "started_at": 1792830227.3424697,
+      "returned": true,
+      "elapsed_s": 0.0001506805419921875
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3958247,
+      "returned": true,
+      "elapsed_s": 1.1205673217773438e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3960915,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3964717,
+      "returned": true,
+      "elapsed_s": 3.814697265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3968184,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3972652,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3977575,
+      "returned": true,
+      "elapsed_s": 5.9604644775390625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3981879,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3984864,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3987775,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.399114,
+      "returned": true,
+      "elapsed_s": 1.3828277587890625e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3994205,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.3996918,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4001627,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4006221,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4010816,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4015405,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4018962,
+      "returned": true,
+      "elapsed_s": 5.0067901611328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4021978,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4025114,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4028456,
+      "returned": true,
+      "elapsed_s": 6.67572021484375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.403134,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4033813,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4036262,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4038851,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4041462,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.404392,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4046366,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4049034,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4051592,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.405452,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4056997,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.405973,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4062188,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4064646,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.406709,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4069715,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4072185,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4074624,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.407707,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.408143,
+      "returned": true,
+      "elapsed_s": 4.5299530029296875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4085736,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4089801,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4093885,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4097874,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4100366,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4103017,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4105546,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4108212,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4110694,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4113142,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.411562,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4118178,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4120643,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4123104,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4125566,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4128785,
+      "returned": true,
+      "elapsed_s": 7.867813110351562e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4133232,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4136844,
+      "returned": true,
+      "elapsed_s": 6.198883056640625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4143536,
+      "returned": true,
+      "elapsed_s": 6.9141387939453125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4147644,
+      "returned": true,
+      "elapsed_s": 6.198883056640625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4151995,
+      "returned": true,
+      "elapsed_s": 5.0067901611328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4156475,
+      "returned": true,
+      "elapsed_s": 7.867813110351562e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.416141,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4166646,
+      "returned": true,
+      "elapsed_s": 8.344650268554688e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4174013,
+      "returned": true,
+      "elapsed_s": 6.4373016357421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4178913,
+      "returned": true,
+      "elapsed_s": 4.5299530029296875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4186497,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4190197,
+      "returned": true,
+      "elapsed_s": 5.9604644775390625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4194221,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4196777,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4200473,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4204862,
+      "returned": true,
+      "elapsed_s": 6.67572021484375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4208384,
+      "returned": true,
+      "elapsed_s": 5.0067901611328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.421122,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4213893,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.421646,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.421906,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4221613,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4224179,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4226663,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4229336,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4231892,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4234357,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.423692,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4239774,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4242256,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4244814,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4247503,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4250035,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4252577,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.425502,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.425782,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4260783,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4263296,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.426589,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4268608,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4273117,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4275687,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4278386,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4280872,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4283426,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4285975,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4291067,
+      "returned": true,
+      "elapsed_s": 6.198883056640625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4295232,
+      "returned": true,
+      "elapsed_s": 5.0067901611328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4298477,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.430278,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4305503,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4308288,
+      "returned": true,
+      "elapsed_s": 3.814697265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4314528,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4317343,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4320886,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4324107,
+      "returned": true,
+      "elapsed_s": 3.814697265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4327893,
+      "returned": true,
+      "elapsed_s": 5.9604644775390625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4332094,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4336264,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4339247,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4341784,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4344351,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.43469,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4349425,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4352038,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4354658,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4359918,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4362442,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4364946,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.436741,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4370027,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4372525,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4374971,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4377658,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4381428,
+      "returned": true,
+      "elapsed_s": 6.67572021484375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4384704,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.438731,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4390142,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.439265,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.439523,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4397824,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4400668,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.440641,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4409168,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4411745,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4414551,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4417074,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.441969,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.442219,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4424756,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4427288,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4429893,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4432516,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4435062,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4437685,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.444015,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4442844,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4445367,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4449008,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4453497,
+      "returned": true,
+      "elapsed_s": 5.0067901611328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4462821,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4465697,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4468577,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4471555,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.447427,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.447854,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4481325,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4484353,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4487631,
+      "returned": true,
+      "elapsed_s": 5.0067901611328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4492886,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4497967,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4501545,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4508119,
+      "returned": true,
+      "elapsed_s": 5.9604644775390625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4511995,
+      "returned": true,
+      "elapsed_s": 4.291534423828125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4514856,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.451734,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4519937,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4522734,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4525323,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4527998,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4535215,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.45377,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.454024,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4542859,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4545445,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.454798,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4550602,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4553335,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4556682,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4559216,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4561782,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4566436,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4569998,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4572718,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.45753,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4577768,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4580727,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4583504,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.458612,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4589288,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4592052,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4594626,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4601755,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4604487,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4606965,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4609494,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4611945,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.461461,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4617136,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.461958,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4622319,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4627304,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.463039,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4633605,
+      "returned": true,
+      "elapsed_s": 6.4373016357421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.463816,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4640715,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4643457,
+      "returned": true,
+      "elapsed_s": 5.0067901611328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4646175,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4648864,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4651527,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.465488,
+      "returned": true,
+      "elapsed_s": 5.0067901611328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4658,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4660876,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4663708,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4666274,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.466887,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4671497,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4679537,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4682088,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.468545,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4688668,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4691536,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4694235,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4696894,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.469947,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4701946,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4704788,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.470735,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4709837,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4712422,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4715047,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4717476,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4719975,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4722586,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4725075,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4728024,
+      "returned": true,
+      "elapsed_s": 7.152557373046875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.473151,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4734592,
+      "returned": true,
+      "elapsed_s": 3.814697265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4737294,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.473988,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4742362,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4745963,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4750335,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4753203,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4755874,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.476563,
+      "returned": true,
+      "elapsed_s": 4.291534423828125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4768271,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.477084,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.477351,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4776094,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4778655,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4781132,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4783804,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4786355,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4788978,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.479142,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4794028,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.479684,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.479941,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4805896,
+      "returned": true,
+      "elapsed_s": 6.67572021484375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4811466,
+      "returned": true,
+      "elapsed_s": 6.4373016357421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4815109,
+      "returned": true,
+      "elapsed_s": 5.9604644775390625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4818473,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4821596,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4825277,
+      "returned": true,
+      "elapsed_s": 4.5299530029296875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.483055,
+      "returned": true,
+      "elapsed_s": 6.9141387939453125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.483469,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.483974,
+      "returned": true,
+      "elapsed_s": 5.9604644775390625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4842596,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4845107,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4848466,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4851048,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.485406,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4857414,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.486045,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4868412,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.487307,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4887376,
+      "returned": true,
+      "elapsed_s": 4.0531158447265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4891725,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.489615,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.490055,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4904995,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.490932,
+      "returned": true,
+      "elapsed_s": 6.198883056640625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4912715,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.491601,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4919336,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4921982,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4925141,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4929368,
+      "returned": true,
+      "elapsed_s": 5.9604644775390625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4932117,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4934964,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4937525,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4940004,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4942613,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4945292,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4947865,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4950426,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4953122,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4955702,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4958308,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.496105,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4963667,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4966705,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4969478,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4973264,
+      "returned": true,
+      "elapsed_s": 1.1205673217773438e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.497803,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.498232,
+      "returned": true,
+      "elapsed_s": 5.0067901611328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4987047,
+      "returned": true,
+      "elapsed_s": 7.62939453125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4991698,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4995322,
+      "returned": true,
+      "elapsed_s": 6.198883056640625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.4999824,
+      "returned": true,
+      "elapsed_s": 6.198883056640625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5003614,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5006313,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.501862,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.502122,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5023754,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5026362,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.502892,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5031388,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5033948,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5036645,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.503911,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5041697,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5044324,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5047715,
+      "returned": true,
+      "elapsed_s": 7.3909759521484375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5050948,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5053604,
+      "returned": true,
+      "elapsed_s": 5.4836273193359375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.505636,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5058973,
+      "returned": true,
+      "elapsed_s": 3.0994415283203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.506184,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5064805,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.506736,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5069816,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5072339,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5074933,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5077565,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5080154,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5082753,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.508602,
+      "returned": true,
+      "elapsed_s": 3.814697265625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5089216,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5091975,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.509466,
+      "returned": true,
+      "elapsed_s": 4.76837158203125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.509731,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5100107,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.510263,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.51052,
+      "returned": true,
+      "elapsed_s": 2.6226043701171875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5108795,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5113842,
+      "returned": true,
+      "elapsed_s": 6.198883056640625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5118372,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5122833,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5127196,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5131607,
+      "returned": true,
+      "elapsed_s": 3.5762786865234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5134447,
+      "returned": true,
+      "elapsed_s": 3.337860107421875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5148928,
+      "returned": true,
+      "elapsed_s": 5.245208740234375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.515151,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5153985,
+      "returned": true,
+      "elapsed_s": 1.1920928955078125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.515675,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5161223,
+      "returned": true,
+      "elapsed_s": 6.198883056640625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5165293,
+      "returned": true,
+      "elapsed_s": 2.86102294921875e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5171053,
+      "returned": true,
+      "elapsed_s": 5.7220458984375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5177886,
+      "returned": true,
+      "elapsed_s": 7.867813110351562e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.518127,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5183861,
+      "returned": true,
+      "elapsed_s": 2.384185791015625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5186486,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5189173,
+      "returned": true,
+      "elapsed_s": 2.1457672119140625e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5191758,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5194366,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5196843,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5199587,
+      "returned": true,
+      "elapsed_s": 1.9073486328125e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5202165,
+      "returned": true,
+      "elapsed_s": 1.430511474609375e-06
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792830227.5204728,
+      "returned": true,
+      "elapsed_s": 1.6689300537109375e-06
+    }
+  ],
+  "models": {
+    "rx": {
+      "status": "ready",
+      "stage": "preflight only; no execution",
+      "model_hash": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+      "side": "rx",
+      "host": {
+        "OS": "Windows",
+        "architecture": "AMD64",
+        "bits": 64
+      },
+      "files": [
+        {
+          "relative_path": "example_rx.ami",
+          "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+          "bytes": 4067
+        },
+        {
+          "relative_path": "example_rx.ibs",
+          "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+          "bytes": 2804
+        },
+        {
+          "relative_path": "example_rx_x86_amd64.dll",
+          "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+          "bytes": 363008
+        }
+      ],
+      "selection": {
+        "comp": "Example_Rx",
+        "pin": "1p(Tx_1_P)",
+        "mod": "example_rx",
+        "ibis_path": "example_rx.ibs"
+      },
+      "components": [
+        "Example_Rx"
+      ],
+      "pins": [
+        "1p(Tx_1_P)",
+        "1n(Tx_1_N)",
+        "2p(Tx_2_P)",
+        "2n(Tx_2_N)",
+        "3p(Tx_3_P)",
+        "3n(Tx_3_N)"
+      ],
+      "models": [
+        "example_rx"
+      ],
+      "selection_map": {
+        "Example_Rx": {
+          "1p(Tx_1_P)": [
+            "example_rx"
+          ],
+          "1n(Tx_1_N)": [
+            "example_rx"
+          ],
+          "2p(Tx_2_P)": [
+            "example_rx"
+          ],
+          "2n(Tx_2_N)": [
+            "example_rx"
+          ],
+          "3p(Tx_3_P)": [
+            "example_rx"
+          ],
+          "3n(Tx_3_N)": [
+            "example_rx"
+          ]
+        }
+      },
+      "ibis_warnings": "Success!",
+      "model_type": "Input",
+      "view": {
+        "IBIS_source": "\n\n[IBIS Ver]   7.1\n[File Name]  example_rx.ibs\n[File Rev]   v0.1\n\n[Date]       2024-07-05\n\n[Source]     ibisami public domain infrastructure\n\n[Disclaimer]\nTHIS MODEL IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS MODEL, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n[Notes]\nThis IBIS file was generated using the template file: \"generic.ibs.em\".\n\n[Copyright]    Copyright (c) 2016 David Banas; all rights reserved World wide.\n[Component]    Example_Rx\n[Manufacturer] (n/a)\n\n[Package]\n\nR_pkg     0.10     0.00     0.50\nL_pkg    10.00n    0.10n   50.00n\nC_pkg     1.00p    0.01p    5.00p\n\n\n[Pin]  signal_name        model_name            R_pin  L_pin  C_pin\n1p     Tx_1_P             example_rx\n1n     Tx_1_N             example_rx\n2p     Tx_2_P             example_rx\n2n     Tx_2_N             example_rx\n3p     Tx_3_P             example_rx\n3n     Tx_3_N             example_rx\n\n[Diff_Pin] inv_pin vdiff tdelay_typ tdelay_min tdelay_max\n1p           1n     0.1V     NA         NA         NA\n2p           2n     0.1V     NA         NA         NA\n3p           3n     0.1V     NA         NA         NA\n\n[Model]   example_rx\nModel_type   Input\n\nC_comp     1.00p    0.01p    5.00p\nVinl = 0.875\nVinh = 0.925\n\n\n[Algorithmic Model]\nExecutable linux_gcc4.1.2_32          example_rx_x86.so         example_rx.ami\nExecutable linux_gcc4.1.2_64          example_rx_x86_amd64.so   example_rx.ami\nExecutable Windows_VisualStudio_32    example_rx_x86.dll        example_rx.ami\nExecutable Windows_VisualStudio_64    example_rx_x86_amd64.dll  example_rx.ami\n[End Algorithmic Model]\n\n[Temperature_Range]     25.0      0.0    100.0\n[Voltage_Range]         1.80     1.62     1.98\n\n\n[GND Clamp]\n-1.80    -1.000e+01    -1.000e+01    -1.000e+01\n0.00     0.000e+00     0.000e+00     0.000e+00 \n1.80     1.800e-02     2.000e-02     1.636e-02 \n3.60     3.600e-02     4.000e-02     3.273e-02 \n\n[Power Clamp]\n-1.80    1.000e+01     1.000e+01     1.000e+01 \n0.00     -0.000e+00    -0.000e+00    -0.000e+00\n1.80     -1.800e-02    -2.000e-02    -1.636e-02\n3.60     -3.600e-02    -4.000e-02    -3.273e-02\n\n\n\n[END]\n",
+        "zout": null,
+        "zin": 50.000000000000014,
+        "ccomp": [
+          1e-12,
+          1e-14,
+          5e-12
+        ],
+        "AMI_source": "(example_rx\n\n    (Description \"Example Rx model from ibisami package.\")\n\n    (Reserved_Parameters\n         (AMI_Version\n             (Usage Info )\n             (Type String )\n             (Value \"5.1\" )\n             (Description \"Version of IBIS standard we comply with.\" )\n         )\n         (Init_Returns_Impulse\n             (Usage Info )\n             (Type Boolean )\n             (Value True )\n             (Description \"Model provides DFE adaptation approximation, in its AMI_Init() function.\" )\n         )\n         (GetWave_Exists\n             (Usage Info )\n             (Type Boolean )\n             (Value True )\n             (Description \"This model is dual-mode, with true DFE adaptation in GetWave().\" )\n         )\n    )\n    (Model_Specific\n         (ctle_mode\n             (Usage In )\n             (Type Integer )\n             (List 0 1 )\n             (List_Tip \"Off\" \"Manual\" )\n             (Description \"CTLE operating mode.\" )\n         )\n         (ctle_freq\n             (Usage In )\n             (Type Float )\n             (Range 5000000000.0 1000000000.0 5000000000.0 )\n             (Description \"CTLE peaking frequency (Hz).\" )\n         )\n         (ctle_mag\n             (Usage In )\n             (Type Float )\n             (Range 0.0 0.0 12.0 )\n             (Description \"CTLE peaking magnitude (dB).\" )\n         )\n         (ctle_bandwidth\n             (Usage In )\n             (Type Float )\n             (Range 12000000000.0 5000000000.0 50000000000.0 )\n             (Description \"CTLE bandwidth (Hz).\" )\n         )\n         (ctle_dcgain\n             (Usage In )\n             (Type Float )\n             (Range 0.0 -20.0 20.0 )\n             (Description \"CTLE d.c. gain (dB).\" )\n         )\n         (dfe_mode\n             (Usage In )\n             (Type Integer )\n             (List 0 1 2 )\n             (List_Tip \"Off\" \"Manual\" \"Adaptive\" )\n             (Description \"DFE operating mode.\" )\n         )\n         (dfe_ntaps\n             (Usage In )\n             (Type Integer )\n             (Value 5 )\n             (Description \"Number of DFE taps.\" )\n         )\n         (dfe_tap1\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 1 initial value.\" )\n         )\n         (dfe_tap2\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 2 initial value.\" )\n         )\n         (dfe_tap3\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 3 initial value.\" )\n         )\n         (dfe_tap4\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 4 initial value.\" )\n         )\n         (dfe_tap5\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 5 initial value.\" )\n         )\n         (dfe_vout\n             (Usage In )\n             (Type Float )\n             (Range 1.0 0.0 1.0 )\n             (Description \"DFE slicer output voltage magnitude.\" )\n         )\n         (dfe_gain\n             (Usage In )\n             (Type Float )\n             (Range 0.1 0.0 1.0 )\n             (Description \"DFE error feedback gain.\" )\n         )\n         (debug\n             (dbg_enable\n                 (Usage In )\n                 (Type Boolean )\n                 (Value False )\n                 (Description \"Master debug enable.\" )\n             )\n             (dump_dfe_adaptation\n                 (Usage In )\n                 (Type Boolean )\n                 (Value False )\n                 (Description \"Dump the DFE adaptation results.\" )\n             )\n             (dump_adaptation_input\n                 (Usage In )\n                 (Type Boolean )\n                 (Value False )\n                 (Description \"Dump the DFE summing node input.\" )\n             )\n             (Description \"Debugging options.\")\n         )\n    )\n\n)\n"
+      },
+      "parameters": [
+        {
+          "path": [
+            "Reserved_Parameters",
+            "AMI_Version"
+          ],
+          "value": "5.1",
+          "editable": false,
+          "type": "String",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "Version of IBIS standard we comply with.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Reserved_Parameters",
+            "Init_Returns_Impulse"
+          ],
+          "value": true,
+          "editable": false,
+          "type": "Boolean",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "Model provides DFE adaptation approximation, in its AMI_Init() function.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Reserved_Parameters",
+            "GetWave_Exists"
+          ],
+          "value": true,
+          "editable": false,
+          "type": "Boolean",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "This model is dual-mode, with true DFE adaptation in GetWave().",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_mode"
+          ],
+          "value": 0,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "List",
+          "min": null,
+          "max": null,
+          "values": [
+            0,
+            1
+          ],
+          "list_tips": [
+            "Off",
+            "Manual"
+          ],
+          "corners": null,
+          "labels": null,
+          "description": "CTLE operating mode.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_freq"
+          ],
+          "value": 5000000000.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 1000000000.0,
+          "max": 5000000000.0,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "CTLE peaking frequency (Hz).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_mag"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 0.0,
+          "max": 12.0,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "CTLE peaking magnitude (dB).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_bandwidth"
+          ],
+          "value": 12000000000.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 5000000000.0,
+          "max": 50000000000.0,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "CTLE bandwidth (Hz).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_dcgain"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": -20.0,
+          "max": 20.0,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "CTLE d.c. gain (dB).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_mode"
+          ],
+          "value": 0,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "List",
+          "min": null,
+          "max": null,
+          "values": [
+            0,
+            1,
+            2
+          ],
+          "list_tips": [
+            "Off",
+            "Manual",
+            "Adaptive"
+          ],
+          "corners": null,
+          "labels": null,
+          "description": "DFE operating mode.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_ntaps"
+          ],
+          "value": 5,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "Number of DFE taps.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap1"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "DFE tap 1 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap2"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "DFE tap 2 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap3"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "DFE tap 3 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap4"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "DFE tap 4 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap5"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "DFE tap 5 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_vout"
+          ],
+          "value": 1.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 0.0,
+          "max": 1.0,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "DFE slicer output voltage magnitude.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_gain"
+          ],
+          "value": 0.1,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 0.0,
+          "max": 1.0,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "DFE error feedback gain.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "debug",
+            "dbg_enable"
+          ],
+          "value": false,
+          "editable": true,
+          "type": "Boolean",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "Master debug enable.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "debug",
+            "dump_dfe_adaptation"
+          ],
+          "value": false,
+          "editable": true,
+          "type": "Boolean",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "Dump the DFE adaptation results.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "debug",
+            "dump_adaptation_input"
+          ],
+          "value": false,
+          "editable": true,
+          "type": "Boolean",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "list_tips": null,
+          "corners": null,
+          "labels": null,
+          "description": "Dump the DFE summing node input.",
+          "unit": "not declared; see original description"
+        }
+      ],
+      "parser_warnings": [],
+      "capabilities": {
+        "Init_Returns_Impulse": true,
+        "GetWave_Exists": true,
+        "Ts4file": null,
+        "Ignore_Bits": null
+      },
+      "ami_path": "example_rx.ami",
+      "binary_path": "example_rx_x86_amd64.dll",
+      "ABI": {
+        "loader": "ctypes.CDLL",
+        "pointer_bits": 64,
+        "exports": {
+          "AMI_Init": true,
+          "AMI_Close": true,
+          "AMI_GetWave": true
+        }
+      },
+      "binary_load": "loaded"
+    }
+  }
+}

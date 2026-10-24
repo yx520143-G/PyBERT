@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "error": "rx: TS4 requested but model has no Ts4file.",
+  "error_type": "ValueError",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 68, in run_worker\n    result = normalize(request, cancelled, emit)\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\config.py\", line 461, in normalize\n    model_report = configure(engine, config, runtime, request.get(\"frozen_resources\", []), discover=True, allow_unbound=True, check=check, emit=emit)\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\ami.py\", line 181, in configure\n    raise ValueError(f\"{side}: TS4 requested but model has no Ts4file.\")\nValueError: rx: TS4 requested but model has no Ts4file.\n",
+  "main_invocations": 0,
+  "cancel_observed": false,
+  "cancel_requested": false
+}

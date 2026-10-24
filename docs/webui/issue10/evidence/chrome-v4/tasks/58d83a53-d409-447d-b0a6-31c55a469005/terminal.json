@@ -1,0 +1,10 @@
+{
+  "status": "succeeded",
+  "result": {
+    "opt_id": "58d83a53-d409-447d-b0a6-31c55a469005",
+    "selected_candidate_id": "candidate-000000"
+  },
+  "main_invocations": 0,
+  "cancel_observed": false,
+  "cancel_requested": false
+}

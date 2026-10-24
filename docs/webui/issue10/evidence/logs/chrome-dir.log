@@ -1,0 +1,4 @@
+### Ran Playwright code
+```js
+await page.getByRole('textbox', { name: '本机模型完整目录' }).fill('C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/models/ibisami');
+```

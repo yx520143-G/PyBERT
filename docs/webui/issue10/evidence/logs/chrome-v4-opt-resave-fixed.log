@@ -1,0 +1,17 @@
+### Result
+{"opt_id":"3de6652f-4bf3-42b0-b337-5783194aa2db","status":"succeeded","source_run":"823bfdbb-bc37-40b6-ae56-12e3bf6b3476","selected_record":"opt-ref-f87a3d1b-7a31-4584-a1a8-6fff0bc2ee1c"}
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.waitForFunction(()=>document.getElementById('selected-opt').value.startsWith('opt-ref-')&&JSON.parse(document.getElementById('optimizer-record').textContent||'{}').status==='succeeded');
+  const record=JSON.parse(await page.locator('#optimizer-record').textContent());
+  const download=page.waitForEvent('download');
+  await page.locator('#save-opt').click();
+  await (await download).saveAs('C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/chrome-v4/OPT-tpe4-reopened-resaved.pybert_opt');
+  return {opt_id:record.opt_id,status:record.status,source_run:await page.evaluate(()=>window.PYBERT_RUNS.selected().run_id),selected_record:await page.locator('#selected-opt').inputValue()};
+}
+)(page);
+```
+### Events
+- Downloading file 3de6652f-4bf3-42b0-b337-5783194aa2db.pybert_opt ...
+- Downloaded file 3de6652f-4bf3-42b0-b337-5783194aa2db.pybert_opt to ".playwright-cli\3de6652f-4bf3-42b0-b337-5783194aa2db.pybert-opt"

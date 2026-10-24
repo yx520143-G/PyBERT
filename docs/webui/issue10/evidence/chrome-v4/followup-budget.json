@@ -1,0 +1,14 @@
+{
+  "frozen_before_execution_utc": "2026-10-24T08:40:52Z",
+  "max_new_Main": 1,
+  "Main_fixture": "v4-final/A-PAM4-Native-Init.json unchanged; cancel during actual native Main",
+  "max_new_coopt_tasks": 2,
+  "max_new_objective_evaluations": 5,
+  "coopt_fixtures": [
+    "v4-final/OPT-FIXED.json",
+    "v4-final/OPT-TPE4.json"
+  ],
+  "no_automatic_Use": true,
+  "physical_parameters_unchanged": true,
+  "reason": "Chrome cancellation, explicit Use, Native Reset and archive reopen; no COM or expanded matrix"
+}

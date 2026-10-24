@@ -1,0 +1,269 @@
+{
+  "OPT-FIXED": {
+    "tasks": {
+      "direct": {
+        "task_id": "e653fba2-db3a-4a4b-8248-2893e73c78b4",
+        "operation": "direct_optimization",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792829299.0479593,
+        "request_hash": "86f3ba1be599e1d89afdae3897e1dc9de6f3038b390fa21293dd13b419fdd942",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-160818-OPT-FIXED-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792829303.655554,
+        "exitcode": 0,
+        "finished_at": 1792829303.6555552,
+        "result": {
+          "fom": 1.7130025427217692,
+          "trials": 1,
+          "candidate_metadata": [
+            {
+              "index": 0,
+              "peak_mag": 0.0,
+              "fom": 1.7130025427217692,
+              "ami_values": {
+                "tx": [],
+                "rx": [
+                  0.0,
+                  5000000000.0,
+                  0.0,
+                  12000000000.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.1,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ]
+        },
+        "name": "OPT-FIXED",
+        "peak_rss_bytes": 240549888,
+        "outer_elapsed_s": 4.621347188949585
+      },
+      "worker": {
+        "state": "succeeded",
+        "reused_original": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\docs\\webui\\issue10\\evidence\\numerics-20261024-155041\\OPT-FIXED\\worker",
+        "new_coopt_calls": 0
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 25,
+      "new_helper_axes_checked_against_original_ts": 5,
+      "mismatches": [],
+      "max_absolute_difference": 0.0,
+      "candidate_metadata": "all trial FOM/peak/AMI-values exact"
+    }
+  },
+  "OPT-TPE4": {
+    "tasks": {
+      "direct": {
+        "task_id": "b0a223e7-d9d1-4a37-9ded-e7e327eca965",
+        "operation": "direct_optimization",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792829303.7140765,
+        "request_hash": "86f3ba1be599e1d89afdae3897e1dc9de6f3038b390fa21293dd13b419fdd942",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-160818-OPT-TPE4-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792829308.5069273,
+        "exitcode": 0,
+        "finished_at": 1792829308.506929,
+        "result": {
+          "fom": 4.451971155131284,
+          "trials": 4,
+          "candidate_metadata": [
+            {
+              "index": 0,
+              "peak_mag": 0.0,
+              "fom": 4.451971155131284,
+              "ami_values": {
+                "tx": [],
+                "rx": [
+                  1.0,
+                  5000000000.0,
+                  12.0,
+                  12000000000.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.1,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "index": 1,
+              "peak_mag": 0.0,
+              "fom": 1.5710561532675176,
+              "ami_values": {
+                "tx": [],
+                "rx": [
+                  1.0,
+                  5000000000.0,
+                  0.0,
+                  12000000000.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.1,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "index": 2,
+              "peak_mag": 0.0,
+              "fom": 1.5710561532675176,
+              "ami_values": {
+                "tx": [],
+                "rx": [
+                  1.0,
+                  5000000000.0,
+                  0.0,
+                  12000000000.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.1,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "index": 3,
+              "peak_mag": 0.0,
+              "fom": 1.5710561532675176,
+              "ami_values": {
+                "tx": [],
+                "rx": [
+                  1.0,
+                  5000000000.0,
+                  0.0,
+                  12000000000.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.1,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ]
+        },
+        "name": "OPT-TPE4",
+        "peak_rss_bytes": 241004544,
+        "outer_elapsed_s": 4.79524040222168
+      },
+      "worker": {
+        "state": "succeeded",
+        "reused_original": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\docs\\webui\\issue10\\evidence\\numerics-20261024-155041\\OPT-TPE4\\worker",
+        "new_coopt_calls": 0
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 58,
+      "new_helper_axes_checked_against_original_ts": 20,
+      "mismatches": [],
+      "max_absolute_difference": 0.0,
+      "candidate_metadata": "all trial FOM/peak/AMI-values exact"
+    }
+  }
+}

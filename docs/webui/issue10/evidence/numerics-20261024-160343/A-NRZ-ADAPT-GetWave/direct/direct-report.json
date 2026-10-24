@@ -1,0 +1,38 @@
+{
+  "status": "failed",
+  "error": "'tuple' object has no attribute 'name'",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\tools\\verify_web_ami.py\", line 79, in direct\n    my_run_simulation(p, initial_run=True, update_plots=False, observations=observations, decoding=decoding)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 394, in my_run_simulation\n    param_vals.update(get_numeric_values(AmiName(\"\"), nd))\n                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 381, in get_numeric_values\n    pname_hier = AmiName(prefix + node.name)\n                                  ^^^^^^^^^\nAttributeError: 'tuple' object has no attribute 'name'\n",
+  "elapsed_s": 1.2966086864471436,
+  "main_calls": 1,
+  "helper_calls": 1,
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829028.3950958,
+      "returned": true,
+      "elapsed_s": 0.00020313262939453125
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829028.4517946,
+      "returned": true,
+      "elapsed_s": 0.00044155120849609375
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829028.4523141,
+      "returned": true,
+      "elapsed_s": 0.00018835067749023438
+    },
+    {
+      "method": "AMI_GetWave",
+      "level": "Python wrapper; not individual DLL chunks",
+      "started_at": 1792829028.4526458,
+      "returned": true,
+      "elapsed_s": 0.14553070068359375
+    }
+  ]
+}
