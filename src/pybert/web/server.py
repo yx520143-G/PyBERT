@@ -2,9 +2,10 @@
 
 import json
 import base64
+import time
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from plotly.offline import get_plotlyjs
@@ -13,6 +14,8 @@ from pybert import __version__
 from pybert.web import NATIVE_SHA, NATIVE_IMPORTER_SHA, PROTOTYPE_SHA, SCHEMA_VERSION
 from pybert.web.data import adapter_sha, plot_payload
 from pybert.web.tasks import BusyError, Tasks
+from pybert.web.archive import MAX_FILE_BYTES, save_archive, read_json
+from pybert.web.legacy_results import legacy_report, export_legacy
 
 
 def create_app(tasks=None):
@@ -125,11 +128,91 @@ def create_app(tasks=None):
 
     @app.get("/api/runs/{run_id}")
     def manifest(run_id: str):
-        return json.loads((manager.directory(run_id) / "manifest.json").read_text(encoding="utf-8"))
+        return manager.manifest(run_id)
+
+    @app.post("/api/references", status_code=201)
+    async def open_reference(request: Request, name: str, trusted: bool = False):
+        content = bytearray()
+        async for chunk in request.stream():
+            content.extend(chunk)
+            if len(content) > MAX_FILE_BYTES:
+                raise ValueError("Result file exceeds 256 MiB; existing state retained.")
+        with manager.lock:
+            return manager.references.add(bytes(content), name, trusted)
+
+    @app.post("/api/references/{record_id}/remove")
+    def remove_reference(record_id: str):
+        with manager.lock:
+            manager.references.remove(record_id)
+        return {"removed": record_id}
+
+    @app.get("/api/runs/{run_id}/replay-input")
+    def replay_input(run_id: str):
+        run = manager.manifest(run_id)
+        if run.get("legacy"):
+            raise ValueError("Legacy results contain no complete original inputs/axes; cannot restore a runnable draft.")
+        return {"config": run["requested_input"], "runtime_extensions": run.get("runtime_extensions", {}),
+                "resource_bindings": run.get("resource_bindings", {}), "source_record_id": run_id,
+                "replay_guard": {"version": 1, "source_run_id": run["run_id"], "resource_hash": run.get("resource_hash"),
+                                 "resources": [{key: row.get(key) for key in ("field", "index", "sha256")} for row in run.get("resources", [])]},
+                "expected_resources": [{key: row.get(key) for key in ("field", "index", "sha256", "original_name")} for row in run.get("resources", [])]}
+
+    def subfunction_snapshot(run_id, directory):
+        saved = directory / "archive.json"
+        if saved.exists():
+            return read_json(saved.read_bytes()).get("subfunctions", {})
+        run = manager.manifest(run_id)
+        plan = run.get("execution_strategy", {}).get("deferred_com")
+        linked = [key for key, entry in manager.tasks.items() if entry["data"].get("parent_run_id") == run["run_id"]]
+        if plan and plan["com_id"] not in linked:
+            linked.append(plan["com_id"])
+        records = {}
+        for key in linked:
+            if key not in manager.tasks:
+                records[key] = {"availability": "not available in this session", "planned_id": key}
+                continue
+            task = manager.get(key)
+            files = {}
+            for name in ("com-input.json", "com.json", "terminal.json"):
+                path = manager.tasks[key]["directory"] / name
+                if not task["worker_exited"]:
+                    files[name] = {"availability": "waiting_for_exit"}
+                elif not path.exists():
+                    files[name] = {"availability": "not_produced"}
+                else:
+                    try:
+                        record = read_json(path.read_bytes())
+                        if name != "terminal.json" and record.get("com_id") != key:
+                            raise ValueError("identity mismatch")
+                        files[name] = {"availability": "available", "record": record}
+                    except (ValueError, OSError) as err:
+                        files[name] = {"availability": "unreadable", "reason": str(err)}
+            records[key] = {"availability": "captured", "task": task, "files": files}
+        return {"captured_at": time.time(), "linked_tasks": records, "policy": "snapshot at save; no calculation, no parent mutation"}
+
+    @app.get("/api/runs/{run_id}/archive")
+    def archive(run_id: str):
+        with manager.lock:
+            directory = manager.directory(run_id)
+            target = directory / "export.pybert_run"
+            save_archive(directory, target, subfunction_snapshot(run_id, directory))
+        return FileResponse(target, filename=f"{run_id}.pybert_run")
+
+    @app.get("/api/runs/{run_id}/legacy-report")
+    def legacy_status(run_id: str):
+        return legacy_report(manager.directory(run_id))
+
+    @app.get("/api/runs/{run_id}/legacy")
+    def legacy_save(run_id: str):
+        with manager.lock:
+            directory = manager.directory(run_id)
+            target = directory / "export.pybert_data"
+            export_legacy(directory, target)
+        return FileResponse(target, filename=f"{run_id}.pybert_data")
 
     @app.get("/api/runs/{run_id}/plots/{plot_id}")
     def plot(run_id: str, plot_id: str):
-        return plot_payload(manager.directory(run_id), plot_id)
+        return {**plot_payload(manager.directory(run_id), plot_id), "record_id": run_id}
 
     @app.get("/api/runs/{run_id}/raw")
     def raw(run_id: str):

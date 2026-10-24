@@ -1,0 +1,14 @@
+### Ran Playwright code
+```js
+await fileChooser.setFiles(["C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\docs\\webui\\issue5\\evidence\\saved-roundtrip-20261024-104338\\local\\issue4-PAM4.pybert_run"])
+```
+### Page
+- Page URL: http://127.0.0.1:8770/#channel
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 1 errors, 0 warnings
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T02-46-02-827Z.yml)
+### Events
+- New console entries: .playwright-cli\console-2026-10-24T02-28-39-832Z.log#L7
+- Downloading file ref-5f0a27a4-7f78-482b-84b0-01a1f33230b4.pybert_run ...
+- Downloaded file ref-5f0a27a4-7f78-482b-84b0-01a1f33230b4.pybert_run to ".playwright-cli\ref-5f0a27a4-7f78-482b-84b0-01a1f33230b4.pybert-run"

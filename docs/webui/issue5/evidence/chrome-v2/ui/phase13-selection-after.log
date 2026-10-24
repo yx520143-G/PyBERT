@@ -1,0 +1,19 @@
+### Result
+{"storageBefore":"{\"record_id\":\"ref-40609b52-7c58-4240-8a66-f93361032b1a\"}","after":{"storage":"{\"record_id\":\"ref-40609b52-7c58-4240-8a66-f93361032b1a\"}","message":"原记录 ref-40609b52-7c58-4240-8a66-f93361032b1a 当前不可用（服务重启、缓存淘汰或参考移除）；请重新打开已保存archive。"},"state":{"active_task_id":"3b8a0f2d-59da-40f5-a578-72a8012c5efa","current_task_id":"3b8a0f2d-59da-40f5-a578-72a8012c5efa","runs":[],"com_tasks":[],"resources":[],"references":[],"result_budget":{"temporary_runs":2,"temporary_policy":"oldest temporary success evicted; save archive to retain","temporary_array_bytes_per_record":805306368,"reference_records":4,"reference_array_bytes":1073741824,"reference_used_bytes":0,"temporary_file_bytes":0}},"main_calls":0,"COM_calls":0}
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.waitForFunction(()=>document.querySelector('#results-status').textContent.includes('当前不可用'));
+  const storageBefore=await page.evaluate(()=>localStorage.getItem('pybert-result-selection-v1'));
+  await page.reload();await page.waitForFunction(()=>document.querySelector('#results-status').textContent.includes('当前不可用'));
+  const after=await page.evaluate(()=>({storage:localStorage.getItem('pybert-result-selection-v1'),message:document.querySelector('#results-status').textContent,selected:window.PYBERT_RUNS.selected()?.record_id}));
+  if(storageBefore!==after.storage || after.selected)throw new Error('Restart lost unavailable identity or invented a result');
+  await page.locator('#result-actions').scrollIntoViewIfNeeded();await page.screenshot({path:'output/playwright/24-restart-reload-unavailable-confirmed.png'});
+  const state=await (await page.request.get('http://127.0.0.1:8770/api/state')).json();
+  if(state.runs.length || state.references.length || state.com_tasks.length || state.resources.length)throw new Error('Restart restored unavailable records');
+  return {storageBefore,after,state,main_calls:0,COM_calls:0};
+}
+)(page);
+```
+### Events
+- New console entries: .playwright-cli\console-2026-10-24T02-28-39-832Z.log#L21-L24

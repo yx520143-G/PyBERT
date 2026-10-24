@@ -1,0 +1,19 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-issue5-archive\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 4 items
+
+tests/test_command_line.py::test_cli_version PASSED                      [ 25%]
+tests/test_mcp.py::test_get_set_config_round_trip PASSED                 [ 50%]
+tests/test_mcp.py::test_set_config_rejects_unknown_key PASSED            [ 75%]
+tests/test_mcp.py::test_build_server_registers_all_tools PASSED          [100%]
+
+- generated xml file: C:\Users\yx\.codex\worktrees\pybert-issue5-archive\serial-bus-simulator\docs\webui\issue5\evidence\compatibility-v1.xml -
+============================= slowest 3 durations =============================
+1.56s call     tests/test_mcp.py::test_build_server_registers_all_tools
+0.23s call     tests/test_mcp.py::test_get_set_config_round_trip
+0.05s call     tests/test_mcp.py::test_set_config_rejects_unknown_key
+======================= 4 passed, 35 warnings in 2.08s ========================

@@ -1,0 +1,12 @@
+{
+  "before_cancel_main_computation": true,
+  "successful_main_runs_already_performed": 2,
+  "successful_main_runs_not_repeated": true,
+  "parent": "chrome-source-adjustment-v3.json",
+  "HEAD": "e59dce9c383f1332cd53a3f55a2bbbab12f12585",
+  "reason": "Native readonly peak_mag_tune is Float 1.7 while prototype unavailable placeholder is text; repair explicit known type and retained old mismatch. Initial cancel harness was blocked locally, no third main/task created. Native inputs/resources/windows/tolerances/producer unchanged.",
+  "actual_sources": {
+    "src/pybert/web/static/draft.js": "37b9a39ff0a62897d009ec9b43e80ce71b3b9d2fccb5c4e72f524a986959d976",
+    "tools/verify_web_draft.cjs": "193e449f78187de2a12799fcd239bd382097f371154da131055ad94988456bf6"
+  }
+}

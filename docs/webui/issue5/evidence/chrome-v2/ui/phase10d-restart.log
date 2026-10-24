@@ -1,0 +1,29 @@
+### Result
+{"unavailable":"原记录 ref-9c8c46a8-e58a-495f-9452-e47144217f94 当前不可用（服务重启、缓存淘汰或参考移除）；未保存的临时结果无法恢复，请重新打开已保存archive。","grids":[{"x":[-200,200],"y":[-0.41459369817578773,0.41376451077943616],"shape":[1000,64]},{"x":[-100,100],"y":[-0.3837298541826554,0.3829623944742901],"shape":[1000,64]}],"state":{"active_task_id":"92864978-102d-49ee-a724-a52bf9316bde","current_task_id":"92864978-102d-49ee-a724-a52bf9316bde","runs":[],"com_tasks":[],"resources":[],"references":[{"record_id":"ref-676f44c4-a197-4d63-bf10-5e85f60878b4","run_id":"573aed1e-b3b5-4977-8d6b-a482b94fdd2a","kind":"archive","name":"NRZ-real.pybert_run","source_sha256":"4d25f353778083cc7c231a013ddb64dfd98f7136576e1725b62c09c4bd68dd39","array_bytes":77768588,"file_bytes":46045505},{"record_id":"ref-40609b52-7c58-4240-8a66-f93361032b1a","run_id":"c4532a94-3702-44e9-9869-106b3198cf79","kind":"archive","name":"PAM4-real.pybert_run","source_sha256":"6b09fd82f760f7233396aa7919e30b6e028d18960fa86748828165bdff36f70a","array_bytes":42194684,"file_bytes":24574311}],"result_budget":{"temporary_runs":2,"temporary_policy":"oldest temporary success evicted; save archive to retain","temporary_array_bytes_per_record":805306368,"reference_records":4,"reference_array_bytes":1073741824,"reference_used_bytes":119963272,"temporary_file_bytes":0}},"draft_unchanged":true,"main_calls":0,"COM_calls":0}
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.waitForFunction(()=>document.querySelector('#results-status').textContent.includes('当前不可用'));
+  const unavailable=await page.locator('#results-status').textContent();
+  await page.locator('#result-actions').scrollIntoViewIfNeeded();await page.screenshot({path:'output/playwright/17-restart-unavailable.png'});
+  await page.reload();await page.waitForFunction(()=>window.PYBERT_RUNS && window.PYBERT_WORKBENCH);
+  const draft=await page.evaluate(()=>JSON.stringify(window.PYBERT_WORKBENCH.getDraft()));
+  for(const name of ['NRZ','PAM4']) {
+    await page.locator('#results-file').setInputFiles(`C:/Users/yx/.codex/worktrees/pybert-issue5-archive/serial-bus-simulator/output/playwright/${name}-real.pybert_run`);
+    await page.waitForFunction(name=>window.PYBERT_RUNS.selected()?.effective_input.mod_type===(name==='NRZ'?'NRZ':'PAM-4') && document.querySelector('#results-file').value==='',name);
+  }
+  const refs=await page.evaluate(()=>window.PYBERT_RUNS.references());
+  await page.locator('#comparison-run').selectOption(refs[0].record_id);
+  await page.locator('#analysis-kind').selectOption('eye');await page.locator('#analysis-point').selectOption('dfe');await page.locator('#compare-mode').selectOption('runs');
+  await page.waitForFunction(()=>document.querySelector('#plot').data?.length===2 && document.querySelector('#plot').data[0].type==='heatmap');
+  const grids=await page.evaluate(()=>document.querySelector('#plot').data.map(t=>({x:[t.x[0],t.x.at(-1)],y:[t.y[0],t.y.at(-1)],shape:[t.z.length,t.z[0].length]})));
+  await page.locator('#analysis').scrollIntoViewIfNeeded();await page.screenshot({path:'output/playwright/18-reopened-after-restart.png'});
+  await page.waitForFunction(async()=>!(await (await fetch('/api/state')).json()).active_task_id);
+  const state=await (await page.request.get('http://127.0.0.1:8770/api/state')).json();
+  if(state.runs.length || state.com_tasks.length || state.resources.length || state.references.length!==2 || draft!==await page.evaluate(()=>JSON.stringify(window.PYBERT_WORKBENCH.getDraft())))throw new Error('Reopen changed draft or started main/COM');
+  return {unavailable,grids,state,draft_unchanged:true,main_calls:0,COM_calls:0};
+}
+)(page);
+```
+### Events
+- New console entries: .playwright-cli\console-2026-10-24T02-28-39-832Z.log#L17-L20

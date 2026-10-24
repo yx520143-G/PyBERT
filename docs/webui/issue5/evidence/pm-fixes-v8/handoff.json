@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-24T04:07:10.789467+00:00",
+  "product_head": "fb97265b6bb3f13a0bea49980f8da0f506c43168",
+  "service_pid": 35428,
+  "service_port": 8772,
+  "service_stopped": true,
+  "Chrome_closed": "pybert-issue5-pm-v8",
+  "new_tasks": {
+    "normalize": 5,
+    "all_worker_exited": true
+  },
+  "this_revision_main_calls": 0,
+  "this_revision_COM_calls": 0,
+  "cumulative_main_calls": 3,
+  "cumulative_main_successes": 2,
+  "cumulative_main_cancelled": 1,
+  "cumulative_preflight_failed_tasks": 1,
+  "cumulative_COM_calls": 0,
+  "default_COM_gate": "BLOCKED_BUDGET / NOT_EXECUTED",
+  "implementation_stopped": true,
+  "ownership": "returning to PM fixed delivery review",
+  "old_evidence_preserved": true
+}

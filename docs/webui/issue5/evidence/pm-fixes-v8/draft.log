@@ -1,0 +1,1 @@
+PASS: actual PR7 storage-key migration, v1→v2 stable fields, catalog order independence, retained values, unknown schema/invalid JSON refusal without overwrite.

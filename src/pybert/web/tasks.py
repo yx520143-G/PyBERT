@@ -8,11 +8,16 @@ import tempfile
 import threading
 import time
 import uuid
+import math
 from pathlib import Path
+
+import numpy as np
 
 from pybert.web.worker import run_worker
 from pybert.web.resources import Resources
 from pybert.web.config import input_hash, yaml_text, unresolved_references
+from pybert.web.records import References, verify_replay_resources
+from pybert.web.archive import MAX_ARRAY_BYTES
 
 
 class BusyError(RuntimeError):
@@ -33,6 +38,7 @@ class Tasks:
         self.defaults = None
         self.resources = Resources(self.root / "resources")
         self.coms = []
+        self.references = References(self.root / "references")
 
     def start(self, operation, request, task_id=None, cancel_requested=False):
         with self.lock:
@@ -42,8 +48,19 @@ class Tasks:
             task_id = task_id or str(uuid.uuid4())
             if operation == "run":
                 rows = self.resources.for_run(request["config"], request.get("resource_bindings", {}))
+                source = request.get("replay_guard")
+                if source is not None and (not isinstance(source, dict) or source.get("version") != 1 or not isinstance(source.get("resources"), list)):
+                    raise ValueError("Unknown or incomplete replay resource guard; no defaults substituted.")
+                if source is None and request.get("source_record_id"):
+                    source = self.manifest(request["source_record_id"])
+                    if source.get("legacy"):
+                        raise ValueError("Legacy has no complete input/resource evidence; cannot rerun it.")
+                if source is not None:
+                    verify_replay_resources(source, rows)
                 request["frozen_resources"] = rows
                 request["resource_hash"] = input_hash([{k: row[k] for k in ("field", "index", "sha256")} for row in rows])
+                if source and source.get("resource_hash") and source["resource_hash"] != request["resource_hash"]:
+                    raise ValueError("Saved run resource identity changed, including its COM configuration; bind original content before Run.")
                 if request["config"]["enable_com"]:
                     request["deferred_com"] = {"com_id": str(uuid.uuid4()), "parent_run_id": task_id}
             elif operation == "com" and "frozen_resources" not in request:
@@ -159,12 +176,17 @@ class Tasks:
                     task.update(state="failed", phase="failed", error="Missing result manifest.")
                 else:
                     manifest = json.loads(path.read_text(encoding="utf-8"))
+                    size = sum(math.prod(row["shape"]) * np.dtype(row["dtype"]).itemsize for row in manifest.get("datasets", {}).values())
+                    if size > MAX_ARRAY_BYTES:
+                        task.update(state="failed", phase="failed", error="Completed arrays exceed the 768 MiB per-record cache budget; previous successes retained.")
                     manifest["logs"] = list(task["logs"])
+                    manifest["lifecycle"] = {key: task[key] for key in ("created_at", "finished_at", "state", "exitcode", "worker_exited")}
                     manifest["cancellation"] = {
                         k: task[k] for k in ("cancel_requested", "cancel_observed", "worker_exited", "cancel_requested_at", "cancel_observed_at", "worker_exit_confirmed_at")
                     }
                     path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
-                    self.runs.append(task_id)
+                    if task["state"] == "succeeded":
+                        self.runs.append(task_id)
                     while len(self.runs) > 2:
                         old = self.runs.pop(0)
                         self._remove_directory(self.tasks[old]["directory"])
@@ -247,9 +269,17 @@ class Tasks:
 
     def directory(self, run_id):
         with self.lock:
+            if run_id in self.references.items:
+                return self.references.directory(run_id)
             if run_id not in self.runs:
                 raise KeyError("Run unavailable (temporary cache or service restarted).")
             return self.tasks[run_id]["directory"]
+
+    def manifest(self, record_id):
+        with self.lock:
+            if record_id in self.references.items:
+                return self.references.manifest(record_id)
+            return {**json.loads((self.directory(record_id) / "manifest.json").read_text(encoding="utf-8")), "record_id": record_id, "kind": "temporary"}
 
     def index(self):
         with self.lock:
@@ -262,4 +292,10 @@ class Tasks:
                 ],
                 "com_tasks": [copy.deepcopy(entry["data"]) for entry in self.tasks.values() if entry["data"]["operation"] == "com"],
                 "resources": list(copy.deepcopy(self.resources.items).values()),
+                "references": self.references.index(),
+                "result_budget": {"temporary_runs": 2, "temporary_policy": "oldest temporary success evicted; save archive to retain",
+                                  "temporary_array_bytes_per_record": MAX_ARRAY_BYTES,
+                                  "reference_records": 4, "reference_array_bytes": 1024**3,
+                                  "reference_used_bytes": sum(row["array_bytes"] for row in self.references.index()),
+                                  "temporary_file_bytes": sum((self.directory(r) / "arrays.npz").stat().st_size for r in self.runs)},
             }

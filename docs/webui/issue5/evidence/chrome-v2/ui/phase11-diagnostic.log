@@ -1,0 +1,9 @@
+### Result
+"{\"selected\":\"c3cadfdc-13e8-4ed9-bee3-b3b11462cd96\",\"input\":\"DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it.\",\"status\":\"com a803f4ca · running · native COM helper (cancellation observed after return)\",\"results\":\"已向浏览器交付 c3cadfdc-13e8-4ed9-bee3-b3b11462cd96.pybert_run；完成状态见下载面板，未确认覆盖本地文件。\"}"
+### Ran Playwright code
+```js
+await page.evaluate('() => (JSON.stringify({selected:window.PYBERT_RUNS?.selected()?.run_id,input:document.querySelector("#input-status").textContent,status:document.querySelector("#task-state").textContent,results:document.querySelector("#results-status").textContent}))');
+```
+### Events
+- Downloading file c3cadfdc-13e8-4ed9-bee3-b3b11462cd96.pybert_run ...
+- Downloaded file c3cadfdc-13e8-4ed9-bee3-b3b11462cd96.pybert_run to ".playwright-cli\c3cadfdc-13e8-4ed9-bee3-b3b11462cd96.pybert-run"

@@ -1,0 +1,35 @@
+### Result
+{
+  "status": "已加载 NRZ-real.pybert_run · record ref-53b613c0-cc47-48f2-a094-c17f331ec7f0 · source 573aed1e-b3b5-4977-8d6b-a482b94fdd2a；草稿未改，未Run。",
+  "refs": [
+    {
+      "kind": "archive",
+      "id": "ref-54cd1422-f89f-4c3d-9d69-1c67fbdd95c2"
+    },
+    {
+      "kind": "legacy",
+      "id": "ref-772de2a8-ab8e-41e1-92b9-ba1c663d1e4c"
+    },
+    {
+      "kind": "archive",
+      "id": "ref-53b613c0-cc47-48f2-a094-c17f331ec7f0"
+    }
+  ],
+  "selected": "archive",
+  "analysis": "response",
+  "compare": "runs",
+  "dialog": false,
+  "plot": "Legacy无物理轴，禁止与其他记录叠加；请单独查看index诊断。"
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => ({status:document.querySelector(\'#results-status\').textContent,refs:window.PYBERT_RUNS.references().map(r=>({kind:r.kind,id:r.record_id})),selected:window.PYBERT_RUNS.selected()?.kind,analysis:document.querySelector(\'#analysis-kind\').value,compare:document.querySelector(\'#compare-mode\').value,dialog:document.querySelector(\'#legacy-dialog\').open,plot:document.querySelector(\'#plot\').textContent.slice(0,100),title:document.querySelector(\'#plot\').layout?.xaxis?.title?.text})');
+```
+### Page
+- Page URL: http://127.0.0.1:8770/#channel
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 3 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-10-24T02-28-39-832Z.log#L8-L10
+- Downloading file ref-772de2a8-ab8e-41e1-92b9-ba1c663d1e4c.legacy-sidecar.json ...
+- Downloaded file ref-772de2a8-ab8e-41e1-92b9-ba1c663d1e4c.legacy-sidecar.json to ".playwright-cli\ref-772de2a8-ab8e-41e1-92b9-ba1c663d1e4c-legacy-sidecar.json"

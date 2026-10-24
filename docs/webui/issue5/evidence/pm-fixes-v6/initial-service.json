@@ -1,0 +1,14 @@
+{
+  "initial_service_observer_requests": [
+    {
+      "task_id": "d37697a2-1da2-4184-ac2c-30f62fc6f299",
+      "request_mode": "defaults",
+      "status": "succeeded",
+      "request_sha256": "43b137014adf839674829df71cfdba9a7fa4d5643a7193affe7680277cdb80df",
+      "terminal_sha256": "04bcd0973076376a06e4f327cd7f70f61da8944aad4e0e346281e209b5bd6a0b"
+    }
+  ],
+  "main_calls": 0,
+  "COM_calls": 0,
+  "later_service_normalize_tasks": 15
+}

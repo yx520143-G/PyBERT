@@ -1,0 +1,30 @@
+async (page) => {
+  await page.waitForFunction(()=>window.PYBERT_RUNS && !document.querySelector('#run').disabled);
+  const before=await page.evaluate(()=>JSON.stringify(window.PYBERT_WORKBENCH.getDraft()));
+  const chooser=page.waitForEvent('filechooser');
+  await page.getByRole('button',{name:'打开结果 / 加入比较',exact:true}).click();
+  await (await chooser).setFiles('C:/Users/yx/.codex/worktrees/pybert-issue5-archive/serial-bus-simulator/docs/webui/issue5/evidence/saved-roundtrip-20261024-104338/local/issue4-PAM4.pybert_run');
+  await page.waitForFunction(()=>window.PYBERT_RUNS.selected()?.kind==='archive');
+  const unchanged=await page.evaluate(previous=>JSON.stringify(window.PYBERT_WORKBENCH.getDraft())===previous,before);
+  if(!unchanged) throw new Error('Opening archive changed draft');
+  await page.locator('#analysis-point').selectOption('dfe');await page.locator('#analysis-kind').selectOption('eye');
+  await page.waitForFunction(()=>document.querySelector('#plot').data?.[0]?.type==='heatmap');
+  await page.locator('#expand-viewer').click();
+  await page.waitForFunction(()=>document.querySelector('#plot').data?.[0]?.type==='heatmap');
+  await page.screenshot({path:'output/playwright/02-fixed-archive-eye-no-resource.png'});
+  const state=await (await page.request.get('http://127.0.0.1:8770/api/state')).json();
+  if(state.resources.length || state.runs.length) throw new Error('Unexpected resources/main runs before archive view');
+  const saved=page.waitForEvent('download');await page.locator('#save-results').click();await (await saved).saveAs('output/playwright/loaded-pam4-export.pybert_run');
+  await page.locator('#restore-run-input').click();
+  await page.waitForFunction(()=>window.PYBERT_WORKBENCH.getDraft().mod_type==='PAM-4' && document.querySelector('#results-status').textContent.includes('已恢复原requested'));
+  const guard=await page.evaluate(()=>JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')).replay_guard);
+  await page.locator('#clear-references').click();await page.waitForFunction(()=>window.PYBERT_RUNS.references().length===0);
+  if(await page.evaluate(()=>window.PYBERT_WORKBENCH.getDraft().mod_type)!=='PAM-4') throw new Error('Clear altered restored draft');
+  await page.locator('#run').click();
+  await page.waitForFunction(()=>document.querySelector('#input-status').textContent.includes('unbound/unavailable'));
+  await page.screenshot({path:'output/playwright/03-missing-resource-no-fallback.png'});
+  const after=await (await page.request.get('http://127.0.0.1:8770/api/state')).json();
+  if(after.runs.length || after.active_task_id) throw new Error('Missing resources started a main task');
+  await page.getByRole('button',{name:'Channel',exact:true}).click();
+  return {draft_unchanged_on_open:unchanged,view_without_resource:true,replay_guard:guard,clear_preserved_draft:true,missing_resource_status:await page.locator('#input-status').innerText(),successful_runs:after.runs.length,COM_tasks:after.com_tasks.length,viewport:await page.evaluate(()=>[innerWidth,innerHeight]),native_snapshot:await page.evaluate(()=>JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')))};
+}

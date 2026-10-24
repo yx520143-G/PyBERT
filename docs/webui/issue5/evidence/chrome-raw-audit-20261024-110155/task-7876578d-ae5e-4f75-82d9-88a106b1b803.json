@@ -1,0 +1,46 @@
+{
+  "task_id": "7876578d-ae5e-4f75-82d9-88a106b1b803",
+  "operation": "run",
+  "state": "cancelled",
+  "phase": "cancelled",
+  "cancel_requested": true,
+  "cancel_requested_at": 1792810589.848893,
+  "cancel_observed_at": 1792810590.5412567,
+  "cancel_observed": true,
+  "worker_exited": true,
+  "logs": [
+    "[2026-10-24 02:56:28.511723+00:00]: PyBERT: 2-Port Network: 's2p_interp',  0.0-40000000000.0 Hz, 4001 pts, z0=[100.+0.j 100.+0.j]"
+  ],
+  "created_at": 1792810584.9843462,
+  "request_hash": "802e0975c5691ff8c91a13ebd97fbc0615220e4da0de2d404c157facd52e44c3",
+  "parent_run_id": null,
+  "resource_inputs": [
+    {
+      "resource_id": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p",
+      "original_name": "example2_THRU.s4p",
+      "format": ".s4p",
+      "bytes": 2454034,
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde",
+      "source": {
+        "kind": "browser_upload"
+      },
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "pending task validation",
+      "intended_uses": [
+        "channel",
+        "COM THRU"
+      ],
+      "field": "ch_file",
+      "index": null,
+      "reference": "example2_THRU.s4p",
+      "worker_path": "docs\\webui\\issue5\\evidence\\chrome-v2\\local\\service\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"
+    }
+  ],
+  "parameter_source": null,
+  "worker_exit_confirmed_at": 1792810590.7556348,
+  "exitcode": 0,
+  "finished_at": 1792810590.7556355,
+  "error": "Simulation aborted by User.",
+  "error_type": "RuntimeError",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 94, in run_worker\n    my_run_simulation(\n    ~~~~~~~~~~~~~~~~~^\n        p, initial_run=True, update_plots=False, aborted_sim=cancelled, observations=observations\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 666, in my_run_simulation\n    _check_sim_status()\n    ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 120, in _check_sim_status\n    raise RuntimeError(\"Simulation aborted by User.\")\nRuntimeError: Simulation aborted by User.\n"
+}

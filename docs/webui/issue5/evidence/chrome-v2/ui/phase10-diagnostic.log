@@ -1,0 +1,9 @@
+### Result
+"{\"status\":\"\",\"task\":\"normalize 6876612a · succeeded · succeeded\",\"storage\":\"{}\"}"
+### Ran Playwright code
+```js
+await page.evaluate('() => (JSON.stringify({status:document.querySelector("#results-status").textContent,task:document.querySelector("#task-state").textContent,selected:window.PYBERT_RUNS.selected()?.run_id,storage:localStorage.getItem("pybert-result-selection-v1")}))');
+```
+### Page
+- Page URL: http://127.0.0.1:8770/#channel
+- Page Title: PyBERT · Signal Chain Workbench

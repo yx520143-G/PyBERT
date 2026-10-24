@@ -1,0 +1,39 @@
+### Result
+{
+  "retained": {},
+  "tableInfo": {
+    "title": "Tx FFE 搜索空间",
+    "stage": "optimizer",
+    "columns": [
+      "enabled",
+      "min_val",
+      "max_val",
+      "step",
+      "value"
+    ],
+    "note": "这是 Optimizer 的搜索设置。Value 在原 GUI 可编辑，与 Tx EQ 的实际权重分开保存。",
+    "readonly": [
+      "value"
+    ]
+  },
+  "columns": {
+    "title": "Rx FFE 搜索范围",
+    "stage": "rxffe",
+    "columns": [
+      "enabled",
+      "min_val",
+      "max_val",
+      "step",
+      "value"
+    ],
+    "readonly": [
+      "enabled",
+      "value"
+    ],
+    "note": "完整显示 100 个槽位。Enabled 只读并随 Ntaps 更新；Value 是只读优化结果，当前未提供。"
+  }
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => ({retained:JSON.parse(localStorage.getItem(\'pybert-native-draft-v2\')).retained_fields,tableInfo:window.PYBERT_SETTINGS.tableInfo.tx_tap_tuners,columns:window.PYBERT_SETTINGS.tableInfo.ffe_tap_tuners})');
+```

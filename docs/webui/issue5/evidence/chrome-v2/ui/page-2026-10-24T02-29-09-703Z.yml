@@ -1,0 +1,297 @@
+- generic [ref=e1]:
+  - link "跳到参数详情" [ref=e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=e3]:
+    - link "PyBERT 数据源" [ref=e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=e8]:
+        - strong [ref=e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=e10]:
+      - text: 模块目录
+      - generic [ref=e11]: 16 MODULES
+    - navigation "选择模块" [ref=e12]:
+      - generic [ref=e276]:
+        - heading "主信号链" [level=2] [ref=e277]
+        - button "Source" [ref=e278] [cursor=pointer]
+        - button "Tx EQ" [ref=e280] [cursor=pointer]
+        - button "Channel" [ref=e282] [cursor=pointer]
+        - button "Noise" [ref=e284] [cursor=pointer]
+        - button "Rx CTLE" [ref=e286] [cursor=pointer]
+        - button "Rx FFE" [ref=e288] [cursor=pointer]
+        - button "DFE / Slicer" [ref=e290] [cursor=pointer]
+        - button "Observe" [ref=e292] [cursor=pointer]
+      - generic [ref=e294]:
+        - heading "控制与判决旁支" [level=2] [ref=e295]
+        - button "CDR" [ref=e296] [cursor=pointer]
+        - button "AGC" [ref=e298] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=e300] [cursor=pointer]
+      - generic [ref=e302]:
+        - heading "全局设置与工具" [level=2] [ref=e303]
+        - button "Simulation" [ref=e304] [cursor=pointer]
+        - button "Device models" [ref=e306] [cursor=pointer]
+        - button "IBIS-AMI" [ref=e308] [cursor=pointer]
+        - button "Optimizer" [ref=e310] [cursor=pointer]
+        - button "COM" [ref=e312] [cursor=pointer]
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - searchbox "搜索所有模块和参数" [ref=e62]
+          - generic [aria-hidden] [ref=e63]: /
+        - status [ref=e64]:
+          - strong [ref=e314]: 草稿已保留
+          - generic [ref=e315]: 源码默认配置
+        - button "恢复全部默认" [ref=e67] [cursor=pointer]
+    - generic [ref=e68]:
+      - button "Run" [ref=e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=e70]
+      - status [ref=e71]: normalize c53e3cad · succeeded · succeeded
+      - generic [ref=e72]: Untitled
+      - button "Load Config" [ref=e73] [cursor=pointer]
+      - button "资源 / COM" [ref=e74] [cursor=pointer]
+      - button "Save" [ref=e75] [cursor=pointer]
+      - button "Save As…" [ref=e76] [cursor=pointer]
+      - button "Help / About" [ref=e77] [cursor=pointer]
+      - button "Disconnect" [ref=e78] [cursor=pointer]
+    - status [ref=e79]: "DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it."
+    - status [ref=e80]
+    - status "run_id=0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07; com_id=none" [ref=e447]: 外部参考 ref-b9822547-7cd8-4d9d-b0f4-cb8579d40da7 · 原run 0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07 · 完整存档；子任务仅显示保存时快照，见概览。
+    - generic [ref=e82]:
+      - button "打开结果 / 加入比较" [active] [ref=e83] [cursor=pointer]
+      - generic [ref=e84]:
+        - checkbox "我选择的是可信本机 legacy pickle（可执行代码）" [ref=e85]
+        - text: 我选择的是可信本机 legacy pickle（可执行代码）
+      - button "保存所选结果" [ref=e86] [cursor=pointer]
+      - button "原生保存 / 损失清单" [ref=e87] [cursor=pointer]
+      - button "恢复所选输入到草稿" [ref=e88] [cursor=pointer]
+      - button "移除所选参考" [ref=e89] [cursor=pointer]
+      - button "清除加载的参考" [ref=e90] [cursor=pointer]
+    - status [ref=e91]: 已加载 issue4-PAM4.pybert_run · record ref-b9822547-7cd8-4d9d-b0f4-cb8579d40da7 · source 0b1ae84c-dfcc-4f31-b11e-6d0ed516ec07；草稿未改，未Run。
+    - generic [ref=e92]: 临时成功缓存 0/2 · 0 bytes（第三次成功淘汰最旧临时记录）；参考 1/4 · 42194684/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。
+    - main [ref=e93]:
+      - group [ref=e94]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=e95] [cursor=pointer]
+      - region "链路总览" [ref=e96]:
+        - generic "切换实现图示" [ref=e97]:
+          - generic [ref=e98]: 实现方案
+          - generic [ref=e99]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=e100] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e101]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=e102] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e103]:
+            - checkbox "请求模型时钟" [disabled] [ref=e104]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=e105] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=e106]:
+          - generic [ref=e107]:
+            - generic [ref=e316]:
+              - button "Source：NRZ · PRBS-7，查看设置" [ref=e317] [cursor=pointer]:
+                - strong [ref=e318]: Source
+                - generic [ref=e319]: NRZ · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=e321] [cursor=pointer]:
+                - strong [ref=e322]: Tx EQ
+                - generic [ref=e323]: Native FFE
+              - button "Channel：Native · 两端电气，查看设置" [ref=e325] [cursor=pointer]:
+                - strong [ref=e326]: Channel
+                - generic [ref=e327]: Native · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=e329] [cursor=pointer]:
+                - strong [ref=e330]: Noise
+                - generic [ref=e331]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=e333] [cursor=pointer]:
+                - strong [ref=e334]: Rx CTLE
+                - generic [ref=e335]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=e337] [cursor=pointer]:
+                - strong [ref=e338]: Rx FFE
+                - generic [ref=e339]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=e341] [cursor=pointer]:
+                - strong [ref=e342]: DFE / Slicer
+                - generic [ref=e343]: 自适应反馈 / 判决
+            - generic [ref=e344]:
+              - button "Device models" [ref=e346] [cursor=pointer]
+              - button "Observe" [ref=e348] [cursor=pointer]
+              - generic [ref=e349]:
+                - button "CDR" [ref=e350] [cursor=pointer]
+                - button "AGC" [ref=e351] [cursor=pointer]
+                - button "↗ Viterbi" [ref=e352] [cursor=pointer]
+        - status [ref=e145]:
+          - generic [aria-hidden] [ref=e353]: i
+          - generic [ref=e354]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=e148]:
+        - region [ref=e149]:
+          - heading "数据源与调制Source" [level=2] [ref=e357]
+          - generic [ref=e154]:
+            - tablist "模块详情" [ref=e155]:
+              - tab "设置" [selected] [ref=e156] [cursor=pointer]
+              - tab "参数说明 6" [ref=e157] [cursor=pointer]:
+                - text: 参数说明
+                - generic [ref=e158]: "6"
+              - tab "实现映射 3" [ref=e159] [cursor=pointer]:
+                - text: 实现映射
+                - generic [ref=e160]: "3"
+            - button "恢复本模块默认" [ref=e161] [cursor=pointer]
+          - tabpanel "设置" [ref=e162]:
+            - generic [ref=e358]:
+              - generic [ref=e359]:
+                - heading "速率与调制" [level=3] [ref=e360]
+                - generic [ref=e361]: 本地草稿
+              - generic [ref=e362]:
+                - generic [ref=e363]:
+                  - generic [ref=e364]: Modulation · 调制
+                  - radiogroup "Modulation · 调制" [ref=e366]:
+                    - generic [ref=e367] [cursor=pointer]:
+                      - radio "Modulation · 调制 NRZ 二电平调制" [checked] [ref=e368]
+                      - strong [ref=e369]: NRZ
+                      - generic [ref=e370]: 二电平调制
+                    - generic [ref=e371] [cursor=pointer]:
+                      - radio "PAM-4 四电平调制" [ref=e372]
+                      - strong [ref=e373]: PAM-4
+                      - generic [ref=e374]: 四电平调制
+                    - generic [ref=e375] [cursor=pointer]:
+                      - radio "Duo-binary 相关编码" [ref=e376]
+                      - strong [ref=e377]: Duo-binary
+                      - generic [ref=e378]: 相关编码
+                  - paragraph [ref=e379]: 选择符号电平与编码方式。
+                  - generic [ref=e380]:
+                    - code [ref=e381]: mod_type
+                    - generic [ref=e382]: 默认 NRZ
+                  - text: ↳
+                  - group [ref=e383]:
+                    - generic "范围与来源" [ref=e384] [cursor=pointer]
+                - generic [ref=e385]:
+                  - generic [ref=e386]: Bit Rate · 比特率
+                  - generic [ref=e388]:
+                    - spinbutton "Bit Rate · 比特率" [ref=e389]: "10"
+                    - generic [ref=e390]: Gbps
+                  - paragraph [ref=e391]: 普通 PAM-4 每个符号承载 2 bit，符号率是比特率的一半。
+                  - generic [ref=e392]:
+                    - code [ref=e393]: bit_rate
+                    - generic [ref=e394]: 默认 10 Gbps
+                  - text: ↳
+                  - group [ref=e395]:
+                    - generic "范围与来源" [ref=e396] [cursor=pointer]
+                - generic [ref=e397]:
+                  - generic [ref=e398]: RLM · 电平失配指标
+                  - spinbutton "RLM · 电平失配指标" [disabled] [ref=e401]: "0.95"
+                  - paragraph [ref=e402]: 原 GUI 位于 Rate & Modulation，PAM-4 时可编辑。当前计算只被 MMSE 使用，不改变时域 PAM-4 电平。
+                  - generic [ref=e403]:
+                    - code [ref=e404]: rlm
+                    - generic [ref=e405]: 默认 0.95
+                  - paragraph [ref=e406]: ↳ 原 GUI 仅在 PAM-4 时允许编辑；计算用途仍是 MMSE 优化。
+                  - group [ref=e407]:
+                    - generic "范围与来源" [ref=e408] [cursor=pointer]
+                - generic [ref=e409]:
+                  - generic [ref=e410]: 发射电压 Vod
+                  - generic [ref=e412]:
+                    - spinbutton "发射电压 Vod" [ref=e413]: "1"
+                    - generic [ref=e414]: V
+                  - paragraph [ref=e415]: 对应 PyBERT 的 vod：发射电压尺度。Vdd 通常指电源电压，本模型未提供独立 Vdd 设置。
+                  - generic [ref=e416]:
+                    - code [ref=e417]: vod
+                    - generic [ref=e418]: 默认 1 V
+                  - text: ↳
+                  - group [ref=e419]:
+                    - generic "范围与来源" [ref=e420] [cursor=pointer]
+            - generic [ref=e421]:
+              - generic [ref=e422]:
+                - heading "测试码型" [level=3] [ref=e423]
+                - generic [ref=e424]: 本地草稿
+              - generic [ref=e425]:
+                - generic [ref=e426]:
+                  - generic [ref=e427]: Pattern · 测试序列
+                  - combobox "Pattern · 测试序列" [ref=e429] [cursor=pointer]:
+                    - option "PRBS-7" [selected]
+                    - option "PRBS-9"
+                    - option "PRBS-11"
+                    - option "PRBS-13"
+                    - option "PRBS-15"
+                    - option "PRBS-20"
+                    - option "PRBS-23"
+                    - option "PRBS-31"
+                  - paragraph [ref=e430]: 选择 LFSR 产生的伪随机序列。
+                  - generic [ref=e431]:
+                    - code [ref=e432]: pattern
+                    - generic [ref=e433]: 默认 PRBS-7
+                  - text: ↳
+                  - group [ref=e434]:
+                    - generic "范围与来源" [ref=e435] [cursor=pointer]
+                - generic [ref=e436]:
+                  - generic [ref=e437]: Seed · 随机种子
+                  - spinbutton "Seed · 随机种子" [ref=e440]: "1"
+                  - paragraph [ref=e441]: 非零种子用于 PRBS 和随机噪声的可重复生成。
+                  - generic [ref=e442]:
+                    - code [ref=e443]: seed
+                    - generic [ref=e444]: 默认 1
+                  - text: ↳
+                  - group [ref=e445]:
+                    - generic "范围与来源" [ref=e446] [cursor=pointer]
+        - region "Native run analysis" [ref=e252]:
+          - generic [ref=e253]:
+            - generic [ref=e254]:
+              - text: Selected record
+              - combobox "Selected record" [ref=e255]:
+                - option "Select record…"
+                - option "参考 · issue4-PAM4.pybert_run · ref-b9822547" [selected]
+            - generic [ref=e448]: Older input · draft or resource binding changed
+            - generic [ref=e256]:
+              - text: 比较参考
+              - combobox "比较参考" [ref=e257]:
+                - option "自动选择另一条" [selected]
+                - option "参考 · issue4-PAM4.pybert_run · ref-b9822547"
+          - generic [ref=e258]:
+            - generic [ref=e259]:
+              - text: Analysis
+              - combobox "Analysis" [ref=e260]:
+                - option "Responses" [selected]
+                - option "Waveform"
+                - option "Eye"
+                - option "Jitter Dist."
+                - option "Jitter Spec."
+                - option "Jitter Bathtub"
+                - option "Jitter Info"
+                - option "DFE Adaptation"
+                - option "CDR Adaptation"
+                - option "CDR Histogram"
+                - option "CDR Spectrum"
+                - option "Run overview"
+                - option "Run input comparison"
+            - combobox "Response type" [ref=e261]:
+              - option "Impulse" [selected]
+              - option "Step"
+              - option "Pulse"
+              - option "Frequency"
+            - combobox "Response scope" [ref=e262]:
+              - option "Cumulative" [selected]
+              - option "Single stage"
+          - generic [ref=e263]:
+            - generic [ref=e264]:
+              - text: Point
+              - combobox "Point" [ref=e265]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=e266]:
+              - text: Compare
+              - combobox "Compare" [ref=e267]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Expand viewer" [ref=e270] [cursor=pointer]
+          - generic "Selected run plot" [ref=e271]:
+            - paragraph [ref=e449]: No matching observation at this node. Choose an explicit Point.
+      - group [ref=e274]:
+        - generic "Task logs / selected run logs" [ref=e275]

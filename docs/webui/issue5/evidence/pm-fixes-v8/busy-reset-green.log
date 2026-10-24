@@ -1,0 +1,1 @@
+PASS: shipped app/workbench/resources event order preserves normalized and busy pending-resource states, ordered patches and replay guard; retained/recovery/storage cases pass. No observers/main/COM.

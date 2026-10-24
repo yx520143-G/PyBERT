@@ -1,0 +1,1 @@
+PASS: real archived inputs/runtime/resource bindings/replay guard survive reset+undo; unknown retained input and invalid draft/native storage recover their original blocking state. No observers/main/COM.

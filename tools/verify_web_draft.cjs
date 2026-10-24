@@ -1,0 +1,51 @@
+/* Exercise stable field migration without changing browser storage or running an engine. */
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const window={},ctx=vm.createContext({window});
+for(const file of ['settings.js','draft.js']) vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/pybert/web/static',file),'utf8'),ctx);
+const original={schema:1,commit:'1bc905d577d2f3bd9471421cfbf3d422d4e6080e',values:{bit_rate:25,vod:1.25,new_feature:{gain:3},nbits:'bad'}};
+const migrated=window.PYBERT_DRAFT.migrate(original);
+assert.equal(migrated.values.bit_rate,25);assert.equal(migrated.values.vod,1.25);
+assert.equal(migrated.retained.new_feature.value.gain,3);assert.equal(migrated.retained.nbits.value,'bad');
+const reordered={schema:2,sources:{adapter_sha:'a'.repeat(40)},values:{vod:1.25,bit_rate:25},retained_fields:migrated.retained};
+const current=window.PYBERT_DRAFT.migrate(reordered);
+assert.equal(current.values.vod,1.25);assert.equal(current.values.bit_rate,25);
+for(const [key,row] of Object.entries(migrated.retained)) {assert.deepEqual(current.retained[key].value,row.value);assert.equal(current.retained[key].blocking,true);}
+assert.throws(()=>window.PYBERT_DRAFT.migrate({schema:999,values:{bit_rate:50}}),/schema/);
+assert.throws(()=>window.PYBERT_DRAFT.migrate({schema:2,values:null}),/schema/);
+function loadApp(initial) {
+  const storage=new Map(Object.entries(initial)),elements=new Map(),appWindow={addEventListener(){},dispatchEvent(){}};
+  const element=id=>{if(!elements.has(id)) elements.set(id,{listeners:{},addEventListener(type,callback){this.listeners[type]=callback;}});return elements.get(id);};
+  const appContext=vm.createContext({window:appWindow,CustomEvent:class {},location:{hash:''},localStorage:{getItem:key=>storage.get(key) ?? null,setItem:(key,value)=>storage.set(key,value)},document:{getElementById:element,addEventListener(){}}});
+  for(const file of ['catalog.js','settings.js','draft.js','gui-map.js']) vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/pybert/web/static',file),'utf8'),appContext);
+  const source=fs.readFileSync(path.join(__dirname,'../src/pybert/web/static/app.js'),'utf8');
+  vm.runInContext(source.replace(/  renderGuiIndex\(\);\r?\n  renderStage\(\);/,'  renderStage = () => {};'),appContext);
+  return {ui:appWindow.PYBERT_WORKBENCH,storage};
+}
+const pr7=JSON.stringify({schema:1,commit:'1bc905d577d2f3bd9471421cfbf3d422d4e6080e',values:{bit_rate:25}});
+const app=loadApp({'pybert-chain-draft-v1':pr7});
+assert.equal(app.ui.getDraft().bit_rate,25);assert.equal(app.ui.hasSavedDraft(),true);
+app.ui.setSources({adapter_sha:'b'.repeat(40)});app.ui.replaceDraft(app.ui.getDraft());
+assert.equal(app.storage.get('pybert-chain-draft-v1'),pr7);
+assert.equal(JSON.parse(app.storage.get('pybert-native-draft-v2')).values.bit_rate,25);
+const broken=loadApp({'pybert-native-draft-v2':'invalid JSON'});
+broken.ui.replaceDraft(broken.ui.getDraft());
+assert.equal(broken.storage.get('pybert-native-draft-v2'),'invalid JSON');assert.match(broken.ui.migrationError(),/恢复失败/);
+const native=JSON.parse(JSON.stringify(window.PYBERT_SETTINGS.defaults));
+native.tx_tap_tuners.forEach(row=>delete row.value);
+native.peak_mag_tune=1.7;
+const restoredNative=loadApp({'pybert-native-draft-v2':JSON.stringify({schema:2,values:native})});
+assert.equal(restoredNative.ui.migrationError(),null);
+const nativeMigrate=window.PYBERT_DRAFT.migrate({schema:2,values:native});
+assert.equal(Object.keys(nativeMigrate.retained).length,0);
+const repaired=window.PYBERT_DRAFT.migrate({schema:2,values:{peak_mag_tune:''},retained_fields:{peak_mag_tune:{value:1.7,reason:'old prototype type mismatch'}}});
+assert.equal(repaired.values.peak_mag_tune,1.7);assert.equal(Object.keys(repaired.retained).length,0);
+const future=loadApp({'pybert-native-draft-v2':JSON.stringify({schema:2,values:{bit_rate:25},retained_fields:{future_physical_input:{value:123,reason:'future metadata',blocking:false}}})});
+assert.notEqual(future.ui.migrationError(),null);
+const computedKey='tx_tap_tuners.value',computedValue=window.PYBERT_SETTINGS.defaults.tx_tap_tuners.map(()=>0);
+const computed=window.PYBERT_DRAFT.migrate({schema:2,values:{bit_rate:25},retained_fields:{[computedKey]:{value:computedValue,blocking:false}}});
+assert.equal(computed.retained[computedKey].blocking,false);
+for(const value of [[0],computedValue.map(()=> 'bad'),{},null]) {
+  const invalid=window.PYBERT_DRAFT.migrate({schema:2,values:{bit_rate:25},retained_fields:{[computedKey]:{value,blocking:false}}});
+  assert.equal(invalid.retained[computedKey].blocking,true);
+}
+console.log('PASS: actual PR7 storage-key migration, v1→v2 stable fields, catalog order independence, retained values, unknown schema/invalid JSON refusal without overwrite.');

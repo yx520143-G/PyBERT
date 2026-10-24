@@ -1,0 +1,23 @@
+### Result
+{"task":{"task_id":"c4532a94-3702-44e9-9869-106b3198cf79","operation":"run","state":"succeeded","phase":"succeeded","cancel_requested":false,"cancel_requested_at":null,"cancel_observed_at":null,"cancel_observed":false,"worker_exited":true,"logs":["[2026-10-24 02:50:53.173109+00:00]: PyBERT: 2-Port Network: 's2p_interp',  0.0-40000000000.0 Hz, 4001 pts, z0=[100.+0.j 100.+0.j]"],"created_at":1792810249.3742561,"request_hash":"27da78135f879f5c67800cad0a1b3e8ff4538fc1e5c26cf8e65a8c02681f4677","parent_run_id":null,"resource_inputs":[{"resource_id":"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p","original_name":"example2_THRU.s4p","format":".s4p","bytes":2454034,"sha256":"41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde","source":{"kind":"browser_upload"},"permission":"explicitly supplied for this local session","parse_status":"pending task validation","intended_uses":["channel","COM THRU"],"field":"ch_file","index":null,"reference":"example2_THRU.s4p","worker_path":"docs\\webui\\issue5\\evidence\\chrome-v2\\local\\service\\resources\\41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde.s4p"}],"parameter_source":null,"worker_exit_confirmed_at":1792810257.2106388,"exitcode":0,"finished_at":1792810257.21064,"result":{"run_id":"c4532a94-3702-44e9-9869-106b3198cf79"}},"source_record_removed_replay_succeeded":true,"selected":{"record_id":"c4532a94-3702-44e9-9869-106b3198cf79","run_id":"c4532a94-3702-44e9-9869-106b3198cf79","summary":{"n_errs_dfe":20,"n_errs_viterbi":null,"viterbi_availability":"not run","chnl_dly_s":4.83125e-9,"rel_power":0.004799993259259258,"dfe_jitter_s":{"isi":7.772346889356863e-11,"dcd":3.0428717037209307e-12,"pj":1.284011557609319e-11,"rj":3.3293156743863836e-12,"pjDD":4.0404040404040425e-11,"rjDD":1.6850331343432093e-11,"mu_pos":7.183968432584111e-12,"mu_neg":4.6747457228206275e-12,"dj_pos":5.284967294329924e-11,"dj_neg":-3.50094086909748e-11},"initial_level_v":0.5,"final_level_v":0.27334370514437656,"performance_Msamples_per_min":{"channel":85.03024774250659,"tx":393.6157708659602,"ctle":94.04843233634746,"ffe":671.3724903845574,"dfe":16.204123341948375,"jitter":67.27186429380482,"total":9.70602800284886}},"window":{"nui":7500,"eye_uis":5080,"ignore_samps":77440,"ignore_until_s":4.84e-7}},"draft_level":0.5}
+### Ran Playwright code
+```js
+await (async (page) => {
+  const response=page.waitForResponse(r=>r.url().endsWith('/api/runs') && r.request().method()==='POST');
+  await page.locator('#run').click();const submitted=await response;const task=await submitted.json();
+  if(submitted.status()!==202) throw new Error(JSON.stringify(task));
+  await page.waitForFunction(id=>window.PYBERT_RUNS.selected()?.run_id===id,task.task_id,{timeout:60000});
+  const final=await (await page.request.get(`http://127.0.0.1:8770/api/tasks/${task.task_id}`)).json();
+  if(final.state!=='succeeded' || !final.worker_exited) throw new Error(JSON.stringify(final));
+  await page.locator('#analysis-kind').selectOption('eye');await page.locator('#analysis-point').selectOption('dfe');
+  await page.waitForFunction(()=>document.querySelector('#plot').data?.[0]?.type==='heatmap');
+  await page.locator('#expand-viewer').click();await page.locator('#analysis').scrollIntoViewIfNeeded();
+  await page.screenshot({path:'output/playwright/05-real-pam4-dfe-eye.png'});
+  const download=page.waitForEvent('download');await page.locator('#save-results').click();await (await download).saveAs('output/playwright/PAM4-real.pybert_run');
+  return {task:final,source_record_removed_replay_succeeded:true,selected:await page.evaluate(()=>({record_id:window.PYBERT_RUNS.selected().record_id,run_id:window.PYBERT_RUNS.selected().run_id,summary:window.PYBERT_RUNS.selected().summary,window:window.PYBERT_RUNS.selected().window})),draft_level:await page.evaluate(()=>window.PYBERT_WORKBENCH.getDraft().decision_scaler)};
+}
+)(page);
+```
+### Events
+- Downloading file c4532a94-3702-44e9-9869-106b3198cf79.pybert_run ...
+- Downloaded file c4532a94-3702-44e9-9869-106b3198cf79.pybert_run to ".playwright-cli\c4532a94-3702-44e9-9869-106b3198cf79.pybert-run"
