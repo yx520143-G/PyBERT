@@ -153,7 +153,8 @@ class ProjectionCases(unittest.TestCase):
         self.assertEqual(len(display), 2)
         for case, reason in (("gap", "unknown_period"), ("short", "insufficient_fft_window"),
                              ("bounds", "invalid_fft_bounds"), ("outside", "outside_analysis_window"),
-                             ("nonuniform", "nonuniform_grid"), ("unknown", "unknown_period")):
+                             ("nonuniform", "nonuniform_grid"), ("unknown", "unknown_period"),
+                             ("zero_ts", "unknown_or_nonpositive_sample_interval")):
             with self.subTest(fft=case):
                 current, values, times = context(), periods.copy(), grid.copy()
                 if case == "gap":
@@ -167,9 +168,11 @@ class ProjectionCases(unittest.TestCase):
                     current["info"]["analysis"]["start_s"] = 10.4
                 elif case == "nonuniform":
                     times[3] = 10.8
-                else:
+                elif case == "unknown":
                     current["info"]["period_known"][:] = False
                     values[:] = np.nan
+                else:
+                    times[1] = times[0]
                 actual = analysis.clock_data(times, values, 0.5, clock_contract=current)
                 self.assertEqual(actual["spectrum"]["availability"], "unavailable")
                 self.assertEqual(actual["spectrum"]["reason"], reason)
@@ -201,6 +204,11 @@ class ProjectionCases(unittest.TestCase):
         native = np.array([1., -1.] * 8)
         before, old_mapping = modules["baseline.analysis"].eye_data(1., 2, native)
         after, mapping = analysis.eye_data(1., 2, native)
+        self.assertTrue(np.array_equal(before, after))
+        self.assertEqual(mapping, old_mapping)
+        native_clocks = np.array([0.5, 1.5, 2.5])
+        before, old_mapping = modules["baseline.analysis"].eye_data(1., 2, native, native_clocks)
+        after, mapping = analysis.eye_data(1., 2, native, native_clocks)
         self.assertTrue(np.array_equal(before, after))
         self.assertEqual(mapping, old_mapping)
         # Timed indices bypass nominal crossing preflight, even on a constant waveform.

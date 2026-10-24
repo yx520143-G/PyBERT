@@ -130,3 +130,75 @@ def eye_selection(context, slice_start, slice_stop):
                       "window": dict(info["analysis"]),
                       "availability": "available" if len(relative) else "unavailable",
                       "reason": None if len(relative) else "no_complete_timed_trace"}
+
+
+def period_projection(context, t, period_ps, ui):
+    """Keep histogram and raw FFT availability independent, using the frozen producer windows."""
+    t, period_ps = np.asarray(t), np.asarray(period_ps)
+    known = context["info"]["period_known"]
+    validate_period(t, period_ps, known)
+    window = context["info"]["analysis"]
+    first, stop = window["start_index"], window["stop_index"]
+    if type(first) is not int or type(stop) is not int or not 0 <= first < stop <= len(t):
+        raise ValueError("Invalid frozen histogram bounds")
+    indices = np.arange(len(t))
+    inside = ((indices >= first) & (indices < stop) & (t >= window["start_s"]) & (t <= window["stop_s"]))
+    selected = np.flatnonzero(known & inside)
+    hist = {"availability": "unavailable", "reason": "no_known_period", "indices": selected,
+            "values_ps": period_ps[selected], "counts": np.array([], dtype=int), "edges": np.array([]),
+            "window": {"start_index": first, "stop_index": stop,
+                       "start_s": window["start_s"], "stop_s": window["stop_s"]},
+            "weighting": "one count per known grid sample; not one count per edge interval"}
+    if len(selected):
+        hist["counts"], hist["edges"] = np.histogram(hist["values_ps"], bins=100)
+        hist.update(availability="available", reason=None)
+    fft_first, fft_stop = window["fft_slice"]
+    spectrum = {"availability": "unavailable", "reason": None, "raw": np.array([], dtype=complex),
+                "frequency_hz": np.array([]), "relative_frequency": np.array([]),
+                "indices": np.array([], dtype=int), "input_period_ps": np.array([]),
+                "sample_interval_s": None, "origin_s": None,
+                "window": {"start_index": fft_first, "stop_index": fft_stop},
+                "uniform_grid_relative_tolerance": 1e-12}
+    if type(fft_first) is not int or type(fft_stop) is not int or not 0 <= fft_first <= fft_stop <= len(t):
+        spectrum["reason"] = "invalid_fft_bounds"
+    elif fft_stop - fft_first < 2:
+        spectrum["reason"] = "insufficient_fft_window"
+    elif not np.all(inside[fft_first:fft_stop]):
+        spectrum["reason"] = "outside_analysis_window"
+    elif not np.all(known[fft_first:fft_stop]):
+        spectrum["reason"] = "unknown_period"
+    else:
+        ts = float(t[1] - t[0]) if len(t) >= 2 else None
+        if ts is None or not np.isfinite(ts) or ts <= 0:
+            spectrum["reason"] = "unknown_or_nonpositive_sample_interval"
+        elif not np.allclose(np.diff(t), ts, rtol=1e-12, atol=0.):
+            spectrum["reason"] = "nonuniform_grid"
+        else:
+            values = period_ps[fft_first:fft_stop]
+            raw = np.fft.rfft(values)
+            frequency = np.arange(len(raw)) / (len(values) * ts)
+            spectrum.update(availability="available", reason=None, raw=raw, frequency_hz=frequency,
+                            relative_frequency=frequency[1:] * ui, sample_interval_s=ts,
+                            origin_s=float(t[fft_first]), indices=indices[fft_first:fft_stop], input_period_ps=values)
+    return {"histogram": hist, "spectrum": spectrum}
+
+
+def period_segments(t, period_ps, known, limit=4096):
+    """Sample known ordinals evenly, then split by the original gaps; singleton traces are markers."""
+    if type(limit) is not int or not 1 <= limit <= 4096:
+        raise ValueError("Period display point limit must be within 1..4096")
+    indices, _times, _values = validate_period(t, period_ps, known)
+    meta = {"availability": "unavailable", "reason": "no_known_period", "selected_points": 0,
+            "known_points": len(indices), "known_segment_count": 0, "display_segment_count": 0,
+            "omitted_segments": 0, "singleton_mode": "markers", "limit": limit,
+            "allocation": "evenly spaced known ordinals including endpoints; split at original unknown gaps"}
+    if not len(indices):
+        return [], meta
+    groups = np.cumsum(np.concatenate((np.array([True]), np.diff(indices) > 1)))
+    ordinals = np.unique(np.linspace(0, len(indices) - 1, min(limit, len(indices)), dtype=int))
+    cuts = np.flatnonzero(np.diff(groups[ordinals]) != 0) + 1
+    segments = np.split(indices[ordinals], cuts)
+    meta.update(availability="available", reason=None, selected_points=len(ordinals),
+                known_segment_count=int(groups[-1]), display_segment_count=len(segments),
+                omitted_segments=int(groups[-1]) - len(segments))
+    return segments, meta

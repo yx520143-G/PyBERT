@@ -10,6 +10,7 @@ from scipy.signal import correlate
 
 from pybert.models.bert import MIN_BATHTUB_VAL
 from pybert.utility import calc_eye, calc_jitter, find_crossings, make_bathtub, safe_log10
+from pybert.web.clocks import period_projection
 
 ANALYSIS_VERSION = 2
 DISPLAY_NOISE_SEED = 34003
@@ -47,24 +48,31 @@ def ffe_jitter(arrays):
     return dict(zip(JITTER_RETURN, values)), dict(ofst=offset, actual_xings=crossings, actual_xings_jit=windowed), fit_status
 
 
-def eye_data(ui, nspui, ys, clocks=None):
+def eye_data(ui, nspui, ys, clocks=None, *, clock_indices=None):
     """Return the native count matrix and its actual generation mapping."""
+    if clocks is not None and clock_indices is not None:
+        raise ValueError("Only one timed Eye coordinate input may be supplied")
+    if clock_indices is not None and not len(clock_indices):
+        raise ValueError("no_complete_timed_trace")
     ys = np.asarray(ys)
     if len(ys) < 2 * nspui or not np.isfinite(ys).all():
         raise ValueError("Insufficient or nonfinite eye waveform window")
     y_max = 1.1 * np.max(abs(ys))
     if y_max <= 0 or 1000 // (2 * y_max) <= 0:
         raise ValueError("Invalid/zero native eye voltage scale")
-    if clocks is None and not np.any(np.diff(np.sign(ys))):
+    if clocks is None and clock_indices is None and not np.any(np.diff(np.sign(ys))):
         raise ValueError("No waveform crossing for nominal eye alignment")
-    counts = calc_eye(ui, nspui, 1000, ys, y_max, clocks)
+    counts = (calc_eye(ui, nspui, 1000, ys, y_max, clock_indices=clock_indices) if clock_indices is not None
+              else calc_eye(ui, nspui, 1000, ys, y_max, clocks))
     if counts.sum() == 0:
         raise ValueError("Insufficient clock/crossing coverage for a complete eye fold")
     return counts, dict(y_max=float(y_max), y_scale=float(1000 // (2 * y_max)), y_offset=500)
 
 
-def clock_data(t, ui_ests, ui):
+def clock_data(t, ui_ests, ui, *, clock_contract=None):
     """Exact legacy histogram and FFT convention, with an explicit zero-denominator boundary."""
+    if clock_contract is not None:
+        return period_projection(clock_contract, t, ui_ests, ui)
     counts, edges = np.histogram(ui_ests, bins=100)
     spectrum = np.fft.rfft(ui_ests)
     frequency = np.arange(len(spectrum)) / (t[1] * len(t))

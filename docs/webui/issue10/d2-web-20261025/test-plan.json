@@ -1,6 +1,6 @@
 {
-  "phase": "actual Eye and period projections red",
-  "run_id": "05-projection-red",
+  "phase": "actual Eye and period projections green",
+  "run_id": "06-projection-green",
   "selection": [
     "ProjectionCases"
   ],
@@ -22,15 +22,15 @@
     "baseline.sigproc.txt": "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/web/clocks.py": "586f651d7f8e1a2deb2472c5dc0dddbb2d01cfa3ade2416c2cdbe7805e851d8d",
-    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "c35d39fe194fee781294e9c6ce18fce40398065840fee8a005825d0ceb06fb32",
+    "src/pybert/web/clocks.py": "cf61411c6b41f5ad510b8b1110dc94bb8ac2321c48f331a7a28e8fab8cff0992",
+    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "f858db5a912f434e53c32e0509b438fbf81ead55e4bc6e2041ccf10fe25d5918",
     "docs/webui/issue10/d2-web-20261025/run_guarded.py": "4446186dfcb524f2fb11aaa4f1668141b44ff7adc66cafe3dee9b4e8bdb77b66",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "0363ea36878cef57f1ed281d0f9d193cd3384c243314a0d7717e15e1c3203762",
     "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
     "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
     "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/ami_clock.py": "e0ae4bfc8a0b24d53b55df27c93f93e17370acc08a98f819725de6be2bec6072",
-    "src/pybert/web/analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "src/pybert/web/analysis.py": "f3f37c5e03be90f6ecd29417d7c983b3cefbfc53831400e8747b3dd9bbb9b1ae",
     "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
     "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2"
@@ -133,16 +133,16 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 0,
+    "pure": 64,
     "collect": 0,
     "extend_analysis": 0,
-    "eye_data": 0,
-    "calc_eye": 0,
-    "clock_data": 0,
-    "clock_display": 0,
-    "histogram": 0,
-    "rfft": 0,
-    "safe_log10": 0,
+    "eye_data": 8,
+    "calc_eye": 5,
+    "clock_data": 10,
+    "clock_display": 2,
+    "histogram": 9,
+    "rfft": 3,
+    "safe_log10": 1,
     "viterbi_extend": 0,
     "viterbi_validate": 0,
     "resize_zero_pad": 0,
@@ -157,11 +157,10 @@
   },
   "expected_result": {
     "tests": 1,
-    "failures": 1,
-    "errors": 0,
-    "reason": "masked projection absent before any product helper call"
+    "failures": 0,
+    "errors": 0
   },
-  "case_inputs": "literal4-point DFT1,2,3,4ps at grid10+index*.25; six unavailableFFT cases, constant raw spectrum, oldNative nonzero-origin basis; segments3,4/6,7 cap3; Native eye exact, constant timed indices0/8 at exacttail and empty/conflicting/nominal boundaries.",
+  "case_inputs": "literal4-point DFT1,2,3,4ps at grid10+index*.25; six unavailableFFT cases, constant raw spectrum, oldNative nonzero-origin basis; segments3,4/6,7 cap3; Native eye exact, constant timed indices0/8 at exacttail and empty/conflicting/nominal boundaries. Also zero-ts FFT refusal; Native seconds baseline/candidate exact with .5,1.5,2.5s.",
   "expected_values": {
     "DFT": [
       "10+0j",
@@ -196,13 +195,17 @@
   "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
   "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
   "expected_function_entries": {
-    "new_clock_info": 3,
-    "snapshot_producer": 9,
-    "clock_context": 10,
-    "eye_selection": 2,
-    "validate_period_upper_bound": 4
+    "period_projection": 9,
+    "validate_period": 12,
+    "period_segments": 3,
+    "baseline.eye_data": 2,
+    "candidate.eye_data": 6,
+    "baseline.calc_eye": 2,
+    "candidate.calc_eye": 3
   },
-  "previous_plan": "runs/04-producer-green/plan.json",
-  "expected_counts_policy": "upper bounds, actual trace must be reported; do not label them as actual",
-  "serialization_policy": "from04 count each ndarray copy/deepcopy C completion incl bytes and elapsed;02 lacked per-copy trace (20 case fixture copies inferable from10 completed rows, elapsed UNKNOWN); preserve02 unchanged, full final matrix will include instrumented rows. No numerical re-run solely for instrumentation."
+  "previous_plan": "runs/05-projection-red/plan.json",
+  "expected_counts_policy": "upper bounds, actual trace separately reported",
+  "serialization_policy": "from04 count each ndarray copy/deepcopy C completion incl bytes and elapsed;02 lacked per-copy trace (20 case fixture copies inferable from10 completed rows, elapsed UNKNOWN); preserve02 unchanged, full final matrix will include instrumented rows. No numerical re-run solely for instrumentation.",
+  "FFT_uniformity": "original full-grid differences compared to original t[1]-t[0], rtol1e-12/atol0 for floating-grid representation only; no sample-target tolerance, no window change",
+  "display_policy": "known ordinals evenly including endpoints up to total cap4096; split by original contiguous-known groups; singletons markers; omitted segments/count explicit; no unknown line bridge"
 }
