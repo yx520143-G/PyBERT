@@ -1,0 +1,59 @@
+async (page) => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue5-archive/serial-bus-simulator',base='http://127.0.0.1:8772';
+  await page.setViewportSize({width:1280,height:720});await page.reload();
+  await page.waitForFunction(()=>window.PYBERT_RUNS && !document.querySelector('#run').disabled);
+  await page.locator('#results-file').setInputFiles(root+'/output/playwright/NRZ-real.pybert_run');
+  await page.waitForFunction(()=>window.PYBERT_RUNS.selected()?.kind==='archive' && document.querySelector('#results-file').value==='');
+  await page.locator('#restore-run-input').click();await page.waitForFunction(()=>document.querySelector('#results-status').textContent.includes('已恢复原requested'));
+  await page.getByRole('button',{name:'Channel',exact:true}).click();
+  const uploadA=page.waitForResponse(r=>r.url().endsWith('/api/normalize') && r.request().method()==='POST');
+  await page.locator('[data-file-key="ch_file"]').setInputFiles('C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/docs/webui/issue4/local/resources/example2_THRU.s4p');await uploadA;
+  await page.waitForFunction(()=>!document.querySelector('#run').disabled && JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')).replay_guard);
+  const before=await page.evaluate(()=>({snapshot:JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')),draft:window.PYBERT_WORKBENCH.getDraft(),selected:window.PYBERT_RUNS.selected().record_id}));
+  const reset=page.waitForResponse(r=>r.url().endsWith('/api/normalize') && r.request().method()==='POST');
+  await page.locator('#reset-draft').click();await reset;await page.waitForFunction(()=>!document.querySelector('#undo-reset').disabled && !document.querySelector('#run').disabled && JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')).replay_guard===null);
+  const undo=page.waitForResponse(r=>r.url().endsWith('/api/normalize') && r.request().method()==='POST');
+  await page.locator('#undo-reset').click();await undo;await page.waitForFunction(()=>!document.querySelector('#run').disabled);
+  const restored=await page.evaluate(()=>({snapshot:JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')),draft:window.PYBERT_WORKBENCH.getDraft(),selected:window.PYBERT_RUNS.selected().record_id}));
+  for(const key of ['config','runtime_extensions','resource_bindings','source_record_id','replay_guard'])if(JSON.stringify(before.snapshot[key])!==JSON.stringify(restored.snapshot[key]))throw new Error('Undo lost native '+key);
+  if(JSON.stringify(before.draft)!==JSON.stringify(restored.draft) || before.selected!==restored.selected)throw new Error('Undo lost visible draft/selection');
+  const uploadB=page.waitForResponse(r=>r.url().endsWith('/api/normalize') && r.request().method()==='POST');
+  await page.locator('[data-file-key="ch_file"]').setInputFiles(root+'/docs/webui/issue5/evidence/pm-fixes-v6/local/fixtures/example2_THRU.s4p');await uploadB;await page.waitForFunction(()=>!document.querySelector('#run').disabled);
+  const submitted=page.waitForResponse(r=>r.url().endsWith('/api/runs') && r.request().method()==='POST');
+  await page.locator('#run').click();const rejected=await submitted,guardError=await rejected.json();
+  if(rejected.status()!==422 || !String(guardError.detail).includes('Saved run resource content changed/missing'))throw new Error('Different B bypassed original A guard');
+  await page.screenshot({path:'output/playwright/pm-v7-01-undo-resource-B-rejected.png'});
+  const stable=await page.evaluate(()=>({selected:window.PYBERT_RUNS.selected().record_id,draft:JSON.stringify(window.PYBERT_WORKBENCH.getDraft()),references:window.PYBERT_RUNS.references().map(r=>r.record_id)}));
+  const rejectedFiles=[];
+  for(const name of ['missing-input_hash','integer-input_hash']) {
+    await page.locator('#results-file').setInputFiles(root+`/docs/webui/issue5/evidence/pm-fixes-v6/local/fixtures/${name}.pybert_run`);
+    await page.waitForFunction(()=>document.querySelector('#results-status').textContent.includes('input_hash') && document.querySelector('#results-file').value==='');
+    const after=await page.evaluate(()=>({selected:window.PYBERT_RUNS.selected().record_id,draft:JSON.stringify(window.PYBERT_WORKBENCH.getDraft()),references:window.PYBERT_RUNS.references().map(r=>r.record_id)}));
+    if(JSON.stringify(after)!==JSON.stringify(stable))throw new Error('Incomplete identity changed selected/draft/references');
+    rejectedFiles.push({name,status:await page.locator('#results-status').textContent(),unchanged:after});
+  }
+  await page.screenshot({path:'output/playwright/pm-v7-02-identity-rejection-atomic.png'});
+  const nativeBefore=await page.evaluate(()=>JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')));
+  await page.evaluate(()=>{const saved=JSON.parse(localStorage.getItem('pybert-native-draft-v2'));saved.retained_fields={future_physical_input:{value:{gain:123},blocking:false}};localStorage.setItem('pybert-native-draft-v2',JSON.stringify(saved));});
+  await page.reload();await page.waitForFunction(()=>window.PYBERT_WORKBENCH?.migrationError() && !document.querySelector('#run').disabled);
+  const retainedBefore=await page.evaluate(()=>({error:window.PYBERT_WORKBENCH.migrationError(),retained:window.PYBERT_DRAFT.migrate(JSON.parse(localStorage.getItem('pybert-native-draft-v2'))).retained}));
+  const resetRetained=page.waitForResponse(r=>r.url().endsWith('/api/normalize') && r.request().method()==='POST');
+  await page.locator('#reset-draft').click();await resetRetained;await page.waitForFunction(()=>!document.querySelector('#undo-reset').disabled);
+  if(await page.evaluate(()=>window.PYBERT_WORKBENCH.migrationError())!==null)throw new Error('Explicit reset failed to recover');
+  await page.locator('#undo-reset').click();await page.waitForFunction(()=>window.PYBERT_WORKBENCH.migrationError());
+  const retainedAfter=await page.evaluate(()=>({error:window.PYBERT_WORKBENCH.migrationError(),retained:window.PYBERT_DRAFT.migrate(JSON.parse(localStorage.getItem('pybert-native-draft-v2'))).retained,snapshot:JSON.parse(localStorage.getItem('pybert-native-snapshot-v2'))}));
+  if(JSON.stringify(retainedBefore.retained)!==JSON.stringify(retainedAfter.retained))throw new Error('Undo lost unknown retained input');
+  for(const key of ['config','runtime_extensions','resource_bindings','source_record_id','replay_guard'])if(JSON.stringify(nativeBefore[key])!==JSON.stringify(retainedAfter.snapshot[key]))throw new Error('Retained undo lost native '+key);
+  await page.screenshot({path:'output/playwright/pm-v7-03-retained-block-restored.png'});
+  await page.evaluate(()=>localStorage.setItem('pybert-native-draft-v2','invalid JSON'));await page.reload();
+  await page.waitForFunction(()=>window.PYBERT_WORKBENCH?.migrationError() && !document.querySelector('#run').disabled);
+  const resetInvalid=page.waitForResponse(r=>r.url().endsWith('/api/normalize') && r.request().method()==='POST');
+  await page.locator('#reset-draft').click();await resetInvalid;await page.waitForFunction(()=>!document.querySelector('#undo-reset').disabled);
+  await page.locator('#undo-reset').click();await page.waitForFunction(()=>window.PYBERT_WORKBENCH.migrationError() && document.querySelector('#draft-status').textContent.includes('仅当前页面保留'));
+  if(await page.evaluate(()=>localStorage.getItem('pybert-native-draft-v2'))!=='invalid JSON')throw new Error('Undo lost original invalid storage bytes');
+  await page.screenshot({path:'output/playwright/pm-v7-04-invalid-storage-status-restored.png'});
+  const final=await (await page.request.get(base+'/api/state')).json();
+  if(final.com_tasks.length || final.runs.length!==2 || final.active_task_id)throw new Error('Regression changed seeded old successes or left an active task');
+  return {fixture_mode:'two real prior successes replayed read-only; worker forbids all main/COM',before,restored,guard_rejection:{status:rejected.status(),detail:guardError},rejectedFiles,retainedBefore,retainedAfter,invalid_storage_status:await page.locator('#draft-status').textContent(),final,main_calls:0,COM_calls:0};
+}
+

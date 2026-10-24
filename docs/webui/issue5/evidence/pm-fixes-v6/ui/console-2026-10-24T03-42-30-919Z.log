@@ -1,0 +1,10 @@
+[     994ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8772/favicon.ico:0
+[   97195ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8772/api/state:0
+[   98209ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8772/api/state:0
+[   99222ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8772/api/state:0
+[  201177ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8772/api/runs:0
+[  201791ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8772/api/references?name=missing-input_hash.pybert_run&trusted=false:0
+[  202352ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8772/api/references?name=integer-input_hash.pybert_run&trusted=false:0
+[  294628ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8772/api/runs:0
+[  295229ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8772/api/references?name=missing-input_hash.pybert_run&trusted=false:0
+[  295796ms] [ERROR] Failed to load resource: the server responded with a status of 422 (Unprocessable Content) @ http://127.0.0.1:8772/api/references?name=integer-input_hash.pybert_run&trusted=false:0

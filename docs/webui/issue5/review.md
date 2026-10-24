@@ -1,4 +1,4 @@
-# #5 固定实现双轴复核
+# #5 首轮固定实现双轴复核及追加终审修复
 
 固定产品 HEAD：`3ccb88f4e34db2a81a04a6b7a7f198f0c88e367d`；共同 base：`f1d0ea80f9db8ab31e25963496875a44fe4a19d9`。两个独立 review agents 只读检查，未运行主仿真/COM，未编辑文件。复核使用 #1/#5 已封存全文、合同 v1/v2/v3、仓库规范与 code-review skill 的 smell baseline。
 
@@ -15,3 +15,18 @@
 最终代码 Spec 轴：**0 项未关闭 finding**，此前报告的 4 项 P2 均已关闭：实际 PR7 存储键接入；删除参考后仍保留独立资源 replay guard；未知 legacy producer 版本不升级冒充；未知 retained 字段不能借持久化 `blocking:false` 绕过执行阻止。
 
 Standards：0 项未关闭；Spec：0 项未关闭。此复核不代替 PM 固定交付终审，不授权 merge 或关闭上层事项。
+
+## PM 对 246ce486 的 fresh 终审与返修
+
+PM 终审新增 Spec **2 P2 + 1 P3**；Standards **0 硬违规 + 1 判断性 Data Clumps**。PR 保持 draft，PM 将唯一实施 ownership 交回。此记录追加，不覆盖原四项已闭环 P2。
+
+| 本轮 finding | 修复/验证 | 结论 |
+| --- | --- | --- |
+| P2：reset/undo只恢复字段，丢 replay guard/原输入扩展/资源绑定和迁移阻断 | `e75b13d` 同步捕获app/native同一份reset历史，undo恢复完整快照；原坏draft/native storage也按原bytes恢复。真实archive/未知retained两条回归与Chrome路径通过 | 已闭环 |
+| P2：自洽archive缺input_hash等仍先发布，选中后渲染失败 | 发布前按raw2/3/4最低必需身份/结构校验，不重算/补造hash；19类自洽坏metadata原子拒绝，三schema正向和五组真实2053数组往返通过 | 已闭环 |
+| P3：function-matrix责任票反置 | Viterbi/FEC更正为#9，AMI为#10 | 已闭环 |
+| 返修复核补充P3：坏JSON reset→undo未恢复storageAvailable，提示可误称已保存 | `bdcaf50`将该flag纳入app快照，真实状态渲染/Chrome断言恢复“仅当前页面保留” | 已闭环 |
+
+Standards 独立 agent 对 `e75b13d` 静态读取：新增硬违规0、新增实质判断性finding0；Data Clumps在聚合快照结构上收敛。对 `bdcaf50` 两行storage flag增量依据变更描述确认设计一致，未重新读取或运行工具。Spec独立agent对 `e75b13d` 两P2/票号P3闭环，指出上述补充P3；随后固定 `bdcaf50110755e00c9a3064d02081301c4feeb8c` 确认该P3关闭，当前范围0未关闭。两轴未运行主仿真/COM或编辑文件。
+
+本轮当前轴结论：Standards **0 未关闭硬违规/实质finding**；Spec **0 未关闭 finding**。最终仍由PM对新固定交付终审。

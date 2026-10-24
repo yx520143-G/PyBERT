@@ -1,0 +1,28 @@
+{
+  "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\output\\playwright\\NRZ-real.pybert_run",
+  "source_sha256": "4d25f353778083cc7c231a013ddb64dfd98f7136576e1725b62c09c4bd68dd39",
+  "main_calls": 0,
+  "COM_calls": 0,
+  "fixtures": {
+    "missing-input_hash": {
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\docs\\webui\\issue5\\evidence\\pm-fixes-v6\\local\\fixtures\\missing-input_hash.pybert_run",
+      "sha256": "1261e725e233327fb9d16db64158db3532d90319b6893eb9948b79befd539cd7",
+      "only_changed_input_hash_metadata": true
+    },
+    "integer-input_hash": {
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\docs\\webui\\issue5\\evidence\\pm-fixes-v6\\local\\fixtures\\integer-input_hash.pybert_run",
+      "sha256": "f3c0eb9a8a5492521b75951e1c3ad4cb0c803ca8f2a7e6b45fc97b80733be64b",
+      "only_changed_input_hash_metadata": true
+    }
+  },
+  "resources": {
+    "A": {
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\docs\\webui\\issue4\\local\\resources\\example2_THRU.s4p",
+      "sha256": "41d8f63437715145e7f1c4ea3bd2f8cbf944e9a76d444182b3c395dfa423dbde"
+    },
+    "B": {
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator\\docs\\webui\\issue5\\evidence\\pm-fixes-v6\\local\\fixtures\\example2_THRU.s4p",
+      "sha256": "8ca809092bb0b6444beb64fd0a2c367384fc336f98236cce2167f5cf1cead069"
+    }
+  }
+}
