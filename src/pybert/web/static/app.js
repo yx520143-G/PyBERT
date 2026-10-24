@@ -9,7 +9,7 @@
   let lastReset = null;
   let retainedFields={},sources=null,recoveryRequired=false,restored=false,migrationSource=null;
   try {
-    const saved = JSON.parse(localStorage.getItem(storageKey) || localStorage.getItem('pybert-native-draft-v1') || 'null');
+    const saved = JSON.parse(localStorage.getItem(storageKey) || localStorage.getItem('pybert-native-draft-v1') || localStorage.getItem('pybert-chain-draft-v1') || 'null');
     if(saved) {const migrated=window.PYBERT_DRAFT.migrate(saved);draft=migrated.values;retainedFields=migrated.retained;restored=true;migrationSource={schema:migrated.source_schema,sources:migrated.source_sha};loadMessage=`草稿schema ${migrated.source_schema} → 2，按稳定field ID迁移；原键保留。${Object.keys(retainedFields).length}项未应用，明细见下；有未应用字段时禁止Run。`;}
   } catch(error) { storageAvailable = false;recoveryRequired=true;loadMessage=`无法恢复本地草稿：${error.message} 原存储未覆盖。可显式“恢复全部默认”或Load Config恢复。`; }
   const $ = id => document.getElementById(id);

@@ -48,14 +48,18 @@ class Tasks:
             task_id = task_id or str(uuid.uuid4())
             if operation == "run":
                 rows = self.resources.for_run(request["config"], request.get("resource_bindings", {}))
-                if request.get("source_record_id"):
+                source = request.get("replay_guard")
+                if source is not None and (not isinstance(source, dict) or source.get("version") != 1 or not isinstance(source.get("resources"), list)):
+                    raise ValueError("Unknown or incomplete replay resource guard; no defaults substituted.")
+                if source is None and request.get("source_record_id"):
                     source = self.manifest(request["source_record_id"])
                     if source.get("legacy"):
                         raise ValueError("Legacy has no complete input/resource evidence; cannot rerun it.")
+                if source is not None:
                     verify_replay_resources(source, rows)
                 request["frozen_resources"] = rows
                 request["resource_hash"] = input_hash([{k: row[k] for k in ("field", "index", "sha256")} for row in rows])
-                if request.get("source_record_id") and source.get("resource_hash") and source["resource_hash"] != request["resource_hash"]:
+                if source and source.get("resource_hash") and source["resource_hash"] != request["resource_hash"]:
                     raise ValueError("Saved run resource identity changed, including its COM configuration; bind original content before Run.")
                 if request["config"]["enable_com"]:
                     request["deferred_com"] = {"com_id": str(uuid.uuid4()), "parent_run_id": task_id}

@@ -12,4 +12,22 @@ assert.equal(current.values.vod,1.25);assert.equal(current.values.bit_rate,25);
 assert.deepEqual(current.retained,migrated.retained);
 assert.throws(()=>window.PYBERT_DRAFT.migrate({schema:999,values:{bit_rate:50}}),/schema/);
 assert.throws(()=>window.PYBERT_DRAFT.migrate({schema:2,values:null}),/schema/);
-console.log('PASS: v1→v2 field-ID migration, catalog order independence, retained unsupported/invalid values, unknown schema refusal.');
+function loadApp(initial) {
+  const storage=new Map(Object.entries(initial)),elements=new Map(),appWindow={addEventListener(){},dispatchEvent(){}};
+  const element=id=>{if(!elements.has(id)) elements.set(id,{listeners:{},addEventListener(type,callback){this.listeners[type]=callback;}});return elements.get(id);};
+  const appContext=vm.createContext({window:appWindow,CustomEvent:class {},location:{hash:''},localStorage:{getItem:key=>storage.get(key) ?? null,setItem:(key,value)=>storage.set(key,value)},document:{getElementById:element,addEventListener(){}}});
+  for(const file of ['catalog.js','settings.js','draft.js','gui-map.js']) vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/pybert/web/static',file),'utf8'),appContext);
+  const source=fs.readFileSync(path.join(__dirname,'../src/pybert/web/static/app.js'),'utf8');
+  vm.runInContext(source.replace(/  renderGuiIndex\(\);\r?\n  renderStage\(\);/,'  renderStage = () => {};'),appContext);
+  return {ui:appWindow.PYBERT_WORKBENCH,storage};
+}
+const pr7=JSON.stringify({schema:1,commit:'1bc905d577d2f3bd9471421cfbf3d422d4e6080e',values:{bit_rate:25}});
+const app=loadApp({'pybert-chain-draft-v1':pr7});
+assert.equal(app.ui.getDraft().bit_rate,25);assert.equal(app.ui.hasSavedDraft(),true);
+app.ui.setSources({adapter_sha:'b'.repeat(40)});app.ui.replaceDraft(app.ui.getDraft());
+assert.equal(app.storage.get('pybert-chain-draft-v1'),pr7);
+assert.equal(JSON.parse(app.storage.get('pybert-native-draft-v2')).values.bit_rate,25);
+const broken=loadApp({'pybert-native-draft-v2':'invalid JSON'});
+broken.ui.replaceDraft(broken.ui.getDraft());
+assert.equal(broken.storage.get('pybert-native-draft-v2'),'invalid JSON');assert.match(broken.ui.migrationError(),/恢复失败/);
+console.log('PASS: actual PR7 storage-key migration, v1→v2 stable fields, catalog order independence, retained values, unknown schema/invalid JSON refusal without overwrite.');

@@ -22,7 +22,7 @@ def load_legacy(content, directory, trusted=False):
         result = pickle.loads(content)  # noqa: S301 - explicit trusted local-user opt-in only
     except Exception as err:
         raise ValueError(f"Unable to read trusted native results: {err}") from err
-    if type(result) is not PyBertData or type(result.the_data) is not ArrayPlotData:
+    if type(result) is not PyBertData or type(getattr(result, "the_data", None)) is not ArrayPlotData:
         raise ValueError("Expected known PyBertData/ArrayPlotData containers.")
     data = result.the_data.arrays
     if set(data) - set(PyBertData._item_names):
@@ -83,6 +83,8 @@ def legacy_report(directory):
                 for key, value in fields.items()}
     return {"source_run_id": run["run_id"], "available": not absent, "fields": fields, "absent": absent,
             "losses": LOSS, "sidecar_schema": 1, "axes": axes,
+            "native_producer_version": run.get("legacy", {}).get("version", run.get("packages", {}).get("pipbert", "unknown")),
+            "native_producer_date": run.get("legacy", {}).get("date_created", str(run.get("lifecycle", {}).get("created_at", "unknown"))),
             "recommendation": "Save full Web archive for lossless results."}
 
 
@@ -93,7 +95,7 @@ def export_legacy(directory, destination):
         raise ValueError(f"Native Save Results unavailable: {report['absent']}. Full Web archive remains available.")
     with np.load(Path(directory, "arrays.npz"), allow_pickle=False) as arrays:
         data = ArrayPlotData(**{field: arrays[row["dataset"]] for field, row in report["fields"].items()})
-    result = PyBertData(SimpleNamespace(plotdata=data), "source date unknown; see sidecar", "11.1.0")
+    result = PyBertData(SimpleNamespace(plotdata=data), report["native_producer_date"], report["native_producer_version"])
     atomic_write(destination, pickle.dumps(result))
     atomic_write(Path(str(destination) + ".json"), json_bytes(report))
     return report

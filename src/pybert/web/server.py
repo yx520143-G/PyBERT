@@ -153,6 +153,8 @@ def create_app(tasks=None):
             raise ValueError("Legacy results contain no complete original inputs/axes; cannot restore a runnable draft.")
         return {"config": run["requested_input"], "runtime_extensions": run.get("runtime_extensions", {}),
                 "resource_bindings": run.get("resource_bindings", {}), "source_record_id": run_id,
+                "replay_guard": {"version": 1, "source_run_id": run["run_id"], "resource_hash": run.get("resource_hash"),
+                                 "resources": [{key: row.get(key) for key in ("field", "index", "sha256")} for row in run.get("resources", [])]},
                 "expected_resources": [{key: row.get(key) for key in ("field", "index", "sha256", "original_name")} for row in run.get("resources", [])]}
 
     def subfunction_snapshot(run_id, directory):

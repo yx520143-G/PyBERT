@@ -18,6 +18,11 @@ from pybert.web.server import create_app
 from pybert.web.tasks import Tasks
 
 
+def no_engine_terminal(task_id, operation, request, directory, cancel, pipe):
+    pipe.send({"task_id": task_id, "kind": "terminal", "status": "failed", "error": "test terminal; no engine called"})
+    pipe.close()
+
+
 @pytest.fixture
 def saved(tmp_path):
     directory = tmp_path / "source"
@@ -153,3 +158,84 @@ def test_open_clear_api_no_worker_draft_or_live_run_mutation(saved, tmp_path, mo
     assert client.get("/api/state").json() == before
     assert client.post(f"/api/references/{record['record_id']}/remove").status_code == 200
     assert not manager.references.index() and saved[0].exists()
+
+
+def test_active_subtask_snapshot_and_reopened_reference_never_join_current_task(saved, tmp_path):
+    source = saved[0]
+    manager = Tasks(tmp_path / "tasks")
+    manager.runs = ["original-run"]
+    manager.tasks["original-run"] = {"directory": source, "data": {"parent_run_id": None}}
+    child = tmp_path / "child"
+    child.mkdir()
+    (child / "com.json").write_text("unfinished invalid JSON", encoding="utf-8")
+    manager.tasks["child-com"] = {"directory": child, "data": {"task_id": "child-com", "parent_run_id": "original-run",
+        "operation": "com", "state": "running", "worker_exited": False, "logs": ["original child log"]}}
+    client = TestClient(create_app(manager))
+    response = client.get("/api/runs/original-run/archive")
+    assert response.status_code == 200
+    opened = client.post("/api/references?name=saved.pybert_run", content=response.content).json()
+    snapshot = opened["saved_subfunctions"]
+    linked = snapshot["linked_tasks"]["child-com"]
+    assert linked["task"]["state"] == "running"
+    assert linked["files"]["com.json"]["availability"] == "waiting_for_exit"
+    manager.tasks["child-com"]["data"].update(state="failed", worker_exited=True, logs=["unrelated later log"])
+    repeated = client.get(f"/api/runs/{opened['record_id']}/archive")
+    manifest = json.loads(zipfile.ZipFile(io.BytesIO(repeated.content)).read("manifest.json"))
+    assert manifest["subfunctions"] == snapshot
+    assert client.get(f"/api/runs/{opened['record_id']}").json()["saved_subfunctions"] == snapshot
+
+
+def test_atomic_save_failure_keeps_old_file(saved, monkeypatch, tmp_path):
+    from pybert.web import archive
+
+    target = tmp_path / "existing.pybert_run"
+    target.write_bytes(b"original file bytes")
+    monkeypatch.setattr(archive.os, "replace", lambda *args: (_ for _ in ()).throw(OSError("injected write failure")))
+    with pytest.raises(OSError, match="injected"):
+        save_archive(saved[0], target)
+    assert target.read_bytes() == b"original file bytes"
+
+
+def test_reference_byte_budget_preserves_inventory(saved, tmp_path, monkeypatch):
+    from pybert.web import records
+
+    refs = References(tmp_path / "refs")
+    monkeypatch.setattr(records, "MAX_REFERENCE_BYTES", 0)
+    with pytest.raises(ValueError, match="byte budget"):
+        refs.add(saved[1].read_bytes(), "too-large.pybert_run")
+    assert not refs.index()
+
+
+def test_malformed_known_legacy_container_is_controlled_failure(tmp_path):
+    with pytest.raises(ValueError, match="containers"):
+        load_legacy(pickle.dumps(PyBertData.__new__(PyBertData)), tmp_path, trusted=True)
+
+
+def test_replay_guard_survives_removed_reference_without_disabling_resource_check(tmp_path):
+    from pybert.web.config import input_hash
+
+    manager = Tasks(tmp_path / "tasks", worker=no_engine_terminal)
+    guard = {"version": 1, "source_run_id": "old-run", "resources": [], "resource_hash": input_hash([])}
+    task = manager.start("run", {"config": {"inter_sel": "native", "enable_com": False}, "source_record_id": "removed-ref", "replay_guard": guard})
+    assert manager.tasks[task["task_id"]]["done"].wait(30)
+    assert manager.get(task["task_id"])["error"] == "test terminal; no engine called"
+    row = manager.resources.add("changed.s4p", b"explicit changed content", {"kind": "test"})
+    guard["resources"] = [{"field": "ch_file", "index": None, "sha256": "original-content"}]
+    with pytest.raises(ValueError, match="changed/missing"):
+        manager.start("run", {"config": {"inter_sel": "single", "ch_file": "old.s4p", "enable_com": False},
+                              "resource_bindings": {"ch_file": row["resource_id"]}, "replay_guard": guard})
+
+
+def test_unknown_legacy_version_is_preserved_on_native_export(tmp_path):
+    result = pickle.loads(native_bytes(np.arange(4.)))
+    result.version, result.date_created = "unknown-old-producer", "original date"
+    load_legacy(pickle.dumps(result), tmp_path, trusted=True)
+    target = tmp_path / "export.pybert_data"
+    report = export_legacy(tmp_path, target)
+    reopened = pickle.loads(target.read_bytes())
+    assert reopened.version == "unknown-old-producer" and reopened.date_created == "original date"
+    assert report["native_producer_version"] == "unknown-old-producer"
+    second = tmp_path / "second"
+    second.mkdir()
+    run, _ = load_legacy(target.read_bytes(), second, trusted=True)
+    assert run["datasets"]["chnl_H"]["unit"] == "unknown legacy unit"

@@ -185,5 +185,5 @@ def load_archive(content, directory):
         atomic_write(directory / "arrays.npz", raw)
         atomic_write(directory / "archive.json", json_bytes(manifest))
         return manifest["run"], size
-    except (zipfile.BadZipFile, KeyError, TypeError, EOFError, UnicodeError, OverflowError) as err:
+    except (zipfile.BadZipFile, KeyError, TypeError, AttributeError, IndexError, EOFError, UnicodeError, OverflowError, RecursionError) as err:
         raise ValueError(f"Invalid archive: {err}") from err

@@ -11,6 +11,8 @@
   let references = [], sourceRecordId = null;
   let sourceVersion=null;
   let snapshotRecoveryRequired=false;
+  let replayGuard=null;
+  let constructedConfig=null,constructedRuntime=null;
   const recordId = row => row.record_id || row.run_id;
   const allRecords = () => [...runs,...references];
   const resourceBindings = () => window.PYBERT_RESOURCES?.bindings() || {};
@@ -109,11 +111,14 @@
     if (pendingValidation && !activeTask && !normalizing) normalizeDraft().catch(inputError);
   }
   function persistNative() {
-    try { localStorage.setItem('pybert-native-snapshot-v2',JSON.stringify({schema:2,sources:sourceVersion,config:base,name:logicalName,source_record_id:sourceRecordId,...extraInput()})); }
+    try { localStorage.setItem('pybert-native-snapshot-v2',JSON.stringify({schema:2,sources:sourceVersion,config:base,name:logicalName,source_record_id:sourceRecordId,replay_guard:replayGuard,...extraInput()})); }
     catch { $('config-status').textContent='本地配置快照写入失败；当前页面草稿仍保留，属于存储故障。'; }
   }
   window.addEventListener('pybert-draft', event => {
-    if(event.detail.resetAll) {sourceRecordId=null;snapshotRecoveryRequired=false;}
+    if(event.detail.resetAll) {
+      sourceRecordId=null;replayGuard=null;snapshotRecoveryRequired=false;
+      if(constructedConfig) {base=clone(constructedConfig);captured=clone(base);patches=[];runtimeExtensions=clone(constructedRuntime);window.PYBERT_RESOURCES?.restore({},base);}
+    }
     revision++; controls();
     if (event.detail.commit) {
       record();
@@ -294,7 +299,7 @@
     clearTimeout(timer);
     try {
       const input = await normalizeDraft();
-      const task = await api('runs',{config:input.config,input_hash:input.input_hash,input_identity_hash:input.input_identity_hash,draft_revision:revision,source_record_id:sourceRecordId,...extraInput()});
+      const task = await api('runs',{config:input.config,input_hash:input.input_hash,input_identity_hash:input.input_identity_hash,draft_revision:revision,source_record_id:sourceRecordId,replay_guard:replayGuard,...extraInput()});
       activeTask = currentTask = task.task_id; controls();
       $('task-state').textContent = `Run ${task.task_id} · validating`;
     } catch (error) { inputError(error); }
@@ -312,6 +317,14 @@
   document.addEventListener('click',event => { if (event.target.closest('[data-stage]')) renderAnalysis().catch(inputError); });
   window.addEventListener('hashchange',() => renderAnalysis().catch(inputError));
   $('load-config').addEventListener('click',() => $('config-file').click());
+  function applyLoadedInput(result,sourceId=null,name='',guard=null) {
+    base=result.config;normalized=result;patches=[];runtimeExtensions=result.runtime_extensions;revision++;normalizedRevision=revision;
+    sourceRecordId=sourceId;replayGuard=guard;snapshotRecoveryRequired=false;logicalName=name;
+    $('config-name').textContent=name || 'Untitled';
+    window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
+    window.PYBERT_RESOURCES?.importReport(result);
+    ui.replaceLoadedDraft(toDraft(base));captured=toNative(ui.getDraft());persistNative();
+  }
   $('config-file').addEventListener('change',async event => {
     const file = event.target.files[0]; if (!file) return;
     clearTimeout(timer);
@@ -325,14 +338,7 @@
         return api('normalize',request);
       })(); controls();
       const result = await normalizing;
-      sourceRecordId=null;
-      snapshotRecoveryRequired=false;
-      base = result.config; normalized = result; patches = []; runtimeExtensions=result.runtime_extensions; revision++; normalizedRevision = revision;
-      window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
-      window.PYBERT_RESOURCES?.importReport(result);
-      ui.replaceLoadedDraft(toDraft(base)); captured = toNative(ui.getDraft());
-      logicalName = file.name; $('config-name').textContent = logicalName;
-      persistNative();
+      applyLoadedInput(result,null,file.name);
       $('config-status').textContent=`已载入 ${logicalName}；未自动 Run。`;
       $('input-status').textContent = result.warnings.join(' ') + ` 未解析引用 ${Object.keys(result.unresolved_references).length} 类；完整导入/扩展报告见“资源 / COM”。`; controls();
     } catch (error) { $('config-status').textContent=`Load 失败，原草稿与名称保留：${error.message}`; }
@@ -364,10 +370,7 @@
       normalizing=api('normalize',{mode:'load',config:original.config,runtime_extensions:original.runtime_extensions,resource_bindings:original.resource_bindings});controls();
       try {
         const result=await normalizing;
-        base=result.config;normalized=result;patches=[];runtimeExtensions=result.runtime_extensions;revision++;normalizedRevision=revision;
-        sourceRecordId=id;
-        window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
-        ui.replaceLoadedDraft(toDraft(base));captured=toNative(ui.getDraft());persistNative();
+        applyLoadedInput(result,id,'',original.replay_guard);
         $('results-status').textContent=`已恢复原requested输入；原资源须显式重绑并匹配hash后才能Run。${JSON.stringify(original.expected_resources)}`;
       } finally {normalizing=null;controls();}
     }};
@@ -379,8 +382,9 @@
     const version = await api('version');sourceVersion=version;ui.setSources(version); $('version-info').textContent = JSON.stringify(version,null,2);
     const defaults = await api('normalize',{mode:'defaults'});
     base = defaults.config; normalized = defaults; runtimeExtensions={version:1,values:defaults.runtime_defaults}; normalizedRevision = revision;
+    constructedConfig=clone(base);constructedRuntime=clone(runtimeExtensions);
     ui.setDefaults(toDraft(base));
-    try { const previous=JSON.parse(localStorage.getItem('pybert-native-snapshot-v2') || localStorage.getItem('pybert-native-snapshot-v1') || 'null'); if (previous && (![1,2].includes(previous.schema) || !previous.config || typeof previous.config!=='object')) throw new Error('未知配置快照schema/字段');if(previous) {base=previous.config;logicalName=previous.name || '';runtimeExtensions=previous.runtime_extensions || runtimeExtensions;sourceRecordId=previous.source_record_id || null;window.PYBERT_RESOURCES?.restore(previous.resource_bindings,base);revision++;normalizedRevision=-1;pendingValidation=true;} } catch(error) {snapshotRecoveryRequired=true; $('config-status').textContent=`配置快照恢复失败，原存储保留：${error.message}`; }
+    try { const previous=JSON.parse(localStorage.getItem('pybert-native-snapshot-v2') || localStorage.getItem('pybert-native-snapshot-v1') || 'null'); if (previous && (![1,2].includes(previous.schema) || !previous.config || typeof previous.config!=='object')) throw new Error('未知配置快照schema/字段');if(previous) {base=previous.config;logicalName=previous.name || '';runtimeExtensions=previous.runtime_extensions || runtimeExtensions;sourceRecordId=previous.source_record_id || null;replayGuard=previous.replay_guard || null;window.PYBERT_RESOURCES?.restore(previous.resource_bindings,base);revision++;normalizedRevision=-1;pendingValidation=true;} } catch(error) {snapshotRecoveryRequired=true; $('config-status').textContent=`配置快照恢复失败，原存储保留：${error.message}`; }
     $('config-name').textContent=logicalName || 'Untitled';
     ui.replaceDraft(saved ? {...toDraft(base),...saved} : toDraft(base));
     captured = clone(base); record();

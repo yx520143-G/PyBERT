@@ -102,6 +102,8 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                 emit("phase", phase="building native analyses")
                 identity = {
                     "run_id": task_id,
+                    "source_record_id": request.get("source_record_id"),
+                    "replay_guard": request.get("replay_guard"),
                     "draft_revision": request.get("draft_revision", 0),
                     "input_hash_schema": "native-json-v1-integral-floats",
                     "requested_input": config,
