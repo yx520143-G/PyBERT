@@ -173,7 +173,10 @@ class ConsumerCases(unittest.TestCase):
                 self.assertEqual(info["consumed_count"], len(row["indices"]))
                 self.assertEqual(info["period_known"].tolist(), row["known"])
                 for value, known in zip(info["period_s"], row["known"]):
-                    self.assertEqual(float(value), row.get("period", 0.5)) if known else self.assertTrue(np.isnan(value))
+                    if known:
+                        self.assertEqual(float(value), row.get("period", 0.5))
+                    else:
+                        self.assertTrue(np.isnan(value))
                 if "analysis" in row:
                     self.assertEqual(info["analysis_sample_indices"].tolist(), row["analysis"])
                 if "traces" in row:
