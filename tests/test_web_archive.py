@@ -182,16 +182,44 @@ def test_legacy_trust_missing_none_index_axes_and_no_double_db(tmp_path):
         assert arrays["chnl_H"].tobytes() == np.arange(4.).tobytes()
     report = legacy_report(tmp_path)
     assert not report["available"] and len(report["fields"]) == 22
+    assert report["full_archive_available"] is False and "物理轴" in report["full_archive_reason"]
     with pytest.raises(ValueError, match="tx_out"):
         export_legacy(tmp_path, tmp_path / "bad.pybert_data")
     assert not (tmp_path / "bad.pybert_data").exists()
+    with pytest.raises(ValueError, match="Legacy.*物理轴"):
+        save_archive(tmp_path, tmp_path / "invalid.pybert_run")
+    assert not (tmp_path / "invalid.pybert_run").exists()
 
 
 def test_legacy_export_uses_native_constructor_when_all_23_produced(tmp_path):
     load_legacy(native_bytes(np.arange(4.)), tmp_path, trusted=True)
-    export_legacy(tmp_path, tmp_path / "valid.pybert_data")
+    report = export_legacy(tmp_path, tmp_path / "valid.pybert_data")
+    assert report["available"] is True and report["full_archive_available"] is False
     result = pickle.loads((tmp_path / "valid.pybert_data").read_bytes())
     assert type(result) is PyBertData and len(result.the_data.arrays) == 23
+
+
+def test_legacy_api_explains_full_archive_unavailable_but_keeps_subset_and_sidecar(tmp_path, monkeypatch):
+    manager = Tasks(tmp_path / "tasks")
+    monkeypatch.setattr(manager, "start", lambda *args, **kwargs: pytest.fail("legacy capability check ran engine"))
+    client = TestClient(create_app(manager))
+    response = client.post("/api/references?name=complete.pybert_data&trusted=true", content=native_bytes(np.arange(4.)))
+    record = response.json()
+    before = client.get("/api/state").json()
+    report = client.get(f"/api/runs/{record['record_id']}/legacy-report").json()
+    assert report["available"] is True and report["full_archive_available"] is False
+    assert "无法保存完整Web archive" in report["recommendation"]
+    rejected = client.get(f"/api/runs/{record['record_id']}/archive")
+    assert rejected.status_code == 422 and "物理轴" in rejected.json()["detail"]
+    assert client.get(f"/api/runs/{record['record_id']}/legacy").status_code == 200
+    assert client.get("/api/state").json() == before
+    assert not manager.tasks
+
+
+def test_complete_run_retains_full_archive_recommendation(saved):
+    report = legacy_report(saved[0])
+    assert report["full_archive_available"] is True and report["full_archive_reason"] == ""
+    assert report["recommendation"] == "Save full Web archive for lossless results."
 
 
 def test_open_clear_api_no_worker_draft_or_live_run_mutation(saved, tmp_path, monkeypatch):

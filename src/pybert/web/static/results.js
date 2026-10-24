@@ -20,7 +20,7 @@
       const response=await fetch(`/api/references?name=${encodeURIComponent(file.name)}&trusted=${trusted}`,{method:'POST',body:file,headers:{'Content-Type':'application/octet-stream'}});
       const value=await response.json();if (!response.ok) throw new Error(value.detail || response.statusText);
       await runs.refresh();await runs.select(value.record_id);
-      status(`已加载 ${file.name} · record ${value.record_id} · source ${value.run_id}；草稿未改，未Run。${value.legacy?'Legacy仅index诊断；原输入/物理轴未知。':''}`);
+      status(`已加载 ${file.name} · record ${value.record_id} · source ${value.run_id}；草稿未改，未Run。${value.legacy?'Legacy仅index诊断；缺少完整原输入/物理轴，不能保存完整Web archive，可查看原生子集/sidecar。':''}`);
     } catch (error) {status(`打开结果失败，原草稿/记录/选择保留：${error.message}`);}
     finally {event.target.value='';}
   });
@@ -36,7 +36,7 @@
   });
   let legacyReport=null, legacyId=null;
   $('legacy-results').addEventListener('click',async()=>{
-    try {legacyId=id();legacyReport=await runs.api(`runs/${legacyId}/legacy-report`);$('legacy-report').textContent=JSON.stringify(legacyReport,null,2);$('legacy-download').disabled=!legacyReport.available;$('legacy-dialog').showModal();}
+    try {legacyId=id();legacyReport=await runs.api(`runs/${legacyId}/legacy-report`);$('legacy-save-guidance').textContent=legacyReport.recommendation;$('legacy-report').textContent=JSON.stringify(legacyReport,null,2);$('legacy-download').disabled=!legacyReport.available;$('legacy-dialog').showModal();}
     catch(error){status(`原生保存检查失败：${error.message}`);}
   });
   $('legacy-download').addEventListener('click',()=>download(`runs/${legacyId}/legacy`,`${legacyId}.pybert_data`).catch(error=>status(`原生导出失败：${error.message}`)));

@@ -4,11 +4,9 @@ const root=path.join(__dirname,'..'),directory=path.join(root,'src/pybert/web/st
 const original=JSON.parse(fs.readFileSync(path.join(root,'docs/webui/issue5/evidence/chrome-raw-audit-20261024-110155/NRZ-manifest.json'),'utf8'));
 function harness(savedDraft) {
   const elements=new Map(),events=new Map(),storage=new Map([['pybert-native-draft-v2',savedDraft]]);
-  const element=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',textContent:'',style:{},listeners:{},classList:{toggle(){},contains(){return false;}},querySelector(){return null;},querySelectorAll(){return [];},addEventListener(type,callback){this.listeners[type]=callback;}});return elements.get(id);};
-  let bindings={ch_file:original.resource_bindings.ch_file};
+  const element=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',textContent:'',style:{},listeners:{},parentElement:{insertAdjacentHTML(){}},insertAdjacentHTML(){},classList:{toggle(){},contains(){return false;}},querySelector(){return element('dialog-child');},querySelectorAll(){return [];},addEventListener(type,callback){this.listeners[type]=callback;}});return elements.get(id);};
   const window={PYBERT_NATIVE:true,addEventListener(type,callback){if(!events.has(type))events.set(type,[]);events.get(type).push(callback);},dispatchEvent(event){for(const callback of events.get(event.type)||[])callback(event);}};
-  window.PYBERT_RESOURCES={bindings:()=>JSON.parse(JSON.stringify(bindings)),pending:()=>false,restore(value){bindings=JSON.parse(JSON.stringify(value));}};
-  const context=vm.createContext({window,CustomEvent:class {constructor(type,options){this.type=type;this.detail=options.detail;}},location:{hash:''},localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value),removeItem:key=>storage.delete(key)},document:{getElementById:element,addEventListener(){}},setTimeout(){return 1;},clearTimeout(){}});
+  const context=vm.createContext({window,structuredClone,CustomEvent:class {constructor(type,options){this.type=type;this.detail=options.detail;}},location:{hash:''},localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value),removeItem:key=>storage.delete(key)},document:{getElementById:element,addEventListener(){},createElement:()=>element('resource-dialog'),body:{append(){}}},setTimeout(){return 1;},clearTimeout(){}});
   for(const file of ['catalog.js','settings.js','draft.js','gui-map.js'])vm.runInContext(fs.readFileSync(path.join(directory,file),'utf8'),context);
   let app=fs.readFileSync(path.join(directory,'app.js'),'utf8');
   app=app.replace(/  renderGuiIndex\(\);\r?\n  renderStage\(\);/,'  renderMap=renderOverview=renderStage=()=>{};renderSettings=updateFieldFeedback=updateDraftStatus;');
@@ -19,8 +17,10 @@ function harness(savedDraft) {
     sourceRecordId='ref-original';replayGuard={version:1,source_run_id:run.run_id,resource_hash:run.resource_hash,resources:clone(run.resources)};
     constructedConfig={...clone(base),ch_file:'',inter_sel:'native'};constructedRuntime={version:1,values:{rlm:.5,rx_use_clocks:true,ami_opt_trials:7}};
     ui.replaceDraft({...ui.getDraft(),...toDraft(base)});
-  },nativeRecovery:()=>{snapshotRecoveryRequired=true;},snapshot:()=>({base,captured,patches,runtimeExtensions,sourceRecordId,replayGuard,snapshotRecoveryRequired,resource_bindings:resourceBindings()})};`);
+  },nativeRecovery:()=>{snapshotRecoveryRequired=true;},busy:()=>{activeTask='active-observer';},select:run=>{selected=run;controls();},snapshot:()=>({base,captured,patches,runtimeExtensions,sourceRecordId,replayGuard,snapshotRecoveryRequired,resource_bindings:resourceBindings()})};`);
   vm.runInContext(workbench,context);window.resetTest.seed(original);
+  vm.runInContext(fs.readFileSync(path.join(directory,'resources.js'),'utf8'),context);
+  window.PYBERT_RESOURCES.restore(original.resource_bindings,window.PYBERT_WORKBENCH.getDraft());
   return {window,storage,element,click:id=>element(id).listeners.click(),snapshot:()=>JSON.parse(JSON.stringify(window.resetTest.snapshot()))};
 }
 const plain=JSON.stringify({schema:2,values:{bit_rate:25}}),archive=harness(plain);
@@ -40,4 +40,17 @@ broken.click('reset-draft');broken.click('undo-reset');
 assert(broken.window.PYBERT_WORKBENCH.migrationError());assert.equal(broken.storage.get('pybert-native-draft-v2'),'invalid JSON');
 assert.equal(broken.storage.get('pybert-native-snapshot-v2'),'invalid snapshot');assert.equal(broken.snapshot().snapshotRecoveryRequired,true);
 assert.match(broken.element('draft-status').innerHTML,/仅当前页面保留/);
-console.log('PASS: real archived inputs/runtime/resource bindings/replay guard survive reset+undo; unknown retained input and invalid draft/native storage recover their original blocking state. No observers/main/COM.');
+const pending=harness(plain);pending.window.resetTest.busy();
+const pendingDraft=pending.window.PYBERT_WORKBENCH.getDraft();pendingDraft.ch_file='channel-B.s4p';
+pending.window.PYBERT_WORKBENCH.replaceDraft(pendingDraft);
+pending.window.PYBERT_RESOURCES.restore({ch_file:'resource-B.s4p'},pendingDraft);
+pending.window.dispatchEvent({type:'pybert-draft',detail:{commit:true}});
+const pendingBefore=pending.snapshot();assert.equal(pendingBefore.base.ch_file,original.requested_input.ch_file);
+assert.equal(pendingBefore.captured.ch_file,'channel-B.s4p');assert(pendingBefore.patches.some(row=>row.field==='ch_file' && row.value==='channel-B.s4p'));
+pending.click('reset-draft');pending.click('undo-reset');assert.deepEqual(pending.snapshot(),pendingBefore);
+assert.equal(pending.window.PYBERT_WORKBENCH.getDraft().ch_file,'channel-B.s4p');
+const capability=harness(plain);capability.window.resetTest.select({...original,legacy:{version:'11.1.0'}});
+assert.equal(capability.element('save-results').disabled,true);assert.equal(capability.element('legacy-results').disabled,false);
+assert.match(capability.element('save-results').title,/完整原输入和物理轴/);assert.match(capability.element('stale').textContent,/archive不可用/);
+capability.window.resetTest.select(original);assert.equal(capability.element('save-results').disabled,false);
+console.log('PASS: shipped app/workbench/resources event order preserves normalized and busy pending-resource states, ordered patches and replay guard; retained/recovery/storage cases pass. No observers/main/COM.');

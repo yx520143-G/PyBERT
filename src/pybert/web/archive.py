@@ -81,6 +81,8 @@ def validate_run(run, arrays):
     """Validate stored contracts without normalizing inputs or rebuilding plots."""
     if not isinstance(run, dict) or not isinstance(run.get("run_id"), str) or not run["run_id"].strip():
         raise ValueError("Missing/invalid source run_id identity.")
+    if run.get("legacy"):
+        raise ValueError("Legacy缺少完整原输入和物理轴，无法保存/打开为完整Web archive；请保留原文件与可用sidecar。")
     if run.get("status") != "succeeded" or type(run.get("raw_schema_version")) is not int or run["raw_schema_version"] not in (2, 3, 4):
         raise ValueError("Unsupported run status/raw schema; no executable defaults substituted.")
     if type(run.get("schema_version")) is not int or run["schema_version"] != 1 or type(run.get("draft_revision")) is not int or run["draft_revision"] < 0:

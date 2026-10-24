@@ -81,18 +81,21 @@ def legacy_report(directory):
         axes = {key: {"metadata": run["datasets"].get(value["metadata"].get("axis")),
                       "values": arrays[value["metadata"]["axis"]].tolist() if value["metadata"].get("axis") in arrays else None}
                 for key, value in fields.items()}
+    full_archive_available = not bool(run.get("legacy"))
     return {"source_run_id": run["run_id"], "available": not absent, "fields": fields, "absent": absent,
             "losses": LOSS, "sidecar_schema": 1, "axes": axes,
             "native_producer_version": run.get("legacy", {}).get("version", run.get("packages", {}).get("pipbert", "unknown")),
             "native_producer_date": run.get("legacy", {}).get("date_created", str(run.get("lifecycle", {}).get("created_at", "unknown"))),
-            "recommendation": "Save full Web archive for lossless results."}
+            "full_archive_available": full_archive_available,
+            "full_archive_reason": "" if full_archive_available else "Legacy缺少完整原输入和物理轴，无法保存完整Web archive。",
+            "recommendation": "Save full Web archive for lossless results." if full_archive_available else "Legacy缺少完整原输入和物理轴，无法保存完整Web archive；请保留原文件，可导出数据齐全的原生子集或独立sidecar。"}
 
 
 def export_legacy(directory, destination):
     """Use the native 23-item constructor only when every producer item exists."""
     report = legacy_report(directory)
     if not report["available"]:
-        raise ValueError(f"Native Save Results unavailable: {report['absent']}. Full Web archive remains available.")
+        raise ValueError(f"Native Save Results unavailable: {report['absent']}. {report['recommendation']}")
     with np.load(Path(directory, "arrays.npz"), allow_pickle=False) as arrays:
         data = ArrayPlotData(**{field: arrays[row["dataset"]] for field, row in report["fields"].items()})
     result = PyBertData(SimpleNamespace(plotdata=data), report["native_producer_date"], report["native_producer_version"])

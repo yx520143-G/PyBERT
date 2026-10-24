@@ -72,9 +72,11 @@
     $('inspector').inert = !!normalizing;
     for (const id of ['reset-draft','reset-stage','tx-mode','rx-mode','reset-modes','undo-reset']) $(id).disabled = !!normalizing;
     $('stale').textContent = selected ? (normalizedRevision !== revision || selected.input_hash !== normalized?.input_hash || selected.input_identity_hash && selected.input_identity_hash !== normalized?.input_identity_hash ? 'Older input · draft or resource binding changed' : 'Matches validated input') : '';
-    if(selected?.legacy) $('stale').textContent='原输入与物理轴未知；index诊断参考。';
+    if(selected?.legacy) $('stale').textContent='原输入与物理轴未知；index诊断参考，完整Web archive不可用。';
     if ($('resource-dialog')) $('resource-dialog').inert=!!normalizing;
-    for (const id of ['save-results','legacy-results']) $(id).disabled=!selected || disconnected;
+    $('legacy-results').disabled=!selected || disconnected;
+    $('save-results').disabled=!selected || !!selected.legacy || disconnected;
+    $('save-results').title=selected?.legacy?'Legacy缺少完整原输入和物理轴，无法保存完整Web archive；可查看原生子集与sidecar。':'';
     $('restore-run-input').disabled=!selected || !!selected.legacy || !!activeTask || !!normalizing || disconnected;
     $('remove-reference').disabled=!selected || selected.kind==='temporary' || disconnected;
     const child = selected && selected.kind==='temporary' && comTasks.findLast(task=>task.parent_run_id===selected.run_id);
@@ -124,7 +126,7 @@
     if(event.detail.undoNative) {
       ({base,captured,patches,runtimeExtensions,sourceRecordId,replayGuard,snapshotRecoveryRequired,normalized}=event.detail.undoNative);
       normalizedRevision=-1;
-      window.PYBERT_RESOURCES?.restore(event.detail.undoNative.resource_bindings,base);
+      window.PYBERT_RESOURCES?.restore(event.detail.undoNative.resource_bindings,ui.getDraft());
       if(snapshotRecoveryRequired && event.detail.undoNative.storedSnapshot!==undefined) {
         try {if(event.detail.undoNative.storedSnapshot===null) localStorage.removeItem('pybert-native-snapshot-v2');else localStorage.setItem('pybert-native-snapshot-v2',event.detail.undoNative.storedSnapshot);} catch { $('config-status').textContent='撤销已恢复页面状态；原配置快照存储恢复失败。'; }
       }
