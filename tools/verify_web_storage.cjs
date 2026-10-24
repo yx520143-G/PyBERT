@@ -13,7 +13,7 @@ const storage={value:null,fail:false,getItem(){return this.value;},setItem(_key,
 const window={PYBERT_NATIVE:true,addEventListener(){},dispatchEvent(){}};
 const context=vm.createContext({window,CustomEvent:class {},location:{hash:''},localStorage:storage,document:{getElementById:element,addEventListener(){}}});
 const directory=path.join(__dirname,'../src/pybert/web/static');
-for (const file of ['catalog.js','settings.js','gui-map.js']) vm.runInContext(fs.readFileSync(path.join(directory,file),'utf8'),context);
+for (const file of ['catalog.js','settings.js','draft.js','gui-map.js']) vm.runInContext(fs.readFileSync(path.join(directory,file),'utf8'),context);
 const source=fs.readFileSync(path.join(directory,'app.js'),'utf8');
 const bootstrap=/  renderGuiIndex\(\);\r?\n  renderStage\(\);/;
 assert(bootstrap.test(source));

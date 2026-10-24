@@ -8,6 +8,11 @@
   let activeTask = null, currentTask = null, runs = [], selected = null, normalizing = null, timer = null, pendingValidation = false, disconnected = false, logicalName = '', renderToken = 0;
   let runtimeExtensions = {};
   let comTasks = [];
+  let references = [], sourceRecordId = null;
+  let sourceVersion=null;
+  let snapshotRecoveryRequired=false;
+  const recordId = row => row.record_id || row.run_id;
+  const allRecords = () => [...runs,...references];
   const resourceBindings = () => window.PYBERT_RESOURCES?.bindings() || {};
   function extraInput() {
     const values = {...runtimeExtensions.values};
@@ -50,6 +55,8 @@
     captured = next;
   }
   function localError() {
+    if(snapshotRecoveryRequired) return '配置快照恢复失败；请显式恢复全部默认或Load Config，原存储保留。';
+    if(ui.migrationError()) return ui.migrationError();
     const draft = ui.getDraft();
     const changingTapCount = patches.some(patch => patch.field === 'rx_n_taps');
     return Object.keys(settings.fields).map(key => settings.fieldError(key,draft,{deferObserver:key==='rx_n_pre' && changingTapCount})).find(Boolean) || Object.keys(tables).map(key => settings.tableError(key,draft)).find(Boolean);
@@ -62,10 +69,15 @@
     $('inspector').inert = !!normalizing;
     for (const id of ['reset-draft','reset-stage','tx-mode','rx-mode','reset-modes','undo-reset']) $(id).disabled = !!normalizing;
     $('stale').textContent = selected ? (normalizedRevision !== revision || selected.input_hash !== normalized?.input_hash || selected.input_identity_hash && selected.input_identity_hash !== normalized?.input_identity_hash ? 'Older input · draft or resource binding changed' : 'Matches validated input') : '';
+    if(selected?.legacy) $('stale').textContent='原输入与物理轴未知；index诊断参考。';
     if ($('resource-dialog')) $('resource-dialog').inert=!!normalizing;
-    const child = selected && comTasks.findLast(task=>task.parent_run_id===selected.run_id);
+    for (const id of ['save-results','legacy-results']) $(id).disabled=!selected || disconnected;
+    $('restore-run-input').disabled=!selected || !!selected.legacy || !!activeTask || !!normalizing || disconnected;
+    $('remove-reference').disabled=!selected || selected.kind==='temporary' || disconnected;
+    const child = selected && selected.kind==='temporary' && comTasks.findLast(task=>task.parent_run_id===selected.run_id);
     $('parent-com-state').textContent = selected ? `核心结果成功 · ${selected.run_id.slice(0,8)}${child ? `；COM 子任务 ${child.task_id.slice(0,8)}：${child.state}${child.result?.value_db!==undefined ? ` · ${child.result.value_db.toFixed(9)} dB` : ''}` : selected.execution_strategy?.deferred_com ? '；COM 子任务等待启动' : '；COM 未随此 Run 启用'}` : '';
     $('parent-com-state').title=selected ? `run_id=${selected.run_id}; com_id=${child?.task_id || selected.execution_strategy?.deferred_com?.com_id || 'none'}` : '';
+    if (selected && selected.kind!=='temporary') $('parent-com-state').textContent=`外部参考 ${recordId(selected)} · 原run ${selected.run_id} · ${selected.legacy?'legacy诊断子集':'完整存档'}；子任务仅显示保存时快照，见概览。`;
   }
   async function normalizeDraft() {
     if (normalizing) return normalizing;
@@ -92,15 +104,16 @@
       return result;
     } finally { normalizing = null; controls(); }
   }
-  function inputError(error) { $('input-status').textContent = `Input: ${error.message}`; controls(); }
+  function inputError(error) { $(ui.migrationError() || snapshotRecoveryRequired?'config-status':'input-status').textContent = `${ui.migrationError() || snapshotRecoveryRequired?'草稿恢复':'Input'}: ${error.message}`; controls(); }
   function validateWhenIdle() {
     if (pendingValidation && !activeTask && !normalizing) normalizeDraft().catch(inputError);
   }
   function persistNative() {
-    try { localStorage.setItem('pybert-native-snapshot-v1',JSON.stringify({schema:1,config:base,name:logicalName,...extraInput()})); }
-    catch { /* The prototype draft-status independently reports storage failures. */ }
+    try { localStorage.setItem('pybert-native-snapshot-v2',JSON.stringify({schema:2,sources:sourceVersion,config:base,name:logicalName,source_record_id:sourceRecordId,...extraInput()})); }
+    catch { $('config-status').textContent='本地配置快照写入失败；当前页面草稿仍保留，属于存储故障。'; }
   }
   window.addEventListener('pybert-draft', event => {
+    if(event.detail.resetAll) {sourceRecordId=null;snapshotRecoveryRequired=false;}
     revision++; controls();
     if (event.detail.commit) {
       record();
@@ -130,6 +143,10 @@
     return kind;
   }
   function empty(message) { Plotly.purge('plot'); $('plot').innerHTML = `<p class="empty-result">${esc(message)}</p>`; }
+  function comparisonRecord() {
+    const chosen=$('comparison-run').value;
+    return allRecords().find(row=>recordId(row)!==recordId(selected) && (!chosen || recordId(row)===chosen));
+  }
   async function renderAnalysis() {
     const token = ++renderToken;
     $('analysis-info').innerHTML = '';
@@ -143,11 +160,12 @@
     if (['overview','jitter.info','compare'].includes(id)) $('plot').style.height='auto';
     if (!id) return empty('No matching observation at this node. Choose an explicit Point.');
     if (id === 'overview') {
-      empty(`Run ${selected.run_id} · ${selected.effective_input.mod_type} · ${selected.input_hash.slice(0,12)}`);
-      $('analysis-info').innerHTML = `<pre>${esc(JSON.stringify({summary:selected.summary,window:selected.window,warnings:selected.warnings,native_sha:selected.native_sha,adapter_sha:selected.adapter_sha},null,2))}</pre>`;
+      empty(`Record ${recordId(selected)} · source run ${selected.run_id} · ${selected.effective_input.mod_type || 'legacy input unknown'} · ${selected.input_hash.slice(0,12)}`);
+      $('analysis-info').innerHTML = `<pre>${esc(JSON.stringify({summary:selected.summary,window:selected.window,warnings:selected.warnings,legacy:selected.legacy,lifecycle:selected.lifecycle,native_sha:selected.native_sha,adapter_sha:selected.adapter_sha},null,2))}</pre><details><summary>保存时子功能快照 / 来源</summary><pre>${esc(JSON.stringify({saved_at:selected.archive_saved_at,subfunctions:selected.saved_subfunctions},null,2))}</pre></details>`;
       return;
     }
     if (id === 'jitter.info') {
+      if (selected.legacy) return empty('Legacy没有jitter统计/输入/窗口；不借当前Run补算。');
       if (!selected.observations) {
         empty(`Legacy DFE crossing-jitter summary · raw schema ${selected.raw_schema_version}. Other observations, fit validity and rejection segments are unavailable; no calculation started.`);
         $('analysis-info').innerHTML = `<table><tr><th>Stored DFE metric</th><th>ps · raw reference</th></tr>${Object.entries(selected.summary.dfe_jitter_s || {}).map(([key,value]) => `<tr><td>${esc(key)}</td><td>${(value*1e12).toPrecision(8)}${['rjDD','mu_pos','mu_neg'].includes(key)?' · fit validity unknown':''}</td></tr>`).join('')}</table>`;
@@ -164,12 +182,15 @@
       return;
     }
     if (id === 'compare') {
-      if (runs.length < 2) return empty('Two successful runs are required. Failed and cancelled tasks are excluded.');
-      const [a,b] = await Promise.all(runs.map(r => api(`runs/${r.run_id}`)));
+      const other=comparisonRecord();
+      if (!other) return empty('选择另一条成功记录或加载参考；失败/取消任务不参与。');
+      const [a,b] = await Promise.all([selected,api(`runs/${recordId(other)}`)]);
       if (token !== renderToken) return;
+      if (a.legacy || b.legacy) return empty('Legacy缺少输入/物理轴，无法做物理域比较；可单独查看index诊断。');
       const differences = Object.keys(a.effective_input).filter(key => !equal(a.effective_input[key],b.effective_input[key]));
-      empty('Two immutable successful runs · inputs and native summaries');
+      empty(`A ${recordId(a)} / source ${a.run_id} · B ${recordId(b)} / source ${b.run_id}`);
       $('analysis-info').innerHTML = `<table><tr><th></th><th>A ${esc(a.run_id.slice(0,8))}</th><th>B ${esc(b.run_id.slice(0,8))}</th></tr>${['n_errs_dfe','chnl_dly_s','rel_power','initial_level_v','final_level_v'].map(key => `<tr><td>${key}</td><td>${a.summary[key]}</td><td>${b.summary[key]}</td></tr>`).join('')}</table><p>Input differences: ${esc(differences.join(', ') || 'None')}</p><pre>${esc(JSON.stringify(differences.map(key => ({field:key,A:a.effective_input[key],B:b.effective_input[key]})),null,2))}</pre><p>A window ${esc(JSON.stringify(a.window))}<br>B window ${esc(JSON.stringify(b.window))}</p>`;
+      $('analysis-info').innerHTML += `<p>Resources/runtime A</p><pre>${esc(JSON.stringify({resources:a.resources,runtime:a.runtime_extensions},null,2))}</pre><p>Resources/runtime B</p><pre>${esc(JSON.stringify({resources:b.resources,runtime:b.runtime_extensions},null,2))}</pre>`;
       return;
     }
     const compare = $('compare-mode').value, kind = $('analysis-kind').value;
@@ -177,13 +198,15 @@
     const points = compare === 'points' && pointKinds.includes(kind) ? ['chnl','tx','ctle','ffe','dfe'] : [observation()];
     let sources = [selected];
     if (compare === 'runs') {
-      const other = runs.find(r => r.run_id !== selected.run_id);
+      const other = comparisonRecord();
       if (!other) return empty('Two successful runs are required for chart comparison.');
-      sources.push(await api(`runs/${other.run_id}`));
+      sources.push(await api(`runs/${recordId(other)}`));
     }
+    if (sources.length>1 && sources.some(run=>run.legacy)) return empty('Legacy无物理轴，禁止与其他记录叠加；请单独查看index诊断。');
     if (token !== renderToken) return;
     const requests = sources.flatMap(run => points.map(point => {
       let id=pickPlot(point);
+      if (run.legacy) id=$('analysis-kind').value==='response' ? `${point === 'chnl' || $('response-scope').value==='single' ? point : point+'_out'}_${$('response-type').value}` : $('analysis-kind').value==='wave' ? 'tx_out' : id;
       if (!run.analysis_version) {
         if (id === 'channel.frequency') id='chnl_H';
         if (id === 'eye.tx') id='eye.rx_in';
@@ -195,8 +218,8 @@
     const missing = requests.filter(r => !r.run.plots[r.id]);
     if (missing.length) return empty(`Analysis unavailable for ${missing.map(r => `${r.run.run_id.slice(0,8)} / ${r.id} (raw schema ${r.run.raw_schema_version})`).join(', ')}. Saved runs are immutable; switching views does not calculate missing datasets.`);
     const charts = await Promise.all(requests.map(async r => {
-      const plot=await api(`runs/${r.run.run_id}/plots/${r.id}`);
-      if (!r.run.analysis_version && r.id === 'chnl_H') {
+      const plot=await api(`runs/${recordId(r.run)}/plots/${r.id}`);
+      if (!r.run.legacy && !r.run.analysis_version && r.id === 'chnl_H') {
         plot.title='Legacy Channel actual termination · raw schema 2; three-source view unavailable';
         plot.data.forEach(trace => { trace.name='Legacy actual termination · three-source view unavailable'; });
         plot.metadata={...plot.metadata,legacy_note:plot.title,source_field:'chnl_H'};
@@ -221,21 +244,22 @@
         layout[`yaxis${suffix}`] = {domain:[1-(row+1)/rows+.11/rows,1-row/rows-.08/rows],anchor:x,title:{text:p.yunit}};
         layout.annotations.push({text:`${p.run_id.slice(0,8)} · ${requests[i].id}`,x:col*.53+.22,y:1-row/rows,xref:'paper',yref:'paper',showarrow:false,font:{size:10}});
       }
-      const label=compare === 'runs' ? p.run_id.slice(0,8) : ({chnl:'Channel',tx:'Rx input',ctle:'CTLE',ffe:'Rx FFE',dfe:'DFE'})[requests[i].id.split('.')[1]];
+      const label=compare === 'runs' ? recordId(p.run).slice(0,12) : ({chnl:'Channel',tx:'Rx input',ctle:'CTLE',ffe:'Rx FFE',dfe:'DFE'})[requests[i].id.split('.')[1]];
       return p.data.map(trace => ({...trace,name:charts.length>1 && label ? `${label} · ${trace.name || requests[i].id}` : trace.name,...(facets ? {xaxis:x,yaxis:y,coloraxis:'coloraxis'} : {})}));
     });
     await Plotly.newPlot('plot',data,layout,{responsive:true,displaylogo:false});
     if (token !== renderToken) return;
-    $('analysis-info').innerHTML = `<p>DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling. Zoom/pan and double-click reset do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.</p>${charts.map(p => `<details><summary>${esc(p.run_id)} · ${esc(p.plot_id)} · ${esc(p.run.effective_input.mod_type)} · input ${p.run.input_hash.slice(0,12)}</summary><pre>${esc(JSON.stringify({window:p.metadata.window || p.run.window,metadata:p.metadata,source:p.run.observations?.[p.plot_id.split('.')[1]],native_sha:p.run.native_sha,adapter_sha:p.run.adapter_sha},null,2))}</pre></details>`).join('')}`;
+    $('analysis-info').innerHTML = `<p>${selected.legacy?'Legacy index诊断：物理轴/窗口未知。':'DFE responses are final-weight equivalent FIRs. Each trace uses its own physical x coordinates; no index alignment or resampling.'} Zoom/pan and switching views do not Run. Crossing-jitter bathtubs do not certify voltage margin/BER.</p>${charts.map(p => `<details><summary>${esc(recordId(p.run))} · source ${esc(p.run_id)} · ${esc(p.plot_id)} · ${esc(p.run.effective_input.mod_type || 'unknown')} · input ${p.run.input_hash.slice(0,12)}</summary><pre>${esc(JSON.stringify({window:p.metadata.window || p.run.window,metadata:p.metadata,source:p.run.observations?.[p.plot_id.split('.')[1]],native_sha:p.run.native_sha,adapter_sha:p.run.adapter_sha},null,2))}</pre></details>`).join('')}`;
     if ($('work-area').classList.contains('viewer-expanded')) $('analysis').scrollIntoView({block:'start',behavior:'instant'});
   }
   async function chooseRun(id) {
     const result = id ? await api(`runs/${id}`) : null;
     if ($('selected-run').value !== (id || '')) return;
     selected = result;
+    try { localStorage.setItem('pybert-result-selection-v1',JSON.stringify({record_id:id})); } catch { $('results-status').textContent='结果选择仅当前页面保留；本地存储失败。'; }
     controls(); await renderAnalysis();
   }
-  async function poll() {
+  async function poll(once=false) {
     if (disconnected) return;
     try {
       const state = await api('state');
@@ -249,30 +273,35 @@
         $('live-log-id').textContent = `Current task: ${task.task_id} · cancel requested=${task.cancel_requested}, observed=${task.cancel_observed}, exited=${task.worker_exited}`;
         $('live-log').textContent = [...task.logs,task.error || ''].join('\n');
       }
-      if (!equal(state.runs.map(r => r.run_id),runs.map(r => r.run_id))) {
-        const previous = runs.map(r => r.run_id); runs = state.runs;
-        $('selected-run').innerHTML = '<option value="">Select successful run…</option>' + runs.map(r => `<option value="${r.run_id}">${r.effective_input.mod_type} · ${r.run_id.slice(0,8)}</option>`).join('');
+      $('result-budget').textContent=`临时成功缓存 ${state.runs.length}/2 · ${state.result_budget?.temporary_file_bytes || 0} bytes（第三次成功淘汰最旧临时记录）；参考 ${(state.references || []).length}/4 · ${state.result_budget?.reference_used_bytes || 0}/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。`;
+      if (!equal([...state.runs,...(state.references || [])].map(recordId),allRecords().map(recordId))) {
+        const previous = runs.map(r => r.run_id); runs = state.runs; references=state.references || [];
+        const options=allRecords().map(r=>`<option value="${recordId(r)}">${r.kind==='legacy'?'Legacy':r.kind==='archive'?'参考':'Run'} · ${esc(r.effective_input?.mod_type || r.name || '')} · ${recordId(r).slice(0,12)}</option>`).join('');
+        $('selected-run').innerHTML = '<option value="">Select record…</option>' + options;
+        const comparison=$('comparison-run').value;
+        $('comparison-run').innerHTML='<option value="">自动选择另一条</option>'+options;
+        if (allRecords().some(r=>recordId(r)===comparison)) $('comparison-run').value=comparison;
         const latest = runs.findLast(r => !previous.includes(r.run_id));
-        const id = latest?.run_id || (runs.some(r => r.run_id === selected?.run_id) ? selected.run_id : runs.at(-1)?.run_id);
+        const id = latest?.run_id || (selected && allRecords().some(r => recordId(r) === recordId(selected)) ? recordId(selected) : recordId(allRecords().at(-1) || {}));
         $('selected-run').value = id || ''; await chooseRun(id);
       }
       controls();
       validateWhenIdle();
     } catch (error) { $('task-state').textContent = `Service unavailable: ${error.message}`; }
-    setTimeout(poll,1000);
+    if (!once) setTimeout(()=>poll(),1000);
   }
   $('run').addEventListener('click',async () => {
     clearTimeout(timer);
     try {
       const input = await normalizeDraft();
-      const task = await api('runs',{config:input.config,input_hash:input.input_hash,input_identity_hash:input.input_identity_hash,draft_revision:revision,...extraInput()});
+      const task = await api('runs',{config:input.config,input_hash:input.input_hash,input_identity_hash:input.input_identity_hash,draft_revision:revision,source_record_id:sourceRecordId,...extraInput()});
       activeTask = currentTask = task.task_id; controls();
       $('task-state').textContent = `Run ${task.task_id} · validating`;
     } catch (error) { inputError(error); }
   });
   $('abort').addEventListener('click',async () => { if (activeTask) { const task = await api(`tasks/${activeTask}/cancel`,{}); $('task-state').textContent = `${task.task_id} · ${task.state}; awaiting worker exit`; } });
   $('selected-run').addEventListener('change',() => chooseRun($('selected-run').value).catch(inputError));
-  for (const id of ['analysis-kind','response-type','response-scope','analysis-point','compare-mode','channel-noise']) $(id).addEventListener('change',() => renderAnalysis().catch(inputError));
+  for (const id of ['analysis-kind','response-type','response-scope','analysis-point','compare-mode','comparison-run','channel-noise']) $(id).addEventListener('change',() => renderAnalysis().catch(inputError));
   $('expand-viewer').addEventListener('click',() => { const expanded=$('work-area').classList.toggle('viewer-expanded'); $('expand-viewer').textContent=expanded?'Restore settings':'Expand viewer'; renderAnalysis().catch(inputError); });
   window.addEventListener('pybert-analysis-navigation',event => {
     $('analysis-kind').value=event.detail.kind; $('analysis-point').value='node';
@@ -296,10 +325,12 @@
         return api('normalize',request);
       })(); controls();
       const result = await normalizing;
+      sourceRecordId=null;
+      snapshotRecoveryRequired=false;
       base = result.config; normalized = result; patches = []; runtimeExtensions=result.runtime_extensions; revision++; normalizedRevision = revision;
       window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
       window.PYBERT_RESOURCES?.importReport(result);
-      ui.replaceDraft(toDraft(base)); captured = toNative(ui.getDraft());
+      ui.replaceLoadedDraft(toDraft(base)); captured = toNative(ui.getDraft());
       logicalName = file.name; $('config-name').textContent = logicalName;
       persistNative();
       $('config-status').textContent=`已载入 ${logicalName}；未自动 Run。`;
@@ -325,21 +356,37 @@
   $('name-dialog').addEventListener('cancel',() => { $('name-dialog').returnValue = 'cancel'; });
   $('help').addEventListener('click',() => $('help-dialog').showModal()); $('close-help').addEventListener('click',() => $('help-dialog').close());
   $('quit').addEventListener('click',() => { disconnected=true; controls(); $('task-state').textContent='Disconnected. You may close this tab; backend tasks continue.'; });
+  window.PYBERT_RUNS={api,selected:()=>selected,references:()=>references.slice(),refresh:()=>poll(true),
+    select:async id=>{$('selected-run').value=id;await chooseRun(id);},
+    restore:async id=>{
+      if (activeTask || normalizing) throw new Error('Native slot busy; restore input after worker exit.');
+      const original=await api(`runs/${id}/replay-input`);
+      normalizing=api('normalize',{mode:'load',config:original.config,runtime_extensions:original.runtime_extensions,resource_bindings:original.resource_bindings});controls();
+      try {
+        const result=await normalizing;
+        base=result.config;normalized=result;patches=[];runtimeExtensions=result.runtime_extensions;revision++;normalizedRevision=revision;
+        sourceRecordId=id;
+        window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
+        ui.replaceLoadedDraft(toDraft(base));captured=toNative(ui.getDraft());persistNative();
+        $('results-status').textContent=`已恢复原requested输入；原资源须显式重绑并匹配hash后才能Run。${JSON.stringify(original.expected_resources)}`;
+      } finally {normalizing=null;controls();}
+    }};
   async function init() {
     controls();
     let saved = null;
     try { if (ui.hasSavedDraft()) saved = ui.getDraft(); } catch { /* existing draft status shows storage failure */ }
     settings.tableInfo.tx_tap_tuners.readonly = ['value'];
-    const version = await api('version'); $('version-info').textContent = JSON.stringify(version,null,2);
+    const version = await api('version');sourceVersion=version;ui.setSources(version); $('version-info').textContent = JSON.stringify(version,null,2);
     const defaults = await api('normalize',{mode:'defaults'});
     base = defaults.config; normalized = defaults; runtimeExtensions={version:1,values:defaults.runtime_defaults}; normalizedRevision = revision;
     ui.setDefaults(toDraft(base));
-    try { const previous=JSON.parse(localStorage.getItem('pybert-native-snapshot-v1') || 'null'); if (previous?.schema===1) { base=previous.config;logicalName=previous.name || '';runtimeExtensions=previous.runtime_extensions || runtimeExtensions;window.PYBERT_RESOURCES?.restore(previous.resource_bindings,base); } } catch { /* Invalid storage is kept as a visible draft failure. */ }
+    try { const previous=JSON.parse(localStorage.getItem('pybert-native-snapshot-v2') || localStorage.getItem('pybert-native-snapshot-v1') || 'null'); if (previous && (![1,2].includes(previous.schema) || !previous.config || typeof previous.config!=='object')) throw new Error('未知配置快照schema/字段');if(previous) {base=previous.config;logicalName=previous.name || '';runtimeExtensions=previous.runtime_extensions || runtimeExtensions;sourceRecordId=previous.source_record_id || null;window.PYBERT_RESOURCES?.restore(previous.resource_bindings,base);revision++;normalizedRevision=-1;pendingValidation=true;} } catch(error) {snapshotRecoveryRequired=true; $('config-status').textContent=`配置快照恢复失败，原存储保留：${error.message}`; }
     $('config-name').textContent=logicalName || 'Untitled';
     ui.replaceDraft(saved ? {...toDraft(base),...saved} : toDraft(base));
     captured = clone(base); record();
     if (saved && patches.length) { revision++; normalizedRevision=-1; pendingValidation=true; }
-    $('input-status').textContent = defaults.warnings.join(' '); controls();
+    $('input-status').textContent = ui.migrationError() || defaults.warnings.join(' '); controls();
+    try {const selection=JSON.parse(localStorage.getItem('pybert-result-selection-v1') || 'null');if(selection?.record_id) $('results-status').textContent=`正在查询原记录 ${selection.record_id}；服务重启后临时结果未保存/当前不可用，请重新打开archive。`;} catch { $('results-status').textContent='结果选择状态读取失败；不会据本地存储伪造成功。'; }
     await poll();
   }
   init().catch(inputError);

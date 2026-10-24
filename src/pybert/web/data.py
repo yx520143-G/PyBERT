@@ -3,6 +3,7 @@
 import importlib.metadata
 import json
 import subprocess
+import hashlib
 from pathlib import Path
 
 import numpy as np
@@ -75,6 +76,14 @@ def adapter_sha():
         ).strip()
     except (OSError, subprocess.CalledProcessError):
         return "unavailable"
+
+
+def source_identity():
+    """Actual on-disk source bytes supplement Git HEAD, which can be dirty."""
+    package = Path(__file__).resolve().parents[1]
+    paths = [*Path(__file__).parent.glob("*.py"), *Path(__file__).parent.joinpath("static").glob("*")]
+    paths += [package / name for name in ("pybert.py", "models/bert.py", "utility/sparam.py", "configuration.py")]
+    return {str(path.relative_to(package)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths if path.is_file()}
 
 
 def collect(engine, observations, directory, identity, cancelled=lambda: False):
@@ -353,6 +362,7 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
         native_importer_sha=NATIVE_IMPORTER_SHA,
         prototype_sha=PROTOTYPE_SHA,
         adapter_sha=adapter_sha(),
+        actual_source_sha256=source_identity(),
         status="succeeded",
         datasets=datasets,
         plots=plots,

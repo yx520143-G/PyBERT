@@ -35,3 +35,5 @@ dialog { max-width:740px; max-height:80vh; border:1px solid #cbd5e1; border-radi
 #resource-dialog code { overflow-wrap: anywhere; font-size: 10px; }
 .resource-row { display: flex; align-items: center; gap: 6px; margin: 8px 0; }
 .resource-row span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+#result-actions { flex-wrap:wrap; }#result-actions label { font-size:10px; }#selected-run,#comparison-run { max-width:240px; }
+#result-budget { font-size:9px; }#legacy-dialog pre { max-height:45vh; overflow:auto; }#settings-panel pre { white-space:pre-wrap;overflow-wrap:anywhere;font-size:10px; }

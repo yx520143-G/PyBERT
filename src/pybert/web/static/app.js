@@ -2,16 +2,16 @@
 (() => {
   const { stages } = window.PYBERT_CATALOG;
   const settings = window.PYBERT_SETTINGS;
-  const storageKey = 'pybert-native-draft-v1';
+  const storageKey = 'pybert-native-draft-v2';
   let draft = settings.clone(settings.defaults);
   let storageAvailable = true;
   let loadMessage = '';
   let lastReset = null;
+  let retainedFields={},sources=null,recoveryRequired=false,restored=false,migrationSource=null;
   try {
-    const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
-    if (saved?.schema === 1 && saved.commit === window.PYBERT_CATALOG.commit) draft = settings.restore(saved.values);
-    else if (saved) loadMessage = '旧草稿的版本不同，当前显示此版本的默认值。';
-  } catch { storageAvailable = false; loadMessage = '无法读取本地草稿；本次修改仍可在当前页面保留。'; }
+    const saved = JSON.parse(localStorage.getItem(storageKey) || localStorage.getItem('pybert-native-draft-v1') || 'null');
+    if(saved) {const migrated=window.PYBERT_DRAFT.migrate(saved);draft=migrated.values;retainedFields=migrated.retained;restored=true;migrationSource={schema:migrated.source_schema,sources:migrated.source_sha};loadMessage=`草稿schema ${migrated.source_schema} → 2，按稳定field ID迁移；原键保留。${Object.keys(retainedFields).length}项未应用，明细见下；有未应用字段时禁止Run。`;}
+  } catch(error) { storageAvailable = false;recoveryRequired=true;loadMessage=`无法恢复本地草稿：${error.message} 原存储未覆盖。可显式“恢复全部默认”或Load Config恢复。`; }
   const $ = id => document.getElementById(id);
   const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   const categories = { main: '主信号链', control: '控制与判决旁支', tools: '全局设置与工具' };
@@ -45,10 +45,10 @@
   const stageKeys = stage => [...new Set(stage.groups.flatMap(group => group.params.flatMap(settings.keysFor)))];
 
   function saveDraft() {
+    if(recoveryRequired) return;
     try {
-      localStorage.setItem(storageKey, JSON.stringify({ schema: 1, commit: window.PYBERT_CATALOG.commit, values: draft }));
+      localStorage.setItem(storageKey, JSON.stringify({ schema: 2, sources, migration_source:migrationSource, values: draft, retained_fields:retainedFields }));
       storageAvailable = true;
-      loadMessage = '';
     } catch { storageAvailable = false; }
   }
 
@@ -223,7 +223,7 @@
       }).join('');
       return cards ? `<section class="settings-group"><div class="settings-group-heading"><h3>${group.title}</h3><span>本地草稿</span></div><div class="settings-grid">${cards}</div></section>` : '';
     }).join('');
-    $('settings-panel').innerHTML = `${loadMessage ? `<p class="editor-notice">${loadMessage}</p>` : ''}${stage.id === 'ami' ? '<p class="editor-notice">这里只记录模型文件名与调用方案。尚未解析模型、确认能力或运行动态库；Model_Specific 示例与只读解析状态可在“参数说明”中查看。</p>' : ''}${groups}${[...tables].map(tapTable).join('')}${!groups && !tables.size ? '<div class="empty-state">此模块显示分析结果，当前没有仿真数据。<br>可以在“参数说明”中查看支持的输出与入口。</div>' : ''}${referenceCount ? `<div class="reference-shortcut"><span>还有 ${referenceCount} 个结果、内部状态或参考条目。</span><button type="button" data-tab="parameters">查看参数说明 →</button></div>` : ''}`;
+    $('settings-panel').innerHTML = `${loadMessage ? `<p class="editor-notice">${escape(loadMessage)}</p><details><summary>迁移来源与未应用字段（保留原值）</summary><pre>${escape(JSON.stringify({migrationSource,retainedFields},null,2))}</pre></details>` : ''}${stage.id === 'ami' ? '<p class="editor-notice">这里只记录模型文件名与调用方案。尚未解析模型、确认能力或运行动态库；Model_Specific 示例与只读解析状态可在“参数说明”中查看。</p>' : ''}${groups}${[...tables].map(tapTable).join('')}${!groups && !tables.size ? '<div class="empty-state">此模块显示分析结果，当前没有仿真数据。<br>可以在“参数说明”中查看支持的输出与入口。</div>' : ''}${referenceCount ? `<div class="reference-shortcut"><span>还有 ${referenceCount} 个结果、内部状态或参考条目。</span><button type="button" data-tab="parameters">查看参数说明 →</button></div>` : ''}`;
     updateFieldFeedback();
   }
 
@@ -278,21 +278,22 @@
     updateDraftStatus();
   }
 
-  function edited({ render = false, commit = true } = {}) {
+  function edited({ render = false, commit = true, resetAll = false } = {}) {
     saveDraft();
     renderMap();
     renderOverview();
     if (render) renderSettings();
     else updateFieldFeedback();
-    window.dispatchEvent(new CustomEvent('pybert-draft', { detail: { commit } }));
+    window.dispatchEvent(new CustomEvent('pybert-draft', { detail: { commit, resetAll } }));
   }
 
   function showReset(keys, message) {
+    if(keys.length===Object.keys(settings.defaults).length) {recoveryRequired=false;retainedFields={};loadMessage='已显式恢复默认；旧schema1原存储仍保留。';}
     lastReset = settings.clone(draft);
     for (const key of keys) draft[key] = settings.clone(settings.defaults[key]);
     for (const key of keys) settings.reconcile(key, draft);
     for (const key of ['tx_pkg_case', 'rx_pkg_case']) if (!settings.optionsFor(key, draft).includes(draft[key])) draft[key] = settings.optionsFor(key, draft)[0];
-    edited({ render: true });
+    edited({ render: true,resetAll:keys.length===Object.keys(settings.defaults).length });
     $('toast-message').textContent = message;
     $('draft-toast').hidden = false;
     $('undo-reset').hidden = false;
@@ -536,14 +537,17 @@
       const field = settings.fields[item.key];
       const status = item.analysis ? '真实分析 · 所选 run' : field?.readonly ? '能力限制 / 只读' : settings.fields[item.key] || settings.tableInfo[item.key] || item.key.startsWith('btn_') ? '输入 · Run 前校验' : '参考 · 后续票';
       return `<div class="gui-row"><div><strong>${escape(item.label)}</strong><code>${item.key}</code></div><span class="gui-status">${status}</span>${item.analysis || entry ? `<button type="button" class="text-button" data-gui-key="${item.key}">${item.analysis ? '查看分析' : entry.stage.name} →</button>` : '<span>未接入</span>'}<a class="source-link" href="${window.PYBERT_CATALOG.root}src/pybert/gui/view.py#L${item.line}" target="_blank" rel="noopener noreferrer">源码 ↗</a></div>`;
-    }).join('')}</div></details>`).join('')}<details class="gui-section"><summary>菜单与状态栏<span>操作范围</span></summary><div class="gui-menu-list">${window.PYBERT_GUI.menus.map(menu => `<p><strong>${menu.name}</strong> · ${menu.items.join(' / ')}</p>`).join('')}<p>Debug Mode uses the native debug field. Run / Abort, native YAML Load / Save, logs and help are connected. Persistent result archives: #5. Tune / Use / Reset EQ: #8. Restore defaults is a separate draft action.</p><p>Current task state and selected successful run are separate. Run overview reports native performance, delay, DFE bit errors, power and jitter. Independent COM and resource binding are available through 资源 / COM; core and COM child states remain separate.</p></div></details>`;
+    }).join('')}</div></details>`).join('')}<details class="gui-section"><summary>菜单与状态栏<span>操作范围</span></summary><div class="gui-menu-list">${window.PYBERT_GUI.menus.map(menu => `<p><strong>${menu.name}</strong> · ${menu.items.join(' / ')}</p>`).join('')}<p>Debug Mode uses the native debug field. Run / Abort, native YAML Load / Save, logs and help are connected. 完整 Web archive、可信 legacy index诊断、加载/保存/清除参考已接入。 Tune / Use / Reset EQ: #8. Restore defaults is a separate draft action.</p><p>Current task state and selected successful run are separate. Run overview reports native performance, delay, DFE bit errors, power and jitter. Independent COM and resource binding are available through 资源 / COM; core and COM child states remain separate.</p></div></details>`;
   }
   window.PYBERT_WORKBENCH = {
     getDraft: () => settings.clone(draft),
     getStage: () => state.stageId,
     replaceDraft: values => { draft = values; saveDraft(); renderStage(); },
+    replaceLoadedDraft: values => {recoveryRequired=false;retainedFields={};loadMessage='已显式载入完整配置；旧草稿原件未删除。';draft=values;saveDraft();renderStage();},
+    setSources: version=>{sources=version;},
+    migrationError: ()=>recoveryRequired?'本地草稿恢复失败：请显式恢复默认或Load Config。':Object.keys(retainedFields).length?'有未应用的历史字段，原值保留；请检查迁移明细并显式恢复默认或载入完整配置。':null,
     setDefaults: values => { Object.assign(settings.defaults, settings.clone(values)); for (const [key, value] of Object.entries(values)) if (settings.fields[key]) settings.fields[key].value = value; },
-    hasSavedDraft: () => localStorage.getItem(storageKey) !== null
+    hasSavedDraft: () => restored
   };
   renderGuiIndex();
   renderStage();
