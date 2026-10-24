@@ -1,0 +1,280 @@
+### Page
+- Page URL: http://127.0.0.1:8776/#viterbi
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=e1]:
+  - link "跳到参数详情" [ref=e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=e3]:
+    - link "PyBERT 数据源" [ref=e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=e8]:
+        - strong [ref=e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=e10]:
+      - text: 模块目录
+      - generic [ref=e11]: 16 MODULES
+    - navigation "选择模块" [ref=e12]:
+      - generic [ref=e280]:
+        - heading "主信号链" [level=2] [ref=e281]
+        - button "Source" [ref=e282] [cursor=pointer]: •
+        - button "Tx EQ" [ref=e284] [cursor=pointer]: •
+        - button "Channel" [ref=e286] [cursor=pointer]
+        - button "Noise" [ref=e288] [cursor=pointer]
+        - button "Rx CTLE" [ref=e290] [cursor=pointer]
+        - button "Rx FFE" [ref=e292] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=e294] [cursor=pointer]
+        - button "Observe" [ref=e296] [cursor=pointer]
+      - generic [ref=e298]:
+        - heading "控制与判决旁支" [level=2] [ref=e299]
+        - button "CDR" [ref=e300] [cursor=pointer]
+        - button "AGC" [ref=e302] [cursor=pointer]
+        - button "Viterbi / MLSD" [ref=e304] [cursor=pointer]
+      - generic [ref=e306]:
+        - heading "全局设置与工具" [level=2] [ref=e307]
+        - button "Simulation" [ref=e308] [cursor=pointer]
+        - button "Device models" [ref=e310] [cursor=pointer]
+        - button "IBIS-AMI" [ref=e312] [cursor=pointer]
+        - button "Optimizer" [ref=e314] [cursor=pointer]
+        - button "COM" [ref=e316] [cursor=pointer]
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - searchbox "搜索所有模块和参数" [ref=e62]
+          - generic [aria-hidden] [ref=e63]: /
+        - status [ref=e64]:
+          - strong [ref=e318]: 草稿已保留
+          - generic [ref=e319]: 3 项设置已修改
+        - button "恢复全部默认" [ref=e67] [cursor=pointer]
+    - generic [ref=e68]:
+      - button "Run" [ref=e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=e70]
+      - status [ref=e71]: normalize d90f99d8 · succeeded · succeeded
+      - generic [ref=e72]: F-PAM4-01.yaml
+      - button "Load Config" [ref=e73] [cursor=pointer]
+      - button "资源 / COM" [ref=e74] [cursor=pointer]
+      - button "Native EQ 优化" [ref=e75] [cursor=pointer]
+      - button "Save" [ref=e76] [cursor=pointer]
+      - button "Save As…" [ref=e77] [cursor=pointer]
+      - button "Help / About" [ref=e78] [cursor=pointer]
+      - button "Disconnect" [ref=e79] [cursor=pointer]
+    - status [ref=e80]: "DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it. 未解析引用 0 类；完整导入/扩展报告见“资源 / COM”。"
+    - status [ref=e81]: 已载入 F-PAM4-01.yaml；未自动 Run。
+    - status "run_id=5db36403-7f3f-4ac8-a9c7-d3c36c99ad53; com_id=none" [ref=e320]: 核心结果成功 · 5db36403；COM 未随此 Run 启用
+    - generic [ref=e83]:
+      - button "打开结果 / 加入比较" [ref=e84] [cursor=pointer]
+      - generic [ref=e85]:
+        - checkbox "我选择的是可信本机 legacy pickle（可执行代码）" [ref=e86]
+        - text: 我选择的是可信本机 legacy pickle（可执行代码）
+      - button "保存所选结果" [ref=e87] [cursor=pointer]
+      - button "原生保存 / 损失清单" [ref=e88] [cursor=pointer]
+      - button "恢复所选输入到草稿" [ref=e89] [cursor=pointer]
+      - button "移除所选参考" [disabled] [ref=e90]
+      - button "清除加载的参考" [ref=e91] [cursor=pointer]
+    - status [ref=e92]
+    - generic [ref=e93]: 临时成功缓存 1/2 · 24159588 bytes（第三次成功淘汰最旧临时记录）；参考 0/4 · 0/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。
+    - main [ref=e94]:
+      - group [ref=e95]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=e96] [cursor=pointer]
+      - region "链路总览" [ref=e97]:
+        - generic "切换实现图示" [ref=e98]:
+          - generic [ref=e99]: 实现方案
+          - generic [ref=e100]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=e101] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e102]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=e103] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e104]:
+            - checkbox "请求模型时钟" [disabled] [ref=e105]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=e106] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=e107]:
+          - generic [ref=e108]:
+            - generic [ref=e321]:
+              - button "Source：PAM-4 · PRBS-7，查看设置" [ref=e322] [cursor=pointer]:
+                - strong [ref=e323]: Source
+                - generic [ref=e324]: PAM-4 · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=e326] [cursor=pointer]:
+                - strong [ref=e327]: Tx EQ
+                - generic [ref=e328]: Native FFE
+              - button "Channel：Native · 两端电气，查看设置" [ref=e330] [cursor=pointer]:
+                - strong [ref=e331]: Channel
+                - generic [ref=e332]: Native · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=e334] [cursor=pointer]:
+                - strong [ref=e335]: Noise
+                - generic [ref=e336]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=e338] [cursor=pointer]:
+                - strong [ref=e339]: Rx CTLE
+                - generic [ref=e340]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=e342] [cursor=pointer]:
+                - strong [ref=e343]: Rx FFE
+                - generic [ref=e344]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=e346] [cursor=pointer]:
+                - strong [ref=e347]: DFE / Slicer
+                - generic [ref=e348]: 自适应反馈 / 判决
+            - generic [ref=e349]:
+              - button "Device models" [ref=e351] [cursor=pointer]
+              - button "Observe" [ref=e353] [cursor=pointer]
+              - generic [ref=e354]:
+                - button "CDR" [ref=e355] [cursor=pointer]
+                - button "AGC" [ref=e356] [cursor=pointer]
+                - button "↗ Viterbi" [ref=e357] [cursor=pointer]
+        - status [ref=e146]:
+          - generic [aria-hidden] [ref=e358]: i
+          - generic [ref=e359]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=e149]:
+        - region [ref=e360]:
+          - heading "可选 Native ISI 序列检测Viterbi / MLSD" [level=2] [ref=e363]
+          - generic [ref=e155]:
+            - tablist "模块详情" [ref=e156]:
+              - tab "设置" [selected] [ref=e157] [cursor=pointer]
+              - tab "参数说明 6" [ref=e158] [cursor=pointer]:
+                - text: 参数说明
+                - generic [ref=e159]: "6"
+              - tab "实现映射 3" [ref=e160] [cursor=pointer]:
+                - text: 实现映射
+                - generic [ref=e161]: "3"
+            - button "恢复本模块默认" [ref=e162] [cursor=pointer]
+          - tabpanel "设置" [ref=e163]:
+            - paragraph [ref=e364]: 已显式载入完整配置；旧草稿原件未删除。
+            - group [ref=e365]:
+              - generic "迁移来源与未应用字段（保留原值）" [ref=e366]
+            - generic [ref=e367]:
+              - generic [ref=e368]:
+                - heading "解码与可视化" [level=3] [ref=e369]
+                - generic [ref=e370]: 本地草稿
+              - generic [ref=e371]:
+                - generic [ref=e372]:
+                  - generic [ref=e373]: Use Viterbi · 启用
+                  - generic [ref=e375] [cursor=pointer]:
+                    - switch "Use Viterbi · 启用" [ref=e376]
+                    - generic [ref=e378]: 已关闭
+                  - paragraph [ref=e379]: 启用可选后处理判决分支。
+                  - generic [ref=e380]:
+                    - code [ref=e381]: rx_use_viterbi
+                    - generic [ref=e382]: 默认 关闭
+                  - text: ↳
+                  - group [ref=e383]:
+                    - generic "范围与来源" [ref=e384] [cursor=pointer]
+                - generic [ref=e385]:
+                  - generic [ref=e386]: Trellis Depth · 状态符号数
+                  - generic [ref=e388]:
+                    - spinbutton "Trellis Depth · 状态符号数" [disabled] [ref=e389]: "4"
+                    - generic [ref=e390]: symbols
+                  - paragraph [ref=e391]: Native ISI/MLSD；完整窗口预算在 Run 前检查，超预算不缩 Depth 或样本。
+                  - generic [ref=e392]:
+                    - code [ref=e393]: rx_viterbi_symbols
+                    - generic [ref=e394]: 默认 4 symbols
+                  - paragraph [ref=e395]: ↳ 启用 Viterbi 后可设置。
+                  - group [ref=e396]:
+                    - generic "范围与来源" [ref=e397] [cursor=pointer]
+                - generic [ref=e398]:
+                  - generic [ref=e399]: Position · 图表位置
+                  - spinbutton "Position · 图表位置" [disabled] [ref=e402]: "0"
+                  - paragraph [ref=e403]: 只移动 trellis 图表，不改变链路。
+                  - generic [ref=e404]:
+                    - code [ref=e405]: trellis_pan_control
+                    - generic [ref=e406]: 默认 0
+                  - paragraph [ref=e407]: ↳ 在右侧 Analysis → Viterbi Trellis 移动 Position；初始10symbols，按真实长度裁界，不 Run。
+                  - group [ref=e408]:
+                    - generic "范围与来源" [ref=e409] [cursor=pointer]
+                - generic [ref=e410]:
+                  - generic [ref=e411]: Error · 定位误码
+                  - spinbutton "Error · 定位误码" [disabled] [ref=e414]: "0"
+                  - paragraph [ref=e415]: 跳转到指定误码位置。
+                  - generic [ref=e416]:
+                    - code [ref=e417]: trellis_err_select
+                    - generic [ref=e418]: 默认 0
+                  - paragraph [ref=e419]: ↳ 在右侧 Analysis → Viterbi Trellis 操作，Error 0 表示未选；绑定所选 Run。
+                  - group [ref=e420]:
+                    - generic "范围与来源" [ref=e421] [cursor=pointer]
+                - generic [ref=e422]:
+                  - generic [ref=e423]: of · 误 bit 条目数
+                  - status "of · 误 bit 条目数" [ref=e425]: 未提供 · 在右侧 Viterbi Trellis 显示所选 Run 的 bit-error entries，PAM4重复symbol条目保留。
+                  - paragraph [ref=e426]: 见右侧 Viterbi Trellis；PAM4 bitindex//2，重复 symbol 错误条目保留。旧记录无字段时显示未采集。
+                  - generic [ref=e427]:
+                    - code [ref=e428]: trellis_max_err
+                    - generic [ref=e429]: 默认 空
+                  - paragraph [ref=e430]: ↳ 在右侧 Viterbi Trellis 显示所选 Run 的 bit-error entries，PAM4重复symbol条目保留。
+                  - group [ref=e431]:
+                    - generic "范围与来源" [ref=e432] [cursor=pointer]
+            - generic [ref=e433]:
+              - generic [ref=e434]: 还有 1 个结果、内部状态或参考条目。
+              - button "查看参数说明 →" [ref=e435] [cursor=pointer]
+        - region "Native run analysis" [ref=e254]:
+          - generic [ref=e255]:
+            - generic [ref=e256]:
+              - text: Selected record
+              - combobox "Selected record" [ref=e257]:
+                - option "Select record…"
+                - option "Run · PAM-4 · 5db36403-7f3" [selected]
+            - generic [ref=e436]: Older input · draft or resource binding changed
+            - generic [ref=e258]:
+              - text: 比较参考
+              - combobox "比较参考" [ref=e259]:
+                - option "自动选择另一条" [selected]
+                - option "Run · PAM-4 · 5db36403-7f3"
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - text: Analysis
+              - combobox "Analysis" [ref=e262]:
+                - option "Responses" [selected]
+                - option "Waveform"
+                - option "Eye"
+                - option "Jitter Dist."
+                - option "Jitter Spec."
+                - option "Jitter Bathtub"
+                - option "Jitter Info"
+                - option "DFE Adaptation"
+                - option "CDR Adaptation"
+                - option "CDR Histogram"
+                - option "CDR Spectrum"
+                - option "Viterbi Trellis"
+                - option "Run overview"
+                - option "Run input comparison"
+            - combobox "Response type" [ref=e263]:
+              - option "Impulse" [selected]
+              - option "Step"
+              - option "Pulse"
+              - option "Frequency"
+            - combobox "Response scope" [ref=e264]:
+              - option "Cumulative" [selected]
+              - option "Single stage"
+          - generic [ref=e265]:
+            - generic [ref=e266]:
+              - text: Point
+              - combobox "Point" [ref=e267]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=e268]:
+              - text: Compare
+              - combobox "Compare" [ref=e269]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Expand viewer" [ref=e272] [cursor=pointer]
+          - generic "Selected run plot" [ref=e273]:
+            - paragraph [ref=e437]: No matching observation at this node. Choose an explicit Point.
+      - group [ref=e276]:
+        - generic "Native EQ 优化 · 候选与真实 Run 独立" [ref=e277]
+        - option "无优化记录" [selected]
+      - group [ref=e278]:
+        - generic "Task logs / selected run logs" [ref=e279]
+```

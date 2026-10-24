@@ -1,0 +1,45 @@
+async page => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue9-viterbi/serial-bus-simulator';
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+  const posts=[];page.on('request',request=>{if(request.method()==='POST' && request.url().endsWith('/api/runs'))posts.push(request.postDataJSON());});
+  await page.waitForFunction(()=>!document.getElementById('load-config').disabled);
+  await page.locator('#load-config').click();
+  await page.locator('#config-file').setInputFiles(root+'/docs/webui/issue2/fixtures/F-PAM4-01.yaml');
+  await page.waitForFunction(()=>document.getElementById('config-status').textContent.includes('已载入 F-PAM4-01.yaml'));
+  await page.getByRole('button',{name:'Viterbi / MLSD',exact:true}).click();
+  await page.locator('#control-rx_use_viterbi').check();
+  await page.locator('#control-rx_viterbi_symbols').fill('2');
+  await page.locator('#control-rx_viterbi_symbols').press('Tab');
+  await page.waitForFunction(()=>!document.getElementById('run').disabled && document.getElementById('input-status').textContent.includes('N=2'));
+  const response=page.waitForResponse(r=>r.url().endsWith('/api/runs') && r.request().method()==='POST');
+  await page.locator('#run').click();const task=await(await response).json();
+  await page.waitForFunction(async id=>(await(await fetch('/api/tasks/'+id)).json()).worker_exited,task.task_id,{timeout:120000});
+  const terminal=await(await page.request.get('http://127.0.0.1:8776/api/tasks/'+task.task_id)).json();
+  assert(terminal.state==='succeeded',JSON.stringify(terminal));
+  await page.waitForFunction(id=>window.PYBERT_RUNS.selected()?.run_id===id,task.task_id);
+  await page.locator('#analysis-kind').selectOption('viterbi');
+  await page.waitForFunction(()=>document.getElementById('trellis-status').textContent.includes('0–9'));
+  assert((await page.locator('#trellis-of').innerText()).includes('of 0'),'zero errors');
+  await page.locator('#trellis-position').fill('50');await page.locator('#trellis-position').press('Tab');
+  await page.waitForFunction(()=>document.getElementById('trellis-status').textContent.startsWith('50–59'));
+  const slider=page.locator('#trellis-pan'),box=await slider.boundingBox(),max=Number(await slider.getAttribute('max'));
+  await page.mouse.move(box.x+8+(box.width-16)*50/max,box.y+box.height/2);await page.mouse.down();
+  await page.mouse.move(box.x+box.width*.65,box.y+box.height/2,{steps:8});await page.mouse.up();
+  await page.waitForFunction(()=>Number(document.getElementById('trellis-position').value)>50);
+  const dragged=await page.locator('#trellis-position').inputValue();
+  await page.locator('#trellis-error').fill('0');await page.locator('#trellis-error').press('Tab');
+  await page.locator('#expand-viewer').click();
+  await page.locator('#trellis-chart-0 .plot-container').waitFor();
+  await page.screenshot({path:root+'/output/playwright/issue9/01-pam4-no-errors-trellis.jpg'});
+  const download=page.waitForEvent('download');await page.locator('#save-results').click();
+  await(await download).saveAs(root+'/output/playwright/issue9/PAM4-ISI.pybert_run');
+  await page.getByRole('button',{name:'DFE / Slicer',exact:true}).click();
+  await page.locator('#analysis-kind').selectOption('response');
+  await page.waitForFunction(()=>document.querySelector('#plot .plot-container'));
+  await page.locator('#analysis-kind').selectOption('jitter.dist');
+  await page.waitForFunction(()=>document.querySelector('#plot .plot-container'));
+  await page.screenshot({path:root+'/output/playwright/issue9/02-same-run-dfe-jitter.jpg'});
+  assert(posts.length===1,'view operations started a Run');
+  console.log(JSON.stringify({viewport:page.viewportSize(),browser:page.context().browser().version(),run_id:task.task_id,
+    terminal,run_posts:posts,dragged,method:'standard check/fill/Tab/click and real mouse drag; no force',checks:{enable_Depth2:true,Run_succeeded:true,trellis_zero_error:true,position_drag:true,DFE_Responses_Jitter:true,no_extra_Run:posts.length===1,archive_downloaded:true}}));
+}

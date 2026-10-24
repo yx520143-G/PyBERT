@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PyBERT 本机信号链工作台：配置、运行、分析、比较与存档。">
+  <title>PyBERT · Signal Chain Workbench</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="catalog.js" defer></script>
+  <script src="settings.js" defer></script>
+  <script src="draft.js" defer></script>
+  <script src="gui-map.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="/plotly.js" defer></script>
+  <script src="viterbi.js" defer></script>
+  <script src="workbench.js" defer></script>
+  <script src="resources.js" defer></script>
+  <script src="results.js" defer></script>
+  <script src="optimization.js" defer></script>
+  <link rel="stylesheet" href="workbench.css">
+  <script>window.PYBERT_NATIVE = true;</script>
+</head>
+<body>
+  <a class="skip-link" href="#inspector">跳到参数详情</a>
+  <aside class="sidebar" aria-label="Stage 导航">
+    <a class="brand" href="#source" aria-label="PyBERT 数据源">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M3 19h5V9h6v10h6V9h5"/></svg></span>
+      <span><strong>PyBERT<span class="brand-dot">.</span></strong><small>SIGNAL CHAIN WORKBENCH</small></span>
+    </a>
+    <div class="sidebar-caption">模块目录 <span id="stage-count"></span></div>
+    <nav id="stage-nav" aria-label="选择模块"></nav>
+    <div class="sidebar-footer">
+      <a href="../pybert-signal-chain-and-parameters.zh-CN.md">阅读完整研究文档 <span aria-hidden="true">↗</span></a>
+      <span>源码快照 · 2026.10.23</span>
+    </div>
+  </aside>
+
+  <div class="workspace">
+    <header class="page-header">
+      <div class="page-heading"><span class="eyebrow">LOCAL NATIVE ENGINE</span><h1>Signal Chain</h1></div>
+      <div class="header-actions">
+        <div class="search-wrap">
+          <label class="search-field" for="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="搜索 stage 或参数…" autocomplete="off" aria-label="搜索所有模块和参数" aria-controls="search-results" aria-expanded="false"><kbd aria-hidden="true">/</kbd></label>
+          <div id="search-results" class="search-results" hidden></div>
+        </div>
+        <div id="draft-status" class="draft-status" role="status" aria-live="polite"></div>
+        <button id="reset-draft" class="secondary-button" type="button">恢复全部默认</button>
+      </div>
+    </header>
+
+    <div id="run-toolbar" class="run-toolbar">
+      <button id="run" class="primary-button" disabled>Run</button><button id="abort" disabled>Abort</button>
+      <span id="task-state" role="status">Connecting…</span>
+      <span id="config-name">Untitled</span><button id="load-config" disabled>Load Config</button><input id="config-file" type="file" accept=".yaml,.yml,.pybert_cfg" hidden>
+      <button id="resources-open">资源 / COM</button>
+      <button id="optimizer-open">Native EQ 优化</button>
+      <button id="save-config" disabled>Save</button><button id="save-as" disabled>Save As…</button>
+      <button id="help">Help / About</button><button id="quit">Disconnect</button>
+    </div>
+    <div id="input-status" role="status" class="input-status"></div>
+    <div id="config-status" role="status" class="input-status"></div>
+    <div id="parent-com-state" role="status" class="input-status"></div>
+    <div id="result-actions" class="run-toolbar">
+      <button id="open-results">打开结果 / 加入比较</button><input id="results-file" type="file" accept=".pybert_run,.pybert_data" hidden>
+      <label><input id="trust-legacy" type="checkbox"> 我选择的是可信本机 legacy pickle（可执行代码）</label>
+      <button id="save-results" disabled>保存所选结果</button><button id="legacy-results" disabled>原生保存 / 损失清单</button>
+      <button id="restore-run-input" disabled>恢复所选输入到草稿</button><button id="remove-reference" disabled>移除所选参考</button><button id="clear-references">清除加载的参考</button>
+    </div>
+    <div id="results-status" role="status" class="input-status"></div><div id="result-budget" class="input-status"></div>
+
+    <main>
+      <details id="gui-crosswalk" class="gui-crosswalk">
+        <summary>按原 GUI 查找设置 <small>Config. / Equalization / Optimizer / 结果与菜单</small></summary>
+        <div id="gui-index"></div>
+      </details>
+      <section class="chain-panel" aria-labelledby="chain-heading">
+        <div class="section-heading">
+          <div><h2 id="chain-heading">链路总览</h2><p>选择模块编辑设置，草稿会保留在此浏览器。</p></div>
+          <a class="version-link" href="https://github.com/capn-freako/PyBERT/tree/1bc905d577d2f3bd9471421cfbf3d422d4e6080e" target="_blank" rel="noopener noreferrer">v11.1.0 <span>· 1bc905d ↗</span></a>
+        </div>
+        <div class="mode-toolbar" aria-label="切换实现图示">
+          <span class="toolbar-label">实现方案 <small>未加载模型</small></span>
+          <label>Tx EQ <select id="tx-mode"><option value="native">Native</option><option value="init">AMI Init</option><option value="getwave">AMI GetWave</option></select></label>
+          <label>Rx EQ <select id="rx-mode"><option value="native">Native</option><option value="init">AMI Init</option><option value="getwave">AMI GetWave</option></select></label>
+          <label class="clock-option"><input id="ami-clocks" type="checkbox" disabled> 请求模型时钟</label>
+          <button id="reset-modes" class="text-button" type="button" title="将 Tx/Rx 实现方案恢复为 Native">恢复 Native</button>
+        </div>
+        <div class="chain-scroll" tabindex="0" aria-label="信号链图，可横向滚动"><div id="chain-map"></div></div>
+        <div id="mode-note" class="mode-note" role="status"></div>
+      </section>
+
+      <div id="work-area"><section id="inspector" class="inspector" aria-labelledby="stage-title" tabindex="-1">
+        <div id="stage-overview"></div>
+        <div class="inspector-toolbar">
+          <div class="tabs" role="tablist" aria-label="模块详情">
+            <button id="tab-settings" type="button" role="tab" aria-selected="true" aria-controls="settings-panel" tabindex="0" data-tab="settings">设置</button>
+            <button id="tab-parameters" type="button" role="tab" aria-selected="false" aria-controls="parameter-panel" tabindex="-1" data-tab="parameters">参数说明 <span id="parameter-count"></span></button>
+            <button id="tab-mapping" type="button" role="tab" aria-selected="false" aria-controls="mapping-panel" tabindex="-1" data-tab="mapping">实现映射 <span id="mapping-count"></span></button>
+          </div>
+          <button id="reset-stage" class="text-button" type="button">恢复本模块默认</button>
+          <label id="scope-control" class="scope-control" hidden>显示 <select id="scope-filter"><option value="all">全部条目</option><option value="gui">主 GUI 设置</option></select></label>
+        </div>
+        <div id="settings-panel" role="tabpanel" aria-labelledby="tab-settings"></div>
+        <div id="parameter-panel" role="tabpanel" aria-labelledby="tab-parameters" hidden></div>
+        <div id="mapping-panel" role="tabpanel" aria-labelledby="tab-mapping" hidden></div>
+      </section>
+      <section id="analysis" class="analysis" aria-label="Native run analysis">
+        <div class="result-toolbar"><label>Selected record <select id="selected-run"><option value="">No successful run</option></select></label><span id="stale"></span><label>比较参考 <select id="comparison-run"><option value="">自动选择另一条</option></select></label></div>
+        <div class="result-toolbar"><label>Analysis <select id="analysis-kind"><option value="response">Responses</option><option value="wave">Waveform</option><option value="eye">Eye</option><option value="jitter.dist">Jitter Dist.</option><option value="jitter.spec">Jitter Spec.</option><option value="jitter.bathtub">Jitter Bathtub</option><option value="jitter.info">Jitter Info</option><option value="adaptation">DFE Adaptation</option><option value="cdr">CDR Adaptation</option><option value="cdr.histogram">CDR Histogram</option><option value="cdr.spectrum">CDR Spectrum</option><option value="overview">Run overview</option><option value="compare">Run input comparison</option></select></label>
+          <select id="response-type" aria-label="Response type"><option value="h">Impulse</option><option value="s">Step</option><option value="p">Pulse</option><option value="H">Frequency</option></select>
+          <select id="response-scope" aria-label="Response scope"><option value="cumulative">Cumulative</option><option value="single">Single stage</option></select></div>
+        <div class="result-toolbar"><label>Point <select id="analysis-point"><option value="node">Follow node</option><option value="chnl">Channel-only</option><option value="tx">Rx input</option><option value="ctle">CTLE output</option><option value="ffe">Rx FFE output</option><option value="dfe">DFE output</option></select></label><label>Compare <select id="compare-mode"><option value="none">Selected point</option><option value="points">Same run · all points</option><option value="runs">Two successful runs</option></select></label><label id="channel-noise-label"><input id="channel-noise" type="checkbox"> Channel eye +1mV display noise</label><button id="expand-viewer" type="button">Expand viewer</button></div>
+        <div id="trellis-toolbar" hidden>
+          <div class="result-toolbar"><label>Position <input id="trellis-position" type="number" min="0" max="0" value="0" step="1" disabled></label><input id="trellis-pan" aria-label="Trellis Position drag" type="range" min="0" max="0" value="0" step="1" disabled><label>Error <input id="trellis-error" type="number" min="0" max="0" value="0" step="1" disabled></label><span id="trellis-of">of 0</span></div>
+          <p id="trellis-status" role="status">所选 Run 的原生 trellis；Error 0 表示未选择错误。</p>
+        </div>
+        <div id="plot" aria-label="Selected run plot"><p>Run the native engine to inspect real responses, waveforms, eyes and jitter.</p></div>
+        <div id="analysis-info"></div>
+      </section></div>
+      <details id="optimizer-workspace" class="chain-panel">
+        <summary>Native EQ 优化 · 候选与真实 Run 独立</summary>
+        <p>在 Tx FFE / CTLE / Rx FFE / DFE 节点编辑搜索约束；Use MMSE 与 RLM 见优化节点。AMI 优化未接入（#10）。</p>
+        <div class="result-toolbar"><button id="optimizer-plan">检查候选预算</button><button id="tune-eq">Tune EQ</button><button id="abort-eq" disabled>Abort EQ</button><button id="reset-eq">Reset EQ</button></div>
+        <p id="optimizer-status" role="status">尚未执行优化。</p>
+        <p>MMSE 使用固定 Tx level 0.5 V、SNR 25 dB、DJ/RJ=0 与空 aggressor；Rn 进入 eta0。优化 pulse 假设 bounded ideal DFE，MMSE cursor=1 归一化；FOM 不是 COM、BER 或时域效果。RLM 只进入 MMSE。</p>
+        <div class="result-toolbar"><label>优化记录 <select id="selected-opt"><option value="">无优化记录</option></select></label><label>候选 <select id="selected-candidate"></select></label><button id="use-eq" disabled>Use EQ · 预览差异</button><button id="save-opt" disabled>保存优化记录</button><button id="open-opt">打开优化记录</button><input id="opt-file" type="file" accept=".pybert_opt" hidden></div>
+        <p id="optimizer-provenance"></p><div id="optimizer-plot" style="height:350px"></div>
+        <details><summary>评分 / 权重 / 原始输入与版本</summary><pre id="optimizer-record"></pre></details>
+      </details>
+      <details id="logs"><summary>Task logs / selected run logs</summary><div class="log-columns"><div><strong id="live-log-id">Current task</strong><pre id="live-log"></pre></div><div><strong id="run-log-id">Selected successful run</strong><pre id="run-log"></pre></div></div></details>
+    </main>
+  </div>
+  <div id="draft-toast" class="draft-toast" role="status" hidden><span id="toast-message"></span><button id="undo-reset" type="button">撤销</button><button id="close-toast" type="button" aria-label="关闭通知">×</button></div>
+  <noscript><p class="no-script">请启用 JavaScript 以浏览信号链。也可以阅读同目录上一级的研究文档。</p></noscript>
+  <dialog id="help-dialog"><button id="close-help">Close</button><h2>PyBERT Signal Chain Workbench</h2><p>Edit a node, Run, then choose Responses, Waveform, Eye or Jitter. Editing marks an older run stale. All plots bind to the selected successful run. Compare all points in one run, or the selected chart across two successful runs. Expand viewer for readable axes and legends. Zoom and switching views reuse saved datasets.</p><p>Five observation points include an independent Rx FFE helper analysis. Channel clean eye and GUI-compatible 1mV display noise are separate cached views. Jitter bathtubs are crossing timing estimates, not full voltage margin or BER qualification. CDR spectrum preserves the native legacy log10 ratio without a ×10/20 factor. Missing old-schema analyses and failed fits show their availability.</p><p>Native NRZ/PAM-4/Duo-binary、真实 single/ordered cascade、lane/FEXT、Native package 和独立 COM 已接入。COM 使用自己的单 .s4p 与 spreadsheet/明确默认参数，不继承当前 EQ/noise/bitrate。时间文件、启用的 CTLE File、非零 impulse_length 及 package+FEXT 有明确阻塞。Optimization: #8；Viterbi: #9；活动 IBIS-AMI: #10。Rx Cac 当前未消费；RLM 只属于优化。</p><p>Abort requests cooperative cancellation; the native worker may finish its current DFE or analysis group before observing it. Closing this page does not cancel a task. Two successful runs are cached temporarily (768 MiB arrays per record); restarting the service clears them. Save a full .pybert_run archive to reopen without original resource files. Four explicitly removable references have a total 1 GiB array budget; overflow is refused without evicting references. Legacy files require trusted local pickle selection and remain index-only diagnostics when axes are missing. Saving selected results uses its original inputs and arrays.</p><p>Load 支持受限 Native YAML 和已知容器的 legacy pickle；未知对象拒绝执行。Save/Save As 导出当前草稿，资源 bytes 不附带，YAML 相对引用需显式绑定或本机基目录。runtime_extensions 用版本化注释保留；Native 桌面不会消费该扩展。旧 pickle 保存时转为 YAML。浏览器下载不承诺覆盖原路径。</p><p><a href="https://github.com/capn-freako/PyBERT/wiki/instant_gratification" target="_blank" rel="noopener">Getting Started</a> · <a href="https://github.com/capn-freako/PyBERT/wiki" target="_blank" rel="noopener">User's Guide</a></p><pre id="version-info"></pre><p>Original PyBERT by David Banas. Fork: yx520143-G/PyBERT. This is native-engine integration evidence, with no COM correlation or standards qualification claim.</p></dialog>
+  <dialog id="name-dialog"><form method="dialog"><label>Configuration filename <input id="save-name" value="pybert.yaml" required pattern=".+\.ya?ml"></label><button value="cancel">Cancel</button><button id="confirm-save" value="save">Download YAML</button></form></dialog>
+  <dialog id="legacy-dialog"><form method="dialog"><button>关闭</button></form><h2>原生23项兼容与损失清单</h2><p id="legacy-save-guidance"></p><p>缺项时不生成伪造的原生文件。legacy频响已是显示值；缺物理轴只能按index诊断。</p><button id="legacy-download">下载 .pybert_data</button><button id="legacy-sidecar">下载独立 sidecar</button><pre id="legacy-report"></pre></dialog>
+  <dialog id="eq-dialog"><h2>Use EQ：确认应用到当前草稿</h2><p>以下差异来自获选候选与当前输入。应用只修改原 handler 的 Tx/CTLE/RxFFE 字段；DFE 候选权重不作为时域初值。旧 Run 保留并标旧。</p><pre id="eq-differences"></pre><button id="confirm-use-eq">明确应用候选</button><button id="cancel-use-eq">保留当前草稿</button></dialog>
+</body>
+</html>

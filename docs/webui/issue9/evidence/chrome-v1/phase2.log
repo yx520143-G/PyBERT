@@ -1,0 +1,2 @@
+### Error
+Error: {"task_id":"a371f8c8-a6bc-4497-950e-26153fc1958b","operation":"run","state":"validating","phase":"validating","cancel_requested":false,"cancel_requested_at":null,"cancel_observed_at":null,"cancel_observed":false,"worker_exited":false,"logs":[],"created_at":1792822860.3162193,"request_hash":"203ad3c000c7e37ec73a897c603a1f3a589a3d663fb5b6b1d09ca1b9724d4276","parent_run_id":null,"resource_inputs":[],"parameter_source":null}

@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\tools\verify_web_viterbi_lifecycle.py", line 89, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\tools\verify_web_viterbi_lifecycle.py", line 44, in main
+    old = manager.references.add(SAVED.read_bytes(), "old.pybert_run")
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\src\pybert\web\records.py", line 36, in add
+    run, size = load_archive(content, staging)
+                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\src\pybert\web\archive.py", line 205, in load_archive
+    size = validate_run(manifest["run"], arrays)
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\src\pybert\web\archive.py", line 135, in validate_run
+    validate(run, arrays)
+    ~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\src\pybert\web\viterbi.py", line 133, in validate
+    raise ValueError(f"Missing actual decoding source identity: {name}")
+ValueError: Missing actual decoding source identity: models/bert.py

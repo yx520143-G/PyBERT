@@ -1,0 +1,391 @@
+{
+  "main_calls": 0,
+  "COM_calls": 0,
+  "checks": [
+    {
+      "name": "docs\\webui\\issue9\\evidence\\numerics-20261024-140115\\local\\V-NRZ-ISI\\saved.pybert_run: open",
+      "passed": true,
+      "detail": "{\"schema_version\":1,\"raw_schema_version\":5,\"run_id\":\"f6bd8054-3f23-4b0d-8dcb-e4a4a844d965\",\"source_record_id\":null,\"replay_guard\":null,\"draft_revision\":0,\"input_hash_schema\":\"native-json-v1-integral-f"
+    },
+    {
+      "name": "raw archive bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "availability",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual symbol boundary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no-error selection",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-DISABLED\\saved.pybert_run: open",
+      "passed": true,
+      "detail": "{\"schema_version\":1,\"raw_schema_version\":5,\"run_id\":\"e8974746-fbea-487c-b37d-a38a18846835\",\"source_record_id\":null,\"replay_guard\":null,\"draft_revision\":0,\"input_hash_schema\":\"native-json-v1-integral-f"
+    },
+    {
+      "name": "raw archive bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "availability",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-DUO-ISI\\saved.pybert_run: open",
+      "passed": true,
+      "detail": "{\"schema_version\":1,\"raw_schema_version\":5,\"run_id\":\"aa879ac1-14f4-4fb2-ac4b-10477c90d1cc\",\"source_record_id\":null,\"replay_guard\":null,\"draft_revision\":0,\"input_hash_schema\":\"native-json-v1-integral-f"
+    },
+    {
+      "name": "raw archive bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "availability",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual symbol boundary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bit/symbol entry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no-error selection",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-NRZ-ERROR\\saved.pybert_run: open",
+      "passed": true,
+      "detail": "{\"schema_version\":1,\"raw_schema_version\":5,\"run_id\":\"03dd5707-7013-4d11-a32f-70a7afece9dd\",\"source_record_id\":null,\"replay_guard\":null,\"draft_revision\":0,\"input_hash_schema\":\"native-json-v1-integral-f"
+    },
+    {
+      "name": "raw archive bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "availability",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual symbol boundary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no-error selection",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-PAM4-ERROR\\saved.pybert_run: open",
+      "passed": true,
+      "detail": "{\"schema_version\":1,\"raw_schema_version\":5,\"run_id\":\"9661e603-37ae-45ea-876a-de96395aa041\",\"source_record_id\":null,\"replay_guard\":null,\"draft_revision\":0,\"input_hash_schema\":\"native-json-v1-integral-f"
+    },
+    {
+      "name": "raw archive bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "availability",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual symbol boundary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bit/symbol entry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no-error selection",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing raw probability",
+      "passed": true,
+      "detail": {
+        "detail": "Missing decoding array viterbi.probs"
+      }
+    },
+    {
+      "name": "missing raw probability atomic inventory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing raw probability selected source retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing bits",
+      "passed": true,
+      "detail": {
+        "detail": "viterbi: invalid BER window test_start_bit"
+      }
+    },
+    {
+      "name": "missing bits atomic inventory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing bits selected source retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing physical axis",
+      "passed": true,
+      "detail": {
+        "detail": "viterbi.sample_times: missing/inconsistent symbol axis/window"
+      }
+    },
+    {
+      "name": "missing physical axis atomic inventory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing physical axis selected source retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing BER window",
+      "passed": true,
+      "detail": {
+        "detail": "dfe: missing/inconsistent BER dataset windows"
+      }
+    },
+    {
+      "name": "missing BER window atomic inventory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing BER window selected source retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "invalid source identity",
+      "passed": true,
+      "detail": {
+        "detail": "Missing actual decoding source identity: models/bert.py"
+      }
+    },
+    {
+      "name": "invalid source identity atomic inventory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "invalid source identity selected source retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "wrong count",
+      "passed": true,
+      "detail": {
+        "detail": "ber.viterbi.errors: decoding shape mismatch"
+      }
+    },
+    {
+      "name": "wrong count atomic inventory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "wrong count selected source retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unknown decoding schema",
+      "passed": true,
+      "detail": {
+        "detail": "Missing/unknown decoding schema"
+      }
+    },
+    {
+      "name": "unknown decoding schema atomic inventory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unknown decoding schema selected source retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "downgrade to raw4",
+      "passed": true,
+      "detail": {
+        "detail": "Decoding requires raw schema 5; older schema cannot bypass its validation."
+      }
+    },
+    {
+      "name": "downgrade to raw4 atomic inventory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "downgrade to raw4 selected source retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "incomplete run identity",
+      "passed": true,
+      "detail": {
+        "detail": "Missing/invalid run identity metadata: input_identity_hash"
+      }
+    },
+    {
+      "name": "incomplete run identity atomic inventory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "incomplete run identity selected source retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "raw2 supported",
+      "passed": true,
+      "detail": "{\"schema_version\":1,\"raw_schema_version\":2,\"run_id\":\"9661e603-37ae-45ea-876a-de96395aa041\",\"source_record_id\":null,\"replay_guard\":null,\"draft_revision\":0,\"input_hash_schema\":\"native-json-v1-integral-f"
+    },
+    {
+      "name": "raw2 not collected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "raw3 supported",
+      "passed": true,
+      "detail": "{\"schema_version\":1,\"raw_schema_version\":3,\"run_id\":\"9661e603-37ae-45ea-876a-de96395aa041\",\"source_record_id\":null,\"replay_guard\":null,\"draft_revision\":0,\"input_hash_schema\":\"native-json-v1-integral-f"
+    },
+    {
+      "name": "raw3 not collected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "raw4 supported",
+      "passed": true,
+      "detail": "{\"schema_version\":1,\"raw_schema_version\":4,\"run_id\":\"9661e603-37ae-45ea-876a-de96395aa041\",\"source_record_id\":null,\"replay_guard\":null,\"draft_revision\":0,\"input_hash_schema\":\"native-json-v1-integral-f"
+    },
+    {
+      "name": "raw4 not collected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-PAM4-ISI\\saved.pybert_run: open",
+      "passed": true,
+      "detail": "{\"schema_version\":1,\"raw_schema_version\":5,\"run_id\":\"98a9336e-25f1-4320-8289-72ca53038d97\",\"source_record_id\":null,\"replay_guard\":null,\"draft_revision\":0,\"input_hash_schema\":\"native-json-v1-integral-f"
+    },
+    {
+      "name": "raw archive bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "availability",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual symbol boundary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no-error selection",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "archives": [
+    {
+      "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\numerics-20261024-140115\\local\\V-NRZ-ISI\\saved.pybert_run",
+      "sha256": "a7d2794845bf6f3bd0db073502aec7e973fe4f78ff171e68dc1df46d7b36f3ed",
+      "run_id": "f6bd8054-3f23-4b0d-8dcb-e4a4a844d965",
+      "raw_array_count": 485,
+      "zero_probabilities": 0,
+      "duplicate_symbol_entries": 0
+    },
+    {
+      "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-DISABLED\\saved.pybert_run",
+      "sha256": "c09b979800845c46bc5ec91f0593e290d1f0c11d02108aa439c655736ad63029",
+      "run_id": "e8974746-fbea-487c-b37d-a38a18846835",
+      "raw_array_count": 444,
+      "zero_probabilities": null,
+      "duplicate_symbol_entries": null
+    },
+    {
+      "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-DUO-ISI\\saved.pybert_run",
+      "sha256": "924dcf70d81550fec012e68fdd77bc5e289ce155c613383c8eada9a06218fdcb",
+      "run_id": "aa879ac1-14f4-4fb2-ac4b-10477c90d1cc",
+      "raw_array_count": 485,
+      "zero_probabilities": 0,
+      "duplicate_symbol_entries": 0
+    },
+    {
+      "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-NRZ-ERROR\\saved.pybert_run",
+      "sha256": "926a2a4b858019371afe87c1c5b544f3f8e301155b8302f57a7a540195fbd0f3",
+      "run_id": "03dd5707-7013-4d11-a32f-70a7afece9dd",
+      "raw_array_count": 485,
+      "zero_probabilities": 0,
+      "duplicate_symbol_entries": 0
+    },
+    {
+      "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-PAM4-ERROR\\saved.pybert_run",
+      "sha256": "7f31f1ab47c1e5707a096fd6c9f5bc65ca4686cec570bea04d4a5817cf31b95b",
+      "run_id": "9661e603-37ae-45ea-876a-de96395aa041",
+      "raw_array_count": 486,
+      "zero_probabilities": 0,
+      "duplicate_symbol_entries": 0
+    },
+    {
+      "source": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\numerics-20261024-140200\\local\\V-PAM4-ISI\\saved.pybert_run",
+      "sha256": "9981c67d45c42873792f07713478925ca9bfce97e73cbaeca78f265e5226f58c",
+      "run_id": "98a9336e-25f1-4320-8289-72ca53038d97",
+      "raw_array_count": 486,
+      "zero_probabilities": 0,
+      "duplicate_symbol_entries": 0
+    }
+  ],
+  "failed": 0,
+  "check_count": 63
+}

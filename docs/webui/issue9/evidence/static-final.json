@@ -1,0 +1,10 @@
+{
+  "compileall": 0,
+  "viterbi.js": 0,
+  "workbench.js": 0,
+  "settings.js": 0,
+  "diff_check": 0,
+  "cli_version": 1,
+  "services_stopped": true,
+  "chrome_session_closed": true
+}

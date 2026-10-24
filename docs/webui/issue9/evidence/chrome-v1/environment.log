@@ -1,0 +1,6 @@
+### Result
+{"viewport":{"width":1280,"height":720},"browser":"155.0.8059.85","source_run":"5db36403-7f3f-4ac8-a9c7-d3c36c99ad53"}
+### Ran Playwright code
+```js
+await (async page => ({viewport:page.viewportSize(),browser:page.context().browser().version(),source_run:await page.evaluate(()=>window.PYBERT_RUNS.selected()?.run_id)}))(page);
+```

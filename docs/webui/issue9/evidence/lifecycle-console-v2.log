@@ -1,0 +1,4 @@
+{"case": "decoder", "passed": true, "state": "failed", "output": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\lifecycle-20261024-141052"}
+{"case": "trellis", "passed": true, "state": "failed", "output": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\lifecycle-20261024-141052"}
+{"case": "cancel", "passed": true, "state": "cancelled", "output": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue9-viterbi\\serial-bus-simulator\\docs\\webui\\issue9\\evidence\\lifecycle-20261024-141052"}
+C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\docs\webui\issue9\evidence\lifecycle-20261024-141052

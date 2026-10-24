@@ -1,0 +1,350 @@
+### Page
+- Page URL: http://127.0.0.1:8776/#dfe
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [ref=e1]:
+  - link "跳到参数详情" [ref=e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=e3]:
+    - link "PyBERT 数据源" [ref=e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=e8]:
+        - strong [ref=e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=e10]:
+      - text: 模块目录
+      - generic [ref=e11]: 16 MODULES
+    - navigation "选择模块" [ref=e12]:
+      - generic [ref=e559]:
+        - heading "主信号链" [level=2] [ref=e560]
+        - button "Source" [ref=e561] [cursor=pointer]: •
+        - button "Tx EQ" [ref=e563] [cursor=pointer]: •
+        - button "Channel" [ref=e565] [cursor=pointer]
+        - button "Noise" [ref=e567] [cursor=pointer]: •
+        - button "Rx CTLE" [ref=e569] [cursor=pointer]
+        - button "Rx FFE" [ref=e571] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=e573] [cursor=pointer]
+        - button "Observe" [ref=e575] [cursor=pointer]
+      - generic [ref=e577]:
+        - heading "控制与判决旁支" [level=2] [ref=e578]
+        - button "CDR" [ref=e579] [cursor=pointer]
+        - button "AGC" [ref=e581] [cursor=pointer]
+        - button "Viterbi / MLSD" [ref=e583] [cursor=pointer]: •
+      - generic [ref=e585]:
+        - heading "全局设置与工具" [level=2] [ref=e586]
+        - button "Simulation" [ref=e587] [cursor=pointer]
+        - button "Device models" [ref=e589] [cursor=pointer]
+        - button "IBIS-AMI" [ref=e591] [cursor=pointer]
+        - button "Optimizer" [ref=e593] [cursor=pointer]
+        - button "COM" [ref=e595] [cursor=pointer]
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - searchbox "搜索所有模块和参数" [ref=e62]
+          - generic [aria-hidden] [ref=e63]: /
+        - status [ref=e64]:
+          - strong [ref=e597]: 草稿已保留
+          - generic [ref=e598]: 6 项设置已修改
+        - button "恢复全部默认" [ref=e67] [cursor=pointer]
+    - generic [ref=e68]:
+      - button "Run" [ref=e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=e70]
+      - status [ref=e71]: run a371f8c8 · succeeded · succeeded
+      - generic [ref=e72]: V-PAM4-ERROR.yaml
+      - button "Load Config" [ref=e73] [cursor=pointer]
+      - button "资源 / COM" [ref=e74] [cursor=pointer]
+      - button "Native EQ 优化" [ref=e75] [cursor=pointer]
+      - button "Save" [ref=e76] [cursor=pointer]
+      - button "Save As…" [ref=e77] [cursor=pointer]
+      - button "Help / About" [ref=e78] [cursor=pointer]
+      - button "Disconnect" [ref=e79] [cursor=pointer]
+    - status [ref=e80]: "DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it. Native ISI/MLSD: L=4, N=2, states=16, full samples≤5080; available: bounded native decoder. FEC unsupported."
+    - status [ref=e81]: 已载入 V-PAM4-ERROR.yaml；未自动 Run。
+    - status "run_id=a371f8c8-a6bc-4497-950e-26153fc1958b; com_id=none" [ref=e599]: 核心结果成功 · a371f8c8；COM 未随此 Run 启用
+    - generic [ref=e83]:
+      - button "打开结果 / 加入比较" [ref=e84] [cursor=pointer]
+      - generic [ref=e85]:
+        - checkbox "我选择的是可信本机 legacy pickle（可执行代码）" [ref=e86]
+        - text: 我选择的是可信本机 legacy pickle（可执行代码）
+      - button "保存所选结果" [active] [ref=e87] [cursor=pointer]
+      - button "原生保存 / 损失清单" [ref=e88] [cursor=pointer]
+      - button "恢复所选输入到草稿" [ref=e89] [cursor=pointer]
+      - button "移除所选参考" [disabled] [ref=e90]
+      - button "清除加载的参考" [ref=e91] [cursor=pointer]
+    - status [ref=e92]: 已向浏览器交付 a371f8c8-a6bc-4497-950e-26153fc1958b.pybert_run；完成状态见下载面板，未确认覆盖本地文件。
+    - generic [ref=e93]: 临时成功缓存 2/2 · 49069893 bytes（第三次成功淘汰最旧临时记录）；参考 0/4 · 0/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。
+    - main [ref=e94]:
+      - group [ref=e95]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=e96] [cursor=pointer]
+      - region "链路总览" [ref=e97]:
+        - generic "切换实现图示" [ref=e98]:
+          - generic [ref=e99]: 实现方案
+          - generic [ref=e100]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=e101] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e102]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=e103] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=e104]:
+            - checkbox "请求模型时钟" [disabled] [ref=e105]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=e106] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=e107]:
+          - generic [ref=e108]:
+            - generic [ref=e600]:
+              - button "Source：PAM-4 · PRBS-7，查看设置" [ref=e601] [cursor=pointer]:
+                - strong [ref=e602]: Source
+                - generic [ref=e603]: PAM-4 · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=e605] [cursor=pointer]:
+                - strong [ref=e606]: Tx EQ
+                - generic [ref=e607]: Native FFE
+              - button "Channel：Native · 两端电气，查看设置" [ref=e609] [cursor=pointer]:
+                - strong [ref=e610]: Channel
+                - generic [ref=e611]: Native · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=e613] [cursor=pointer]:
+                - strong [ref=e614]: Noise
+                - generic [ref=e615]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=e617] [cursor=pointer]:
+                - strong [ref=e618]: Rx CTLE
+                - generic [ref=e619]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=e621] [cursor=pointer]:
+                - strong [ref=e622]: Rx FFE
+                - generic [ref=e623]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=e625] [cursor=pointer]:
+                - strong [ref=e626]: DFE / Slicer
+                - generic [ref=e627]: 自适应反馈 / 判决
+            - generic [ref=e628]:
+              - button "Device models" [ref=e630] [cursor=pointer]
+              - button "Observe" [ref=e632] [cursor=pointer]
+              - generic [ref=e633]:
+                - button "CDR" [ref=e634] [cursor=pointer]
+                - button "AGC" [ref=e635] [cursor=pointer]
+                - button "↗ Viterbi" [ref=e636] [cursor=pointer]
+        - status [ref=e146]:
+          - generic [aria-hidden] [ref=e637]: i
+          - generic [ref=e638]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=e149]:
+        - text: ↳ ↳ ↳ ↳ ↳ ↳
+        - region "Native run analysis" [ref=e254]:
+          - generic [ref=e255]:
+            - generic [ref=e256]:
+              - text: Selected record
+              - combobox "Selected record" [ref=e257]:
+                - option "Select record…"
+                - option "Run · PAM-4 · 5db36403-7f3"
+                - option "Run · PAM-4 · a371f8c8-a6b" [selected]
+            - generic [ref=e436]: Matches validated input
+            - generic [ref=e258]:
+              - text: 比较参考
+              - combobox "比较参考" [ref=e259]:
+                - option "自动选择另一条" [selected]
+                - option "Run · PAM-4 · 5db36403-7f3"
+                - option "Run · PAM-4 · a371f8c8-a6b"
+          - generic [ref=e261]:
+            - text: Analysis
+            - combobox "Analysis" [ref=e262]:
+              - option "Responses"
+              - option "Waveform"
+              - option "Eye"
+              - option "Jitter Dist."
+              - option "Jitter Spec."
+              - option "Jitter Bathtub"
+              - option "Jitter Info"
+              - option "DFE Adaptation"
+              - option "CDR Adaptation"
+              - option "CDR Histogram"
+              - option "CDR Spectrum"
+              - option "Viterbi Trellis" [selected]
+              - option "Run overview"
+              - option "Run input comparison"
+          - generic [ref=e265]:
+            - generic [ref=e266]:
+              - text: Point
+              - combobox "Point" [ref=e267]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=e268]:
+              - text: Compare
+              - combobox "Compare" [ref=e269]:
+                - option "Selected point"
+                - option "Same run · all points"
+                - option "Two successful runs" [selected]
+            - button "Restore settings" [ref=e517] [cursor=pointer]
+          - generic [ref=e678]:
+            - generic [ref=e679]:
+              - generic [ref=e680]:
+                - text: Position
+                - spinbutton "Position" [ref=e681]: "50"
+              - slider "Trellis Position drag" [ref=e682]: "50"
+              - generic [ref=e683]:
+                - text: Error
+                - spinbutton "Error" [ref=e684]: "0"
+              - generic [ref=e685]: of 470 bit-error entries
+            - status [ref=e686]: "50–59 / 5080 symbols · DFE: 596 bit errors · VITERBI: 470 bit errors"
+          - generic "Selected run plot" [ref=e273]:
+            - generic [ref=e689]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: "50"
+                      - generic: "51"
+                      - generic: "52"
+                      - generic: "53"
+                      - generic: "54"
+                      - generic: "55"
+                      - generic: "56"
+                      - generic: "57"
+                      - generic: "58"
+                      - generic: "59"
+                    - generic:
+                      - generic: "0"
+                      - generic: "1"
+                      - generic: "2"
+                      - generic: "3"
+                      - generic: "4"
+                      - generic: "5"
+                      - generic: "6"
+                      - generic: "7"
+                      - generic: "8"
+                      - generic: "9"
+                      - generic: "10"
+                      - generic: "11"
+                      - generic: "12"
+                      - generic: "13"
+                      - generic: "14"
+                      - generic: "15"
+              - img:
+                - generic:
+                  - generic [ref=e706]:
+                    - generic [ref=e707]:
+                      - generic [ref=e708]: Top 1 · raw probability
+                      - generic [ref=e713] [cursor=pointer]
+                    - generic [ref=e714]:
+                      - generic [ref=e715]: Top 2 · raw probability
+                      - generic [ref=e720] [cursor=pointer]
+                    - generic [ref=e721]:
+                      - generic [ref=e722]: Top 3 · raw probability
+                      - generic [ref=e727] [cursor=pointer]
+                    - generic [ref=e728]:
+                      - generic [ref=e729]: Native chosen trellis path
+                      - generic [ref=e734] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - generic: −20
+                      - generic: −15
+                      - generic: −10
+                      - generic: −5
+                      - generic: "0"
+                  - generic: "a371f8c8 · Native trellis · DFE: 596 bit errors · VITERBI: 470 bit errors"
+                  - generic: symbol index · this decoder window
+                  - generic: state index
+              - toolbar [ref=e735]:
+                - button "Download plot as a PNG" [ref=e737] [cursor=pointer]
+                - generic [ref=e738]:
+                  - button "Zoom" [ref=e739] [cursor=pointer]
+                  - button "Pan" [ref=e740] [cursor=pointer]
+                  - button "Box Select" [ref=e741] [cursor=pointer]
+                  - button "Lasso Select" [ref=e742] [cursor=pointer]
+                - generic [ref=e743]:
+                  - button "Zoom in" [ref=e744] [cursor=pointer]
+                  - button "Zoom out" [ref=e745] [cursor=pointer]
+                  - button "Autoscale" [ref=e746] [cursor=pointer]
+                  - button "Reset axes" [ref=e747] [cursor=pointer]
+            - generic [ref=e750]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: "50"
+                      - generic: "51"
+                      - generic: "52"
+                      - generic: "53"
+                      - generic: "54"
+                      - generic: "55"
+                      - generic: "56"
+                      - generic: "57"
+                      - generic: "58"
+                      - generic: "59"
+                    - generic:
+                      - generic: "0"
+                      - generic: "1"
+                      - generic: "2"
+                      - generic: "3"
+                      - generic: "4"
+                      - generic: "5"
+                      - generic: "6"
+                      - generic: "7"
+                      - generic: "8"
+                      - generic: "9"
+                      - generic: "10"
+                      - generic: "11"
+                      - generic: "12"
+                      - generic: "13"
+                      - generic: "14"
+                      - generic: "15"
+              - img:
+                - generic:
+                  - generic [ref=e767]:
+                    - generic [ref=e768]:
+                      - generic [ref=e769]: Top 1 · raw probability
+                      - generic [ref=e774] [cursor=pointer]
+                    - generic [ref=e775]:
+                      - generic [ref=e776]: Top 2 · raw probability
+                      - generic [ref=e781] [cursor=pointer]
+                    - generic [ref=e782]:
+                      - generic [ref=e783]: Top 3 · raw probability
+                      - generic [ref=e788] [cursor=pointer]
+                    - generic [ref=e789]:
+                      - generic [ref=e790]: Native chosen trellis path
+                      - generic [ref=e795] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - generic: −20
+                      - generic: −15
+                      - generic: −10
+                      - generic: −5
+                      - generic: "0"
+                  - generic: "5db36403 · Native trellis · DFE: 0 bit errors · VITERBI: 0 bit errors"
+                  - generic: symbol index · this decoder window
+                  - generic: state index
+              - toolbar [ref=e796]:
+                - button "Download plot as a PNG" [ref=e798] [cursor=pointer]
+                - generic [ref=e799]:
+                  - button "Zoom" [ref=e800] [cursor=pointer]
+                  - button "Pan" [ref=e801] [cursor=pointer]
+                  - button "Box Select" [ref=e802] [cursor=pointer]
+                  - button "Lasso Select" [ref=e803] [cursor=pointer]
+                - generic [ref=e804]:
+                  - button "Zoom in" [ref=e805] [cursor=pointer]
+                  - button "Zoom out" [ref=e806] [cursor=pointer]
+                  - button "Autoscale" [ref=e807] [cursor=pointer]
+                  - button "Reset axes" [ref=e808] [cursor=pointer]
+          - generic [ref=e275]:
+            - paragraph [ref=e809]: 原 producer 的连线、路径和前三状态。raw probability 无量纲，不能解释为 BER；颜色为 log10(raw)，仅显示裁剪到 −20。Position/拖动/Error/比较/存档均读取原数组，不 Run。PAM4 两个 bit 错误落在同一 symbol 时保留两条。
+            - group [ref=e810]:
+              - 'generic "a371f8c8-a6bc-4497-950e-26153fc1958b · DFE: 596 bit errors · VITERBI: 470 bit errors" [ref=e811]'
+            - group [ref=e812]:
+              - 'generic "5db36403-7f3f-4ac8-a9c7-d3c36c99ad53 · DFE: 0 bit errors · VITERBI: 0 bit errors" [ref=e813]'
+      - group [ref=e276]:
+        - generic "Native EQ 优化 · 候选与真实 Run 独立" [ref=e277]
+        - option "无优化记录" [selected]
+      - group [ref=e278]:
+        - generic "Task logs / selected run logs" [ref=e279]
+```
