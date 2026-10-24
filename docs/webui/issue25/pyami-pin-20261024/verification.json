@@ -1,0 +1,1152 @@
+{
+  "kind": "#25 S1 dependency source candidate seal; installation provenance only",
+  "baseline_HEAD": "35a71a6b79a00693a2f2862184552894752899c0",
+  "baseline_tree": "d8334daffacbc19cc638b03bbdc2dc3f9736be7e",
+  "reviewed_candidate_HEAD": "8ae4bce323507b7a18c1dadb9f7529dc8fceb369",
+  "reviewed_candidate_tree": "fe172087cab114a3004fb1c1c5a156ce9188dc34",
+  "worktree": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin",
+  "branch": "codex/pybert-issue25-pyami-pin",
+  "F": "e222e4094629e1ce9a2f8058ab42439fc21fadd8",
+  "F_tree": "b9bd99398a8893f0c3d301e7758eec8f9d3858d0",
+  "F_origin": "https://github.com/yx520143-G/PyAMI.git",
+  "PyChOpMarg_unchanged_HEAD": "ca905e793fcf6330929471317ca32e7611578e5d",
+  "only_modified_existing_paths": [
+    ".gitmodules",
+    ".pre-commit-config.yaml",
+    "PyAMI",
+    "pyproject.toml"
+  ],
+  "native_src_LICENSE_PyChOpMarg_uv_lock_diff_empty": true,
+  "standard_dependency_preserves_gui": true,
+  "all_other_project_metadata_identical_to_baseline": true,
+  "uv_lock_regeneration": {
+    "actual_command_receipt": "commands/08-uv-lock/receipt.json",
+    "exit_code": 0,
+    "packages": 234,
+    "checkout_bytes_unchanged_since_command01": true,
+    "registry_upgrades": 0,
+    "workspace_source": "editable=PyAMI; F proven by checkout/gitlink/actual file hashes, not a fabricated VCS field"
+  },
+  "files_before_this_seal": {
+    ".gitmodules": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    ".pre-commit-config.yaml": {
+      "sha256": "a9966df86c3509ef57f06296c4d7185a96b3683cbc97a971b3542407b8cd339a",
+      "bytes": 1060,
+      "UTF8_without_BOM": true
+    },
+    "PyAMI": {
+      "kind": "gitlink",
+      "commit": "e222e4094629e1ce9a2f8058ab42439fc21fadd8"
+    },
+    "docs/webui/issue25/pyami-pin-20261024/.gitattributes": {
+      "sha256": "67eab07b28e10e603f66f9abb9d98c4b4c8035fef3f876ca46332c9cd020a035",
+      "bytes": 54,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/README.md": {
+      "sha256": "eb7b36bb5ab277e5f0fa1ee1bf45b711c1fb941751b099df0c0a92c03187e1cd",
+      "bytes": 9443,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/capture.py": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/command.json": {
+      "sha256": "5f5677ebc964849fde27a0e23c8fe8e30ea56f371c602b9b0dff666f2b83b133",
+      "bytes": 1085,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/receipt.json": {
+      "sha256": "efe6318c08014077001a8c8a66740cc44a2cdf2d87971e10773065078da62226",
+      "bytes": 1341,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/stdout.txt": {
+      "sha256": "859c4bfcf48e6adda5afa6cea60775e45639eca24df21aa136c166c8e3bf304f",
+      "bytes": 57,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/command.json": {
+      "sha256": "3543379175416b5800087b044e4e46ba1f420da3f69c484918716ed7a92abd56",
+      "bytes": 1029,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/receipt.json": {
+      "sha256": "d5cfb4a7d10fc792681dcc46f5d746b0c234405bfed1d7a2261953560a6ef463",
+      "bytes": 1285,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/stdout.txt": {
+      "sha256": "2bfdb478bf1093a587b8e6306b25f57e6b8aed47bffe7e885f7b279768af4c42",
+      "bytes": 29,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/command.json": {
+      "sha256": "c2fa1cc27f83942c76f8b57e5655fe2c2401c0af8a16042a9dfb5763320cddf1",
+      "bytes": 1342,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/receipt.json": {
+      "sha256": "796b5b306d92729663964323cb860127466c4f71cfe4b78df07eb3446cd7a77e",
+      "bytes": 1599,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/stdout.txt": {
+      "sha256": "869b7bd1ee155c69f2c52ed15a4184a4b015bb1ab4df684130c5cc03e70d6ee7",
+      "bytes": 418,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/command.json": {
+      "sha256": "bbae7337bc2fac74055b2bd1c6e5480ba277379de8ed55e6d28301f76d2d36e0",
+      "bytes": 1106,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/receipt.json": {
+      "sha256": "ff54352e8117ec37aedb7827bf7f6802828c360b9977b2def900433e48515891",
+      "bytes": 1363,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/command.json": {
+      "sha256": "7bec589272b10e4baba050c6a6f8017d5d0f0814982eb3d9f69f33ff3193f793",
+      "bytes": 1129,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/receipt.json": {
+      "sha256": "54ff594a075f7781d7ae7fd2d227e0b378364d8bb0b07610f735a65056ee380f",
+      "bytes": 1387,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/command.json": {
+      "sha256": "562ac30d323476ceb037e113cbb88589497e06339927103bb07a3aee459242c4",
+      "bytes": 1103,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/receipt.json": {
+      "sha256": "42b970f08246040b88d18c79ea91362bfb2e36379e3dcda169a3ceb337352bb7",
+      "bytes": 1358,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/stderr.txt": {
+      "sha256": "992ced09a4fd938ac231fae92839e85a6ab1b182bcfdcedd2b5e2f0a9e2cc867",
+      "bytes": 265,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/stdout.txt": {
+      "sha256": "8f1b8d8b4286f0f250260a7dda7c4c66744f7cad63c0cc38b889a2e1b1ee7f82",
+      "bytes": 163,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/command.json": {
+      "sha256": "0de130d48b84e1c7e146031dd0905d8626f51173f12076515a243903f169c068",
+      "bytes": 1119,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/receipt.json": {
+      "sha256": "78bb9cfb1c67abde83348004fe89d45e3cda10d11d357124b4543513bf7d49de",
+      "bytes": 1376,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/stderr.txt": {
+      "sha256": "1399f57044a42a5bfcb97706774346c5ca776e1672de2203cc22a600245a96c6",
+      "bytes": 183,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/command.json": {
+      "sha256": "503edbcfdac03fde28086f4051cbdb7daa5b997522a32c4c9f7312c15f585228",
+      "bytes": 1204,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/receipt.json": {
+      "sha256": "7a999dfe50f605167fbdf638bedafb3f054cbed9f7ec2ccac92a1e06d8f091f0",
+      "bytes": 1461,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/stderr.txt": {
+      "sha256": "f2fec83f3005ca39d3c9e7792bbe754a4296b84963997a2ee00be688e3340d41",
+      "bytes": 166,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/command.json": {
+      "sha256": "1d1ae4472d38025b52dc7ad8ada7c89bc82ffabc021e653a5a765461a4c3c743",
+      "bytes": 1312,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/receipt.json": {
+      "sha256": "c8867bb953fdf24ebe0cf9a52f9349a35a6f3022a2f0200f7fd17fc8b27f8c2b",
+      "bytes": 1567,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/stderr.txt": {
+      "sha256": "96001a6a1fd615b59b847850eb2e8b88a18a3883c3239ba34e97a1368bff02ca",
+      "bytes": 2980,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/command.json": {
+      "sha256": "6afd71b025149f864c92b1acfa87f4269420ec9ae0cdd8e28f6da0ed5092a714",
+      "bytes": 1364,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/receipt.json": {
+      "sha256": "3c271b3dedc1abf90745aede8321f4837e4e598357802f372e04cb3d12266eff",
+      "bytes": 1619,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/stderr.txt": {
+      "sha256": "be0b4a15f2520263e6e5260b77158c668eaeb657c53d4d2abe9769cd2563799c",
+      "bytes": 358,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/command.json": {
+      "sha256": "aa1392e30fdc4e9b45144d68225cf748859b7fe5f04c1663417ef6781a57aaab",
+      "bytes": 1208,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/receipt.json": {
+      "sha256": "935b2e9c1cc4974c36e01f06a6ddfa251f166f386f33b5896843cef06e76e383",
+      "bytes": 1464,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/stdout.txt": {
+      "sha256": "53cc528974f5110224d847dc5f27c9266d99548c8b8e87829831d3b9310d5302",
+      "bytes": 115,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/command.json": {
+      "sha256": "9ca5ec35af2c87dde9f1fbafc8c981255329568db1e7b9dd5e3915614fe1fdb8",
+      "bytes": 1873,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/pip-report.json": {
+      "sha256": "a823c3ce57349c6ad4c3e3c414e802ffacba54181796913c4f1b9b717b392397",
+      "bytes": 522998,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/receipt.json": {
+      "sha256": "1e43b3324133384a866a213acdddd0c3dd4666b00e516fd8868e50006af54092",
+      "bytes": 2129,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/stderr.txt": {
+      "sha256": "a4c594f24bdc6d791f61f00186f772322a2cf62916f90b70133a34848db82857",
+      "bytes": 335,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/stdout.txt": {
+      "sha256": "b75e361f9c9fb434c7c0407ff722912a0d87193b27243e01756908aad6fc4ca4",
+      "bytes": 12267,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/command.json": {
+      "sha256": "4b061d89382cf190ec71bbc783e60a7cf8bd70423bdb2a0e45c02e1d4e4811e0",
+      "bytes": 1486,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/receipt.json": {
+      "sha256": "512eca2381f29c99d1dbcca6df470fc91f5352ad7708c56a9754be6487444164",
+      "bytes": 1743,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/source-receipt.json": {
+      "sha256": "ad9fdad388ff847026f97108d788769bb3c56bad85609579468aee6164bef877",
+      "bytes": 31651,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/stdout.txt": {
+      "sha256": "50ea4dae3eba8b03bca63a4858e6390e79bc09fd72be7ace148c55fcb7778c03",
+      "bytes": 166,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/command.json": {
+      "sha256": "ab8993f4533022fd2745ecff70034f9c825580fc2f60bab76a155a871692491a",
+      "bytes": 1478,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/receipt.json": {
+      "sha256": "807fb9513550731462977a0a9d28ced1f624c7634110cf85da775e6fdaada346",
+      "bytes": 1734,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/source-receipt.json": {
+      "sha256": "ea58004f39341edac122ac334f74d0342e26da20df5c80d6674eb4e216a90f59",
+      "bytes": 32301,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/stdout.txt": {
+      "sha256": "2c71844e710d80ff10fae436f38c0519c5d18cf08fc21466bd74706e454e9b74",
+      "bytes": 173,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/command.json": {
+      "sha256": "9777b6d11daae6a341e8769495072967f369ff69e41a4768b8c740456d0378e9",
+      "bytes": 1467,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/receipt.json": {
+      "sha256": "3de528e4134995c67525cb879d4fd91d162e04805a2ee2dc8b42c2c6d5caaa53",
+      "bytes": 1724,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/stdout.txt": {
+      "sha256": "e6ddf43118ef3b1805cf215c7cb12d6365a154f4410ba9869e02ee08558acb25",
+      "bytes": 1289,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/command.json": {
+      "sha256": "59c1bcc73368e1571ff59fe70506a7304b93e61ad9d36ffc253de7f68503cec1",
+      "bytes": 1459,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/receipt.json": {
+      "sha256": "ebfffd68fad4f5c8d7a301fa96d579d560ef04cc382ca2b38d6d6318436e6a49",
+      "bytes": 1716,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/stdout.txt": {
+      "sha256": "743b590eec9463bcf97cb68d57d0e62614486925d856f5278d6ec4b2a5508a90",
+      "bytes": 1262,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/capture.py.txt": {
+      "sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+      "bytes": 2382,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/command.json": {
+      "sha256": "c5d1673cddddbe8ad65cd860e70190a3dc6ce686f4ed5d35f0f073fa52f23862",
+      "bytes": 1138,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/gitmodules.txt": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "bytes": 263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/pyproject.toml.txt": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/receipt.json": {
+      "sha256": "6bf225c6cb205c70c597b5e6871e03b13fd83d7a96b9cea987b837e9c7d9f4fe",
+      "bytes": 1393,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/stderr.txt": {
+      "sha256": "0f8e883f2b362209fd47f063f50e43fbbcf29b15d06e06640d56d9a07b6127f2",
+      "bytes": 137,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/uv.lock.txt": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "bytes": 841394,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/cost-ledger.json": {
+      "sha256": "a791ccac69b5960580668d7a8cc0d076f5b814b57cabff22f2760ed9b52a0351",
+      "bytes": 9789,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/environment-differences.json": {
+      "sha256": "63fd56d55250d79f9026d02740b3b2232ccb73de3b3b269dde31d7a92146f10c",
+      "bytes": 1240,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/fork-metadata.json": {
+      "sha256": "e4adc11c161de4ce9210775cf60d429a847ede7033786a4096bf08c48099b300",
+      "bytes": 1009,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/inputs/PyAMI-LICENSE.txt": {
+      "sha256": "23924fa493841dc61364e4462db1dd6ba830e2ebb211e04174e970f59560513c",
+      "bytes": 1301,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/inputs/PyAMI-__init__.py.txt": {
+      "sha256": "fbc42a1fc4b0c2c91f81cff926a0b110e010c84a37aa61c87ddccd2cdf2bcb56",
+      "bytes": 771,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/inputs/PyAMI-common.py.txt": {
+      "sha256": "29d822c729682cf1fd68829a21ece71324c51c6cde785303cb2165b197d27929",
+      "bytes": 1880,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/inputs/PyAMI-model.py.txt": {
+      "sha256": "e74b082dbdd34b09282717ac63bbf88e34de65e7166ac909c5959a2d85ab0eab",
+      "bytes": 34968,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/inputs/PyAMI-pyproject.toml.txt": {
+      "sha256": "0a8810b7aa87d054d64897a511d660e39c9a3342aabcca43af60786c101cf5be",
+      "bytes": 3694,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/inputs/gitmodules.baseline.txt": {
+      "sha256": "916cb62eba6f53c909b9fd84994c36af9a3733ce33e3e95048ff25904b93dd18",
+      "bytes": 255,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/inputs/pyproject.baseline.toml.txt": {
+      "sha256": "7282b23a0b688af26a1971518f76056d51f74d47216dc0dca684aad8f735527e",
+      "bytes": 4024,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/inputs/uv.baseline.lock.txt": {
+      "sha256": "5bb2112509c980f136343216aa3527012b30074a351b53ed004e1fb321c49298",
+      "bytes": 836139,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/inputs/verify_source-v1.py.txt": {
+      "sha256": "313c4b81f3ba11ab9554058d7dda3a6f0d92bded9bbb3a6673a0985c5cbcbe80",
+      "bytes": 7535,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/install-plan.json": {
+      "sha256": "d95eff8a23adc9486a17b12c6de07345c6652f9345f70d9d2966496b5895ba9a",
+      "bytes": 4036,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/issue-25-comments.json": {
+      "sha256": "72274704fb02b7924237d8064dee76d5be1ce8a143fb0090584205799aa384f2",
+      "bytes": 257,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/issue-25.json": {
+      "sha256": "40b92c2776368f227c62c05aae28d2285073cce734b9877d39e6bb2a96ded5d5",
+      "bytes": 6056,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/metadata-check.json": {
+      "sha256": "c472e7551570ac36bcdd38d5767e0a93056e4fac8b3219f32654cb1bc05430b4",
+      "bytes": 1269,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/pip-constraints.txt": {
+      "sha256": "0252e3eb49e260bb46dac4ce1d04f4a5b58da8ec967bf827c3f434dc6bf42d3f",
+      "bytes": 18,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/pre-review-verification.json": {
+      "sha256": "003931ef46694df973678f71717be430bc61b4b0f88e28de863245c9d6deb548",
+      "bytes": 579,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/raw-hook-check-final.json": {
+      "sha256": "feddc01ed5ec5f3c02782434ec8ab1df91b778e2f9796ac3116d28fa51e101f4",
+      "bytes": 542,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/raw-hook-check.json": {
+      "sha256": "d8deeee27459ad559517703a0e9ad5e08d967dc45132908fe6fdb05c33ac2f96",
+      "bytes": 2806,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/review.md": {
+      "sha256": "9882bb112d9cd4b5e8efb026b647d2f7360d2ce60894f7abf73100ff9052ac4e",
+      "bytes": 3235,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/source-inputs.json": {
+      "sha256": "f2ba62494d2687a7adf19086dabab1b612683864ef2ef1b58f4717f17beda59f",
+      "bytes": 21467,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/startup.json": {
+      "sha256": "5b9a99de4c1fd8e759371c1d3474f2c6aab5fd346dd17dc35cc692efef51dc96",
+      "bytes": 1198949,
+      "UTF8_without_BOM": true
+    },
+    "docs/webui/issue25/pyami-pin-20261024/verify_source.py": {
+      "sha256": "313c4b81f3ba11ab9554058d7dda3a6f0d92bded9bbb3a6673a0985c5cbcbe80",
+      "bytes": 7535,
+      "UTF8_without_BOM": true
+    },
+    "pyproject.toml": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "bytes": 4263,
+      "UTF8_without_BOM": true
+    }
+  },
+  "file_entries_before_seal": 170,
+  "regular_file_bytes_before_seal": 17243427,
+  "clone_isolation": {
+    "normal_git_directory": true,
+    "no_alternates": true,
+    "all_object_link_counts_one": true,
+    "submodule_common_dirs_inside_new_clone_git": true,
+    "active_hooks": [],
+    "core_hooksPath": null,
+    "old_sources_never_mutated": true
+  },
+  "old_protection": {
+    "startup_sha256": "5b9a99de4c1fd8e759371c1d3474f2c6aab5fd346dd17dc35cc692efef51dc96",
+    "old_repositories_HEAD_tree_status_match": 7,
+    "old_metadata_hashes_match": 54,
+    "old_raw_hashes_match": 4874,
+    "design_seal_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-clocks-contract\\serial-bus-simulator\\docs\\webui\\issue10\\clocks-contract-20261024\\verification-v2.json",
+    "design_seal_sha256": "824a9b24043e9f781147cfe75afcddb6ef248b4c54df4100491dd2513bab694f",
+    "design_saved_inputs_still_match": 20,
+    "design_files_match_Git_blobs": [
+      "docs/webui/issue10/clocks-contract-20261024/.gitattributes",
+      "docs/webui/issue10/clocks-contract-20261024/contract_stubs-v1.py",
+      "docs/webui/issue10/clocks-contract-20261024/contract_stubs.py",
+      "docs/webui/issue10/clocks-contract-20261024/downstream-source-check.json",
+      "docs/webui/issue10/clocks-contract-20261024/inspect_downstream.py",
+      "docs/webui/issue10/clocks-contract-20261024/README.md",
+      "docs/webui/issue10/clocks-contract-20261024/review.md",
+      "docs/webui/issue10/clocks-contract-20261024/sample-index-results.json",
+      "docs/webui/issue10/clocks-contract-20261024/sample_index_stubs.py",
+      "docs/webui/issue10/clocks-contract-20261024/stub-results-v1.json",
+      "docs/webui/issue10/clocks-contract-20261024/stub-results-v2.json",
+      "docs/webui/issue10/clocks-contract-20261024/verification-v2.json",
+      "docs/webui/issue10/clocks-contract-20261024/verification.json",
+      "docs/webui/issue10/clocks-contract-20261024/web-consumer-results-p2.json",
+      "docs/webui/issue10/clocks-contract-20261024/web-consumers-p2.md",
+      "docs/webui/issue10/clocks-contract-20261024/web_consumer_stubs.py"
+    ],
+    "main_existing_untracked_paths": "Preserved as observed; content not exhaustively fingerprinted. No writes/cleanup sent to old checkout."
+  },
+  "source_routes": {
+    "A": {
+      "source_receipt_sha256": "ad9fdad388ff847026f97108d788769bb3c56bad85609579468aee6164bef877",
+      "package_module_file": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\PyAMI\\src\\pyibisami\\__init__.py",
+      "model_spec_origin": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\PyAMI\\src\\pyibisami\\ami\\model.py",
+      "production_method_calls": 0,
+      "blocked_attempts": [],
+      "source_files": 91,
+      "PyAMI_direct_url": {
+        "url": "file:///E:/serial-bus-simulator-dependencies/pybert-issue25-pyami-pin/PyAMI",
+        "dir_info": {
+          "editable": true
+        }
+      },
+      "Python": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.venv\\Scripts\\python.exe"
+    },
+    "B": {
+      "source_receipt_sha256": "ea58004f39341edac122ac334f74d0342e26da20df5c80d6674eb4e216a90f59",
+      "package_module_file": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Lib\\site-packages\\pyibisami\\__init__.py",
+      "model_spec_origin": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Lib\\site-packages\\pyibisami\\ami\\model.py",
+      "production_method_calls": 0,
+      "blocked_attempts": [],
+      "source_files": 91,
+      "PyAMI_direct_url": {
+        "url": "https://github.com/yx520143-G/PyAMI.git",
+        "vcs_info": {
+          "commit_id": "e222e4094629e1ce9a2f8058ab42439fc21fadd8",
+          "requested_revision": "e222e4094629e1ce9a2f8058ab42439fc21fadd8",
+          "vcs": "git"
+        }
+      },
+      "Python": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Scripts\\python.exe"
+    }
+  },
+  "same_distinct_source_files_each_route": {
+    "PyAMI": 35,
+    "PyBERT": 56,
+    "total": 91
+  },
+  "source_comparison": "Each actual installed file raw SHA and LF-normalized SHA retained in route receipts; normalized content matches F/baseline. Does not claim full environments identical.",
+  "source_verifier": {
+    "sha256": "313c4b81f3ba11ab9554058d7dda3a6f0d92bded9bbb3a6673a0985c5cbcbe80",
+    "frozen_plan_hash_matches": true,
+    "original_v1_snapshot_matches": true,
+    "imported": "pyibisami top-level only",
+    "model": "ModuleSpec/AST; module body not executed, no response-key construction",
+    "guards_before_product_import": true,
+    "production_methods_fake_C_model_calls": 0
+  },
+  "captured_commands": [
+    {
+      "run": "01-uv-version",
+      "receipt_sha256": "efe6318c08014077001a8c8a66740cc44a2cdf2d87971e10773065078da62226",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "02-git-version",
+      "receipt_sha256": "d5cfb4a7d10fc792681dcc46f5d746b0c234405bfed1d7a2261953560a6ef463",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "03-bootstrap-python",
+      "receipt_sha256": "796b5b306d92729663964323cb860127466c4f71cfe4b78df07eb3446cd7a77e",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "04-origin-fork",
+      "receipt_sha256": "ff54352e8117ec37aedb7827bf7f6802828c360b9977b2def900433e48515891",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "05-chopmarg-https",
+      "receipt_sha256": "54ff594a075f7781d7ae7fd2d227e0b378364d8bb0b07610f735a65056ee380f",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "06-init-submodules",
+      "receipt_sha256": "42b970f08246040b88d18c79ea91362bfb2e36379e3dcda169a3ceb337352bb7",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "07-pyami-fixed-checkout",
+      "receipt_sha256": "78bb9cfb1c67abde83348004fe89d45e3cda10d11d357124b4543513bf7d49de",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "08-uv-lock",
+      "receipt_sha256": "7a999dfe50f605167fbdf638bedafb3f054cbed9f7ec2ccac92a1e06d8f091f0",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "09-uv-sync",
+      "receipt_sha256": "c8867bb953fdf24ebe0cf9a52f9349a35a6f3022a2f0200f7fd17fc8b27f8c2b",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "10-pip-venv",
+      "receipt_sha256": "3c271b3dedc1abf90745aede8321f4837e4e598357802f372e04cb3d12266eff",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "11-pip-version",
+      "receipt_sha256": "935b2e9c1cc4974c36e01f06a6ddfa251f166f386f33b5896843cef06e76e383",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "12-pip-install",
+      "receipt_sha256": "1e43b3324133384a866a213acdddd0c3dd4666b00e516fd8868e50006af54092",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "13-source-A",
+      "receipt_sha256": "512eca2381f29c99d1dbcca6df470fc91f5352ad7708c56a9754be6487444164",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "14-source-B",
+      "receipt_sha256": "807fb9513550731462977a0a9d28ced1f624c7634110cf85da775e6fdaada346",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "15-environment-A",
+      "receipt_sha256": "3de528e4134995c67525cb879d4fd91d162e04805a2ee2dc8b42c2c6d5caaa53",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "16-environment-B",
+      "receipt_sha256": "ebfffd68fad4f5c8d7a301fa96d579d560ef04cc382ca2b38d6d6318436e6a49",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    },
+    {
+      "run": "17-origin-master",
+      "receipt_sha256": "6bf225c6cb205c70c597b5e6871e03b13fd83d7a96b9cea987b837e9c7d9f4fe",
+      "exit_code": 0,
+      "input_output_snapshot_hashes_match": true
+    }
+  ],
+  "costs": {
+    "command_count": 17,
+    "failed_captured_commands": 0,
+    "captured_internal_elapsed_sum_s": 231.37263920000987,
+    "clone_elapsed_s": 5.021198800008278,
+    "cost_ledger_sha256": "a791ccac69b5960580668d7a8cc0d076f5b814b57cabff22f2760ed9b52a0351",
+    "task_wall_and_peak_RSS": "UNKNOWN",
+    "ordinary_installs_and_builds": "Allowed separately from model execution/compilation; general installer platform/system-library internals not traced as model calls",
+    "old24_costs": "Read-only, not rerun or reset"
+  },
+  "raw_policy": {
+    "all_existing_input_output_snapshot_hashes_match": true,
+    "large_hook_exceptions": [
+      "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/pip-report.json",
+      "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/uv.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/inputs/uv.baseline.lock.txt",
+      "docs/webui/issue25/pyami-pin-20261024/startup.json"
+    ],
+    "EOF_mixed_exceptions_only_issue25_commands_inputs": true,
+    "normal_scripts_docs_not_exempt": true,
+    "other_hooks_retained": true,
+    "first_static_rule_report": "raw-hook-check.json retained with CRLF/LF comparison false positives; corrected in raw-hook-check-final.json",
+    "actual_hooks_full_lint_tests": "Not run; static rule/AST/hash checks only"
+  },
+  "review": {
+    "fixed_candidate": "8ae4bce323507b7a18c1dadb9f7529dc8fceb369",
+    "Standards": {
+      "initial_hard": 2,
+      "resolved": 2,
+      "final_hard": 0,
+      "actionable_smell": 0
+    },
+    "Spec": {
+      "missing_or_partial": 0,
+      "scope_creep": 0,
+      "implemented_wrong": 0
+    },
+    "report": "review.md",
+    "reviewers_read_only": true,
+    "after_review_changes": "README links, review report and this seal only; original outputs/scripts/dependencies unchanged"
+  },
+  "restricted_owner_entrypoint_calls": {
+    "Main": 0,
+    "COM": 0,
+    "coopt": 0,
+    "AMIModel_or_initializer_construction": 0,
+    "get_responses": 0,
+    "Python_initialize_getWave_close": 0,
+    "fake_callbacks": 0,
+    "C_Init": 0,
+    "C_GetWave": 0,
+    "C_Close": 0,
+    "model_CDLL_or_engine": 0,
+    "native_DSP_helper": 0,
+    "AMI_grammar_parser": 0,
+    "extra_model_download": 0,
+    "model_compile": 0
+  },
+  "API_and_runtime_limit": "Static API/source provenance only; no model-body import, wrapper methods, model C, parser/helper/GUI/server/test execution.",
+  "remaining_gates": "S1 candidate awaits PM fresh review. F lacks rng/probe isolation/D/E. Global strict and B+8 capacity limit remain. No NRZ/PAM4 or real-model qualification; #10/#4/#1 remaining gates retained.",
+  "remote_workflow": "Only authorized yx520143-G/PyBERT branch push and single Draft PR after this local seal; no upstream writes/merge/issue close. Final HEAD/tree/remote PR identity supplied in handoff to avoid self-reference."
+}

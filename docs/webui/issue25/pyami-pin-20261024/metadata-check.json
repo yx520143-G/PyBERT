@@ -1,0 +1,28 @@
+{
+  "baseline": "35a71a6b79a00693a2f2862184552894752899c0",
+  "F": "e222e4094629e1ce9a2f8058ab42439fc21fadd8",
+  "fixed_SHA_40_hex": true,
+  "gitlink_PyAMI": "e222e4094629e1ce9a2f8058ab42439fc21fadd8",
+  "gitlink_PyChOpMarg": "ca905e793fcf6330929471317ca32e7611578e5d",
+  "only_project_metadata_change": {
+    "from": "pyibis-ami[gui]>=10.0.0,<11",
+    "to": "pyibis-ami[gui] @ git+https://github.com/yx520143-G/PyAMI.git@e222e4094629e1ce9a2f8058ab42439fc21fadd8"
+  },
+  "project_other_metadata_extras_version_workspace_sources_identical": true,
+  "gitmodules_only_PyAMI_URL_changed": true,
+  "uv_lock_actually_regenerated": "08-uv-lock exit0, 234 packages; no byte change",
+  "uv_lock_baseline_blob_sha256": "5bb2112509c980f136343216aa3527012b30074a351b53ed004e1fb321c49298",
+  "uv_lock_disk_sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+  "lock_registry_upgrade_count": 0,
+  "native_src_LICENSE_PyChOpMarg_diff_empty": true,
+  "PyAMI_license_unchanged": true,
+  "A_installed_distribution_count": 42,
+  "B_installed_distribution_count": 42,
+  "environment_version_differences": 17,
+  "source_checks_each": {
+    "PyAMI": 35,
+    "PyBERT": 56
+  },
+  "source_methods_fake_C_model_calls": 0,
+  "full_tests_CLI_GUI_services_not_run": true
+}

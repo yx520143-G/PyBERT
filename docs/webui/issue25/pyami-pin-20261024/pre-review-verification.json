@@ -1,0 +1,15 @@
+{
+  "old_repositories_HEAD_tree_status_match": 7,
+  "old_metadata_hashes_match": 54,
+  "old_raw_hashes_match": 4874,
+  "old_design_protected_inputs_match": 20,
+  "original_sources_mutated": false,
+  "new_clone_no_alternates_all_object_links_one": true,
+  "submodules_clean": true,
+  "hooks": [],
+  "Python_3_10_AST_and_new_script_119_columns": "passed",
+  "all_evidence_UTF8_no_BOM": true,
+  "origin_master": "35a71a6b79a00693a2f2862184552894752899c0",
+  "uv_lock_diff": "",
+  "source_budget": "guards only safe package import, model spec/AST; no production method/model call"
+}

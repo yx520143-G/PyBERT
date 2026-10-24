@@ -1,0 +1,31 @@
+{
+  "command": [
+    "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+    "lock",
+    "--python",
+    "C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/.venv/Scripts/python.exe"
+  ],
+  "cwd": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin",
+  "outer_python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+  "input_sha256": {
+    "pyproject.toml": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+    "uv.lock": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+    ".gitmodules": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79"
+  },
+  "environment": {
+    "UV_CACHE_DIR": "E:/serial-bus-simulator-dependencies/pybert-issue25-pyami-pin/.uv-cache",
+    "UV_LINK_MODE": "copy",
+    "UV_PROJECT_ENVIRONMENT": null,
+    "PIP_CACHE_DIR": "E:/serial-bus-simulator-dependencies/pybert-issue25-pyami-pin/.pip-cache",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "PYTHONPATH": null
+  },
+  "scope": "ordinary package install/build or metadata; no model execution",
+  "total_task_wall_and_peak_RSS": "UNKNOWN",
+  "exit_code": 0,
+  "elapsed_s": 0.06554380001034588,
+  "output_sha256": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "f2fec83f3005ca39d3c9e7792bbe754a4296b84963997a2ee00be688e3340d41"
+  }
+}

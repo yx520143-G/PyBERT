@@ -1,0 +1,78 @@
+{
+  "commands": {
+    "09-uv-sync": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "sync",
+      "--locked",
+      "--no-dev",
+      "--python",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe"
+    ],
+    "10-pip-venv": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "venv",
+      "--seed",
+      "--python",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv"
+    ],
+    "11-pip-version": [
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Scripts\\python.exe",
+      "-I",
+      "-m",
+      "pip",
+      "--version"
+    ],
+    "12-pip-install": [
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Scripts\\python.exe",
+      "-I",
+      "-m",
+      "pip",
+      "--isolated",
+      "install",
+      "--no-input",
+      "--disable-pip-version-check",
+      "--progress-bar",
+      "off",
+      "--index-url",
+      "https://pypi.org/simple",
+      "--cache-dir",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.pip-cache",
+      "--constraint",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\pip-constraints.txt",
+      "--report",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\commands\\12-pip-install\\pip-report.json",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin"
+    ],
+    "13-source-A": [
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.venv\\Scripts\\python.exe",
+      "-I",
+      "-B",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\verify_source.py",
+      "A",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\commands\\13-source-A\\source-receipt.json"
+    ],
+    "14-source-B": [
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Scripts\\python.exe",
+      "-I",
+      "-B",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\verify_source.py",
+      "B",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\commands\\14-source-B\\source-receipt.json"
+    ]
+  },
+  "bootstrap_python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+  "environment_A": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.venv",
+  "environment_B": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv",
+  "tools_versions_in_commands": "01-uv-version/02-git-version/03-bootstrap-python",
+  "F": "e222e4094629e1ce9a2f8058ab42439fc21fadd8",
+  "source_inputs_sha256": "f2ba62494d2687a7adf19086dabab1b612683864ef2ef1b58f4717f17beda59f",
+  "capture_sha256": "3ed76f46a1fd3bdef6ab697f6a652d14b16b207a3cff4fd96e9d9c8594c2558a",
+  "verifier_sha256": "313c4b81f3ba11ab9554058d7dda3a6f0d92bded9bbb3a6673a0985c5cbcbe80",
+  "PyChOpMarg_pip_constraint": "==3.4.0 from unchanged baseline workspace metadata; standard pip resolution, no uv override",
+  "uv_lock_regeneration": "08 actual uv lock succeeded, 234 packages; unchanged bytes because workspace editable source overrides the standard direct URL in uv lock metadata; no fabricated SHA/comment or unrelated upgrades",
+  "safe_import_choice": "F model import would construct four response-key dataclasses. To keep production methods zero, import only pyibisami package; resolve model via ModuleSpec, inspect APIs by AST and all installed sources by hash.",
+  "model_main_COM_coopt_C_loader_engine_DSP_parser_budget": 0,
+  "ordinary_Python_package_install_build_allowed": true,
+  "task_wall_peak_RSS": "UNKNOWN"
+}

@@ -1,0 +1,1 @@
+{"route": "A", "status": "passed", "package": "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\PyAMI\\src\\pyibisami", "verified_source_files": 91}

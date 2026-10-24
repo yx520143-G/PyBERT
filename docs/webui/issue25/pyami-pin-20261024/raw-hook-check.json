@@ -1,0 +1,117 @@
+{
+  "kind": "read-only static rule evaluation; hooks not executed, raw files not modified",
+  "initial_Standards_findings": 2,
+  "large_files": [
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/01-uv-version/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/02-git-version/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/03-bootstrap-python/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/04-origin-fork/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/05-chopmarg-https/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/06-init-submodules/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/07-pyami-fixed-checkout/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/08-uv-lock/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/09-uv-sync/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/10-pip-venv/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/11-pip-version/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/pip-report.json",
+      522998,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/12-pip-install/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/13-source-A/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/14-source-B/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/15-environment-A/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/16-environment-B/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/commands/17-origin-master/uv.lock.txt",
+      841394,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/inputs/uv.baseline.lock.txt",
+      836139,
+      true
+    ],
+    [
+      "docs/webui/issue25/pyami-pin-20261024/startup.json",
+      1198949,
+      true
+    ]
+  ],
+  "excluded_counts": {
+    "end-of-file-fixer": 148,
+    "mixed-line-ending": 148,
+    "check-added-large-files": 20
+  },
+  "EOF_outside_raw": [
+    ".gitmodules",
+    ".pre-commit-config.yaml",
+    "pyproject.toml"
+  ],
+  "mixed_EOL_outside_raw": []
+}
