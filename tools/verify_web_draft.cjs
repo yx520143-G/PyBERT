@@ -9,7 +9,7 @@ assert.equal(migrated.retained.new_feature.value.gain,3);assert.equal(migrated.r
 const reordered={schema:2,sources:{adapter_sha:'a'.repeat(40)},values:{vod:1.25,bit_rate:25},retained_fields:migrated.retained};
 const current=window.PYBERT_DRAFT.migrate(reordered);
 assert.equal(current.values.vod,1.25);assert.equal(current.values.bit_rate,25);
-assert.deepEqual(current.retained,migrated.retained);
+for(const [key,row] of Object.entries(migrated.retained)) {assert.deepEqual(current.retained[key].value,row.value);assert.equal(current.retained[key].blocking,true);}
 assert.throws(()=>window.PYBERT_DRAFT.migrate({schema:999,values:{bit_rate:50}}),/schema/);
 assert.throws(()=>window.PYBERT_DRAFT.migrate({schema:2,values:null}),/schema/);
 function loadApp(initial) {
@@ -39,4 +39,13 @@ const nativeMigrate=window.PYBERT_DRAFT.migrate({schema:2,values:native});
 assert.equal(Object.keys(nativeMigrate.retained).length,0);
 const repaired=window.PYBERT_DRAFT.migrate({schema:2,values:{peak_mag_tune:''},retained_fields:{peak_mag_tune:{value:1.7,reason:'old prototype type mismatch'}}});
 assert.equal(repaired.values.peak_mag_tune,1.7);assert.equal(Object.keys(repaired.retained).length,0);
+const future=loadApp({'pybert-native-draft-v2':JSON.stringify({schema:2,values:{bit_rate:25},retained_fields:{future_physical_input:{value:123,reason:'future metadata',blocking:false}}})});
+assert.notEqual(future.ui.migrationError(),null);
+const computedKey='tx_tap_tuners.value',computedValue=window.PYBERT_SETTINGS.defaults.tx_tap_tuners.map(()=>0);
+const computed=window.PYBERT_DRAFT.migrate({schema:2,values:{bit_rate:25},retained_fields:{[computedKey]:{value:computedValue,blocking:false}}});
+assert.equal(computed.retained[computedKey].blocking,false);
+for(const value of [[0],computedValue.map(()=> 'bad'),{},null]) {
+  const invalid=window.PYBERT_DRAFT.migrate({schema:2,values:{bit_rate:25},retained_fields:{[computedKey]:{value,blocking:false}}});
+  assert.equal(invalid.retained[computedKey].blocking,true);
+}
 console.log('PASS: actual PR7 storage-key migration, v1→v2 stable fields, catalog order independence, retained values, unknown schema/invalid JSON refusal without overwrite.');

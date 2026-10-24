@@ -3,7 +3,12 @@
   const settings=window.PYBERT_SETTINGS;
   function migrate(saved) {
     if (![1,2].includes(saved?.schema) || !saved.values || typeof saved.values!=='object' || Array.isArray(saved.values)) throw new Error('未知草稿schema；原存储保留，需恢复默认或重新载入配置。');
-    const values=settings.clone(settings.defaults),retained={...(saved.retained_fields || {})};
+    const values=settings.clone(settings.defaults),retained={};
+    for(const [key,row] of Object.entries(saved.retained_fields || {})) {
+      const table=key.endsWith('.value') ? key.slice(0,-6) : '';
+      const computed=['tx_tap_tuners','ffe_tap_tuners','dfe_tap_tuners'].includes(table) && Array.isArray(row?.value) && row.value.length===values[table].length && row.value.every(value=>value===null || typeof value==='number' && Number.isFinite(value));
+      retained[key]={...(row && typeof row==='object' && !Array.isArray(row) ? row : {value:row,reason:'未知保留字段结构'}),blocking:!computed};
+    }
     const savedValues={...saved.values};
     if(Number.isFinite(retained.peak_mag_tune?.value)) {savedValues.peak_mag_tune=retained.peak_mag_tune.value;delete retained.peak_mag_tune;}
     for(const [key,value] of Object.entries(savedValues)) {
