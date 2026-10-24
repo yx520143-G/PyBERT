@@ -45,7 +45,9 @@ API/YAML 的 `rx_viterbi_fec` 请求明确返回 `unsupported_native_fec`。原 
 
 raw schema 升为 5，解码扩展 schema=1；完整 `.pybert_run` 继续使用既有 primitive JSON/NPZ 协议。保存实际 axes、producer、原始数组与独立 BER windows；Windows/POSIX source key 兼容。必需身份/数组/轴/窗口、原生错误映射和图层一致性在发布前校验；旧 raw schema 不能携带新 decoding 来绕过校验。旧记录没有字段时显示“该记录未采集”。禁用记录 `n_errs_viterbi=-1`，DFE 不被置零。
 
-真实 Main 调用 **19 次**：12 次数值 direct/adapter 成功，lifecycle 的 2 次故障注入和 1 次取消，Chrome 的 3 次成功和 1 次取消。即 15 成功、2注入失败、2取消；2注入失败不是原生真实算法缺陷。数值 COM **0**、coopt **0**。各次 elapsed/退出与数值批次采样的 peak working set 在原报告；lifecycle/Chrome 峰值未采集，保持 unknown。常规归一化 worker 与 mock 回归不计作 Main。
+真实 Main 调用 **21 次**：12 次数值 direct/adapter 成功，lifecycle 的 2 次故障注入和 1 次取消，Chrome 的 3 次成功和 1 次取消，另有 2 次误用 `python -m pybert --version` 的 GUI startup。前19次为15成功、2注入失败、2取消；误用入口的两次没有采集完整 raw/数值终态，保留 **unknown**，不计成功或资格。2注入失败不是原生真实算法缺陷。数值 COM **0**、coopt **0**。各次 elapsed/退出与数值批次采样的 peak working set 在原报告；lifecycle/Chrome/两次误入口的峰值和误入口的数值 elapsed 未采集，保持 unknown。常规归一化 worker 与 mock 回归不计作 Main。
+
+`python -m pybert` 是 GUI 入口，会先构造默认 `PyBERT()` 并仿真，再尝试 UI；`--version` 没有被该入口解析。两次均以 null toolkit 的 GUI 异常退出，日志与边界见 [CLI误入口记录](evidence/cli-misentry.md)。默认 `rx_use_viterbi=False`、`enable_com=False` 的原源码可核查；这不是运行默认 trellis 或默认 COM。正确项目入口 `from pybert.cli import cli; cli()` 的 version 检查已通过（[日志](evidence/cli-version-corrected-v2.log)，0 Main）。原 [static-final](evidence/static-final.json) 的 CLI exit=1 保留，修正记录见 [v2](evidence/static-corrected-v2.json)。
 
 保留先前 88/1 回归失败及 red 复现、Windows 来源校验导致的 lifecycle 前置失败（0 Main）、脚本命令引号/文件选择/过早终态断言/预算断言等原日志。修复仅接续已完成 Run；这些失败没有删除或改记通过。首轮 disabled 执行期间 UI 变化及事后重建 index 有独立来源补存说明。最初色标 title 的 Plotly 3.7 字符串兼容问题已在最终 SVG 实测修复；旧截图不作为最终标题证据。
 
