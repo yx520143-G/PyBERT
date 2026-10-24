@@ -288,7 +288,7 @@
   }
 
   function showReset(keys, message) {
-    lastReset = {draft:settings.clone(draft),retainedFields:settings.clone(retainedFields),recoveryRequired,loadMessage,migrationSource,restored};
+    lastReset = {draft:settings.clone(draft),retainedFields:settings.clone(retainedFields),recoveryRequired,loadMessage,migrationSource,restored,storageAvailable};
     try {lastReset.storedDraft=localStorage.getItem(storageKey);} catch { /* Storage remains independently unavailable. */ }
     window.dispatchEvent(new CustomEvent('pybert-before-reset', {detail:lastReset}));
     if(keys.length===Object.keys(settings.defaults).length) {recoveryRequired=false;retainedFields={};loadMessage='已显式恢复默认；旧schema1原存储仍保留。';}
@@ -479,7 +479,7 @@
   $('undo-reset').addEventListener('click', () => {
     if (!lastReset) return;
     const saved=lastReset;
-    ({draft,retainedFields,recoveryRequired,loadMessage,migrationSource,restored}=saved);
+    ({draft,retainedFields,recoveryRequired,loadMessage,migrationSource,restored,storageAvailable}=saved);
     if(recoveryRequired && saved.storedDraft!==undefined) {
       try {if(saved.storedDraft===null) localStorage.removeItem(storageKey);else localStorage.setItem(storageKey,saved.storedDraft);} catch {storageAvailable=false;}
     }

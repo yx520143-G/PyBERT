@@ -11,7 +11,7 @@ function harness(savedDraft) {
   const context=vm.createContext({window,CustomEvent:class {constructor(type,options){this.type=type;this.detail=options.detail;}},location:{hash:''},localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value),removeItem:key=>storage.delete(key)},document:{getElementById:element,addEventListener(){}},setTimeout(){return 1;},clearTimeout(){}});
   for(const file of ['catalog.js','settings.js','draft.js','gui-map.js'])vm.runInContext(fs.readFileSync(path.join(directory,file),'utf8'),context);
   let app=fs.readFileSync(path.join(directory,'app.js'),'utf8');
-  app=app.replace(/  renderGuiIndex\(\);\r?\n  renderStage\(\);/,'  renderMap=renderOverview=renderSettings=updateFieldFeedback=renderStage=()=>{};');
+  app=app.replace(/  renderGuiIndex\(\);\r?\n  renderStage\(\);/,'  renderMap=renderOverview=renderStage=()=>{};renderSettings=updateFieldFeedback=updateDraftStatus;');
   vm.runInContext(app,context);
   let workbench=fs.readFileSync(path.join(directory,'workbench.js'),'utf8');
   workbench=workbench.replace('  init().catch(inputError);',`  window.resetTest={seed:run=>{
@@ -21,7 +21,7 @@ function harness(savedDraft) {
     ui.replaceDraft({...ui.getDraft(),...toDraft(base)});
   },nativeRecovery:()=>{snapshotRecoveryRequired=true;},snapshot:()=>({base,captured,patches,runtimeExtensions,sourceRecordId,replayGuard,snapshotRecoveryRequired,resource_bindings:resourceBindings()})};`);
   vm.runInContext(workbench,context);window.resetTest.seed(original);
-  return {window,storage,click:id=>element(id).listeners.click(),snapshot:()=>JSON.parse(JSON.stringify(window.resetTest.snapshot()))};
+  return {window,storage,element,click:id=>element(id).listeners.click(),snapshot:()=>JSON.parse(JSON.stringify(window.resetTest.snapshot()))};
 }
 const plain=JSON.stringify({schema:2,values:{bit_rate:25}}),archive=harness(plain);
 const before=archive.snapshot(),draft=archive.window.PYBERT_WORKBENCH.getDraft();
@@ -39,4 +39,5 @@ const broken=harness('invalid JSON');broken.storage.set('pybert-native-snapshot-
 broken.click('reset-draft');broken.click('undo-reset');
 assert(broken.window.PYBERT_WORKBENCH.migrationError());assert.equal(broken.storage.get('pybert-native-draft-v2'),'invalid JSON');
 assert.equal(broken.storage.get('pybert-native-snapshot-v2'),'invalid snapshot');assert.equal(broken.snapshot().snapshotRecoveryRequired,true);
+assert.match(broken.element('draft-status').innerHTML,/仅当前页面保留/);
 console.log('PASS: real archived inputs/runtime/resource bindings/replay guard survive reset+undo; unknown retained input and invalid draft/native storage recover their original blocking state. No observers/main/COM.');
