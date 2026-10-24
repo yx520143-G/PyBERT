@@ -1,0 +1,9 @@
+{
+  "status": "succeeded",
+  "result": {
+    "run_id": "db49b773-ba25-4651-bc6c-0a5247ca86cc"
+  },
+  "main_invocations": 1,
+  "cancel_observed": false,
+  "cancel_requested": false
+}

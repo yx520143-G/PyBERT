@@ -1,0 +1,19 @@
+async (page) => {
+  const id=await page.evaluate(()=>window.PYBERT_RUNS.selected().run_id);
+  const result={run_id:id,views:[]};
+  for(const [kind,type,name] of [['response','H','frequency'],['eye',null,'eye'],['jitter.dist',null,'jitter']]){
+    await page.locator('#analysis-kind').selectOption(kind);
+    if(type)await page.locator('#response-type').selectOption(type);
+    await page.waitForFunction(()=>document.getElementById('plot').data?.length>0);
+    await page.locator('#plot').scrollIntoViewIfNeeded();
+    await page.screenshot({path:`C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/chrome-v3/nrz-${name}.png`});
+    result.views.push(await page.locator('#plot').evaluate(el=>({title:el.layout.title.text,traces:el.data.length})));
+    if(await page.evaluate(()=>window.PYBERT_RUNS.selected().run_id)!==id)throw new Error('View changed selected run');
+  }
+  const chooser=page.waitForEvent('filechooser');
+  await page.getByRole('button',{name:'打开结果 / 加入比较',exact:true}).click();
+  await (await chooser).setFiles('C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/chrome-v3/nrz.pybert_run');
+  await page.waitForFunction(()=>window.PYBERT_RUNS.references().length===1);
+  result.reference=await page.evaluate(()=>window.PYBERT_RUNS.references()[0]);
+  return {run_id:id,views:result.views,reference_id:result.reference.record_id,reference_source:result.reference.run_id};
+}

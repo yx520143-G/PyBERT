@@ -1,0 +1,6299 @@
+{
+  "schema_version": 1,
+  "optimization_raw_schema": 2,
+  "opt_id": "3de6652f-4bf3-42b0-b337-5783194aa2db",
+  "status": "succeeded",
+  "draft_revision": 6,
+  "requested_input": {
+    "bit_rate": 10,
+    "nbits": 15000,
+    "pattern": "PRBS-7",
+    "seed": 12345,
+    "nspui": 32,
+    "eye_bits": 10160,
+    "mod_type": "NRZ",
+    "debug": false,
+    "f_max": 40,
+    "f_step": 10,
+    "inter_sel": "native",
+    "ch_file": "",
+    "ch_files": [],
+    "impulse_length": 0,
+    "Rdc": 0.1876,
+    "w0": 10000000,
+    "R0": 1.452,
+    "Theta0": 0.02,
+    "Z0": 100,
+    "v0": 0.67,
+    "l_ch": 0.5,
+    "renumber": false,
+    "lane_sel": 0,
+    "include_fext": false,
+    "use_window": false,
+    "enable_com": false,
+    "com_cfg_file": "",
+    "vod": 1,
+    "rs": 100,
+    "cout": 0.5,
+    "pn_mag": 0.01,
+    "pn_freq": 11,
+    "rn": 0.01,
+    "tx_taps": [
+      [
+        false,
+        0,
+        -0.05,
+        0.05
+      ],
+      [
+        true,
+        -0.02,
+        -0.1,
+        0.1
+      ],
+      [
+        true,
+        -0.05,
+        -0.2,
+        0.2
+      ],
+      [
+        false,
+        0,
+        -0.2,
+        0.2
+      ],
+      [
+        false,
+        0,
+        -0.1,
+        0.1
+      ],
+      [
+        false,
+        0,
+        -0.05,
+        0.05
+      ]
+    ],
+    "tx_tap_tuners": [
+      [
+        false,
+        -3,
+        -0.05,
+        0.05,
+        0.025
+      ],
+      [
+        false,
+        -2,
+        -0.1,
+        0.1,
+        0.05
+      ],
+      [
+        false,
+        -1,
+        -0.2,
+        0.2,
+        0.1
+      ],
+      [
+        false,
+        1,
+        -0.2,
+        0.2,
+        0.1
+      ],
+      [
+        false,
+        2,
+        -0.1,
+        0.1,
+        0.05
+      ],
+      [
+        false,
+        3,
+        -0.05,
+        0.05,
+        0.025
+      ]
+    ],
+    "tx_use_ami": false,
+    "tx_use_ts4": false,
+    "tx_use_getwave": false,
+    "tx_ami_file": "",
+    "tx_dll_file": "",
+    "tx_ibis_file": "",
+    "tx_sel": "native",
+    "tx_eq_sel": "Native",
+    "rin": 100,
+    "cin": 0.5,
+    "tx_c0_min": 0,
+    "pkg_enable": false,
+    "pkg_group": "KR",
+    "tx_pkg_case": "A1",
+    "rx_pkg_case": "A1",
+    "pkg_include_host": true,
+    "cac": 1,
+    "use_ctle_file": false,
+    "ctle_sel": "Native",
+    "ctle_file": "",
+    "rx_bw": 12,
+    "peak_freq": 5,
+    "peak_mag": 1.7,
+    "ctle_enable": true,
+    "rx_use_ami": true,
+    "rx_use_ts4": false,
+    "rx_use_getwave": false,
+    "rx_ami_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ami",
+    "rx_dll_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx_x86_amd64.dll",
+    "rx_ibis_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+    "rx_sel": "ibis",
+    "rx_eq_sel": "IBIS-AMI",
+    "rx_use_viterbi": false,
+    "rx_viterbi_symbols": 4,
+    "rx_n_taps": 15,
+    "rx_n_pre": 5,
+    "rx_taps": [
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        1,
+        -1,
+        1
+      ],
+      [
+        true,
+        -0.03,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        true,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1
+      ]
+    ],
+    "ffe_tap_tuners": [
+      [
+        false,
+        -5,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        -4,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        -3,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        -2,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        -1,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        0,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        1,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        2,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        3,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        4,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        5,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        6,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        7,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        8,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        9,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        10,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        11,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        12,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        13,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        14,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        15,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        16,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        17,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        18,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        19,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        20,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        21,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        22,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        23,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        24,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        25,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        26,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        27,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        28,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        29,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        30,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        31,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        32,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        33,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        34,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        35,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        36,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        37,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        38,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        39,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        40,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        41,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        42,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        43,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        44,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        45,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        46,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        47,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        48,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        49,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        50,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        51,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        52,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        53,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        54,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        55,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        56,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        57,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        58,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        59,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        60,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        61,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        62,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        63,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        64,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        65,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        66,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        67,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        68,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        69,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        70,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        71,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        72,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        73,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        74,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        75,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        76,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        77,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        78,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        79,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        80,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        81,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        82,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        83,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        84,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        85,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        86,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        87,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        88,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        89,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        90,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        91,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        92,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        93,
+        -1,
+        1,
+        0.1
+      ],
+      [
+        false,
+        94,
+        -1,
+        1,
+        0.1
+      ]
+    ],
+    "sum_ideal": true,
+    "decision_scaler": 0.5,
+    "gain": 0.1,
+    "n_ave": 100,
+    "sum_bw": 12,
+    "use_agc": true,
+    "cdr_type": "Bang-Bang",
+    "delta_t_ui": 0.001,
+    "alpha": 0.01,
+    "n_lock_ave": 500,
+    "rel_lock_tol": 0.1,
+    "lock_sustain": 500,
+    "thresh": 3,
+    "rx_bw_tune": 12,
+    "peak_freq_tune": 5,
+    "peak_mag_tune": 1.7,
+    "min_mag_tune": 2,
+    "max_mag_tune": 12,
+    "step_mag_tune": 1,
+    "ctle_enable_tune": false,
+    "use_mmse": true,
+    "dfe_tap_tuners": [
+      [
+        false,
+        -0.2,
+        0.4
+      ],
+      [
+        false,
+        -0.15,
+        0.15
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ]
+    ]
+  },
+  "runtime_extensions": {
+    "version": 1,
+    "values": {
+      "rx_use_clocks": true,
+      "ami_opt_trials": 4,
+      "rlm": 1,
+      "ami_models": {
+        "rx": {
+          "model_hash": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+          "selection": {
+            "comp": "Example_Rx",
+            "pin": "1p(Tx_1_P)",
+            "mod": "example_rx",
+            "ibis_path": "example_rx.ibs"
+          },
+          "parameters": [
+            {
+              "path": [
+                "Reserved_Parameters",
+                "AMI_Version"
+              ],
+              "value": "5.1",
+              "editable": false,
+              "type": "String",
+              "usage": "Info",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "Version of IBIS standard we comply with.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Reserved_Parameters",
+                "Init_Returns_Impulse"
+              ],
+              "value": true,
+              "editable": false,
+              "type": "Boolean",
+              "usage": "Info",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "Model provides DFE adaptation approximation, in its AMI_Init() function.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Reserved_Parameters",
+                "GetWave_Exists"
+              ],
+              "value": true,
+              "editable": false,
+              "type": "Boolean",
+              "usage": "Info",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "This model is dual-mode, with true DFE adaptation in GetWave().",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_mode"
+              ],
+              "value": 1,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "List",
+              "min": null,
+              "max": null,
+              "values": [
+                0,
+                1
+              ],
+              "list_tips": [
+                "Off",
+                "Manual"
+              ],
+              "corners": null,
+              "labels": null,
+              "description": "CTLE operating mode.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_freq"
+              ],
+              "value": 5000000000.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 1000000000.0,
+              "max": 5000000000.0,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "CTLE peaking frequency (Hz).",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_mag"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 0.0,
+              "max": 12.0,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "CTLE peaking magnitude (dB).",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_bandwidth"
+              ],
+              "value": 12000000000.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 5000000000.0,
+              "max": 50000000000.0,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "CTLE bandwidth (Hz).",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_dcgain"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": -20.0,
+              "max": 20.0,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "CTLE d.c. gain (dB).",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_mode"
+              ],
+              "value": 0,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "List",
+              "min": null,
+              "max": null,
+              "values": [
+                0,
+                1,
+                2
+              ],
+              "list_tips": [
+                "Off",
+                "Manual",
+                "Adaptive"
+              ],
+              "corners": null,
+              "labels": null,
+              "description": "DFE operating mode.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_ntaps"
+              ],
+              "value": 5,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "Number of DFE taps.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap1"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "DFE tap 1 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap2"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "DFE tap 2 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap3"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "DFE tap 3 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap4"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "DFE tap 4 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap5"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "DFE tap 5 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_vout"
+              ],
+              "value": 1.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 0.0,
+              "max": 1.0,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "DFE slicer output voltage magnitude.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_gain"
+              ],
+              "value": 0.1,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 0.0,
+              "max": 1.0,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "DFE error feedback gain.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dbg_enable"
+              ],
+              "value": false,
+              "editable": true,
+              "type": "Boolean",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "Master debug enable.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dump_dfe_adaptation"
+              ],
+              "value": false,
+              "editable": true,
+              "type": "Boolean",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "Dump the DFE adaptation results.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dump_adaptation_input"
+              ],
+              "value": false,
+              "editable": true,
+              "type": "Boolean",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "list_tips": null,
+              "corners": null,
+              "labels": null,
+              "description": "Dump the DFE summing node input.",
+              "unit": "not declared; see original description"
+            }
+          ],
+          "parameter_model_hash": "79fb43cff91ba341a2754d8f81c8db407d22aeac9862897862158929df4eeb17",
+          "sim_corner": "typ",
+          "search": [
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_mode"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 1.0,
+              "value": 1.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_freq"
+              ],
+              "enabled": false,
+              "min_val": 1000000000.0,
+              "max_val": 5000000000.0,
+              "step": 400000000.0,
+              "value": 5000000000.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_mag"
+              ],
+              "enabled": true,
+              "min_val": 0.0,
+              "max_val": 12.0,
+              "step": 6.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_bandwidth"
+              ],
+              "enabled": false,
+              "min_val": 5000000000.0,
+              "max_val": 50000000000.0,
+              "step": 4500000000.0,
+              "value": 12000000000.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_dcgain"
+              ],
+              "enabled": false,
+              "min_val": -20.0,
+              "max_val": 20.0,
+              "step": 4.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_mode"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 2.0,
+              "step": 1.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_vout"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 0.1,
+              "value": 1.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_gain"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 0.1,
+              "value": 0.1
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dbg_enable"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 1.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dump_dfe_adaptation"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 1.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dump_adaptation_input"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 1.0,
+              "value": 0.0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "resource_bindings": {
+    "rx_model_bundle": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+  },
+  "input_hash": "86f3ba1be599e1d89afdae3897e1dc9de6f3038b390fa21293dd13b419fdd942",
+  "input_identity_hash": "585d1030e52aa9b41ff2565b22c908584b4dc621f7a5c61c1a8e15187722f4b5",
+  "resource_hash": "052a7c369354c14fa916a7b8d2c620fc222963dd2170cee0bb89d20b81de4e83",
+  "resources": [
+    {
+      "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+      "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+      "format": ".model",
+      "files": [
+        {
+          "relative_path": "example_rx.ami",
+          "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+          "bytes": 4067
+        },
+        {
+          "relative_path": "example_rx.ibs",
+          "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+          "bytes": 2804
+        },
+        {
+          "relative_path": "example_rx_x86_amd64.dll",
+          "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+          "bytes": 363008
+        }
+      ],
+      "bytes": 369879,
+      "source": {
+        "kind": "local_directory",
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+      },
+      "original_name": "model bundle",
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "not checked; binary loading requires a child task",
+      "field": "rx_model_bundle",
+      "index": null,
+      "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+      "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-chrome-v4\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+    }
+  ],
+  "adapter_sha": "130e85c150375b401d5d96c293ad19fe82eb265e",
+  "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+  "started_at": 1792831655.8957899,
+  "source_identity": {
+    "web\\ami.py": "83b118f83a5fae12327871c724b9dcd8b03b5ba56ccb134a425dd536c6582b11",
+    "web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "web\\archive.py": "38f2b1967488ef7b6e6cdb768863da525226bf9bf11e71ccd292cccec6e3c676",
+    "web\\com.py": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f",
+    "web\\config.py": "dd12dfcfe48419058c0bd8d4ed68c59979f0918c4c3e97a6f2ec827841e0bb49",
+    "web\\data.py": "34b317a4c512c5cf17f05ec60e66bb567059cbf02dfa34e97dd7406702326e35",
+    "web\\legacy_results.py": "f10ad1c1131510eb889300149195cabbdd9fc43594f966d5dea9ce715ef77be1",
+    "web\\optimization.py": "dafd7f2bee5687b6f3732fd4aab6fa5527da480db6c17c306c883d5fd8b7d526",
+    "web\\records.py": "85b41a7c4135e5e893600b09ffa5cdb44239700cf542d281a85933c9056f5e3d",
+    "web\\resources.py": "045b086767e4e20d872aa233b9fbb59e8ae4c74494cfdd649ced82b0ac296c42",
+    "web\\resource_data.py": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3",
+    "web\\server.py": "9468621edc8ce2e20d8dcadb5e258aa0525ebe0f0eb851689854cf3b7c3fc4b2",
+    "web\\tasks.py": "572331ddc3b96a6f5f8bfa5a6020806de9e4e991d215ea6be3479b06f36087dd",
+    "web\\viterbi.py": "8c8768f9b4ada62dd370786a8d4f4129118bc14cc1eb9925012abce445d92a3f",
+    "web\\worker.py": "f34e4734639c0a8d3e169a55b35e11a8dc4019fd6d7d5b93ec272871e58b4bf4",
+    "web\\__init__.py": "b1896655d91bfaefd0cedd7ebdef5a97581e00ed934e418d9921fa7e9f10fe3c",
+    "web\\static\\ami.js": "c5a574113a03e9daaa64bcca5e64db6908f70d27f40fa03eb80f3a94c4227fd4",
+    "web\\static\\app.js": "717869941318417cef07ceaabf3203e31718fbd3a8abba24efb1e95ced08fbac",
+    "web\\static\\catalog.js": "2fe354afd9708bc5fe8d3208c3172903d11aa45ce0e1d54ef1cf0ae807f7ac00",
+    "web\\static\\draft.js": "ee831427c6f44699ca554d8c00ed3ea6108bd5f7a627a8ade63a0d7e2674eb87",
+    "web\\static\\gui-map.js": "4aa549b5ebd11004a4539c74e6127e18c726f9c359978168f0d43a77b926fbb3",
+    "web\\static\\index.html": "d34ee84305197fec8bbc39e9c4b030cc0978c9480cbbc5b22dba93f9c3fc318d",
+    "web\\static\\optimization.js": "a5d2c40739b70c112e8ebe746f2676d7ce96980eef7b6f88f0db59243303f4e8",
+    "web\\static\\resources.js": "4afe5b579e812ae3b6d3efc370d4ed188ff00aa2889608366c5bda222d1b4872",
+    "web\\static\\results.js": "ca2d05e602162100475e19ba60869722438a255960e33fb036bfaff61e7ff7aa",
+    "web\\static\\settings.js": "3a91e4914c03dccfa5fb0251b19bd7b4954bac4667fedbe19d604cd134216eb3",
+    "web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "web\\static\\viterbi.js": "9f9f5b5a19988254a1a46b37f73b67113194a02d39847caad44bc90ec65b4f9b",
+    "web\\static\\workbench.css": "7afd190a03bf8149c3fca5ff7913084ab7d48a03c7a8a181b69e899922f0a442",
+    "web\\static\\workbench.js": "1b973c9703e5644aa84eba66821ab781b57f8e317756f582c14b5a68d3462d80",
+    "pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+    "models\\bert.py": "5879ea9520feca96d0f366d1283424194d02425806605fb0069ffb1f893ee622",
+    "models\\viterbi.py": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e",
+    "models\\dfe.py": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966",
+    "utility\\sparam.py": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+    "configuration.py": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a",
+    "threads\\optimization.py": "1e058d9a96c67f29c1e8a432e78c19e5675634028f78871e727796b04e5afea5"
+  },
+  "execution_environment": {
+    "python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+    "PYTHONPATH": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator/src;C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator/PyAMI/src;C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator/PyChOpMarg/src",
+    "modules": {
+      "pybert": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\__init__.py",
+      "pychopmarg": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\__init__.py",
+      "pyibisami": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\__init__.py"
+    },
+    "python_source_sha256": {
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\cli.py": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\common.py": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\configuration.py": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\results.py": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\__init__.py": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\__main__.py": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\gui\\handler.py": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\gui\\help.py": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\gui\\plot.py": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\gui\\view.py": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\gui\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\mcp\\server.py": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\mcp\\__init__.py": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py": "5879ea9520feca96d0f366d1283424194d02425806605fb0069ffb1f893ee622",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\cdr.py": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\com.py": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\dfe.py": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\fec.py": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\tx_tap.py": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\viterbi.py": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\__init__.py": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\parsers\\hspice.py": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\parsers\\__init__.py": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\solvers\\solver.py": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\solvers\\__init__.py": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\threads\\optimization.py": "1e058d9a96c67f29c1e8a432e78c19e5675634028f78871e727796b04e5afea5",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\threads\\sim.py": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\threads\\stoppable.py": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\threads\\__init__.py": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\channel.py": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\functional.py": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\ibisami.py": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\python.py": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\sparam.py": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\__init__.py": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\ami.py": "83b118f83a5fae12327871c724b9dcd8b03b5ba56ccb134a425dd536c6582b11",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\archive.py": "38f2b1967488ef7b6e6cdb768863da525226bf9bf11e71ccd292cccec6e3c676",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\com.py": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\config.py": "dd12dfcfe48419058c0bd8d4ed68c59979f0918c4c3e97a6f2ec827841e0bb49",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\data.py": "34b317a4c512c5cf17f05ec60e66bb567059cbf02dfa34e97dd7406702326e35",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\legacy_results.py": "f10ad1c1131510eb889300149195cabbdd9fc43594f966d5dea9ce715ef77be1",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\optimization.py": "dafd7f2bee5687b6f3732fd4aab6fa5527da480db6c17c306c883d5fd8b7d526",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\records.py": "85b41a7c4135e5e893600b09ffa5cdb44239700cf542d281a85933c9056f5e3d",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\resources.py": "045b086767e4e20d872aa233b9fbb59e8ae4c74494cfdd649ced82b0ac296c42",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\resource_data.py": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\server.py": "9468621edc8ce2e20d8dcadb5e258aa0525ebe0f0eb851689854cf3b7c3fc4b2",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\tasks.py": "572331ddc3b96a6f5f8bfa5a6020806de9e4e991d215ea6be3479b06f36087dd",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\viterbi.py": "8c8768f9b4ada62dd370786a8d4f4129118bc14cc1eb9925012abce445d92a3f",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py": "f34e4734639c0a8d3e169a55b35e11a8dc4019fd6d7d5b93ec272871e58b4bf4",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\__init__.py": "b1896655d91bfaefd0cedd7ebdef5a97581e00ed934e418d9921fa7e9f10fe3c",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\solvers\\simbeor\\__init__.py": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\cli.py": "b89a14005737e3730731253d47a1691246c4fee5ced238cc96572659320f6fc0",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\com.py": "04010ac20bf154b91715c34130db531ce0c9f350881973053f2691ccb24680e9",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\common.py": "08658837f977c06428241522cbaa8221ea9ea3dcc303b1a9c437606e01d0d163",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\devmodel.py": "a1504554a943c539e0914a7b4e6b6ae56cbc38c922ce7a783655abe5f427d2d1",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\excel.py": "ece620356d52c910d8d26b8c77d1175ed57f475292e88f76547b7f1eaa278881",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\matlab.py": "3a0899c7f496cadf66ef144c8cfcfbc499b91a7d5975b1051ba8ebb5efe903ef",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\mlsd.py": "6961b8ee772dc2e64bb0add34c115e2510afe0972edd4566498d8355b1a54cf5",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\noise.py": "e638940f963d8df714686e6e6e9f5efdcfe8cc7e62857b33a09948c4eebf84ef",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\optimize.py": "432bff254c9043e333f99fa1eb26eaa384cdc574dad5f2437efa6a5b3640835d",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\plot.py": "e75b8b7e8bc2c8aa65ea1da47d93a5a40192984518e247b673d00fc1bff146f6",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\__init__.py": "9cac78d91bff4690fea7f60b85881fed116e7b09f17615c9821d7dfc372d531d",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\__main__.py": "504f028fc5be635691d6c7f4a07c729144edffbd94faaee31db7038b5132fa6a",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023by.py": "9f6d96162f079498ea93a94642e1e780755ca63ee7dc128f07a23563fe62abf5",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj.py": "8915ffff247b2981e6c4b86afd6c7e3c9a5b0c1dcc240bc26058e02585b23e23",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj_d3p3.py": "47436b07c0843da6fcba4923fa6dcd16e5e536de06e617d68180107d9f76d1e2",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\template.py": "801119da1f9acfa470e4640e37b281e20cf07cdfb92c82b8ad0ae86e2bf2a2f4",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\__init__.py": "4868fe79668025474562148e96ab901a2e056034684519151512a46657c05780",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\filter.py": "4aaf60d9ba2c03fd867b3753c12c87ad64d0768b9bb3b0dd35876ec28481513c",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\general.py": "845b78ec063548a38741bf39ebb473216dcf017aa9276331906223c5372ac614",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\jupyter.py": "be9693d759ac8c3e15814f5acb8d534658e94836844124051f788abb30188b58",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\probability.py": "33fe735736b3477c704e5283d8d0b929092e731e8b8a8bad2f41824364f15d85",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\sparams.py": "59a5e253af93fc894d157c6ec8c445d83bb14c8a5e06282ad93416a47be16595",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\__init__.py": "e0b9fb64bbdf55f4a77acfdc8c70561eb0253f0097a7a05c7423d17e48c08cb1",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\cli_logging.py": "258a8818ba11d5e99b90dfdfc759fe070e81b61c817ff3e5f02c8ec05281869d",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\common.py": "29d822c729682cf1fd68829a21ece71324c51c6cde785303cb2165b197d27929",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\__init__.py": "fbc42a1fc4b0c2c91f81cff926a0b110e010c84a37aa61c87ddccd2cdf2bcb56",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\__main__.py": "2ebe052fef6b334f0d481e08b11f9b33df34549f8382c1081dc7e5b9ae1eeea7",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\config.py": "ffd859918022ad3cfcf3fd50b6fd8dddb269ce6b58bbbe9c2845fa6a1aef2a31",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\configurator.py": "a1e1242424fb7951ab3aba0ad717acf3169c8d091fdf33db805d6747fe077874",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\model.py": "6dd6ae1f9381c596bb25606199a6fe404c24aa1ffbcefc4d5ffb5e4df22b6be3",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\parameter.py": "d0233fd737b85f96e76863f19079eb70f71a7b6da52f28e8c282f339cfc120e7",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\parser.py": "2c2e688e3257476d38c175bcd37bb8050b253ad822139c55001eff920ba65594",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\reserved_parameter_names.py": "8ae84418fa427239e757044ef475bed39d8b95814c7569ee717982bb237debe6",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\gui\\ami_config.py": "f81e8b9035504a7e55ba49a40d2239451320deeeb88e9fd976b1f857c78642f8",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\gui\\ibis.py": "d843afd471659c046687637a6d2aec07e06b063181a2272f74a8ac065d425aa9",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\gui\\__init__.py": "485231c50b8a395db0d9cb617f2ca68af40fdeb1c74f00de3f4c384911d690e6",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\file.py": "87d09a048bc77fc1559a3eb8c256b654598bf0ef8574b3819d17f26af497c372",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\iv.py": "0eca1c03681d5f6ca5eff7802da0726b104c3b608a2aa40cb59fee836c6ccc03",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\model.py": "5e136717109a56bd28dd9e14fb9490e80042e18738ec6466a8975fa21bc8c2e2",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\parser.py": "579506ce86d347b859d1e9ee8c939dd33068dfc8c3b068ff9d45605732fe26aa",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\report\\ami_tests.py": "47b044bd9ac7d540a81ec48237730783de69dcee2d5157f0778f6af9cf967be5",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\report\\ami_tests_helpers.py": "e712a4bfd7a33a10f0e2d4a30c0c9f5d6270e55a45212e2f62395f15d7876040",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\report\\ibis_file_tests.py": "3bac0e6cda86310de0764bb5c739b39aad7586b54f3cee515cfa3a139eba4341",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\report\\pdf.py": "56fe886bf827b52f20bc0c5b15f1a8511d29728082100930378f2cc0aaaa6187",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\report\\plot.py": "b83701897b00d3a0e1f0732e8659a48ce146201d936f63bd4f194f99ffc972fe",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\report\\test_models.py": "8203e1d518d8c5c03ffccce8bcf562df12899e8958f9df097499e5c94e615629",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\report\\__init__.py": "50a5395f7c53746530b968917c75752f774429ab6800d62908eacdeef718b53e",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\testing\\ami_test_config.py": "1882316ddb3ea28f031ec38cb93f657381443db7fb9dfd04e72360354462acd6",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\testing\\test_defs.py": "58d1cf62cc56dabdf223071b9e3c12bfef265c4a67b45800b63d7adb44a78d73",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\testing\\util.py": "b223b5bf105e4d2068a7a02abae806bca557322048bd511f00a296c06c1f8759",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\testing\\__init__.py": "38653eca7fae90e6a0a11ba577e40497c4d3b7c7d314f592988bd8bdbba6321d",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\tools\\run_notebook.py": "8d576c2b80762b6f2fd93bfbcdf112aa9d0f7151a9d1160d262b31bc0ac435a1",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\tools\\run_tests.py": "4e9a4863f7eb4f1d51d2e6b0cf1d39e717f1cb04a5b5b8d397635e08c48e4a0b",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\tools\\__init__.py": "12c5bac38e661e129034a955a8ebb4b3dcb86b5e8ad1415f48a2b8545fdf8609",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\util\\ami.py": "22d7336b8a2b6abff716d8c21d5086c9e41618d83e30229ceaf2e82b0d433232",
+      "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\util\\misc.py": "cdf109e3c3839d087a7c04da420b637a4d76e3c485777c0999b9866ba1816579"
+    }
+  },
+  "packages": {
+    "alabaster": "1.0.0",
+    "alembic": "1.18.5",
+    "annotated-doc": "0.0.5",
+    "annotated-types": "0.8.0",
+    "anyio": "4.14.2",
+    "ast_serialize": "0.6.0",
+    "attrs": "26.1.0",
+    "babel": "2.18.0",
+    "certifi": "2026.6.17",
+    "cffi": "2.1.0",
+    "chaco": "6.1.1",
+    "charset-normalizer": "3.4.9",
+    "click": "8.4.2",
+    "colorama": "0.4.6",
+    "colorlog": "6.12.0",
+    "coverage": "7.15.2",
+    "cryptography": "50.0.0",
+    "docutils": "0.22.4",
+    "empy": "4.2.1",
+    "enable": "6.1.0",
+    "et_xmlfile": "2.0.0",
+    "execnet": "2.1.2",
+    "fastapi": "0.162.0",
+    "fonttools": "4.63.0",
+    "greenlet": "3.5.4",
+    "h11": "0.16.0",
+    "httpcore2": "2.12.0",
+    "httpx2": "2.12.0",
+    "idna": "3.18",
+    "imagesize": "2.0.0",
+    "iniconfig": "2.3.0",
+    "Jinja2": "3.1.6",
+    "jsonschema": "4.26.0",
+    "jsonschema-specifications": "2025.9.1",
+    "kiwisolver": "1.5.0",
+    "librt": "0.13.0",
+    "Mako": "1.4.2",
+    "markdown-it-py": "4.2.0",
+    "MarkupSafe": "3.0.3",
+    "mcp": "2.2.0",
+    "mcp-types": "2.2.0",
+    "mdit-py-plugins": "0.6.1",
+    "mdurl": "0.1.2",
+    "mypy": "2.3.0",
+    "mypy_extensions": "1.1.0",
+    "myst-parser": "5.1.0",
+    "narwhals": "2.27.1",
+    "numpy": "2.5.1",
+    "numpy-typing-compat": "20260602.2.5",
+    "openpyxl": "3.1.5",
+    "opentelemetry-api": "1.44.0",
+    "optuna": "4.9.0",
+    "optype": "0.18.0",
+    "packaging": "26.2",
+    "pandas": "3.0.3",
+    "parsec": "3.17",
+    "pathspec": "1.1.1",
+    "pillow": "12.3.0",
+    "pip": "26.2",
+    "pipbert": "11.1.0",
+    "plotly": "6.9.0",
+    "pluggy": "1.6.0",
+    "PyChOpMarg": "3.4.0",
+    "pycparser": "3.0",
+    "pydantic": "2.13.4",
+    "pydantic_core": "2.46.4",
+    "pyface": "8.0.0",
+    "Pygments": "2.20.0",
+    "pyibis-ami": "10.0.0",
+    "PyJWT": "2.15.0",
+    "pyparsing": "3.3.2",
+    "PySide6": "6.10.2",
+    "PySide6_Addons": "6.10.2",
+    "PySide6_Essentials": "6.10.2",
+    "pytest": "9.1.1",
+    "pytest-cov": "7.1.0",
+    "pytest-xdist": "3.8.0",
+    "python-dateutil": "2.9.0.post0",
+    "python-multipart": "0.0.32",
+    "pywin32": "312",
+    "PyYAML": "6.0.3",
+    "referencing": "0.37.0",
+    "requests": "2.34.2",
+    "roman-numerals": "4.1.0",
+    "rpds-py": "2026.6.3",
+    "scikit-rf": "2.0.1",
+    "scipy": "1.18.0",
+    "scipy-stubs": "1.18.0.1",
+    "setuptools": "83.0.0",
+    "shiboken6": "6.10.2",
+    "six": "1.17.0",
+    "snowballstemmer": "3.1.1",
+    "Sphinx": "9.1.0",
+    "sphinxcontrib-applehelp": "2.0.0",
+    "sphinxcontrib-devhelp": "2.0.0",
+    "sphinxcontrib-htmlhelp": "2.1.0",
+    "sphinxcontrib-jquery": "4.1",
+    "sphinxcontrib-jsmath": "1.0.1",
+    "sphinxcontrib-qthelp": "2.0.0",
+    "sphinxcontrib-serializinghtml": "2.0.0",
+    "sphinx_rtd_theme": "3.1.0",
+    "SQLAlchemy": "2.0.51",
+    "sse-starlette": "3.4.8",
+    "starlette": "1.6.0",
+    "tqdm": "4.69.0",
+    "traits": "7.1.0",
+    "traitsui": "8.0.0",
+    "truststore": "0.10.4",
+    "types-PyYAML": "6.0.12.20260518",
+    "typing_extensions": "4.16.0",
+    "typing-inspection": "0.4.4",
+    "tzdata": "2026.3",
+    "urllib3": "2.7.0",
+    "uvicorn": "0.52.4",
+    "xlrd": "2.0.2"
+  },
+  "model": {
+    "bounded_ideal_DFE": true,
+    "MMSE_TX_LEVEL_V": 0.5,
+    "MMSE_TX_SNR_DB": 25.0,
+    "MMSE_DJ_UI": 0.0,
+    "MMSE_RJ_UI": 0.0,
+    "aggressors": [],
+    "noise_boundary": "rn enters eta0; fixed Tx/SNR/jitter and empty aggressors differ from full Run/COM",
+    "pulse": "optimization model; MMSE cursor=1 equivalent pulse, not dfe_out/CDR/BER/standard COM"
+  },
+  "plan": {
+    "outer_count": 4,
+    "rx_inner_count": 1,
+    "dimensions": [
+      {
+        "side": "rx",
+        "path": [
+          "Model_Specific",
+          "ctle_mag"
+        ],
+        "min_val": 0.0,
+        "max_val": 12.0,
+        "step": 6.0,
+        "value": 0.0
+      }
+    ],
+    "sampler": "Optuna TPE",
+    "seed": 12345,
+    "optuna_version": "4.9.0",
+    "reserved_export_bytes_upper": 199680000,
+    "scope": "original Init response score; no GetWave/BER/COM qualification"
+  },
+  "effective_input": {
+    "bit_rate": 10.0,
+    "nbits": 15000,
+    "pattern": "PRBS-7",
+    "seed": 12345,
+    "nspui": 32,
+    "eye_bits": 10160,
+    "mod_type": "NRZ",
+    "debug": false,
+    "f_max": 40.0,
+    "f_step": 10.0,
+    "inter_sel": "native",
+    "ch_file": "",
+    "ch_files": [],
+    "impulse_length": 0.0,
+    "Rdc": 0.1876,
+    "w0": 10000000.0,
+    "R0": 1.452,
+    "Theta0": 0.02,
+    "Z0": 100.0,
+    "v0": 0.67,
+    "l_ch": 0.5,
+    "renumber": false,
+    "lane_sel": 0,
+    "include_fext": false,
+    "use_window": false,
+    "enable_com": false,
+    "com_cfg_file": "",
+    "vod": 1.0,
+    "rs": 100.0,
+    "cout": 0.5,
+    "pn_mag": 0.01,
+    "pn_freq": 11.0,
+    "rn": 0.01,
+    "tx_taps": [
+      [
+        false,
+        0.0,
+        -0.05,
+        0.05
+      ],
+      [
+        true,
+        -0.02,
+        -0.1,
+        0.1
+      ],
+      [
+        true,
+        -0.05,
+        -0.2,
+        0.2
+      ],
+      [
+        false,
+        0.0,
+        -0.2,
+        0.2
+      ],
+      [
+        false,
+        0.0,
+        -0.1,
+        0.1
+      ],
+      [
+        false,
+        0.0,
+        -0.05,
+        0.05
+      ]
+    ],
+    "tx_tap_tuners": [
+      [
+        false,
+        -3,
+        -0.05,
+        0.05,
+        0.025
+      ],
+      [
+        false,
+        -2,
+        -0.1,
+        0.1,
+        0.05
+      ],
+      [
+        false,
+        -1,
+        -0.2,
+        0.2,
+        0.1
+      ],
+      [
+        false,
+        1,
+        -0.2,
+        0.2,
+        0.1
+      ],
+      [
+        false,
+        2,
+        -0.1,
+        0.1,
+        0.05
+      ],
+      [
+        false,
+        3,
+        -0.05,
+        0.05,
+        0.025
+      ]
+    ],
+    "tx_use_ami": false,
+    "tx_use_ts4": false,
+    "tx_use_getwave": false,
+    "tx_ami_file": "",
+    "tx_dll_file": "",
+    "tx_ibis_file": "",
+    "tx_sel": "native",
+    "tx_eq_sel": "Native",
+    "rin": 100.0,
+    "cin": 0.5,
+    "tx_c0_min": 0.0,
+    "pkg_enable": false,
+    "pkg_group": "KR",
+    "tx_pkg_case": "A1",
+    "rx_pkg_case": "A1",
+    "pkg_include_host": true,
+    "cac": 1.0,
+    "use_ctle_file": false,
+    "ctle_sel": "Native",
+    "ctle_file": "",
+    "rx_bw": 12.0,
+    "peak_freq": 5.0,
+    "peak_mag": 1.7,
+    "ctle_enable": true,
+    "rx_use_ami": true,
+    "rx_use_ts4": false,
+    "rx_use_getwave": false,
+    "rx_ami_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ami",
+    "rx_dll_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx_x86_amd64.dll",
+    "rx_ibis_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+    "rx_sel": "ibis",
+    "rx_eq_sel": "IBIS-AMI",
+    "rx_use_viterbi": false,
+    "rx_viterbi_symbols": 4,
+    "rx_n_taps": 15,
+    "rx_n_pre": 5,
+    "rx_taps": [
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        1.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        -0.03,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ]
+    ],
+    "ffe_tap_tuners": [
+      [
+        false,
+        -5,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        -4,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        -3,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        -2,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        -1,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        0,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        1,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        2,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        3,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        4,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        5,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        6,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        7,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        8,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        9,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        10,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        11,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        12,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        13,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        14,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        15,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        16,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        17,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        18,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        19,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        20,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        21,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        22,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        23,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        24,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        25,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        26,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        27,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        28,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        29,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        30,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        31,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        32,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        33,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        34,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        35,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        36,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        37,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        38,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        39,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        40,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        41,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        42,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        43,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        44,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        45,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        46,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        47,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        48,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        49,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        50,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        51,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        52,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        53,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        54,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        55,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        56,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        57,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        58,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        59,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        60,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        61,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        62,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        63,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        64,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        65,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        66,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        67,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        68,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        69,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        70,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        71,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        72,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        73,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        74,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        75,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        76,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        77,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        78,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        79,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        80,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        81,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        82,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        83,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        84,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        85,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        86,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        87,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        88,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        89,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        90,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        91,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        92,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        93,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        94,
+        -1.0,
+        1.0,
+        0.1
+      ]
+    ],
+    "sum_ideal": true,
+    "decision_scaler": 0.5,
+    "gain": 0.1,
+    "n_ave": 100.0,
+    "sum_bw": 12.0,
+    "use_agc": true,
+    "cdr_type": "Bang-Bang",
+    "delta_t_ui": 0.001,
+    "alpha": 0.01,
+    "n_lock_ave": 500,
+    "rel_lock_tol": 0.1,
+    "lock_sustain": 500,
+    "thresh": 3.0,
+    "rx_bw_tune": 12.0,
+    "peak_freq_tune": 5.0,
+    "peak_mag_tune": 1.7,
+    "min_mag_tune": 2.0,
+    "max_mag_tune": 12.0,
+    "step_mag_tune": 1.0,
+    "ctle_enable_tune": false,
+    "use_mmse": true,
+    "dfe_tap_tuners": [
+      [
+        false,
+        -0.2,
+        0.4
+      ],
+      [
+        false,
+        -0.15,
+        0.15
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ]
+    ]
+  },
+  "score_mode": "cursor/ISI",
+  "ami": {
+    "models": {
+      "rx": {
+        "status": "ready",
+        "stage": "preflight only; no execution",
+        "model_hash": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+        "side": "rx",
+        "host": {
+          "OS": "Windows",
+          "architecture": "AMD64",
+          "bits": 64
+        },
+        "files": [
+          {
+            "relative_path": "example_rx.ami",
+            "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+            "bytes": 4067
+          },
+          {
+            "relative_path": "example_rx.ibs",
+            "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+            "bytes": 2804
+          },
+          {
+            "relative_path": "example_rx_x86_amd64.dll",
+            "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+            "bytes": 363008
+          }
+        ],
+        "selection": {
+          "comp": "Example_Rx",
+          "pin": "1p(Tx_1_P)",
+          "mod": "example_rx",
+          "ibis_path": "example_rx.ibs"
+        },
+        "components": [
+          "Example_Rx"
+        ],
+        "pins": [
+          "1p(Tx_1_P)",
+          "1n(Tx_1_N)",
+          "2p(Tx_2_P)",
+          "2n(Tx_2_N)",
+          "3p(Tx_3_P)",
+          "3n(Tx_3_N)"
+        ],
+        "models": [
+          "example_rx"
+        ],
+        "selection_map": {
+          "Example_Rx": {
+            "1p(Tx_1_P)": [
+              "example_rx"
+            ],
+            "1n(Tx_1_N)": [
+              "example_rx"
+            ],
+            "2p(Tx_2_P)": [
+              "example_rx"
+            ],
+            "2n(Tx_2_N)": [
+              "example_rx"
+            ],
+            "3p(Tx_3_P)": [
+              "example_rx"
+            ],
+            "3n(Tx_3_N)": [
+              "example_rx"
+            ]
+          }
+        },
+        "ibis_warnings": "Success!",
+        "model_type": "Input",
+        "view": {
+          "IBIS_source": "\n\n[IBIS Ver]   7.1\n[File Name]  example_rx.ibs\n[File Rev]   v0.1\n\n[Date]       2024-07-05\n\n[Source]     ibisami public domain infrastructure\n\n[Disclaimer]\nTHIS MODEL IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS MODEL, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n[Notes]\nThis IBIS file was generated using the template file: \"generic.ibs.em\".\n\n[Copyright]    Copyright (c) 2016 David Banas; all rights reserved World wide.\n[Component]    Example_Rx\n[Manufacturer] (n/a)\n\n[Package]\n\nR_pkg     0.10     0.00     0.50\nL_pkg    10.00n    0.10n   50.00n\nC_pkg     1.00p    0.01p    5.00p\n\n\n[Pin]  signal_name        model_name            R_pin  L_pin  C_pin\n1p     Tx_1_P             example_rx\n1n     Tx_1_N             example_rx\n2p     Tx_2_P             example_rx\n2n     Tx_2_N             example_rx\n3p     Tx_3_P             example_rx\n3n     Tx_3_N             example_rx\n\n[Diff_Pin] inv_pin vdiff tdelay_typ tdelay_min tdelay_max\n1p           1n     0.1V     NA         NA         NA\n2p           2n     0.1V     NA         NA         NA\n3p           3n     0.1V     NA         NA         NA\n\n[Model]   example_rx\nModel_type   Input\n\nC_comp     1.00p    0.01p    5.00p\nVinl = 0.875\nVinh = 0.925\n\n\n[Algorithmic Model]\nExecutable linux_gcc4.1.2_32          example_rx_x86.so         example_rx.ami\nExecutable linux_gcc4.1.2_64          example_rx_x86_amd64.so   example_rx.ami\nExecutable Windows_VisualStudio_32    example_rx_x86.dll        example_rx.ami\nExecutable Windows_VisualStudio_64    example_rx_x86_amd64.dll  example_rx.ami\n[End Algorithmic Model]\n\n[Temperature_Range]     25.0      0.0    100.0\n[Voltage_Range]         1.80     1.62     1.98\n\n\n[GND Clamp]\n-1.80    -1.000e+01    -1.000e+01    -1.000e+01\n0.00     0.000e+00     0.000e+00     0.000e+00 \n1.80     1.800e-02     2.000e-02     1.636e-02 \n3.60     3.600e-02     4.000e-02     3.273e-02 \n\n[Power Clamp]\n-1.80    1.000e+01     1.000e+01     1.000e+01 \n0.00     -0.000e+00    -0.000e+00    -0.000e+00\n1.80     -1.800e-02    -2.000e-02    -1.636e-02\n3.60     -3.600e-02    -4.000e-02    -3.273e-02\n\n\n\n[END]\n",
+          "zout": null,
+          "zin": 50.000000000000014,
+          "ccomp": [
+            1e-12,
+            1e-14,
+            5e-12
+          ],
+          "AMI_source": "(example_rx\n\n    (Description \"Example Rx model from ibisami package.\")\n\n    (Reserved_Parameters\n         (AMI_Version\n             (Usage Info )\n             (Type String )\n             (Value \"5.1\" )\n             (Description \"Version of IBIS standard we comply with.\" )\n         )\n         (Init_Returns_Impulse\n             (Usage Info )\n             (Type Boolean )\n             (Value True )\n             (Description \"Model provides DFE adaptation approximation, in its AMI_Init() function.\" )\n         )\n         (GetWave_Exists\n             (Usage Info )\n             (Type Boolean )\n             (Value True )\n             (Description \"This model is dual-mode, with true DFE adaptation in GetWave().\" )\n         )\n    )\n    (Model_Specific\n         (ctle_mode\n             (Usage In )\n             (Type Integer )\n             (List 0 1 )\n             (List_Tip \"Off\" \"Manual\" )\n             (Description \"CTLE operating mode.\" )\n         )\n         (ctle_freq\n             (Usage In )\n             (Type Float )\n             (Range 5000000000.0 1000000000.0 5000000000.0 )\n             (Description \"CTLE peaking frequency (Hz).\" )\n         )\n         (ctle_mag\n             (Usage In )\n             (Type Float )\n             (Range 0.0 0.0 12.0 )\n             (Description \"CTLE peaking magnitude (dB).\" )\n         )\n         (ctle_bandwidth\n             (Usage In )\n             (Type Float )\n             (Range 12000000000.0 5000000000.0 50000000000.0 )\n             (Description \"CTLE bandwidth (Hz).\" )\n         )\n         (ctle_dcgain\n             (Usage In )\n             (Type Float )\n             (Range 0.0 -20.0 20.0 )\n             (Description \"CTLE d.c. gain (dB).\" )\n         )\n         (dfe_mode\n             (Usage In )\n             (Type Integer )\n             (List 0 1 2 )\n             (List_Tip \"Off\" \"Manual\" \"Adaptive\" )\n             (Description \"DFE operating mode.\" )\n         )\n         (dfe_ntaps\n             (Usage In )\n             (Type Integer )\n             (Value 5 )\n             (Description \"Number of DFE taps.\" )\n         )\n         (dfe_tap1\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 1 initial value.\" )\n         )\n         (dfe_tap2\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 2 initial value.\" )\n         )\n         (dfe_tap3\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 3 initial value.\" )\n         )\n         (dfe_tap4\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 4 initial value.\" )\n         )\n         (dfe_tap5\n             (Usage In )\n             (Type Float )\n             (Value 0 )\n             (Description \"DFE tap 5 initial value.\" )\n         )\n         (dfe_vout\n             (Usage In )\n             (Type Float )\n             (Range 1.0 0.0 1.0 )\n             (Description \"DFE slicer output voltage magnitude.\" )\n         )\n         (dfe_gain\n             (Usage In )\n             (Type Float )\n             (Range 0.1 0.0 1.0 )\n             (Description \"DFE error feedback gain.\" )\n         )\n         (debug\n             (dbg_enable\n                 (Usage In )\n                 (Type Boolean )\n                 (Value False )\n                 (Description \"Master debug enable.\" )\n             )\n             (dump_dfe_adaptation\n                 (Usage In )\n                 (Type Boolean )\n                 (Value False )\n                 (Description \"Dump the DFE adaptation results.\" )\n             )\n             (dump_adaptation_input\n                 (Usage In )\n                 (Type Boolean )\n                 (Value False )\n                 (Description \"Dump the DFE summing node input.\" )\n             )\n             (Description \"Debugging options.\")\n         )\n    )\n\n)\n"
+        },
+        "parameters": [
+          {
+            "path": [
+              "Reserved_Parameters",
+              "AMI_Version"
+            ],
+            "value": "5.1",
+            "editable": false,
+            "type": "String",
+            "usage": "Info",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "Version of IBIS standard we comply with.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Reserved_Parameters",
+              "Init_Returns_Impulse"
+            ],
+            "value": true,
+            "editable": false,
+            "type": "Boolean",
+            "usage": "Info",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "Model provides DFE adaptation approximation, in its AMI_Init() function.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Reserved_Parameters",
+              "GetWave_Exists"
+            ],
+            "value": true,
+            "editable": false,
+            "type": "Boolean",
+            "usage": "Info",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "This model is dual-mode, with true DFE adaptation in GetWave().",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "ctle_mode"
+            ],
+            "value": 1,
+            "editable": true,
+            "type": "Integer",
+            "usage": "In",
+            "format": "List",
+            "min": null,
+            "max": null,
+            "values": [
+              0,
+              1
+            ],
+            "list_tips": [
+              "Off",
+              "Manual"
+            ],
+            "corners": null,
+            "labels": null,
+            "description": "CTLE operating mode.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "ctle_freq"
+            ],
+            "value": 5000000000.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Range",
+            "min": 1000000000.0,
+            "max": 5000000000.0,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "CTLE peaking frequency (Hz).",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "ctle_mag"
+            ],
+            "value": 0.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Range",
+            "min": 0.0,
+            "max": 12.0,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "CTLE peaking magnitude (dB).",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "ctle_bandwidth"
+            ],
+            "value": 12000000000.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Range",
+            "min": 5000000000.0,
+            "max": 50000000000.0,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "CTLE bandwidth (Hz).",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "ctle_dcgain"
+            ],
+            "value": 0.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Range",
+            "min": -20.0,
+            "max": 20.0,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "CTLE d.c. gain (dB).",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "dfe_mode"
+            ],
+            "value": 0,
+            "editable": true,
+            "type": "Integer",
+            "usage": "In",
+            "format": "List",
+            "min": null,
+            "max": null,
+            "values": [
+              0,
+              1,
+              2
+            ],
+            "list_tips": [
+              "Off",
+              "Manual",
+              "Adaptive"
+            ],
+            "corners": null,
+            "labels": null,
+            "description": "DFE operating mode.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "dfe_ntaps"
+            ],
+            "value": 5,
+            "editable": true,
+            "type": "Integer",
+            "usage": "In",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "Number of DFE taps.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "dfe_tap1"
+            ],
+            "value": 0.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "DFE tap 1 initial value.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "dfe_tap2"
+            ],
+            "value": 0.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "DFE tap 2 initial value.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "dfe_tap3"
+            ],
+            "value": 0.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "DFE tap 3 initial value.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "dfe_tap4"
+            ],
+            "value": 0.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "DFE tap 4 initial value.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "dfe_tap5"
+            ],
+            "value": 0.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "DFE tap 5 initial value.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "dfe_vout"
+            ],
+            "value": 1.0,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Range",
+            "min": 0.0,
+            "max": 1.0,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "DFE slicer output voltage magnitude.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "dfe_gain"
+            ],
+            "value": 0.1,
+            "editable": true,
+            "type": "Float",
+            "usage": "In",
+            "format": "Range",
+            "min": 0.0,
+            "max": 1.0,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "DFE error feedback gain.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "debug",
+              "dbg_enable"
+            ],
+            "value": false,
+            "editable": true,
+            "type": "Boolean",
+            "usage": "In",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "Master debug enable.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "debug",
+              "dump_dfe_adaptation"
+            ],
+            "value": false,
+            "editable": true,
+            "type": "Boolean",
+            "usage": "In",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "Dump the DFE adaptation results.",
+            "unit": "not declared; see original description"
+          },
+          {
+            "path": [
+              "Model_Specific",
+              "debug",
+              "dump_adaptation_input"
+            ],
+            "value": false,
+            "editable": true,
+            "type": "Boolean",
+            "usage": "In",
+            "format": "Value",
+            "min": null,
+            "max": null,
+            "values": null,
+            "list_tips": null,
+            "corners": null,
+            "labels": null,
+            "description": "Dump the DFE summing node input.",
+            "unit": "not declared; see original description"
+          }
+        ],
+        "parser_warnings": [],
+        "capabilities": {
+          "Init_Returns_Impulse": true,
+          "GetWave_Exists": true,
+          "Ts4file": null,
+          "Ignore_Bits": null
+        },
+        "ami_path": "example_rx.ami",
+        "binary_path": "example_rx_x86_amd64.dll",
+        "ABI": {
+          "loader": "ctypes.CDLL",
+          "pointer_bits": 64,
+          "exports": {
+            "AMI_Init": true,
+            "AMI_Close": true,
+            "AMI_GetWave": true
+          }
+        },
+        "binary_load": "loaded"
+      }
+    },
+    "scope": "real AMI Init / coopt TPE; not GetWave BER/COM qualification",
+    "dynamic_patch": {
+      "rx": {
+        "model_hash": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+        "parameters": [
+          {
+            "path": [
+              "Model_Specific",
+              "ctle_mag"
+            ],
+            "value": 12.0
+          }
+        ]
+      }
+    },
+    "execution": [
+      {
+        "index": 0,
+        "binary": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-chrome-v4\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model\\example_rx_x86_amd64.dll",
+        "mode": "Init",
+        "ui_s": 1e-10,
+        "ts_s": 3.125e-12,
+        "requested_parameters": {
+          "root_name": "example_rx",
+          "ctle_mode": 1,
+          "ctle_freq": 5000000000.0,
+          "ctle_mag": 12.0,
+          "ctle_bandwidth": 12000000000.0,
+          "ctle_dcgain": 0.0,
+          "dfe_mode": 0,
+          "dfe_ntaps": 5,
+          "dfe_tap1": 0.0,
+          "dfe_tap2": 0.0,
+          "dfe_tap3": 0.0,
+          "dfe_tap4": 0.0,
+          "dfe_tap5": 0.0,
+          "dfe_vout": 1.0,
+          "dfe_gain": 0.1,
+          "debug": {
+            "dbg_enable": false,
+            "dump_dfe_adaptation": false,
+            "dump_adaptation_input": false
+          }
+        },
+        "bits_per_call": 0,
+        "response_probe_bits_per_call": 40,
+        "started_at": 1792831656.526327,
+        "status": "returned; engine postconditions pending",
+        "message": "Input parameters: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 12.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 12.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: 12 dB boost at 5 GHz\n\tDFE: not present\n",
+        "params_out": [],
+        "elapsed_s": 0.05059647560119629
+      },
+      {
+        "index": 1,
+        "binary": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-chrome-v4\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model\\example_rx_x86_amd64.dll",
+        "mode": "Init",
+        "ui_s": 1e-10,
+        "ts_s": 3.125e-12,
+        "requested_parameters": {
+          "root_name": "example_rx",
+          "ctle_mode": 1,
+          "ctle_freq": 5000000000.0,
+          "ctle_mag": 0.0,
+          "ctle_bandwidth": 12000000000.0,
+          "ctle_dcgain": 0.0,
+          "dfe_mode": 0,
+          "dfe_ntaps": 5,
+          "dfe_tap1": 0.0,
+          "dfe_tap2": 0.0,
+          "dfe_tap3": 0.0,
+          "dfe_tap4": 0.0,
+          "dfe_tap5": 0.0,
+          "dfe_vout": 1.0,
+          "dfe_gain": 0.1,
+          "debug": {
+            "dbg_enable": false,
+            "dump_dfe_adaptation": false,
+            "dump_adaptation_input": false
+          }
+        },
+        "bits_per_call": 0,
+        "response_probe_bits_per_call": 40,
+        "started_at": 1792831656.587884,
+        "status": "returned; engine postconditions pending",
+        "message": "Input parameters: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: 0 dB boost at 5 GHz\n\tDFE: not present\n",
+        "params_out": [],
+        "elapsed_s": 0.05019378662109375
+      },
+      {
+        "index": 2,
+        "binary": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-chrome-v4\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model\\example_rx_x86_amd64.dll",
+        "mode": "Init",
+        "ui_s": 1e-10,
+        "ts_s": 3.125e-12,
+        "requested_parameters": {
+          "root_name": "example_rx",
+          "ctle_mode": 1,
+          "ctle_freq": 5000000000.0,
+          "ctle_mag": 0.0,
+          "ctle_bandwidth": 12000000000.0,
+          "ctle_dcgain": 0.0,
+          "dfe_mode": 0,
+          "dfe_ntaps": 5,
+          "dfe_tap1": 0.0,
+          "dfe_tap2": 0.0,
+          "dfe_tap3": 0.0,
+          "dfe_tap4": 0.0,
+          "dfe_tap5": 0.0,
+          "dfe_vout": 1.0,
+          "dfe_gain": 0.1,
+          "debug": {
+            "dbg_enable": false,
+            "dump_dfe_adaptation": false,
+            "dump_adaptation_input": false
+          }
+        },
+        "bits_per_call": 0,
+        "response_probe_bits_per_call": 40,
+        "started_at": 1792831656.6468992,
+        "status": "returned; engine postconditions pending",
+        "message": "Input parameters: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: 0 dB boost at 5 GHz\n\tDFE: not present\n",
+        "params_out": [],
+        "elapsed_s": 0.051728248596191406
+      },
+      {
+        "index": 3,
+        "binary": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-chrome-v4\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model\\example_rx_x86_amd64.dll",
+        "mode": "Init",
+        "ui_s": 1e-10,
+        "ts_s": 3.125e-12,
+        "requested_parameters": {
+          "root_name": "example_rx",
+          "ctle_mode": 1,
+          "ctle_freq": 5000000000.0,
+          "ctle_mag": 0.0,
+          "ctle_bandwidth": 12000000000.0,
+          "ctle_dcgain": 0.0,
+          "dfe_mode": 0,
+          "dfe_ntaps": 5,
+          "dfe_tap1": 0.0,
+          "dfe_tap2": 0.0,
+          "dfe_tap3": 0.0,
+          "dfe_tap4": 0.0,
+          "dfe_tap5": 0.0,
+          "dfe_vout": 1.0,
+          "dfe_gain": 0.1,
+          "debug": {
+            "dbg_enable": false,
+            "dump_dfe_adaptation": false,
+            "dump_adaptation_input": false
+          }
+        },
+        "bits_per_call": 0,
+        "response_probe_bits_per_call": 40,
+        "started_at": 1792831656.707997,
+        "status": "returned; engine postconditions pending",
+        "message": "Input parameters: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: 0 dB boost at 5 GHz\n\tDFE: not present\n",
+        "params_out": [],
+        "elapsed_s": 0.05333304405212402
+      }
+    ],
+    "library_calls": [
+      {
+        "method": "AMI_Init",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.5266724,
+        "returned": true,
+        "elapsed_s": 0.00016164779663085938
+      },
+      {
+        "method": "AMI_GetWave",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.5762718,
+        "returned": true,
+        "elapsed_s": 0.00021958351135253906
+      },
+      {
+        "method": "AMI_GetWave",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.5765822,
+        "returned": true,
+        "elapsed_s": 0.0001671314239501953
+      },
+      {
+        "method": "AMI_Init",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.588126,
+        "returned": true,
+        "elapsed_s": 0.0001087188720703125
+      },
+      {
+        "method": "AMI_GetWave",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.6375065,
+        "returned": true,
+        "elapsed_s": 0.00017952919006347656
+      },
+      {
+        "method": "AMI_GetWave",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.6377609,
+        "returned": true,
+        "elapsed_s": 0.00015854835510253906
+      },
+      {
+        "method": "AMI_Init",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.6473215,
+        "returned": true,
+        "elapsed_s": 0.00013589859008789062
+      },
+      {
+        "method": "AMI_GetWave",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.698028,
+        "returned": true,
+        "elapsed_s": 0.0001838207244873047
+      },
+      {
+        "method": "AMI_GetWave",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.6982996,
+        "returned": true,
+        "elapsed_s": 0.0001652240753173828
+      },
+      {
+        "method": "AMI_Init",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.7083614,
+        "returned": true,
+        "elapsed_s": 9.894371032714844e-05
+      },
+      {
+        "method": "AMI_GetWave",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.7607346,
+        "returned": true,
+        "elapsed_s": 0.00018405914306640625
+      },
+      {
+        "method": "AMI_GetWave",
+        "level": "Python wrapper; not individual DLL chunks",
+        "started_at": 1792831656.7609937,
+        "returned": true,
+        "elapsed_s": 0.0001697540283203125
+      }
+    ],
+    "dll_calls": [
+      {
+        "method": "AMI_Init",
+        "started_at": 1792831656.526717,
+        "returned": true,
+        "elapsed_s": 0.00011229515075683594
+      },
+      {
+        "method": "AMI_GetWave",
+        "started_at": 1792831656.5763953,
+        "returned": true,
+        "elapsed_s": 1.3589859008789062e-05
+      },
+      {
+        "method": "AMI_GetWave",
+        "started_at": 1792831656.576662,
+        "returned": true,
+        "elapsed_s": 7.152557373046875e-06
+      },
+      {
+        "method": "AMI_Init",
+        "started_at": 1792831656.588162,
+        "returned": true,
+        "elapsed_s": 6.937980651855469e-05
+      },
+      {
+        "method": "AMI_GetWave",
+        "started_at": 1792831656.6375923,
+        "returned": true,
+        "elapsed_s": 1.33514404296875e-05
+      },
+      {
+        "method": "AMI_GetWave",
+        "started_at": 1792831656.6378362,
+        "returned": true,
+        "elapsed_s": 6.198883056640625e-06
+      },
+      {
+        "method": "AMI_Init",
+        "started_at": 1792831656.64736,
+        "returned": true,
+        "elapsed_s": 9.298324584960938e-05
+      },
+      {
+        "method": "AMI_GetWave",
+        "started_at": 1792831656.6981144,
+        "returned": true,
+        "elapsed_s": 1.4543533325195312e-05
+      },
+      {
+        "method": "AMI_GetWave",
+        "started_at": 1792831656.6983788,
+        "returned": true,
+        "elapsed_s": 6.4373016357421875e-06
+      },
+      {
+        "method": "AMI_Init",
+        "started_at": 1792831656.7083974,
+        "returned": true,
+        "elapsed_s": 6.079673767089844e-05
+      },
+      {
+        "method": "AMI_GetWave",
+        "started_at": 1792831656.7608218,
+        "returned": true,
+        "elapsed_s": 1.3828277587890625e-05
+      },
+      {
+        "method": "AMI_GetWave",
+        "started_at": 1792831656.761074,
+        "returned": true,
+        "elapsed_s": 6.4373016357421875e-06
+      }
+    ]
+  },
+  "use_patch": {
+    "tx_taps": [
+      [
+        false,
+        0.0,
+        -0.05,
+        0.05
+      ],
+      [
+        false,
+        0.0,
+        -0.1,
+        0.1
+      ],
+      [
+        false,
+        0.0,
+        -0.2,
+        0.2
+      ],
+      [
+        false,
+        0.0,
+        -0.2,
+        0.2
+      ],
+      [
+        false,
+        0.0,
+        -0.1,
+        0.1
+      ],
+      [
+        false,
+        0.0,
+        -0.05,
+        0.05
+      ]
+    ],
+    "peak_mag_tune": 0.0
+  },
+  "selected_candidate_id": "candidate-000000",
+  "fom": 4.451971155131284,
+  "display_db": 12.971046836488378,
+  "candidates": [
+    {
+      "candidate_id": "candidate-000000",
+      "fom": 4.451971155131284,
+      "ctle_db": 0.0,
+      "arrays_prefix": "candidate_000000",
+      "availability": "available",
+      "ami_values": {
+        "tx": [],
+        "rx": [
+          1.0,
+          5000000000.0,
+          12.0,
+          12000000000.0,
+          0.0,
+          0.0,
+          1.0,
+          0.1,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "candidate_id": "candidate-000001",
+      "fom": 1.5710561532675176,
+      "ctle_db": 0.0,
+      "arrays_prefix": "candidate_000001",
+      "availability": "available",
+      "ami_values": {
+        "tx": [],
+        "rx": [
+          1.0,
+          5000000000.0,
+          0.0,
+          12000000000.0,
+          0.0,
+          0.0,
+          1.0,
+          0.1,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "candidate_id": "candidate-000002",
+      "fom": 1.5710561532675176,
+      "ctle_db": 0.0,
+      "arrays_prefix": "candidate_000002",
+      "availability": "available",
+      "ami_values": {
+        "tx": [],
+        "rx": [
+          1.0,
+          5000000000.0,
+          0.0,
+          12000000000.0,
+          0.0,
+          0.0,
+          1.0,
+          0.1,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "candidate_id": "candidate-000003",
+      "fom": 1.5710561532675176,
+      "ctle_db": 0.0,
+      "arrays_prefix": "candidate_000003",
+      "availability": "available",
+      "ami_values": {
+        "tx": [],
+        "rx": [
+          1.0,
+          5000000000.0,
+          0.0,
+          12000000000.0,
+          0.0,
+          0.0,
+          1.0,
+          0.1,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ],
+  "selected_values": {
+    "tx": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "ffe": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "dfe": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "ctle_db": 0.0
+  },
+  "mmse_context": {
+    "eta0": 6.25e-07,
+    "num_levels": 2,
+    "rlm": 1.0,
+    "rx_n_taps": 15,
+    "rx_n_pre": 5,
+    "n_dfe_taps": 0
+  },
+  "mmse_calls": [],
+  "finished_at": 1792831656.7808356,
+  "elapsed_s": 0.8850457668304443,
+  "arrays": {
+    "ctle_out_h_tune": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "1644017b254ad2f67ec391819034c626d110c4bcd32c2301e4f370131b330563"
+    },
+    "t_ns_opt": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "7369abc62d6614af4832e6b513191fa54aa0ba7a27be040996311c87d6322333"
+    },
+    "curs_ix": {
+      "dtype": "<f8",
+      "shape": [
+        2
+      ],
+      "nbytes": 16,
+      "sha256": "eb4682e5340437d1fd4f9259238782bde2d7c8a24b962367c20652e830b05d5c"
+    },
+    "curs_amp": {
+      "dtype": "<f8",
+      "shape": [
+        2
+      ],
+      "nbytes": 16,
+      "sha256": "f06e5192ad92afd716355eaf658e9cf95bc14f7e8a6380b5590f1eab390ceb8d"
+    },
+    "clocks_tune": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "43fc50b4d023b7f80e8154a3c8c2cf91280b7b1d8a991527e99104c6014bc087"
+    },
+    "p_chnl": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "955469c2b1c805b589f91e098b9c9172d59b45b9d5f7727f248c82f58cbce932"
+    },
+    "channel_t_ns": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "20b0f277e6256eed31a5dd3d6a2e6888c93b3f6aa4cf9f4b548e361cb5c09d72"
+    },
+    "tx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        6
+      ],
+      "nbytes": 48,
+      "sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1"
+    },
+    "rx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        15
+      ],
+      "nbytes": 120,
+      "sha256": "6edd9f6f9cc92cded36e6c4a580933f9c9f1b90562b46903b806f21902a1a54f"
+    },
+    "dfe_weights": {
+      "dtype": "<f8",
+      "shape": [
+        20
+      ],
+      "nbytes": 160,
+      "sha256": "b393978842a0fa3d3e1470196f098f473f9678e72463cb65ec4ab5581856c2e4"
+    },
+    "ami.call0.input_h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "b40e8bb4131d73376409ae2ea4a5785079e7c3970baff5cddbb560481bf37fc1"
+    },
+    "ami.call0.input_h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call0.input_x": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call0.input_x_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call0.y": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call0.y_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call0.clocks": {
+      "dtype": "<f8",
+      "shape": [
+        0
+      ],
+      "nbytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ami.call0.h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "c91dd478d7d6753856fe68267defe11f83b5fc0bb3b852a05def28b461e9d9d2"
+    },
+    "ami.call0.h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call0.out_h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "d9a1dea54bf60e4d90fa27df02fc6780e819869b87c43797245b209a258026e5"
+    },
+    "ami.call0.out_h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call1.input_h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "b40e8bb4131d73376409ae2ea4a5785079e7c3970baff5cddbb560481bf37fc1"
+    },
+    "ami.call1.input_h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call1.input_x": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call1.input_x_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call1.y": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call1.y_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call1.clocks": {
+      "dtype": "<f8",
+      "shape": [
+        0
+      ],
+      "nbytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ami.call1.h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "855a0048f097023bebd844a1a859a1beb01088c6ba262adade4d6d7934c1c1a9"
+    },
+    "ami.call1.h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call1.out_h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "17a0450607cd826d990f3bbdb6032a59f71ee5094d76c0bb98fdc2ef36cc3de4"
+    },
+    "ami.call1.out_h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call2.input_h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "b40e8bb4131d73376409ae2ea4a5785079e7c3970baff5cddbb560481bf37fc1"
+    },
+    "ami.call2.input_h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call2.input_x": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call2.input_x_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call2.y": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call2.y_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call2.clocks": {
+      "dtype": "<f8",
+      "shape": [
+        0
+      ],
+      "nbytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ami.call2.h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "855a0048f097023bebd844a1a859a1beb01088c6ba262adade4d6d7934c1c1a9"
+    },
+    "ami.call2.h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call2.out_h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "17a0450607cd826d990f3bbdb6032a59f71ee5094d76c0bb98fdc2ef36cc3de4"
+    },
+    "ami.call2.out_h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call3.input_h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "b40e8bb4131d73376409ae2ea4a5785079e7c3970baff5cddbb560481bf37fc1"
+    },
+    "ami.call3.input_h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call3.input_x": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call3.input_x_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call3.y": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call3.y_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    "ami.call3.clocks": {
+      "dtype": "<f8",
+      "shape": [
+        0
+      ],
+      "nbytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ami.call3.h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "855a0048f097023bebd844a1a859a1beb01088c6ba262adade4d6d7934c1c1a9"
+    },
+    "ami.call3.h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "ami.call3.out_h": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "17a0450607cd826d990f3bbdb6032a59f71ee5094d76c0bb98fdc2ef36cc3de4"
+    },
+    "ami.call3.out_h_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        640
+      ],
+      "nbytes": 5120,
+      "sha256": "35666474d693aed06fc06420e3cb89dd7bf368b945cb8aa062f6d3b2be435b18"
+    },
+    "candidate_000000_pulse": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "1644017b254ad2f67ec391819034c626d110c4bcd32c2301e4f370131b330563"
+    },
+    "candidate_000000_tx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        6
+      ],
+      "nbytes": 48,
+      "sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1"
+    },
+    "candidate_000000_rx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        15
+      ],
+      "nbytes": 120,
+      "sha256": "6edd9f6f9cc92cded36e6c4a580933f9c9f1b90562b46903b806f21902a1a54f"
+    },
+    "candidate_000000_dfe_weights": {
+      "dtype": "<f8",
+      "shape": [
+        20
+      ],
+      "nbytes": 160,
+      "sha256": "b393978842a0fa3d3e1470196f098f473f9678e72463cb65ec4ab5581856c2e4"
+    },
+    "candidate_000000_t_ns": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "7369abc62d6614af4832e6b513191fa54aa0ba7a27be040996311c87d6322333"
+    },
+    "candidate_000001_pulse": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "153c554b4160c631ba714ea737eda2e4a89821809db4bd5c5195d77b4ea7dd43"
+    },
+    "candidate_000001_tx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        6
+      ],
+      "nbytes": 48,
+      "sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1"
+    },
+    "candidate_000001_rx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        15
+      ],
+      "nbytes": 120,
+      "sha256": "6edd9f6f9cc92cded36e6c4a580933f9c9f1b90562b46903b806f21902a1a54f"
+    },
+    "candidate_000001_dfe_weights": {
+      "dtype": "<f8",
+      "shape": [
+        20
+      ],
+      "nbytes": 160,
+      "sha256": "b393978842a0fa3d3e1470196f098f473f9678e72463cb65ec4ab5581856c2e4"
+    },
+    "candidate_000001_t_ns": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "7369abc62d6614af4832e6b513191fa54aa0ba7a27be040996311c87d6322333"
+    },
+    "candidate_000002_pulse": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "153c554b4160c631ba714ea737eda2e4a89821809db4bd5c5195d77b4ea7dd43"
+    },
+    "candidate_000002_tx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        6
+      ],
+      "nbytes": 48,
+      "sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1"
+    },
+    "candidate_000002_rx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        15
+      ],
+      "nbytes": 120,
+      "sha256": "6edd9f6f9cc92cded36e6c4a580933f9c9f1b90562b46903b806f21902a1a54f"
+    },
+    "candidate_000002_dfe_weights": {
+      "dtype": "<f8",
+      "shape": [
+        20
+      ],
+      "nbytes": 160,
+      "sha256": "b393978842a0fa3d3e1470196f098f473f9678e72463cb65ec4ab5581856c2e4"
+    },
+    "candidate_000002_t_ns": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "7369abc62d6614af4832e6b513191fa54aa0ba7a27be040996311c87d6322333"
+    },
+    "candidate_000003_pulse": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "153c554b4160c631ba714ea737eda2e4a89821809db4bd5c5195d77b4ea7dd43"
+    },
+    "candidate_000003_tx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        6
+      ],
+      "nbytes": 48,
+      "sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1"
+    },
+    "candidate_000003_rx_weights": {
+      "dtype": "<f8",
+      "shape": [
+        15
+      ],
+      "nbytes": 120,
+      "sha256": "6edd9f6f9cc92cded36e6c4a580933f9c9f1b90562b46903b806f21902a1a54f"
+    },
+    "candidate_000003_dfe_weights": {
+      "dtype": "<f8",
+      "shape": [
+        20
+      ],
+      "nbytes": 160,
+      "sha256": "b393978842a0fa3d3e1470196f098f473f9678e72463cb65ec4ab5581856c2e4"
+    },
+    "candidate_000003_t_ns": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "7369abc62d6614af4832e6b513191fa54aa0ba7a27be040996311c87d6322333"
+    },
+    "mmse_f_hz": {
+      "dtype": "<f8",
+      "shape": [
+        1601
+      ],
+      "nbytes": 12808,
+      "sha256": "730123983d34d49ef732f26be39158eb94bd214240b31417c6b5de915ff4b61c"
+    },
+    "mmse_t_s": {
+      "dtype": "<f8",
+      "shape": [
+        3200
+      ],
+      "nbytes": 25600,
+      "sha256": "b3ea57b5b22802b0b7e0d58ad5c4b10a7024316a978735ad501ceac75afe9c0e"
+    },
+    "mmse_dfe_min": {
+      "dtype": "<f8",
+      "shape": [
+        0
+      ],
+      "nbytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "mmse_dfe_max": {
+      "dtype": "<f8",
+      "shape": [
+        0
+      ],
+      "nbytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "array_contracts": {
+    "ctle_out_h_tune": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "V (native model; MMSE cursor normalized)",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "t_ns_opt": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "ns",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "curs_ix": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "ns",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "curs_amp": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "V (native model; MMSE cursor normalized)",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "clocks_tune": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "V (native model; MMSE cursor normalized)",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "p_chnl": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "V (native model; MMSE cursor normalized)",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "channel_t_ns": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "ns",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "tx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "rx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "dfe_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "ami.call0.input_h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call0.input_h_t_s"
+    },
+    "ami.call0.input_h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call0.input_x": {
+      "producer": "original run_ami_model",
+      "unit": "V",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call0.input_x_t_s"
+    },
+    "ami.call0.input_x_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call0.y": {
+      "producer": "original run_ami_model",
+      "unit": "V",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call0.y_t_s"
+    },
+    "ami.call0.y_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call0.clocks": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "raw model clock output, not optimizer recovered clocks",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call0.h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call0.h_t_s"
+    },
+    "ami.call0.h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call0.out_h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call0.out_h_t_s"
+    },
+    "ami.call0.out_h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call1.input_h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call1.input_h_t_s"
+    },
+    "ami.call1.input_h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call1.input_x": {
+      "producer": "original run_ami_model",
+      "unit": "V",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call1.input_x_t_s"
+    },
+    "ami.call1.input_x_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call1.y": {
+      "producer": "original run_ami_model",
+      "unit": "V",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call1.y_t_s"
+    },
+    "ami.call1.y_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call1.clocks": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "raw model clock output, not optimizer recovered clocks",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call1.h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call1.h_t_s"
+    },
+    "ami.call1.h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call1.out_h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call1.out_h_t_s"
+    },
+    "ami.call1.out_h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call2.input_h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call2.input_h_t_s"
+    },
+    "ami.call2.input_h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call2.input_x": {
+      "producer": "original run_ami_model",
+      "unit": "V",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call2.input_x_t_s"
+    },
+    "ami.call2.input_x_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call2.y": {
+      "producer": "original run_ami_model",
+      "unit": "V",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call2.y_t_s"
+    },
+    "ami.call2.y_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call2.clocks": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "raw model clock output, not optimizer recovered clocks",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call2.h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call2.h_t_s"
+    },
+    "ami.call2.h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call2.out_h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call2.out_h_t_s"
+    },
+    "ami.call2.out_h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call3.input_h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call3.input_h_t_s"
+    },
+    "ami.call3.input_h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call3.input_x": {
+      "producer": "original run_ami_model",
+      "unit": "V",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call3.input_x_t_s"
+    },
+    "ami.call3.input_x_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call3.y": {
+      "producer": "original run_ami_model",
+      "unit": "V",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call3.y_t_s"
+    },
+    "ami.call3.y_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call3.clocks": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "raw model clock output, not optimizer recovered clocks",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call3.h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call3.h_t_s"
+    },
+    "ami.call3.h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "ami.call3.out_h": {
+      "producer": "original run_ami_model",
+      "unit": "V/sample",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": "ami.call3.out_h_t_s"
+    },
+    "ami.call3.out_h_t_s": {
+      "producer": "original run_ami_model",
+      "unit": "s",
+      "clock_basis": "original helper sample interval",
+      "window": "entire producer array",
+      "axis": null
+    },
+    "candidate_000000_pulse": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "V (native model; MMSE cursor normalized)",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000000_tx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000000_rx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000000_dfe_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000000_t_ns": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "ns",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000001_pulse": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "V (native model; MMSE cursor normalized)",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000001_tx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000001_rx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000001_dfe_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000001_t_ns": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "ns",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000002_pulse": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "V (native model; MMSE cursor normalized)",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000002_tx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000002_rx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000002_dfe_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000002_t_ns": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "ns",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000003_pulse": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "V (native model; MMSE cursor normalized)",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000003_tx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000003_rx_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000003_dfe_weights": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "candidate_000003_t_ns": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "ns",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "mmse_f_hz": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "Hz",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "mmse_t_s": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "s",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "mmse_dfe_min": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    },
+    "mmse_dfe_max": {
+      "producer": "pybert.threads.optimization.coopt (AMI TPE)",
+      "unit": "1",
+      "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR",
+      "window": "entire producer array"
+    }
+  },
+  "nonfinite_arrays": {},
+  "task": {
+    "task_id": "3de6652f-4bf3-42b0-b337-5783194aa2db",
+    "operation": "optimization",
+    "state": "succeeded",
+    "phase": "succeeded",
+    "cancel_requested": false,
+    "cancel_requested_at": null,
+    "cancel_observed_at": null,
+    "cancel_observed": false,
+    "worker_exited": true,
+    "logs": [
+      "[2026-10-24 08:47:36.524009+00:00]: PyBERT: Optimizing linear EQ...\n\tOversampling factor: 32\n\tTx equalization: native (0 enabled tap(s), cursor at 3)\n\tRx equalization: IBIS-AMI (1 enabled param(s))\n\tSearch: TPE (Optuna)\n\tRunning 4 trial(s)."
+    ],
+    "created_at": 1792831650.0261428,
+    "request_hash": "86f3ba1be599e1d89afdae3897e1dc9de6f3038b390fa21293dd13b419fdd942",
+    "parent_run_id": null,
+    "resource_inputs": [
+      {
+        "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+        "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+        "format": ".model",
+        "files": [
+          {
+            "relative_path": "example_rx.ami",
+            "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+            "bytes": 4067
+          },
+          {
+            "relative_path": "example_rx.ibs",
+            "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+            "bytes": 2804
+          },
+          {
+            "relative_path": "example_rx_x86_amd64.dll",
+            "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+            "bytes": 363008
+          }
+        ],
+        "bytes": 369879,
+        "source": {
+          "kind": "local_directory",
+          "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+        },
+        "original_name": "model bundle",
+        "permission": "explicitly supplied for this local session",
+        "parse_status": "not checked; binary loading requires a child task",
+        "field": "rx_model_bundle",
+        "index": null,
+        "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+        "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-chrome-v4\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+      }
+    ],
+    "parameter_source": null,
+    "worker_exit_confirmed_at": 1792831657.1520488,
+    "exitcode": 0,
+    "finished_at": 1792831657.1520493,
+    "result": {
+      "opt_id": "3de6652f-4bf3-42b0-b337-5783194aa2db",
+      "selected_candidate_id": "candidate-000000"
+    }
+  }
+}

@@ -1,0 +1,2902 @@
+{
+  "config": {
+    "bit_rate": 10.0,
+    "nbits": 15000,
+    "pattern": "PRBS-7",
+    "seed": 1,
+    "nspui": 32,
+    "eye_bits": 10160,
+    "mod_type": "NRZ",
+    "debug": false,
+    "f_max": 40.0,
+    "f_step": 10.0,
+    "inter_sel": "native",
+    "ch_file": "",
+    "ch_files": [],
+    "impulse_length": 0.0,
+    "Rdc": 0.1876,
+    "w0": 10000000.0,
+    "R0": 1.452,
+    "Theta0": 0.02,
+    "Z0": 100.0,
+    "v0": 0.67,
+    "l_ch": 0.5,
+    "renumber": false,
+    "lane_sel": 0,
+    "include_fext": false,
+    "use_window": false,
+    "enable_com": false,
+    "com_cfg_file": "",
+    "vod": 1.0,
+    "rs": 100.0,
+    "cout": 0.5,
+    "pn_mag": 0.01,
+    "pn_freq": 11.0,
+    "rn": 0.01,
+    "tx_taps": [
+      [
+        false,
+        0.0,
+        -0.05,
+        0.05
+      ],
+      [
+        true,
+        -0.02,
+        -0.1,
+        0.1
+      ],
+      [
+        true,
+        -0.05,
+        -0.2,
+        0.2
+      ],
+      [
+        false,
+        0.0,
+        -0.2,
+        0.2
+      ],
+      [
+        false,
+        0.0,
+        -0.1,
+        0.1
+      ],
+      [
+        false,
+        0.0,
+        -0.05,
+        0.05
+      ]
+    ],
+    "tx_tap_tuners": [
+      [
+        false,
+        -3,
+        -0.05,
+        0.05,
+        0.025
+      ],
+      [
+        true,
+        -2,
+        -0.1,
+        0.1,
+        0.05
+      ],
+      [
+        true,
+        -1,
+        -0.2,
+        0.2,
+        0.1
+      ],
+      [
+        false,
+        1,
+        -0.2,
+        0.2,
+        0.1
+      ],
+      [
+        false,
+        2,
+        -0.1,
+        0.1,
+        0.05
+      ],
+      [
+        false,
+        3,
+        -0.05,
+        0.05,
+        0.025
+      ]
+    ],
+    "tx_use_ami": true,
+    "tx_use_ts4": false,
+    "tx_use_getwave": true,
+    "tx_ami_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ami",
+    "tx_dll_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx_x86_amd64.dll",
+    "tx_ibis_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+    "tx_sel": "ibis",
+    "tx_eq_sel": "IBIS-AMI",
+    "rin": 100.0,
+    "cin": 0.5,
+    "tx_c0_min": 0.0,
+    "pkg_enable": false,
+    "pkg_group": "KR",
+    "tx_pkg_case": "A1",
+    "rx_pkg_case": "A1",
+    "pkg_include_host": true,
+    "cac": 1.0,
+    "use_ctle_file": false,
+    "ctle_sel": "Native",
+    "ctle_file": "",
+    "rx_bw": 12.0,
+    "peak_freq": 5.0,
+    "peak_mag": 1.7,
+    "ctle_enable": true,
+    "rx_use_ami": true,
+    "rx_use_ts4": false,
+    "rx_use_getwave": true,
+    "rx_ami_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ami",
+    "rx_dll_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx_x86_amd64.dll",
+    "rx_ibis_file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+    "rx_sel": "ibis",
+    "rx_eq_sel": "IBIS-AMI",
+    "rx_use_viterbi": false,
+    "rx_viterbi_symbols": 4,
+    "rx_n_taps": 15,
+    "rx_n_pre": 5,
+    "rx_taps": [
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        1.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        -0.03,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        true,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        false,
+        0.0,
+        -1.0,
+        1.0
+      ]
+    ],
+    "ffe_tap_tuners": [
+      [
+        false,
+        -5,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        -4,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        -3,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        -2,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        -1,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        0,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        1,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        2,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        3,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        4,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        5,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        6,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        7,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        8,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        9,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        10,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        11,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        12,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        13,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        14,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        15,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        16,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        17,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        18,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        19,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        20,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        21,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        22,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        23,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        24,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        25,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        26,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        27,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        28,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        29,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        30,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        31,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        32,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        33,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        34,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        35,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        36,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        37,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        38,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        39,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        40,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        41,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        42,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        43,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        44,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        45,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        46,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        47,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        48,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        49,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        50,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        51,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        52,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        53,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        54,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        55,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        56,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        57,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        58,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        59,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        60,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        61,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        62,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        63,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        64,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        65,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        66,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        67,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        68,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        69,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        70,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        71,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        72,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        73,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        74,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        75,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        76,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        77,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        78,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        79,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        80,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        81,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        82,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        83,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        84,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        85,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        86,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        87,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        88,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        89,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        90,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        91,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        92,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        93,
+        -1.0,
+        1.0,
+        0.1
+      ],
+      [
+        false,
+        94,
+        -1.0,
+        1.0,
+        0.1
+      ]
+    ],
+    "sum_ideal": true,
+    "decision_scaler": 0.5,
+    "gain": 0.1,
+    "n_ave": 100.0,
+    "sum_bw": 12.0,
+    "use_agc": true,
+    "cdr_type": "Bang-Bang",
+    "delta_t_ui": 0.001,
+    "alpha": 0.01,
+    "n_lock_ave": 500,
+    "rel_lock_tol": 0.1,
+    "lock_sustain": 500,
+    "thresh": 3.0,
+    "rx_bw_tune": 12.0,
+    "peak_freq_tune": 5.0,
+    "peak_mag_tune": 1.7,
+    "min_mag_tune": 2.0,
+    "max_mag_tune": 12.0,
+    "step_mag_tune": 1.0,
+    "ctle_enable_tune": true,
+    "use_mmse": true,
+    "dfe_tap_tuners": [
+      [
+        false,
+        -0.2,
+        0.4
+      ],
+      [
+        false,
+        -0.15,
+        0.15
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ],
+      [
+        false,
+        -0.05,
+        0.1
+      ]
+    ]
+  },
+  "input_hash": "55f7621bedbb674acf85e762adc56859187f04f40d474811661b8292766c3483",
+  "input_identity_hash": "bd0cde78e8c05d745bb5db9eeb8aea43706a2b0f075103887b65e76d78050607",
+  "runtime_extensions": {
+    "version": 1,
+    "values": {
+      "rx_use_clocks": true,
+      "ami_opt_trials": 4,
+      "rlm": 1.0,
+      "ami_models": {
+        "tx": {
+          "model_hash": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+          "selection": {
+            "comp": "Example_Tx",
+            "pin": "1p(1_P)",
+            "mod": "example_tx",
+            "ibis_path": "example_tx.ibs"
+          },
+          "parameters": [
+            {
+              "path": [
+                "Reserved_Parameters",
+                "AMI_Version"
+              ],
+              "value": "5.1",
+              "editable": false,
+              "type": "String",
+              "usage": "Info",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "Version of IBIS standard we comply with.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Reserved_Parameters",
+                "Init_Returns_Impulse"
+              ],
+              "value": true,
+              "editable": false,
+              "type": "Boolean",
+              "usage": "Info",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "In fact, this model is, currently, Init-only.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Reserved_Parameters",
+                "GetWave_Exists"
+              ],
+              "value": true,
+              "editable": false,
+              "type": "Boolean",
+              "usage": "Info",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "This model is dual-mode, with GetWave() mimicking Init().",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "tx_tap_units"
+              ],
+              "value": 27,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "Range",
+              "min": 6,
+              "max": 27,
+              "values": null,
+              "description": "Total current available to FIR filter.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "tx_tap_np1"
+              ],
+              "value": 0,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "Range",
+              "min": 0,
+              "max": 10,
+              "values": null,
+              "description": "First (and only) pre-tap.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "tx_tap_nm1"
+              ],
+              "value": 0,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "Range",
+              "min": 0,
+              "max": 10,
+              "values": null,
+              "description": "First post-tap.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "tx_tap_nm2"
+              ],
+              "value": 0,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "Range",
+              "min": 0,
+              "max": 10,
+              "values": null,
+              "description": "Second post-tap.",
+              "unit": "not declared; see original description"
+            }
+          ],
+          "sim_corner": "typ",
+          "search": [
+            {
+              "path": [
+                "Model_Specific",
+                "tx_tap_units"
+              ],
+              "enabled": false,
+              "min_val": 6.0,
+              "max_val": 27.0,
+              "step": 2.1,
+              "value": 27.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "tx_tap_np1"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 10.0,
+              "step": 1.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "tx_tap_nm1"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 10.0,
+              "step": 1.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "tx_tap_nm2"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 10.0,
+              "step": 1.0,
+              "value": 0.0
+            }
+          ]
+        },
+        "rx": {
+          "model_hash": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+          "selection": {
+            "comp": "Example_Rx",
+            "pin": "1p(Tx_1_P)",
+            "mod": "example_rx",
+            "ibis_path": "example_rx.ibs"
+          },
+          "parameters": [
+            {
+              "path": [
+                "Reserved_Parameters",
+                "AMI_Version"
+              ],
+              "value": "5.1",
+              "editable": false,
+              "type": "String",
+              "usage": "Info",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "Version of IBIS standard we comply with.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Reserved_Parameters",
+                "Init_Returns_Impulse"
+              ],
+              "value": true,
+              "editable": false,
+              "type": "Boolean",
+              "usage": "Info",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "Model provides DFE adaptation approximation, in its AMI_Init() function.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Reserved_Parameters",
+                "GetWave_Exists"
+              ],
+              "value": true,
+              "editable": false,
+              "type": "Boolean",
+              "usage": "Info",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "This model is dual-mode, with true DFE adaptation in GetWave().",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_mode"
+              ],
+              "value": 0,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "List",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "CTLE operating mode.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_freq"
+              ],
+              "value": 5000000000.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 1000000000.0,
+              "max": 5000000000.0,
+              "values": null,
+              "description": "CTLE peaking frequency (Hz).",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_mag"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 0.0,
+              "max": 12.0,
+              "values": null,
+              "description": "CTLE peaking magnitude (dB).",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_bandwidth"
+              ],
+              "value": 12000000000.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 5000000000.0,
+              "max": 50000000000.0,
+              "values": null,
+              "description": "CTLE bandwidth (Hz).",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_dcgain"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": -20.0,
+              "max": 20.0,
+              "values": null,
+              "description": "CTLE d.c. gain (dB).",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_mode"
+              ],
+              "value": 0,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "List",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "DFE operating mode.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_ntaps"
+              ],
+              "value": 5,
+              "editable": true,
+              "type": "Integer",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "Number of DFE taps.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap1"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "DFE tap 1 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap2"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "DFE tap 2 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap3"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "DFE tap 3 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap4"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "DFE tap 4 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_tap5"
+              ],
+              "value": 0.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "DFE tap 5 initial value.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_vout"
+              ],
+              "value": 1.0,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 0.0,
+              "max": 1.0,
+              "values": null,
+              "description": "DFE slicer output voltage magnitude.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_gain"
+              ],
+              "value": 0.1,
+              "editable": true,
+              "type": "Float",
+              "usage": "In",
+              "format": "Range",
+              "min": 0.0,
+              "max": 1.0,
+              "values": null,
+              "description": "DFE error feedback gain.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dbg_enable"
+              ],
+              "value": false,
+              "editable": true,
+              "type": "Boolean",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "Master debug enable.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dump_dfe_adaptation"
+              ],
+              "value": false,
+              "editable": true,
+              "type": "Boolean",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "Dump the DFE adaptation results.",
+              "unit": "not declared; see original description"
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dump_adaptation_input"
+              ],
+              "value": false,
+              "editable": true,
+              "type": "Boolean",
+              "usage": "In",
+              "format": "Value",
+              "min": null,
+              "max": null,
+              "values": null,
+              "description": "Dump the DFE summing node input.",
+              "unit": "not declared; see original description"
+            }
+          ],
+          "sim_corner": "typ",
+          "search": [
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_mode"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 1.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_freq"
+              ],
+              "enabled": false,
+              "min_val": 1000000000.0,
+              "max_val": 5000000000.0,
+              "step": 400000000.0,
+              "value": 5000000000.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_mag"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 12.0,
+              "step": 1.2,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_bandwidth"
+              ],
+              "enabled": false,
+              "min_val": 5000000000.0,
+              "max_val": 50000000000.0,
+              "step": 4500000000.0,
+              "value": 12000000000.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "ctle_dcgain"
+              ],
+              "enabled": false,
+              "min_val": -20.0,
+              "max_val": 20.0,
+              "step": 4.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_mode"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 2.0,
+              "step": 1.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_vout"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 0.1,
+              "value": 1.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "dfe_gain"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 0.1,
+              "value": 0.1
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dbg_enable"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 1.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dump_dfe_adaptation"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 1.0,
+              "value": 0.0
+            },
+            {
+              "path": [
+                "Model_Specific",
+                "debug",
+                "dump_adaptation_input"
+              ],
+              "enabled": false,
+              "min_val": 0.0,
+              "max_val": 1.0,
+              "step": 1.0,
+              "value": 0.0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "resource_bindings": {
+    "tx_model_bundle": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+    "rx_model_bundle": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+  },
+  "draft_revision": 0,
+  "direct_model_reports": {
+    "tx": {
+      "status": "ready",
+      "stage": "preflight only; no execution",
+      "model_hash": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+      "side": "tx",
+      "host": {
+        "OS": "Windows",
+        "architecture": "AMD64",
+        "bits": 64
+      },
+      "files": [
+        {
+          "relative_path": "example_tx.ami",
+          "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+          "bytes": 1461
+        },
+        {
+          "relative_path": "example_tx.cpp",
+          "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+          "bytes": 3151
+        },
+        {
+          "relative_path": "example_tx.cpp.em",
+          "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+          "bytes": 3212
+        },
+        {
+          "relative_path": "example_tx.ibs",
+          "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+          "bytes": 3046
+        },
+        {
+          "relative_path": "example_tx_x86_amd64.dll",
+          "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+          "bytes": 347136
+        }
+      ],
+      "selection": {
+        "comp": "Example_Tx",
+        "pin": "1p(1_P)",
+        "mod": "example_tx",
+        "ibis_path": "example_tx.ibs"
+      },
+      "components": [
+        "Example_Tx"
+      ],
+      "pins": [
+        "1p(1_P)",
+        "1n(1_N)",
+        "2p(2_P)",
+        "2n(2_N)",
+        "3p(3_P)",
+        "3n(3_N)"
+      ],
+      "models": [
+        "example_tx"
+      ],
+      "ibis_warnings": "Success!",
+      "model_type": "Output",
+      "view": {
+        "IBIS_source": "\n\n[IBIS Ver]   5.1\n[File Name]  example_tx.ibs\n[File Rev]   v0.1\n\n[Date]       2026-10-24\n\n[Source]     Example model, from the PyIBIS-AMI package.\n\n[Disclaimer]\nTHIS MODEL IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS MODEL, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n[Notes]\nThis IBIS file was generated using the template file: \"generic.ibs.em\".\n\n[Copyright]    Copyright (c) 2016 David Banas; all rights reserved World wide.\n\n[Component]    Example_Tx\n[Manufacturer] (n/a)\n\n[Package]\n\nR_pkg     0.10     0.00     0.50\nL_pkg    10.00n    0.10n   50.00n\nC_pkg     1.00p    0.01p    5.00p\n\n\n[Pin]  signal_name        model_name            R_pin  L_pin  C_pin\n1p     1_P             example_tx\n1n     1_N             example_tx\n2p     2_P             example_tx\n2n     2_N             example_tx\n3p     3_P             example_tx\n3n     3_N             example_tx\n\n\n[Diff_Pin] inv_pin vdiff tdelay_typ tdelay_min tdelay_max\n1p     1n     0.1V    NA    NA    NA\n2p     2n     0.1V    NA    NA    NA\n3p     3n     0.1V    NA    NA    NA\n\n\n\n\n[Model]   example_tx\nModel_type   Output\nC_comp     1.00p    0.01p    5.00p\nCref  = 0\nVref  = 0.5\nVmeas = 0.5\nRref  = 50\n\n[Algorithmic Model]\nExecutable linux_gcc4.1.2_32        example_tx_x86.so         example_tx.ami\nExecutable linux_gcc4.1.2_64        example_tx_x86_amd64.so   example_tx.ami\nExecutable Windows_VisualStudio_32  example_tx_x86.dll        example_tx.ami\nExecutable Windows_VisualStudio_64  example_tx_x86_amd64.dll  example_tx.ami\n[End Algorithmic Model]\n\n[Pulldown]\n-1.80    -10.0    -10.0    -10.0\n 0.00     0.000e+00     0.000e+00     0.000e+00\n 1.80     3.600e-02     4.000e-02     3.273e-02\n 3.60    10.0    10.0    10.0\n[Pullup]\n-1.80    10.0    10.0    10.0\n 0.00    -0.000e+00    -0.000e+00    -0.000e+00\n 1.80    -3.600e-02    -4.000e-02    -3.273e-02\n 3.60    -10.0    -10.0    -10.0\n[Ramp]\ndV/dt_r    0.540/108.00p    0.512/511.58p    0.566/56.57p\ndV/dt_f    0.540/108.00p    0.512/511.58p    0.566/56.57p\n\n[GND Clamp]\n-1.80    0.0    0.0    0.0\n 0.00    0.0  0.0  0.0\n 1.80    0.0  0.0  0.0\n 3.60    0.0  0.0  0.0\n\n[Power Clamp]\n-1.80    0.0    0.0    0.0\n 0.00    0.0  0.0  0.0\n 1.80    0.0  0.0  0.0\n 3.60    0.0  0.0  0.0\n\n[Temperature_Range]     25.0      0.0    100.0\n[Voltage_Range]         1.80     1.62     1.98\n\n\n\n\n[END]\n",
+        "zout": 50.00000000000001,
+        "zin": null,
+        "ccomp": [
+          1e-12,
+          1e-14,
+          5e-12
+        ]
+      },
+      "parameters": [
+        {
+          "path": [
+            "Reserved_Parameters",
+            "AMI_Version"
+          ],
+          "value": "5.1",
+          "editable": false,
+          "type": "String",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Version of IBIS standard we comply with.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Reserved_Parameters",
+            "Init_Returns_Impulse"
+          ],
+          "value": true,
+          "editable": false,
+          "type": "Boolean",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "In fact, this model is, currently, Init-only.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Reserved_Parameters",
+            "GetWave_Exists"
+          ],
+          "value": true,
+          "editable": false,
+          "type": "Boolean",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "This model is dual-mode, with GetWave() mimicking Init().",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "tx_tap_units"
+          ],
+          "value": 27,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "Range",
+          "min": 6,
+          "max": 27,
+          "values": null,
+          "description": "Total current available to FIR filter.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "tx_tap_np1"
+          ],
+          "value": 0,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "Range",
+          "min": 0,
+          "max": 10,
+          "values": null,
+          "description": "First (and only) pre-tap.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "tx_tap_nm1"
+          ],
+          "value": 0,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "Range",
+          "min": 0,
+          "max": 10,
+          "values": null,
+          "description": "First post-tap.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "tx_tap_nm2"
+          ],
+          "value": 0,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "Range",
+          "min": 0,
+          "max": 10,
+          "values": null,
+          "description": "Second post-tap.",
+          "unit": "not declared; see original description"
+        }
+      ],
+      "parser_warnings": [],
+      "capabilities": {
+        "Init_Returns_Impulse": true,
+        "GetWave_Exists": true,
+        "Ts4file": null,
+        "Ignore_Bits": null
+      },
+      "ami_path": "example_tx.ami",
+      "binary_path": "example_tx_x86_amd64.dll",
+      "binary_load": "loaded"
+    },
+    "rx": {
+      "status": "ready",
+      "stage": "preflight only; no execution",
+      "model_hash": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+      "side": "rx",
+      "host": {
+        "OS": "Windows",
+        "architecture": "AMD64",
+        "bits": 64
+      },
+      "files": [
+        {
+          "relative_path": "example_rx.ami",
+          "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+          "bytes": 4067
+        },
+        {
+          "relative_path": "example_rx.ibs",
+          "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+          "bytes": 2804
+        },
+        {
+          "relative_path": "example_rx_x86_amd64.dll",
+          "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+          "bytes": 363008
+        }
+      ],
+      "selection": {
+        "comp": "Example_Rx",
+        "pin": "1p(Tx_1_P)",
+        "mod": "example_rx",
+        "ibis_path": "example_rx.ibs"
+      },
+      "components": [
+        "Example_Rx"
+      ],
+      "pins": [
+        "1p(Tx_1_P)",
+        "1n(Tx_1_N)",
+        "2p(Tx_2_P)",
+        "2n(Tx_2_N)",
+        "3p(Tx_3_P)",
+        "3n(Tx_3_N)"
+      ],
+      "models": [
+        "example_rx"
+      ],
+      "ibis_warnings": "Success!",
+      "model_type": "Input",
+      "view": {
+        "IBIS_source": "\n\n[IBIS Ver]   7.1\n[File Name]  example_rx.ibs\n[File Rev]   v0.1\n\n[Date]       2024-07-05\n\n[Source]     ibisami public domain infrastructure\n\n[Disclaimer]\nTHIS MODEL IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS MODEL, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n[Notes]\nThis IBIS file was generated using the template file: \"generic.ibs.em\".\n\n[Copyright]    Copyright (c) 2016 David Banas; all rights reserved World wide.\n[Component]    Example_Rx\n[Manufacturer] (n/a)\n\n[Package]\n\nR_pkg     0.10     0.00     0.50\nL_pkg    10.00n    0.10n   50.00n\nC_pkg     1.00p    0.01p    5.00p\n\n\n[Pin]  signal_name        model_name            R_pin  L_pin  C_pin\n1p     Tx_1_P             example_rx\n1n     Tx_1_N             example_rx\n2p     Tx_2_P             example_rx\n2n     Tx_2_N             example_rx\n3p     Tx_3_P             example_rx\n3n     Tx_3_N             example_rx\n\n[Diff_Pin] inv_pin vdiff tdelay_typ tdelay_min tdelay_max\n1p           1n     0.1V     NA         NA         NA\n2p           2n     0.1V     NA         NA         NA\n3p           3n     0.1V     NA         NA         NA\n\n[Model]   example_rx\nModel_type   Input\n\nC_comp     1.00p    0.01p    5.00p\nVinl = 0.875\nVinh = 0.925\n\n\n[Algorithmic Model]\nExecutable linux_gcc4.1.2_32          example_rx_x86.so         example_rx.ami\nExecutable linux_gcc4.1.2_64          example_rx_x86_amd64.so   example_rx.ami\nExecutable Windows_VisualStudio_32    example_rx_x86.dll        example_rx.ami\nExecutable Windows_VisualStudio_64    example_rx_x86_amd64.dll  example_rx.ami\n[End Algorithmic Model]\n\n[Temperature_Range]     25.0      0.0    100.0\n[Voltage_Range]         1.80     1.62     1.98\n\n\n[GND Clamp]\n-1.80    -1.000e+01    -1.000e+01    -1.000e+01\n0.00     0.000e+00     0.000e+00     0.000e+00 \n1.80     1.800e-02     2.000e-02     1.636e-02 \n3.60     3.600e-02     4.000e-02     3.273e-02 \n\n[Power Clamp]\n-1.80    1.000e+01     1.000e+01     1.000e+01 \n0.00     -0.000e+00    -0.000e+00    -0.000e+00\n1.80     -1.800e-02    -2.000e-02    -1.636e-02\n3.60     -3.600e-02    -4.000e-02    -3.273e-02\n\n\n\n[END]\n",
+        "zout": null,
+        "zin": 50.000000000000014,
+        "ccomp": [
+          1e-12,
+          1e-14,
+          5e-12
+        ]
+      },
+      "parameters": [
+        {
+          "path": [
+            "Reserved_Parameters",
+            "AMI_Version"
+          ],
+          "value": "5.1",
+          "editable": false,
+          "type": "String",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Version of IBIS standard we comply with.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Reserved_Parameters",
+            "Init_Returns_Impulse"
+          ],
+          "value": true,
+          "editable": false,
+          "type": "Boolean",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Model provides DFE adaptation approximation, in its AMI_Init() function.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Reserved_Parameters",
+            "GetWave_Exists"
+          ],
+          "value": true,
+          "editable": false,
+          "type": "Boolean",
+          "usage": "Info",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "This model is dual-mode, with true DFE adaptation in GetWave().",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_mode"
+          ],
+          "value": 0,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "List",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "CTLE operating mode.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_freq"
+          ],
+          "value": 5000000000.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 1000000000.0,
+          "max": 5000000000.0,
+          "values": null,
+          "description": "CTLE peaking frequency (Hz).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_mag"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 0.0,
+          "max": 12.0,
+          "values": null,
+          "description": "CTLE peaking magnitude (dB).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_bandwidth"
+          ],
+          "value": 12000000000.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 5000000000.0,
+          "max": 50000000000.0,
+          "values": null,
+          "description": "CTLE bandwidth (Hz).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "ctle_dcgain"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": -20.0,
+          "max": 20.0,
+          "values": null,
+          "description": "CTLE d.c. gain (dB).",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_mode"
+          ],
+          "value": 0,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "List",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE operating mode.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_ntaps"
+          ],
+          "value": 5,
+          "editable": true,
+          "type": "Integer",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Number of DFE taps.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap1"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 1 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap2"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 2 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap3"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 3 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap4"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 4 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_tap5"
+          ],
+          "value": 0.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "DFE tap 5 initial value.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_vout"
+          ],
+          "value": 1.0,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 0.0,
+          "max": 1.0,
+          "values": null,
+          "description": "DFE slicer output voltage magnitude.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "dfe_gain"
+          ],
+          "value": 0.1,
+          "editable": true,
+          "type": "Float",
+          "usage": "In",
+          "format": "Range",
+          "min": 0.0,
+          "max": 1.0,
+          "values": null,
+          "description": "DFE error feedback gain.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "debug",
+            "dbg_enable"
+          ],
+          "value": false,
+          "editable": true,
+          "type": "Boolean",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Master debug enable.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "debug",
+            "dump_dfe_adaptation"
+          ],
+          "value": false,
+          "editable": true,
+          "type": "Boolean",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Dump the DFE adaptation results.",
+          "unit": "not declared; see original description"
+        },
+        {
+          "path": [
+            "Model_Specific",
+            "debug",
+            "dump_adaptation_input"
+          ],
+          "value": false,
+          "editable": true,
+          "type": "Boolean",
+          "usage": "In",
+          "format": "Value",
+          "min": null,
+          "max": null,
+          "values": null,
+          "description": "Dump the DFE summing node input.",
+          "unit": "not declared; see original description"
+        }
+      ],
+      "parser_warnings": [],
+      "capabilities": {
+        "Init_Returns_Impulse": true,
+        "GetWave_Exists": true,
+        "Ts4file": null,
+        "Ignore_Bits": null
+      },
+      "ami_path": "example_rx.ami",
+      "binary_path": "example_rx_x86_amd64.dll",
+      "binary_load": "loaded"
+    }
+  },
+  "frozen_resources": [
+    {
+      "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+      "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+      "format": ".model",
+      "files": [
+        {
+          "relative_path": "example_tx.ami",
+          "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+          "bytes": 1461
+        },
+        {
+          "relative_path": "example_tx.cpp",
+          "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+          "bytes": 3151
+        },
+        {
+          "relative_path": "example_tx.cpp.em",
+          "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+          "bytes": 3212
+        },
+        {
+          "relative_path": "example_tx.ibs",
+          "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+          "bytes": 3046
+        },
+        {
+          "relative_path": "example_tx_x86_amd64.dll",
+          "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+          "bytes": 347136
+        }
+      ],
+      "bytes": 358006,
+      "source": {
+        "kind": "local_directory",
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+      },
+      "original_name": "model bundle",
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "not checked; binary loading requires a child task",
+      "field": "tx_model_bundle",
+      "index": null,
+      "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+      "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-GetWave-direct\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+    },
+    {
+      "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+      "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+      "format": ".model",
+      "files": [
+        {
+          "relative_path": "example_rx.ami",
+          "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+          "bytes": 4067
+        },
+        {
+          "relative_path": "example_rx.ibs",
+          "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+          "bytes": 2804
+        },
+        {
+          "relative_path": "example_rx_x86_amd64.dll",
+          "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+          "bytes": 363008
+        }
+      ],
+      "bytes": 369879,
+      "source": {
+        "kind": "local_directory",
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+      },
+      "original_name": "model bundle",
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "not checked; binary loading requires a child task",
+      "field": "rx_model_bundle",
+      "index": null,
+      "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+      "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-GetWave-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+    }
+  ],
+  "resource_hash": "a4e12d120b9d27c7be0479fc0a8efcad836db4f38d2b6a8d99982e199e9fccd3"
+}

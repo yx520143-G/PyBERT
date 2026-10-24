@@ -1,0 +1,196 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-issue10-ami\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 21 items / 18 deselected / 3 selected
+
+tests/test_web_ami.py::test_yaml_model_bindings_freeze_before_spawn_without_parsing_models[mode0] PASSED [ 33%]
+tests/test_web_ami.py::test_yaml_model_bindings_freeze_before_spawn_without_parsing_models[mode1] PASSED [ 66%]
+tests/test_web_ami.py::test_tune_runtime_key_order_does_not_change_identity FAILED [100%]
+
+================================== FAILURES ===================================
+____________ test_tune_runtime_key_order_does_not_change_identity _____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000014C5F6B35C0>
+
+    def test_tune_runtime_key_order_does_not_change_identity(monkeypatch):
+        from pybert.web import optimization
+        from pybert.web.config import new_engine, snapshot, input_hash
+    
+        config = snapshot(new_engine()) | {"rx_sel": "ibis"}
+        runtime = {"version": 1, "values": {"rlm": .95, "ami_models": {}}}
+    
+        def reorder(_p, _config, values, _resources, **kwargs):
+            values["version"] = values.pop("version")
+            return {}
+    
+        monkeypatch.setattr(optimization, "configure", reorder)
+        request = {"config": config, "input_hash": input_hash(config), "runtime_extensions": runtime, "resource_bindings": {}}
+        request["input_identity_hash"] = input_hash({key: request[key] for key in ("config", "runtime_extensions", "resource_bindings")})
+>       optimization.prepare(request)
+
+tests\test_web_ami.py:173: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+request = {'config': {'bit_rate': 10.0, 'nbits': 15000, 'pattern': 'PRBS-7', 'seed': 1, ...}, 'input_hash': 'a441e6802ca11d1f481...a9d55c', 'runtime_extensions': {'version': 1, 'values': {'rlm': 0.95, 'ami_models': {}}}, 'resource_bindings': {}, ...}
+model_report = None, check = <function <lambda> at 0x0000014C5F7EFD80>
+emit = <function <lambda> at 0x0000014C5F7EFE20>
+
+    def prepare(request, model_report=None, check=lambda: False, emit=lambda *a, **k: None):
+        p = new_engine()
+        config = request["config"]
+        if input_hash(config) != request["input_hash"]:
+            raise ValueError("Optimization input hash mismatch.")
+        identity = input_hash({key: request.get(key, {}) for key in ("config", "runtime_extensions", "resource_bindings")})
+        if request.get("input_identity_hash") != identity:
+            raise ValueError("Optimization full input identity hash mismatch.")
+        load_config(p, config)
+        if config["tx_sel"] == "ibis" or config["rx_sel"] == "ibis":
+            runtime = extensions(request.get("runtime_extensions", {}))
+>           before = json.loads(json.dumps(runtime))
+                     ^^^^
+E           NameError: name 'json' is not defined. Did you forget to import 'json'?
+
+src\pybert\web\optimization.py:248: NameError
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    floatingPointConstant.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    nonnegativeNumber.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    coordinatePair = (coordinate + maybeComma + coordinate).setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    closePath = Group(Command("Z")).setParseAction(lambda t: ("Z", (None,)))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    ).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    arcFlags = (flag + maybeComma + flag).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+    transformList = delimitedList(Group(transform), delim=maybeComma)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integerConstant = Word(nums + "+-").setParseAction(lambda t: int(t[0]))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorByte = Optional(sign) + integerConstant.setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorPerc = number.setParseAction(parseColorPerc) + Literal("%").suppress()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("rgb(").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    doubleHex = Word(hexnums, exact=2).setParseAction(lambda t: int(t[0], 16))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("#").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    | Word(hexnums, exact=3).setParseAction(parseShortHex)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    namedColour = Word(alphas).setParseAction(parseNamedColour)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integer = Word("0123456789").setParseAction(asInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    number.setName("number")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    signedNumber = Combine(Optional(sign) + number).setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    lengthValue = Combine(Optional(sign) + number).setParseAction(asFloatOrInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    lengthValue.setName("lengthValue")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    lengthUnit = oneOf(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55: PyparsingDeprecationWarning: 'leaveWhitespace' deprecated - use 'leave_whitespace'
+    length.leaveWhitespace()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    number.setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    none = CaselessLiteral("none").setParseAction(lambda t: ["NONE", ()])
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    currentColor = CaselessLiteral("currentColor").setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    + Group(SkipTo(urlEnd, include=True).setParseAction(parsePossibleURL))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 3 durations =============================
+5.00s call     tests/test_web_ami.py::test_yaml_model_bindings_freeze_before_spawn_without_parsing_models[mode0]
+4.66s call     tests/test_web_ami.py::test_yaml_model_bindings_freeze_before_spawn_without_parsing_models[mode1]
+0.23s call     tests/test_web_ami.py::test_tune_runtime_key_order_does_not_change_identity
+=========================== short test summary info ===========================
+FAILED tests/test_web_ami.py::test_tune_runtime_key_order_does_not_change_identity
+========== 1 failed, 2 passed, 18 deselected, 35 warnings in 11.09s ===========

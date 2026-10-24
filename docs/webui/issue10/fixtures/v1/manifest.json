@@ -1,0 +1,748 @@
+{
+  "version": 1,
+  "before_first_numeric_call": true,
+  "library_loads": 0,
+  "Init_calls": 0,
+  "GetWave_calls": 0,
+  "base": "f3e94fa220c4bf39931ec7db343f2512a8441617",
+  "models": {
+    "tx": {
+      "ibis": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+      "selection": {
+        "comp": "Example_Tx",
+        "pin": "1p(1_P)",
+        "mod": "example_tx"
+      },
+      "files": [
+        {
+          "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+          "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+          "bytes": 3046
+        },
+        {
+          "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx_x86_amd64.dll",
+          "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+          "bytes": 347136
+        },
+        {
+          "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ami",
+          "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+          "bytes": 1461
+        }
+      ],
+      "tree": {
+        "Reserved_Parameters": {
+          "AMI_Version": {
+            "pname": "AMI_Version",
+            "ptype": "String",
+            "pusage": "Info",
+            "pformat": "Value",
+            "pvalue": "5.1",
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "Version of IBIS standard we comply with."
+          },
+          "Init_Returns_Impulse": {
+            "pname": "Init_Returns_Impulse",
+            "ptype": "Boolean",
+            "pusage": "Info",
+            "pformat": "Value",
+            "pvalue": true,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "In fact, this model is, currently, Init-only."
+          },
+          "GetWave_Exists": {
+            "pname": "GetWave_Exists",
+            "ptype": "Boolean",
+            "pusage": "Info",
+            "pformat": "Value",
+            "pvalue": true,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "This model is dual-mode, with GetWave() mimicking Init()."
+          }
+        },
+        "Model_Specific": {
+          "tx_tap_units": {
+            "pname": "tx_tap_units",
+            "ptype": "Integer",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 27,
+            "pmin": 6,
+            "pmax": 27,
+            "pvalues": null,
+            "pdescription": "Total current available to FIR filter."
+          },
+          "tx_tap_np1": {
+            "pname": "tx_tap_np1",
+            "ptype": "Integer",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 0,
+            "pmin": 0,
+            "pmax": 10,
+            "pvalues": null,
+            "pdescription": "First (and only) pre-tap."
+          },
+          "tx_tap_nm1": {
+            "pname": "tx_tap_nm1",
+            "ptype": "Integer",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 0,
+            "pmin": 0,
+            "pmax": 10,
+            "pvalues": null,
+            "pdescription": "First post-tap."
+          },
+          "tx_tap_nm2": {
+            "pname": "tx_tap_nm2",
+            "ptype": "Integer",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 0,
+            "pmin": 0,
+            "pmax": 10,
+            "pvalues": null,
+            "pdescription": "Second post-tap."
+          }
+        }
+      },
+      "input_ami_params": {
+        "root_name": "example_tx",
+        "tx_tap_units": 27,
+        "tx_tap_np1": 0,
+        "tx_tap_nm1": 0,
+        "tx_tap_nm2": 0
+      },
+      "parser_warnings": [],
+      "Init_Returns_Impulse": true,
+      "GetWave_Exists": true
+    },
+    "rx": {
+      "ibis": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+      "selection": {
+        "comp": "Example_Rx",
+        "pin": "1p(Tx_1_P)",
+        "mod": "example_rx"
+      },
+      "files": [
+        {
+          "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+          "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+          "bytes": 2804
+        },
+        {
+          "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx_x86_amd64.dll",
+          "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+          "bytes": 363008
+        },
+        {
+          "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ami",
+          "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+          "bytes": 4067
+        }
+      ],
+      "tree": {
+        "Reserved_Parameters": {
+          "AMI_Version": {
+            "pname": "AMI_Version",
+            "ptype": "String",
+            "pusage": "Info",
+            "pformat": "Value",
+            "pvalue": "5.1",
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "Version of IBIS standard we comply with."
+          },
+          "Init_Returns_Impulse": {
+            "pname": "Init_Returns_Impulse",
+            "ptype": "Boolean",
+            "pusage": "Info",
+            "pformat": "Value",
+            "pvalue": true,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "Model provides DFE adaptation approximation, in its AMI_Init() function."
+          },
+          "GetWave_Exists": {
+            "pname": "GetWave_Exists",
+            "ptype": "Boolean",
+            "pusage": "Info",
+            "pformat": "Value",
+            "pvalue": true,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "This model is dual-mode, with true DFE adaptation in GetWave()."
+          }
+        },
+        "Model_Specific": {
+          "ctle_mode": {
+            "pname": "ctle_mode",
+            "ptype": "Integer",
+            "pusage": "In",
+            "pformat": "List",
+            "pvalue": [
+              0,
+              1
+            ],
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "CTLE operating mode."
+          },
+          "ctle_freq": {
+            "pname": "ctle_freq",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 5000000000.0,
+            "pmin": 1000000000.0,
+            "pmax": 5000000000.0,
+            "pvalues": null,
+            "pdescription": "CTLE peaking frequency (Hz)."
+          },
+          "ctle_mag": {
+            "pname": "ctle_mag",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 0.0,
+            "pmin": 0.0,
+            "pmax": 12.0,
+            "pvalues": null,
+            "pdescription": "CTLE peaking magnitude (dB)."
+          },
+          "ctle_bandwidth": {
+            "pname": "ctle_bandwidth",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 12000000000.0,
+            "pmin": 5000000000.0,
+            "pmax": 50000000000.0,
+            "pvalues": null,
+            "pdescription": "CTLE bandwidth (Hz)."
+          },
+          "ctle_dcgain": {
+            "pname": "ctle_dcgain",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 0.0,
+            "pmin": -20.0,
+            "pmax": 20.0,
+            "pvalues": null,
+            "pdescription": "CTLE d.c. gain (dB)."
+          },
+          "dfe_mode": {
+            "pname": "dfe_mode",
+            "ptype": "Integer",
+            "pusage": "In",
+            "pformat": "List",
+            "pvalue": [
+              0,
+              1,
+              2
+            ],
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "DFE operating mode."
+          },
+          "dfe_ntaps": {
+            "pname": "dfe_ntaps",
+            "ptype": "Integer",
+            "pusage": "In",
+            "pformat": "Value",
+            "pvalue": 5,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "Number of DFE taps."
+          },
+          "dfe_tap1": {
+            "pname": "dfe_tap1",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Value",
+            "pvalue": 0.0,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "DFE tap 1 initial value."
+          },
+          "dfe_tap2": {
+            "pname": "dfe_tap2",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Value",
+            "pvalue": 0.0,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "DFE tap 2 initial value."
+          },
+          "dfe_tap3": {
+            "pname": "dfe_tap3",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Value",
+            "pvalue": 0.0,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "DFE tap 3 initial value."
+          },
+          "dfe_tap4": {
+            "pname": "dfe_tap4",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Value",
+            "pvalue": 0.0,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "DFE tap 4 initial value."
+          },
+          "dfe_tap5": {
+            "pname": "dfe_tap5",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Value",
+            "pvalue": 0.0,
+            "pmin": null,
+            "pmax": null,
+            "pvalues": null,
+            "pdescription": "DFE tap 5 initial value."
+          },
+          "dfe_vout": {
+            "pname": "dfe_vout",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 1.0,
+            "pmin": 0.0,
+            "pmax": 1.0,
+            "pvalues": null,
+            "pdescription": "DFE slicer output voltage magnitude."
+          },
+          "dfe_gain": {
+            "pname": "dfe_gain",
+            "ptype": "Float",
+            "pusage": "In",
+            "pformat": "Range",
+            "pvalue": 0.1,
+            "pmin": 0.0,
+            "pmax": 1.0,
+            "pvalues": null,
+            "pdescription": "DFE error feedback gain."
+          },
+          "debug": {
+            "dbg_enable": {
+              "pname": "dbg_enable",
+              "ptype": "Boolean",
+              "pusage": "In",
+              "pformat": "Value",
+              "pvalue": false,
+              "pmin": null,
+              "pmax": null,
+              "pvalues": null,
+              "pdescription": "Master debug enable."
+            },
+            "dump_dfe_adaptation": {
+              "pname": "dump_dfe_adaptation",
+              "ptype": "Boolean",
+              "pusage": "In",
+              "pformat": "Value",
+              "pvalue": false,
+              "pmin": null,
+              "pmax": null,
+              "pvalues": null,
+              "pdescription": "Dump the DFE adaptation results."
+            },
+            "dump_adaptation_input": {
+              "pname": "dump_adaptation_input",
+              "ptype": "Boolean",
+              "pusage": "In",
+              "pformat": "Value",
+              "pvalue": false,
+              "pmin": null,
+              "pmax": null,
+              "pvalues": null,
+              "pdescription": "Dump the DFE summing node input."
+            },
+            "description": "Debugging options."
+          }
+        }
+      },
+      "input_ami_params": {
+        "root_name": "example_rx",
+        "ctle_mode": 0,
+        "ctle_freq": 5000000000.0,
+        "ctle_mag": 0.0,
+        "ctle_bandwidth": 12000000000.0,
+        "ctle_dcgain": 0.0,
+        "dfe_mode": 0,
+        "dfe_ntaps": 5,
+        "dfe_tap1": 0.0,
+        "dfe_tap2": 0.0,
+        "dfe_tap3": 0.0,
+        "dfe_tap4": 0.0,
+        "dfe_tap5": 0.0,
+        "dfe_vout": 1.0,
+        "dfe_gain": 0.1,
+        "debug": {
+          "dbg_enable": false,
+          "dump_dfe_adaptation": false,
+          "dump_adaptation_input": false
+        }
+      },
+      "parser_warnings": [],
+      "Init_Returns_Impulse": true,
+      "GetWave_Exists": true
+    }
+  },
+  "cases": {
+    "A-NRZ-Native-Native": {
+      "request_sha256": "c6c912ba0a6b70945f047aff6478d7a4cc8dee90b063772d765da92bacef5e2a",
+      "tx_mode": "Native",
+      "rx_mode": "Native",
+      "source": "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json",
+      "source_sha256": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-NRZ-Native-Init": {
+      "request_sha256": "5046a44702f8ba3ffd2131093bf0776ebbe1ee586c7a733ad915140f642a7538",
+      "tx_mode": "Native",
+      "rx_mode": "Init",
+      "source": "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json",
+      "source_sha256": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-NRZ-Native-GetWave": {
+      "request_sha256": "5612e4f85fe6d927a2584407e30c7532d1e7ba2ff6efcff7b8dd5c86f45e11ba",
+      "tx_mode": "Native",
+      "rx_mode": "GetWave",
+      "source": "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json",
+      "source_sha256": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-NRZ-Init-Native": {
+      "request_sha256": "ddb1d3d3b6a89f6d4eae219aef2bab254d5b60d9ab30251aa3ccfa1dc249c0db",
+      "tx_mode": "Init",
+      "rx_mode": "Native",
+      "source": "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json",
+      "source_sha256": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-NRZ-Init-Init": {
+      "request_sha256": "3e0e44f8589b615ccad174e742b4a096dfb318b5b82560b97e7b7dc009382963",
+      "tx_mode": "Init",
+      "rx_mode": "Init",
+      "source": "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json",
+      "source_sha256": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-NRZ-Init-GetWave": {
+      "request_sha256": "9e1a7ec31161b687087cd4bb8c55bb7ae9b8663ae5c535f38ecd094b50b362e5",
+      "tx_mode": "Init",
+      "rx_mode": "GetWave",
+      "source": "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json",
+      "source_sha256": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-NRZ-GetWave-Native": {
+      "request_sha256": "9e45b9889db596542149cea0c67d2093748b572231af44126c3d7a08d717d90a",
+      "tx_mode": "GetWave",
+      "rx_mode": "Native",
+      "source": "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json",
+      "source_sha256": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-NRZ-GetWave-Init": {
+      "request_sha256": "b528d60dc2854a658770da0c541b65b0f8ca6b931fc008e3888060147c5bde72",
+      "tx_mode": "GetWave",
+      "rx_mode": "Init",
+      "source": "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json",
+      "source_sha256": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-NRZ-GetWave-GetWave": {
+      "request_sha256": "b355e32460e28eb0535d01524a47afde3585789503ad23f18a1035632458aef0",
+      "tx_mode": "GetWave",
+      "rx_mode": "GetWave",
+      "source": "docs\\webui\\issue2\\fixtures\\F-NRZ-01.json",
+      "source_sha256": "5bef77a8018c0e75f244631401c4d7a28bfac9a3cf77de057105372508bfa579",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-PAM4-Native-Init": {
+      "request_sha256": "c97889b6547e0c8fc95b02e11e30ed0214191a135574015e1de9cee7a682fd31",
+      "tx_mode": "Native",
+      "rx_mode": "Init",
+      "source": "docs\\webui\\issue2\\fixtures\\F-PAM4-01.json",
+      "source_sha256": "e78555943d3eed9aeb3bb6012e9105a69fca1874e5e2ea2acf75ad67109e1899",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    },
+    "A-PAM4-Native-GetWave": {
+      "request_sha256": "2f5525580d1525b72ba0f1058d1b3945ccac262a323ba2914acc9599a1ca5326",
+      "tx_mode": "Native",
+      "rx_mode": "GetWave",
+      "source": "docs\\webui\\issue2\\fixtures\\F-PAM4-01.json",
+      "source_sha256": "e78555943d3eed9aeb3bb6012e9105a69fca1874e5e2ea2acf75ad67109e1899",
+      "expected_clocks": "observe actual; do not infer validity from request",
+      "bits_per_call": 0,
+      "response_probe_bits_per_call": 40,
+      "window": "all raw arrays; native ignore/eye window, no retrospective selection"
+    }
+  },
+  "legal_sources": {
+    "rx": "repository models/ibisami (BSD-3-Clause root LICENSE; IBS copyright/disclaimer retained)",
+    "tx": "pinned PyAMI tests/examples binary plus generated original model configuration/templates (PyAMI LICENSE retained)",
+    "provenance": "public tracked educational example models; not vendor hardware qualification; no unknown vendor binary"
+  },
+  "environment": {
+    "python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+    "version": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "modules": {
+      "pybert": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\__init__.py",
+      "pyibisami": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\__init__.py",
+      "pychopmarg": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\__init__.py"
+    },
+    "packages": {
+      "alabaster": "1.0.0",
+      "alembic": "1.18.5",
+      "annotated-doc": "0.0.5",
+      "annotated-types": "0.8.0",
+      "anyio": "4.14.2",
+      "ast_serialize": "0.6.0",
+      "attrs": "26.1.0",
+      "babel": "2.18.0",
+      "certifi": "2026.6.17",
+      "cffi": "2.1.0",
+      "chaco": "6.1.1",
+      "charset-normalizer": "3.4.9",
+      "click": "8.4.2",
+      "colorama": "0.4.6",
+      "colorlog": "6.12.0",
+      "coverage": "7.15.2",
+      "cryptography": "50.0.0",
+      "docutils": "0.22.4",
+      "empy": "4.2.1",
+      "enable": "6.1.0",
+      "et_xmlfile": "2.0.0",
+      "execnet": "2.1.2",
+      "fastapi": "0.162.0",
+      "fonttools": "4.63.0",
+      "greenlet": "3.5.4",
+      "h11": "0.16.0",
+      "httpcore2": "2.12.0",
+      "httpx2": "2.12.0",
+      "idna": "3.18",
+      "imagesize": "2.0.0",
+      "iniconfig": "2.3.0",
+      "Jinja2": "3.1.6",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "kiwisolver": "1.5.0",
+      "librt": "0.13.0",
+      "Mako": "1.4.2",
+      "markdown-it-py": "4.2.0",
+      "MarkupSafe": "3.0.3",
+      "mcp": "2.2.0",
+      "mcp-types": "2.2.0",
+      "mdit-py-plugins": "0.6.1",
+      "mdurl": "0.1.2",
+      "mypy": "2.3.0",
+      "mypy_extensions": "1.1.0",
+      "myst-parser": "5.1.0",
+      "narwhals": "2.27.1",
+      "numpy": "2.5.1",
+      "numpy-typing-compat": "20260602.2.5",
+      "openpyxl": "3.1.5",
+      "opentelemetry-api": "1.44.0",
+      "optuna": "4.9.0",
+      "optype": "0.18.0",
+      "packaging": "26.2",
+      "pandas": "3.0.3",
+      "parsec": "3.17",
+      "pathspec": "1.1.1",
+      "pillow": "12.3.0",
+      "pip": "26.2",
+      "pipbert": "11.1.0",
+      "plotly": "6.9.0",
+      "pluggy": "1.6.0",
+      "PyChOpMarg": "3.4.0",
+      "pycparser": "3.0",
+      "pydantic": "2.13.4",
+      "pydantic_core": "2.46.4",
+      "pyface": "8.0.0",
+      "Pygments": "2.20.0",
+      "pyibis-ami": "10.0.0",
+      "PyJWT": "2.15.0",
+      "pyparsing": "3.3.2",
+      "PySide6": "6.10.2",
+      "PySide6_Addons": "6.10.2",
+      "PySide6_Essentials": "6.10.2",
+      "pytest": "9.1.1",
+      "pytest-cov": "7.1.0",
+      "pytest-xdist": "3.8.0",
+      "python-dateutil": "2.9.0.post0",
+      "python-multipart": "0.0.32",
+      "pywin32": "312",
+      "PyYAML": "6.0.3",
+      "referencing": "0.37.0",
+      "requests": "2.34.2",
+      "roman-numerals": "4.1.0",
+      "rpds-py": "2026.6.3",
+      "scikit-rf": "2.0.1",
+      "scipy": "1.18.0",
+      "scipy-stubs": "1.18.0.1",
+      "setuptools": "83.0.0",
+      "shiboken6": "6.10.2",
+      "six": "1.17.0",
+      "snowballstemmer": "3.1.1",
+      "Sphinx": "9.1.0",
+      "sphinxcontrib-applehelp": "2.0.0",
+      "sphinxcontrib-devhelp": "2.0.0",
+      "sphinxcontrib-htmlhelp": "2.1.0",
+      "sphinxcontrib-jquery": "4.1",
+      "sphinxcontrib-jsmath": "1.0.1",
+      "sphinxcontrib-qthelp": "2.0.0",
+      "sphinxcontrib-serializinghtml": "2.0.0",
+      "sphinx_rtd_theme": "3.1.0",
+      "SQLAlchemy": "2.0.51",
+      "sse-starlette": "3.4.8",
+      "starlette": "1.6.0",
+      "tqdm": "4.69.0",
+      "traits": "7.1.0",
+      "traitsui": "8.0.0",
+      "truststore": "0.10.4",
+      "types-PyYAML": "6.0.12.20260518",
+      "typing_extensions": "4.16.0",
+      "typing-inspection": "0.4.4",
+      "tzdata": "2026.3",
+      "urllib3": "2.7.0",
+      "uvicorn": "0.52.4",
+      "xlrd": "2.0.2"
+    },
+    "PYTHONPATH": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator/src;C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator/PyAMI/src;C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator/PyChOpMarg/src"
+  },
+  "preimplementation_source_sha256": {
+    "web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "web\\archive.py": "38f2b1967488ef7b6e6cdb768863da525226bf9bf11e71ccd292cccec6e3c676",
+    "web\\com.py": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f",
+    "web\\config.py": "6b217692d34c3da2b6d83198225c0e29e1ed62e1dab895ecc0a021778c2568bf",
+    "web\\data.py": "b645caaa754ab04d44903780f491500b4972c15bcdd2b65a92fd8799a1f227c3",
+    "web\\legacy_results.py": "f10ad1c1131510eb889300149195cabbdd9fc43594f966d5dea9ce715ef77be1",
+    "web\\optimization.py": "f8b4e5294a3394dd5d8f6801e5732bd0da8be05653f74bdda7dd126f516fb261",
+    "web\\records.py": "a17ea0bc912077ad733cd4e7034ced846c9b289d0fc368a1441327578eae8093",
+    "web\\resources.py": "6def3f648adac590145ce3afef950c6b69c129fbc635ea447cf09b9c4a564009",
+    "web\\resource_data.py": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3",
+    "web\\server.py": "158c8532b8eb312f822672ae8b21a1f384be43566ba3a624ffb74587469092f2",
+    "web\\tasks.py": "c1ee0b0c268abf7b4a8dc88150822acbb8135cb556199f534d576485557816ac",
+    "web\\viterbi.py": "8c8768f9b4ada62dd370786a8d4f4129118bc14cc1eb9925012abce445d92a3f",
+    "web\\worker.py": "65d63344d6e7c4c34a005bb33f3a660b20cde66810162c6b5bc2eafac438b60f",
+    "web\\__init__.py": "b1896655d91bfaefd0cedd7ebdef5a97581e00ed934e418d9921fa7e9f10fe3c",
+    "web\\static\\app.js": "2e3d19295683b3014eab36be821fdf1090698dec2b846f3aafc1b37e111290e2",
+    "web\\static\\catalog.js": "2fe354afd9708bc5fe8d3208c3172903d11aa45ce0e1d54ef1cf0ae807f7ac00",
+    "web\\static\\draft.js": "ee831427c6f44699ca554d8c00ed3ea6108bd5f7a627a8ade63a0d7e2674eb87",
+    "web\\static\\gui-map.js": "4aa549b5ebd11004a4539c74e6127e18c726f9c359978168f0d43a77b926fbb3",
+    "web\\static\\index.html": "f8c718e93c5a5ee4c591c281b635939879caa349592a55c0c7213737e301cfee",
+    "web\\static\\optimization.js": "a5d2c40739b70c112e8ebe746f2676d7ce96980eef7b6f88f0db59243303f4e8",
+    "web\\static\\resources.js": "786b63c7cff80ecc6dbd0bb3ea21b1e4b523edb29ff8e64ddd48b4832bdf7995",
+    "web\\static\\results.js": "ca2d05e602162100475e19ba60869722438a255960e33fb036bfaff61e7ff7aa",
+    "web\\static\\settings.js": "e22755dc38872bb0113ab344f20421502a88241a9ce90a56673cc65bd1ce7049",
+    "web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "web\\static\\viterbi.js": "9f9f5b5a19988254a1a46b37f73b67113194a02d39847caad44bc90ec65b4f9b",
+    "web\\static\\workbench.css": "7afd190a03bf8149c3fca5ff7913084ab7d48a03c7a8a181b69e899922f0a442",
+    "web\\static\\workbench.js": "39bbd932f86b714c73438161aacbbe6fc10ed34c4a490953bf23a46b57fdd3ce",
+    "pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
+    "models\\bert.py": "5879ea9520feca96d0f366d1283424194d02425806605fb0069ffb1f893ee622",
+    "models\\viterbi.py": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e",
+    "models\\dfe.py": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966",
+    "utility\\sparam.py": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10",
+    "configuration.py": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a",
+    "threads\\optimization.py": "491bd4660be5697b94396f6316064e9f48bd3ea473a54ce1baf6cdea83e7a29b"
+  },
+  "tolerances": {
+    "counts_indices_shapes_masks": "exact",
+    "real_and_complex_raw": {
+      "rtol": 1e-10,
+      "atol": 1e-12
+    },
+    "seconds_axes": {
+      "rtol": 0,
+      "atol": 1e-18
+    },
+    "metadata": "exact except process/time/provenance paths; compare separately"
+  },
+  "budget": {
+    "main_calls": 22,
+    "direct": 11,
+    "worker": 11,
+    "chrome_extra_main_calls_max": 4,
+    "optimization_cases": [
+      "no free dimensions: 1 evaluation",
+      "rx ctle_mag Range 0..12 step6: 4 trials"
+    ],
+    "optuna_seed": 12345,
+    "optuna_version": "4.9.0",
+    "wall_per_task_s": 180,
+    "peak_rss_budget_bytes": 2147483648,
+    "tools_parser_calls": "separate from library/Init/GetWave/probe/trial accounting"
+  },
+  "blocked_without_fixture": [
+    "non-Windows platform",
+    "GetWave-only model",
+    "Ts4file model",
+    "model with proven valid PAM4 returned clocks"
+  ],
+  "faults": [
+    "invalid/wrong-side/missing library",
+    "model hash/path/value mismatch",
+    "GetWave-only optimizer refused",
+    "ordinary RuntimeError failed",
+    "cooperative and late cancel, exit/join, old success retained"
+  ],
+  "policy": "Save actual source bytes and hashes before each batch. Preserve failures and costs. Native GetWave parser failure is a blocker, not permission to repair the engine."
+}

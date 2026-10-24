@@ -1,0 +1,25 @@
+### Result
+{"run_id":"823bfdbb-bc37-40b6-ae56-12e3bf6b3476","input_identity_hash":"59863eea375e4c6a576bfbc4b1b89510d725b2f6b3b81a085f1d97395624c22b","summary":{"n_errs_dfe":0,"n_errs_viterbi":-1,"viterbi_availability":"disabled","chnl_dly_s":2.3812500000000002e-9,"rel_power":0.008686022199999999,"dfe_jitter_s":{"isi":3.022677677692195e-11,"dcd":8.138125295288445e-14,"pj":4.392723491143967e-12,"rj":1.3496987147683258e-12,"pjDD":1.0101010101010098e-11,"rjDD":5.682349291044721e-12,"mu_pos":2.792453183966924e-12,"mu_neg":-4.039949022062036e-12,"dj_pos":1.6417727229115727e-11,"dj_neg":-1.697566011111302e-11},"initial_level_v":0.5,"final_level_v":0.2782933695546882,"performance_Msamples_per_min":{"channel":147.3729995205317,"tx":391.8431321113509,"ctle":111.12242913496179,"ffe":503.2316910859841,"dfe":14.487549711691539,"jitter":60.89823629814844,"total":9.452228584409891}},"branch":{"modes":{"rx":"GetWave"},"requested_rx_use_clocks":true,"clock_source":"Native CDR","clock_reason":"no requested/effective valid model clocks; native fallback","rx_ffe":"bypass: Rx AMI replaces Native Rx EQ","native_DFE_CDR_AGC":"executed native run_dfe; tuner enabled prefix determines adaptation","rx_in":"actual noisy Rx input for Rx GetWave / Native; Rx Init has its own output-noise branch","noise":"rx_in","model_state":"only raw params_out are model-returned; native zero/empty placeholders are not model taps/lock/UI estimates"},"wrappers":4,"dll_calls":{"AMI_Init":1,"AMI_GetWave":377}}
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.getByRole('button',{name:'Run',exact:true}).click();
+  await page.waitForFunction(()=>window.PYBERT_RUNS.selected()?.status==='succeeded',null,{timeout:60000});
+  const run=await page.evaluate(()=>window.PYBERT_RUNS.selected());
+  const download=page.waitForEvent('download');
+  await page.getByRole('button',{name:'保存所选结果',exact:true}).click();
+  await (await download).saveAs('C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/chrome-v3/nrz.pybert_run');
+  await page.getByRole('button',{name:'Rx CTLE',exact:true}).first().click();
+  await page.screenshot({path:'C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/chrome-v3/nrz-response.png'});
+  return {run_id:run.run_id,input_identity_hash:run.input_identity_hash,summary:run.summary,branch:run.ami.actual_branch,
+    wrappers:run.ami.library_calls.length,dll_calls:run.ami.dll_calls.reduce((a,r)=>(a[r.method]=(a[r.method]||0)+1,a),{})};
+}
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8785/#ctle
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 2 errors, 0 warnings
+### Events
+- Downloading file 823bfdbb-bc37-40b6-ae56-12e3bf6b3476.pybert_run ...
+- Downloaded file 823bfdbb-bc37-40b6-ae56-12e3bf6b3476.pybert_run to ".playwright-cli\823bfdbb-bc37-40b6-ae56-12e3bf6b3476.pybert-run"

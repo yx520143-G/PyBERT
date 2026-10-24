@@ -1,0 +1,11 @@
+{
+  "raw_index_files_checked": 1048,
+  "raw_bytes_preserved": true,
+  "fixture_manifest_sha256": {
+    "docs\\webui\\issue10\\fixtures\\v1\\manifest.json": "18806cc1bc9ee1eb2cb77d37e7001911e0c47836cbad90d2a08776a3c56174f6",
+    "docs\\webui\\issue10\\fixtures\\v2-executable\\manifest.json": "adae77854ac91abab460dafe60145fb87cf96b71328762821a1b6fbb50b5fe05",
+    "docs\\webui\\issue10\\fixtures\\v3-closeout\\manifest.json": "864005ae164f71eb865bbcc7db737adb618f0b3eeaee13dc7590e2f9390cdab3",
+    "docs\\webui\\issue10\\fixtures\\v4-final\\manifest.json": "bb9a85d6d511059cf1095b1c19d4861cedd3f1663ce336e00f1a81ed2f046955"
+  },
+  "reason": "issue10 -text keeps frozen/source bytes independent of core.autocrlf"
+}

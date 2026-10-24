@@ -1,0 +1,41 @@
+async (page) => {
+  const checkpoints=[];
+  const request=async(action,expected)=>{
+    const response=page.waitForResponse(r=>r.url().endsWith('/api/normalize')&&r.request().method()==='POST');
+    await action();
+    const result=await (await response).json();
+    if(result.runtime_extensions?.values.rx_use_clocks!==expected)throw new Error('submitted/normalized clock request differs');
+    await page.waitForFunction(value=>document.getElementById('ami-clocks').checked===value&&!document.getElementById('run').disabled,expected);
+    checkpoints.push({request:expected,input_identity_hash:result.input_identity_hash});
+  };
+  await page.getByRole('button',{name:'关闭',exact:true}).click();
+  await request(()=>page.locator('#ami-clocks').uncheck(),false);
+  await page.locator('#ami-open').click();
+  await page.locator('#ami-side').selectOption('rx');
+  if(await page.locator('#ami-clocks').count()!==1||await page.locator('#ami-modal-clocks').count()!==1)throw new Error('clocks IDs not unique');
+  if(await page.locator('#ami-modal-clocks').isChecked())throw new Error('main false did not initialize modal');
+  await page.locator('#ami-modal-clocks').check();
+  if(await page.locator('#ami-clocks').isChecked())throw new Error('unapplied modal edit changed main');
+  await page.screenshot({path:'C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/p2-supplement/rx-modal-before-apply.png'});
+  await request(()=>page.locator('#ami-apply').click(),true);
+  await page.getByRole('button',{name:'关闭',exact:true}).click();
+  await page.locator('#ami-clocks').scrollIntoViewIfNeeded();
+  await page.screenshot({path:'C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/p2-supplement/main-after-rx-apply.png'});
+  await request(()=>page.locator('#ami-clocks').uncheck(),false);
+  await page.locator('#ami-open').click();
+  await page.locator('#ami-side').selectOption('rx');
+  if(await page.locator('#ami-modal-clocks').isChecked())throw new Error('main false did not resync modal');
+  await page.locator('#ami-side').selectOption('tx');
+  if(await page.locator('#ami-clocks').isDisabled()||!await page.locator('#ami-modal-clocks').isDisabled())throw new Error('Tx modal changed main Rx enable');
+  await request(()=>page.locator('#ami-apply').click(),false);
+  await page.screenshot({path:'C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/p2-supplement/tx-preserves-rx.png'});
+  await page.getByRole('button',{name:'关闭',exact:true}).click();
+  const download=page.waitForEvent('download');
+  await page.getByRole('button',{name:'Save',exact:true}).click();
+  await (await download).saveAs('C:/Users/yx/.codex/worktrees/pybert-issue10-ami/serial-bus-simulator/docs/webui/issue10/evidence/p2-supplement/saved-clocks-false.yaml');
+  await page.locator('#ami-open').click();
+  await page.locator('#ami-side').selectOption('rx');
+  if(await page.locator('#ami-modal-clocks').isChecked())throw new Error('reopened Rx modal lost saved false request');
+  if(await page.evaluate(()=>window.PYBERT_RUNS.selected()!==null))throw new Error('supplement unexpectedly published a Run');
+  return {viewport:page.viewportSize(),checkpoints,final:await page.evaluate(()=>window.PYBERT_RUNS.modelDraft())};
+}

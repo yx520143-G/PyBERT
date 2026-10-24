@@ -62,7 +62,7 @@ def create_app(tasks=None):
 
     @app.post("/api/normalize")
     def normalize(request: dict):
-        if request.get("mode", "load") not in ("defaults", "load", "patch"):
+        if request.get("mode", "load") not in ("defaults", "load", "patch", "ami_configure"):
             raise ValueError("Optimizer actions require their dedicated endpoint and a registered record ID.")
         return manager.normalize(request)
 
@@ -93,7 +93,8 @@ def create_app(tasks=None):
         body = {**request, "mode": action}
         if action == "use_eq":
             record = manager.optimization(request["record_id"])
-            body["optimization"] = {**record, "current_config": request["config"]}
+            body["optimization"] = {**record, "current_config": request["config"], "current_draft_revision": request.get("draft_revision"),
+                                    "current_bindings": request.get("resource_bindings", {})}
         return manager.normalize(body)
 
     @app.get("/api/optimizations/{opt_id}/archive")
@@ -141,6 +142,14 @@ def create_app(tasks=None):
         content = base64.b64decode(request["content_base64"], validate=True)
         with manager.lock:
             return manager.resources.add(request["name"], content, {"kind": "browser_upload"})
+
+    @app.post("/api/models")
+    def upload_model(request: dict):
+        with manager.lock:
+            if request.get("directory"):
+                return manager.resources.local_model(request["directory"])
+            files = [(row["relative_path"], base64.b64decode(row["content_base64"], validate=True)) for row in request["files"]]
+            return manager.resources.model_bundle(files, {"kind": "browser_directory_upload"})
 
     @app.post("/api/resources/local")
     def local_resource(request: dict):

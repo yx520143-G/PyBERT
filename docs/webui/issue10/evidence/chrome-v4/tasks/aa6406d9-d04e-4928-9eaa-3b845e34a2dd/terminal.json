@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "error": "name 'json' is not defined",
+  "error_type": "NameError",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 83, in run_worker\n    terminal = {\"status\": \"succeeded\", \"result\": run_optimization(task_id, request, directory, cancelled, emit)}\n                                                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\optimization.py\", line 361, in run_optimization\n    p = prepare(request, model_report, check, emit)\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\optimization.py\", line 248, in prepare\n    before = json.loads(json.dumps(runtime))\n             ^^^^\nNameError: name 'json' is not defined. Did you forget to import 'json'?\n",
+  "main_invocations": 0,
+  "cancel_observed": false,
+  "cancel_requested": false
+}

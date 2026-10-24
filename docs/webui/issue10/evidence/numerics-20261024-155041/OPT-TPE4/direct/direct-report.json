@@ -1,0 +1,84 @@
+{
+  "status": "succeeded",
+  "result": {
+    "fom": 4.451971155131284,
+    "trials": 4
+  },
+  "elapsed_s": 0.46871161460876465,
+  "main_calls": 0,
+  "helper_calls": 4,
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "started_at": 1792828484.0455709,
+      "returned": true,
+      "elapsed_s": 0.0002818107604980469
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828484.09654,
+      "returned": true,
+      "elapsed_s": 0.0002644062042236328
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828484.0968878,
+      "returned": true,
+      "elapsed_s": 0.00019812583923339844
+    },
+    {
+      "method": "AMI_Init",
+      "started_at": 1792828484.1077077,
+      "returned": true,
+      "elapsed_s": 9.655952453613281e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828484.1591647,
+      "returned": true,
+      "elapsed_s": 0.0002143383026123047
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828484.1594813,
+      "returned": true,
+      "elapsed_s": 0.00019741058349609375
+    },
+    {
+      "method": "AMI_Init",
+      "started_at": 1792828484.1695867,
+      "returned": true,
+      "elapsed_s": 9.608268737792969e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828484.2201977,
+      "returned": true,
+      "elapsed_s": 0.00017452239990234375
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828484.2204423,
+      "returned": true,
+      "elapsed_s": 0.0001571178436279297
+    },
+    {
+      "method": "AMI_Init",
+      "started_at": 1792828484.2297704,
+      "returned": true,
+      "elapsed_s": 8.654594421386719e-05
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828484.2783897,
+      "returned": true,
+      "elapsed_s": 0.00021409988403320312
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828484.2786903,
+      "returned": true,
+      "elapsed_s": 0.00021147727966308594
+    }
+  ]
+}

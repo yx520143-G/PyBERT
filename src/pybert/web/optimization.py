@@ -1,6 +1,7 @@
 """Bounded native coopt adapter. Candidates never mutate an editable draft or a Run."""
 
 import io
+import copy
 import importlib.metadata
 import os
 import math
@@ -24,7 +25,8 @@ from pybert.web.archive import (
 )
 from pybert.web.config import extensions, input_hash, load_config, new_engine, snapshot, validate
 from pybert.web.data import adapter_sha, source_identity
-from pybert.web.resources import inspect_channels, projection
+from pybert.web.resources import inspect_resources, projection
+from pybert.web.ami import Execution, configure, AMICancelled
 
 MAX_OUTER = 256
 MAX_INNER = 256
@@ -77,6 +79,84 @@ class CancelBridge(OptThread):
         return False
 
 
+def ami_plan(p):
+    """Bound the existing TPE path before any Init, with the original search semantics."""
+    dimensions = []
+    frequency_samples = math.ceil((p.f_max * 1e9 + p.f_step * 1e6) / (p.f_step * 1e6))
+    mmse_samples = math.ceil((.5 / (p.ui / p.nspui)) / 100e6 + .5)
+    if frequency_samples > 200_001 or mmse_samples > 200_001:
+        raise ValueError(f"AMI optimization grid budget refused before allocation: channel={frequency_samples}/200001, optimizer={mmse_samples}/200001.")
+    for side in ("tx", "rx"):
+        if getattr(p, side + "_use_ami"):
+            cfg = getattr(p, "_" + side + "_cfg", None)
+            if cfg is None or not cfg.fetch_param_val(["Reserved_Parameters", "Init_Returns_Impulse"]):
+                raise ValueError(f"{side}: unsupported Init-based optimization; valid Init response required (GetWave-only is unsupported).")
+            tuners = getattr(p, side + "_ami_tap_tuners")
+            names = [t.name for t in tuners]
+            if len(names) != len(set(names)):
+                raise ValueError(f"{side}: native optimizer aliases hierarchical paths; collision unsupported.")
+            for tuner in tuners:
+                if tuner.enabled:
+                    _range_count(tuner.min_val, tuner.max_val, tuner.step, f"{side}.{tuner.branch_names}")
+                    original = next(t for t in cfg.mk_tap_tuners() if t.branch_names == tuner.branch_names)
+                    if tuner.min_val < original.min_val or tuner.max_val > original.max_val:
+                        raise ValueError(f"{side}: search bounds exceed parser range: {tuner.branch_names}")
+                    if tuner.is_int and any(not float(v).is_integer() for v in (tuner.min_val, tuner.max_val, tuner.step)):
+                        raise ValueError(f"{side}: integer search bounds/step must be integral; no silent rounding.")
+                    dimensions.append({"side": side, "path": list(tuner.branch_names), **{k: getattr(tuner, k) for k in ("min_val", "max_val", "step", "value")}})
+        elif side == "tx":
+            for i, tuner in enumerate(p.tx_tap_tuners):
+                if tuner.enabled:
+                    _range_count(tuner.min_val, tuner.max_val, tuner.step, f"native tx {i}")
+                    dimensions.append({"side": "native tx", "index": i})
+        elif p.ctle_enable_tune:
+            _range_count(p.min_mag_tune, p.max_mag_tune, p.step_mag_tune, "native CTLE")
+            dimensions.append({"side": "native Rx CTLE"})
+    trials = p.ami_opt_trials if dimensions else 1
+    samples = p.nui * p.nspui
+    if not p.seed or not 1 <= trials <= 256 or samples > 2_000_000:
+        raise ValueError("AMI optimizer requires nonzero seed, <=256 trials and <=2000000 time samples; inputs unchanged.")
+    reserved = samples * 8 * (20 + trials * 8)
+    if reserved > MAX_ARRAY_BYTES:
+        raise ValueError("AMI trial raw export budget exceeded; reduce explicit input/budget before Tune.")
+    if not p.rx_use_ami:
+        # Also bound the native Rx sub-solve used by the same coopt path.
+        count = 1
+        for i, tuner in enumerate(p.ffe_tap_tuners):
+            if tuner.enabled and not p.use_mmse:
+                count *= _range_count(tuner.min_val, tuner.max_val, tuner.step, f"native FFE {i}")
+        if count > MAX_INNER:
+            raise ValueError("AMI/native FFE inner grid budget exceeded.")
+    return {"outer_count": trials, "rx_inner_count": 1, "dimensions": dimensions, "sampler": "Optuna TPE",
+            "seed": p.seed, "optuna_version": importlib.metadata.version("optuna"),
+            "reserved_export_bytes_upper": reserved, "scope": "original Init response score; no GetWave/BER/COM qualification"}
+
+
+def ami_use(p, runtime, candidate):
+    from pybert.web.ami import schema
+
+    if candidate.get("current_draft_revision") != candidate.get("draft_revision"):
+        raise ValueError("AMI candidate input revision is stale; restore its input or run Tune for the current revision.")
+    current_hash = input_hash({"config": candidate["current_config"], "runtime_extensions": runtime, "resource_bindings": candidate.get("current_bindings", {})})
+    if current_hash != candidate["input_identity_hash"]:
+        raise ValueError("AMI candidate input/model/parameter identity is stale.")
+    models = runtime.get("values", {}).get("ami_models", {})
+    for side, patch in candidate["ami"]["dynamic_patch"].items():
+        if models.get(side, {}).get("model_hash") != patch["model_hash"]:
+            raise ValueError("AMI Use model content hash mismatch.")
+        for row in patch["parameters"]:
+            target = next((r for r in models[side]["parameters"] if r["path"] == row["path"]), None)
+            if target is None or not target["editable"]:
+                raise ValueError("AMI Use parameter path is unknown/read-only.")
+            target["value"] = row["value"]
+    schema(models)
+    load_config(p, candidate["current_config"] | candidate["use_patch"])
+    runtime["values"]["eq_application"] = {"version": 1, "opt_id": candidate["opt_id"], "candidate_id": candidate["selected_candidate_id"],
+                                           "before_input_hash": candidate["input_hash"], "after_input_hash": input_hash(snapshot(p))}
+    return runtime, {"action": "explicit AMI dynamic parameter patch + applicable Native Use EQ", "candidate_id": candidate["selected_candidate_id"],
+                     "search_ranges_and_budget": "retained", "DFE_weights_applied": False}
+
+
 def _range_count(lo, hi, step, field):
     if any(type(v) not in (int, float) or not math.isfinite(v) for v in (lo, hi, step)) or lo > hi or step <= 0:
         raise ValueError(f"{field}: finite min<=max and step>0 required.")
@@ -90,6 +170,8 @@ def _range_count(lo, hi, step, field):
 def preflight(p):
     c = snapshot(p)
     validate(c | {"enable_com": False}, snapshot(new_engine()), execution=True)
+    if p.tx_use_ami or p.rx_use_ami:
+        return ami_plan(p)
     if c["mod_type"] not in ("NRZ", "PAM-4"):
         raise ValueError("Native optimization supports NRZ/PAM4 in #8; Duo-binary is unavailable here.")
     if c["rx_n_taps"] < 1:
@@ -153,7 +235,7 @@ def preflight(p):
                        "max_time_samples": 2_000_000, "max_frequency_samples": 200_001, "max_array_bytes": MAX_ARRAY_BYTES}}
 
 
-def prepare(request):
+def prepare(request, model_report=None, check=lambda: False, emit=lambda *a, **k: None):
     p = new_engine()
     config = request["config"]
     if input_hash(config) != request["input_hash"]:
@@ -162,7 +244,17 @@ def prepare(request):
     if request.get("input_identity_hash") != identity:
         raise ValueError("Optimization full input identity hash mismatch.")
     load_config(p, config)
-    if snapshot(p) != config:
+    if config["tx_sel"] == "ibis" or config["rx_sel"] == "ibis":
+        runtime = extensions(request.get("runtime_extensions", {}))
+        before = copy.deepcopy(runtime)
+        report = configure(p, config, runtime, request.get("frozen_resources", []), check=check, emit=emit)
+        if model_report is not None:
+            model_report.update(report)
+        if runtime != before:
+            raise ValueError("Complete frozen AMI parameters/search required before Tune.")
+    effective = snapshot(p)
+    effective.update({key: config[key] for side in ("tx", "rx") for key in (side + "_dll_file", side + "_ami_file", side + "_ibis_file")})
+    if effective != config:
         raise ValueError("Optimization requires the complete normalized effective input.")
     runtime = extensions(request.get("runtime_extensions", {}))
     if "rlm" not in runtime.get("values", {}):
@@ -197,13 +289,26 @@ def optimizer_action(p, runtime, mode, candidate=None):
         p.rlm = runtime.get("values", {}).get("rlm", p.rlm)
         return runtime, {"optimization_plan": preflight(p)}
     if mode == "reset_eq":
+        if p.tx_use_ami and p.rx_use_ami:
+            return runtime, {"action": "Native Reset: no applicable Native side; AMI state unchanged"}
+        previous_initial = runtime.get("values", {}).get("optimizer_values", {})
+        before = snapshot(p)
         handler_patch(p)
+        if p.tx_use_ami or p.rx_use_ami:
+            after = snapshot(p)
+            for side, keys in (("tx", ("tx_tap_tuners",)), ("rx", ("ffe_tap_tuners", "peak_freq_tune", "peak_mag_tune", "rx_bw_tune", "ctle_enable_tune"))):
+                if getattr(p, side + "_use_ami"):
+                    after.update({key: before[key] for key in keys})
+            load_config(p, after)
         runtime.setdefault("version", 1)
         runtime.setdefault("values", {})["optimizer_values"] = {
-            "tx": [t.value for t in p.tx_tap_tuners], "ffe": [t.value for t in p.ffe_tap_tuners]}
+            "tx": previous_initial.get("tx", [t.value for t in p.tx_tap_tuners]) if p.tx_use_ami else [t.value for t in p.tx_tap_tuners],
+            "ffe": previous_initial.get("ffe", [t.value for t in p.ffe_tap_tuners]) if p.rx_use_ami else [t.value for t in p.ffe_tap_tuners]}
         return runtime, {"action": "native MyHandler.do_reset_eq", "DFE_weights_applied": False}
     if not candidate or candidate.get("status") != "succeeded":
         raise ValueError("Use EQ requires a completed successful optimization record.")
+    if candidate.get("ami"):
+        return ami_use(p, runtime, candidate)
     frozen = prepare(candidate | {"config": candidate["requested_input"]})
     if (p.rx_n_taps, p.rx_n_pre) != (frozen.rx_n_taps, frozen.rx_n_pre):
         raise ValueError(f"Use EQ requires matching Rx FFE topology: frozen Ntaps={frozen.rx_n_taps}, Npre={frozen.rx_n_pre}; "
@@ -251,19 +356,27 @@ def run_optimization(opt_id, request, directory, check, emit):
                         "pulse": "optimization model; MMSE cursor=1 equivalent pulse, not dfe_out/CDR/BER/standard COM"}}
     observations = {}
     arrays = {}
+    execution = Execution(check)
+    model_report = {}
     try:
-        p = prepare(request)
+        p = prepare(request, model_report, check, emit)
         p.observe(lambda e: emit("phase", phase=str(e.new)), "status")
         p.observe(lambda e: emit("log", text=e.new[len(e.old):].rstrip()), "console_log")
         plan = preflight(p)
         observations = NativeObservations(plan["reserved_export_bytes_upper"])
-        record.update(plan=plan, effective_input=snapshot(p), score_mode="MMSE" if p.use_mmse else "cursor/ISI grid")
-        record["resources"] = inspect_channels(request["config"], request.get("frozen_resources", []))
+        effective = snapshot(p)
+        effective.update({key: request["config"][key] for side in ("tx", "rx") for key in (side + "_ibis_file", side + "_dll_file", side + "_ami_file")})
+        record.update(plan=plan, effective_input=effective, score_mode="MMSE" if p.use_mmse and not p.rx_use_ami else "cursor/ISI")
+        if model_report:
+            record["ami"] = {"models": model_report, "scope": "real AMI Init / coopt TPE; not GetWave BER/COM qualification"}
+            record["producer"] = "pybert.threads.optimization.coopt (AMI TPE)"
+        record["resources"] = inspect_resources(request["config"], request.get("frozen_resources", []))
         projected = projection(request["config"], request.get("frozen_resources", []))
         p.trait_setq(ch_file=projected["ch_file"], ch_files=projected["ch_files"], enable_com=False)
         p.opt_thread = CancelBridge(check)  # Instance(OptThread), never start a second numerical thread.
         emit("phase", phase=f"native coopt; {plan['outer_count']} outer candidates; inner {plan['rx_inner_count']}")
-        result = coopt(p, observations=observations)
+        with execution.capture():
+            result = coopt(p, observations=observations)
         tx, peak, rx, fom, valid, _, _ = result
         rows = observations.get("candidates", [])
         if not valid or not rows or not math.isfinite(fom) or fom <= 0 or fom == -1000:
@@ -282,14 +395,29 @@ def run_optimization(opt_id, request, directory, check, emit):
         if len(arrays["t_ns_opt"]) != len(arrays["ctle_out_h_tune"]) or len(arrays["channel_t_ns"]) != len(arrays["p_chnl"]):
             raise ValueError("Native pulse axis length mismatch; no truncated success published.")
         record["use_patch"] = handler_patch(p, result)
+        if model_report:
+            if p.tx_use_ami:
+                record["use_patch"].pop("tx_taps", None)
+            if p.rx_use_ami:
+                for key in ("rx_taps", "ctle_enable", "peak_freq", "peak_mag", "rx_bw"):
+                    record["use_patch"].pop(key, None)
+            record["ami"]["dynamic_patch"] = {side: {"model_hash": runtime_model["model_hash"], "parameters": [
+                {"path": list(t.branch_names), "value": getattr(p, "_" + side + "_cfg").fetch_param_val(list(t.branch_names))}
+                for t in getattr(p, side + "_ami_tap_tuners") if t.enabled]} for side, runtime_model in
+                request["runtime_extensions"]["values"]["ami_models"].items() if getattr(p, side + "_use_ami")}
         record.update(status="succeeded", selected_candidate_id=f"candidate-{winner['index']:06d}", fom=float(fom),
                       display_db=float(20 * safe_log10(fom)), candidates=[],
                       selected_values={"tx": list(map(float, tx)), "ffe": list(map(float, rx)),
                                        "dfe": [float(t.value) for t in p.dfe_tap_tuners], "ctle_db": float(peak)})
     except Exception as err:
-        record.update(status="cancelled" if isinstance(err, OptimizationCancelled) else "failed", error=str(err), error_type=type(err).__name__)
+        record.update(status="cancelled" if isinstance(err, (OptimizationCancelled, AMICancelled)) else "failed", error=str(err), error_type=type(err).__name__)
         raise
     finally:
+        if execution.calls or model_report:
+            execution.write(directory, model_report)
+            if record.get("ami"):
+                record["ami"].update(execution=execution.calls, library_calls=execution.library_calls, dll_calls=execution.dll_calls)
+            arrays.update(execution.arrays)
         for row in observations.get("candidates", []):
             prefix = f"candidate_{row['index']:06d}"
             for key in ("pulse", "tx_weights", "rx_weights", "dfe_weights"):
@@ -298,7 +426,8 @@ def run_optimization(opt_id, request, directory, check, emit):
             score = row["fom"]
             record.setdefault("candidates", []).append({"candidate_id": f"candidate-{row['index']:06d}",
                 "fom": score if math.isfinite(score) else None, "ctle_db": row["peak_mag"], "arrays_prefix": prefix,
-                "availability": "available" if math.isfinite(score) and score > -1000 and all(np.isfinite(row[k]).all() for k in ("pulse", "tx_weights", "rx_weights", "dfe_weights")) else "invalid native candidate"})
+                "availability": "available" if math.isfinite(score) and score > -1000 and all(np.isfinite(row[k]).all() for k in ("pulse", "tx_weights", "rx_weights", "dfe_weights")) else "invalid native candidate",
+                **({"ami_values": row["ami_values"]} if "ami_values" in row else {})})
         context = observations.get("mmse_context", {})
         record["mmse_context"] = {key: value for key, value in context.items() if not isinstance(value, np.ndarray)}
         for key, value in context.items():
@@ -327,6 +456,12 @@ def run_optimization(opt_id, request, directory, check, emit):
             "Hz" if key == "mmse_f_hz" else "s" if key == "mmse_t_s" else
             "V (native model; MMSE cursor normalized)" if key in ("ctle_out_h_tune", "p_chnl", "curs_amp", "clocks_tune") or key.endswith(("_pulse", "_p_tx")) else "1"),
             "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR", "window": "entire producer array"} for key in arrays}
+        for key in execution.arrays:
+            field = key.rsplit(".", 1)[1]
+            record["array_contracts"][key].update(producer="original run_ami_model", unit=(
+                "s" if field == "clocks" or field.endswith("_t_s") else "V/sample" if field.endswith("h") else "V"),
+                axis=key + "_t_s" if key + "_t_s" in arrays else None,
+                clock_basis="raw model clock output, not optimizer recovered clocks" if field == "clocks" else "original helper sample interval")
         record["nonfinite_arrays"] = {key: int(np.count_nonzero(~np.isfinite(value))) for key, value in arrays.items() if not np.isfinite(value).all()}
         if record["status"] == "succeeded" and (sum(a.nbytes for a in arrays.values()) > MAX_ARRAY_BYTES or any(not np.isfinite(a).all() for a in arrays.values())):
             record.update(status="failed", error="Nonfinite or over-budget native arrays; candidate unavailable.")
@@ -436,13 +571,13 @@ def validate_record(record, arrays):
             not np.array_equal(arrays["curs_ix"], [axis[peak_ix], axis[peak_ix]]) or
             not np.array_equal(arrays["curs_amp"], [0., pulse[peak_ix]])):
         raise ValueError("Optimization cursor/selected pulse/axis disagree with the native marker.")
-    expected_rx = record["requested_input"]["rx_n_taps"] if record["requested_input"]["use_mmse"] else 100
-    if (len(values["tx"]) != 6 or len(values["ffe"]) != expected_rx or
+    expected_rx = record["requested_input"]["rx_n_taps"] if record["requested_input"]["use_mmse"] or record["requested_input"]["rx_use_ami"] else 100
+    if (len(values["tx"]) != (0 if record["requested_input"]["tx_use_ami"] else 6) or len(values["ffe"]) != expected_rx or
             not np.array_equal(values["tx"], arrays[prefix + "_tx_weights"]) or
             not np.array_equal(values["ffe"], arrays[prefix + "_rx_weights"]) or values["ctle_db"] != winner["ctle_db"] or
             not np.array_equal(arrays["ctle_out_h_tune"], arrays[prefix + "_pulse"])):
         raise ValueError("Selected optimization values/response disagree with native candidate arrays.")
-    if record.get("optimization_raw_schema") == 2 and record["requested_input"]["use_mmse"]:
+    if record.get("optimization_raw_schema") == 2 and record["requested_input"]["use_mmse"] and not record["requested_input"]["rx_use_ami"]:
         calls = record.get("mmse_calls", [])
         if len(calls) != len(rows):
             raise ValueError("Incomplete actual MMSE input contexts.")

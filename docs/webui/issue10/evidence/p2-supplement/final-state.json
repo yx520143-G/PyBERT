@@ -1,0 +1,49 @@
+{
+  "active_task_id": null,
+  "current_task_id": "6c855c83-0cca-4fc8-8276-1f1251409a61",
+  "runs": [],
+  "com_tasks": [],
+  "resources": [
+    {
+      "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+      "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+      "format": ".model",
+      "files": [
+        {
+          "relative_path": "example_rx.ami",
+          "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+          "bytes": 4067
+        },
+        {
+          "relative_path": "example_rx.ibs",
+          "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+          "bytes": 2804
+        },
+        {
+          "relative_path": "example_rx_x86_amd64.dll",
+          "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+          "bytes": 363008
+        }
+      ],
+      "bytes": 369879,
+      "source": {
+        "kind": "local_directory",
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+      },
+      "original_name": "model bundle",
+      "permission": "explicitly supplied for this local session",
+      "parse_status": "not checked; binary loading requires a child task"
+    }
+  ],
+  "references": [],
+  "optimizations": [],
+  "result_budget": {
+    "temporary_runs": 2,
+    "temporary_policy": "oldest temporary success evicted; save archive to retain",
+    "temporary_array_bytes_per_record": 805306368,
+    "reference_records": 4,
+    "reference_array_bytes": 1073741824,
+    "reference_used_bytes": 0,
+    "temporary_file_bytes": 0
+  }
+}

@@ -159,26 +159,24 @@ def validate(config, defaults, complete=True, execution=False):
         raise ValueError("fStep exceeds fMax.")
     for key, values in {
         "mod_type": ("NRZ", "PAM-4", "Duo-binary"),
-        "tx_sel": ("native",),
-        "rx_sel": ("native",),
-        "tx_eq_sel": ("Native",),
-        "rx_eq_sel": ("Native",),
+        "tx_sel": ("native", "ibis"),
+        "rx_sel": ("native", "ibis"),
+        "tx_eq_sel": ("Native", "IBIS-AMI"),
+        "rx_eq_sel": ("Native", "IBIS-AMI"),
         "inter_sel": ("native", "single", "multiple"),
     }.items():
         if c[key] not in values:
             raise ValueError(f"{key}={c[key]}: active IBIS/AMI is unsupported; see #10.")
-    for key in (
-        "tx_use_ami",
-        "rx_use_ami",
-    ):
-        if c[key]:
-            raise ValueError(f"{key}: active capability is unsupported; see #9/#10.")
+    for side in ("tx", "rx"):
+        if c[side + "_eq_sel"] == "IBIS-AMI" and c[side + "_sel"] != "ibis":
+            raise ValueError(f"{side}: IBIS-AMI EQ requires an explicit IBIS electrical selection.")
     from pybert.web.viterbi import plan
 
     plan(c, execution=execution)
     if execution and c["impulse_length"] != 0:
         raise ValueError("impulse_length: nonzero ns is blocked by native inconsistent units; use automatic 0.")
-    if execution and c["ctle_enable"] and c["ctle_sel"] != "Native":
+    tx_gw = c["tx_eq_sel"] == "IBIS-AMI" and c["tx_use_getwave"]
+    if execution and c["rx_eq_sel"] == "Native" and (c["ctle_enable"] or tx_gw) and c["ctle_sel"] != "Native":
         raise ValueError("ctle_sel=File with CTLE enabled is blocked by the native File path; see #4.")
     if c["use_ctle_file"] != (c["ctle_sel"] == "File"):
         raise ValueError("ctle_sel and use_ctle_file conflict.")
@@ -218,6 +216,17 @@ ConfigLoader.add_constructor(
     "tag:yaml.org,2002:python/object:pybert.configuration.PyBertCfg",
     lambda loader, node: loader.construct_mapping(node, deep=True),
 )
+
+
+def yaml_metadata(text):
+    """Read only inert JSON comments, including before the parent freezes resource bytes."""
+    metadata = {}
+    for line in text.splitlines():
+        if line.startswith("# pybert-web-runtime-v1: "):
+            metadata = json.loads(line.split(": ", 1)[1])
+            if not isinstance(metadata, dict) or set(metadata) - {"runtime_extensions", "resource_bindings"}:
+                raise ValueError("Unknown versioned Web configuration metadata.")
+    return metadata
 
 
 def parse_yaml(text):
@@ -308,7 +317,7 @@ def extensions(value):
     values = value["values"]
     if "rx_viterbi_fec" in values:
         raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
-    if set(values) - {"rlm", "rx_use_clocks", "ami_opt_trials", "tx_ami_params", "rx_ami_params", "optimizer_values", "eq_application"}:
+    if set(values) - {"rlm", "rx_use_clocks", "ami_opt_trials", "tx_ami_params", "rx_ami_params", "optimizer_values", "eq_application", "ami_models"}:
         raise ValueError("Unknown runtime extension.")
     for key in ("rx_use_clocks",):
         if key in values and type(values[key]) is not bool:
@@ -332,17 +341,21 @@ def extensions(value):
         if not isinstance(row, dict) or row.get("version") != 1 or not all(isinstance(row.get(k), str) for k in ("opt_id", "candidate_id", "before_input_hash", "after_input_hash")):
             raise ValueError("eq_application: versioned opt/candidate/input provenance required.")
     json.dumps(value, allow_nan=False)
+    if "ami_models" in values:
+        from pybert.web.ami import schema
+
+        schema(values["ami_models"])
     return value
 
 
 def binding_data(value):
-    if not isinstance(value, dict) or set(value) - {"ch_file", "ch_files", "com_cfg_file"}:
+    if not isinstance(value, dict) or set(value) - {"ch_file", "ch_files", "com_cfg_file", "tx_model_bundle", "rx_model_bundle"}:
         raise ValueError("resource_bindings: expected known channel/COM field bindings.")
     for key, item in value.items():
         if key == "ch_files" and not isinstance(item, list):
             raise ValueError("ch_files bindings must be an ordered list, including unbound null positions.")
         ids = item if key == "ch_files" else [item]
-        if any(rid is not None and (not isinstance(rid, str) or not re.fullmatch(r"[a-f0-9]{64}\.(?:s(?:1|2|4|8|12)p|csv|txt|xls|xlsx)", rid)) for rid in ids):
+        if any(rid is not None and (not isinstance(rid, str) or not re.fullmatch(r"[a-f0-9]{64}\.(?:s(?:1|2|4|8|12)p|csv|txt|xls|xlsx|model)", rid)) for rid in ids):
             raise ValueError(f"{key}: invalid resource identity.")
     return value
 
@@ -357,7 +370,8 @@ def unresolved_references(config, bindings):
             if missing:
                 result[key] = missing
         elif value and not bindings.get(key):
-            result[key] = value
+            if key not in RESOURCE_FIELDS or not bindings.get(key[:2] + "_model_bundle"):
+                result[key] = value
     return result
 
 
@@ -370,16 +384,20 @@ def load_config(engine, config, defaults=None):
     ordered.update({key: int(ordered[key]) for key in INTEGERS})
     paths = {key: ordered[key] for key in RESOURCE_FIELDS}
     ordered.update({key: "" for key in RESOURCE_FIELDS})
+    # Loading ordinary draft state must never load a library or silently fall back through an observer.
+    modes = {f"{side}_{name}": ordered[f"{side}_{name}"] for side in ("tx", "rx") for name in ("sel", "eq_sel", "use_ami")}
+    ordered.update({f"{side}_{name}": value for side in ("tx", "rx") for name, value in
+                    (("sel", "native"), ("eq_sel", "Native"), ("use_ami", False))})
     with tempfile.TemporaryDirectory(prefix="pybert-config-") as tmp:
         path = Path(tmp) / "input.yaml"
         path.write_text(yaml_text(ordered), encoding="utf-8")
         engine.load_configuration(path)
-    engine.trait_setq(**paths)
+    engine.trait_setq(**paths, **modes)
     validate(snapshot(engine), defaults)
     return engine
 
 
-def normalize(request):
+def normalize(request, check=lambda: False, emit=lambda *a, **k: None):
     """A full load or an ordered observer patch; each call owns one fresh engine."""
     if "rx_viterbi_fec" in request:
         raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
@@ -395,13 +413,9 @@ def normalize(request):
         supplied = (parse_yaml(request["yaml"]) if "yaml" in request else
                     parse_legacy(base64.b64decode(request["legacy_base64"], validate=True)) if "legacy_base64" in request else request["config"])
         if "yaml" in request:
-            for line in request["yaml"].splitlines():
-                if line.startswith("# pybert-web-runtime-v1: "):
-                    extra = json.loads(line.split(": ", 1)[1])
-                    if not isinstance(extra, dict) or set(extra) - {"runtime_extensions", "resource_bindings"}:
-                        raise ValueError("Unknown versioned Web configuration metadata.")
-                    runtime = extra.get("runtime_extensions", {})
-                    bindings = request.get("resource_bindings", extra.get("resource_bindings", {}))
+            extra = yaml_metadata(request["yaml"])
+            runtime = extra.get("runtime_extensions", runtime)
+            bindings = request.get("resource_bindings", extra.get("resource_bindings", {}))
         supplied, report = import_config(supplied, defaults)
         runtime, bindings = extensions(runtime), binding_data(bindings)
         validate(supplied, defaults, complete=False)
@@ -428,15 +442,33 @@ def normalize(request):
                 if key == "use_ctle_file":
                     engine.ctle_sel = proposed["ctle_sel"]
             validate(snapshot(engine), defaults)
-    elif mode in ("optimizer_plan", "use_eq", "reset_eq"):
+    elif mode in ("optimizer_plan", "use_eq", "reset_eq", "ami_configure"):
         from pybert.web.optimization import optimizer_action
 
         runtime, bindings = extensions(runtime), binding_data(bindings)
         load_config(engine, request["config"], defaults)
-        runtime, report = optimizer_action(engine, runtime, mode, request.get("optimization"))
+        if mode != "ami_configure":
+            if request.get("frozen_resources") and mode == "optimizer_plan":
+                from pybert.web.ami import configure
+
+                configure(engine, request["config"], runtime, request["frozen_resources"], check=check, emit=emit)
+            runtime, report = optimizer_action(engine, runtime, mode, request.get("optimization"))
     else:
         raise ValueError(f"Unknown normalize mode {mode}.")
     config = snapshot(engine)
+    if mode in ("optimizer_plan", "use_eq", "reset_eq"):
+        config.update({key: request["config"][key] for key in RESOURCE_FIELDS})
+    for side in ("tx", "rx"):
+        config[side + "_use_ami"] = config[side + "_eq_sel"] == "IBIS-AMI"
+    engine.trait_setq(**{side + "_use_ami": config[side + "_use_ami"] for side in ("tx", "rx")})
+    model_report = {}
+    if request.get("frozen_resources") or any(config[side + "_sel"] == "ibis" for side in ("tx", "rx")):
+        from pybert.web.ami import configure
+
+        model_report = configure(engine, config, runtime, request.get("frozen_resources", []), discover=True, allow_unbound=True, check=check, emit=emit)
+        # Keep user resource references separate from paths projected into this child's immutable bundle.
+        effective = snapshot(engine)
+        config.update({k: v for k, v in effective.items() if k not in RESOURCE_FIELDS})
     runtime = extensions(runtime)
     return {
         "config": config,
@@ -450,7 +482,8 @@ def normalize(request):
         "import_report": report,
         "unresolved_references": unresolved_references(config, bindings),
         "warnings": warnings(config),
-        "runtime_status": {key: "inactive in Native Run; retained for #8/#10" for key in runtime.get("values", {})},
+        "ami_models": model_report,
+        "runtime_status": {key: "frozen requested model/clocks/search settings; actual execution reported per task" if key in ("ami_models", "rx_use_clocks", "ami_opt_trials") else "optimization setting; ordinary Run does not consume" for key in runtime.get("values", {})},
     }
 
 
@@ -464,7 +497,8 @@ def warnings(config):
     ]
     if any(row[0] for row in rows[prefix:]):
         messages.append("Enabled DFE rows after the first disabled row are retained but not consumed.")
-    if not config["ctle_enable"]:
+    tx_gw = config["tx_use_ami"] and config["tx_use_getwave"]
+    if not config["ctle_enable"] and config["rx_eq_sel"] == "Native" and not tx_gw:
         messages.append("CTLE bypassed; File/native preset is inactive.")
     if config["cdr_type"] == "Mueller-Muller":
         messages.append("Mueller-Muller uses a fixed native lock point, not acquisition dynamics.")
@@ -472,12 +506,16 @@ def warnings(config):
         messages.append("Native package replaces ordinary Rs/Cout/Rin/Cin; those stored presets are inactive.")
     if config["pkg_enable"] and config["include_fext"]:
         messages.append("Package + FEXT is unavailable pending joint validation.")
-    if config["ctle_enable"] and config["ctle_sel"] == "File":
+    if config["rx_eq_sel"] == "Native" and (config["ctle_enable"] or tx_gw) and config["ctle_sel"] == "File":
         messages.append("Enabled CTLE File is blocked by the native File path.")
     if config["impulse_length"] != 0:
         messages.append("Nonzero impulse_length is saved but blocked at Run due to native inconsistent units.")
-    if config["tx_use_ts4"] or config["rx_use_ts4"]:
-        messages.append("On-die TS4 presets are inactive in Native electrical mode; no IBIS/AMI resources loaded.")
+    if any(config[side + "_use_ts4"] and config[side + "_sel"] == "native" for side in ("tx", "rx")):
+        messages.append("On-die TS4 presets are inactive on Native electrical sides.")
+    if tx_gw:
+        messages.append("Tx GetWave native limitation: rx_in is diagnostic; downstream noise path differs; dual GetWave discards clocks.")
+    if config["rx_use_ami"]:
+        messages.append("Rx AMI replaces Native CTLE/RxFFE. Effective clocks and Native CDR/DFE/AGC branch require actual returned evidence.")
     if config["enable_com"]:
         messages.append("COM is deferred to a separate joined child with its own parameters; no current EQ/noise/bitrate injection.")
     if config["rx_use_viterbi"]:

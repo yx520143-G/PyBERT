@@ -16,6 +16,74 @@ class Resources:
         self.root.mkdir(parents=True, exist_ok=True)
         self.items = {}
 
+    def model_bundle(self, files, source):
+        """Store explicit files as one content identity, preserving relative dependencies."""
+        if not files or len(files) > 256:
+            raise ValueError("Model bundle requires 1..256 explicitly supplied files.")
+        content = {}
+        for name, data in files:
+            name = name.replace("\\", "/")
+            if (name.startswith("/") or ":" in name or any(p in ("", ".", "..") for p in name.split("/"))
+                    or name.casefold() in {p.casefold() for p in content}):
+                raise ValueError("Model bundle paths must be unique safe relative paths.")
+            if not data or len(data) > 64 * 1024**2:
+                raise ValueError("Model file is empty or exceeds 64 MiB.")
+            content[name] = data
+        if sum(map(len, content.values())) > 256 * 1024**2:
+            raise ValueError("Model bundle exceeds 256 MiB.")
+        manifest = [{"relative_path": name, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+                    for name, data in sorted(content.items())]
+        import json
+
+        sha = hashlib.sha256(json.dumps(manifest, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+        resource_id = sha + ".model"
+        directory = self.root / resource_id
+        for name, data in content.items():
+            path = directory / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            if path.exists() and path.read_bytes() != data:
+                raise ValueError("Stored model resource content mismatch.")
+            path.write_bytes(data)
+        row = {"resource_id": resource_id, "sha256": sha, "format": ".model", "files": manifest,
+               "bytes": sum(map(len, content.values())), "source": source, "original_name": "model bundle",
+               "permission": "explicitly supplied for this local session", "parse_status": "not checked; binary loading requires a child task"}
+        self.items[resource_id] = row
+        return copy.deepcopy(row)
+
+    def local_model(self, directory):
+        base = Path(directory)
+        if not base.is_absolute() or not base.is_dir():
+            raise ValueError("Model bundle needs an explicit existing absolute directory.")
+        base = base.resolve()
+        paths = sorted(p for p in base.rglob("*") if p.is_file())
+        if any(not p.resolve().is_relative_to(base) for p in paths):
+            raise ValueError("Model dependency escapes the explicit bundle directory.")
+        return self.model_bundle([(p.relative_to(base).as_posix(), p.read_bytes()) for p in paths],
+                                 {"kind": "local_directory", "path": str(base)})
+
+    def for_models(self, config, bindings, *, allow_unavailable=False):
+        rows = []
+        for side in ("tx", "rx"):
+            field = side + "_model_bundle"
+            rid = bindings.get(field)
+            active = config.get(side + "_sel") == "ibis" or config.get(side + "_eq_sel") == "IBIS-AMI"
+            if not rid:
+                if active:
+                    raise ValueError(f"{side}: model resource unbound; explicitly bind the complete model directory.")
+                continue
+            row = copy.deepcopy(self.items.get(rid))
+            if not row or row["format"] != ".model":
+                if allow_unavailable:
+                    continue
+                raise ValueError(f"{side}: model resource unavailable; rebind original content.")
+            directory = self.root / rid
+            for file in row["files"]:
+                if digest(directory / file["relative_path"]) != file["sha256"]:
+                    raise ValueError(f"{side}: model dependency hash mismatch.")
+            row.update(field=field, index=None, reference=config.get(side + "_ibis_file", ""), worker_path=str(directory))
+            rows.append(row)
+        return rows
+
     def add(self, name, content, source):
         name = Path(name.replace("\\", "/")).name
         suffix = Path(name).suffix.lower()
@@ -72,7 +140,7 @@ class Resources:
         return row
 
     def for_run(self, config, bindings):
-        rows = []
+        rows = self.for_models(config, bindings)
         if config["inter_sel"] == "single":
             rows.append(
                 self.freeze(bindings.get("ch_file"), "ch_file", config["ch_file"])
@@ -135,6 +203,13 @@ def projection(config, rows):
     return result
 
 
+def inspect_resources(config, rows):
+    """Keep frozen input order while enriching channel rows and retaining model manifests."""
+    channels = {(r["field"], r["index"]): r for r in inspect_channels(config, rows)}
+    return [channels[(r["field"], r["index"])] if r["field"] in ("ch_file", "ch_files") else r
+            for r in rows if r["field"] in ("ch_file", "ch_files", "tx_model_bundle", "rx_model_bundle")]
+
+
 def inspect_channels(config, rows):
     """Read content/port metadata in the same worker as the consuming engine."""
     import numpy as np
@@ -143,6 +218,8 @@ def inspect_channels(config, rows):
 
     report = []
     for row in rows:
+        if row["format"] == ".model":
+            continue  # The model adapter validates every dependency within its directory.
         if digest(Path(row["worker_path"])) != row["sha256"]:
             raise ValueError("Worker resource content hash mismatch.")
         if row["field"] not in ("ch_file", "ch_files"):

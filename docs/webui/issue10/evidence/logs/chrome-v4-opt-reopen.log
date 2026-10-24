@@ -1,0 +1,12 @@
+### Ran Playwright code
+```js
+await fileChooser.setFiles(["C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\docs\\webui\\issue10\\evidence\\chrome-v4\\OPT-tpe4.pybert_opt"])
+```
+### Page
+- Page URL: http://127.0.0.1:8785/#ctle
+- Page Title: PyBERT · Signal Chain Workbench
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T08-51-01-713Z.yml)
+### Events
+- Downloading file ref-0964a1df-5ca0-4581-9614-4e01b89e0415.pybert_run ...
+- Downloaded file ref-0964a1df-5ca0-4581-9614-4e01b89e0415.pybert_run to ".playwright-cli\ref-0964a1df-5ca0-4581-9614-4e01b89e0415.pybert-run"

@@ -1,0 +1,9 @@
+### Ran Playwright code
+```js
+await page.getByRole('button', { name: 'IBIS / AMI' }).click();
+```
+### Page
+- Page URL: http://127.0.0.1:8785/
+- Page Title: PyBERT · Signal Chain Workbench
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-24T08-11-23-145Z.yml)

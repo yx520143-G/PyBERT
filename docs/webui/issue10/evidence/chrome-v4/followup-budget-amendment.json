@@ -1,0 +1,9 @@
+{
+  "recorded_utc": "2026-10-24T08:46:01Z",
+  "reason": "Two pre-coopt fixed-Tune failures retained: structural JSON ordering false rejection; then owner omitted copy import (NameError), fixed before any evaluation.",
+  "additional_Main": 0,
+  "remaining_coopt_invocations": 2,
+  "remaining_evaluations": 5,
+  "submitted_optimization_tasks_including_preflight_failures_max": 4,
+  "original_coopt_task_limit_clarification": "two coopt producer invocations; failed requests have zero producer calls/evaluations and are accounted separately"
+}

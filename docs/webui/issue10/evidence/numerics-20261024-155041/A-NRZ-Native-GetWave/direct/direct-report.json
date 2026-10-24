@@ -1,0 +1,32 @@
+{
+  "status": "succeeded",
+  "elapsed_s": 8.31599235534668,
+  "main_calls": 1,
+  "helper_calls": 1,
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "started_at": 1792828275.1038525,
+      "returned": true,
+      "elapsed_s": 0.0001621246337890625
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828275.1525464,
+      "returned": true,
+      "elapsed_s": 0.0002052783966064453
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828275.152826,
+      "returned": true,
+      "elapsed_s": 0.00015234947204589844
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828275.1530888,
+      "returned": true,
+      "elapsed_s": 0.1456584930419922
+    }
+  ]
+}

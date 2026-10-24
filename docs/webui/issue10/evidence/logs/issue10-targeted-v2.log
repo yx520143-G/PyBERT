@@ -1,0 +1,73 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-issue10-ami\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 14 items
+
+tests/test_web_ami.py::test_hierarchical_parser_metadata_and_setter PASSED [  7%]
+tests/test_web_ami.py::test_bundle_rejects_unsafe_relative_paths[../escape.dll] PASSED [ 14%]
+tests/test_web_ami.py::test_bundle_rejects_unsafe_relative_paths[C:/model.dll] PASSED [ 21%]
+tests/test_web_ami.py::test_bundle_rejects_unsafe_relative_paths[/model.dll] PASSED [ 28%]
+tests/test_web_ami.py::test_bundle_rejects_unsafe_relative_paths[a//b] PASSED [ 35%]
+tests/test_web_ami.py::test_bundle_rejects_unsafe_relative_paths[a/./b] PASSED [ 42%]
+tests/test_web_ami.py::test_bundle_directory_and_dependency_hash PASSED  [ 50%]
+tests/test_web_ami.py::test_unbound_active_never_runs PASSED             [ 57%]
+tests/test_web_ami.py::test_native_vs_getwave_disabled_ctle_file PASSED  [ 64%]
+tests/test_web_ami.py::test_dynamic_schema_and_fec_boundary PASSED       [ 71%]
+tests/test_web_ami.py::test_changed_ibis_reference_cannot_execute_old_selection PASSED [ 78%]
+tests/test_web_ami.py::test_ami_grid_budget_rejected_before_allocation[bit_rate-1000000.0] FAILED [ 85%]
+tests/test_web_ami.py::test_ami_grid_budget_rejected_before_allocation[f_step-1e-06] PASSED [ 92%]
+tests/test_web_ami.py::test_missing_models_restore_input_but_cannot_run PASSED [100%]
+
+================================== FAILURES ===================================
+_____ test_ami_grid_budget_rejected_before_allocation[bit_rate-1000000.0] _____
+
+field = 'bit_rate', value = 1000000.0
+
+    @pytest.mark.parametrize("field,value", [("bit_rate", 1e6), ("f_step", 1e-6)])
+    def test_ami_grid_budget_rejected_before_allocation(field, value):
+        from pybert.web.config import new_engine
+        from pybert.web.optimization import ami_plan
+    
+        p = new_engine()
+>       setattr(p, field, value)
+
+tests\test_web_ami.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <traits.trait_types.Range object at 0x000001DD0E3645D0>
+object = <pybert.pybert.PyBERT object at 0x000001DD0E67B890>, name = 'bit_rate'
+value = 1000000.0
+
+    def error(self, object, name, value):
+        """Raises a TraitError exception.
+    
+        This method is called by the validate() method when an assigned value
+        is not valid. Raising a TraitError exception either notifies the user
+        of the problem, or, in the case of compound traits, provides a chance
+        for another trait handler to handle to validate the value.
+    
+        Parameters
+        ----------
+        object : object
+            The object whose attribute is being assigned.
+        name : str
+            The name of the attribute being assigned.
+        value : object
+            The proposed new value for the attribute.
+        """
+>       raise TraitError(
+            object, name, self.full_info(object, name, value), value
+        )
+E       traits.trait_errors.TraitError: The 'bit_rate' trait of a PyBERT instance must be 0.1 <= a floating point number <= 250.0, but a value of 1000000.0 <class 'float'> was specified.
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\traits\base_trait_handler.py:74: TraitError
+============================= slowest 3 durations =============================
+0.09s call     tests/test_web_ami.py::test_ami_grid_budget_rejected_before_allocation[bit_rate-1000000.0]
+0.08s call     tests/test_web_ami.py::test_native_vs_getwave_disabled_ctle_file
+0.06s call     tests/test_web_ami.py::test_changed_ibis_reference_cannot_execute_old_selection
+=========================== short test summary info ===========================
+FAILED tests/test_web_ami.py::test_ami_grid_budget_rejected_before_allocation[bit_rate-1000000.0]
+================== 1 failed, 13 passed, 35 warnings in 1.71s ==================

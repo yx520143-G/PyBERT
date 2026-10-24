@@ -104,6 +104,7 @@
       base = result.config; normalized = result; patches = []; runtimeExtensions=result.runtime_extensions;
       window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
       window.PYBERT_RESOURCES?.importReport(result);
+      window.dispatchEvent(new CustomEvent('pybert-model-state',{detail:result}));
       ui.replaceDraft(toDraft(base)); captured = toNative(ui.getDraft());
       persistNative();
       normalizedRevision = expectedRevision;
@@ -189,7 +190,7 @@
     }
     if (id === 'overview') {
       empty(`Record ${recordId(selected)} · source run ${selected.run_id} · ${selected.effective_input.mod_type || 'legacy input unknown'} · ${selected.input_hash.slice(0,12)}`);
-      $('analysis-info').innerHTML = `<pre>${esc(JSON.stringify({summary:selected.summary,window:selected.window,warnings:selected.warnings,legacy:selected.legacy,lifecycle:selected.lifecycle,native_sha:selected.native_sha,adapter_sha:selected.adapter_sha},null,2))}</pre><details><summary>保存时子功能快照 / 来源</summary><pre>${esc(JSON.stringify({saved_at:selected.archive_saved_at,subfunctions:selected.saved_subfunctions},null,2))}</pre></details>`;
+      $('analysis-info').innerHTML = `<pre>${esc(JSON.stringify({summary:selected.summary,window:selected.window,ami:selected.ami,warnings:selected.warnings,legacy:selected.legacy,lifecycle:selected.lifecycle,native_sha:selected.native_sha,adapter_sha:selected.adapter_sha},null,2))}</pre><details><summary>保存时子功能快照 / 来源</summary><pre>${esc(JSON.stringify({saved_at:selected.archive_saved_at,subfunctions:selected.saved_subfunctions},null,2))}</pre></details>`;
       return;
     }
     if (id === 'jitter.info') {
@@ -356,6 +357,7 @@
     $('config-name').textContent=name || 'Untitled';
     window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
     window.PYBERT_RESOURCES?.importReport(result);
+    window.dispatchEvent(new CustomEvent('pybert-model-state',{detail:result}));
     ui.replaceLoadedDraft(toDraft(base));captured=toNative(ui.getDraft());persistNative();
   }
   $('config-file').addEventListener('change',async event => {
@@ -396,6 +398,8 @@
   $('help').addEventListener('click',() => $('help-dialog').showModal()); $('close-help').addEventListener('click',() => $('help-dialog').close());
   $('quit').addEventListener('click',() => { disconnected=true; controls(); $('task-state').textContent='Disconnected. You may close this tab; backend tasks continue.'; });
   window.PYBERT_RUNS={api,selected:()=>selected,references:()=>references.slice(),refresh:()=>poll(true),
+    modelDraft:()=>({config:toNative(ui.getDraft()),...extraInput(),draft_revision:revision}),
+    configureModel:async body=>{if(activeTask || normalizing)throw new Error('计算槽忙；等待实际退出。');clearTimeout(timer);normalizing=api('normalize',{mode:'ami_configure',...body});controls();try{const result=await normalizing;applyLoadedInput(result,sourceRecordId,logicalName,replayGuard);return result;}finally{normalizing=null;controls();}},
     optimizationInput:async()=>{clearTimeout(timer);const input=await normalizeDraft();return {...input,draft_revision:revision,source_record_id:sourceRecordId,replay_guard:replayGuard};},
     optimizerAction:async(action,record_id)=>{const input=await normalizeDraft(),sourceRevision=revision;const result=await api(`optimizer-actions/${action}`,{config:input.config,...extraInput(),record_id,draft_revision:sourceRevision});return {...result,source_draft_revision:sourceRevision};},
     applyOptimizer:result=>{applyLoadedInput(result,sourceRecordId,logicalName,replayGuard);controls();},

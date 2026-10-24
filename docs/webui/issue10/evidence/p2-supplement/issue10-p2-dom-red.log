@@ -1,0 +1,26 @@
+[
+  {
+    "name": "unique IDs",
+    "passed": false,
+    "error": "Expected values to be strictly equal:\n\n22 !== 23\n"
+  },
+  {
+    "name": "Rx modal submits its own clock request",
+    "passed": false,
+    "error": "Expected values to be strictly equal:\n\nfalse !== true\n"
+  },
+  {
+    "name": "main request initializes Rx modal",
+    "passed": false,
+    "error": "Expected values to be strictly equal:\n\nfalse !== true\n"
+  },
+  {
+    "name": "Tx rendering leaves Rx main enabled",
+    "passed": false,
+    "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+  },
+  {
+    "name": "Tx Apply preserves Rx request",
+    "passed": true
+  }
+]

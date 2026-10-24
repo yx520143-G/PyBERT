@@ -1,0 +1,132 @@
+{
+  "A-NRZ-ADAPT-GetWave": {
+    "tasks": {
+      "direct": {
+        "task_id": "87775e30-96da-4292-804d-ff6aafa611ed",
+        "operation": "run",
+        "state": "failed",
+        "phase": "failed",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792829023.6618752,
+        "request_hash": "42a0e3be19e9f352e2da7e3c6a40d4c3af720207fa76e46e860e3534c42e1a48",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-160343-A-NRZ-ADAPT-GetWave-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792829029.6430905,
+        "exitcode": 0,
+        "finished_at": 1792829029.6430917,
+        "error": "'tuple' object has no attribute 'name'",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\tools\\verify_web_ami.py\", line 79, in direct\n    my_run_simulation(p, initial_run=True, update_plots=False, observations=observations, decoding=decoding)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 394, in my_run_simulation\n    param_vals.update(get_numeric_values(AmiName(\"\"), nd))\n                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 381, in get_numeric_values\n    pname_hier = AmiName(prefix + node.name)\n                                  ^^^^^^^^^\nAttributeError: 'tuple' object has no attribute 'name'\n",
+        "name": "A-NRZ-ADAPT-GetWave",
+        "peak_rss_bytes": 290447360,
+        "outer_elapsed_s": 5.997763633728027
+      },
+      "worker": {
+        "task_id": "0f360977-34de-4e28-9d4e-22b753e8b6ae",
+        "operation": "run",
+        "state": "failed",
+        "phase": "failed",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 08:03:54.657539+00:00]: PyBERT: Rx IBIS-AMI model initialization results:\nInput parameters: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 2)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 1)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 2)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: 0 dB boost at 5 GHz\n\tDFE: mode: 2  vout: 1  gain: 0.1\n\t\ttap1: 0\n\t\ttap2: 0\n\t\ttap3: 0\n\t\ttap4: 0\n\t\ttap5: 0"
+        ],
+        "created_at": 1792829029.672564,
+        "request_hash": "42a0e3be19e9f352e2da7e3c6a40d4c3af720207fa76e46e860e3534c42e1a48",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-160343-A-NRZ-ADAPT-GetWave-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792829035.680383,
+        "exitcode": 0,
+        "finished_at": 1792829035.6803837,
+        "error": "'tuple' object has no attribute 'name'",
+        "error_type": "AttributeError",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 117, in run_worker\n    my_run_simulation(\n    ~~~~~~~~~~~~~~~~~^\n        p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        decoding=decoding,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 394, in my_run_simulation\n    param_vals.update(get_numeric_values(AmiName(\"\"), nd))\n                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 381, in get_numeric_values\n    pname_hier = AmiName(prefix + node.name)\n                                  ^^^^^^^^^\nAttributeError: 'tuple' object has no attribute 'name'\n",
+        "name": "A-NRZ-ADAPT-GetWave",
+        "peak_rss_bytes": 288952320,
+        "outer_elapsed_s": 6.01117730140686
+      }
+    },
+    "comparison": {
+      "status": "not compared; actual path failed"
+    }
+  }
+}
