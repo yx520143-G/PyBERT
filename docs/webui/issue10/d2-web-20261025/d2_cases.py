@@ -275,7 +275,8 @@ class ArchiveCases(unittest.TestCase):
         add("bits", np.array([0, 1, 0, 1]))
         add("bit_errs_dfe", np.array([], dtype=int))
         captured = {"dfe": dict(bits_out=np.array([0, 1, 0, 1]), bits_test=np.array([0, 1]),
-                               bits_reference=np.array([0, 1]), auto_corr=np.array([1.]), errors=np.array([], dtype=int),
+                               bits_reference=np.array([0, 1]), auto_corr=np.array([1.]),
+                               errors=np.array([], dtype=int),
                                count=0, bit_delay=0, test_start_bit=2, test_stop_bit=4,
                                reference_start_bit=2, reference_stop_bit=4)}
         viterbi.extend(engine, captured, arrays, run)
