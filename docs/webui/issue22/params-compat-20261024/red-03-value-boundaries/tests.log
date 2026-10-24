@@ -1,0 +1,61 @@
+test_full_paths_and_case_insensitive_taps (pure_ami_tests.GetWaveParameterTests.test_full_paths_and_case_insensitive_taps) ... ok
+test_non_numeric_mixed_and_table_values_are_unavailable (pure_ami_tests.GetWaveParameterTests.test_non_numeric_mixed_and_table_values_are_unavailable) ... ERROR
+test_empty_returns_have_no_taps (pure_ami_tests.GetWaveParameterTests.test_empty_returns_have_no_taps) ... 
+  test_empty_returns_have_no_taps (pure_ami_tests.GetWaveParameterTests.test_empty_returns_have_no_taps) (params=[]) ... ERROR
+test_ambiguous_node_is_rejected (pure_ami_tests.GetWaveParameterTests.test_ambiguous_node_is_rejected) ... ERROR
+test_invalid_syntax_still_fails (pure_ami_tests.GetWaveParameterTests.test_invalid_syntax_still_fails) ... ok
+
+======================================================================
+ERROR: test_non_numeric_mixed_and_table_values_are_unavailable (pure_ami_tests.GetWaveParameterTests.test_non_numeric_mixed_and_table_values_are_unavailable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 87, in test_non_numeric_mixed_and_table_values_are_unavailable
+    values, taps = load_processor()([
+                   ~~~~~~~~~~~~~~~~^^
+        '(rx (note Ready) (mixed 1 Ready) (TapStatus "N/A") (empty) '
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        '(Table (0 1) (1 2)) (weight (Table (0 1) (1 2))) '
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        '(cdr_locked 1) (cdr_ui 1e-10) (tap2 -0.2))'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ])
+    ^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 99, in getwave_parameters
+    param_vals.update(numeric_values((), node))
+                      ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 95, in numeric_values
+    return {path: [float(value) for value in values]}
+                   ~~~~~^^^^^^^
+ValueError: could not convert string to float: 'Ready'
+
+======================================================================
+ERROR: test_empty_returns_have_no_taps (pure_ami_tests.GetWaveParameterTests.test_empty_returns_have_no_taps) (params=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 99, in test_empty_returns_have_no_taps
+    values, taps = consume(params)
+                   ~~~~~~~^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 98, in getwave_parameters
+    for node in parsed[0][1]:
+                ~~~~~~^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_ambiguous_node_is_rejected (pure_ami_tests.GetWaveParameterTests.test_ambiguous_node_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 105, in test_ambiguous_node_is_rejected
+    load_processor()(["(rx (bad 1 (child 2)))"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 99, in getwave_parameters
+    param_vals.update(numeric_values((), node))
+                      ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 95, in numeric_values
+    return {path: [float(value) for value in values]}
+                   ~~~~~^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'tuple'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.116s
+
+FAILED (errors=3)

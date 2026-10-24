@@ -1,0 +1,115 @@
+test_aligned_vectors_can_change_length_between_calls (pure_ami_tests.GetWaveParameterTests.test_aligned_vectors_can_change_length_between_calls) ... ok
+test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) ... 
+  test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) (later='(rx)') ... FAIL
+  test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) (later='(rx (tap1 Missing))') ... FAIL
+  test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) (later='(rx (tap2 2))') ... ERROR
+  test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) (later='(rx (tap1 2) (gain 3))') ... ERROR
+test_tap_columns_must_align_within_each_call (pure_ami_tests.GetWaveParameterTests.test_tap_columns_must_align_within_each_call) ... 
+  test_tap_columns_must_align_within_each_call (pure_ami_tests.GetWaveParameterTests.test_tap_columns_must_align_within_each_call) (params=['(rx (tap1 1 2) (tap2 10))']) ... FAIL
+  test_tap_columns_must_align_within_each_call (pure_ami_tests.GetWaveParameterTests.test_tap_columns_must_align_within_each_call) (params=['(rx (tap1 1 2) (tap2 10))', '(rx (tap1 3) (tap2 20 30))']) ... FAIL
+test_duplicate_paths_are_rejected_without_overwriting (pure_ami_tests.GetWaveParameterTests.test_duplicate_paths_are_rejected_without_overwriting) ... 
+  test_duplicate_paths_are_rejected_without_overwriting (pure_ami_tests.GetWaveParameterTests.test_duplicate_paths_are_rejected_without_overwriting) (text='(rx (tap1 1) (tap1 2))') ... FAIL
+  test_duplicate_paths_are_rejected_without_overwriting (pure_ami_tests.GetWaveParameterTests.test_duplicate_paths_are_rejected_without_overwriting) (text='(rx (left (tap1 1) (tap1 2)))') ... FAIL
+  test_duplicate_paths_are_rejected_without_overwriting (pure_ami_tests.GetWaveParameterTests.test_duplicate_paths_are_rejected_without_overwriting) (text='(rx (tap1 1) (tap1 Missing))') ... FAIL
+test_model_root_cannot_change_between_calls (pure_ami_tests.GetWaveParameterTests.test_model_root_cannot_change_between_calls) ... FAIL
+
+======================================================================
+ERROR: test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) (later='(rx (tap2 2))')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 124, in test_numeric_paths_cannot_disappear_or_appear_between_calls
+    load_processor()(["(rx (tap1 1))", later])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 119, in getwave_parameters
+    param_vals[path].extend(values)
+    ~~~~~~~~~~^^^^^^
+KeyError: ('tap2',)
+
+======================================================================
+ERROR: test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) (later='(rx (tap1 2) (gain 3))')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 124, in test_numeric_paths_cannot_disappear_or_appear_between_calls
+    load_processor()(["(rx (tap1 1))", later])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\src\pybert\models\bert.py", line 119, in getwave_parameters
+    param_vals[path].extend(values)
+    ~~~~~~~~~~^^^^^^
+KeyError: ('gain',)
+
+======================================================================
+FAIL: test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) (later='(rx)')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 123, in test_numeric_paths_cannot_disappear_or_appear_between_calls
+    with self.subTest(later=later), self.assertRaisesRegex(ValueError, "paths changed.*call 2"):
+                                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) (later='(rx (tap1 Missing))')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 123, in test_numeric_paths_cannot_disappear_or_appear_between_calls
+    with self.subTest(later=later), self.assertRaisesRegex(ValueError, "paths changed.*call 2"):
+                                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_tap_columns_must_align_within_each_call (pure_ami_tests.GetWaveParameterTests.test_tap_columns_must_align_within_each_call) (params=['(rx (tap1 1 2) (tap2 10))'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 131, in test_tap_columns_must_align_within_each_call
+    with self.subTest(params=params), self.assertRaisesRegex(ValueError, "tap lengths.*call 1"):
+                                      ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_tap_columns_must_align_within_each_call (pure_ami_tests.GetWaveParameterTests.test_tap_columns_must_align_within_each_call) (params=['(rx (tap1 1 2) (tap2 10))', '(rx (tap1 3) (tap2 20 30))'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 131, in test_tap_columns_must_align_within_each_call
+    with self.subTest(params=params), self.assertRaisesRegex(ValueError, "tap lengths.*call 1"):
+                                      ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_duplicate_paths_are_rejected_without_overwriting (pure_ami_tests.GetWaveParameterTests.test_duplicate_paths_are_rejected_without_overwriting) (text='(rx (tap1 1) (tap1 2))')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 137, in test_duplicate_paths_are_rejected_without_overwriting
+    with self.subTest(text=text), self.assertRaisesRegex(ValueError, "duplicate.*tap1"):
+                                  ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_duplicate_paths_are_rejected_without_overwriting (pure_ami_tests.GetWaveParameterTests.test_duplicate_paths_are_rejected_without_overwriting) (text='(rx (left (tap1 1) (tap1 2)))')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 137, in test_duplicate_paths_are_rejected_without_overwriting
+    with self.subTest(text=text), self.assertRaisesRegex(ValueError, "duplicate.*tap1"):
+                                  ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_duplicate_paths_are_rejected_without_overwriting (pure_ami_tests.GetWaveParameterTests.test_duplicate_paths_are_rejected_without_overwriting) (text='(rx (tap1 1) (tap1 Missing))')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 137, in test_duplicate_paths_are_rejected_without_overwriting
+    with self.subTest(text=text), self.assertRaisesRegex(ValueError, "duplicate.*tap1"):
+                                  ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_model_root_cannot_change_between_calls (pure_ami_tests.GetWaveParameterTests.test_model_root_cannot_change_between_calls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue22-ami-params\serial-bus-simulator\tests\test_ami_getwave_params.py", line 141, in test_model_root_cannot_change_between_calls
+    with self.assertRaisesRegex(ValueError, "root.*call 2"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.239s
+
+FAILED (failures=8, errors=2)

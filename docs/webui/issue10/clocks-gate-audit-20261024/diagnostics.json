@@ -1,0 +1,160 @@
+{
+  "scope": "saved data, source AST and plain Python stubs only; no qualification",
+  "datasets": {
+    "direct": {
+      "raw_npz_sha256": "0899f82f17d9a6511f2b9f8596bfcaea4a4530828d72b59b622231ad2f27660b",
+      "clock_count": 15000,
+      "finite": true,
+      "zero_values": 2496,
+      "minus_one_values": 0,
+      "zero_intervals": 2184,
+      "negative_intervals": 312,
+      "complete_48_slot_blocks": 312,
+      "first40_positive_and_increasing_each": true,
+      "last8_zero_each": true,
+      "trailing24_positive_increasing": true,
+      "diagnostic_position_subset_count": 12504,
+      "diagnostic_position_subset_monotonic": true,
+      "first_s": 4.000000000000002e-09,
+      "last_s": 1.2543000000000822e-06,
+      "subset_is_not_a_qualified_or_repaired_vector": true,
+      "params_out_count": 375,
+      "first_root": "example_rx",
+      "first_leaf_names": [
+        "dfe_tap1",
+        "dfe_tap2",
+        "dfe_tap3",
+        "dfe_tap4",
+        "dfe_tap5"
+      ],
+      "leaf_runtime_type": "tuple",
+      "visitor_failure": {
+        "type": "AttributeError",
+        "message": "'tuple' object has no attribute 'name'"
+      },
+      "tap_filter_failure": {
+        "type": "AttributeError",
+        "message": "'str' object has no attribute 'tolower'"
+      },
+      "AmiName_is_runtime_str": true,
+      "str_has_contains": false,
+      "weak_native_clock_predicate": true,
+      "pairwise_operand_shapes": [
+        [
+          15000
+        ],
+        [
+          14999
+        ]
+      ],
+      "pairwise_scalar_sentinel_check_failure": {
+        "type": "ValueError",
+        "message": "The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()"
+      },
+      "historical_DLL_calls_not_new": {
+        "AMI_Init": 1,
+        "AMI_GetWave": 377
+      }
+    },
+    "worker": {
+      "raw_npz_sha256": "0899f82f17d9a6511f2b9f8596bfcaea4a4530828d72b59b622231ad2f27660b",
+      "clock_count": 15000,
+      "finite": true,
+      "zero_values": 2496,
+      "minus_one_values": 0,
+      "zero_intervals": 2184,
+      "negative_intervals": 312,
+      "complete_48_slot_blocks": 312,
+      "first40_positive_and_increasing_each": true,
+      "last8_zero_each": true,
+      "trailing24_positive_increasing": true,
+      "diagnostic_position_subset_count": 12504,
+      "diagnostic_position_subset_monotonic": true,
+      "first_s": 4.000000000000002e-09,
+      "last_s": 1.2543000000000822e-06,
+      "subset_is_not_a_qualified_or_repaired_vector": true,
+      "params_out_count": 375,
+      "first_root": "example_rx",
+      "first_leaf_names": [
+        "dfe_tap1",
+        "dfe_tap2",
+        "dfe_tap3",
+        "dfe_tap4",
+        "dfe_tap5"
+      ],
+      "leaf_runtime_type": "tuple",
+      "visitor_failure": {
+        "type": "AttributeError",
+        "message": "'tuple' object has no attribute 'name'"
+      },
+      "tap_filter_failure": {
+        "type": "AttributeError",
+        "message": "'str' object has no attribute 'tolower'"
+      },
+      "AmiName_is_runtime_str": true,
+      "str_has_contains": false,
+      "weak_native_clock_predicate": true,
+      "pairwise_operand_shapes": [
+        [
+          15000
+        ],
+        [
+          14999
+        ]
+      ],
+      "pairwise_scalar_sentinel_check_failure": {
+        "type": "ValueError",
+        "message": "The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()"
+      },
+      "historical_DLL_calls_not_new": {
+        "AMI_Init": 1,
+        "AMI_GetWave": 377
+      }
+    }
+  },
+  "direct_worker_raw_exact_arrays": 11,
+  "wrapper_expression_stub": {
+    "kind": "Python-only contract example, not a model/DLL/fixture",
+    "IBIS_valid_prefixes": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        2.0,
+        3.0
+      ]
+    ],
+    "original_wrapper_result": [
+      0.0,
+      1.0,
+      -1.0,
+      0.0
+    ],
+    "demonstrates": "whole buffer append plus UI truncation retains terminator/padding and loses later valid ticks"
+  },
+  "current_core_AST_equals_saved_execution_source": true,
+  "inputs_unchanged": true,
+  "input_sha256": {
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-clocks-gate-audit\\serial-bus-simulator\\src\\pybert\\models\\bert.py": "5879ea9520feca96d0f366d1283424194d02425806605fb0069ffb1f893ee622",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\parser.py": "2c2e688e3257476d38c175bcd37bb8050b253ad822139c55001eff920ba65594",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\model.py": "6dd6ae1f9381c596bb25606199a6fe404c24aa1ffbcefc4d5ffb5e4df22b6be3",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-clocks-gate-audit\\serial-bus-simulator\\docs\\webui\\issue10\\evidence\\numerics-20261024-160343\\A-NRZ-ADAPT-GetWave\\direct\\ami-execution.json": "47905dcbafb7376208256cbd30fed6226c21466e9679b6eb52d1eaef14f3c670",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-clocks-gate-audit\\serial-bus-simulator\\docs\\webui\\issue10\\evidence\\numerics-20261024-160343\\A-NRZ-ADAPT-GetWave\\direct\\ami-execution.npz": "0899f82f17d9a6511f2b9f8596bfcaea4a4530828d72b59b622231ad2f27660b",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-clocks-gate-audit\\serial-bus-simulator\\docs\\webui\\issue10\\evidence\\numerics-20261024-160343\\A-NRZ-ADAPT-GetWave\\worker\\ami-execution.json": "6eb9cfdd24f6f94091dc071454886f06b5be10032a543bbaa43de5751f9a8096",
+    "C:\\Users\\yx\\.codex\\worktrees\\pybert-clocks-gate-audit\\serial-bus-simulator\\docs\\webui\\issue10\\evidence\\numerics-20261024-160343\\A-NRZ-ADAPT-GetWave\\worker\\ami-execution.npz": "0899f82f17d9a6511f2b9f8596bfcaea4a4530828d72b59b622231ad2f27660b"
+  },
+  "new_calls": {
+    "Main": 0,
+    "COM": 0,
+    "coopt": 0,
+    "AMI_Init": 0,
+    "AMI_GetWave": 0,
+    "real_library_load": 0,
+    "engine_construction": 0,
+    "native_numerical_helper": 0
+  },
+  "pure_parser_calls": 750,
+  "elapsed_s": 0.47033169999485835,
+  "numpy_version": "2.5.1"
+}

@@ -45,7 +45,7 @@ from scipy.interpolate import interp1d
 
 from chaco.api import Plot
 
-from pyibisami.ami.parser import AmiLeaf, AmiName, AmiNode, ami_parse
+from pyibisami.ami.parser import AmiName, ami_parse
 from pychopmarg.utility import loc_curs
 
 from ..common import Rvec
@@ -78,6 +78,70 @@ AmiFloats: TypeAlias = tuple[AmiName, list["float | 'AmiFloats'"]]
 DEBUG           = False
 MIN_BATHTUB_VAL = 1.0e-12
 gFc             = 1.0e6  # Corner frequency of high-pass filter used to model capacitive coupling of periodic noise.
+
+
+def getwave_parameters(params: list[str]) -> tuple[dict[tuple[str, ...], list[float]], list[list[float]]]:
+    """Consume numeric histories by full path below the model root.
+
+    Blank returns, empty/nonnumeric/mixed-atom leaves and Table rows are unavailable
+    and omitted as whole values. A node mixing named children with atoms/rows is rejected.
+    Numeric paths must persist across calls. Tap columns must align within each
+    call; their common length may change between calls. No history is padded.
+    """
+    parsed = [ami_parse(text) if text.strip() else None for text in params]
+    if not parsed:
+        return {}, []
+    model_root = next((tree[0] for tree in parsed if tree is not None), None)
+
+    def collect_numeric(prefix, node, current, seen):
+        if isinstance(node, list):  # The pinned parser represents Table rows as plain lists.
+            return
+        name, values = node
+        path = prefix + (name,)
+        if path in seen:
+            raise ValueError(f"duplicate AMI parameter path {path!r}")
+        seen.add(path)
+        if not values or all(isinstance(value, list) for value in values):
+            return
+        if all(isinstance(value, tuple) for value in values):
+            for child in values:
+                collect_numeric(path, child, current, seen)
+            return
+        if any(isinstance(value, (tuple, list)) for value in values):
+            raise ValueError(f"mixed AMI node at {path!r}")
+        try:
+            numbers = [float(value) for value in values]
+        except ValueError:
+            return
+        current[path] = numbers
+
+    param_vals: dict[tuple[str, ...], list[float]] = {}
+    tap_paths: list[tuple[str, ...]] = []
+    tap_weightss: list[list[float]] = []
+    for call, tree in enumerate(parsed, 1):
+        root, nodes = tree if tree is not None else (model_root, [])
+        if root != model_root:
+            raise ValueError(f"AMI model root changed at call {call}")
+        current: dict[tuple[str, ...], list[float]] = {}
+        seen: set[tuple[str, ...]] = set()
+        for node in nodes:
+            collect_numeric((), node, current, seen)
+        if call == 1:
+            param_vals = {path: [] for path in current}
+            tap_paths = sorted(path for path in current if any("tap" in name.lower() for name in path))
+        elif current.keys() != param_vals.keys():
+            missing = sorted(param_vals.keys() - current.keys())
+            added = sorted(current.keys() - param_vals.keys())
+            raise ValueError(f"numeric AMI paths changed at call {call}: missing={missing!r}, added={added!r}")
+
+        if tap_paths:
+            columns = [current[path] for path in tap_paths]
+            if len({len(column) for column in columns}) != 1:
+                raise ValueError(f"unaligned AMI tap lengths at call {call}")
+            tap_weightss.extend([list(row) for row in zip(*columns)])
+        for path, values in current.items():
+            param_vals[path].extend(values)
+    return param_vals, tap_weightss
 
 
 # pylint: disable=too-many-locals,protected-access,too-many-branches,too-many-statements
@@ -370,50 +434,17 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
                     self.rx_dll_file, self._rx_cfg, True, ui, ts, tx_out_h, rx_in,
                     fext_hs=getattr(self, "fext_h", []))
                 self.log(f"Rx IBIS-AMI model initialization results:\n{msg}")
-                # Time evolution of (<root_name>: AmiName, <param_vals>: list[AmiNode]):
-                # (i.e. - There can be no `AmiAtom`s in the root tuple's second member.)
-                rx_getwave_params: list[tuple[AmiName, list[AmiNode]]] = list(map(ami_parse, params))
-                param_vals = {}
-
-                def get_numeric_values(prefix: AmiName, node: AmiNode) -> dict[AmiName, list[float]]:
-                    "Retrieve all numeric values from an AMI node, encoding hierarchy in key names."
-
-                    pname_hier = AmiName(prefix + node.name)
-
-                    if isinstance(node, AmiLeaf):
-                        return {pname_hier: [float(x) for x in node.values]}
-
-                    out: dict[AmiName, list[float]] = {}
-                    for child in node.children:
-                        out.update(get_numeric_values(pname_hier, child))
-                    return out
-
-                # Concatenate results from all `GetWave()` calls.
-                # - The results from the first call establishes the valid key names,
-                for nd in rx_getwave_params[0][1]:
-                    param_vals.update(get_numeric_values(AmiName(""), nd))
-                # - which we then use to build the various concatenated lists of values.
-                for rslt in rx_getwave_params[1:]:
-                    for nd in rslt[1]:
-                        vals_dict = get_numeric_values(AmiName(""), nd)
-                        for pname, pvals in vals_dict.items():
-                            param_vals[pname].extend(pvals)
-
-                _tap_weights = []
-                dfe_tap_keys: list[AmiName] = list(filter(lambda s: s.tolower().contains("tap"), param_vals.keys()))  # type: ignore
-                dfe_tap_keys.sort()
-                for dfe_tap_key in dfe_tap_keys:
-                    _tap_weights.append(param_vals[dfe_tap_key])
-                tap_weightss = list(array(_tap_weights).transpose())
-                if "cdr_locked" in param_vals:
-                    _lockeds: npt.NDArray[np.float64] = array(param_vals[AmiName("cdr_locked")])
+                # Numeric histories retain full paths below the model root.
+                param_vals, tap_weightss = getwave_parameters(params)
+                if ("cdr_locked",) in param_vals:
+                    _lockeds: npt.NDArray[np.float64] = array(param_vals[("cdr_locked",)])
                     _lockeds = _lockeds.repeat(len_t // len(_lockeds))
                     _lockeds = resize_zero_pad(_lockeds, len_t)
                 else:
                     _lockeds = zeros(len_t)
                 lockeds = list(map(bool, _lockeds))
-                if "cdr_ui" in param_vals:
-                    ui_ests = array(param_vals[AmiName("cdr_ui")])
+                if ("cdr_ui",) in param_vals:
+                    ui_ests = array(param_vals[("cdr_ui",)])
                     ui_ests = ui_ests.repeat(len_t // len(ui_ests))
                     ui_ests = resize_zero_pad(ui_ests, len_t)
                 else:

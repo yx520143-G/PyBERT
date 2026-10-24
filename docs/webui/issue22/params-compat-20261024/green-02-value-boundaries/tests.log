@@ -1,0 +1,11 @@
+test_ambiguous_node_is_rejected (pure_ami_tests.GetWaveParameterTests.test_ambiguous_node_is_rejected) ... ok
+test_empty_returns_have_no_taps (pure_ami_tests.GetWaveParameterTests.test_empty_returns_have_no_taps) ... ok
+test_full_paths_and_case_insensitive_taps (pure_ami_tests.GetWaveParameterTests.test_full_paths_and_case_insensitive_taps) ... ok
+test_invalid_syntax_still_fails (pure_ami_tests.GetWaveParameterTests.test_invalid_syntax_still_fails) ... ok
+test_non_numeric_mixed_and_table_values_are_unavailable (pure_ami_tests.GetWaveParameterTests.test_non_numeric_mixed_and_table_values_are_unavailable) ... ok
+test_saved_750_return_strings_preserve_numeric_tap_histories (pure_ami_tests.GetWaveParameterTests.test_saved_750_return_strings_preserve_numeric_tap_histories) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.292s
+
+OK

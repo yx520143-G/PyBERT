@@ -1,0 +1,105 @@
+{
+  "original_extraction_AST_exact": true,
+  "remaining_full_module_AST_exact_after_allowed_normalization": true,
+  "normalized_root_lookups": 4,
+  "sealed_4_files_original_bytes": true,
+  "sealed_7_inputs_unchanged": true,
+  "all_batch_source_hashes_exact": true,
+  "batches": [
+    {
+      "batch": "green-01-saved",
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_s": 0.3518837000010535,
+      "pure_parser_calls": 750,
+      "successful": true
+    },
+    {
+      "batch": "green-02-value-boundaries",
+      "tests_run": 6,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_s": 0.4554076999920653,
+      "pure_parser_calls": 759,
+      "successful": true
+    },
+    {
+      "batch": "green-03-history-shapes",
+      "tests_run": 11,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_s": 0.6777449999935925,
+      "pure_parser_calls": 777,
+      "successful": true
+    },
+    {
+      "batch": "green-04-complete",
+      "tests_run": 12,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_s": 0.39326929999515414,
+      "pure_parser_calls": 780,
+      "successful": true
+    },
+    {
+      "batch": "green-05-review-candidate",
+      "tests_run": 12,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_s": 0.4144975999952294,
+      "pure_parser_calls": 780,
+      "successful": true
+    },
+    {
+      "batch": "red-01-original",
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 2,
+      "elapsed_s": 0.40490829999907874,
+      "pure_parser_calls": 751,
+      "successful": false
+    },
+    {
+      "batch": "red-02-source-lines",
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 2,
+      "elapsed_s": 0.33413930000097025,
+      "pure_parser_calls": 751,
+      "successful": false
+    },
+    {
+      "batch": "red-03-value-boundaries",
+      "tests_run": 5,
+      "failures": 0,
+      "errors": 3,
+      "elapsed_s": 0.26326229999540374,
+      "pure_parser_calls": 9,
+      "successful": false
+    },
+    {
+      "batch": "red-04-history-shapes",
+      "tests_run": 5,
+      "failures": 8,
+      "errors": 2,
+      "elapsed_s": 0.4019001999986358,
+      "pure_parser_calls": 18,
+      "successful": false
+    },
+    {
+      "batch": "red-05-blank-output",
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 1,
+      "elapsed_s": 0.028859499987447634,
+      "pure_parser_calls": 1,
+      "successful": false
+    }
+  ],
+  "pure_parser_calls_all_batches": 5376,
+  "measured_batch_elapsed_s_sum": 3.725872899958631,
+  "total_task_wall_and_RSS": "UNKNOWN",
+  "python": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+  "parsec_version": "3.17"
+}

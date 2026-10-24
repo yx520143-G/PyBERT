@@ -1,0 +1,17 @@
+test_aligned_vectors_can_change_length_between_calls (pure_ami_tests.GetWaveParameterTests.test_aligned_vectors_can_change_length_between_calls) ... ok
+test_ambiguous_node_is_rejected (pure_ami_tests.GetWaveParameterTests.test_ambiguous_node_is_rejected) ... ok
+test_blank_return_is_unavailable_without_hiding_syntax_errors (pure_ami_tests.GetWaveParameterTests.test_blank_return_is_unavailable_without_hiding_syntax_errors) ... ok
+test_duplicate_paths_are_rejected_without_overwriting (pure_ami_tests.GetWaveParameterTests.test_duplicate_paths_are_rejected_without_overwriting) ... ok
+test_empty_returns_have_no_taps (pure_ami_tests.GetWaveParameterTests.test_empty_returns_have_no_taps) ... ok
+test_full_paths_and_case_insensitive_taps (pure_ami_tests.GetWaveParameterTests.test_full_paths_and_case_insensitive_taps) ... ok
+test_invalid_syntax_still_fails (pure_ami_tests.GetWaveParameterTests.test_invalid_syntax_still_fails) ... ok
+test_model_root_cannot_change_between_calls (pure_ami_tests.GetWaveParameterTests.test_model_root_cannot_change_between_calls) ... ok
+test_non_numeric_mixed_and_table_values_are_unavailable (pure_ami_tests.GetWaveParameterTests.test_non_numeric_mixed_and_table_values_are_unavailable) ... ok
+test_numeric_paths_cannot_disappear_or_appear_between_calls (pure_ami_tests.GetWaveParameterTests.test_numeric_paths_cannot_disappear_or_appear_between_calls) ... ok
+test_saved_750_return_strings_preserve_numeric_tap_histories (pure_ami_tests.GetWaveParameterTests.test_saved_750_return_strings_preserve_numeric_tap_histories) ... ok
+test_tap_columns_must_align_within_each_call (pure_ami_tests.GetWaveParameterTests.test_tap_columns_must_align_within_each_call) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.385s
+
+OK
