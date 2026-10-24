@@ -196,3 +196,118 @@ def test_replay_resource_models_and_channel_order_are_verified():
         verify_replay_resources({"resources": [channel, model]}, [channel])
     with pytest.raises(ValueError, match="changed/missing"):
         verify_replay_resources({"resources": [channel, model]}, [model, channel | {"index": 1}])
+
+
+@pytest.fixture
+def electrical_model(tmp_path, monkeypatch):
+    from pybert.web import ami
+    from pybert.web.config import new_engine, snapshot, load_config
+
+    def setup(*, eq="Native", ts4=False, source=None, include_ts4=False, include_binary=True):
+        files = [("example_rx.ibs", Path("models/ibisami/example_rx.ibs").read_bytes()),
+                 ("example_rx.ami", source if isinstance(source, bytes) else
+                  (source or Path("models/ibisami/example_rx.ami").read_text(encoding="utf-8")).encode())]
+        if include_binary:
+            files += [("example_rx" + suffix, b"inert library test bytes")
+                      for suffix in ("_x86.dll", "_x86_amd64.dll", "_x86.so", "_x86_amd64.so")]
+        if include_ts4:
+            files.append(("ondie.s4p", b"inert dependency, no S-parameter computation"))
+        resources = Resources(tmp_path)
+        row = resources.model_bundle(files, {})
+        bundle = resources.for_models({}, {"rx_model_bundle": row["resource_id"]})
+        p = new_engine()
+        config = snapshot(p) | {"rx_sel": "ibis", "rx_eq_sel": eq, "rx_use_ami": eq == "IBIS-AMI",
+                                "rx_use_ts4": ts4, "rx_ibis_file": "example_rx.ibs"}
+        load_config(p, config)
+        return p, config, {"version": 1, "values": {}}, bundle
+
+    def unavailable(_path):
+        raise OSError("test-only missing optional DLL dependency")
+
+    monkeypatch.setattr(ami, "AMIModel", unavailable)
+    return setup
+
+
+def test_electrical_native_does_not_require_optional_dll(electrical_model):
+    p, config, runtime, bundle = electrical_model()
+    report = configure(p, config, runtime, bundle, discover=True)
+    assert p.rx_ibis_valid and not p.rx_use_ami and not p.rx_dll_valid
+    assert report["rx"]["binary_load"] == "not requested"
+    assert report["rx"]["parameters"] and runtime["values"]["ami_models"]["rx"]["parameter_model_hash"]
+
+
+def test_requested_ami_still_requires_binary(electrical_model):
+    inputs = electrical_model(eq="IBIS-AMI")
+    with pytest.raises(OSError, match="test-only missing") as error:
+        configure(*inputs, discover=True)
+    assert inputs[1]["rx_eq_sel"] == "IBIS-AMI"
+    assert error.value.ami_report["rx"]["stage"] == "binary load"
+
+
+@pytest.mark.parametrize("eq,ts4", [("IBIS-AMI", False), ("Native", True)])
+def test_required_ami_parser_failure_remains_fatal(electrical_model, eq, ts4):
+    with pytest.raises(Exception) as error:
+        configure(*electrical_model(eq=eq, ts4=ts4, source="invalid AMI source"), discover=True)
+    assert error.value.ami_report["rx"]["stage"] == "AMI parser"
+
+
+@pytest.mark.parametrize("source", ["invalid AMI source", b"\xff"])
+def test_electrical_optional_parser_failure_is_reported(electrical_model, source):
+    p, config, runtime, bundle = electrical_model(source=source)
+    report = configure(p, config, runtime, bundle, discover=True)
+    assert p.rx_ibis_valid and not p.rx_use_ami
+    assert report["rx"]["ami_capability"]["status"] == "invalid"
+
+
+def test_ts4_native_requires_parser_and_dependency_but_not_binary(electrical_model):
+    source = Path("models/ibisami/example_rx.ami").read_text(encoding="utf-8").replace(
+        "(Reserved_Parameters", '(Reserved_Parameters\n (Ts4file (Usage Info) (Type String) (Value "ondie.s4p"))')
+    with pytest.raises(ValueError, match="Missing model dependency"):
+        configure(*electrical_model(ts4=True, source=source), discover=True)
+    p, config, runtime, bundle = electrical_model(ts4=True, source=source, include_ts4=True)
+    report = configure(p, config, runtime, bundle, discover=True)
+    assert p.rx_has_ts4 and p.rx_ami_valid and not p.rx_dll_valid
+    assert report["rx"]["binary_load"] == "not requested"
+
+
+@pytest.mark.parametrize("change", ["bundle_hash", "parameter_hash", "unknown_path", "invalid_value"])
+def test_electrical_optional_ami_keeps_identity_and_parameter_validation(electrical_model, change):
+    from traits.api import TraitError
+
+    p, config, runtime, bundle = electrical_model()
+    configure(p, config, runtime, bundle, discover=True)
+    model = runtime["values"]["ami_models"]["rx"]
+    if change == "bundle_hash":
+        model["model_hash"] = "0" * 64
+    elif change == "parameter_hash":
+        model["parameter_model_hash"] = "0" * 64
+    elif change == "unknown_path":
+        model["parameters"][0]["path"] = ["Model_Specific", "unknown"]
+    else:
+        next(row for row in model["parameters"] if row["path"][-1] == "ctle_mag")["value"] = 13
+    with pytest.raises(TraitError if change == "invalid_value" else ValueError):
+        configure(p, config, runtime, bundle, discover=True)
+
+
+def test_optional_invalid_ami_rebind_is_consumed_and_stable(electrical_model):
+    p, config, runtime, bundle = electrical_model(source="invalid AMI source")
+    configure(p, config, runtime, bundle, discover=True)
+    runtime["values"]["ami_models"]["rx"]["rebind"] = True
+    configure(p, config, runtime, bundle, discover=True)
+    assert not runtime["values"]["ami_models"]["rx"].get("rebind")
+    frozen = copy.deepcopy(runtime)
+    configure(p, config, runtime, bundle)
+    assert runtime == frozen
+
+
+@pytest.mark.parametrize("ts4", [False, True])
+def test_native_parser_and_ts4_do_not_require_executable_file(electrical_model, ts4):
+    source = Path("models/ibisami/example_rx.ami").read_text(encoding="utf-8").replace(
+        "(Reserved_Parameters", '(Reserved_Parameters\n (Ts4file (Usage Info) (Type String) (Value "ondie.s4p"))')
+    p, config, runtime, bundle = electrical_model(ts4=ts4, source=source, include_ts4=True, include_binary=False)
+    report = configure(p, config, runtime, bundle, discover=True)
+    assert p.rx_ibis_valid and p.rx_ami_valid and not p.rx_dll_valid
+    assert report["rx"]["binary_path"] is None and report["rx"]["binary_load"] == "not requested"
+    frozen = copy.deepcopy(runtime)
+    configure(p, config, runtime, bundle)
+    assert runtime == frozen

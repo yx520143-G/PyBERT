@@ -15,7 +15,7 @@
     <label>Electrical <select id="ami-electrical"><option value="native">Native</option><option value="ibis">IBIS</option></select></label>
     <label>EQ <select id="ami-eq"><option>Native</option><option>IBIS-AMI</option></select></label>
     <label>AMI mode <select id="ami-mode"><option value="Init">Init</option><option value="GetWave">GetWave</option></select></label>
-    <label><input id="ami-ts4" type="checkbox">使用模型 Ts4file</label><label><input id="ami-clocks" type="checkbox">请求 Rx clocks（有效返回才采用）</label>
+    <label><input id="ami-ts4" type="checkbox">使用模型 Ts4file</label><label><input id="ami-modal-clocks" type="checkbox">请求 Rx clocks（有效返回才采用）</label>
     <p>Tx GetWave：rx_in 是诊断参考；下游显式 noise 路径有原生限制。双 GetWave 丢弃 Rx clocks。Rx AMI 绕过 Native RxFFE；无有效 clocks 继续 Native CDR/DFE/AGC 分支。Native/Init Tx 的 disabled CTLE File 不加载；Tx GetWave + Native Rx 的 File 即使 disabled 仍 blocked。</p>
     <div id="ami-parameters"></div><h3>Init TPE 搜索</h3><p>只支持有效 Init response。无自由维度只评估1次；范围/步长/初值与本次预算保存于 runtime extension。Use 显式应用获选参数；Native Reset 仅 current→search，不重置 AMI。</p><div id="ami-search"></div><button id="ami-apply">Apply 参数 / 模式到草稿</button>
     <details><summary>View：真实只读解析 / 源文件 / 能力</summary><pre id="ami-view"></pre></details>
@@ -30,7 +30,7 @@
     $('ami-resource-identity').textContent=uploaded?`待绑定 ${uploaded.resource_id} · ${uploaded.bytes} bytes`:`当前模型 ${current?.model_hash||'未绑定'}`;
     $('ami-ibis').value=current?.selection.ibis_path||input.config[`${side}_ibis_file`]||'';
     $('ami-electrical').value=input.config[`${side}_sel`];$('ami-eq').value=input.config[`${side}_eq_sel`];$('ami-mode').value=input.config[`${side}_use_getwave`]?'GetWave':'Init';
-    $('ami-ts4').checked=input.config[`${side}_use_ts4`];$('ami-clocks').checked=input.runtime_extensions.values?.rx_use_clocks||false;$('ami-clocks').disabled=side!=='rx';
+    $('ami-ts4').checked=input.config[`${side}_use_ts4`];$('ami-modal-clocks').checked=input.runtime_extensions.values?.rx_use_clocks||false;$('ami-modal-clocks').disabled=side!=='rx';
     $('ami-selection').innerHTML=current?['comp','pin','mod'].map((key,i)=>`<label>${key} <select data-ami-selection="${key}">${(report?.[['components','pins','models'][i]]||[current.selection[key]]).map(value=>`<option ${value===current.selection[key]?'selected':''}>${esc(value)}</option>`).join('')}</select></label>`).join(''):'';
     $('ami-parameters').innerHTML=current?`<h3>完整动态参数树</h3><table><thead><tr><th>完整路径 / 类型 / usage / format</th><th>Value</th><th>范围 / 单位</th></tr></thead><tbody>${current.parameters.map((row,i)=>`<tr><td>${esc(row.path.join(' / '))}<br>${esc(row.type)} / ${esc(row.usage)} / ${esc(row.format)}</td><td><input data-ami-param="${i}" aria-label="${esc(row.path.join('/'))}" value="${esc(typeof row.value==='object'?JSON.stringify(row.value):row.value)}" ${row.editable?'':'disabled'}></td><td>${esc(JSON.stringify([row.min,row.max,row.values]))}<br>${esc(row.unit)}<br>${esc(row.description)}</td></tr>`).join('')}</tbody></table>`:'';
     $('ami-search').innerHTML=current?`<table><tr><th>Path</th><th>Enabled</th><th>Min</th><th>Max</th><th>Step</th><th>初值</th></tr>${current.search.map((row,i)=>`<tr><td>${esc(row.path.join('/'))}</td>${['enabled','min_val','max_val','step','value'].map(key=>`<td><input data-ami-search="${i}" data-property="${key}" type="${key==='enabled'?'checkbox':'number'}" ${key==='enabled'?(row[key]?'checked':''):`value="${row[key]}"`} ${key==='value'?'disabled':''}></td>`).join('')}</tr>`).join('')}</table>`:'';
@@ -67,7 +67,7 @@
       for(const control of $('ami-selection').querySelectorAll('[data-ami-selection]'))models[side].selection[control.dataset.amiSelection]=control.value;
       if($('ami-rebind').checked)models[side]={model_hash:models[side].model_hash,selection:models[side].selection,rebind:true};
     }
-    if(!discover){input.config[`${side}_sel`]=$('ami-electrical').value;input.config[`${side}_eq_sel`]=$('ami-eq').value;input.config[`${side}_use_getwave`]=$('ami-mode').value==='GetWave';input.config[`${side}_use_ts4`]=$('ami-ts4').checked;input.runtime_extensions.values.rx_use_clocks=$('ami-clocks').checked;}
+    if(!discover){input.config[`${side}_sel`]=$('ami-electrical').value;input.config[`${side}_eq_sel`]=$('ami-eq').value;input.config[`${side}_use_getwave`]=$('ami-mode').value==='GetWave';input.config[`${side}_use_ts4`]=$('ami-ts4').checked;if(side==='rx')input.runtime_extensions.values.rx_use_clocks=$('ami-modal-clocks').checked;}
     if(Object.keys(models).length)input.runtime_extensions.values.ami_models=models;else delete input.runtime_extensions.values.ami_models;
     const result=await runs.configureModel(input);reports=result.ami_models||{};uploaded=null;render();
   }

@@ -96,6 +96,8 @@ def configure(p, config, runtime, resources, *, discover=False, allow_unbound=Fa
     reports = {}
     for side in ("tx", "rx"):
         bundle = next((r for r in resources if r["field"] == side + "_model_bundle"), None)
+        ami_required = config[side + "_eq_sel"] == "IBIS-AMI"
+        ts4_required = config[side + "_use_ts4"]
         active = config[side + "_sel"] == "ibis" or config[side + "_eq_sel"] == "IBIS-AMI"
         if not active and not discover:
             continue
@@ -148,18 +150,36 @@ def configure(p, config, runtime, resources, *, discover=False, allow_unbound=Fa
             setattr(p, "_" + side + "_ibis", ibis)
             p.trait_setq(**{side + "_ibis_valid": True})
             dll, ami = resolve_ami_files(ibis, side == "tx")
+            if dll and not ami_required and not Path(dll).is_file():
+                dll = ""
+            if not ami and not ami_required:
+                # Native electrical/TS4 needs the parameter file, not a host executable.
+                _, ami_name = ibis.model.get_ami_files(side == "tx")
+                ami_path = ibis.resolve_file(ami_name)
+                ami = str(ami_path) if ami_path else ""
             cfg = None
-            if ami and dll:
+            if ami:
                 report["stage"] = "AMI parser"
-                for file in (ami, dll):
+                for file in (ami, *([dll] if dll else [])):
                     bundle_file(bundle, Path(file).relative_to(bundle["worker_path"]).as_posix())
-                cfg = AMIParamConfigurator(Path(ami).read_text(encoding="utf-8"))
-                report["view"]["AMI_source"] = Path(ami).read_text(encoding="utf-8")
+                ami_source = Path(ami).read_bytes()
                 parameter_model_hash = hashlib.sha256(json.dumps({"bundle": bundle["sha256"], "selection": selection,
-                    "ami_sha256": hashlib.sha256(Path(ami).read_bytes()).hexdigest(),
-                    "binary_sha256": hashlib.sha256(Path(dll).read_bytes()).hexdigest()}, sort_keys=True).encode()).hexdigest()
+                    "ami_sha256": hashlib.sha256(ami_source).hexdigest(),
+                    "binary_sha256": hashlib.sha256(Path(dll).read_bytes()).hexdigest() if dll else None}, sort_keys=True).encode()).hexdigest()
                 if model.get("parameter_model_hash", parameter_model_hash) != parameter_model_hash:
                     raise ValueError(f"{side}: selected model changed; parameters require explicit rebind and difference review.")
+                try:
+                    report["view"]["AMI_source"] = ami_source.decode("utf-8")
+                    cfg = AMIParamConfigurator(report["view"]["AMI_source"])
+                except Exception as error:
+                    if ami_required or ts4_required:
+                        raise
+                    report.update(status="ready", stage="electrical IBIS only; optional AMI invalid", binary_load="not requested",
+                                  ami_capability={"status": "invalid", "stage": "AMI parser", "error": str(error)})
+                    definitions[side] = model if model and not model.get("rebind") else {
+                        "model_hash": bundle["sha256"], "parameter_model_hash": parameter_model_hash,
+                        "selection": selection, "parameters": [], "sim_corner": "typ", "search": []}
+                    continue
                 cfg.sim_corner = model.get("sim_corner", "typ")
                 rows = parameter_rows(cfg)
                 supplied = model.get("parameters", [])
@@ -176,26 +196,27 @@ def configure(p, config, runtime, resources, *, discover=False, allow_unbound=Fa
                                 ("Init_Returns_Impulse", "GetWave_Exists", "Ts4file", "Ignore_Bits")}
                 report.update(parameters=rows, parser_warnings=cfg.ami_parsing_errors, capabilities=capabilities,
                               ami_path=Path(ami).relative_to(bundle["worker_path"]).as_posix(),
-                              binary_path=Path(dll).relative_to(bundle["worker_path"]).as_posix())
+                              binary_path=Path(dll).relative_to(bundle["worker_path"]).as_posix() if dll else None)
                 ts4 = capabilities["Ts4file"]
-                if ts4:
+                if ts4 and (ts4_required or ami_required):
                     bundle_file(bundle, (path.parent / ts4).relative_to(bundle["worker_path"]).as_posix())
                 if config[side + "_use_ts4"] and not ts4:
                     raise ValueError(f"{side}: TS4 requested but model has no Ts4file.")
-                report["stage"] = "binary load"
-                if check():
-                    raise AMICancelled("Cancelled before binary load")
-                emit("phase", phase=side + " AMI binary load (not execution qualification)")
-                library = AMIModel(dll)
-                report["ABI"] = {"loader": "ctypes.CDLL", "pointer_bits": struct.calcsize("P") * 8,
-                                 "exports": {"AMI_Init": True, "AMI_Close": True, "AMI_GetWave": library.has_getwave}}
-                if capabilities["GetWave_Exists"] and not library.has_getwave:
-                    raise ValueError(f"{side}: GetWave_Exists declared but AMI_GetWave export is missing.")
-                if check():
-                    raise AMICancelled("Cancelled after binary load")
-                setattr(p, "_" + side + "_model", library)
+                if ami_required:
+                    report["stage"] = "binary load"
+                    if check():
+                        raise AMICancelled("Cancelled before binary load")
+                    emit("phase", phase=side + " AMI binary load (not execution qualification)")
+                    library = AMIModel(dll)
+                    report["ABI"] = {"loader": "ctypes.CDLL", "pointer_bits": struct.calcsize("P") * 8,
+                                     "exports": {"AMI_Init": True, "AMI_Close": True, "AMI_GetWave": library.has_getwave}}
+                    if capabilities["GetWave_Exists"] and not library.has_getwave:
+                        raise ValueError(f"{side}: GetWave_Exists declared but AMI_GetWave export is missing.")
+                    if check():
+                        raise AMICancelled("Cancelled after binary load")
+                    setattr(p, "_" + side + "_model", library)
                 setattr(p, "_" + side + "_cfg", cfg)
-                p.trait_setq(**{side + "_ami_valid": True, side + "_dll_valid": True,
+                p.trait_setq(**{side + "_ami_valid": True, side + "_dll_valid": ami_required,
                                side + "_has_getwave": bool(capabilities["GetWave_Exists"]), side + "_has_ts4": bool(ts4),
                                side + "_dll_file": dll, side + "_ami_file": ami})
                 setattr(p, side + "_ami_tap_tuners", cfg.mk_tap_tuners())
@@ -223,7 +244,7 @@ def configure(p, config, runtime, resources, *, discover=False, allow_unbound=Fa
                         setattr(tuner, key, row[key])
             if {tuple(r["path"]) for r in search} - {tuple(t.branch_names) for t in getattr(p, side + "_ami_tap_tuners")}:
                 raise ValueError(f"{side}: unknown/unsupported optimizer parameter path.")
-            reports[side].update(status="ready", stage="preflight only; no execution", binary_load="loaded" if cfg else "not configured")
+            reports[side].update(status="ready", stage="preflight only; no execution", binary_load="loaded" if cfg and ami_required else "not requested")
             definitions[side] = {"model_hash": bundle["sha256"], "selection": selection, "parameters": report.get("parameters", []),
                                  **({"parameter_model_hash": parameter_model_hash} if cfg else {}),
                                  "sim_corner": cfg.sim_corner if cfg else "typ", "search": [

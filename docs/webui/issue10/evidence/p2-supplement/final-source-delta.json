@@ -1,0 +1,11 @@
+{
+  "changes_after_Chrome": {
+    "web\\ami.py": {
+      "chrome_sha": "628a39311ed4dd31a49279982d561c266fa8e41c9c1bee59e458b34250aa472d",
+      "final_sha": "07ef79faafa80cc4cdd4d090c8e2e1480c74f61183b1d75bbca162dd224b45a8"
+    }
+  },
+  "reason": "optional parser rebind canonicalization plus Native parser/TS4 independence from optional executable file",
+  "previous_snapshot": "source-delta.json + final-source retained; newest bytes in fixed-files-source",
+  "extra_numerical_or_real_library_calls": 0
+}

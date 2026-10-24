@@ -83,3 +83,20 @@ Chrome 目标为真实 Chrome 1280×720。`*-eye-verified.png` 及 `views-*.log`
 只读独立审查确认 identity/replay/budget/metadata 六项旧发现及缺省 load、运行 metadata、结构比较三项新增 closure；最后静态复核基于 `130e85c`，没有额外模型/引擎调用。此自审不能替代 PM 对固定 Draft PR 的 fresh final review。
 
 `chrome-v4/final-service-state.json` 显示活动槽空闲，`shutdown.json` 记录主动停服及 8785 端口关闭；monitor 已退出。固定提交推送并创建唯一 Draft PR 后 owner 停写返权，后续验收/合并/关闭由 PM 按原流程处理。有效 clocks 等未完成条目保持 BLOCKED/未勾选。
+
+## PR #20 首轮 fresh review 的两项 P2 补修
+
+上述 170-pass、数值/Chrome 批次属于首次固定提交 `13172a8`。PM 在该提交的 [formal review](https://github.com/yx520143-G/PyBERT/pull/20#pullrequestreview-5637676782) 提出以下两项 P2 后，将唯一写权交回原 owner；本节为独立补充批次，原件和冻结 manifest 不变。
+
+1. **Rx clocks 两入口冲突。** 弹窗与主链重复使用 `ami-clocks`，全局查找命中主链，导致弹窗提交值错误、Tx render 误禁用 Rx 主链控件。弹窗改用独立 `ami-modal-clocks`，仅 Rx Apply 修改 `rx_use_clocks`，Tx 操作保留该请求。原 `ami.js` 的 first-match DOM 红灯为 4 fail/1 pass，修复后 5 pass。
+2. **可选 AMI DLL 误阻止独立 IBIS 电气路径。** 仅实际请求 AMI EQ 时才加载执行 DLL；Native EQ 的电气/TS4 路径不构造可选 DLL。参数 parser 有效时仍严格验证完整树、setter 值、bundle/selected model/parameter hash；实际请求 AMI 时 parser/库加载错误仍明确失败，TS4 请求仍需有效 parser 和声明依赖。可选 parser 解析/UTF-8 错误另记 `ami_capability.invalid`，不冒充 AMI valid 或更改请求模式。只读自审另发现该容错分支需要消费显式 rebind；已先红灯复现再生成稳定 canonical 定义，后续 `discover=False` 不再误拒。
+
+无真实库的分支红灯 3 fail/3 pass，首轮修复 6 pass；后补 UTF-8、身份/未知路径/非法值及 rebind 覆盖。身份测试曾把原 setter 的正确 `TraitError` 误写为 `ValueError`，留下 3 pass/1 fail，修正异常类型后 4 pass；这次失败不代表非法值被放行。该阶段相关回归 182 passed；随后加强必需 parser/库失败阶段的三项断言，并补 Native parser/TS4 不依赖可选 DLL 文件的两个用例。后两项先红灯；初次补修仍被 resolver 返回的不存在路径阻挡，二次修复后绿灯。最后完整相关回归 **184 passed / 35 warnings / 83.25 s**。旧 170、177、182、各定向与最终批次不相加。所有日志在 `evidence/p2-supplement/`；测试 stub 不加载真实 DLL，不执行 Touchstone 数值分析或原引擎。
+
+最小真实 Chrome 为独立 `ami10p2` 会话、1280×720。`issue10-p2-chrome.log` 与三张新截图覆盖：主链 false → 弹窗显示 false → 弹窗编辑 true 但 Apply 前主链仍 false → Apply 后主链 true → 主链 false → 再开弹窗 false；Tx render 不禁用主链，Tx Apply 保留 Rx false；Save 后重新打开 Rx 面板仍为 false。已目视核验，旧图片不被重新标为此次覆盖。保存 YAML 的完整 config 与 v4 相同，runtime 仅 clocks 请求改为 false、bindings 相同；true 请求 identity 仍为原 `59863eea...`，false 为 `777119a3...`。这些只验证请求和持久化，**不证明有效 AMI clocks 被模型返回或消费**。
+
+`before.json`、冻结输入、37 项 source 原 bytes 及 bounded server harness 均先于库预检保存。临时服务只接 normalize，禁止 Run/Tune/COM，拦截意外 Main/initialize/getWave；12 次库加载预算实际使用 **6 次**，来自 **8 个 fresh spawn normalize**，全部退出/join，outer elapsed 合计 **42.753805 s**。本轮新增 **Main/coopt/AMI_Init/AMI_GetWave/COM 均 0**；历史 Main28、coopt8/20eval 和 C 已知子集15/1155及 UNKNOWN 不变。未采样本轮 peak，保留 UNKNOWN。
+
+Chrome 后仅 `web/ami.py` 的可选 parser 失败 rebind canonicalization、Native parser/TS4 与可选 executable 文件解耦又作小修，最后 184 项回归覆盖这些分支。可选 DLL 不存在时 binary identity 明确为 None；已冻结 bundle 自身缺文件仍先被 hash 校验拒绝，实际请求 AMI 没有该豁免。`source-delta.json` / `final-source/` 保留第一阶段，`final-source-delta.json` / `fixed-files-source/` 保存最后 Python bytes，不能将旧 Chrome task 源称为最后 Python 的再次预检。UI 文件与实际 Chrome 源一致。自审只读确认两项 P2 及两个边界闭环，没有额外模型调用，不替代 PM 对新固定 HEAD 的 fresh final review。
+
+`checks.json` 保留全部 task 与 0 Main、保存往返和预检费用；`shutdown.json` 记录活动槽空闲后停服、8785 关闭，专用 Chrome 已关闭。exec 的 CtrlC 返回 1，server finally 未写总数文件；实际 6 次以各 task 的加载尝试原件逐项汇总，不伪称来自退出回调。原错误/停止证据保留。PR 仍为同一 Draft，待固定新提交推送后停写返权；#10/#1 和所有原生/fixture BLOCKED 边界不变。

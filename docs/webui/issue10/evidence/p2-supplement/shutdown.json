@@ -1,0 +1,8 @@
+{
+  "observed_stopped_utc": "2026-10-24T09:27:13Z",
+  "port8785_connect_error": 10061,
+  "active_before_stop": null,
+  "library_load_attempts": 6,
+  "load_count_source": "sum of 8 joined task library-load-attempts.json; CtrlC exited exec1 before server finally wrote a total",
+  "intentional_CtrlC": true
+}
