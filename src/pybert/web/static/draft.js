@@ -4,7 +4,9 @@
   function migrate(saved) {
     if (![1,2].includes(saved?.schema) || !saved.values || typeof saved.values!=='object' || Array.isArray(saved.values)) throw new Error('未知草稿schema；原存储保留，需恢复默认或重新载入配置。');
     const values=settings.clone(settings.defaults),retained={...(saved.retained_fields || {})};
-    for(const [key,value] of Object.entries(saved.values)) {
+    const savedValues={...saved.values};
+    if(Number.isFinite(retained.peak_mag_tune?.value)) {savedValues.peak_mag_tune=retained.peak_mag_tune.value;delete retained.peak_mag_tune;}
+    for(const [key,value] of Object.entries(savedValues)) {
       if (!Object.hasOwn(values,key)) {retained[key]={value,reason:'当前版本未支持的稳定field ID'};continue;}
       let valid;
       if (settings.tableInfo[key]) {
@@ -13,6 +15,7 @@
       }
       else if(settings.fields[key]?.kind==='files') valid=Array.isArray(value) && value.every(item=>typeof item==='string');
       else valid=typeof value===typeof values[key] || (settings.fields[key]?.kind==='number' && value==='');
+      if(key==='peak_mag_tune' && typeof value==='number' && Number.isFinite(value)) valid=true;
       if (valid && ['select','radio'].includes(settings.fields[key]?.kind)) {const options=settings.optionsFor(key,{...values,[key]:value});if(options && !options.includes(value)) valid=false;}
       if (valid) values[key]=settings.clone(value);else retained[key]={value,reason:'类型/表结构/枚举不匹配；未以默认值冒充执行'};
     }
