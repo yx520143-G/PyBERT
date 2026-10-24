@@ -205,7 +205,8 @@ def period_projection(context, t, period_ps, ui):
                 frequency = np.arange(len(raw)) / (len(values) * ts)
                 spectrum.update(availability="available", reason=None, raw=raw, frequency_hz=frequency,
                                 relative_frequency=frequency[1:] * ui, sample_interval_s=ts,
-                                origin_s=float(t[fft_first]), indices=indices[fft_first:fft_stop], input_period_ps=values)
+                                origin_s=float(t[fft_first]), indices=indices[fft_first:fft_stop],
+                                input_period_ps=values)
     return {"histogram": hist, "spectrum": spectrum}
 
 
