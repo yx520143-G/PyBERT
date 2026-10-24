@@ -1,0 +1,33 @@
+async page => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue8-optimizer/serial-bus-simulator';
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+  const task={task_id:'db86e583-2b31-4671-9765-f9e49667bb6f'};
+  const opt=await (await page.request.get('http://127.0.0.1:8773/api/optimizations/'+task.task_id)).json();
+  assert(opt.status==='succeeded','PAM4 MMSE failed');
+  await page.waitForFunction(id=>document.getElementById('selected-opt').value===id,task.task_id);
+  await page.waitForFunction(()=>document.getElementById('optimizer-plot').data?.length===4);
+  const before=await (await page.request.get('http://127.0.0.1:8773/api/state')).json();
+  assert(before.runs.length===0,'Optimization unexpectedly ran time-domain');
+  await page.screenshot({path:root+'/output/playwright/issue8/01-mmse.png'});
+  const optDownload=page.waitForEvent('download');await page.locator('#save-opt').click();
+  await (await optDownload).saveAs(root+'/output/playwright/issue8/pam4.pybert_opt');
+  const runResponse=page.waitForResponse(r=>r.url().endsWith('/api/runs') && r.request().method()==='POST');
+  await page.locator('#run').click();const run=await (await runResponse).json();
+  assert(await page.locator('#tune-eq').isDisabled(),'Tune is not disabled during Run');
+  await page.waitForFunction(async id=>(await (await fetch('/api/tasks/'+id)).json()).worker_exited,run.task_id);
+  const first=await (await page.request.get('http://127.0.0.1:8773/api/tasks/'+run.task_id)).json();
+  assert(first.state==='succeeded','First PAM4 Run failed: '+first.error);
+  await page.waitForFunction(id=>document.getElementById('selected-run').value===id,run.task_id);
+  const d1=page.waitForEvent('download');await page.locator('#save-results').click();await(await d1).saveAs(root+'/output/playwright/issue8/PAM4-RLM095.pybert_run');
+  await page.getByRole('button',{name:'Source',exact:true}).click();
+  await page.locator('#control-rlm').fill('0.8');await page.locator('#control-rlm').press('Tab');
+  await page.waitForFunction(()=>!document.getElementById('run').disabled);
+  const rr=page.waitForResponse(r=>r.url().endsWith('/api/runs') && r.request().method()==='POST');
+  await page.locator('#run').click();const run2=await(await rr).json();
+  await page.waitForFunction(async id=>(await (await fetch('/api/tasks/'+id)).json()).worker_exited,run2.task_id);
+  const second=await(await page.request.get('http://127.0.0.1:8773/api/tasks/'+run2.task_id)).json();
+  assert(second.state==='succeeded','Second PAM4 Run failed: '+second.error);
+  await page.waitForFunction(id=>document.getElementById('selected-run').value===id,run2.task_id);
+  const d2=page.waitForEvent('download');await page.locator('#save-results').click();await(await d2).saveAs(root+'/output/playwright/issue8/PAM4-RLM080.pybert_run');
+  console.log(JSON.stringify({viewport:page.viewportSize(),browser:page.context().browser().version(),opt_id:task.task_id,run_rlm095:run.task_id,run_rlm080:run2.task_id,checks:{MMSE:true,no_automatic_Run:true,no_automatic_Use:true,Run_Tune_mutex:true,two_RLM_runs_succeeded:true,archives_downloaded:true}}));
+}

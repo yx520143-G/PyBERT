@@ -1,0 +1,7 @@
+{
+  "checked": 135,
+  "byte_failures": [],
+  "scope": "Staged evidence and Chrome fixtures; original v1 fixture LF/CRLF boundary remains separately documented",
+  "utf8_or_BOM_failures": [],
+  "raw_CRLF_preserved": true
+}

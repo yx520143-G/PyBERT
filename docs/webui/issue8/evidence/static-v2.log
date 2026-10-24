@@ -1,0 +1,4 @@
+All checks passed!
+optimizer UI deferred-response checks passed (0 native calls)
+PASS: actual PR7 storage-key migration, v1→v2 stable fields, catalog order independence, retained values, unknown schema/invalid JSON refusal without overwrite.
+PASS: shipped Native product distinguishes input errors, failed storage, and independent recovery.

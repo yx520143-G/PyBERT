@@ -1,0 +1,304 @@
+### Page
+- Page URL: http://127.0.0.1:8773/#cdr
+- Page Title: PyBERT · Signal Chain Workbench
+### Snapshot
+```yaml
+- generic [active] [ref=f1e1]:
+  - link "跳到参数详情" [ref=f1e2] [cursor=pointer]:
+    - /url: "#inspector"
+  - complementary "Stage 导航" [ref=f1e3]:
+    - link "PyBERT 数据源" [ref=f1e4] [cursor=pointer]:
+      - /url: "#source"
+      - generic [ref=f1e8]:
+        - strong [ref=f1e9]: PyBERT.
+        - text: SIGNAL CHAIN WORKBENCH
+    - generic [ref=f1e10]:
+      - text: 模块目录
+      - generic [ref=f1e11]: 16 MODULES
+    - navigation "选择模块" [ref=f1e12]:
+      - generic [ref=f1e501]:
+        - heading "主信号链" [level=2] [ref=f1e502]
+        - button "Source" [ref=f1e503] [cursor=pointer]: •
+        - button "Tx EQ" [ref=f1e505] [cursor=pointer]: •
+        - button "Channel" [ref=f1e507] [cursor=pointer]
+        - button "Noise" [ref=f1e509] [cursor=pointer]
+        - button "Rx CTLE" [ref=f1e511] [cursor=pointer]
+        - button "Rx FFE" [ref=f1e513] [cursor=pointer]: •
+        - button "DFE / Slicer" [ref=f1e515] [cursor=pointer]: •
+        - button "Observe" [ref=f1e517] [cursor=pointer]
+      - generic [ref=f1e519]:
+        - heading "控制与判决旁支" [level=2] [ref=f1e520]
+        - button "CDR" [ref=f1e521] [cursor=pointer]
+        - button "AGC" [ref=f1e523] [cursor=pointer]
+        - button "Viterbi / FEC" [ref=f1e525] [cursor=pointer]
+      - generic [ref=f1e527]:
+        - heading "全局设置与工具" [level=2] [ref=f1e528]
+        - button "Simulation" [ref=f1e529] [cursor=pointer]
+        - button "Device models" [ref=f1e531] [cursor=pointer]
+        - button "IBIS-AMI" [ref=f1e533] [cursor=pointer]
+        - button "Optimizer" [ref=f1e535] [cursor=pointer]: •
+        - button "COM" [ref=f1e537] [cursor=pointer]
+  - generic [ref=f1e51]:
+    - banner [ref=f1e52]:
+      - generic [ref=f1e53]:
+        - generic [ref=f1e54]: LOCAL NATIVE ENGINE
+        - heading "Signal Chain" [level=1] [ref=f1e55]
+      - generic [ref=f1e56]:
+        - generic [ref=f1e58]:
+          - searchbox "搜索所有模块和参数" [ref=f1e62]
+          - generic [ref=f1e63]: /
+        - status [ref=f1e64]:
+          - strong [ref=f1e539]: 草稿已保留
+          - generic [ref=f1e540]: 10 项设置已修改
+        - button "恢复全部默认" [ref=f1e67] [cursor=pointer]
+    - generic [ref=f1e68]:
+      - button "Run" [ref=f1e69] [cursor=pointer]
+      - button "Abort" [disabled] [ref=f1e70]
+      - status [ref=f1e71]: normalize 638a5b08 · succeeded · succeeded
+      - generic [ref=f1e72]: O-PAM4-MMSE.yaml
+      - button "Load Config" [ref=f1e73] [cursor=pointer]
+      - button "资源 / COM" [ref=f1e74] [cursor=pointer]
+      - button "Native EQ 优化" [ref=f1e75] [cursor=pointer]
+      - button "Save" [ref=f1e76] [cursor=pointer]
+      - button "Save As…" [ref=f1e77] [cursor=pointer]
+      - button "Help / About" [ref=f1e78] [cursor=pointer]
+      - button "Disconnect" [ref=f1e79] [cursor=pointer]
+    - status [ref=f1e80]: "DFE consumes the continuous enabled prefix: 2 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it."
+    - status [ref=f1e81]: 已载入 O-PAM4-MMSE.yaml；未自动 Run。
+    - status [ref=f1e82]
+    - generic [ref=f1e83]:
+      - button "打开结果 / 加入比较" [ref=f1e84] [cursor=pointer]
+      - generic [ref=f1e85]:
+        - checkbox "我选择的是可信本机 legacy pickle（可执行代码）" [ref=f1e86]
+        - text: 我选择的是可信本机 legacy pickle（可执行代码）
+      - button "保存所选结果" [disabled] [ref=f1e87]
+      - button "原生保存 / 损失清单" [disabled] [ref=f1e88]
+      - button "恢复所选输入到草稿" [disabled] [ref=f1e89]
+      - button "移除所选参考" [disabled] [ref=f1e90]
+      - button "清除加载的参考" [ref=f1e91] [cursor=pointer]
+    - status [ref=f1e92]
+    - generic [ref=f1e93]: 临时成功缓存 0/2 · 0 bytes（第三次成功淘汰最旧临时记录）；参考 0/4 · 0/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。
+    - main [ref=f1e94]:
+      - group [ref=f1e95]:
+        - generic "按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单" [ref=f1e96] [cursor=pointer]
+      - region "链路总览" [ref=f1e97]:
+        - generic "切换实现图示" [ref=f1e98]:
+          - generic [ref=f1e99]: 实现方案
+          - generic [ref=f1e100]:
+            - text: Tx EQ
+            - combobox "Tx EQ" [ref=f1e101] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=f1e102]:
+            - text: Rx EQ
+            - combobox "Rx EQ" [ref=f1e103] [cursor=pointer]:
+              - option "Native" [selected]
+              - option "AMI Init"
+              - option "AMI GetWave"
+          - generic [ref=f1e104]:
+            - checkbox "请求模型时钟" [disabled] [ref=f1e105]
+            - text: 请求模型时钟
+          - button "恢复 Native" [ref=f1e106] [cursor=pointer]
+        - generic "信号链图，可横向滚动" [ref=f1e107]:
+          - generic [ref=f1e108]:
+            - generic [ref=f1e541]:
+              - button "Source：PAM-4 · PRBS-7，查看设置" [ref=f1e542] [cursor=pointer]:
+                - strong [ref=f1e543]: Source
+                - generic [ref=f1e544]: PAM-4 · PRBS-7
+              - button "Tx EQ：Native FFE，查看设置" [ref=f1e546] [cursor=pointer]:
+                - strong [ref=f1e547]: Tx EQ
+                - generic [ref=f1e548]: Native FFE
+              - button "Channel：Native · 两端电气，查看设置" [ref=f1e550] [cursor=pointer]:
+                - strong [ref=f1e551]: Channel
+                - generic [ref=f1e552]: Native · 两端电气
+              - button "Noise：加法注入，查看设置" [ref=f1e554] [cursor=pointer]:
+                - strong [ref=f1e555]: Noise
+                - generic [ref=f1e556]: 加法注入
+              - button "Rx CTLE：Native · 已启用，查看设置" [ref=f1e558] [cursor=pointer]:
+                - strong [ref=f1e559]: Rx CTLE
+                - generic [ref=f1e560]: Native · 已启用
+              - button "Rx FFE：固定 FIR 系数，查看设置" [ref=f1e562] [cursor=pointer]:
+                - strong [ref=f1e563]: Rx FFE
+                - generic [ref=f1e564]: 固定 FIR 系数
+              - button "DFE / Slicer：自适应反馈 / 判决，查看设置" [ref=f1e566] [cursor=pointer]:
+                - strong [ref=f1e567]: DFE / Slicer
+                - generic [ref=f1e568]: 自适应反馈 / 判决
+            - generic [ref=f1e569]:
+              - button "Device models" [ref=f1e571] [cursor=pointer]
+              - button "Observe" [ref=f1e573] [cursor=pointer]
+              - generic [ref=f1e574]:
+                - button "CDR" [ref=f1e575] [cursor=pointer]
+                - button "AGC" [ref=f1e576] [cursor=pointer]
+                - button "↗ Viterbi" [ref=f1e577] [cursor=pointer]
+        - status [ref=f1e146]:
+          - generic [ref=f1e578]: i
+          - generic [ref=f1e579]: Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+      - generic [ref=f1e149]:
+        - region [ref=f1e580]:
+          - heading "时钟恢复与采样时刻CDR" [level=2] [ref=f1e583]
+          - generic [ref=f1e155]:
+            - tablist "模块详情" [ref=f1e156]:
+              - tab "设置" [selected] [ref=f1e157] [cursor=pointer]
+              - tab "参数说明 6" [ref=f1e584] [cursor=pointer]:
+                - text: 参数说明
+                - generic [ref=f1e159]: "6"
+              - tab "实现映射 3" [ref=f1e585] [cursor=pointer]:
+                - text: 实现映射
+                - generic [ref=f1e161]: "3"
+            - button "恢复本模块默认" [ref=f1e162] [cursor=pointer]
+          - tabpanel "设置" [ref=f1e163]:
+            - paragraph [ref=f1e586]: 已显式载入完整配置；旧草稿原件未删除。
+            - group [ref=f1e587]:
+              - generic "迁移来源与未应用字段（保留原值）" [ref=f1e588]
+            - generic [ref=f1e589]:
+              - generic [ref=f1e590]:
+                - heading "时钟恢复设置" [level=3] [ref=f1e591]
+                - generic [ref=f1e592]: 本地草稿
+              - generic [ref=f1e593]:
+                - generic [ref=f1e594]:
+                  - generic [ref=f1e595]: Type · 时钟模式
+                  - combobox "Type · 时钟模式" [ref=f1e597] [cursor=pointer]:
+                    - option "Bang-Bang" [selected]
+                    - option "Mueller-Muller"
+                  - paragraph [ref=f1e598]: 选择动态环路或固定 MM 锁定相位。
+                  - generic [ref=f1e599]:
+                    - code [ref=f1e600]: cdr_type
+                    - generic [ref=f1e601]: 默认 Bang-Bang
+                  - text: ↳
+                  - group [ref=f1e602]:
+                    - generic "范围与来源" [ref=f1e603] [cursor=pointer]
+                - generic [ref=f1e604]:
+                  - generic [ref=f1e605]: Delta-t · 比例步长
+                  - generic [ref=f1e607]:
+                    - spinbutton "Delta-t · 比例步长" [ref=f1e608]: "0.001"
+                    - generic [ref=f1e609]: UI
+                  - paragraph [ref=f1e610]: 运行时乘当前 UI 换算为秒。
+                  - generic [ref=f1e611]:
+                    - code [ref=f1e612]: delta_t_ui
+                    - generic [ref=f1e613]: 默认 0.001 UI
+                  - text: ↳
+                  - group [ref=f1e614]:
+                    - generic "范围与来源" [ref=f1e615] [cursor=pointer]
+                - generic [ref=f1e616]:
+                  - generic [ref=f1e617]: Alpha · 相对积分增益
+                  - spinbutton "Alpha · 相对积分增益" [ref=f1e620]: "0.01"
+                  - paragraph [ref=f1e621]: 积分分支相对于比例分支的强度。
+                  - generic [ref=f1e622]:
+                    - code [ref=f1e623]: alpha
+                    - generic [ref=f1e624]: 默认 0.01
+                  - text: ↳
+                  - group [ref=f1e625]:
+                    - generic "范围与来源" [ref=f1e626] [cursor=pointer]
+                - generic [ref=f1e627]:
+                  - generic [ref=f1e628]: Lock Nave · 判定窗口
+                  - spinbutton "Lock Nave · 判定窗口" [ref=f1e631]: "500"
+                  - paragraph [ref=f1e632]: 锁定判定使用的历史窗口。
+                  - generic [ref=f1e633]:
+                    - code [ref=f1e634]: n_lock_ave
+                    - generic [ref=f1e635]: 默认 500
+                  - text: ↳
+                  - group [ref=f1e636]:
+                    - generic "范围与来源" [ref=f1e637] [cursor=pointer]
+                - generic [ref=f1e638]:
+                  - generic [ref=f1e639]: Lock tolerance · 锁定容差
+                  - spinbutton "Lock tolerance · 锁定容差" [ref=f1e642]: "0.1"
+                  - paragraph [ref=f1e643]: 锁定判断的相对容差。
+                  - generic [ref=f1e644]:
+                    - code [ref=f1e645]: rel_lock_tol
+                    - generic [ref=f1e646]: 默认 0.1
+                  - text: ↳
+                  - group [ref=f1e647]:
+                    - generic "范围与来源" [ref=f1e648] [cursor=pointer]
+                - generic [ref=f1e649]:
+                  - generic [ref=f1e650]: Lock sustain · 锁定迟滞
+                  - spinbutton "Lock sustain · 锁定迟滞" [ref=f1e653]: "500"
+                  - paragraph [ref=f1e654]: 平滑锁定状态切换。
+                  - generic [ref=f1e655]:
+                    - code [ref=f1e656]: lock_sustain
+                    - generic [ref=f1e657]: 默认 500
+                  - text: ↳
+                  - group [ref=f1e658]:
+                    - generic "范围与来源" [ref=f1e659] [cursor=pointer]
+          - text: ↳ ↳ ↳ ↳ ↳
+        - region "Native run analysis" [ref=f1e458]:
+          - generic [ref=f1e459]:
+            - generic [ref=f1e460]:
+              - text: Selected record
+              - combobox "Selected record" [ref=f1e461]:
+                - option "No successful run" [selected]
+            - generic [ref=f1e462]:
+              - text: 比较参考
+              - combobox "比较参考" [ref=f1e463]:
+                - option "自动选择另一条" [selected]
+          - generic [ref=f1e464]:
+            - generic [ref=f1e465]:
+              - text: Analysis
+              - combobox "Analysis" [ref=f1e466]:
+                - option "Responses" [selected]
+                - option "Waveform"
+                - option "Eye"
+                - option "Jitter Dist."
+                - option "Jitter Spec."
+                - option "Jitter Bathtub"
+                - option "Jitter Info"
+                - option "DFE Adaptation"
+                - option "CDR Adaptation"
+                - option "CDR Histogram"
+                - option "CDR Spectrum"
+                - option "Run overview"
+                - option "Run input comparison"
+            - combobox "Response type" [ref=f1e467]:
+              - option "Impulse" [selected]
+              - option "Step"
+              - option "Pulse"
+              - option "Frequency"
+            - combobox "Response scope" [ref=f1e468]:
+              - option "Cumulative" [selected]
+              - option "Single stage"
+          - generic [ref=f1e469]:
+            - generic [ref=f1e470]:
+              - text: Point
+              - combobox "Point" [ref=f1e471]:
+                - option "Follow node" [selected]
+                - option "Channel-only"
+                - option "Rx input"
+                - option "CTLE output"
+                - option "Rx FFE output"
+                - option "DFE output"
+            - generic [ref=f1e472]:
+              - text: Compare
+              - combobox "Compare" [ref=f1e473]:
+                - option "Selected point" [selected]
+                - option "Same run · all points"
+                - option "Two successful runs"
+            - button "Expand viewer" [ref=f1e474] [cursor=pointer]
+          - generic "Selected run plot" [ref=f1e475]:
+            - paragraph [ref=f1e660]: No successful native run. Run the engine to inspect real data.
+      - group [ref=f1e478]:
+        - generic "Native EQ 优化 · 候选与真实 Run 独立" [ref=f1e479]
+        - paragraph [ref=f1e480]: 在 Tx FFE / CTLE / Rx FFE / DFE 节点编辑搜索约束；Use MMSE 与 RLM 见优化节点。AMI 优化未接入（#10）。
+        - generic [ref=f1e481]:
+          - button "检查候选预算" [ref=f1e482] [cursor=pointer]
+          - button "Tune EQ" [ref=f1e483] [cursor=pointer]
+          - button "Abort EQ" [disabled] [ref=f1e484]
+          - button "Reset EQ" [ref=f1e485] [cursor=pointer]
+        - status [ref=f1e486]: Native slot busy; input validation is pending.
+        - paragraph [ref=f1e487]: MMSE 使用固定 Tx level 0.5 V、SNR 25 dB、DJ/RJ=0 与空 aggressor；Rn 进入 eta0。优化 pulse 假设 bounded ideal DFE，MMSE cursor=1 归一化；FOM 不是 COM、BER 或时域效果。RLM 只进入 MMSE。
+        - generic [ref=f1e488]:
+          - generic [ref=f1e489]:
+            - text: 优化记录
+            - combobox "优化记录" [ref=f1e490]:
+              - option "无优化记录" [selected]
+          - generic [ref=f1e491]:
+            - text: 候选
+            - combobox "候选" [ref=f1e492]
+          - button "Use EQ · 预览差异" [disabled] [ref=f1e493]
+          - button "保存优化记录" [disabled] [ref=f1e494]
+          - button "打开优化记录" [ref=f1e495] [cursor=pointer]
+        - paragraph
+        - group [ref=f1e497]:
+          - generic "评分 / 权重 / 原始输入与版本" [ref=f1e498]
+      - group [ref=f1e499]:
+        - generic "Task logs / selected run logs" [ref=f1e500]
+```

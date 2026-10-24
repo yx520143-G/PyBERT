@@ -1,0 +1,8 @@
+### Ran Playwright code
+```js
+await (async page => { await page.locator('#load-config').click(); })(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8773/#rxffe
+### Modal state
+- [File chooser]: can be handled by upload

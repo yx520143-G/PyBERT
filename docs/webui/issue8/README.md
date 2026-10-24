@@ -21,8 +21,11 @@ MMSE 使用原代码固定 Tx level 0.5 V、SNR 25 dB、DJ/RJ=0 与空 aggressor
 | 执行中取消 | [phase4d](evidence/chrome-v1/phase4d.log)：先断言 enabled，再 force click 命中短 coopt 窗口；原检查点观察 Event、退出/join 链路完整。原鼠标尝试自然完成，不能当取消成功 |
 | 无 force 键盘取消 | [keyboard abort](evidence/chrome-v2/keyboard-abort.log)：预登记的 [outer16/inner16](fixtures/cancel-ordinary-v2/manifest.json)，Enter 操作先返回 requested=true/observed=false/exited=false，随后原检查点观察并实际退出。与 force-click 案例分别记录 |
 | 契约与兼容 | [v2](evidence/contracts-v2.log) 120 passed；[v3](evidence/contracts-v3.log) 60 passed。包含既有 Web/archive/resource/COM 故障协议、CLI version、MCP config/tool 注册；COM 均为故障注入或预取消生命周期，0数值 COM。未跑默认优化、未新跑完整 native GUI/CLI 仿真 |
+| 修复复核 | [双轴审查](review.md)：异步编辑/候选身份及预算问题已闭合；[v5](evidence/contracts-v5.log) 63 passed，[静态与 VM](evidence/static-v2.log) 通过。v4 的新测试 EyeBits 前置设置错误原件独立保留，不能当预算拒绝的成功证据 |
+| 最终恢复 | Chrome 155.0.8059.85 / 1280×720；[分段恢复](evidence/chrome-v3/recovery-v5.log)、[新会话最终检查](evidence/chrome-v3/final-view-v2.log)。PAM4 两份 raw schema 2、NRZ、取消记录、两份 Run archive、YAML RLM/Use 来源恢复，0新增数值调用；图见 [MMSE](evidence/chrome-v3/09-readable-mmse.png)、[grid](evidence/chrome-v3/10-readable-grid.png) |
+| 收尾源码与原件复核 | [132655 audit](evidence/delivery-audit-20261024-132655/report.json) 再次 738 checks / 0失败；[final source](evidence/final-source/report.json) 10 checks / 0失败，保存生产代码 `f64d482` 的源码 bytes/hash，三次浏览器重下载 record/raw exact，YAML config/runtime exact。仅管理/UI/预算增量通过状态测试；历史数值批次各自绑定其执行源码，不冒称重跑 final-source 数值批次 |
 
-最终存档重开与固定源码复核记录在收尾追加；上表中的历史批次各自保留执行源码、失败和成本，不能拼成不存在的同批全套成功。
+上表中的历史批次各自保留执行源码、失败和成本，不能拼成不存在的同批全套成功。最终恢复脚本有 response inspector cache、错误消息断言、URL query 谓词及旧 CSS 缓存等取证失败，均保留在 `chrome-v3/`，分段恢复未新增 coopt/Main/COM。最后一行 CSS 修复经 Standards 只读确认。
 
 ## 保存与资源预算
 
@@ -32,9 +35,13 @@ YAML 保存当前草稿；版本化 runtime 注释保留 RLM、Reset 初值和 U
 
 预算：outer≤256、inner≤256、合计≤4096；Native 时间网格≤2,000,000 点、频率网格≤200,001 点；每记录≤768 MiB 原数组，合计1 GiB；最多16个会话计算记录、4个打开的优化 archive。预算拒绝不缩范围、不回退默认。验收 fixtures 各 outer≤16、非MMSE inner≤16。
 
+存储预检逐类计入实际 MMSE pulse/H/范围和导出数组，观察器保留新数组前再次累计检查。活动优化期间不接受新 archive，保持预留容量。Use/Reset 响应与确认绑定冻结草稿 revision，候选详情加载中禁止 Use/Save，过期响应不改变当前来源。
+
 ## 成本与保留限制
 
 截至 [130843 audit](evidence/delivery-audit-20261024-130843/report.json)：真实 coopt **23 次**＝6 direct + 6数值 adapter + 11 Chrome（8成功、2取消、1原生失败）；真实 main **3次成功**，数值 COM **0次**。取消和自然完成的尝试均计成本。每次 elapsed、spawn→exit、候选数见审计；数值 fixtures 的峰值 RSS 已采样，Chrome 峰值 RSS 未采集，明确为 unknown，不能拿 fixture 峰值代替。
+
+三次 Main 的 DFE errors 依次 **0、0、7**；Use 后新 Run 的 7 errors 原件保留，不主张 Use 改善误码。最终恢复、审查修复与审计新增 coopt/Main/数值 COM 均为0。owner 的 8773/8774/8775 验证服务与两个 Chrome 会话均已停止；原主 checkout 保持 `b9c56fe` 与既有两处 untracked 路径。
 
 保留初始化缺 psutil（0计算）、file chooser 截断、旧 busy/轮询、过早断言、下载校验及取消未命中等原失败日志。普通鼠标取消尝试没有形成有效取消证据；Enter 与 force-click 的实际方法分别列出。所有 ignored raw/archive 在本 worktree 的 `evidence/**/local/` 与 `output/playwright/issue8/`，不加入 PR，不清理。
 

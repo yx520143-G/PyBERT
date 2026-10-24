@@ -1,0 +1,16 @@
+{
+  "supplement_only": true,
+  "executed_file_hashes": {
+    "src/pybert/threads/optimization.py": "c67ebdabb4c1ded9294b8140905fdcc05aa1815db3ec712587ce87a344f4c5f3",
+    "tools/verify_web_optimizer.py": "2f429f0c3d3ba209682574189bfe6a84a14b3745ecf1c66cd10becec11179b80"
+  },
+  "execution_applicability": "The two supplemented files have not changed since the first 122031 computation (after the pre-computation psutil-to-ctypes fix). Native/source proof is current preserved bytes plus chronological patch/tool record, not fixture-only HEAD. Original report remains untouched.",
+  "default_call_static_proof": {
+    "base": "5fcf8285b042fe1fe92c068b1c3311fa87a50de0",
+    "method": "Remove optional observations parameter, observations-only blocks, and docstrings; compare full module AST",
+    "exact": true
+  },
+  "new_coopt_calls": 0,
+  "main_calls": 0,
+  "COM_calls": 0
+}

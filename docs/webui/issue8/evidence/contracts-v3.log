@@ -1,0 +1,208 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-issue8-optimizer\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 60 items
+
+tests/test_web_optimization.py::test_plan_matches_frozen_order[O-NRZ-grid] PASSED [  1%]
+tests/test_web_optimization.py::test_plan_matches_frozen_order[O-PAM4-MMSE] PASSED [  3%]
+tests/test_web_optimization.py::test_plan_matches_frozen_order[O-PAM4-MMSE-RLM080] PASSED [  5%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[step_mag_tune-0-step] PASSED [  6%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[min_mag_tune-2-min] PASSED [  8%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[rx_n_taps-0-at least] PASSED [ 10%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[rx_bw_tune--1-positive] PASSED [ 11%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[max_mag_tune-1000-budget] PASSED [ 13%]
+tests/test_web_optimization.py::test_dfe_gap_and_ffe_identity_rejected PASSED [ 15%]
+tests/test_web_optimization.py::test_native_reset_exact_and_does_not_reset_ranges PASSED [ 16%]
+tests/test_web_optimization.py::test_use_eq_only_native_handler_fields_and_no_dfe_values PASSED [ 18%]
+tests/test_web_optimization.py::test_cancel_bridge_is_original_checkpoint_and_never_started PASSED [ 20%]
+tests/test_web_optimization.py::test_RLM_does_not_change_native_PAM4_source PASSED [ 21%]
+tests/test_web_optimization.py::test_native_true_sentinel_is_not_success[-1000.0] PASSED [ 23%]
+tests/test_web_optimization.py::test_native_true_sentinel_is_not_success[nan] PASSED [ 25%]
+tests/test_web_optimization.py::test_native_true_sentinel_is_not_success[inf] PASSED [ 26%]
+tests/test_web_optimization.py::test_unrelated_runtime_error_is_failure_even_when_event_requested PASSED [ 28%]
+tests/test_web_optimization.py::test_optimizer_archive_shapes_integrity_and_no_native_load[False] PASSED [ 30%]
+tests/test_web_optimization.py::test_optimizer_archive_shapes_integrity_and_no_native_load[True] PASSED [ 31%]
+tests/test_web_archive.py::test_roundtrip_preserves_bytes_dtype_shape_manifest_and_extensions PASSED [ 33%]
+tests/test_web_archive.py::test_failed_import_preserves_existing_reference_inventory[<lambda>0] PASSED [ 35%]
+tests/test_web_archive.py::test_failed_import_preserves_existing_reference_inventory[<lambda>1] PASSED [ 36%]
+tests/test_web_archive.py::test_failed_import_preserves_existing_reference_inventory[<lambda>2] PASSED [ 38%]
+tests/test_web_archive.py::test_failed_import_preserves_existing_reference_inventory[<lambda>3] PASSED [ 40%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-None] PASSED [ 41%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-123] PASSED [ 43%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-value2] PASSED [ 45%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-] PASSED [ 46%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-bad] PASSED [ 48%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[native_sha-None] PASSED [ 50%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[prototype_sha-42] PASSED [ 51%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[adapter_sha-] PASSED [ 53%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[run_id-] PASSED [ 55%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[schema_version-None] PASSED [ 56%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[draft_revision-0] PASSED [ 58%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[packages-value11] PASSED [ 60%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[resources-value12] PASSED [ 61%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[warnings-value13] PASSED [ 63%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_identity_hash-None] PASSED [ 65%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[resource_hash-123] PASSED [ 66%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[resource_bindings-value16] PASSED [ 68%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[runtime_extensions-value17] PASSED [ 70%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[execution_strategy-value18] PASSED [ 71%]
+tests/test_web_archive.py::test_supported_raw_schemas_keep_identity_metadata[2] PASSED [ 73%]
+tests/test_web_archive.py::test_supported_raw_schemas_keep_identity_metadata[3] PASSED [ 75%]
+tests/test_web_archive.py::test_supported_raw_schemas_keep_identity_metadata[4] PASSED [ 76%]
+tests/test_web_archive.py::test_object_array_forbidden_before_load PASSED [ 78%]
+tests/test_web_archive.py::test_reference_budget_rejects_without_eviction_and_ids_stay_distinct PASSED [ 80%]
+tests/test_web_archive.py::test_missing_or_changed_replay_resources_refused PASSED [ 81%]
+tests/test_web_archive.py::test_legacy_trust_missing_none_index_axes_and_no_double_db PASSED [ 83%]
+tests/test_web_archive.py::test_legacy_export_uses_native_constructor_when_all_23_produced PASSED [ 85%]
+tests/test_web_archive.py::test_legacy_api_explains_full_archive_unavailable_but_keeps_subset_and_sidecar PASSED [ 86%]
+tests/test_web_archive.py::test_complete_run_retains_full_archive_recommendation PASSED [ 88%]
+tests/test_web_archive.py::test_open_clear_api_no_worker_draft_or_live_run_mutation PASSED [ 90%]
+tests/test_web_archive.py::test_active_subtask_snapshot_and_reopened_reference_never_join_current_task PASSED [ 91%]
+tests/test_web_archive.py::test_atomic_save_failure_keeps_old_file PASSED [ 93%]
+tests/test_web_archive.py::test_reference_byte_budget_preserves_inventory PASSED [ 95%]
+tests/test_web_archive.py::test_malformed_known_legacy_container_is_controlled_failure PASSED [ 96%]
+tests/test_web_archive.py::test_replay_guard_survives_removed_reference_without_disabling_resource_check PASSED [ 98%]
+tests/test_web_archive.py::test_unknown_legacy_version_is_preserved_on_native_export PASSED [100%]
+
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    floatingPointConstant.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    nonnegativeNumber.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    coordinatePair = (coordinate + maybeComma + coordinate).setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    closePath = Group(Command("Z")).setParseAction(lambda t: ("Z", (None,)))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    ).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    arcFlags = (flag + maybeComma + flag).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+    transformList = delimitedList(Group(transform), delim=maybeComma)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integerConstant = Word(nums + "+-").setParseAction(lambda t: int(t[0]))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorByte = Optional(sign) + integerConstant.setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorPerc = number.setParseAction(parseColorPerc) + Literal("%").suppress()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("rgb(").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    doubleHex = Word(hexnums, exact=2).setParseAction(lambda t: int(t[0], 16))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("#").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    | Word(hexnums, exact=3).setParseAction(parseShortHex)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    namedColour = Word(alphas).setParseAction(parseNamedColour)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integer = Word("0123456789").setParseAction(asInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    number.setName("number")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    signedNumber = Combine(Optional(sign) + number).setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    lengthValue = Combine(Optional(sign) + number).setParseAction(asFloatOrInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    lengthValue.setName("lengthValue")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    lengthUnit = oneOf(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55: PyparsingDeprecationWarning: 'leaveWhitespace' deprecated - use 'leave_whitespace'
+    length.leaveWhitespace()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    number.setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    none = CaselessLiteral("none").setParseAction(lambda t: ["NONE", ()])
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    currentColor = CaselessLiteral("currentColor").setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    + Group(SkipTo(urlEnd, include=True).setParseAction(parsePossibleURL))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: C:\Users\yx\.codex\worktrees\pybert-issue8-optimizer\serial-bus-simulator\docs\webui\issue8\evidence\contracts-v3.xml -
+============================= slowest 3 durations =============================
+4.06s call     tests/test_web_archive.py::test_replay_guard_survives_removed_reference_without_disabling_resource_check
+0.65s call     tests/test_web_optimization.py::test_use_eq_only_native_handler_fields_and_no_dfe_values
+0.53s call     tests/test_web_optimization.py::test_native_reset_exact_and_does_not_reset_ranges
+====================== 60 passed, 35 warnings in 13.01s =======================

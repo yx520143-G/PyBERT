@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 
 from pybert.web.archive import json_bytes, read_arrays, read_json, sha256
-from pybert.web.optimization import save_optimization, load_optimization
+from pybert.web.optimization import save_optimization, load_optimization, execution_environment
 
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "docs/webui/issue8/evidence"
@@ -111,6 +111,8 @@ def main():
               "total_real_coopt_calls": len(numeric_costs)*2 + sum(row["coopt_called"] for row in opt_costs),
               "main_calls": 3, "COM_numeric_calls": 0, "audit_new_coopt_calls": 0,
               "native_source_sha256": sha256(source.read_bytes()), "audit_source_sha256": sha256(Path(__file__).read_bytes())}
+    result["audit_code_head"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    result["audit_execution_environment"] = execution_environment()
     (output / "report.json").write_bytes(json_bytes(result))
     print(json.dumps({"output": str(output), "checks": len(checks), "failed": result["failed"], "total_coopt_calls": result["total_real_coopt_calls"]}))
     assert not result["failed"]

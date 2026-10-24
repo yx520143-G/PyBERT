@@ -1,0 +1,42 @@
+### Result
+{"failed_task":{"task_id":"ebea040f-55c9-4ba5-88e4-e8760e0265c6","operation":"optimization","state":"failed","phase":"failed","cancel_requested":false,"cancel_requested_at":null,"cancel_observed_at":null,"cancel_observed":false,"worker_exited":true,"logs":[],"created_at":1792817192.1774933,"request_hash":"b6655366644d245c0c72dfa7ef40e8504c5a70358f5ae1d0c3babfe2004c044c","parent_run_id":null,"resource_inputs":[],"parameter_source":null,"worker_exit_confirmed_at":1792817196.1501412,"exitcode":0,"finished_at":1792817196.1501422,"error":"No Tx tap weight combination leaves a cursor of at least 0.0!","error_type":"RuntimeError","traceback":"Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue8-optimizer\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 74, in run_worker\n    terminal = {\"status\": \"succeeded\", \"result\": run_optimization(task_id, request, directory, cancelled, emit)}\n                                                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue8-optimizer\\serial-bus-simulator\\src\\pybert\\web\\optimization.py\", line 219, in run_optimization\n    result = coopt(p, observations=observations)\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue8-optimizer\\serial-bus-simulator\\src\\pybert\\threads\\optimization.py\", line 585, in coopt\n    rslts = coopt_native()\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue8-optimizer\\serial-bus-simulator\\src\\pybert\\threads\\optimization.py\", line 392, in coopt_native\n    raise RuntimeError(f\"No Tx tap weight combination leaves a cursor of at least {c0_min}!\")\nRuntimeError: No Tx tap weight combination leaves a cursor of at least 0.0!\n"},"checks":{"real_native_RuntimeError":true,"not_cancelled":true,"old_Run_kept":true,"Use_disabled":true,"failure_saved":true,"budget_422_without_coopt":true}}
+### Ran Playwright code
+```js
+await (async page => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue8-optimizer/serial-bus-simulator';
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+  await page.waitForFunction(()=>!document.getElementById('tune-eq').disabled);
+  const before=await(await page.request.get('http://127.0.0.1:8773/api/state')).json();
+  const response=page.waitForResponse(r=>r.url().endsWith('/api/optimizations') && r.request().method()==='POST');
+  await page.locator('#tune-eq').click();const start=await(await response).json();
+  await page.waitForFunction(id=>document.getElementById('task-state').textContent.includes(id.slice(0,8)) && document.getElementById('task-state').textContent.includes('failed'),start.task_id);
+  const task=await(await page.request.get('http://127.0.0.1:8773/api/tasks/'+start.task_id)).json();
+  assert(task.state==='failed' && task.error_type==='RuntimeError' && !task.cancel_observed,'RuntimeError mislabelled cancellation');
+  assert(task.error.includes('No Tx tap weight combination'),'Not the expected real native failure');
+  await page.waitForFunction(id=>document.getElementById('selected-opt').value===id,start.task_id);
+  assert(await page.locator('#use-eq').isDisabled(),'Failed candidate can Use EQ');
+  const after=await(await page.request.get('http://127.0.0.1:8773/api/state')).json();
+  assert(before.runs.map(r=>r.run_id).join()===after.runs.map(r=>r.run_id).join(),'Failure replaced old Run');
+  const download=page.waitForEvent('download');await page.locator('#save-opt').click();await(await download).saveAs(root+'/output/playwright/issue8/failed.pybert_opt');
+  await page.screenshot({path:root+'/output/playwright/issue8/06-native-failure.png'});
+  await page.getByRole('button',{name:'Optimizer',exact:true}).click();
+  await page.locator('#control-max_mag_tune').fill('1000');await page.locator('#control-max_mag_tune').press('Tab');
+  await page.waitForFunction(()=>!document.getElementById('optimizer-plan').disabled);
+  const planResponse=page.waitForResponse(r=>r.url().includes('/api/optimizer-actions/optimizer_plan'));
+  await page.locator('#optimizer-plan').click();const denied=await planResponse;
+  assert(denied.status()===422,'Budget not refused');
+  const final=await(await page.request.get('http://127.0.0.1:8773/api/state')).json();
+  assert(final.optimizations.length===after.optimizations.length,'Budget refusal ran coopt');
+  assert((await page.locator('#optimizer-status').innerText()).includes('budget'),'Budget reason not visible');
+  return {failed_task:task,checks:{real_native_RuntimeError:true,not_cancelled:true,old_Run_kept:true,Use_disabled:true,failure_saved:true,budget_422_without_coopt:true}};
+}
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8773/#optimizer
+- Page Title: PyBERT · Signal Chain Workbench
+- Console: 1 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-10-24T04-26-12-714Z.log#L7
+- Downloading file ebea040f-55c9-4ba5-88e4-e8760e0265c6.pybert_opt ...
+- Downloaded file ebea040f-55c9-4ba5-88e4-e8760e0265c6.pybert_opt to ".playwright-cli\ebea040f-55c9-4ba5-88e4-e8760e0265c6.pybert-opt"
