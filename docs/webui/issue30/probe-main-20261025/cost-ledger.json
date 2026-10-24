@@ -399,5 +399,13 @@
     "enclosing_exec_wall_s": 1.0314798,
     "internal_elapsed_s": "UNKNOWN",
     "actual_hooks_product_tests": 0
+  },
+  "P2_independent_read_only_review": {
+    "record": "pytest-entry-fix/review-read-costs.json",
+    "Standards_known_exec_command_wall_s": 4.3701611,
+    "Spec_wall_s": "UNKNOWN",
+    "internal_elapsed_s": "UNKNOWN",
+    "not_in_guarded_or_entry_static_elapsed": true,
+    "product_test_runner_checker_entries": 0
   }
 }

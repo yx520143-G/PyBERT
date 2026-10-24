@@ -1,0 +1,33 @@
+{
+  "scope": "independent read-only review of fixed 5858668; no checker/runner/test/product executions",
+  "Standards": {
+    "exec_command_count": 5,
+    "exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "exec_command_wall_s": [
+      1.1696785,
+      0.7351407,
+      0.5604079,
+      1.2443626,
+      0.6605714
+    ],
+    "exec_command_wall_sum_s": 4.3701611,
+    "internal_elapsed_s": "UNKNOWN",
+    "first_long_diff_display": "truncated, original_token_count 9012; refs/clean were fully displayed",
+    "supplemental_reads": "new limited-path observations completed actual runner-only diff/100% rename/unchanged products and config; not recovery of initial full output",
+    "raw_outputs": "review agent tool transcript only; not separately persisted as local raw logs"
+  },
+  "Spec": {
+    "all_read_only_entries_exit0": true,
+    "exec_command_count": "UNKNOWN (not separately reported)",
+    "exec_command_wall_sum_s": "UNKNOWN",
+    "internal_elapsed_s": "UNKNOWN",
+    "raw_outputs": "review agent tool transcript only; not separately persisted as local raw logs"
+  },
+  "task_wall_peak_RSS": "UNKNOWN"
+}

@@ -1,0 +1,800 @@
+{
+  "baseline_HEAD": "3d942f30d892e038a2b52b5e876d11d94c511820",
+  "review_candidate_HEAD": "5858668dc0ca8f3bbc7be0bef48eae70e1f3ebef",
+  "review_candidate_tree": "72d9c11a81f3a62e6ae69269856be24dfded8ae8",
+  "scope": "v2 final documentation seal after P2 repair reviews; final HEAD/tree reported externally; no source/cases/runner/checker/plan changes or test rerun after candidate",
+  "manifest_scope": "all changed regular files against baseline excluding this manifest only; one binary lossless gzip and one separately bound local ignored raw log",
+  "raw_file_sha256": {
+    "docs/webui/issue30/probe-main-20261025/.gitattributes": "cc2f0bb69133f405dc44ff1d5810cddf16e9504986ca1648d554e576c93596bc",
+    "docs/webui/issue30/probe-main-20261025/README.md": "ffe4eeee6f8b21f4ef45fee759c8bbceda0e1ebe9845574090832a0e24bf4257",
+    "docs/webui/issue30/probe-main-20261025/bootstrap-plan.json": "739dd7e5f6e20f7e2ec1fd0565dd3f7c71662a630296fcddc3af734fd76913fb",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/command.json": "675adde5eac96dee78d989bffae7df01f1ac11a015ec57ddf0541a1eb18166a4",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/receipt.json": "3522d0a786d1ad9d679c19800facd5b092854b49a8731d2cdb537db4b6349986",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/command.json": "c85a9c7d23a77ce510a1c861448d50f5800881db7501e7e20d366dc3518abf28",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/receipt.json": "8a322e04927a34df8502f3fba02116d7315ba32214e3b0410d103832969b1978",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/stderr.txt": "379329eaf2b64c92ccf7a8bdae18fe548cc2bb45aaf9520b3c956218a6144da9",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/stdout.txt": "790cc3008e11e1a19b3204213311457963a5c904f3092fc597bdd927e8dd901f",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/command.json": "e29f36e25fe49e99dd5a75723acb1646c27fc61dfd34a9d07a55ed7508062797",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/receipt.json": "7b4559a832210b591ab35803af2c8615906ada1841b5a934f55c24ee3b88fe7b",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/stderr.txt": "41c8b40fd0c7030285116feff6927f9646fea6ee92cc63651fc593232ca980e0",
+    "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/cost-ledger.json": "3bf8a65af8e81d447d43356d2399dd8fb35888e869812f1d73315de1f2c611cb",
+    "docs/webui/issue30/probe-main-20261025/guarded_probe_main_cases.py": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
+    "docs/webui/issue30/probe-main-20261025/inputs/bert.baseline.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "docs/webui/issue30/probe-main-20261025/inputs/fixed-contract-README.txt": "991e85d26399362392862a4f849bde1652d38125ccbb2d5c6cbb877ed26baa10",
+    "docs/webui/issue30/probe-main-20261025/inputs/ibisami.baseline.py.txt": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+    "docs/webui/issue30/probe-main-20261025/inputs/runner-preflight-v1.py.txt": "a43a970442d18f3a1f4310fec3718c54b91a1473556e0e3bd6874b65883784b1",
+    "docs/webui/issue30/probe-main-20261025/issue-30-comments.json": "8b4a6140b178f3f192362885325664cbabf31d392b4fc90738fcfbb32c6f4638",
+    "docs/webui/issue30/probe-main-20261025/issue-30.json": "ed6aad43fa619cc0217cad27d8c2e6e3c2ed22d9def6299e7bf08afcd0c757c7",
+    "docs/webui/issue30/probe-main-20261025/pre-review-verification.json": "e92ef5f22b44169ccbcdc6fd7e6e4c65cba4b181f6f25bf27479d1eca69f3112",
+    "docs/webui/issue30/probe-main-20261025/preflight-static.json": "b0a40543600993857e4286a8519502b1c91d31b32162c5d7c8de0d6090ade890",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/README.md": "e2508d30a9a35bdc8fcfbac8b9b1ec136af2f4860b7dc99d827672fd995e25d2",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/check_entry.py": "e1820efad077341fb1920cd39f97bff01bd9a78fe6763ba7f723caa716d0c3ae",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/hook-simulation-first-failure.json": "f55f5286686fa33c142f53243686efa370055e6152da020248fafa0c773131bf",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/README.md.txt": "6e54ca3d9701aef9ac24db324e244cc3c5f19bf213a165dfc5ffee82c033eac9",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/cost-ledger.json": "881933dbfea7e23cecc9a634584adac661d09df91fd0cfc255e27b726005a5d5",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/gitattributes.txt": "ba095dc5110b38c2bbbf71657f8d660632ac28119441c1cc31ad3ae33fb3faa3",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/review.md.txt": "1962dfd6572405e3ac4bf1423bcf807d6a52e47ea4545e4bceb6cfe6de57cbaa",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/run_guarded.py.txt": "e5f9226383a9a28191f7eb96f90caab8d076a8f3c0d059bcacfb0d7d1a536723",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/source-boundary.json": "e69816255bdc367f2626ed5992ace6a7eb8344b8223d46cbd86b5c2a0c6b8685",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/test-plan.json": "1ae38ee6c0ae247638e37ebb05363fd0fca9498c8a9d0571691942ec8e50764d",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/test_ami_probe_main.py.txt": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/verification.json": "6abf2f354d8b11dcdd8c72f27fae1a7934a5004b4811aa94b799c40292df9c03",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/live-issue-30-comments.json": "79df8bffcf91f9b815e3fe52cce6041dd84e51ebf7ff6dbc889b9cd4bf50a495",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/live-issue-30.json": "f83b389d75ae2ab24dd64187ecb3f41b902dc1e90a5e913e788cd77db47ff587",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/pm-review.json": "83560ac7a11860d902ba24ec96e86eebbf657394bd1f02cdb25ddfbe405089f0",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/pre-review-verification.json": "faba2ab86b8ed67129a5899c9bbb74d05d5666d464158196771d8af3618dce5f",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/review-read-costs.json": "35fa81a9223d1e0f7bc2f9540771f91fdf6323f10f422acbb857c48852110a81",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/Makefile.txt": "ffdc088b377ef4d1fa78716aab5d5553595a429e23e00101792b08fa04b542a0",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/before.json": "2173157e462bc60fbcc3f93bed57577231c2749ed7d6c18a60f0d6289fcede5c",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/bert.py.txt": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/checker.py.txt": "e1820efad077341fb1920cd39f97bff01bd9a78fe6763ba7f723caa716d0c3ae",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/conftest.py.txt": "097143b27641a127fd41e82be2f1936b59d24f6ab13af81379bde863916318a5",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/launch.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/launch.stdout.txt": "ec590222bbfb6147487565c05fe168a09b0e480053ac98cd4f78c5b67837680f",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/old-test.py.txt": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/plan.json": "8b4c4c4f830e424b74d8f4f588577a4a8d60f199ef15cff8cbba931442f122c8",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/pyproject.toml.txt": "8703f9d4381f4bfe0b4f504e0a854129a1c7eb8677ac2d679739e49481d65e66",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/receipt.json": "60da0a576f04642c3717f0a9d77f57a6c2ab49073448d9b16f909b99acf79a92",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/runner.py.txt": "e5f9226383a9a28191f7eb96f90caab8d076a8f3c0d059bcacfb0d7d1a536723",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/source.py.txt": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/startup.json": "a5eb306d6e836e451cfc9f70715551da3dd1fe8d68ae5cd6e1bc7d32addc98e6",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/stdout.txt": "a31e4f7961710514a9fa80d002a37174da9b1ccd3d51776e2160955e9c705353",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/tests-census.json": "9f7575cdda2e0e97ce2a00c7695b3d151cb1a5e62c9255279032e383477edd84",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/01-static-red/venv.cfg.txt": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/Makefile.txt": "ffdc088b377ef4d1fa78716aab5d5553595a429e23e00101792b08fa04b542a0",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/before.json": "1cb80d27de3e3f9c689507d5de0bef06bbe6850012ca3552ce7d7ea00b69835d",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/bert.py.txt": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/checker.py.txt": "e1820efad077341fb1920cd39f97bff01bd9a78fe6763ba7f723caa716d0c3ae",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/conftest.py.txt": "097143b27641a127fd41e82be2f1936b59d24f6ab13af81379bde863916318a5",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/launch.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/launch.stdout.txt": "da961e2b5c20a7853737a074f220a52a68a44f7a83c837f95523753f5ad3aab0",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/plan.json": "8b4c4c4f830e424b74d8f4f588577a4a8d60f199ef15cff8cbba931442f122c8",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/pyproject.toml.txt": "8703f9d4381f4bfe0b4f504e0a854129a1c7eb8677ac2d679739e49481d65e66",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/receipt.json": "e013b4384fafbecda1b9ec140ea2193d4c43d84e7cf2ff6db97486920d796c69",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/relocated-cases.py.txt": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/runner.py.txt": "a4a3d1475af4dbacd045384ec64c8483b19d7604b9692578076e412ce459026e",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/source.py.txt": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/startup.json": "a5eb306d6e836e451cfc9f70715551da3dd1fe8d68ae5cd6e1bc7d32addc98e6",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/stdout.txt": "a7af7d58dfcec7497d5fb671d3043ac098829d1812259a84e4d34aaba005bf45",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/tests-census.json": "130454ccdc54831399db3f42acd5ca521b783daf7b8700d0750fc55b6f651a57",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/02-static-green/venv.cfg.txt": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/attributes.txt": "ba095dc5110b38c2bbbf71657f8d660632ac28119441c1cc31ad3ae33fb3faa3",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/before.json": "ad9c23f6cd62366773bfc07ebc1d66fc5c49f2daf2fb271fe0f93d753726ba28",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/receipt.json": "4e6fa234ad2033f29752e253e9a41c5b628fbefca7dfd26c32f2dfecf110d2ac",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/staged-index.txt": "583682849d26beb08a6bc583cc490b6319270c8487c69981b6615bb0c9cfc273",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/stdout.txt.gz": "aaf7e746722b4114f19bbff6cac4dd7e6a473f0af314b91ff0096b7611e1c2a2",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/storage.json": "7e07d59c2f8504e6b914a284fdac515fe890785b64d5886b705b3dd5a9e3e0e5",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/staged-check-first-failure.json": "3a8fe1c278b1ab8ec24ae443872499a51a53187eb850b498c2c59922bf49798b",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/staged-check-green.json": "67d39d9d20620e110d6b38199faf3796d46df73375900950eeea9f129ce414bb",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/staged-check-initial.json": "c9fce1c1641854d06ca7a457df363cca4213c9fc25aa28b7d1799df0a1cb1164",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/staging-path-failure.json": "68d95587b6436447a60e66b387f9f792fba1d47e5df3ae442e87047bbe7451e2",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/startup.json": "a5eb306d6e836e451cfc9f70715551da3dd1fe8d68ae5cd6e1bc7d32addc98e6",
+    "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/static-plan.json": "8b4c4c4f830e424b74d8f4f588577a4a8d60f199ef15cff8cbba931442f122c8",
+    "docs/webui/issue30/probe-main-20261025/raw-hook-check.json": "84965b340e8cc893449c5f69b99c3ab13866da93e8509eb18b4b75bd7775a105",
+    "docs/webui/issue30/probe-main-20261025/review-entry-failures.json": "ba2965030b3833197e93fee53e2a13eb36e8fe55be3a998f940fbc0556d84b7e",
+    "docs/webui/issue30/probe-main-20261025/review-v2.md": "da68e576511c61bd14b9155e815e701f9482cdaa8f627014409e8238e7d9121e",
+    "docs/webui/issue30/probe-main-20261025/review.md": "1962dfd6572405e3ac4bf1423bcf807d6a52e47ea4545e4bceb6cfe6de57cbaa",
+    "docs/webui/issue30/probe-main-20261025/run_guarded.py": "a4a3d1475af4dbacd045384ec64c8483b19d7604b9692578076e412ce459026e",
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/before.json": "019a43d83f7174df2ad90d527601443f89b2dd4bd6c2a8585a05391aa641ccf3",
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/plan.json": "399ec0c42952568c821610f7a7e44728726cc39b3372abdaa77ebba2e95a91bb",
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/receipt.json": "63c9e11d7ef3af7af95ab0d7197f0ebd2e7a0d1c1b3db025acf9b11640400f81",
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/runner.py.txt": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1",
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/source.py.txt": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/stderr.txt": "ac210780c0bfcf21410c9a0bde0ac5bbd636ef67a7e3a22458189207211ef072",
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/test.py.txt": "cbf31e6bfeccbbd557c429c4821d20d566bf3b1f74d7dc82a930f5d11e4c72a6",
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/before.json": "54ba39bac69e7f6fadc72e5cb4514f21dd9faf0cd5d943ee872565f8121b8507",
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/plan.json": "ba2825836327a92685029283dd8d2e896af1a160ccf5739f2eee6413f50a6c37",
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/receipt.json": "5aa116b35afa0df4ce4507caa7b5f4a31ea75fa8291ee34943fa732d4ab45bb0",
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/runner.py.txt": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1",
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/source.py.txt": "3070fcdc088eae04cb190d4538c8d2fd1f37684dd851c5eb8afa819a3985b142",
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/stderr.txt": "889f87483085b1d85233af89edf1615870fc861a39e682a37c2c970be5b09b2a",
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/test.py.txt": "cbf31e6bfeccbbd557c429c4821d20d566bf3b1f74d7dc82a930f5d11e4c72a6",
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/before.json": "6d87166773f5543d456989d2b85dce1649a4d6771aa4418f6c0542d624c36ab5",
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/plan.json": "f1cf3766538ba470622556f735c5ea085cdeafd757722c33a7d732f07a2e881d",
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/receipt.json": "c766c824d48580dd6812ba790064ca2b8e3cc5a08c3aacd3407c96e085911f43",
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/runner.py.txt": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1",
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/source.py.txt": "3070fcdc088eae04cb190d4538c8d2fd1f37684dd851c5eb8afa819a3985b142",
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/stderr.txt": "e05bf4b3522836bed6a75439771df9a6879493cd4eedbb59cc5594702a24b94f",
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/test.py.txt": "bc77c8afe9c05c1396023b39c5259801993d0b6dc3341626d1038e3b8ede27be",
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/before.json": "bb603c10c5242dc643d876c70c9abfd76c92548900aa465af8a50c17aa9880e5",
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/plan.json": "b00fbc56c6afc87155e31d86fcbb9e65f9edd869096d43784c78edcefb022776",
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/receipt.json": "0e98f5ebc63b8f20fa1835ec75c0cd745e0eb7c12f4746169efcbd63442f91fe",
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/runner.py.txt": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1",
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/source.py.txt": "2d3536226ea661c2ef3f7c5fa5eb78e1337cc5b347fb32f103a7f2bf4d8d47d1",
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/stderr.txt": "a02da59b6289049f2467edf37b31b90088ff46a8a3d65514d3d5af40a73cbecf",
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/test.py.txt": "bc77c8afe9c05c1396023b39c5259801993d0b6dc3341626d1038e3b8ede27be",
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/before.json": "0e9eb400bf9b1a49fd2517cb6d9aee7b106feb6ddefdfb93e418fd83083c8489",
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/plan.json": "dfdd5b1128a348dc7c740b11c4b78d0cb3a2d7f852875fcc63f0a3d848f16cd0",
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/receipt.json": "f01af849cb5715e9c61f57f0a80b03fb174a1bd8fbd7cfc6a3dbcb342536d9a8",
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/runner.py.txt": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1",
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/source.py.txt": "2d3536226ea661c2ef3f7c5fa5eb78e1337cc5b347fb32f103a7f2bf4d8d47d1",
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/stderr.txt": "ed6021e2fc4573cfcafe48c6202ad48aa02c03949e0fc85648535596be5232a0",
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/test.py.txt": "5fd6fa5645a9499d92111db314729dc126e94b5185331ff4fe169bbfbdff4663",
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/before.json": "e9443edd0dcefcff27b5ba79f5becaae5e27a874303bb95276db866292bdaf47",
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/plan.json": "a7c36d742eab2aceea61a2b73d1aa23da24f41d384d2091185e75503aa04e095",
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/receipt.json": "3775ac01cbad7d4c373a8a464150c169bc467227fdd2447ca4b2e8bde0ea8920",
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/runner.py.txt": "d2b7629bbe9d9477b4175d695d38be62f523936696ba92df4e12cdb40b87b9cb",
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/source.py.txt": "913f3d252c93e344bfeeb08948feb8749c8b005def68bd5a9e1bc2775c9bd4fd",
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/stderr.txt": "ae45323985056de2260967d1722e188f2ab5b5516a5ac5b4d28ff4e6c1284ca6",
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/test.py.txt": "5fd6fa5645a9499d92111db314729dc126e94b5185331ff4fe169bbfbdff4663",
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/before.json": "ce93600a004bdbd1fc9440d1114b058c7cced58b6b53d31b120ab376271d740b",
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/plan.json": "0e38596201fb479d2dd28881d933978d447e968194e8588021f9ab76daef8b10",
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/receipt.json": "e12b10ce84602da216d12af31ba5ee9fdaebedf1f15039f83bc8b64b8953c86d",
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/runner.py.txt": "57f7a7c5ee52e76468935cf73ce87c0de89a6bdba7a3dfe80c0e8313a8de5251",
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/source.py.txt": "913f3d252c93e344bfeeb08948feb8749c8b005def68bd5a9e1bc2775c9bd4fd",
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/stderr.txt": "a403493ae002325a1f4d4ea7ce4b50e60ac05f52bd7a4c1314184052eba58abf",
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/test.py.txt": "3b81c99043c35c6bd382d91693461fcccf6ec061b866f103b79e7f567ba0a402",
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/before.json": "0d6fae3f22a6c8849e6380c8dca8a7c7a272f5060747815b48ac228c5cf05191",
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/bert.py.txt": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/plan.json": "0adae521af4d17a331c5e9014fad43a1bddf37c5ebab07b6cea5cc60cc74375f",
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/receipt.json": "fb78fc79423c1fb6b50098da0e2d3c7a33f098bce71b127d65fc91f84d7b5dc5",
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/runner.py.txt": "57f7a7c5ee52e76468935cf73ce87c0de89a6bdba7a3dfe80c0e8313a8de5251",
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/source.py.txt": "7ccd280d746347a55220d9dec1b61f7441cb1e16a38d0fa2578121273ff33c50",
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/stderr.txt": "243ff85584227d75733de305e0bff681217303b3505f960ff54055a6431f8672",
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/test.py.txt": "3b81c99043c35c6bd382d91693461fcccf6ec061b866f103b79e7f567ba0a402",
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/before.json": "33bb5a1292a9f2e2527eb9a92fca7dac2e8710c390b1609d2571e4f1d606745b",
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/bert.py.txt": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/plan.json": "aa6d5b61c4626477d42904fdb3bf47d38d86e9a42e69fe1ad31458e056881f31",
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/receipt.json": "80eef3a4bf486ca45e5c8dc18b23f8e0465f82712fff0a571dea6b2969bfbd0d",
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/runner.py.txt": "57f7a7c5ee52e76468935cf73ce87c0de89a6bdba7a3dfe80c0e8313a8de5251",
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/source.py.txt": "7ccd280d746347a55220d9dec1b61f7441cb1e16a38d0fa2578121273ff33c50",
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/stderr.txt": "98752760a5f3150966dbdfe6bb3dea11701bd2f5b257f04807697e1a201c85e1",
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/test.py.txt": "1df7d19cb6ab57eaf3606438ee8e7a09ce89106fd4d26eecff91a44cf175ce52",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/before.json": "8326254108f26feb3ce534c42c062fb640d3c370e307e28aa793ebf17e20ed81",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/bert.py.txt": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/plan.json": "1ae38ee6c0ae247638e37ebb05363fd0fca9498c8a9d0571691942ec8e50764d",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/receipt.json": "581f08f3f6908eb5eb3ebd59b72c60cd41b196941914569c3022e22318454ce6",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/runner.py.txt": "e5f9226383a9a28191f7eb96f90caab8d076a8f3c0d059bcacfb0d7d1a536723",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/source.py.txt": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/stderr.txt": "6f1427f6e9ab47775d8e9591132d64ad3dec845810ebe10f2ea46c96234715a2",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/test.py.txt": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/venv.cfg.txt": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/before.json": "d9d153c4281556b7217b0e59254617078fb717cd990156e831bbe7c78cdf9d6c",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/bert.py.txt": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/launch.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/launch.stdout.txt": "dae23d337e9b9e08ed3d08ac63061d724c786e0e605174840f1d9af1898c1a73",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/plan.json": "2fa65b6c8097b9c69719d4d7c595dd10749d5caea1d281568f6b2c37761e5507",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/receipt.json": "e19f13053f3e199e1fd8d981a2d2a75a9527e01ca0b25b6b8857d989552f0a94",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/runner.py.txt": "a4a3d1475af4dbacd045384ec64c8483b19d7604b9692578076e412ce459026e",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/source.py.txt": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/stderr.txt": "b382eac35420b06d8410362a6ef63063aa4a2566cdd77fcd45f85e5bfa52843f",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/test.py.txt": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
+    "docs/webui/issue30/probe-main-20261025/runs/11-entry-green/venv.cfg.txt": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
+    "docs/webui/issue30/probe-main-20261025/seal-preflight-failure.json": "38d197917bd7c6a619ae9e9e9df6232ed12f0147f83da4758535c618bd3dc758",
+    "docs/webui/issue30/probe-main-20261025/source-boundary.json": "8356b9516f977ce292a5d8a0d45ce5ed7747d2b73c93802e3636444e96724f17",
+    "docs/webui/issue30/probe-main-20261025/startup.json": "20e9bfb622146fcc922ce94bd3bc400964189b4cd667f519220d9ccab39fbecf",
+    "docs/webui/issue30/probe-main-20261025/test-plan.json": "2fa65b6c8097b9c69719d4d7c595dd10749d5caea1d281568f6b2c37761e5507",
+    "docs/webui/issue30/probe-main-20261025/verification.json": "6abf2f354d8b11dcdd8c72f27fae1a7934a5004b4811aa94b799c40292df9c03",
+    "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "src/pybert/utility/ibisami.py": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2"
+  },
+  "original_delivery_all127_retained": {
+    "docs/webui/issue30/probe-main-20261025/.gitattributes": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/gitattributes.txt",
+      "sha256": "ba095dc5110b38c2bbbf71657f8d660632ac28119441c1cc31ad3ae33fb3faa3"
+    },
+    "docs/webui/issue30/probe-main-20261025/README.md": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/README.md.txt",
+      "sha256": "6e54ca3d9701aef9ac24db324e244cc3c5f19bf213a165dfc5ffee82c033eac9"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap-plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap-plan.json",
+      "sha256": "739dd7e5f6e20f7e2ec1fd0565dd3f7c71662a630296fcddc3af734fd76913fb"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/command.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/command.json",
+      "sha256": "675adde5eac96dee78d989bffae7df01f1ac11a015ec57ddf0541a1eb18166a4"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/receipt.json",
+      "sha256": "3522d0a786d1ad9d679c19800facd5b092854b49a8731d2cdb537db4b6349986"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/01-chop-https/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/command.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/command.json",
+      "sha256": "c85a9c7d23a77ce510a1c861448d50f5800881db7501e7e20d366dc3518abf28"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/receipt.json",
+      "sha256": "8a322e04927a34df8502f3fba02116d7315ba32214e3b0410d103832969b1978"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/stderr.txt",
+      "sha256": "379329eaf2b64c92ccf7a8bdae18fe548cc2bb45aaf9520b3c956218a6144da9"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/02-submodules/stdout.txt",
+      "sha256": "790cc3008e11e1a19b3204213311457963a5c904f3092fc597bdd927e8dd901f"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/command.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/command.json",
+      "sha256": "e29f36e25fe49e99dd5a75723acb1646c27fc61dfd34a9d07a55ed7508062797"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/receipt.json",
+      "sha256": "7b4559a832210b591ab35803af2c8615906ada1841b5a934f55c24ee3b88fe7b"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/stderr.txt",
+      "sha256": "41c8b40fd0c7030285116feff6927f9646fea6ee92cc63651fc593232ca980e0"
+    },
+    "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/bootstrap/03-stdlib-venv/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/cost-ledger.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/cost-ledger.json",
+      "sha256": "881933dbfea7e23cecc9a634584adac661d09df91fd0cfc255e27b726005a5d5"
+    },
+    "docs/webui/issue30/probe-main-20261025/inputs/bert.baseline.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/inputs/bert.baseline.py.txt",
+      "sha256": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/inputs/fixed-contract-README.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/inputs/fixed-contract-README.txt",
+      "sha256": "991e85d26399362392862a4f849bde1652d38125ccbb2d5c6cbb877ed26baa10"
+    },
+    "docs/webui/issue30/probe-main-20261025/inputs/ibisami.baseline.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/inputs/ibisami.baseline.py.txt",
+      "sha256": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc"
+    },
+    "docs/webui/issue30/probe-main-20261025/inputs/runner-preflight-v1.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/inputs/runner-preflight-v1.py.txt",
+      "sha256": "a43a970442d18f3a1f4310fec3718c54b91a1473556e0e3bd6874b65883784b1"
+    },
+    "docs/webui/issue30/probe-main-20261025/issue-30-comments.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/issue-30-comments.json",
+      "sha256": "8b4a6140b178f3f192362885325664cbabf31d392b4fc90738fcfbb32c6f4638"
+    },
+    "docs/webui/issue30/probe-main-20261025/issue-30.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/issue-30.json",
+      "sha256": "ed6aad43fa619cc0217cad27d8c2e6e3c2ed22d9def6299e7bf08afcd0c757c7"
+    },
+    "docs/webui/issue30/probe-main-20261025/pre-review-verification.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/pre-review-verification.json",
+      "sha256": "e92ef5f22b44169ccbcdc6fd7e6e4c65cba4b181f6f25bf27479d1eca69f3112"
+    },
+    "docs/webui/issue30/probe-main-20261025/preflight-static.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/preflight-static.json",
+      "sha256": "b0a40543600993857e4286a8519502b1c91d31b32162c5d7c8de0d6090ade890"
+    },
+    "docs/webui/issue30/probe-main-20261025/raw-hook-check.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/raw-hook-check.json",
+      "sha256": "84965b340e8cc893449c5f69b99c3ab13866da93e8509eb18b4b75bd7775a105"
+    },
+    "docs/webui/issue30/probe-main-20261025/review-entry-failures.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/review-entry-failures.json",
+      "sha256": "ba2965030b3833197e93fee53e2a13eb36e8fe55be3a998f940fbc0556d84b7e"
+    },
+    "docs/webui/issue30/probe-main-20261025/review.md": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/review.md",
+      "sha256": "1962dfd6572405e3ac4bf1423bcf807d6a52e47ea4545e4bceb6cfe6de57cbaa"
+    },
+    "docs/webui/issue30/probe-main-20261025/run_guarded.py": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/run_guarded.py.txt",
+      "sha256": "e5f9226383a9a28191f7eb96f90caab8d076a8f3c0d059bcacfb0d7d1a536723"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/before.json",
+      "sha256": "019a43d83f7174df2ad90d527601443f89b2dd4bd6c2a8585a05391aa641ccf3"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/bert.py.txt",
+      "sha256": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/plan.json",
+      "sha256": "399ec0c42952568c821610f7a7e44728726cc39b3372abdaa77ebba2e95a91bb"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/receipt.json",
+      "sha256": "63c9e11d7ef3af7af95ab0d7197f0ebd2e7a0d1c1b3db025acf9b11640400f81"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/runner.py.txt",
+      "sha256": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/source.py.txt",
+      "sha256": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/stderr.txt",
+      "sha256": "ac210780c0bfcf21410c9a0bde0ac5bbd636ef67a7e3a22458189207211ef072"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/01-tracer-red/test.py.txt",
+      "sha256": "cbf31e6bfeccbbd557c429c4821d20d566bf3b1f74d7dc82a930f5d11e4c72a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/before.json",
+      "sha256": "54ba39bac69e7f6fadc72e5cb4514f21dd9faf0cd5d943ee872565f8121b8507"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/bert.py.txt",
+      "sha256": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/plan.json",
+      "sha256": "ba2825836327a92685029283dd8d2e896af1a160ccf5739f2eee6413f50a6c37"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/receipt.json",
+      "sha256": "5aa116b35afa0df4ce4507caa7b5f4a31ea75fa8291ee34943fa732d4ab45bb0"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/runner.py.txt",
+      "sha256": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/source.py.txt",
+      "sha256": "3070fcdc088eae04cb190d4538c8d2fd1f37684dd851c5eb8afa819a3985b142"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/stderr.txt",
+      "sha256": "889f87483085b1d85233af89edf1615870fc861a39e682a37c2c970be5b09b2a"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/02-tracer-green/test.py.txt",
+      "sha256": "cbf31e6bfeccbbd557c429c4821d20d566bf3b1f74d7dc82a930f5d11e4c72a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/before.json",
+      "sha256": "6d87166773f5543d456989d2b85dce1649a4d6771aa4418f6c0542d624c36ab5"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/bert.py.txt",
+      "sha256": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/plan.json",
+      "sha256": "f1cf3766538ba470622556f735c5ea085cdeafd757722c33a7d732f07a2e881d"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/receipt.json",
+      "sha256": "c766c824d48580dd6812ba790064ca2b8e3cc5a08c3aacd3407c96e085911f43"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/runner.py.txt",
+      "sha256": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/source.py.txt",
+      "sha256": "3070fcdc088eae04cb190d4538c8d2fd1f37684dd851c5eb8afa819a3985b142"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/stderr.txt",
+      "sha256": "e05bf4b3522836bed6a75439771df9a6879493cd4eedbb59cc5594702a24b94f"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/03-dual-red/test.py.txt",
+      "sha256": "bc77c8afe9c05c1396023b39c5259801993d0b6dc3341626d1038e3b8ede27be"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/before.json",
+      "sha256": "bb603c10c5242dc643d876c70c9abfd76c92548900aa465af8a50c17aa9880e5"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/bert.py.txt",
+      "sha256": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/plan.json",
+      "sha256": "b00fbc56c6afc87155e31d86fcbb9e65f9edd869096d43784c78edcefb022776"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/receipt.json",
+      "sha256": "0e98f5ebc63b8f20fa1835ec75c0cd745e0eb7c12f4746169efcbd63442f91fe"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/runner.py.txt",
+      "sha256": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/source.py.txt",
+      "sha256": "2d3536226ea661c2ef3f7c5fa5eb78e1337cc5b347fb32f103a7f2bf4d8d47d1"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/stderr.txt",
+      "sha256": "a02da59b6289049f2467edf37b31b90088ff46a8a3d65514d3d5af40a73cbecf"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/04-dual-green/test.py.txt",
+      "sha256": "bc77c8afe9c05c1396023b39c5259801993d0b6dc3341626d1038e3b8ede27be"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/before.json",
+      "sha256": "0e9eb400bf9b1a49fd2517cb6d9aee7b106feb6ddefdfb93e418fd83083c8489"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/bert.py.txt",
+      "sha256": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/plan.json",
+      "sha256": "dfdd5b1128a348dc7c740b11c4b78d0cb3a2d7f852875fcc63f0a3d848f16cd0"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/receipt.json",
+      "sha256": "f01af849cb5715e9c61f57f0a80b03fb174a1bd8fbd7cfc6a3dbcb342536d9a8"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/runner.py.txt",
+      "sha256": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/source.py.txt",
+      "sha256": "2d3536226ea661c2ef3f7c5fa5eb78e1337cc5b347fb32f103a7f2bf4d8d47d1"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/stderr.txt",
+      "sha256": "ed6021e2fc4573cfcafe48c6202ad48aa02c03949e0fc85648535596be5232a0"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/05-failure-matrix-red/test.py.txt",
+      "sha256": "5fd6fa5645a9499d92111db314729dc126e94b5185331ff4fe169bbfbdff4663"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/before.json",
+      "sha256": "e9443edd0dcefcff27b5ba79f5becaae5e27a874303bb95276db866292bdaf47"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/bert.py.txt",
+      "sha256": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/plan.json",
+      "sha256": "a7c36d742eab2aceea61a2b73d1aa23da24f41d384d2091185e75503aa04e095"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/receipt.json",
+      "sha256": "3775ac01cbad7d4c373a8a464150c169bc467227fdd2447ca4b2e8bde0ea8920"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/runner.py.txt",
+      "sha256": "d2b7629bbe9d9477b4175d695d38be62f523936696ba92df4e12cdb40b87b9cb"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/source.py.txt",
+      "sha256": "913f3d252c93e344bfeeb08948feb8749c8b005def68bd5a9e1bc2775c9bd4fd"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/stderr.txt",
+      "sha256": "ae45323985056de2260967d1722e188f2ab5b5516a5ac5b4d28ff4e6c1284ca6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/06-failure-matrix-green/test.py.txt",
+      "sha256": "5fd6fa5645a9499d92111db314729dc126e94b5185331ff4fe169bbfbdff4663"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/before.json",
+      "sha256": "ce93600a004bdbd1fc9440d1114b058c7cced58b6b53d31b120ab376271d740b"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/bert.py.txt",
+      "sha256": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/plan.json",
+      "sha256": "0e38596201fb479d2dd28881d933978d447e968194e8588021f9ab76daef8b10"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/receipt.json",
+      "sha256": "e12b10ce84602da216d12af31ba5ee9fdaebedf1f15039f83bc8b64b8953c86d"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/runner.py.txt",
+      "sha256": "57f7a7c5ee52e76468935cf73ce87c0de89a6bdba7a3dfe80c0e8313a8de5251"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/source.py.txt",
+      "sha256": "913f3d252c93e344bfeeb08948feb8749c8b005def68bd5a9e1bc2775c9bd4fd"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/stderr.txt",
+      "sha256": "a403493ae002325a1f4d4ea7ce4b50e60ac05f52bd7a4c1314184052eba58abf"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/07-wiring-red/test.py.txt",
+      "sha256": "3b81c99043c35c6bd382d91693461fcccf6ec061b866f103b79e7f567ba0a402"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/before.json",
+      "sha256": "0d6fae3f22a6c8849e6380c8dca8a7c7a272f5060747815b48ac228c5cf05191"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/bert.py.txt",
+      "sha256": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/plan.json",
+      "sha256": "0adae521af4d17a331c5e9014fad43a1bddf37c5ebab07b6cea5cc60cc74375f"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/receipt.json",
+      "sha256": "fb78fc79423c1fb6b50098da0e2d3c7a33f098bce71b127d65fc91f84d7b5dc5"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/runner.py.txt",
+      "sha256": "57f7a7c5ee52e76468935cf73ce87c0de89a6bdba7a3dfe80c0e8313a8de5251"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/source.py.txt",
+      "sha256": "7ccd280d746347a55220d9dec1b61f7441cb1e16a38d0fa2578121273ff33c50"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/stderr.txt",
+      "sha256": "243ff85584227d75733de305e0bff681217303b3505f960ff54055a6431f8672"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/08-wiring-green/test.py.txt",
+      "sha256": "3b81c99043c35c6bd382d91693461fcccf6ec061b866f103b79e7f567ba0a402"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/before.json",
+      "sha256": "33bb5a1292a9f2e2527eb9a92fca7dac2e8710c390b1609d2571e4f1d606745b"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/bert.py.txt",
+      "sha256": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/plan.json",
+      "sha256": "aa6d5b61c4626477d42904fdb3bf47d38d86e9a42e69fe1ad31458e056881f31"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/receipt.json",
+      "sha256": "80eef3a4bf486ca45e5c8dc18b23f8e0465f82712fff0a571dea6b2969bfbd0d"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/runner.py.txt",
+      "sha256": "57f7a7c5ee52e76468935cf73ce87c0de89a6bdba7a3dfe80c0e8313a8de5251"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/source.py.txt",
+      "sha256": "7ccd280d746347a55220d9dec1b61f7441cb1e16a38d0fa2578121273ff33c50"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/stderr.txt",
+      "sha256": "98752760a5f3150966dbdfe6bb3dea11701bd2f5b257f04807697e1a201c85e1"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/09-interrupt-red/test.py.txt",
+      "sha256": "1df7d19cb6ab57eaf3606438ee8e7a09ce89106fd4d26eecff91a44cf175ce52"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/before.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/before.json",
+      "sha256": "8326254108f26feb3ce534c42c062fb640d3c370e307e28aa793ebf17e20ed81"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/bert.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/bert.py.txt",
+      "sha256": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/plan.json",
+      "sha256": "1ae38ee6c0ae247638e37ebb05363fd0fca9498c8a9d0571691942ec8e50764d"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/receipt.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/receipt.json",
+      "sha256": "581f08f3f6908eb5eb3ebd59b72c60cd41b196941914569c3022e22318454ce6"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/runner.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/runner.py.txt",
+      "sha256": "e5f9226383a9a28191f7eb96f90caab8d076a8f3c0d059bcacfb0d7d1a536723"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/source.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/source.py.txt",
+      "sha256": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/stderr.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/stderr.txt",
+      "sha256": "6f1427f6e9ab47775d8e9591132d64ad3dec845810ebe10f2ea46c96234715a2"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/stdout.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/test.py.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/test.py.txt",
+      "sha256": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624"
+    },
+    "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/venv.cfg.txt": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/runs/10-contract-green/venv.cfg.txt",
+      "sha256": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5"
+    },
+    "docs/webui/issue30/probe-main-20261025/seal-preflight-failure.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/seal-preflight-failure.json",
+      "sha256": "38d197917bd7c6a619ae9e9e9df6232ed12f0147f83da4758535c618bd3dc758"
+    },
+    "docs/webui/issue30/probe-main-20261025/source-boundary.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/source-boundary.json",
+      "sha256": "e69816255bdc367f2626ed5992ace6a7eb8344b8223d46cbd86b5c2a0c6b8685"
+    },
+    "docs/webui/issue30/probe-main-20261025/startup.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/startup.json",
+      "sha256": "20e9bfb622146fcc922ce94bd3bc400964189b4cd667f519220d9ccab39fbecf"
+    },
+    "docs/webui/issue30/probe-main-20261025/test-plan.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/test-plan.json",
+      "sha256": "1ae38ee6c0ae247638e37ebb05363fd0fca9498c8a9d0571691942ec8e50764d"
+    },
+    "src/pybert/models/bert.py": {
+      "current_or_archived_path": "src/pybert/models/bert.py",
+      "sha256": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14"
+    },
+    "src/pybert/utility/ibisami.py": {
+      "current_or_archived_path": "src/pybert/utility/ibisami.py",
+      "sha256": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2"
+    },
+    "tests/test_ami_probe_main.py": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/inputs/test_ami_probe_main.py.txt",
+      "sha256": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624"
+    },
+    "docs/webui/issue30/probe-main-20261025/verification.json": {
+      "current_or_archived_path": "docs/webui/issue30/probe-main-20261025/verification.json",
+      "sha256": "6abf2f354d8b11dcdd8c72f27fae1a7934a5004b4811aa94b799c40292df9c03"
+    }
+  },
+  "original_01_10_all_snapshots_receipts_logs_unchanged": true,
+  "v1_verification_and_review_unchanged": true,
+  "last_current_batch": "11-entry-green",
+  "last_six_inputs_byte_exact": {
+    "src/pybert/utility/ibisami.py": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2",
+    "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs/webui/issue30/probe-main-20261025/guarded_probe_main_cases.py": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
+    "docs/webui/issue30/probe-main-20261025/run_guarded.py": "a4a3d1475af4dbacd045384ec64c8483b19d7604b9692578076e412ce459026e",
+    "docs/webui/issue30/probe-main-20261025/test-plan.json": "2fa65b6c8097b9c69719d4d7c595dd10749d5caea1d281568f6b2c37761e5507",
+    ".venv/pyvenv.cfg": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5"
+  },
+  "static_checker_plan_startup_match_last_static_green": true,
+  "all_batch_input_output_hash_relationships": 111,
+  "all_eleven_guarded_receipts_match_current_ledger": true,
+  "current_tests_methods": 9,
+  "current_pure_coordinator_calls": 35,
+  "all_guarded_pure_production_calls": {
+    "_run_probe_main": 165,
+    "_AMIProbeMainError.__init__": 135
+  },
+  "all_guarded_elapsed_s": 4.152754799972172,
+  "entry_static_red_green_elapsed_s": 0.20216790001722984,
+  "restricted_actual_calls": {
+    "run_ami_model_full": 0,
+    "PyAMI_production_methods": 0,
+    "AMIModel_Initializer_instances": 0,
+    "model_module_body_response_keys": 0,
+    "NumPy_SciPy_DSP": 0,
+    "grammar_engine_Main_COM_coopt": 0,
+    "C_model_DLL": 0,
+    "model_download_compile": 0,
+    "CLI_GUI_service_browser": 0
+  },
+  "pytest_collection_calls": 0,
+  "P2_disposition": "owner Standards P2 closed, Spec0; PM final fresh review pending",
+  "original_PM_finding_was_static_not_executed_pytest_failure": true,
+  "tests_tree_identical_to_baseline": true,
+  "product_and_dependency_metadata_unchanged_since_initial_delivery": true,
+  "old_protection": {
+    "repository_states": 12,
+    "metadata_hashes": 169,
+    "raw_hashes": 4874,
+    "materials_installed_sources": 784,
+    "old_env_cache_dirs": 12,
+    "old28_seal": true
+  },
+  "new_git_isolation": [
+    {
+      "worktree": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main",
+      "common_dir": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.git",
+      "no_alternates_objects_link1_no_active_hooks": true
+    },
+    {
+      "worktree": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\PyAMI",
+      "common_dir": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.git\\modules\\PyAMI",
+      "no_alternates_objects_link1_no_active_hooks": true
+    },
+    {
+      "worktree": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\PyChOpMarg",
+      "common_dir": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.git\\modules\\PyChOpMarg",
+      "no_alternates_objects_link1_no_active_hooks": true
+    }
+  ],
+  "ignored_local_raw": {
+    "path": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\docs\\webui\\issue30\\probe-main-20261025\\pytest-entry-fix\\runs\\03-staged-check-recapture\\stdout.txt",
+    "sha256": "c482f76750660e98d2ed9fbc679767a0de6457d4f801cb1b5461322fcc6669c3",
+    "bytes": 617339,
+    "tracked_gzip_path": "docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/stdout.txt.gz",
+    "gzip_sha256": "aaf7e746722b4114f19bbff6cac4dd7e6a473f0af314b91ff0096b7611e1c2a2",
+    "lossless": true,
+    "precise_local_exclude_metadata_sha256": "efb53f8dc967d3b884183b4a57d16cf770b187304aff69cb43dbe94e415f3367"
+  },
+  "static_text_UTF8_no_BOM_JSON_AST310": true,
+  "actual_hooks_lint_typecheck_fullsuite": "NOT_RUN",
+  "task_wall_peak_RSS": "UNKNOWN"
+}

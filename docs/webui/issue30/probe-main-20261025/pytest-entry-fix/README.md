@@ -29,3 +29,5 @@ uv run --no-project --python E:/serial-bus-simulator-dependencies/pybert-issue30
 首次 staged whitespace 检查因新快照的原有 CRLF/Makefile 空白停止，尚未 commit；[首次记录](staged-check-first-failure.json) 明确原工具输出截断缺口。随后对未变的 staged 输入另做 [完整再观察](runs/03-staged-check-recapture/receipt.json)，exit2、内部 elapsed `0.08657980000134557 s`，不冒充恢复首次原输出。仅在 `.gitattributes` 增加本修复 raw runs 路径的 whitespace 属性，未改 hooks 配置。617,339 B 诊断原件仍在本地原路径，唯一该新日志使用本 clone `.git/info/exclude` 精确排除；Git 保存 [lossless gzip](runs/03-staged-check-recapture/stdout.txt.gz) 和 [raw/storage hashes](runs/03-staged-check-recapture/storage.json)，解压后逐字节相同。这样保留原件和原有 500 KiB hook，未排除任何测试。此前未 staged 的 diff 检查没有覆盖这些当时未跟踪的 raw 文件，不能替代 staged 检查。
 
 本修复只处理 PR31 的收集入口 P2；D1→D2→E 按 PM 最新指令在既有 #10 内串行跟踪，不新建 issue。实际模型/ABI/数值/有效 clocks 与 COM gate 未验收。
+
+封存过程另有两次 owner 静态操作失败：[重复 staging 已移除路径](staging-path-failure.json)、[错误的 mixed-EOL 判定](hook-simulation-first-failure.json)，均在 commit 前停止，没有模型或测试执行。前次误报的 [原报告](staged-check-initial.json) 原字节保留；修正判定后的 [staged 静态核对](staged-check-green.json) 通过，实际 hooks 仍未运行。独立 [Standards/Spec 复审](../review-v2.md) 无新增 findings，owner 认为原 P2 已闭环；最终仍交 PM fresh review。

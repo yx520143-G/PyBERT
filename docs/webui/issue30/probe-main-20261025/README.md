@@ -73,7 +73,7 @@ fake Close 会破坏其 buffers/记录；测试确认已复制响应、main 结�
 
 这是生产纯协调 seam 的软件证据。完整 adapter、实际 AMIParameter 对象复制、模型时序/随机性、容量与数值行为未动态验收；40 不保证所有模型合法，非整数采样比和短末块的模型资格留 E。I>0 时固定私有 probe seed 与 fresh W 可能改变响应、wave、params、clocks，方向/幅度 UNKNOWN；前 Ignore_UI 输出仍是真实适应期。两电平 probes 不声称 PAM4 golden。
 
-D1 Native 采样、D2 Web 消费/保存、E1/E2 合法 fixture 与真实配对均属后续票；#10 有效 clocks/E SOURCE_BLOCKED、#4 COM BLOCKED_BUDGET/NOT_EXECUTED、#1 最终 fresh 数值 review gate 不变。
+D1 Native 采样、D2 Web 消费/保存、E1/E2 合法 fixture 与真实配对均属后续阶段，按 PM 最新要求在既有 #10 内串行跟踪；#10 有效 clocks/E SOURCE_BLOCKED、#4 COM BLOCKED_BUDGET/NOT_EXECUTED、#1 最终 fresh 数值 review gate 不变。
 
 初次候选 `ec72c92e3b8dca2b4cd2b972f5d0a8852e412aca` 的独立 [owner Standards/Spec 审查](review.md) 均为 0 findings；随后 PM 对初次最终 `2f0a601` 发现入口 P2，原自审不覆盖该缺陷。owner 提供了错误解释器路径，导致两个首次只读入口在 stdin 脚本前停止；[原 command/output](review-entry-failures.json) 保留，精确退出码、分流日志和内部 elapsed 未捕获，均 UNKNOWN。functions 展示 wall 分别 0.7/0.6 s，单列于费用账，不混入十批运行成本。
 
