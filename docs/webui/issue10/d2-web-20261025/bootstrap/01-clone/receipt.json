@@ -1,0 +1,32 @@
+[
+  {
+    "command": [
+      "git",
+      "clone",
+      "--no-local",
+      "--no-hardlinks",
+      "--no-checkout",
+      "--origin",
+      "origin",
+      "https://github.com/yx520143-G/PyBERT.git",
+      "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web"
+    ],
+    "exit_code": 0,
+    "elapsed_s": 61.55186030000914,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "86219d4be9ca51ca6667b1b6e171be1dfe8b1fbbb04bc3507d5251982d5f8b7e"
+  },
+  {
+    "command": [
+      "git",
+      "switch",
+      "--create",
+      "codex/pybert-ami-d2-web",
+      "0f04562c50a12fae637fece04da100c44c86617e"
+    ],
+    "exit_code": 0,
+    "elapsed_s": 3.8581637000024784,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "dd8859d7684fda897262651f4d1de5c9de487ada75190d7a4fbfc2857577ae43"
+  }
+]

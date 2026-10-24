@@ -1,0 +1,21 @@
+{
+  "version": "2.5.1",
+  "Python": "standalone CPython3.13.15 / new venv",
+  "source": "current uv.lock cp313 win_amd64 and matching resolution marker",
+  "wheel": {
+    "url": "https://files.pythonhosted.org/packages/10/70/800b3fca480af32df9e8ea9f3d4a0c8feb4b32d7f195d174eabbda4829ad/numpy-2.5.1-cp313-cp313-win_amd64.whl",
+    "hash": "sha256:6c3fe51bc6a16453d452997053454f309e8e0ed7b42d6b361ce4ac8c32913d74",
+    "size": 12425674,
+    "upload-time": "2026-07-04T17:07:02.387Z"
+  },
+  "markers": [
+    "python_full_version >= '3.13' and sys_platform == 'win32'",
+    "python_full_version >= '3.13' and sys_platform == 'emscripten'",
+    "python_full_version >= '3.13' and sys_platform != 'emscripten' and sys_platform != 'win32'",
+    "python_full_version == '3.12.*' and sys_platform == 'win32'",
+    "python_full_version == '3.12.*' and sys_platform == 'emscripten'",
+    "python_full_version == '3.12.*' and sys_platform != 'emscripten' and sys_platform != 'win32'"
+  ],
+  "minimum": "numpy only, no-deps, require-hashes, copy, new cache",
+  "actual_import_before_guarded_batches": 0
+}
