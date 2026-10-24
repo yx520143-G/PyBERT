@@ -86,3 +86,5 @@ pre 两例均正常完成 producer，但其错误 FEXT 返回 native trim start 
 运行方式为 `uv run --no-project --python E:/serial-bus-simulator/.venv/Scripts/python.exe python tools/verify_external_lanes.py <mode> <version>`；`environment` 不构造引擎，`importer/direct/worker` 消耗一次性 scope ledger，已消费的条目拒绝再次运行。当前 run 记录已耗尽预算，不因给出命令而授权重跑。保存数据可用 `tools/report_external_lanes.py` 复核，source/重排可用 `tools/audit_external_sources.py` 复核；两者 0 Main / 0 importer。
 
 主 checkout、前序 owner worktrees、ignored raw 和历史失败未改动；没有启动历史 COM、没有服务常驻、没有清理/归档任何原件。硬件实测、任意 pin map、未测 victim 的下游全矩阵、其它速率/package、IEEE/Matlab correlation 与有效 AMI clocks 均没有被本票升级为通过。
+
+Owner fresh 自审见 [self-review.md](self-review.md)：Standards 0；Spec 发现验证工具 selector/reservation P2，已通过 CLI/ledger 前拒绝 selector 修复，0 Main 回归与独立增量复核关闭。实际已执行批次没有 selector，不影响原结果/成本。最终原件逐文件清单见 [local-artifacts-final.json](evidence/local-artifacts-final.json)，包括后来补存的执行 driver 源码与未改写的中间报告；PM 正式 final review 另行进行。

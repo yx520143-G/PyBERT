@@ -1,0 +1,2061 @@
+{
+  "status": "numeric work stopped; evidence retained; no new Main allowed",
+  "Main_total": 10,
+  "Main_remaining": 0,
+  "numeric_COM": 0,
+  "coopt": 0,
+  "AMI_Init_GetWave": 0,
+  "binary_loads": 0,
+  "peak_rss": "UNKNOWN",
+  "single_worker": "both final workers exited and joined; no service started",
+  "ledger_sha256": "ba4e869d9e14b44f1f62dfaad601b47b50a23f72589d99ab75ece2dc7eb0b974",
+  "file_count": 409,
+  "bytes": 299551073,
+  "files": [
+    {
+      "path": "local\\driver-sources\\capture-v2.py",
+      "bytes": 17986,
+      "sha256": "9419aee143299f1fa5f439176001f6fa1dd4a55c1f6831319b14a0d245438664"
+    },
+    {
+      "path": "local\\driver-sources\\capture-v3.py",
+      "bytes": 18633,
+      "sha256": "58f5fd5b21b052e92bb590a7ff55743eb8a2eb77bab3e040b675d02f247f4085"
+    },
+    {
+      "path": "local\\driver-sources\\capture-v4-reserve-only.py",
+      "bytes": 19078,
+      "sha256": "ebee526e362501975bb84d065a7bdf088db03cb6383551bed6e932eab48028b9"
+    },
+    {
+      "path": "local\\driver-sources\\ledger-guard-amendment-v4-initial.json",
+      "bytes": 827,
+      "sha256": "7ff3841beab6e60d59b138f0fcbee0bc9dcc0212d3aa7e7cf9d27ad139810c48"
+    },
+    {
+      "path": "local\\execution-ledger.json",
+      "bytes": 3053,
+      "sha256": "ba4e869d9e14b44f1f62dfaad601b47b50a23f72589d99ab75ece2dc7eb0b974"
+    },
+    {
+      "path": "local\\preparation-attempt-1\\derived\\LL8-grouped.s8p",
+      "bytes": 2813246,
+      "sha256": "c93a8ee73cafc59358b9bbd380ef66f49905d18d513ec0f2177df0c2a882a07c"
+    },
+    {
+      "path": "local\\preparation-attempt-1\\derived\\LL8-interleaved.s8p",
+      "bytes": 2813246,
+      "sha256": "b28c8d5bd2983a5488b5265b6b635562eb33f557429db65a058b8d111b7a9685"
+    },
+    {
+      "path": "local\\preparation-attempt-1\\derived\\SI12-grouped.s12p",
+      "bytes": 623019,
+      "sha256": "324c09a6ebd061f1fc15ad6921fd86ff84cedae1a8c7171a5c59c864065b5c58"
+    },
+    {
+      "path": "local\\preparation-attempt-1\\derived\\SI12-interleaved.s12p",
+      "bytes": 623019,
+      "sha256": "aafe369e4853d369580560081a83b467d913fe913df78c8cbbd7dc4ce21b6198"
+    },
+    {
+      "path": "local\\preparation-attempt-1\\fixtures\\D-LL8-NRZ.json",
+      "bytes": 18203,
+      "sha256": "84acedf31d534d5c250defb823724dd639cd750ebb8b152e3a83a22194adc025"
+    },
+    {
+      "path": "local\\preparation-attempt-1\\fixtures\\D-SI12-PAM4.json",
+      "bytes": 18207,
+      "sha256": "e5bb1fcd1df5068017d535d2f98929a96c4737322185b8902d4d8de889602710"
+    },
+    {
+      "path": "local\\preparation-attempt-1\\freeze_external_lanes.py.txt",
+      "bytes": 10709,
+      "sha256": "99aab8833f3483c3670c1bd5a674c3c5b5aa67bb0ab92a3ca3e0f973646fe888"
+    },
+    {
+      "path": "local\\preparation-attempt-1\\resources.json",
+      "bytes": 7133,
+      "sha256": "b3d752209f38a9b0e59a59c2252b1f747d146445aa0d032ad895eaec842cc162"
+    },
+    {
+      "path": "local\\resources\\derived\\LL8-grouped.s8p",
+      "bytes": 2813246,
+      "sha256": "c93a8ee73cafc59358b9bbd380ef66f49905d18d513ec0f2177df0c2a882a07c"
+    },
+    {
+      "path": "local\\resources\\derived\\LL8-interleaved.s8p",
+      "bytes": 2813246,
+      "sha256": "b28c8d5bd2983a5488b5265b6b635562eb33f557429db65a058b8d111b7a9685"
+    },
+    {
+      "path": "local\\resources\\derived\\SI12-grouped.s12p",
+      "bytes": 623019,
+      "sha256": "324c09a6ebd061f1fc15ad6921fd86ff84cedae1a8c7171a5c59c864065b5c58"
+    },
+    {
+      "path": "local\\resources\\derived\\SI12-interleaved.s12p",
+      "bytes": 623019,
+      "sha256": "aafe369e4853d369580560081a83b467d913fe913df78c8cbbd7dc4ce21b6198"
+    },
+    {
+      "path": "local\\resources\\historical-control\\TwoLaneModel.s8p",
+      "bytes": 330007,
+      "sha256": "0f6cbb032432eadc8c1bee4f382ef25e3c06fe0718fae07fc835e495067d5abf"
+    },
+    {
+      "path": "local\\resources\\LinkLab\\backplane_25g_xtalk.s8p",
+      "bytes": 1439461,
+      "sha256": "454b0a18c6f9c00b37186e3196ff4fd23fef049e1f2a3285b4fa75452f14016a"
+    },
+    {
+      "path": "local\\resources\\LinkLab\\manual.html",
+      "bytes": 273862,
+      "sha256": "c49e018446e7cdddb1157f5bc879a3f214281746cbebc3bba86c01f3cd28abfe"
+    },
+    {
+      "path": "local\\resources\\SignalIntegrity\\LICENSE.txt",
+      "bytes": 669,
+      "sha256": "42135739ce0c16b1044dadf7a53c17007ae48b04b7fccff48b340b10fda1837c"
+    },
+    {
+      "path": "local\\resources\\SignalIntegrity\\SignalIntegrity\\Lib\\Devices\\MixedModeConverter.py",
+      "bytes": 1937,
+      "sha256": "d2e0ff79f0221b8de8d8c7a8c3c94d019f94eff2c0359033f78e0098f374b7b3"
+    },
+    {
+      "path": "local\\resources\\SignalIntegrity\\SignalIntegrity\\Lib\\SParameters\\Devices\\WElement.py",
+      "bytes": 12650,
+      "sha256": "5d06f2ace712539731ed38b89aceb893b8d913a904aafdd0fbcd76534f0c6281"
+    },
+    {
+      "path": "local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElement.py",
+      "bytes": 5588,
+      "sha256": "7728b787070ef5883c6db7b6f8f035df3f93efb2b5facb4a794c8b63639bc3bd"
+    },
+    {
+      "path": "local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.net",
+      "bytes": 2856,
+      "sha256": "531cb6dc086b7e2a6f08c5b8ce572be4e2a8089b559161be3e1460d80f10d4cd"
+    },
+    {
+      "path": "local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+      "bytes": 279114,
+      "sha256": "cbf87cf893b869a2eb899e4172e3daec1410829126a49c5d48d3de109bd4483e"
+    },
+    {
+      "path": "local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\WireBond3Pairs.net",
+      "bytes": 647,
+      "sha256": "baa7cc659a4a263043419d577dfe0559822102e81afb943572af05391474ccb2"
+    },
+    {
+      "path": "local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\wires_1mil_80um_3.8_3pair.txt",
+      "bytes": 3012,
+      "sha256": "418a02e0465febbb69647755e54e1ff4b77837f4bfa4d3598603be41ddaee231"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-LL8-NRZ\\arrays.npz",
+      "bytes": 33564175,
+      "sha256": "0a46050e85eb74e326b3d89f61151dcc5db08c5881097b8999c8b0b2dde74b39"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-LL8-NRZ\\effective-input.json",
+      "bytes": 18215,
+      "sha256": "0e81d4117721fa794a21dbeef63ba81927b709fff36f440c0cbe2bbf4e974619"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-LL8-NRZ\\input.yaml",
+      "bytes": 15625,
+      "sha256": "56dad3f4c5496003526a7112c25952f91f44964d64cd1aac4fdd31951d361701"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-LL8-NRZ\\native-console.log",
+      "bytes": 672,
+      "sha256": "ff227165a818f788d9494ec9629a15626dede5ca37e6795176c57c3a880ad15a"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-LL8-NRZ\\report.json",
+      "bytes": 1306,
+      "sha256": "7976bfb86b43f1f2d46059c46e6a328365912c04f38cf84b8608defe9e9a8cee"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-SI12-PAM4\\arrays.npz",
+      "bytes": 19114151,
+      "sha256": "50c22ca11398ebf9643538ff886f8dbb81ddbf497bc235b4d85f7969631cf817"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-SI12-PAM4\\effective-input.json",
+      "bytes": 18219,
+      "sha256": "ca580568ec5b16d34cd03ed32cf6ae954f13786589651251d049e7421c01b5a0"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-SI12-PAM4\\input.yaml",
+      "bytes": 15629,
+      "sha256": "eaddba89fdd36d6e80672efc075bf8c06032479df642ef980c5a186b75c8504c"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-SI12-PAM4\\native-console.log",
+      "bytes": 672,
+      "sha256": "89ae76d68e297eac684bff39ee054b081073b12b8511df45e17e4cf15e456094"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\D-SI12-PAM4\\report.json",
+      "bytes": 1305,
+      "sha256": "e0ba422f93f4c0a22bd0175c642a1290f989d529dc5015da7065fec976c64d6f"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\environment.json",
+      "bytes": 5609,
+      "sha256": "b8a8f76f0f3b95a8b7143d0a3e6e6e17c330890545f4c2e84271a9b907486919"
+    },
+    {
+      "path": "local\\results\\final-direct-20261024-180156\\report.json",
+      "bytes": 8944,
+      "sha256": "35b7c02203e23f6baf8cd027aabcf87d3fad3b81af26ef283c08df19b40cf5bf"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\environment.json",
+      "bytes": 5609,
+      "sha256": "b8a8f76f0f3b95a8b7143d0a3e6e6e17c330890545f4c2e84271a9b907486919"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\LL8-grouped-r1-v0.npz",
+      "bytes": 299894,
+      "sha256": "c9cee6bf5e16a720ba8f8296e10539f6157eef1aa99f1f1daec99802a018880b"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\LL8-grouped-r1-v1.npz",
+      "bytes": 299894,
+      "sha256": "9b46b14bc05e917478b52bee63d7ca0601fcea4688376b994ac4a77a7fbe251d"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\LL8-interleaved-r0-v0.npz",
+      "bytes": 299894,
+      "sha256": "c9cee6bf5e16a720ba8f8296e10539f6157eef1aa99f1f1daec99802a018880b"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\LL8-interleaved-r0-v1.npz",
+      "bytes": 299894,
+      "sha256": "9b46b14bc05e917478b52bee63d7ca0601fcea4688376b994ac4a77a7fbe251d"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\LL8-interleaved-r1-v0.npz",
+      "bytes": 299894,
+      "sha256": "c9cee6bf5e16a720ba8f8296e10539f6157eef1aa99f1f1daec99802a018880b"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\LL8-interleaved-r1-v1.npz",
+      "bytes": 299894,
+      "sha256": "9b46b14bc05e917478b52bee63d7ca0601fcea4688376b994ac4a77a7fbe251d"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\report.json",
+      "bytes": 215310,
+      "sha256": "6eabab0aba5c126930882fd9df20323855b7ed67c409de8dd4452aaf0c23e3ab"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\SI12-grouped-r1-v0.npz",
+      "bytes": 164958,
+      "sha256": "7343ffea757f9f809389536b1c49f93de1c3fb15ea42d7b7ac05f70834a0a91a"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\SI12-grouped-r1-v1.npz",
+      "bytes": 164998,
+      "sha256": "82e311a77f18460e72191603149410d20862109f74aa8b9c212ef4fd99768531"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\SI12-grouped-r1-v2.npz",
+      "bytes": 165008,
+      "sha256": "ee2a154075738666c30edf6ce4da2883459ffeebc8ec5f829c2f00401d4b82d8"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\SI12-interleaved-r0-v0.npz",
+      "bytes": 164958,
+      "sha256": "7343ffea757f9f809389536b1c49f93de1c3fb15ea42d7b7ac05f70834a0a91a"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\SI12-interleaved-r0-v1.npz",
+      "bytes": 164998,
+      "sha256": "82e311a77f18460e72191603149410d20862109f74aa8b9c212ef4fd99768531"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\SI12-interleaved-r0-v2.npz",
+      "bytes": 165008,
+      "sha256": "ee2a154075738666c30edf6ce4da2883459ffeebc8ec5f829c2f00401d4b82d8"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\SI12-interleaved-r1-v0.npz",
+      "bytes": 164958,
+      "sha256": "7343ffea757f9f809389536b1c49f93de1c3fb15ea42d7b7ac05f70834a0a91a"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\SI12-interleaved-r1-v1.npz",
+      "bytes": 164998,
+      "sha256": "82e311a77f18460e72191603149410d20862109f74aa8b9c212ef4fd99768531"
+    },
+    {
+      "path": "local\\results\\final-importer-20261024-175837\\SI12-interleaved-r1-v2.npz",
+      "bytes": 165008,
+      "sha256": "ee2a154075738666c30edf6ce4da2883459ffeebc8ec5f829c2f00401d4b82d8"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-LL8-NRZ\\45ba1960-2b0f-4be7-8ddf-98cbb1f5fbe8\\actual-costs.json",
+      "bytes": 356,
+      "sha256": "7dadecb8bcd10ed06c502105bce3807c1ba31e69ee314d631aba37d693e56458"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-LL8-NRZ\\45ba1960-2b0f-4be7-8ddf-98cbb1f5fbe8\\actual-environment.json",
+      "bytes": 5609,
+      "sha256": "b8a8f76f0f3b95a8b7143d0a3e6e6e17c330890545f4c2e84271a9b907486919"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-LL8-NRZ\\45ba1960-2b0f-4be7-8ddf-98cbb1f5fbe8\\arrays.npz",
+      "bytes": 49323521,
+      "sha256": "e616cebb85117249649b4f6c8728db63e0f4c17942e6f823da60fe175c50af24"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-LL8-NRZ\\45ba1960-2b0f-4be7-8ddf-98cbb1f5fbe8\\manifest.json",
+      "bytes": 555811,
+      "sha256": "5bac4dcc575f03a2c4d4d421b4222a11316cf15306db00e2a3b3d87460cf20e7"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-LL8-NRZ\\45ba1960-2b0f-4be7-8ddf-98cbb1f5fbe8\\request.json",
+      "bytes": 22879,
+      "sha256": "00cde8c7eeaf2af8a1da85e12b883b920fb40674ae9a42bb3891b5f988a029b9"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-LL8-NRZ\\45ba1960-2b0f-4be7-8ddf-98cbb1f5fbe8\\terminal.json",
+      "bytes": 189,
+      "sha256": "8c209068e6769c0c37bf9e849019584c334cf14ad5c152c363838343eca89833"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-LL8-NRZ\\resources\\b28c8d5bd2983a5488b5265b6b635562eb33f557429db65a058b8d111b7a9685.s8p",
+      "bytes": 2813246,
+      "sha256": "b28c8d5bd2983a5488b5265b6b635562eb33f557429db65a058b8d111b7a9685"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-SI12-PAM4\\f7bf38da-47be-4c2d-b198-263fde160678\\actual-costs.json",
+      "bytes": 355,
+      "sha256": "1a40d50886301d4228fc273178ae91f304b2e785a02f0e91ad3048d1d671efdc"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-SI12-PAM4\\f7bf38da-47be-4c2d-b198-263fde160678\\actual-environment.json",
+      "bytes": 5609,
+      "sha256": "b8a8f76f0f3b95a8b7143d0a3e6e6e17c330890545f4c2e84271a9b907486919"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-SI12-PAM4\\f7bf38da-47be-4c2d-b198-263fde160678\\arrays.npz",
+      "bytes": 27677586,
+      "sha256": "b72bcd43e14b03252d87c38e4f8a25bc1233f6a1125261a1d3fa6f2a5e8d1aa1"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-SI12-PAM4\\f7bf38da-47be-4c2d-b198-263fde160678\\manifest.json",
+      "bytes": 566973,
+      "sha256": "1f2e5dcb9a4d61228121081200c3dc811960de7d8befef2c933191e39cbfb558"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-SI12-PAM4\\f7bf38da-47be-4c2d-b198-263fde160678\\request.json",
+      "bytes": 22894,
+      "sha256": "22cf1b70e66e7ecdaccf694332c2dfe1b2ecc0f2d685d603c50e349fadb83c45"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-SI12-PAM4\\f7bf38da-47be-4c2d-b198-263fde160678\\terminal.json",
+      "bytes": 189,
+      "sha256": "9ec139db8c0bbf8dc63943b2091fb49eecbb6ea4af011ed909a0551cbab0a4b7"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\D-SI12-PAM4\\resources\\aafe369e4853d369580560081a83b467d913fe913df78c8cbbd7dc4ce21b6198.s12p",
+      "bytes": 623019,
+      "sha256": "aafe369e4853d369580560081a83b467d913fe913df78c8cbbd7dc4ce21b6198"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\environment.json",
+      "bytes": 5609,
+      "sha256": "b8a8f76f0f3b95a8b7143d0a3e6e6e17c330890545f4c2e84271a9b907486919"
+    },
+    {
+      "path": "local\\results\\final-worker-20261024-180300\\report.json",
+      "bytes": 12530,
+      "sha256": "ad81799e9d00e4811c56a1259d7cf0d0af498f82d1a70bea5eba613a0decdeda"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-LL8-NRZ\\arrays.npz",
+      "bytes": 33564175,
+      "sha256": "0a46050e85eb74e326b3d89f61151dcc5db08c5881097b8999c8b0b2dde74b39"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-LL8-NRZ\\effective-input.json",
+      "bytes": 18215,
+      "sha256": "0e81d4117721fa794a21dbeef63ba81927b709fff36f440c0cbe2bbf4e974619"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-LL8-NRZ\\input.yaml",
+      "bytes": 15625,
+      "sha256": "56dad3f4c5496003526a7112c25952f91f44964d64cd1aac4fdd31951d361701"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-LL8-NRZ\\native-console.log",
+      "bytes": 672,
+      "sha256": "618cab05e79a6f0252702387701ba2f9940565106fb11d7362a3faa082a83f3c"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-LL8-NRZ\\report.json",
+      "bytes": 1304,
+      "sha256": "1e4faf05e46b66d138f293a899388cd00f91a391cef4849a3abc5289b7957fe5"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-SI12-PAM4\\arrays.npz",
+      "bytes": 19114151,
+      "sha256": "50c22ca11398ebf9643538ff886f8dbb81ddbf497bc235b4d85f7969631cf817"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-SI12-PAM4\\effective-input.json",
+      "bytes": 18219,
+      "sha256": "ca580568ec5b16d34cd03ed32cf6ae954f13786589651251d049e7421c01b5a0"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-SI12-PAM4\\input.yaml",
+      "bytes": 15629,
+      "sha256": "eaddba89fdd36d6e80672efc075bf8c06032479df642ef980c5a186b75c8504c"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-SI12-PAM4\\native-console.log",
+      "bytes": 672,
+      "sha256": "f194b16ebc98b4b0372d5aa2bcdcfc3da4c6691d63779b2e07c0fcc0de220ce4"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\D-SI12-PAM4\\report.json",
+      "bytes": 1303,
+      "sha256": "01025fcfcbe8e5bba47cd2fbbdbb5711b71321fcf59b88d2e02acac786a397fe"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\environment.json",
+      "bytes": 5605,
+      "sha256": "e0ef928b1d20bf1573f091df1d53f2c98cbf10ad2be7b2e541dd2b98cca5f0d3"
+    },
+    {
+      "path": "local\\results\\post-direct-20261024-180115\\report.json",
+      "bytes": 8936,
+      "sha256": "dbaea27d7e917aaef67631de3356cb65f5ba44000d45336fa74350fa52960da9"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\environment.json",
+      "bytes": 5605,
+      "sha256": "e0ef928b1d20bf1573f091df1d53f2c98cbf10ad2be7b2e541dd2b98cca5f0d3"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\LL8-grouped-r1-v0.npz",
+      "bytes": 299894,
+      "sha256": "c9cee6bf5e16a720ba8f8296e10539f6157eef1aa99f1f1daec99802a018880b"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\LL8-grouped-r1-v1.npz",
+      "bytes": 299894,
+      "sha256": "9b46b14bc05e917478b52bee63d7ca0601fcea4688376b994ac4a77a7fbe251d"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\LL8-interleaved-r0-v0.npz",
+      "bytes": 299894,
+      "sha256": "c9cee6bf5e16a720ba8f8296e10539f6157eef1aa99f1f1daec99802a018880b"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\LL8-interleaved-r0-v1.npz",
+      "bytes": 299894,
+      "sha256": "9b46b14bc05e917478b52bee63d7ca0601fcea4688376b994ac4a77a7fbe251d"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\LL8-interleaved-r1-v0.npz",
+      "bytes": 299894,
+      "sha256": "c9cee6bf5e16a720ba8f8296e10539f6157eef1aa99f1f1daec99802a018880b"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\LL8-interleaved-r1-v1.npz",
+      "bytes": 299894,
+      "sha256": "9b46b14bc05e917478b52bee63d7ca0601fcea4688376b994ac4a77a7fbe251d"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\report.json",
+      "bytes": 215309,
+      "sha256": "0f9e026e7b140b8e41cd4982e4f552d1fcd861013ee2100e816bccab8e908445"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\SI12-grouped-r1-v0.npz",
+      "bytes": 164958,
+      "sha256": "7343ffea757f9f809389536b1c49f93de1c3fb15ea42d7b7ac05f70834a0a91a"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\SI12-grouped-r1-v1.npz",
+      "bytes": 164998,
+      "sha256": "82e311a77f18460e72191603149410d20862109f74aa8b9c212ef4fd99768531"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\SI12-grouped-r1-v2.npz",
+      "bytes": 165008,
+      "sha256": "ee2a154075738666c30edf6ce4da2883459ffeebc8ec5f829c2f00401d4b82d8"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\SI12-interleaved-r0-v0.npz",
+      "bytes": 164958,
+      "sha256": "7343ffea757f9f809389536b1c49f93de1c3fb15ea42d7b7ac05f70834a0a91a"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\SI12-interleaved-r0-v1.npz",
+      "bytes": 164998,
+      "sha256": "82e311a77f18460e72191603149410d20862109f74aa8b9c212ef4fd99768531"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\SI12-interleaved-r0-v2.npz",
+      "bytes": 165008,
+      "sha256": "ee2a154075738666c30edf6ce4da2883459ffeebc8ec5f829c2f00401d4b82d8"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\SI12-interleaved-r1-v0.npz",
+      "bytes": 164958,
+      "sha256": "7343ffea757f9f809389536b1c49f93de1c3fb15ea42d7b7ac05f70834a0a91a"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\SI12-interleaved-r1-v1.npz",
+      "bytes": 164998,
+      "sha256": "82e311a77f18460e72191603149410d20862109f74aa8b9c212ef4fd99768531"
+    },
+    {
+      "path": "local\\results\\post-importer-20261024-175832\\SI12-interleaved-r1-v2.npz",
+      "bytes": 165008,
+      "sha256": "ee2a154075738666c30edf6ce4da2883459ffeebc8ec5f829c2f00401d4b82d8"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-LL8-NRZ\\arrays.npz",
+      "bytes": 14215310,
+      "sha256": "523a0f29abeeb06418ef5e9d5ee0de3d6dac6740b36bd69655fa5e446f061b59"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-LL8-NRZ\\effective-input.json",
+      "bytes": 18215,
+      "sha256": "0e81d4117721fa794a21dbeef63ba81927b709fff36f440c0cbe2bbf4e974619"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-LL8-NRZ\\input.yaml",
+      "bytes": 15625,
+      "sha256": "56dad3f4c5496003526a7112c25952f91f44964d64cd1aac4fdd31951d361701"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-LL8-NRZ\\native-console.log",
+      "bytes": 672,
+      "sha256": "81b63144e4845e90bebd7db9c3fadc6b9bfe4bba9e3db5ba4ba9be4fd5c885cb"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-LL8-NRZ\\report.json",
+      "bytes": 1352,
+      "sha256": "7efb2ac2881f391ffbec33106cd75fa9a369dd8b749535951468ebf60f3c8771"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-SI12-PAM4\\arrays.npz",
+      "bytes": 9160608,
+      "sha256": "4f2dd90628def8e4e5a7a86b3a58121e67830d9e8eb97ecb97672afa21249ce2"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-SI12-PAM4\\effective-input.json",
+      "bytes": 18219,
+      "sha256": "ca580568ec5b16d34cd03ed32cf6ae954f13786589651251d049e7421c01b5a0"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-SI12-PAM4\\input.yaml",
+      "bytes": 15629,
+      "sha256": "eaddba89fdd36d6e80672efc075bf8c06032479df642ef980c5a186b75c8504c"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-SI12-PAM4\\native-console.log",
+      "bytes": 672,
+      "sha256": "4a232d33627e68b4ba8aeb64f5302212d72c4e6352fb29f659fa92de31e52fca"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\D-SI12-PAM4\\report.json",
+      "bytes": 1355,
+      "sha256": "ceb6bb4af36147721662bb0262dc334efcaf9e97d15a607eba3b77e3f85626a0"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\environment.json",
+      "bytes": 5601,
+      "sha256": "36ac07ea239f7092ee7eddd9aae85381f39dbdf4c0d15602642206a23013f4e9"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-175842\\report.json",
+      "bytes": 8920,
+      "sha256": "c50945c24a43b0825e0a224d91bfd20f78506279e8b43c82abd4cfad4bedf3f3"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-LL8-NRZ\\arrays.npz",
+      "bytes": 33634918,
+      "sha256": "7e4d25762d1205565fb583ec8080de11ba00985a6eb3d58643fcd68ff4e2cf5e"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-LL8-NRZ\\effective-input.json",
+      "bytes": 18215,
+      "sha256": "0e81d4117721fa794a21dbeef63ba81927b709fff36f440c0cbe2bbf4e974619"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-LL8-NRZ\\input.yaml",
+      "bytes": 15625,
+      "sha256": "56dad3f4c5496003526a7112c25952f91f44964d64cd1aac4fdd31951d361701"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-LL8-NRZ\\native-console.log",
+      "bytes": 672,
+      "sha256": "b892059e9572205d69313a53db1605dc2d1a45e6743af7ce4c7fe4fedead7fb9"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-LL8-NRZ\\report.json",
+      "bytes": 1305,
+      "sha256": "63d20ec9f6aba666e3cf28ce0200a2cd5c80c221862d1a8f7f20c0bc10a90d8b"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-SI12-PAM4\\arrays.npz",
+      "bytes": 19156150,
+      "sha256": "f930762ddabe98aa487ad4d7ba3d10e818919517f53b77f6f9dccbfaf5c811ac"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-SI12-PAM4\\effective-input.json",
+      "bytes": 18219,
+      "sha256": "ca580568ec5b16d34cd03ed32cf6ae954f13786589651251d049e7421c01b5a0"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-SI12-PAM4\\input.yaml",
+      "bytes": 15629,
+      "sha256": "eaddba89fdd36d6e80672efc075bf8c06032479df642ef980c5a186b75c8504c"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-SI12-PAM4\\native-console.log",
+      "bytes": 672,
+      "sha256": "3634c8d1303d03ce0973dd56f5e37ffc58514c120feb6ea2e4d99e10af9b531a"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\D-SI12-PAM4\\report.json",
+      "bytes": 1304,
+      "sha256": "dd46d665a9cf72383ccf01e9de685900235bcd294afecc03c0dbd2e119f4fb84"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\environment.json",
+      "bytes": 5601,
+      "sha256": "36ac07ea239f7092ee7eddd9aae85381f39dbdf4c0d15602642206a23013f4e9"
+    },
+    {
+      "path": "local\\results\\pre-direct-20261024-180355\\report.json",
+      "bytes": 8934,
+      "sha256": "8e75775e2a70d93367fb55e3645da9aca70e4bd91b12597660b55a9418a674b9"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\environment.json",
+      "bytes": 5601,
+      "sha256": "36ac07ea239f7092ee7eddd9aae85381f39dbdf4c0d15602642206a23013f4e9"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\LL8-grouped-r1-v0.npz",
+      "bytes": 299823,
+      "sha256": "d770bb12ca03f833500c36f242a30c81f578b83dcd5abf0b7013d6e21d230a9a"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\LL8-grouped-r1-v1.npz",
+      "bytes": 299823,
+      "sha256": "bb9ee4934f0e8057f164f9c412ef7f2bd8f69a1a3d6dd5837ce73cb43c4a6d79"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\LL8-interleaved-r0-v0.npz",
+      "bytes": 299384,
+      "sha256": "bee5c7a90f3132c17c8bf02617f7246c73c552e4b33722b42d4e0572e3c19345"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\LL8-interleaved-r0-v1.npz",
+      "bytes": 299384,
+      "sha256": "55997c576e496122e734ee42934461e00c431d2828e91acc7e12522aec83ba24"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\LL8-interleaved-r1-v0.npz",
+      "bytes": 299624,
+      "sha256": "15ab866bfa0fbd365c86f8f5186556c8c40a594b8e8688bf3aaadae157d92584"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\LL8-interleaved-r1-v1.npz",
+      "bytes": 299624,
+      "sha256": "6e6ec315479d5913c207e8163bf9dde6b9975c72f7d32b3761b07f1ee8622acf"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\report.json",
+      "bytes": 221729,
+      "sha256": "8be8d95c7747b911ddda82fb0d0abe348a0be3428102fc7b9a18cd1734e133c9"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\SI12-grouped-r1-v0.npz",
+      "bytes": 164886,
+      "sha256": "588576973e8eee75022ea52de991a3e8006405fa04fb825fb91855b0a6f9f442"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\SI12-grouped-r1-v1.npz",
+      "bytes": 164918,
+      "sha256": "3803a7ae465af3f71359ecee12231ee4805085a7ba46f994cb846de72692134f"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\SI12-grouped-r1-v2.npz",
+      "bytes": 164928,
+      "sha256": "71ce52ae5fb2e761ef912ca9129285f10dbc8a67003c59d8b224eac75826dc1e"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\SI12-interleaved-r0-v0.npz",
+      "bytes": 164769,
+      "sha256": "eaffbd6cf0cbfecb6ed9f4e06ab1042490efa63b3ae1321af35aa123608444bd"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\SI12-interleaved-r0-v1.npz",
+      "bytes": 164638,
+      "sha256": "06b903a7a1fdc5e73f2ad128e7449250ff4cc343fedc246c3592a90037bac047"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\SI12-interleaved-r0-v2.npz",
+      "bytes": 164829,
+      "sha256": "35776031eb30cfe34fa7325a2c51725b8f508fed26612791ead47859a45ee9f8"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\SI12-interleaved-r1-v0.npz",
+      "bytes": 164771,
+      "sha256": "98ae2475d26198ccea64b32716f28e3adb9073b58231529ca9e55cc04e9d4aef"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\SI12-interleaved-r1-v1.npz",
+      "bytes": 164883,
+      "sha256": "84a3fb3e241ab58292649ac0ac39d2d4ac2242fda9fe005fe24dd9b6e87212b3"
+    },
+    {
+      "path": "local\\results\\pre-importer-20261024-175820\\SI12-interleaved-r1-v2.npz",
+      "bytes": 164813,
+      "sha256": "4ca3bb86d1b508d2e1a4e778a5c64c584fc0f9b78e8899e6889b3efa98af3d85"
+    },
+    {
+      "path": "local\\saved-data-report-before-old-axis-classification.json",
+      "bytes": 436120,
+      "sha256": "a48d1b571595197a4e0dd6bdbe6a1294a92523d4c908476eceb4ea16b44ab59c"
+    },
+    {
+      "path": "local\\sources\\final\\.gitmodules",
+      "bytes": 264,
+      "sha256": "a3c595b156509c95e69d2ccae7e1289b4e5120a17b2699e61b11281d1911cdff"
+    },
+    {
+      "path": "local\\sources\\final\\pyproject.toml",
+      "bytes": 4188,
+      "sha256": "01413cacd9686f957349a9533f60670076a3d7022f08c42c43b6a117741ed9f9"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\__init__.py",
+      "bytes": 1482,
+      "sha256": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\__main__.py",
+      "bytes": 439,
+      "sha256": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\cli.py",
+      "bytes": 2807,
+      "sha256": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\common.py",
+      "bytes": 1432,
+      "sha256": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\configuration.py",
+      "bytes": 14127,
+      "sha256": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\gui\\__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\gui\\handler.py",
+      "bytes": 9015,
+      "sha256": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\gui\\help.py",
+      "bytes": 2623,
+      "sha256": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\gui\\images\\icon.png",
+      "bytes": 182675,
+      "sha256": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\gui\\plot.py",
+      "bytes": 33560,
+      "sha256": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\gui\\view.py",
+      "bytes": 51700,
+      "sha256": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\mcp\\__init__.py",
+      "bytes": 55,
+      "sha256": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\mcp\\server.py",
+      "bytes": 21749,
+      "sha256": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\models\\__init__.py",
+      "bytes": 37,
+      "sha256": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\models\\bert.py",
+      "bytes": 68933,
+      "sha256": "5879ea9520feca96d0f366d1283424194d02425806605fb0069ffb1f893ee622"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\models\\cdr.py",
+      "bytes": 5185,
+      "sha256": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\models\\com.py",
+      "bytes": 2148,
+      "sha256": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\models\\dfe.py",
+      "bytes": 16878,
+      "sha256": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\models\\fec.py",
+      "bytes": 4276,
+      "sha256": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\models\\tx_tap.py",
+      "bytes": 1863,
+      "sha256": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\models\\viterbi.py",
+      "bytes": 10529,
+      "sha256": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\parsers\\__init__.py",
+      "bytes": 47,
+      "sha256": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\parsers\\hspice.py",
+      "bytes": 2236,
+      "sha256": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\py.typed",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\pybert.py",
+      "bytes": 75456,
+      "sha256": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\results.py",
+      "bytes": 5997,
+      "sha256": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\solvers\\__init__.py",
+      "bytes": 903,
+      "sha256": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\solvers\\simbeor\\__init__.py",
+      "bytes": 9107,
+      "sha256": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\solvers\\solver.py",
+      "bytes": 2234,
+      "sha256": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\threads\\__init__.py",
+      "bytes": 319,
+      "sha256": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\threads\\optimization.py",
+      "bytes": 31343,
+      "sha256": "1e058d9a96c67f29c1e8a432e78c19e5675634028f78871e727796b04e5afea5"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\threads\\sim.py",
+      "bytes": 1549,
+      "sha256": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\threads\\stoppable.py",
+      "bytes": 931,
+      "sha256": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\utility\\__init__.py",
+      "bytes": 594,
+      "sha256": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\utility\\channel.py",
+      "bytes": 4744,
+      "sha256": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\utility\\functional.py",
+      "bytes": 773,
+      "sha256": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\utility\\ibisami.py",
+      "bytes": 7997,
+      "sha256": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\utility\\jitter.py",
+      "bytes": 25547,
+      "sha256": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\utility\\math.py",
+      "bytes": 8413,
+      "sha256": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\utility\\python.py",
+      "bytes": 657,
+      "sha256": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\utility\\sigproc.py",
+      "bytes": 22025,
+      "sha256": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\utility\\sparam.py",
+      "bytes": 21000,
+      "sha256": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\__init__.py",
+      "bytes": 316,
+      "sha256": "b1896655d91bfaefd0cedd7ebdef5a97581e00ed934e418d9921fa7e9f10fe3c"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\ami.py",
+      "bytes": 26586,
+      "sha256": "eeb737efe19e041ff8d4891bb514fc0a7e20d156f1c19565bca33cf2353e05a8"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\analysis.py",
+      "bytes": 24665,
+      "sha256": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\archive.py",
+      "bytes": 11244,
+      "sha256": "38f2b1967488ef7b6e6cdb768863da525226bf9bf11e71ccd292cccec6e3c676"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\com.py",
+      "bytes": 5998,
+      "sha256": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\config.py",
+      "bytes": 27264,
+      "sha256": "dd12dfcfe48419058c0bd8d4ed68c59979f0918c4c3e97a6f2ec827841e0bb49"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\data.py",
+      "bytes": 20254,
+      "sha256": "34b317a4c512c5cf17f05ec60e66bb567059cbf02dfa34e97dd7406702326e35"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\legacy_results.py",
+      "bytes": 7236,
+      "sha256": "f10ad1c1131510eb889300149195cabbdd9fc43594f966d5dea9ce715ef77be1"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\optimization.py",
+      "bytes": 38512,
+      "sha256": "dafd7f2bee5687b6f3732fd4aab6fa5527da480db6c17c306c883d5fd8b7d526"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\records.py",
+      "bytes": 3972,
+      "sha256": "85b41a7c4135e5e893600b09ffa5cdb44239700cf542d281a85933c9056f5e3d"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\resource_data.py",
+      "bytes": 6673,
+      "sha256": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\resources.py",
+      "bytes": 15002,
+      "sha256": "045b086767e4e20d872aa233b9fbb59e8ae4c74494cfdd649ced82b0ac296c42"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\server.py",
+      "bytes": 14989,
+      "sha256": "9468621edc8ce2e20d8dcadb5e258aa0525ebe0f0eb851689854cf3b7c3fc4b2"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\ami.js",
+      "bytes": 11366,
+      "sha256": "f0c4c2b155a7182fb09e82279f78e5f6a1feaedfb026e203e6b241c8bc37aaef"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\app.js",
+      "bytes": 48198,
+      "sha256": "717869941318417cef07ceaabf3203e31718fbd3a8abba24efb1e95ced08fbac"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\catalog.js",
+      "bytes": 45867,
+      "sha256": "2fe354afd9708bc5fe8d3208c3172903d11aa45ce0e1d54ef1cf0ae807f7ac00"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\draft.js",
+      "bytes": 2935,
+      "sha256": "ee831427c6f44699ca554d8c00ed3ea6108bd5f7a627a8ade63a0d7e2674eb87"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\gui-map.js",
+      "bytes": 13360,
+      "sha256": "4aa549b5ebd11004a4539c74e6127e18c726f9c359978168f0d43a77b926fbb3"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\index.html",
+      "bytes": 16706,
+      "sha256": "d34ee84305197fec8bbc39e9c4b030cc0978c9480cbbc5b22dba93f9c3fc318d"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\optimization.js",
+      "bytes": 9829,
+      "sha256": "a5d2c40739b70c112e8ebe746f2676d7ce96980eef7b6f88f0db59243303f4e8"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\resources.js",
+      "bytes": 14847,
+      "sha256": "4afe5b579e812ae3b6d3efc370d4ed188ff00aa2889608366c5bda222d1b4872"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\results.js",
+      "bytes": 4256,
+      "sha256": "ca2d05e602162100475e19ba60869722438a255960e33fb036bfaff61e7ff7aa"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\settings.js",
+      "bytes": 20305,
+      "sha256": "3a91e4914c03dccfa5fb0251b19bd7b4954bac4667fedbe19d604cd134216eb3"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\styles.css",
+      "bytes": 40774,
+      "sha256": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\viterbi.js",
+      "bytes": 5273,
+      "sha256": "9f9f5b5a19988254a1a46b37f73b67113194a02d39847caad44bc90ec65b4f9b"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\workbench.css",
+      "bytes": 7452,
+      "sha256": "7afd190a03bf8149c3fca5ff7913084ab7d48a03c7a8a181b69e899922f0a442"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\static\\workbench.js",
+      "bytes": 38503,
+      "sha256": "1b973c9703e5644aa84eba66821ab781b57f8e317756f582c14b5a68d3462d80"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\tasks.py",
+      "bytes": 22466,
+      "sha256": "572331ddc3b96a6f5f8bfa5a6020806de9e4e991d215ea6be3479b06f36087dd"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\viterbi.py",
+      "bytes": 25381,
+      "sha256": "8c8768f9b4ada62dd370786a8d4f4129118bc14cc1eb9925012abce445d92a3f"
+    },
+    {
+      "path": "local\\sources\\final\\src\\pybert\\web\\worker.py",
+      "bytes": 10126,
+      "sha256": "f34e4734639c0a8d3e169a55b35e11a8dc4019fd6d7d5b93ec272871e58b4bf4"
+    },
+    {
+      "path": "local\\sources\\final.zip",
+      "bytes": 485959,
+      "sha256": "a4b7504dcca2be51b8dc751dec5f46fc97e8eddc3bf5c0ae47af545833f4e1a0"
+    },
+    {
+      "path": "local\\sources\\post\\.gitmodules",
+      "bytes": 264,
+      "sha256": "a3c595b156509c95e69d2ccae7e1289b4e5120a17b2699e61b11281d1911cdff"
+    },
+    {
+      "path": "local\\sources\\post\\pyproject.toml",
+      "bytes": 4188,
+      "sha256": "01413cacd9686f957349a9533f60670076a3d7022f08c42c43b6a117741ed9f9"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\__init__.py",
+      "bytes": 1482,
+      "sha256": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\__main__.py",
+      "bytes": 439,
+      "sha256": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\cli.py",
+      "bytes": 2807,
+      "sha256": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\common.py",
+      "bytes": 1432,
+      "sha256": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\configuration.py",
+      "bytes": 14127,
+      "sha256": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\gui\\__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\gui\\handler.py",
+      "bytes": 9015,
+      "sha256": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\gui\\help.py",
+      "bytes": 2623,
+      "sha256": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\gui\\images\\icon.png",
+      "bytes": 182675,
+      "sha256": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\gui\\plot.py",
+      "bytes": 33560,
+      "sha256": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\gui\\view.py",
+      "bytes": 51700,
+      "sha256": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\mcp\\__init__.py",
+      "bytes": 55,
+      "sha256": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\mcp\\server.py",
+      "bytes": 21749,
+      "sha256": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\models\\__init__.py",
+      "bytes": 37,
+      "sha256": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\models\\bert.py",
+      "bytes": 66857,
+      "sha256": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\models\\cdr.py",
+      "bytes": 5185,
+      "sha256": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\models\\com.py",
+      "bytes": 2148,
+      "sha256": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\models\\dfe.py",
+      "bytes": 16878,
+      "sha256": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\models\\fec.py",
+      "bytes": 4276,
+      "sha256": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\models\\tx_tap.py",
+      "bytes": 1863,
+      "sha256": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\models\\viterbi.py",
+      "bytes": 10529,
+      "sha256": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\parsers\\__init__.py",
+      "bytes": 47,
+      "sha256": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\parsers\\hspice.py",
+      "bytes": 2236,
+      "sha256": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\py.typed",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\pybert.py",
+      "bytes": 75156,
+      "sha256": "2a9401c95d67f35c6e28e6d80fcd852e211776be185957702a958422b46a816a"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\results.py",
+      "bytes": 5997,
+      "sha256": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\solvers\\__init__.py",
+      "bytes": 903,
+      "sha256": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\solvers\\simbeor\\__init__.py",
+      "bytes": 9107,
+      "sha256": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\solvers\\solver.py",
+      "bytes": 2234,
+      "sha256": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\threads\\__init__.py",
+      "bytes": 319,
+      "sha256": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\threads\\optimization.py",
+      "bytes": 29536,
+      "sha256": "56261d1cc49437a33578eb187d64db89e4b56d97ab3558c3f9726bd3e494bec0"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\threads\\sim.py",
+      "bytes": 1549,
+      "sha256": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\threads\\stoppable.py",
+      "bytes": 931,
+      "sha256": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\utility\\__init__.py",
+      "bytes": 594,
+      "sha256": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\utility\\channel.py",
+      "bytes": 4744,
+      "sha256": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\utility\\functional.py",
+      "bytes": 773,
+      "sha256": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\utility\\ibisami.py",
+      "bytes": 7997,
+      "sha256": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\utility\\jitter.py",
+      "bytes": 25547,
+      "sha256": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\utility\\math.py",
+      "bytes": 8413,
+      "sha256": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\utility\\python.py",
+      "bytes": 657,
+      "sha256": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\utility\\sigproc.py",
+      "bytes": 22025,
+      "sha256": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\utility\\sparam.py",
+      "bytes": 21000,
+      "sha256": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\__init__.py",
+      "bytes": 250,
+      "sha256": "7375370164273cec896d7eca0265b87f3e109a9a86e0f980b5b3896380606554"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\analysis.py",
+      "bytes": 24665,
+      "sha256": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\config.py",
+      "bytes": 10902,
+      "sha256": "d742f08e64878fed1b71d6a44a4594eb8f9ef0b137751719302672606218005b"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\data.py",
+      "bytes": 16560,
+      "sha256": "2d15d8b02c7772d7c0fc4874cf15bcf20867447e090a43d2f34aaca8dde50a10"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\server.py",
+      "bytes": 3234,
+      "sha256": "bd96fc49eca6f3aae1daf471fb50271e18fed3cfda4b54edd1e1b444bbb050b4"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\static\\app.js",
+      "bytes": 44685,
+      "sha256": "e727c3b284f089eafb6af8dbd4c209511a97604fa8fb0d920d7c0b33e95b16f8"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\static\\catalog.js",
+      "bytes": 44328,
+      "sha256": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\static\\gui-map.js",
+      "bytes": 13168,
+      "sha256": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\static\\index.html",
+      "bytes": 11580,
+      "sha256": "bcc431244d7565e13817772987cfa1e5ab595715fb76cc09bfe343ff374b861c"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\static\\settings.js",
+      "bytes": 20017,
+      "sha256": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\static\\styles.css",
+      "bytes": 40774,
+      "sha256": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\static\\workbench.css",
+      "bytes": 6367,
+      "sha256": "358817f13da2975000ba5d89f532c453d4ef4dc5228ccbd9534b1fa50135da2a"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\static\\workbench.js",
+      "bytes": 23760,
+      "sha256": "f0151805c6dd60e30ff3b53b78fca1b6262c73d19d2b201b42fcc22847507215"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\tasks.py",
+      "bytes": 8761,
+      "sha256": "23e773f28edb73af50ec400711e8eddb0f874027abc63977815db3f8be10afae"
+    },
+    {
+      "path": "local\\sources\\post\\src\\pybert\\web\\worker.py",
+      "bytes": 4413,
+      "sha256": "b22c54df41f33b3955d5e6e973779a9a611e4452dde24d45dbf266952221027c"
+    },
+    {
+      "path": "local\\sources\\post.zip",
+      "bytes": 401758,
+      "sha256": "cf33a5b8aa4e3529ca91401d3309b6df9264092f583fcabb9b62bbdc28f0bdc6"
+    },
+    {
+      "path": "local\\sources\\pre\\.gitmodules",
+      "bytes": 264,
+      "sha256": "a3c595b156509c95e69d2ccae7e1289b4e5120a17b2699e61b11281d1911cdff"
+    },
+    {
+      "path": "local\\sources\\pre\\pyproject.toml",
+      "bytes": 4188,
+      "sha256": "01413cacd9686f957349a9533f60670076a3d7022f08c42c43b6a117741ed9f9"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\__init__.py",
+      "bytes": 1482,
+      "sha256": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\__main__.py",
+      "bytes": 439,
+      "sha256": "d30b3155c51354b3fe635d5ed3de146571e14539efdb82549380ff3295334cb9"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\cli.py",
+      "bytes": 2807,
+      "sha256": "77127858fa4089d4bdf5d15a837b0c3446a450c9e325434a61fa0c4640367c56"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\common.py",
+      "bytes": 1432,
+      "sha256": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\configuration.py",
+      "bytes": 14127,
+      "sha256": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\gui\\__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\gui\\handler.py",
+      "bytes": 9015,
+      "sha256": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\gui\\help.py",
+      "bytes": 2623,
+      "sha256": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\gui\\images\\icon.png",
+      "bytes": 182675,
+      "sha256": "80720a83d3c0400ecb1026d2d3f63f98d791cdc219988e59ef8ba615c10ca311"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\gui\\plot.py",
+      "bytes": 33560,
+      "sha256": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\gui\\view.py",
+      "bytes": 51700,
+      "sha256": "60be7dc3873dcb6e72d593d764159cdd96754bf7e0702289433399982d2084e4"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\mcp\\__init__.py",
+      "bytes": 55,
+      "sha256": "f289701c2b991af7406def43bae0c36174e70fb448f535d651bf4a1ac55bec92"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\mcp\\server.py",
+      "bytes": 21749,
+      "sha256": "1d822a5dd545fdc67205e804857d3e7fbcdf79651c171b2b8ffbf18c1f897dcb"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\models\\__init__.py",
+      "bytes": 37,
+      "sha256": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\models\\bert.py",
+      "bytes": 66857,
+      "sha256": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\models\\cdr.py",
+      "bytes": 5185,
+      "sha256": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\models\\com.py",
+      "bytes": 2148,
+      "sha256": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\models\\dfe.py",
+      "bytes": 16878,
+      "sha256": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\models\\fec.py",
+      "bytes": 4276,
+      "sha256": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\models\\tx_tap.py",
+      "bytes": 1863,
+      "sha256": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\models\\viterbi.py",
+      "bytes": 10529,
+      "sha256": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\parsers\\__init__.py",
+      "bytes": 47,
+      "sha256": "21090dd0ab581dd652f3dd08a8b8f553dc639bef9d24a4cf0dae7baa29b06622"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\parsers\\hspice.py",
+      "bytes": 2236,
+      "sha256": "4b847aae3b63c33ecc4cd9267ba5484c8970c8178c73ce2da716c4569720c5d1"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\py.typed",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\pybert.py",
+      "bytes": 75156,
+      "sha256": "2a9401c95d67f35c6e28e6d80fcd852e211776be185957702a958422b46a816a"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\results.py",
+      "bytes": 5997,
+      "sha256": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\solvers\\__init__.py",
+      "bytes": 903,
+      "sha256": "ae4085c70e6f292fbb1257cef91961b31b165f2e758d940930abd26834c74269"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\solvers\\simbeor\\__init__.py",
+      "bytes": 9107,
+      "sha256": "c4051095a2858ee464e2cc87450474240fb10f27cad8e510fb48040bbfc97373"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\solvers\\solver.py",
+      "bytes": 2234,
+      "sha256": "6b0be3d438e048d696244dc4cec027f9edabb07ec6462f7b16d106839ea94256"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\threads\\__init__.py",
+      "bytes": 319,
+      "sha256": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\threads\\optimization.py",
+      "bytes": 29536,
+      "sha256": "56261d1cc49437a33578eb187d64db89e4b56d97ab3558c3f9726bd3e494bec0"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\threads\\sim.py",
+      "bytes": 1549,
+      "sha256": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\threads\\stoppable.py",
+      "bytes": 931,
+      "sha256": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\utility\\__init__.py",
+      "bytes": 594,
+      "sha256": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\utility\\channel.py",
+      "bytes": 4744,
+      "sha256": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\utility\\functional.py",
+      "bytes": 773,
+      "sha256": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\utility\\ibisami.py",
+      "bytes": 7997,
+      "sha256": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\utility\\jitter.py",
+      "bytes": 25547,
+      "sha256": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\utility\\math.py",
+      "bytes": 8413,
+      "sha256": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\utility\\python.py",
+      "bytes": 657,
+      "sha256": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\utility\\sigproc.py",
+      "bytes": 22025,
+      "sha256": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\utility\\sparam.py",
+      "bytes": 20261,
+      "sha256": "4f4955a304aaa330ae2a1b5e98dc7cf1ddf541027d6e3f046df10b8d3dd50c84"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\__init__.py",
+      "bytes": 250,
+      "sha256": "7375370164273cec896d7eca0265b87f3e109a9a86e0f980b5b3896380606554"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\analysis.py",
+      "bytes": 24665,
+      "sha256": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\config.py",
+      "bytes": 10902,
+      "sha256": "d742f08e64878fed1b71d6a44a4594eb8f9ef0b137751719302672606218005b"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\data.py",
+      "bytes": 16560,
+      "sha256": "2d15d8b02c7772d7c0fc4874cf15bcf20867447e090a43d2f34aaca8dde50a10"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\server.py",
+      "bytes": 3234,
+      "sha256": "bd96fc49eca6f3aae1daf471fb50271e18fed3cfda4b54edd1e1b444bbb050b4"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\static\\app.js",
+      "bytes": 44685,
+      "sha256": "e727c3b284f089eafb6af8dbd4c209511a97604fa8fb0d920d7c0b33e95b16f8"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\static\\catalog.js",
+      "bytes": 44328,
+      "sha256": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\static\\gui-map.js",
+      "bytes": 13168,
+      "sha256": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\static\\index.html",
+      "bytes": 11580,
+      "sha256": "bcc431244d7565e13817772987cfa1e5ab595715fb76cc09bfe343ff374b861c"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\static\\settings.js",
+      "bytes": 20017,
+      "sha256": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\static\\styles.css",
+      "bytes": 40774,
+      "sha256": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\static\\workbench.css",
+      "bytes": 6367,
+      "sha256": "358817f13da2975000ba5d89f532c453d4ef4dc5228ccbd9534b1fa50135da2a"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\static\\workbench.js",
+      "bytes": 23760,
+      "sha256": "f0151805c6dd60e30ff3b53b78fca1b6262c73d19d2b201b42fcc22847507215"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\tasks.py",
+      "bytes": 8761,
+      "sha256": "23e773f28edb73af50ec400711e8eddb0f874027abc63977815db3f8be10afae"
+    },
+    {
+      "path": "local\\sources\\pre\\src\\pybert\\web\\worker.py",
+      "bytes": 4413,
+      "sha256": "b22c54df41f33b3955d5e6e973779a9a611e4452dde24d45dbf266952221027c"
+    },
+    {
+      "path": "local\\sources\\pre.zip",
+      "bytes": 401543,
+      "sha256": "4c3e85b572ae93bb3cfbd14f7786fc289baaf25b845b87415d3330a24767ca6d"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\pyproject.toml",
+      "bytes": 3694,
+      "sha256": "0a8810b7aa87d054d64897a511d660e39c9a3342aabcca43af60786c101cf5be"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\__init__.py",
+      "bytes": 771,
+      "sha256": "fbc42a1fc4b0c2c91f81cff926a0b110e010c84a37aa61c87ddccd2cdf2bcb56"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\__main__.py",
+      "bytes": 369,
+      "sha256": "2ebe052fef6b334f0d481e08b11f9b33df34549f8382c1081dc7e5b9ae1eeea7"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ami\\__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ami\\config.py",
+      "bytes": 12577,
+      "sha256": "ffd859918022ad3cfcf3fd50b6fd8dddb269ce6b58bbbe9c2845fa6a1aef2a31"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ami\\configurator.py",
+      "bytes": 24692,
+      "sha256": "a1e1242424fb7951ab3aba0ad717acf3169c8d091fdf33db805d6747fe077874"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ami\\generic.ami.em",
+      "bytes": 519,
+      "sha256": "b34d2acec84193f807d00e314f7eb27104874b43202c464b9abc04a50bfd8c86"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ami\\generic.ibs.em",
+      "bytes": 7369,
+      "sha256": "7f224e4c02b47b40e0b867f80e087747e3cc433c88a23616b8b7910095829843"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ami\\model.py",
+      "bytes": 29904,
+      "sha256": "6dd6ae1f9381c596bb25606199a6fe404c24aa1ffbcefc4d5ffb5e4df22b6be3"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ami\\parameter.py",
+      "bytes": 22764,
+      "sha256": "d0233fd737b85f96e76863f19079eb70f71a7b6da52f28e8c282f339cfc120e7"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ami\\parser.py",
+      "bytes": 16295,
+      "sha256": "2c2e688e3257476d38c175bcd37bb8050b253ad822139c55001eff920ba65594"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ami\\reserved_parameter_names.py",
+      "bytes": 2130,
+      "sha256": "8ae84418fa427239e757044ef475bed39d8b95814c7569ee717982bb237debe6"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\cli_logging.py",
+      "bytes": 2640,
+      "sha256": "258a8818ba11d5e99b90dfdfc759fe070e81b61c817ff3e5f02c8ec05281869d"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\common.py",
+      "bytes": 1880,
+      "sha256": "29d822c729682cf1fd68829a21ece71324c51c6cde785303cb2165b197d27929"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\gui\\__init__.py",
+      "bytes": 772,
+      "sha256": "485231c50b8a395db0d9cb617f2ca68af40fdeb1c74f00de3f4c384911d690e6"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\gui\\ami_config.py",
+      "bytes": 4694,
+      "sha256": "f81e8b9035504a7e55ba49a40d2239451320deeeb88e9fd976b1f857c78642f8"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\gui\\ibis.py",
+      "bytes": 5520,
+      "sha256": "d843afd471659c046687637a6d2aec07e06b063181a2272f74a8ac065d425aa9"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\file.py",
+      "bytes": 22141,
+      "sha256": "87d09a048bc77fc1559a3eb8c256b654598bf0ef8574b3819d17f26af497c372"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\iv.py",
+      "bytes": 7771,
+      "sha256": "0eca1c03681d5f6ca5eff7802da0726b104c3b608a2aa40cb59fee836c6ccc03"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\model.py",
+      "bytes": 22623,
+      "sha256": "5e136717109a56bd28dd9e14fb9490e80042e18738ec6466a8975fa21bc8c2e2"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\ibis\\parser.py",
+      "bytes": 23424,
+      "sha256": "579506ce86d347b859d1e9ee8c939dd33068dfc8c3b068ff9d45605732fe26aa"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\IBIS_AMI_Checker.ipynb",
+      "bytes": 1391833,
+      "sha256": "e2b3f7510e733cf7f2e5120bdf6388b95f3d02f003918ef6fbe241a8824b2778"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\IBIS_AMI_Tester.ipynb",
+      "bytes": 792684,
+      "sha256": "1438cbf25ad3396d1c0c81b4fb83e6562ca3ddc2405c4411a465f7366e045f28"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\report\\__init__.py",
+      "bytes": 779,
+      "sha256": "50a5395f7c53746530b968917c75752f774429ab6800d62908eacdeef718b53e"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\report\\ami_tests.py",
+      "bytes": 19817,
+      "sha256": "47b044bd9ac7d540a81ec48237730783de69dcee2d5157f0778f6af9cf967be5"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\report\\ami_tests_helpers.py",
+      "bytes": 9743,
+      "sha256": "e712a4bfd7a33a10f0e2d4a30c0c9f5d6270e55a45212e2f62395f15d7876040"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\report\\ibis_file_tests.py",
+      "bytes": 4310,
+      "sha256": "3bac0e6cda86310de0764bb5c739b39aad7586b54f3cee515cfa3a139eba4341"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\report\\pdf.py",
+      "bytes": 4014,
+      "sha256": "56fe886bf827b52f20bc0c5b15f1a8511d29728082100930378f2cc0aaaa6187"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\report\\plot.py",
+      "bytes": 13885,
+      "sha256": "b83701897b00d3a0e1f0732e8659a48ce146201d936f63bd4f194f99ffc972fe"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\report\\test_models.py",
+      "bytes": 6385,
+      "sha256": "8203e1d518d8c5c03ffccce8bcf562df12899e8958f9df097499e5c94e615629"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\testing\\__init__.py",
+      "bytes": 838,
+      "sha256": "38653eca7fae90e6a0a11ba577e40497c4d3b7c7d314f592988bd8bdbba6321d"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\testing\\ami_test_config.py",
+      "bytes": 20248,
+      "sha256": "1882316ddb3ea28f031ec38cb93f657381443db7fb9dfd04e72360354462acd6"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\testing\\generic_test_sweep.py.em",
+      "bytes": 3133,
+      "sha256": "80bb171d53c10c5d55d8dbb6d62a5a2146defe5fd9b42c5813567acff7e48783"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\testing\\test_defs.py",
+      "bytes": 8099,
+      "sha256": "58d1cf62cc56dabdf223071b9e3c12bfef265c4a67b45800b63d7adb44a78d73"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\testing\\util.py",
+      "bytes": 1691,
+      "sha256": "b223b5bf105e4d2068a7a02abae806bca557322048bd511f00a296c06c1f8759"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\tools\\__init__.py",
+      "bytes": 127,
+      "sha256": "12c5bac38e661e129034a955a8ebb4b3dcb86b5e8ad1415f48a2b8545fdf8609"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\tools\\run_notebook.py",
+      "bytes": 9578,
+      "sha256": "8d576c2b80762b6f2fd93bfbcdf112aa9d0f7151a9d1160d262b31bc0ac435a1"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\tools\\run_tests.py",
+      "bytes": 8461,
+      "sha256": "4e9a4863f7eb4f1d51d2e6b0cf1d39e717f1cb04a5b5b8d397635e08c48e4a0b"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\tools\\test_results.xsl",
+      "bytes": 1704,
+      "sha256": "096dd17429a5f639f69c18993b1a95b5712a9d633e94e0c7cde0e4112996c018"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\util\\ami.py",
+      "bytes": 3704,
+      "sha256": "22d7336b8a2b6abff716d8c21d5086c9e41618d83e30229ceaf2e82b0d433232"
+    },
+    {
+      "path": "local\\sources\\PyAMI\\src\\pyibisami\\util\\misc.py",
+      "bytes": 491,
+      "sha256": "cdf109e3c3839d087a7c04da420b637a4d76e3c485777c0999b9866ba1816579"
+    },
+    {
+      "path": "local\\sources\\PyAMI.zip",
+      "bytes": 1663666,
+      "sha256": "e11442669a2924a8945af1a57f2e1b3a0ed36958e40a0513b663b3e9419f0338"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\pyproject.toml",
+      "bytes": 3340,
+      "sha256": "5fa7fc982ad0e3eded0de77642dab1858106819b9250e6a6ce2770351fab0c7c"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\__init__.py",
+      "bytes": 639,
+      "sha256": "9cac78d91bff4690fea7f60b85881fed116e7b09f17615c9821d7dfc372d531d"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\__main__.py",
+      "bytes": 396,
+      "sha256": "504f028fc5be635691d6c7f4a07c729144edffbd94faaee31db7038b5132fa6a"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\cli.py",
+      "bytes": 3410,
+      "sha256": "b89a14005737e3730731253d47a1691246c4fee5ced238cc96572659320f6fc0"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\com.py",
+      "bytes": 83677,
+      "sha256": "04010ac20bf154b91715c34130db531ce0c9f350881973053f2691ccb24680e9"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\common.py",
+      "bytes": 2022,
+      "sha256": "08658837f977c06428241522cbaa8221ea9ea3dcc303b1a9c437606e01d0d163"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\__init__.py",
+      "bytes": 230,
+      "sha256": "4868fe79668025474562148e96ab901a2e056034684519151512a46657c05780"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023by.py",
+      "bytes": 761,
+      "sha256": "9f6d96162f079498ea93a94642e1e780755ca63ee7dc128f07a23563fe62abf5"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj.py",
+      "bytes": 925,
+      "sha256": "8915ffff247b2981e6c4b86afd6c7e3c9a5b0c1dcc240bc26058e02585b23e23"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj_d3p3.py",
+      "bytes": 9353,
+      "sha256": "47436b07c0843da6fcba4923fa6dcd16e5e536de06e617d68180107d9f76d1e2"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\config\\template.py",
+      "bytes": 13428,
+      "sha256": "801119da1f9acfa470e4640e37b281e20cf07cdfb92c82b8ad0ae86e2bf2a2f4"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\devmodel.py",
+      "bytes": 7277,
+      "sha256": "a1504554a943c539e0914a7b4e6b6ae56cbc38c922ce7a783655abe5f427d2d1"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\excel.py",
+      "bytes": 20683,
+      "sha256": "ece620356d52c910d8d26b8c77d1175ed57f475292e88f76547b7f1eaa278881"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\matlab.py",
+      "bytes": 5495,
+      "sha256": "3a0899c7f496cadf66ef144c8cfcfbc499b91a7d5975b1051ba8ebb5efe903ef"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\mfiles\\pychopmarg_com.m",
+      "bytes": 3793,
+      "sha256": "8fd889c2b2db180aa52996efe4f256a7be2fb0f0610c93d99c5db946e01487c7"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\mlsd.py",
+      "bytes": 7323,
+      "sha256": "6961b8ee772dc2e64bb0add34c115e2510afe0972edd4566498d8355b1a54cf5"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\noise.py",
+      "bytes": 21505,
+      "sha256": "e638940f963d8df714686e6e6e9f5efdcfe8cc7e62857b33a09948c4eebf84ef"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\optimize.py",
+      "bytes": 30124,
+      "sha256": "432bff254c9043e333f99fa1eb26eaa384cdc574dad5f2437efa6a5b3640835d"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\plot.py",
+      "bytes": 11546,
+      "sha256": "e75b8b7e8bc2c8aa65ea1da47d93a5a40192984518e247b673d00fc1bff146f6"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\py.typed",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\__init__.py",
+      "bytes": 163,
+      "sha256": "e0b9fb64bbdf55f4a77acfdc8c70561eb0253f0097a7a05c7423d17e48c08cb1"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\filter.py",
+      "bytes": 12894,
+      "sha256": "4aaf60d9ba2c03fd867b3753c12c87ad64d0768b9bb3b0dd35876ec28481513c"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\general.py",
+      "bytes": 9254,
+      "sha256": "845b78ec063548a38741bf39ebb473216dcf017aa9276331906223c5372ac614"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\jupyter.py",
+      "bytes": 1972,
+      "sha256": "be9693d759ac8c3e15814f5acb8d534658e94836844124051f788abb30188b58"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\probability.py",
+      "bytes": 9399,
+      "sha256": "33fe735736b3477c704e5283d8d0b929092e731e8b8a8bad2f41824364f15d85"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg\\src\\pychopmarg\\utility\\sparams.py",
+      "bytes": 13158,
+      "sha256": "59a5e253af93fc894d157c6ec8c445d83bb14c8a5e06282ad93416a47be16595"
+    },
+    {
+      "path": "local\\sources\\PyChOpMarg.zip",
+      "bytes": 91209,
+      "sha256": "eb952e3c8c64c942fc96c3824d8d9e560ab881e48b13421019c0566f344ec4f9"
+    }
+  ]
+}
