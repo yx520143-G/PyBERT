@@ -1,0 +1,12 @@
+{
+  "before_first_attempt": true,
+  "created_at": 1792817940.221444,
+  "purpose": "Additional UI-only ordinary-click cancellation fixture; retains prior failed/natural attempts; not a replacement numerical consistency fixture",
+  "request_sha256": "5670c0cd8bc8590c1c718e39e04e4779f96dd7bce2169a83bd013184428cd0e2",
+  "outer": 16,
+  "inner": 16,
+  "new_settings": "Rx pre/post grid each -.03,-.02,-.01,0; cursor=1; all other original cancel inputs including seed/noise/window unchanged",
+  "tolerances": "original v1 unchanged; no numeric improvement claim",
+  "planned_main": 0,
+  "planned_COM": 0
+}
