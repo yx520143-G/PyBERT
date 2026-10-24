@@ -1,0 +1,130 @@
+{
+  "status": "owner review repairs bounded software validation complete; PM fresh review pending",
+  "baseline": "0f04562c50a12fae637fece04da100c44c86617e",
+  "original_delivery_head": "9331c38e4393868d69d2bbc4dbd22565c0612324",
+  "last_integer_green_source": "f94a7823a49996cd4d6df203a33d9d1db3ab83b6",
+  "actual_counts": {
+    "pure": 17315,
+    "collect": 1,
+    "extend_analysis": 1,
+    "eye_data": 14,
+    "calc_eye": 13,
+    "clock_data": 11,
+    "clock_display": 3,
+    "histogram": 29,
+    "rfft": 14,
+    "safe_log10": 47,
+    "viterbi_extend": 4,
+    "viterbi_validate": 11,
+    "resize_zero_pad": 13,
+    "read_arrays": 29,
+    "validate_run": 13,
+    "save_archive": 2,
+    "load_archive": 6,
+    "annotate": 3,
+    "execution_write": 1,
+    "partial_save": 4
+  },
+  "budget": {
+    "pure_original": 4000,
+    "failed08_attempted_entry": 4001,
+    "pure_approved_cumulative": 25000,
+    "A_used": 5264,
+    "A_limit": 9000,
+    "B_used": 98,
+    "B_limit": 3000,
+    "C_used": 7910,
+    "C_limit": 8000,
+    "C_actual_collect_extend_records": 1,
+    "C_record_limit": 2,
+    "D_used": 42,
+    "D_limit": 999
+  },
+  "launch_slots": 18,
+  "guarded_children": 17,
+  "NumPy_imports": 16,
+  "dynamic_batches_remaining": 0,
+  "scope_separated": {
+    "14_coordinator": {
+      "head": "75004b39e7578d5c9ba80ed78d4dc1180a983cb2",
+      "actual": "oneAMIcollect/extend only; historical worker/clocks/analysis source, no fixed-source fullcoordinator rerun"
+    },
+    "16_float_seam": {
+      "head": "2aa3e7d5caebc7770c80f0486950faa2167b971a",
+      "actual": "16-point highorigin actual period seam; realnonuniform/duplicate/reverse/zero/nonfinite controls; current float+FFT assignments AST-identical, no18float execution"
+    },
+    "16_worker": {
+      "head": "2aa3e7d5caebc7770c80f0486950faa2167b971a",
+      "actual": "actual sourceAST/symtable baseglobal/reviewedlocal/fixedglobal; worker notexecuted; currentworker raw matches16"
+    },
+    "18_integer_seam": {
+      "head": "f94a7823a49996cd4d6df203a33d9d1db3ab83b6",
+      "actual": "six3-point fixtures, exactinteger originalinterval equality and rawordering;2uniform FFT,4invalid noFFT; current source bound"
+    }
+  },
+  "review": {
+    "candidate": "3be11a174a1523a645082f0dc8e16b6f8484181b",
+    "Standards_documented": 0,
+    "Standards_heuristic": 0,
+    "Spec_wrong": 0,
+    "Spec_scope_creep": 0,
+    "Spec_partial": 1,
+    "partial": "historicalJSON14elapsedUNKNOWN; no complete serialization timing claim",
+    "review_product_NumPy_tests_writes": 0
+  },
+  "evidence_partial_JSON14": {
+    "severity": "P2",
+    "status": "EVIDENCE_PARTIAL",
+    "source": {
+      "write": "src/pybert/web/data.py:462",
+      "read": "src/pybert/web/data.py:469"
+    },
+    "scope": "14-coordinator-check only; historical execution cannot be retroactively timed",
+    "count_basis": "Frozen source + normal completion of actual collect and plot_payload; not a per-JSON-call timing trace",
+    "write_calls": 1,
+    "read_calls": 1,
+    "manifest_physical_file_bytes": 539230,
+    "manifest_sha256": "f03eb1516d8440067ede78351357ae9c6f8ce4b295a16c13826f1deb4d4d2b1c",
+    "read_input_text_utf8_bytes": 521995,
+    "write_input_text_before_platform_newline_bytes": "UNKNOWN",
+    "write_elapsed_s": "UNKNOWN",
+    "read_elapsed_s": "UNKNOWN",
+    "disposition": "Preserved original artifact and explicit limitation; no rerun or inferred historical elapsed; PM fresh review remains required"
+  },
+  "known_failures_and_gaps": [
+    "01/03/05/07 missing-seam red failures",
+    "08 guard at original pure entry4001; blocked/error, never qualification or4000-compliant",
+    "09 expected irreversible guard-only abort exit86",
+    "11 missing partial writer red failure",
+    "13 plan self-hash preflight rejected before child; counts as slot14includes13; product0",
+    "15actualred two failures, retained",
+    "intermediate self-review found integer P2; PM approved only17/18 via6389806920",
+    "17actualred sixsubtestfailures and unsigned scalar overflowwarning, retained; actual6FFT calls counted",
+    "First static seal assembly failure .venvcfg untracked, preserved external; product0, elapsedUNKNOWN"
+  ],
+  "legacy_gaps": [
+    "02 hostcopy20 inferable from cases but per-copy time UNKNOWN",
+    "08/10 malformed in-memory serialization inputs not all separately raw-bound; retain original evidence, no retro-capture",
+    "initial two incorrect lock locators only tool transcript; no install/product imports",
+    "NumPy ctypes/pyd observations are scoped Python audit events, not whole-system DLL trace",
+    "OS/stdlib atomic filename entropy not classified as NumPy/display/simulation RNG",
+    "13 original preflight stdout/traceback only in tool transcript; explicit failure receipt preserved; duration UNKNOWN"
+  ],
+  "task_wall_peak_RSS": "UNKNOWN",
+  "protection": {
+    "old_metadata_sha256": 271,
+    "old_materials_and_installed_source_sha256": 2394,
+    "old_raw_sha256": 4874,
+    "old30_v2_seal": 1,
+    "old_D1_seal": 1,
+    "old_repository_states": 16,
+    "old_env_cache_dirs": 16,
+    "new_installed_files": 952,
+    "D2_original01_14_run_launch_files": 561
+  },
+  "all_protection_matched": true,
+  "integer_stage_report": "integer-review-validation.json",
+  "float_stage_report": "review-fix-validation.json",
+  "prior_seal_preserved": true,
+  "forbidden_full_product_calls": 0
+}

@@ -1,3 +1,5 @@
+> 当前修复轮交付见 [README-repair.md](README-repair.md) 和 v3 报告。以下保留9331阶段历史正文；该阶段曾被PM指出两个实现错误，不能作为当前修复验收结论。
+
 # D2：Web AMI clocks consumers
 
 本次仅交付 #10 的 D2 软件适配，基线 `0f04562c50a12fae637fece04da100c44c86617e` / tree `790d13dc87bf00d2b31f8aaf128157a937fe0c93`。合同见 [原合同](https://github.com/yx520143-G/PyBERT/issues/10#issuecomment-6388483807) 及 [预算补充](https://github.com/yx520143-G/PyBERT/issues/10#issuecomment-6388850218)，完整副本保存在本目录。新独立 clone、env/cache；D1 保持封存。
