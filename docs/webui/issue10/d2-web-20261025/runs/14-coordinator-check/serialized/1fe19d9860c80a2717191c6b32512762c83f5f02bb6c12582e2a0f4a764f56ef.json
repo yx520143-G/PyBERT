@@ -1,0 +1,190 @@
+{
+  "run_id": "d2-software-coordinator",
+  "plot_id": "cdr",
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "name": "Known AMI period",
+      "x": [
+        500000000.0,
+        750000000.0,
+        1000000000.0,
+        1250000000.0,
+        1500000000.0,
+        1750000000.0,
+        2000000000.0,
+        2250000000.0,
+        2500000000.0,
+        2750000000.0,
+        3000000000.0,
+        3250000000.0,
+        3500000000.0,
+        3750000000.0,
+        4000000000.0,
+        4250000000.0,
+        4500000000.0,
+        4750000000.0,
+        5000000000.0,
+        5250000000.0,
+        5500000000.0,
+        5750000000.0,
+        6000000000.0,
+        6250000000.0,
+        6500000000.0,
+        6750000000.0,
+        7000000000.0,
+        7250000000.0
+      ],
+      "y": [
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0,
+        1000000000000.0
+      ]
+    }
+  ],
+  "title": "AMI known CDR period",
+  "xunit": "ns",
+  "yunit": "ps",
+  "logx": false,
+  "metadata": {
+    "AMI": {
+      "modes": {
+        "rx": "GetWave"
+      },
+      "requested_rx_use_clocks": true,
+      "clock_source": "AMI clocks",
+      "clock_reason": null,
+      "actual_producer_branch": "ami",
+      "producer_invocation_id": "145408331199300",
+      "consumption_status": "completed",
+      "consumed_count": 8,
+      "producer_run_status": "completed",
+      "rx_ffe": "bypass: Rx AMI replaces Native Rx EQ",
+      "native_DFE_CDR_AGC": "bypassed by actual AMI producer; adaptation readiness is not model lock",
+      "rx_in": "actual noisy Rx input for Rx GetWave / Native; Rx Init has its own output-noise branch",
+      "noise": "rx_in",
+      "model_state": "only raw params_out are model-returned; native zero/empty placeholders are not model taps/lock/UI estimates"
+    },
+    "window": {
+      "availability": "available",
+      "reason": null,
+      "selected_points": 28,
+      "known_points": 28,
+      "known_segment_count": 1,
+      "display_segment_count": 1,
+      "omitted_segments": 0,
+      "singleton_mode": "markers",
+      "limit": 4096,
+      "allocation": "evenly spaced known ordinals including endpoints; split at original unknown gaps"
+    },
+    "datasets": {
+      "display.cdr.segment0.x": {
+        "field": "display.cdr.segment0.x",
+        "producer": "PyBERT.display.cdr.segment0.x",
+        "point": "simulation",
+        "kind": "display",
+        "dtype": "float64",
+        "shape": [
+          28
+        ],
+        "unit": "ns",
+        "axis": null,
+        "window": {
+          "availability": "available",
+          "reason": null,
+          "selected_points": 28,
+          "known_points": 28,
+          "known_segment_count": 1,
+          "display_segment_count": 1,
+          "omitted_segments": 0,
+          "singleton_mode": "markers",
+          "limit": 4096,
+          "allocation": "evenly spaced known ordinals including endpoints; split at original unknown gaps"
+        },
+        "clock_basis": "producer known grid segments",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "t",
+          "ui_ests",
+          "ami.cdr.period_known",
+          "cdr_indices"
+        ],
+        "run_id": "d2-software-coordinator",
+        "input_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+        "engine_sha": "75004b39e7578d5c9ba80ed78d4dc1180a983cb2",
+        "raw_schema_version": 6,
+        "producer_version": 2,
+        "observation_id": "simulation_record",
+        "reason": null
+      },
+      "display.cdr.segment0.y": {
+        "field": "display.cdr.segment0.y",
+        "producer": "PyBERT.display.cdr.segment0.y",
+        "point": "simulation",
+        "kind": "display",
+        "dtype": "float64",
+        "shape": [
+          28
+        ],
+        "unit": "ps",
+        "axis": "display.cdr.segment0.x",
+        "window": {
+          "availability": "available",
+          "reason": null,
+          "selected_points": 28,
+          "known_points": 28,
+          "known_segment_count": 1,
+          "display_segment_count": 1,
+          "omitted_segments": 0,
+          "singleton_mode": "markers",
+          "limit": 4096,
+          "allocation": "evenly spaced known ordinals including endpoints; split at original unknown gaps"
+        },
+        "clock_basis": "producer known grid segments",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "t",
+          "ui_ests",
+          "ami.cdr.period_known",
+          "cdr_indices"
+        ],
+        "run_id": "d2-software-coordinator",
+        "input_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+        "engine_sha": "75004b39e7578d5c9ba80ed78d4dc1180a983cb2",
+        "raw_schema_version": 6,
+        "producer_version": 2,
+        "observation_id": "simulation_record",
+        "reason": null
+      }
+    }
+  },
+  "availability": "available"
+}
