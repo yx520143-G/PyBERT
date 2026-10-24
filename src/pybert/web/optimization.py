@@ -13,6 +13,7 @@ from types import SimpleNamespace
 import numpy as np
 
 from pybert.gui.handler import MyHandler
+from pybert.utility import safe_log10
 from pybert.threads.optimization import (
     MMSE_TX_LEVEL_V, MMSE_TX_SNR_DB, MMSE_DJ_DUAL_DIRAC_UI, MMSE_RJ_RMS_UI,
     OptThread, coopt, mk_tap_weight_combs,
@@ -57,7 +58,7 @@ def _range_count(lo, hi, step, field):
 
 def preflight(p):
     c = snapshot(p)
-    validate(c, snapshot(new_engine()), execution=True)
+    validate(c | {"enable_com": False}, snapshot(new_engine()), execution=True)
     if c["mod_type"] not in ("NRZ", "PAM-4"):
         raise ValueError("Native optimization supports NRZ/PAM4 in #8; Duo-binary is unavailable here.")
     if c["rx_n_taps"] < 1:
@@ -238,7 +239,7 @@ def run_optimization(opt_id, request, directory, check, emit):
             raise ValueError("Native pulse axis length mismatch; no truncated success published.")
         record["use_patch"] = handler_patch(p, result)
         record.update(status="succeeded", selected_candidate_id=f"candidate-{winner['index']:06d}", fom=float(fom),
-                      display_db=float(20 * np.log10(fom)), candidates=[],
+                      display_db=float(20 * safe_log10(fom)), candidates=[],
                       selected_values={"tx": list(map(float, tx)), "ffe": list(map(float, rx)),
                                        "dfe": [float(t.value) for t in p.dfe_tap_tuners], "ctle_db": float(peak)})
     except Exception as err:
@@ -349,7 +350,7 @@ def _load_optimization(content, directory):
 
 
 def validate_record(record, arrays):
-    if record.get("optimization_raw_schema", 1) not in (1, 2):
+    if type(record.get("optimization_raw_schema", 1)) is not int or record.get("optimization_raw_schema", 1) not in (1, 2):
         raise ValueError("Unknown optimization raw schema.")
     if (type(record.get("schema_version")) is not int or record["schema_version"] != 1 or record.get("status") not in ("succeeded", "failed", "cancelled") or
             not isinstance(record.get("opt_id"), str) or {k: array_identity(a) for k, a in arrays.items()} != record.get("arrays")):

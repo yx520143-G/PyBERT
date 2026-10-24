@@ -62,6 +62,8 @@ def create_app(tasks=None):
 
     @app.post("/api/normalize")
     def normalize(request: dict):
+        if request.get("mode", "load") not in ("defaults", "load", "patch"):
+            raise ValueError("Optimizer actions require their dedicated endpoint and a registered record ID.")
         return manager.normalize(request)
 
     @app.post("/api/runs", status_code=202)
@@ -76,6 +78,8 @@ def create_app(tasks=None):
 
     @app.post("/api/optimizations", status_code=202)
     def optimize(request: dict):
+        if not all(key in request for key in ("config", "input_hash", "input_identity_hash", "runtime_extensions")):
+            raise ValueError("Complete normalized Native input, identity hash and explicit optimization runtime are required.")
         return manager.start("optimization", request)
 
     @app.get("/api/optimizations/{opt_id}")
