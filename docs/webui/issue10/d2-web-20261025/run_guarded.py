@@ -206,6 +206,8 @@ def main():
                     os=os, tempfile=tempfile, io=io, zipfile=zipfile, warnings=warnings,
                     contextlib=contextlib, datetime=datetime, timezone=timezone,
                     SimpleNamespace=types.SimpleNamespace, monotonic_ns=time.monotonic_ns)
+        base.update({name: getattr(np, name) for name in
+                     ("array", "zeros", "where", "diff", "sign", "integer", "log10", "maximum", "pad")})
         for name, spec in plan["modules"].items():
             path = root / spec["path"]
             module = types.ModuleType(name)
@@ -218,6 +220,13 @@ def main():
             ast.fix_missing_locations(wrapped)
             exec(compile(wrapped, str(path), "exec"), module.__dict__)
             modules[name] = module
+        for name in ("pybert.web.analysis", "baseline.analysis"):
+            if name in modules:
+                eye = "baseline.sigproc" if name.startswith("baseline") else "pybert.utility.sigproc"
+                modules[name].calc_eye = modules[eye].calc_eye
+                modules[name].safe_log10 = modules["pybert.utility.math"].safe_log10
+                if hasattr(modules["pybert.web.clocks"], "period_projection"):
+                    modules[name].period_projection = modules["pybert.web.clocks"].period_projection
         seam = types.ModuleType("d2_under_test")
         seam.__dict__.update(modules=modules, np=np, root=root, evidence=evidence, destination=destination)
         sys.modules[seam.__name__] = seam
