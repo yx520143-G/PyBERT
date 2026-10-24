@@ -569,5 +569,10 @@
       "finding": "P2 JSON14 elapsed UNKNOWN; product behavior findings0"
     },
     "read_only_agents_product_NumPy_tests_calls": 0
+  },
+  "PM_evidence_boundary": {
+    "url": "https://github.com/yx520143-G/PyBERT/issues/10#issuecomment-6389554270",
+    "id": 6389554270,
+    "scope": "Read-only269checks and explicit JSON14UNKNOWN/non-final boundary; no new budget or qualification"
   }
 }

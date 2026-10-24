@@ -42,3 +42,5 @@ Standards 0；Spec 1（P2 evidence partial，产品实现问题0），完整报�
 protected-final-check.json：旧16仓库 HEAD/tree/default status、271元数据、4874 raw、2394材料/installed source、16旧env/cache目录、D1/#30 seals 及新952安装文件全部匹配。新缓存/env及全部失败原件保留。最终 seal 位于独立 bootstrap cache，绑定交接 HEAD/tree/clean、文件 raw/Git blob 与最后 green source，避免 seal 自引用。
 
 仅本人 fork 的单一 Draft PR Refs #10，交 PM fresh review 后停写停测；不 merge/关票。E 未开始；#10保持open，#4默认COM BLOCKED_BUDGET/NOT_EXECUTED、#1最终数值review/备份/私有化gate均保留。
+
+PM已在 [6389554270](https://github.com/yx520143-G/PyBERT/issues/10#issuecomment-6389554270) 固定登记第14批 JSON计时/Native full collector未运行等边界；副本见 PM-evidence-boundary-6389554270.json。此为阶段证据确认，非最终验收；C只余90，A/B余额不挪用，未新增预算或运行。
