@@ -277,3 +277,133 @@ class EyeCases(unittest.TestCase):
                 else:
                     self.assertIsNone(image)
                     self.assertEqual(info["eye_status"], "unavailable")
+
+
+class ProjectionCases(unittest.TestCase):
+    def test_masked_period_fft_axes_and_atomic_plot_switches(self):
+        self.assertTrue(callable(functions.get("clock_period_data")), "production period projection is missing")
+        self.assertTrue(callable(functions.get("set_period_plot_data")), "production plot publication is missing")
+
+        class PlotDataStub:
+            def __init__(self):
+                self.data = {"t_ns": np.array([99, 100]), "other": np.array([7, 8])}
+                self.events = []
+
+            def stub_update_data(self, *args, **kwargs):
+                values = dict(*args, **kwargs)
+                self.data.update(values)
+                if set(values) != {"period_t_ns", "ui_ests"}:
+                    raise AssertionError("period x/y must be published in one event")
+                if len(self.data["period_t_ns"]) != len(self.data["ui_ests"]):
+                    raise AssertionError("period x/y lengths differ")
+                self.events.append((len(self.data["period_t_ns"]), len(self.data["ui_ests"])))
+
+            update_data = stub_update_data
+
+        def input_info():
+            return {"consumption_status": "completed", "full_analysis_eligible": True,
+                    "period_s": np.array([np.nan, 1e-12, 2e-12, 3e-12, 4e-12, np.nan]),
+                    "period_known": np.array([False, True, True, True, True, False]),
+                    "analysis": {"start_s": 10, "stop_s": 11.25, "start_index": 0,
+                                 "stop_index": 6, "fft_slice": [1, 5]}}
+
+        grid = np.array([10, 10.25, 10.5, 10.75, 11, 11.25])
+        plot = PlotDataStub()
+        functions["set_period_plot_data"](plot, [], [])
+        self.assertEqual(plot.events, [(0, 0)])
+        info = input_info()
+        data = functions["clock_period_data"](info, grid, 0.25)
+        self.assertEqual(data["histogram_counts"].tolist(),
+                         [1 if i in (0, 33, 66, 99) else 0 for i in range(100)])
+        self.assertEqual(data["frequency_hz"].tolist(), [0, 1, 2])
+        self.assertEqual(data["spectrum"].tolist(), [10 + 0j, -2 + 2j, -2 + 0j])
+        self.assertEqual(data["plot_t_ns"].tolist(), [1e10, 1.025e10, 1.05e10, 1.075e10, 1.1e10, 1.125e10])
+        self.assertEqual(data["plot_period_ps"][1:5].tolist(), [1, 2, 3, 4])
+        self.assertTrue(np.isnan(data["plot_period_ps"][[0, 5]]).all())
+        self.assertTrue(data["spectrum_display_eligible"])
+        self.assertEqual(info["period_analysis"]["fft_window_indices"], [1, 5])
+        functions["set_period_plot_data"](plot, data["plot_t_ns"], data["plot_period_ps"])
+
+        for name in ("gap", "short", "constant", "unknown", "partial", "outside"):
+            with self.subTest(period=name):
+                current = input_info()
+                if name == "gap":
+                    current["period_known"][2] = False
+                    current["period_s"][2] = np.nan
+                elif name == "short":
+                    current["analysis"]["fft_slice"] = [1, 2]
+                elif name == "constant":
+                    current["period_s"][1:5] = 1e-12
+                elif name == "unknown":
+                    current["period_known"][:] = False
+                    current["period_s"][:] = np.nan
+                elif name == "partial":
+                    current["consumption_status"] = "partial"
+                    current["full_analysis_eligible"] = False
+                else:
+                    current["analysis"]["start_s"] = 10.4
+                projected = functions["clock_period_data"](current, grid, 0.25)
+                if name == "constant":
+                    self.assertEqual(projected["spectrum"].tolist(), [4 + 0j, 0j, 0j])
+                    self.assertFalse(projected["spectrum_display_eligible"])
+                    self.assertEqual(projected["spectrum_display_reason"], "zero_fundamental")
+                else:
+                    self.assertEqual(projected["frequency_hz"].tolist(), [])
+                    self.assertEqual(projected["spectrum"].tolist(), [])
+                if name in ("unknown", "partial"):
+                    self.assertEqual(projected["histogram_counts"].tolist(), [])
+                elif name == "gap":
+                    self.assertEqual(int(projected["histogram_counts"].sum()), 3)
+                    self.assertTrue(np.isnan(projected["plot_period_ps"][2]))
+                elif name == "outside":
+                    self.assertEqual(int(projected["histogram_counts"].sum()), 3)
+
+        invalid = input_info()
+        invalid["period_known"][2] = False  # Unknown cannot contain a fabricated finite period.
+        with self.assertRaisesRegex(ValueError, "period mask"):
+            functions["clock_period_data"](invalid, grid, 0.25)
+
+        for n, stop in ((8, 1.75), (2001, 500.0)):
+            with self.subTest(full_grid_length=n):
+                current = {"consumption_status": "completed", "full_analysis_eligible": True,
+                           "period_s": np.array([np.nan] + [1e-12] * (n - 2) + [np.nan]),
+                           "period_known": np.array([False] + [True] * (n - 2) + [False]),
+                           "analysis": {"start_s": 0, "stop_s": stop, "start_index": 0,
+                                        "stop_index": n, "fft_slice": [1, 5]}}
+                full_grid = np.array([i * 0.25 for i in range(n)])
+                projected = functions["clock_period_data"](current, full_grid, 0.25)
+                functions["set_period_plot_data"](plot, projected["plot_t_ns"], projected["plot_period_ps"])
+                self.assertEqual(plot.events[-1], (n, n))
+                self.assertEqual(float(plot.data["period_t_ns"][-1]), 1.75e9 if n == 8 else 5e11)
+                self.assertTrue(np.isnan(plot.data["ui_ests"][[0, n - 1]]).all())
+                functions["set_period_plot_data"](plot, [], [])
+                self.assertEqual(plot.events[-1], (0, 0))
+
+        # These are hand-given Native plot arrays; SciPy interpolation itself is not executed.
+        native_x, native_y = np.array([i * 0.5 for i in range(1000)]), np.array([4.0] * 1000)
+        functions["set_period_plot_data"](plot, native_x, native_y)
+        self.assertEqual(plot.data["period_t_ns"].tolist(), native_x.tolist())
+        self.assertEqual(plot.data["ui_ests"].tolist(), native_y.tolist())
+        events_before = len(plot.events)
+        with self.assertRaisesRegex(ValueError, "matching lengths"):
+            functions["set_period_plot_data"](plot, np.array([1]), np.array([1, 2]))
+        self.assertEqual(len(plot.events), events_before)
+
+        produced = functions["new_clock_info"](True, "rx_getwave", "c1_fresh_main")
+        original_grid = np.array([0, 0.25, 0.5, 0.75, 1, 1.25])
+        window = {"start_s": 0, "stop_s": 1.25, "start_index": 0, "stop_index": 6,
+                  "required_decisions": 2, "required_eye_traces": 1, "fft_slice": [1, 4]}
+        functions["plan_ami_clocks"](produced, np.array([0, 0.5, 1]), original_grid, 0.5, 0, 2, window)
+
+        def stub_decide(value):
+            return 1.0, [1]
+
+        functions["consume_ami_clocks"](produced, np.array([1] * 6), stub_decide)
+        projected = functions["clock_period_data"](produced, original_grid, 0.25)
+        self.assertEqual(int(projected["histogram_counts"].sum()), 4)
+        functions["set_period_plot_data"](plot, projected["plot_t_ns"], projected["plot_period_ps"])
+        self.assertEqual(plot.events[-1], (6, 6))
+        functions["set_period_plot_data"](plot, [], [])
+        self.assertEqual(plot.events[-1], (0, 0))
+        self.assertEqual(plot.data["t_ns"].tolist(), [99, 100])
+        self.assertEqual(plot.data["other"].tolist(), [7, 8])

@@ -100,7 +100,7 @@ def main():
                 entry("pure", frame.f_code.co_qualname)
                 if frame.f_locals.get("nspui", 0) > 32:
                     block("planner nspui")
-                for name in ("edges", "t_grid", "waveform", "period_ps", "native_x", "native_y"):
+                for name in ("edges", "t_grid", "waveform", "period_ps", "native_x", "native_y", "period_t_ns"):
                     value = frame.f_locals.get(name)
                     if value is not None and hasattr(value, "__len__") and len(value) > 4096:
                         block("array length " + name)
