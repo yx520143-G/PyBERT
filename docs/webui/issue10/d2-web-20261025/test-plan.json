@@ -1,8 +1,8 @@
 {
-  "phase": "stdlib-only irreversible guard abort verification before resuming product seams",
-  "run_id": "09-guard-abort",
+  "phase": "archive complete verification after approved budget and irreversible guard proof",
+  "run_id": "10-archive-complete",
   "selection": [
-    "GuardOnlyCases"
+    "ArchiveCases"
   ],
   "snapshot_paths": {
     "clocks.py.txt": "src/pybert/web/clocks.py",
@@ -197,7 +197,7 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 0,
+    "pure": 9000,
     "collect": 0,
     "extend_analysis": 0,
     "eye_data": 0,
@@ -207,47 +207,52 @@
     "histogram": 0,
     "rfft": 0,
     "safe_log10": 0,
-    "viterbi_extend": 0,
-    "viterbi_validate": 0,
-    "resize_zero_pad": 0,
-    "read_arrays": 0,
-    "validate_run": 0,
-    "save_archive": 0,
-    "load_archive": 0,
+    "viterbi_extend": 1,
+    "viterbi_validate": 16,
+    "resize_zero_pad": 16,
+    "read_arrays": 32,
+    "validate_run": 16,
+    "save_archive": 1,
+    "load_archive": 3,
     "annotate": 0,
     "execution_write": 0,
     "partial_save": 0,
-    "NumPy_imports": 0
+    "NumPy_imports": 1
   },
   "expected_result": {
-    "exit_code": 86,
-    "status": "blocked",
-    "guard_only_verification_passed": true,
-    "test_methods_started": 1,
-    "next_case_or_sentinels": 0,
-    "reason": "profile callback abort cannot be caught by BaseException/subTest/unittest; stdlib receipt-only shutdown then os._exit86"
+    "tests": 1,
+    "failures": 0,
+    "errors": 0
   },
-  "case_inputs": "stdlib guard-only class: first method writes before sentinel, triggers actual profile block from ordinary stub inside subTest+BaseException catch; body/caught/after/second-case sentinels must never exist. No NumPy import, no actual production definition executed.",
+  "case_inputs": "Same literal ArchiveCases frozen before07/08, now full legacyraw2-5 completion required; prior08 remainsfailed. Consumer-evidence container added to producer storage while static consumer wiring was completed; no Eye/FFT numerical calls here.",
   "expected_values": {
-    "before": "started newline",
-    "exit": 86,
-    "status": "blocked",
-    "guard_trigger_entries": 1,
-    "following_sentinels": "absent"
+    "archive": "source manifestUTF8/NPZ byte-exact including raw NaN payloads42/21",
+    "versions": "raw6/contract2/feature paired; missing/unknown/downgrade/Native/ordinaryfinite/object rejected",
+    "legacy": "all raw2-5 rows finish, disabledViterbi=-1 and originalresize validation counted",
+    "guard": "09 actual callback sentinel verified before resuming; all new guards irreversiblyexit86"
   },
   "expected_basis": "independent literal bit patterns and index table, actual AST seam only; no product algorithm copies",
-  "guards_order": "stdlib/input snapshots => import/audit/profile guards => installed-file verification => NumPy import/C extensions => selected actual definitions => tests",
+  "guards_order": "stdlib/input snapshots => irreversible import/audit/profile guards => installed-file verification => NumPy import/C extensions => selected actual definitions => tests",
   "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
   "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
-  "expected_function_entries": {},
-  "previous_plan": "runs/08-archive-green/plan.json",
+  "expected_function_entries": {
+    "archive.read_arrays_upper": 32,
+    "archive.validate_run_upper": 16,
+    "archive.save_archive": 1,
+    "archive.load_archive": 3,
+    "viterbi.extend": 1,
+    "viterbi.validate_upper": 16,
+    "resize_zero_pad_upper": 16,
+    "other_actual_necessary_validation_and_serialization_pure_upper": 9000
+  },
+  "previous_plan": "runs/09-guard-abort/plan.json",
   "expected_counts_policy": "conservative upper bounds, actual event counts separately reported; nested JSON pairs/hash/array_identity/atomic_write also conservatively included in pure4000 and serialization ledgers",
   "serialization_policy": "from04 count each ndarray copy/deepcopy C completion incl bytes and elapsed;02 lacked per-copy trace (20 case fixture copies inferable from10 completed rows, elapsed UNKNOWN); preserve02 unchanged, full final matrix will include instrumented rows. No numerical re-run solely for instrumentation.",
   "FFT_uniformity": "original full-grid differences compared to original t[1]-t[0], rtol1e-12/atol0 for floating-grid representation only; no sample-target tolerance, no window change",
   "display_policy": "known ordinals evenly including endpoints up to total cap4096; split by original contiguous-known groups; singletons markers; omitted segments/count explicit; no unknown line bridge",
   "guarded_serialization": "from07 real NPZwrite/load/formatheader/read_array wrappers record each call/input array bytes/stream consumption/output bytes/elapsed; archiveJSON/hash/atomic_write actual function trace separately recordsbytes/elapsed. Harness snapshots/log JSON is instrumentation, not a product serialization call.",
   "selected_module_constants": "only namedliteral AST constants (literal/name/tuple/dict/add/mul/pow), no imports/arbitrary modulebody; real function definitions AST extracted. chaco import resolves injected placeholder and update_trellis is forbidden; disabled test neverconstructs either.",
-  "guard_only": true,
+  "guard_only": false,
   "budget_allocations": {
     "approved_comment": "6388850218",
     "prior_actual_pure": 4001,
