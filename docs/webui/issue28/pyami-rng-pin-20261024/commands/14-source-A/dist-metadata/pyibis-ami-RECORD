@@ -1,0 +1,17 @@
+../../Scripts/ami-config.exe,sha256=NsdRbO0e502wU3foO9XKE4uh8LC9pM5w8lIL7ag-QvQ,46080
+../../Scripts/check-ami.exe,sha256=ixkZLNMfDmXLFU4MF6jFCtiMrIFE5uEjLWlEWMo5RPg,46080
+../../Scripts/run-notebook.exe,sha256=WZp7YNy5JxM5MYfCpQiRQWlsTa-lb0x1Io_mB_diFLE,46080
+../../Scripts/run-tests.exe,sha256=XOs7M4Aw7ir8jG5UDqwCTJN3XQOw-xhMxCYRs2mUXYU,46080
+../../Scripts/test-model.exe,sha256=nWzW16v1KgC8N3d58WxpADuQl6GFUD7UVwNf3Np8bVE,46080
+__editable__.pyibis_ami-10.0.0.pth,sha256=uGpXtNypEy2AxGy24ApxJnKGrMwdPHMRqHx5I-Yp-1s,71
+pyibis_ami-10.0.0.dist-info/INSTALLER,sha256=5hhM4Q4mYTT9z6QB6PGpUAW81PGNFrYrdXMj4oM_6ak,2
+pyibis_ami-10.0.0.dist-info/METADATA,sha256=fP5YKddghHpXql9tfNMdN_DgS6eGkJXZnrU_spWtI0c,8732
+pyibis_ami-10.0.0.dist-info/RECORD,,
+pyibis_ami-10.0.0.dist-info/REQUESTED,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyibis_ami-10.0.0.dist-info/WHEEL,sha256=mOdXR9C3wMVov7cSY8PY-XCzo3SmmWCHvGQr5csJoao,91
+pyibis_ami-10.0.0.dist-info/direct_url.json,sha256=rR2Qjhenzd0hRCBLhw2VDdHrY9IVgHX9H5N_lp0Efxo,112
+pyibis_ami-10.0.0.dist-info/entry_points.txt,sha256=qebTzrvm-b1h2bKlw2QaCBq-lQraGG2KTHATOW-734w,247
+pyibis_ami-10.0.0.dist-info/licenses/LICENSE,sha256=I5JPpJOEHcYTZORGLbHda6gw4uuyEeBBdOlw9ZVgUTw,1301
+pyibis_ami-10.0.0.dist-info/top_level.txt,sha256=k2KfR4t4tJ47HrnzvSh77w9N2Xyz8_uUusJLbqXK0g4,10
+pyibis_ami-10.0.0.dist-info/uv_build.json,sha256=RBNvo1WzZ4oRRq0W9-hknpT7T8If536DEMBg9hyq_4o,2
+pyibis_ami-10.0.0.dist-info/uv_cache.json,sha256=Zpkl0lflIO8IWY2Jc4PWmZBu4mLIafe66OtqPRbgREM,194

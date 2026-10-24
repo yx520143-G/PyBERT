@@ -1,0 +1,10 @@
+{
+  "first_invocation": "git diff --cached --check stopped candidate commit with exit2; HEAD unchanged",
+  "tool_chunk": "7bcc31",
+  "first_output": "tool display was truncated; complete repeated diagnostic captured on the same staged index in commands/18-diffcheck-red",
+  "tool_wall_s": 1.4184609,
+  "internal_elapsed_s": "UNKNOWN",
+  "cause": "Three frozen JSON documents use CRLF; directory -text preserves CR bytes, Git defaults interpreted CR-at-EOL as trailing whitespace",
+  "repair": "Recognize CR-at-EOL only on those three paths while retaining default blank-at-eol/blank-at-eof/space-before-tab checks; no original bytes rewritten",
+  "product_model_calls": 0
+}

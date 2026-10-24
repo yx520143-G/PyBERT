@@ -1,0 +1,46 @@
+{
+  "command": [
+    "git",
+    "--version"
+  ],
+  "cwd": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin",
+  "outer_python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+  "inputs": {
+    "pyproject.toml": {
+      "sha256": "977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80",
+      "snapshot": "inputs\\977a6d4b5b962857e922165f0581c7d81c6d63c28aacdfa41a3a2475a68c1e80.txt"
+    },
+    "uv.lock": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "snapshot": "inputs\\cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12.txt"
+    },
+    ".gitmodules": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "snapshot": "inputs\\7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79.txt"
+    },
+    "docs\\webui\\issue28\\pyami-rng-pin-20261024\\capture.py": {
+      "sha256": "e0d940193294b8bb18a3d791f649b501aa5c73698e20f5ffe82027740c4aada3",
+      "snapshot": "inputs\\e0d940193294b8bb18a3d791f649b501aa5c73698e20f5ffe82027740c4aada3.txt"
+    }
+  },
+  "environment": {
+    "UV_CACHE_DIR": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.uv-cache",
+    "UV_LINK_MODE": "copy",
+    "UV_PROJECT_ENVIRONMENT": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv",
+    "PIP_CACHE_DIR": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.pip-cache",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "PYTHONPATH": null,
+    "TMP": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp",
+    "TEMP": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "scope": "ordinary package installation/build or source metadata; no product/model entry",
+  "installer_system_library_activity": "not fully traced; model/product budget is separate",
+  "total_task_wall_and_peak_RSS": "UNKNOWN",
+  "exit_code": 0,
+  "elapsed_s": 0.059565500007010996,
+  "output_sha256": {
+    "stdout.txt": "2bfdb478bf1093a587b8e6306b25f57e6b8aed47bffe7e885f7b279768af4c42",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

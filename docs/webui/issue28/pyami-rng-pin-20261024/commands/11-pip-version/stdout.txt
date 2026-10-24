@@ -1,0 +1,1 @@
+pip 26.2.2 from E:\serial-bus-simulator-dependencies\pybert-issue28-pip-venv\Lib\site-packages\pip (python 3.13)

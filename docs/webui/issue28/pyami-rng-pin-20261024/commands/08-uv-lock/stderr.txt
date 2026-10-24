@@ -1,0 +1,2 @@
+Using CPython 3.13.15 interpreter at: C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+Resolved 234 packages in 3ms

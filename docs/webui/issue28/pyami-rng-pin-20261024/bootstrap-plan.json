@@ -1,0 +1,67 @@
+{
+  "commands": {
+    "01-uv-version": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "--version"
+    ],
+    "02-python-version": [
+      "C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/.venv/Scripts/python.exe",
+      "-I",
+      "-B",
+      "-c",
+      "import json,sys; print(json.dumps({\"executable\":sys.executable,\"version\":sys.version,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix}))"
+    ],
+    "03-git-version": [
+      "git",
+      "--version"
+    ],
+    "04-chopmarg-https": [
+      "git",
+      "config",
+      "submodule.PyChOpMarg.url",
+      "https://github.com/capn-freako/PyChOpMarg.git"
+    ],
+    "05-init-submodules": [
+      "git",
+      "submodule",
+      "update",
+      "--init",
+      "--",
+      "PyAMI",
+      "PyChOpMarg"
+    ],
+    "06-pyami-F2": [
+      "git",
+      "-C",
+      "PyAMI",
+      "checkout",
+      "--detach",
+      "d6d1f7fe7e58536546a1cfb9430c750cc2cb103e"
+    ],
+    "07-pyami-gitlink": [
+      "git",
+      "update-index",
+      "--cacheinfo",
+      "160000,d6d1f7fe7e58536546a1cfb9430c750cc2cb103e,PyAMI"
+    ]
+  },
+  "environment": {
+    "UV_CACHE_DIR": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.uv-cache",
+    "UV_LINK_MODE": "copy",
+    "UV_PROJECT_ENVIRONMENT": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv",
+    "PIP_CACHE_DIR": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.pip-cache",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "TMP": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp",
+    "TEMP": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp"
+  },
+  "bootstrap_python": "C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/.venv/Scripts/python.exe",
+  "uv": "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+  "capture_sha256": "e0d940193294b8bb18a3d791f649b501aa5c73698e20f5ffe82027740c4aada3",
+  "verifier_sha256": "1e73b3cb919bc55e1ca1ba062ac0609be044bfc87c558556ff095a6392f8a6a4",
+  "restricted_budget": "all product/model methods and model module bodies/response-key construction 0",
+  "ordinary_install_build_allowed": true,
+  "submodule_Git_reads": "remote clones only into new clone .git/modules; local HTTPS config only for PyChOpMarg; no old metadata",
+  "project_installation": "not started; source/actual installer versions/install plan frozen after source checkout, lock and new pip bootstrap",
+  "wall_peak_RSS": "UNKNOWN"
+}

@@ -1,0 +1,126 @@
+{
+  "A": "workspace editable; lock registry versions",
+  "B": "ordinary pip; fresh registry resolution and fixed VCS PyAMI",
+  "version_differences": {
+    "alembic": {
+      "A": "1.18.5",
+      "B": "1.20.1"
+    },
+    "fonttools": {
+      "A": "4.63.0",
+      "B": "4.67.0"
+    },
+    "greenlet": {
+      "A": "3.5.4",
+      "B": null
+    },
+    "mako": {
+      "A": "1.4.2",
+      "B": "1.4.3"
+    },
+    "markupsafe": {
+      "A": "3.0.3",
+      "B": "3.0.4"
+    },
+    "numpy": {
+      "A": "2.5.1",
+      "B": "2.5.4"
+    },
+    "packaging": {
+      "A": "26.2",
+      "B": "26.3"
+    },
+    "pandas": {
+      "A": "3.0.3",
+      "B": "3.1.0"
+    },
+    "pillow": {
+      "A": "12.3.0",
+      "B": "13.0.0"
+    },
+    "pip": {
+      "A": null,
+      "B": "26.2.2"
+    },
+    "pyparsing": {
+      "A": "3.3.2",
+      "B": "3.3.3"
+    },
+    "python-dateutil": {
+      "A": "2.9.0.post0",
+      "B": "3.0.0"
+    },
+    "scipy": {
+      "A": "1.18.0",
+      "B": "1.18.1"
+    },
+    "setuptools": {
+      "A": "83.0.0",
+      "B": "84.2.1"
+    },
+    "sqlalchemy": {
+      "A": "2.0.51",
+      "B": "2.1.6"
+    },
+    "tqdm": {
+      "A": "4.69.0",
+      "B": "4.70.1"
+    },
+    "tzdata": {
+      "A": "2026.3",
+      "B": "2026.5"
+    }
+  },
+  "PyChOpMarg": {
+    "A": {
+      "name": "PyChOpMarg",
+      "version": "3.4.0",
+      "requires_dist": [
+        "click",
+        "numpy",
+        "openpyxl",
+        "pandas",
+        "scikit-rf>=0.29",
+        "xlrd",
+        "typing_extensions"
+      ],
+      "metadata_root": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv\\Lib\\site-packages",
+      "direct_url": {
+        "url": "file:///E:/serial-bus-simulator-dependencies/pybert-issue28-rng-pin/PyChOpMarg",
+        "dir_info": {
+          "editable": true
+        }
+      },
+      "raw_metadata_sha256": {
+        "pychopmarg-INSTALLER": "e6184ce10e266134fdcfa401e8f1a95005bcd4f18d16b62b757323e2833fe9a9",
+        "pychopmarg-METADATA": "eb0caa1c19f1d08ffa7beb496b3d276ce62309d6be1590d8726cf4c29feb7537",
+        "pychopmarg-RECORD": "75b815c0eaab61e2791ab8e487ff5185d915aca727fb2b0322c4e70b50c4fa64",
+        "pychopmarg-WHEEL": "98e75747d0b7c0c568bfb71263c3d8f970b3a374a6996087bc642be5cb09a1aa",
+        "pychopmarg-direct_url.json": "e8a9b48c08f877b167fa857ab77d084436e15c46639776ea821a3e44537e3910"
+      }
+    },
+    "B": {
+      "name": "PyChOpMarg",
+      "version": "3.4.0",
+      "requires_dist": [
+        "click",
+        "numpy",
+        "openpyxl",
+        "pandas",
+        "scikit-rf>=0.29",
+        "xlrd",
+        "typing_extensions"
+      ],
+      "metadata_root": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv\\Lib\\site-packages",
+      "direct_url": null,
+      "raw_metadata_sha256": {
+        "pychopmarg-INSTALLER": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+        "pychopmarg-METADATA": "ca015eac29b470ec5d26350bf20066dc2f8207a7dc039c274853176d128c6c3c",
+        "pychopmarg-RECORD": "80c7a7085de19bb0549ac5b1ffa2e0bc935a26a01ffc36ebbbdcca4d412c6031",
+        "pychopmarg-WHEEL": "61532836a2b3111b7ec23519c09df7c41180c27165fb872a6d8913b566b88ad1"
+      }
+    },
+    "B_download_info": null
+  },
+  "not_a_claim_of_equal_whole_environments": true
+}

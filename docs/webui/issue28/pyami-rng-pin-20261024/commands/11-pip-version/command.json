@@ -1,0 +1,56 @@
+{
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "pip",
+    "--version"
+  ],
+  "cwd": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin",
+  "outer_python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+  "inputs": {
+    "pyproject.toml": {
+      "sha256": "8703f9d4381f4bfe0b4f504e0a854129a1c7eb8677ac2d679739e49481d65e66",
+      "snapshot": "inputs\\8703f9d4381f4bfe0b4f504e0a854129a1c7eb8677ac2d679739e49481d65e66.txt"
+    },
+    "uv.lock": {
+      "sha256": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+      "snapshot": "inputs\\cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12.txt"
+    },
+    ".gitmodules": {
+      "sha256": "7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79",
+      "snapshot": "inputs\\7701b7212587e07a29c756d015cc9aa8c5a904c7bb8b565a11c9695f393b9c79.txt"
+    },
+    "docs\\webui\\issue28\\pyami-rng-pin-20261024\\capture.py": {
+      "sha256": "b734dbac90f3cae86df9d192ed0363830425c24917586287fee6bc83e9456f89",
+      "snapshot": "inputs\\b734dbac90f3cae86df9d192ed0363830425c24917586287fee6bc83e9456f89.txt"
+    },
+    "docs\\webui\\issue28\\pyami-rng-pin-20261024\\verify_source.py": {
+      "sha256": "1e73b3cb919bc55e1ca1ba062ac0609be044bfc87c558556ff095a6392f8a6a4",
+      "snapshot": "inputs\\1e73b3cb919bc55e1ca1ba062ac0609be044bfc87c558556ff095a6392f8a6a4.txt"
+    },
+    "docs\\webui\\issue28\\pyami-rng-pin-20261024\\source-inputs.json": {
+      "sha256": "ab0e28ce7f4fdebc08b3216feff97f754deafe5575adc73d014f6f4c5451491e",
+      "snapshot": "inputs\\ab0e28ce7f4fdebc08b3216feff97f754deafe5575adc73d014f6f4c5451491e.txt"
+    },
+    "docs\\webui\\issue28\\pyami-rng-pin-20261024\\environment-bootstrap-plan.json": {
+      "sha256": "44a867d552f4712720d2886307697f32630b2164cec5459eb67d96f405c43acf",
+      "snapshot": "inputs\\44a867d552f4712720d2886307697f32630b2164cec5459eb67d96f405c43acf.txt"
+    }
+  },
+  "environment": {
+    "UV_CACHE_DIR": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.uv-cache",
+    "UV_LINK_MODE": "copy",
+    "UV_PROJECT_ENVIRONMENT": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv",
+    "PIP_CACHE_DIR": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.pip-cache",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "PYTHONPATH": null,
+    "TMP": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp",
+    "TEMP": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "scope": "ordinary package installation/build or source metadata; no product/model entry",
+  "installer_system_library_activity": "not fully traced; model/product budget is separate",
+  "total_task_wall_and_peak_RSS": "UNKNOWN"
+}

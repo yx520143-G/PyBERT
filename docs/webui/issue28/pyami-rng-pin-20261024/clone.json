@@ -1,0 +1,18 @@
+{
+  "path": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin",
+  "branch": "codex/pybert-issue28-rng-pin",
+  "HEAD_tree": [
+    "1fde555ecf1120ba245e2249c1b2b777a42ce762",
+    "922e31c4c037e71f6f9a8d6fbeb64fcb5d4ee40e"
+  ],
+  "clean": true,
+  "independent_git_no_alternates_link1": true,
+  "submodules_initially_uninitialized": true,
+  "clone_switch_elapsed_s": 55.753896100010024,
+  "clone_stdout": "",
+  "clone_stderr": "Cloning into 'E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin'...\n",
+  "switch_stdout": "",
+  "switch_stderr": "Switched to a new branch 'codex/pybert-issue28-rng-pin'\n",
+  "initial_bootstrap_failure": "UV_CACHE_DIR created clone target before existence guard; only cache was moved to dedicated initial cache path, no old material touched",
+  "preserved_initial_cache": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-bootstrap-cache-initial"
+}
