@@ -205,6 +205,9 @@ def optimizer_action(p, runtime, mode, candidate=None):
     if not candidate or candidate.get("status") != "succeeded":
         raise ValueError("Use EQ requires a completed successful optimization record.")
     frozen = prepare(candidate | {"config": candidate["requested_input"]})
+    if (p.rx_n_taps, p.rx_n_pre) != (frozen.rx_n_taps, frozen.rx_n_pre):
+        raise ValueError(f"Use EQ requires matching Rx FFE topology: frozen Ntaps={frozen.rx_n_taps}, Npre={frozen.rx_n_pre}; "
+                         f"current Ntaps={p.rx_n_taps}, Npre={p.rx_n_pre}. Restore the frozen topology or optimize the current topology before applying.")
     result = candidate["selected_values"]
     for current, source, value in zip(p.tx_tap_tuners, frozen.tx_tap_tuners, result["tx"]):
         current.enabled, current.value = source.enabled, value
@@ -219,14 +222,15 @@ def optimizer_action(p, runtime, mode, candidate=None):
     actual = snapshot(p)
     targets = {key: actual[key] for key in ("tx_taps", "rx_taps", "peak_freq", "peak_mag", "rx_bw", "ctle_enable")}
     load_config(p, candidate["current_config"] | targets)
+    applied = snapshot(p)
     runtime.setdefault("version", 1)
     runtime.setdefault("values", {})["eq_application"] = {"version": 1, "opt_id": candidate["opt_id"],
         "candidate_id": candidate["selected_candidate_id"], "before_input_hash": input_hash(candidate["current_config"]),
-        "after_input_hash": input_hash(snapshot(p))}
+        "after_input_hash": input_hash(applied)}
     return runtime, {"action": "native MyHandler.do_use_eq", "source_opt_id": candidate["opt_id"],
                      "candidate_id": candidate["selected_candidate_id"], "applied_fields": list(targets),
                      "DFE_weights_applied": False, "before": {k: candidate["current_config"][k] for k in targets},
-                     "after": targets}
+                     "after": {k: applied[k] for k in targets}}
 
 
 def run_optimization(opt_id, request, directory, check, emit):
@@ -402,6 +406,11 @@ def validate_record(record, arrays):
     extensions(record["runtime_extensions"])
     if record["status"] != "succeeded":
         return
+    required = ("p_chnl", "channel_t_ns", "ctle_out_h_tune", "t_ns_opt", "clocks_tune", "curs_ix", "curs_amp")
+    if any(key not in arrays or arrays[key].ndim != 1 or arrays[key].dtype.kind not in "fiu" or not arrays[key].size for key in required):
+        raise ValueError("Missing or invalid required optimization plot/cursor arrays.")
+    if arrays["curs_ix"].shape != (2,) or arrays["curs_amp"].shape != (2,):
+        raise ValueError("Optimization cursor arrays must each contain the two native marker endpoints.")
     for key in ("effective_input", "source_identity", "packages", "plan", "model"):
         if not isinstance(record.get(key), dict):
             raise ValueError(f"Missing optimization metadata: {key}")
@@ -421,6 +430,12 @@ def validate_record(record, arrays):
         raise ValueError("Selected pulse/channel/clocks axis mismatch.")
     values = record["selected_values"]
     prefix = winner["arrays_prefix"]
+    pulse, axis = arrays["ctle_out_h_tune"], arrays["t_ns_opt"]
+    peak_ix = int(np.argmax(pulse))
+    if (not np.array_equal(axis, arrays[prefix + "_t_ns"]) or
+            not np.array_equal(arrays["curs_ix"], [axis[peak_ix], axis[peak_ix]]) or
+            not np.array_equal(arrays["curs_amp"], [0., pulse[peak_ix]])):
+        raise ValueError("Optimization cursor/selected pulse/axis disagree with the native marker.")
     expected_rx = record["requested_input"]["rx_n_taps"] if record["requested_input"]["use_mmse"] else 100
     if (len(values["tx"]) != 6 or len(values["ffe"]) != expected_rx or
             not np.array_equal(values["tx"], arrays[prefix + "_tx_weights"]) or

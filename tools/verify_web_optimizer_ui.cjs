@@ -1,6 +1,6 @@
 /* Deferred-response regressions: no browser, services, or numerical computation. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
-const deferred=()=>{let resolve;const promise=new Promise(done=>resolve=done);return {promise,resolve};};
+const deferred=()=>{let resolve,reject;const promise=new Promise((done,fail)=>{resolve=done;reject=fail;});return {promise,resolve,reject};};
 const tick=()=>new Promise(done=>setImmediate(done));
 function app() {
   const elements=new Map(),events={},requests=[],applications=[];
@@ -45,5 +45,14 @@ function app() {
   e.click('use-eq');await tick();e.requests.at(-1).resolve({config:{rn:.02}});await tick();
   e.click('confirm-use-eq');await tick();assert.equal(e.applications.length,1);
   assert.match(e.element('optimizer-status').textContent,/已显式应用 A \/ A-winner/);
+  const f=app();f.choose('A');f.requests[0].resolve(f.record('A'));await tick();
+  f.element('opt-file').files=[{}];f.element('opt-file').listeners.change();await tick();
+  f.requests.at(-1).resolve({ok:false,json:async()=>({detail:'Missing or invalid required optimization plot/cursor arrays.'})});await tick();
+  assert.equal(f.element('selected-opt').value,'A');assert.match(f.window.PYBERT_OPTIMIZER.field('peak_mag_tune'),/获选 A$/);
+  assert.match(f.element('optimizer-status').textContent,/cursor/);assert.equal(f.applications.length,0);
+  const g=app();g.choose('A');g.requests[0].resolve(g.record('A'));await tick();
+  g.click('use-eq');await tick();g.requests.at(-1).reject(new Error('Use EQ requires matching Rx FFE topology'));await tick();
+  assert.equal(g.applications.length,0);assert.equal(g.element('eq-dialog').open,undefined);
+  assert.match(g.element('optimizer-status').textContent,/matching Rx FFE topology/);
   console.log('optimizer UI deferred-response checks passed (0 native calls)');
 })().catch(error=>{console.error(error);process.exitCode=1;});

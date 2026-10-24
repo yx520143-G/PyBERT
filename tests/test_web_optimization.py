@@ -1,8 +1,10 @@
 """Optimizer constraints, exact Native handler fields, archive integrity, and real checkpoints."""
 
 import copy
+import io
 import json
 import multiprocessing
+import zipfile
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -126,8 +128,26 @@ def test_use_eq_only_native_handler_fields_and_no_dfe_values():
     assert {k: actual[k] for k in targets} == {k: expected[k] for k in targets}
     assert all(actual[k] == current[k] for k in set(actual)-targets)
     assert actual["dfe_tap_tuners"] == current["dfe_tap_tuners"]
+    assert report["after"] == {k: actual[k] for k in targets}
     assert report["DFE_weights_applied"] is False
     assert runtime["values"]["eq_application"]["after_input_hash"] == input_hash(actual)
+
+
+@pytest.mark.parametrize("count,pre", [(1, 0), (3, 0), (3, 2)])
+def test_use_eq_rejects_changed_rx_topology_before_applying(count, pre, monkeypatch):
+    request = fixture()
+    normalized = normalize({"mode": "patch", "config": request["config"], "patches": [
+        {"field": "rx_n_taps", "value": count}, {"field": "rx_n_pre", "value": pre}]})
+    p = new_engine()
+    load_config(p, normalized["config"])
+    before = snapshot(p)
+    candidate = {"status": "succeeded", "requested_input": request["config"],
+                 "input_hash": request["input_hash"], "input_identity_hash": request["input_identity_hash"],
+                 "runtime_extensions": request["runtime_extensions"], "resource_bindings": {}}
+    monkeypatch.setattr(MyHandler, "do_use_eq", lambda *_: pytest.fail("Incompatible topology reached handler"))
+    with pytest.raises(ValueError, match="matching Rx FFE topology"):
+        optimizer_action(p, request["runtime_extensions"], "use_eq", candidate)
+    assert snapshot(p) == before
 
 
 def test_cancel_bridge_is_original_checkpoint_and_never_started():
@@ -186,8 +206,7 @@ def test_unrelated_runtime_error_is_failure_even_when_event_requested(tmp_path, 
     assert terminal["status"] == "failed" and terminal["cancel_requested"] and not terminal["cancel_observed"]
 
 
-@pytest.mark.parametrize("mmse", [False, True])
-def test_optimizer_archive_shapes_integrity_and_no_native_load(tmp_path, monkeypatch, mmse):
+def inert_archive(tmp_path, mmse=False):
     from pybert.web.archive import array_identity, json_bytes
     import pybert.web.optimization as module
 
@@ -195,6 +214,7 @@ def test_optimizer_archive_shapes_integrity_and_no_native_load(tmp_path, monkeyp
     count = 3 if mmse else 100
     prefix = "candidate_000000"
     arrays = {"t_ns_opt": np.array([0., 1.]), "ctle_out_h_tune": np.array([1., 0.]), "clocks_tune": np.array([0., 1.]),
+              "curs_ix": np.array([0., 0.]), "curs_amp": np.array([0., 1.]),
               "p_chnl": np.array([.1, .2, .1]), "channel_t_ns": np.array([0., 1., 2.]),
               prefix+"_pulse": np.array([1., 0.]), prefix+"_t_ns": np.array([0., 1.]),
               prefix+"_tx_weights": np.zeros(6), prefix+"_rx_weights": np.ones(count)}
@@ -208,10 +228,18 @@ def test_optimizer_archive_shapes_integrity_and_no_native_load(tmp_path, monkeyp
     (tmp_path / "optimization.json").write_bytes(json_bytes(record))
     np.savez_compressed(tmp_path / "arrays.npz", **arrays)
     module.save_optimization(tmp_path, tmp_path / "test.pybert_opt")
+    return record, arrays, (tmp_path / "test.pybert_opt").read_bytes()
+
+
+@pytest.mark.parametrize("mmse", [False, True])
+def test_optimizer_archive_shapes_integrity_and_no_native_load(tmp_path, monkeypatch, mmse):
+    import pybert.web.optimization as module
+
+    record, arrays, content = inert_archive(tmp_path, mmse)
     destination = tmp_path / "opened"
     destination.mkdir()
     monkeypatch.setattr(module, "prepare", lambda *_: pytest.fail("Archive read must not load native observers"))
-    loaded = module.load_optimization((tmp_path / "test.pybert_opt").read_bytes(), destination)
+    loaded = module.load_optimization(content, destination)
     assert loaded == record
     assert (destination / "arrays.npz").read_bytes() == (tmp_path / "arrays.npz").read_bytes()
     record["selected_values"]["ffe"] = [1.]
@@ -219,3 +247,45 @@ def test_optimizer_archive_shapes_integrity_and_no_native_load(tmp_path, monkeyp
         module.validate_record(record, arrays)
     with pytest.raises(ValueError, match="Invalid optimization archive"):
         module.load_optimization(b"broken zip", destination)
+
+
+@pytest.mark.parametrize("raw_schema", [1, 2])
+@pytest.mark.parametrize("key,value", [("curs_ix", None), ("curs_amp", None), ("curs_ix", [0.]),
+    ("curs_amp", [[0.], [1.]]), ("curs_ix", [1., 1.]), ("curs_amp", [0., .5])])
+def test_cursor_archive_rejected_atomically_before_publication(tmp_path, monkeypatch, raw_schema, key, value):
+    from fastapi.testclient import TestClient
+    from pybert.web.archive import array_identity, json_bytes, sha256
+    from pybert.web.server import create_app
+    from pybert.web.tasks import Tasks
+    import pybert.web.optimization as module
+
+    record, arrays, good = inert_archive(tmp_path)
+    manager = Tasks(tmp_path / "tasks")
+    monkeypatch.setattr(manager, "start", lambda *_args, **_kwargs: pytest.fail("Archive API started worker"))
+    monkeypatch.setattr(module, "prepare", lambda *_: pytest.fail("Archive API loaded native instance"))
+    client = TestClient(create_app(manager))
+    opened = client.post("/api/optimization-references", content=good)
+    assert opened.status_code == 201
+    record_id = opened.json()["record_id"]
+    before = client.get("/api/state").json()
+    directories = set(manager.root.iterdir())
+    with zipfile.ZipFile(io.BytesIO(good)) as source:
+        envelope = json.loads(source.read("manifest.json"))
+    if value is None:
+        del arrays[key]
+    else:
+        arrays[key] = np.asarray(value)
+    raw = io.BytesIO()
+    np.savez_compressed(raw, **arrays)
+    record["arrays"] = {k: array_identity(v) for k, v in arrays.items()}
+    record["optimization_raw_schema"] = raw_schema
+    envelope.update(record=record, raw_sha256=sha256(raw.getvalue()))
+    broken = io.BytesIO()
+    with zipfile.ZipFile(broken, "w") as destination:
+        destination.writestr("manifest.json", json_bytes(envelope))
+        destination.writestr("arrays.npz", raw.getvalue())
+    rejected = client.post("/api/optimization-references", content=broken.getvalue())
+    assert rejected.status_code == 422 and "cursor" in rejected.json()["detail"]
+    assert client.get("/api/state").json() == before
+    assert set(manager.root.iterdir()) == directories
+    assert client.get(f"/api/optimizations/{record_id}/pulse").status_code == 200
