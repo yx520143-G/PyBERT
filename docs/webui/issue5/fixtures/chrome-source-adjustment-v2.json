@@ -1,0 +1,8 @@
+{
+  "before_main_computation": true,
+  "parent_sha256": "6ab618dbed62732738b2d0bdc35b10fa89924dadf568b58e6655402a170c5d3f",
+  "HEAD": "6abd8771c07f2940d0e41645d7acb6d49332679b",
+  "reason": "Append explicit unavailable-record status after backend restart; no input/array/producer change",
+  "changed_source": "src/pybert/web/static/workbench.js",
+  "actual_sha256": "351f179b2277234ce98caa405887656b09c648cf0a7a387428d95fe5e433dc10"
+}

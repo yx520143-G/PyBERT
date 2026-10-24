@@ -1,0 +1,11 @@
+{
+  "before_main_computation": true,
+  "parent": "chrome-source-adjustment-v2.json",
+  "HEAD": "8283fe829524f61783c3fcd237298ce57f5e4a55",
+  "reason": "Chrome detected current native draft lacks computed tuner value; migrate this explicit absent display state without blocking Native input; preserve old optimizer value metadata. Clear stale storage error after explicit restore. No numerical input/producer changes.",
+  "actual_sources": {
+    "src/pybert/web/static/app.js": "e2c6957e857bf34613c7e8f3c67bf007b6929450de47c15424ae577f1403aebb",
+    "src/pybert/web/static/draft.js": "994b927c19a2c8cff46dcc8c769dfdc0df707650dd5257302de0fdad7a6c303f",
+    "src/pybert/web/static/workbench.js": "a28b621e957caee6574a98162a8d7b1990bcb2bb39025dfc0b73e06702c11e21"
+  }
+}
