@@ -1,0 +1,40 @@
+{
+  "product_sha": "e812f4ab1ea150e7e6b65918852195cfbb48f273",
+  "main_calls": 0,
+  "COM_calls": 0,
+  "checks": [
+    {
+      "name": "compileall",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "63a1b8",
+        "wall_time_seconds": 0.7669521,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "name": "node syntax",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "bdd1d5",
+        "wall_time_seconds": 0.6120536,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "name": "git diff --check",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "bd7443",
+        "wall_time_seconds": 0.7496863,
+        "exit_code": 0,
+        "original_token_count": 124,
+        "output": "warning: in the working copy of 'docs/webui/issue9/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/webui/issue9/review.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/webui/issue9/source-applicability.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tools/serve_web_viterbi.py', LF will be replaced by CRLF the next time Git touches it\n"
+      }
+    }
+  ]
+}

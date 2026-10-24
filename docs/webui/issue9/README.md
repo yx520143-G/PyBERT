@@ -1,6 +1,6 @@
 # #9 Native Viterbi / MLSD
 
-从 `3807bd2f54647a491f350cbda7ab61c0752b06f0` / tree `61089b8058acaf08ee2c9b9c643959ded5e21a54` 的独立 managed worktree 实施，仅写 `yx520143-G/PyBERT` fork。产品代码固定于 `70eeb0d6e25e6834dd75bd305f25154d2f5f67d6`；最终交付 HEAD/tree 由 PR 和 PM 交接消息记录。live 合同见 [#9 快照](spec-snapshot.md) 与 [父票快照](parent-snapshot.md)。本票不自行 merge 或关闭 issue。
+从 `3807bd2f54647a491f350cbda7ab61c0752b06f0` / tree `61089b8058acaf08ee2c9b9c643959ded5e21a54` 的独立 managed worktree 实施，仅写 `yx520143-G/PyBERT` fork。PM 对首轮 `d33b58b` 终审发现的两项 P2 已定向修复，当前产品固定于 `e812f4ab1ea150e7e6b65918852195cfbb48f273`；最终交付 HEAD/tree 由 PR 和 PM 交接消息记录。live 合同见 [#9 快照](spec-snapshot.md) 与 [父票快照](parent-snapshot.md)。本票不自行 merge 或关闭 issue。
 
 DFE/CDR 后的可选 Native ISI/MLSD 分支现可启用并设置符号数 Depth，在同一 Run、同一 spawn worker 内调用原 decoder。原 trellis producer 从 `update_results` 原样抽取为 `update_trellis`，桌面 GUI 仍由原路径调用；Web 使用私有 plot-data sink 收集连线、路径和前三状态，不 pickle decoder。`models/viterbi.py` 原文件未变。
 
@@ -43,7 +43,11 @@ API/YAML 的 `rx_viterbi_fec` 请求明确返回 `unsupported_native_fec`。原 
 
 ## 保存、成本与保留限制
 
-raw schema 升为 5，解码扩展 schema=1；完整 `.pybert_run` 继续使用既有 primitive JSON/NPZ 协议。保存实际 axes、producer、原始数组与独立 BER windows；Windows/POSIX source key 兼容。必需身份/数组/轴/窗口、原生错误映射和图层一致性在发布前校验；旧 raw schema 不能携带新 decoding 来绕过校验。旧记录没有字段时显示“该记录未采集”。禁用记录 `n_errs_viterbi=-1`，DFE 不被置零。
+raw schema 升为 5，当前解码扩展 schema=2；完整 `.pybert_run` 继续使用既有 primitive JSON/NPZ 协议。保存实际 axes、producer、原始数组与独立 BER windows；Windows/POSIX source key 兼容。必需身份/数组/轴/窗口、原生错误映射和图层一致性在发布前校验；旧 raw schema 不能携带新 decoding 来绕过校验。旧记录没有字段时显示“该记录未采集”。禁用记录 `n_errs_viterbi=-1`，DFE 不被置零。
+
+PM 复核发现首轮 schema1 的 `symbols_dfe` 是完整 decisions，却错误标注 decoder 窗口；2871数组 exact 仍有效，但不证明元数据正确。新 schema2 保留完整数组、独立 `dfe_symbol_index` 与完整窗口，另存 decoder 使用的尾部映射，并校验 tail × decision_scaler 等于原 `decided_levels`。旧 schema1 原字节读取/保存、trellis 显示明确勘误，不自动修订或用错误窗口对齐。defaults 暖缓存也在返回前拒绝顶层/config/runtime 的 FEC 请求。
+
+本次收口 [88项回归](evidence/pm-p2-regression-v2.xml)、[9份存量定向审计](evidence/metadata-audit-20261024-150741/report.json) 4434 checks / 0失败及[来源/下载封存](evidence/pm-p2-seal.json) 677 checks / 0失败；Chrome v3 实际验证旧勘误、三种暖缓存422且状态不变、schema2衍生打开/保存/reload，均0新Run。衍生件不是新执行证据，原 manifest/raw 未改；两轮红复现和审计脚本前置错误保留。详见 [修订适用性](metadata-correction-v2.md)。本次新增 Main/COM/coopt 均0，累计费用仍为下述21次。
 
 真实 Main 调用 **21 次**：12 次数值 direct/adapter 成功，lifecycle 的 2 次故障注入和 1 次取消，Chrome 的 3 次成功和 1 次取消，另有 2 次误用 `python -m pybert --version` 的 GUI startup。前19次为15成功、2注入失败、2取消；误用入口的两次没有采集完整 raw/数值终态，保留 **unknown**，不计成功或资格。2注入失败不是原生真实算法缺陷。数值 COM **0**、coopt **0**。各次 elapsed/退出与数值批次采样的 peak working set 在原报告；lifecycle/Chrome/两次误入口的峰值和误入口的数值 elapsed 未采集，保持 unknown。常规归一化 worker 与 mock 回归不计作 Main。
 
@@ -51,6 +55,6 @@ raw schema 升为 5，解码扩展 schema=1；完整 `.pybert_run` 继续使用�
 
 保留先前 88/1 回归失败及 red 复现、Windows 来源校验导致的 lifecycle 前置失败（0 Main）、脚本命令引号/文件选择/过早终态断言/预算断言等原日志。修复仅接续已完成 Run；这些失败没有删除或改记通过。首轮 disabled 执行期间 UI 变化及事后重建 index 有独立来源补存说明。最初色标 title 的 Plotly 3.7 字符串兼容问题已在最终 SVG 实测修复；旧截图不作为最终标题证据。
 
-ignored raw/archive 保留在本 worktree 的 `evidence/**/local/` 与 `output/playwright/issue9/`，不加入 PR、不清理。证据服务只保留缓存淘汰原件，不改数值 worker；产品仍为两成功临时缓存。8776/8777 服务及本票 Chrome 会话在交付前停止。主 checkout 仍是 `b9c56fe` 及原 `docs/research/`、`source/` untracked；前任工作区/失败/费用不动。
+ignored raw/archive 保留在本 worktree 的 `evidence/**/local/` 与 `output/playwright/issue9/`，不加入 PR、不清理。证据服务只保留缓存淘汰原件，不改数值 worker；产品仍为两成功临时缓存。8776/8777/8778 服务及本票 Chrome 会话在交付前停止。主 checkout 仍是 `b9c56fe` 及原 `docs/research/`、`source/` untracked；前任工作区/失败/费用不动。
 
 #4 默认 COM 139756144 外层继续 **OPEN / BLOCKED_BUDGET / NOT_EXECUTED**，本票不跑 full sweep、FOM 或替代配置。#16 外部 S8P/S12P 开发后补验、TIME/CTLE File/非零 impulse_length/package+FEXT 与历史 PAM4 errors 等原边界继续保留。本票只交付有界原生接入一致性，不称纠错性能、COM/标准或硬件资格。

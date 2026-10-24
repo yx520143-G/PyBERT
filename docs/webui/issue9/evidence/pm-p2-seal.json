@@ -1,0 +1,2719 @@
+{
+  "product_head": "e812f4ab1ea150e7e6b65918852195cfbb48f273",
+  "main_calls": 0,
+  "COM_calls": 0,
+  "checks": [
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\analysis.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\analysis.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\archive.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\archive.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\com.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\com.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\config.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\config.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\data.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\data.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\legacy_results.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\legacy_results.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\optimization.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\optimization.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\records.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\records.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\resources.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\resources.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\resource_data.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\resource_data.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\server.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\server.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\tasks.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\tasks.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\viterbi.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\viterbi.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\worker.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\worker.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\__init__.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\__init__.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\app.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\app.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\catalog.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\catalog.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\draft.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\draft.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\gui-map.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\gui-map.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\index.html",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\index.html",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\optimization.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\optimization.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\resources.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\resources.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\results.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\results.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\settings.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\settings.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\styles.css",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\styles.css",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\viterbi.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\viterbi.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\workbench.css",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\workbench.css",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash web\\static\\workbench.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes web\\static\\workbench.js",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash pybert.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes pybert.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash models\\bert.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes models\\bert.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash models\\viterbi.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes models\\viterbi.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash models\\dfe.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes models\\dfe.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash utility\\sparam.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes utility\\sparam.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash configuration.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes configuration.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 actual source hash threads\\optimization.py",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741 final product bytes threads\\optimization.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\analysis.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\analysis.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\archive.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\archive.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\com.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\com.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\config.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\config.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\data.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\data.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\legacy_results.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\legacy_results.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\optimization.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\optimization.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\records.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\records.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\resources.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\resources.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\resource_data.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\resource_data.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\server.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\server.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\tasks.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\tasks.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\viterbi.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\viterbi.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\worker.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\worker.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\__init__.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\__init__.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\app.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\app.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\catalog.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\catalog.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\draft.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\draft.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\gui-map.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\gui-map.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\index.html",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\index.html",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\optimization.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\optimization.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\resources.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\resources.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\results.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\results.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\settings.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\settings.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\styles.css",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\styles.css",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\viterbi.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\viterbi.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\workbench.css",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\workbench.css",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash web\\static\\workbench.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes web\\static\\workbench.js",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash pybert.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes pybert.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash models\\bert.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes models\\bert.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash models\\viterbi.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes models\\viterbi.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash models\\dfe.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes models\\dfe.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash utility\\sparam.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes utility\\sparam.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash configuration.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes configuration.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 actual source hash threads\\optimization.py",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3 final product bytes threads\\optimization.py",
+      "passed": true
+    },
+    {
+      "name": "f6bd8054-3f23-4b0d-8dcb-e4a4a844d965 historical manifest retained",
+      "passed": true
+    },
+    {
+      "name": "f6bd8054-3f23-4b0d-8dcb-e4a4a844d965 historical raw retained",
+      "passed": true
+    },
+    {
+      "name": "e8974746-fbea-487c-b37d-a38a18846835 historical manifest retained",
+      "passed": true
+    },
+    {
+      "name": "e8974746-fbea-487c-b37d-a38a18846835 historical raw retained",
+      "passed": true
+    },
+    {
+      "name": "aa879ac1-14f4-4fb2-ac4b-10477c90d1cc historical manifest retained",
+      "passed": true
+    },
+    {
+      "name": "aa879ac1-14f4-4fb2-ac4b-10477c90d1cc historical raw retained",
+      "passed": true
+    },
+    {
+      "name": "03dd5707-7013-4d11-a32f-70a7afece9dd historical manifest retained",
+      "passed": true
+    },
+    {
+      "name": "03dd5707-7013-4d11-a32f-70a7afece9dd historical raw retained",
+      "passed": true
+    },
+    {
+      "name": "9661e603-37ae-45ea-876a-de96395aa041 historical manifest retained",
+      "passed": true
+    },
+    {
+      "name": "9661e603-37ae-45ea-876a-de96395aa041 historical raw retained",
+      "passed": true
+    },
+    {
+      "name": "98a9336e-25f1-4320-8289-72ca53038d97 historical manifest retained",
+      "passed": true
+    },
+    {
+      "name": "98a9336e-25f1-4320-8289-72ca53038d97 historical raw retained",
+      "passed": true
+    },
+    {
+      "name": "59df53f4-d978-42a2-9abc-df073389a70d historical manifest retained",
+      "passed": true
+    },
+    {
+      "name": "59df53f4-d978-42a2-9abc-df073389a70d historical raw retained",
+      "passed": true
+    },
+    {
+      "name": "5db36403-7f3f-4ac8-a9c7-d3c36c99ad53 historical manifest retained",
+      "passed": true
+    },
+    {
+      "name": "5db36403-7f3f-4ac8-a9c7-d3c36c99ad53 historical raw retained",
+      "passed": true
+    },
+    {
+      "name": "a371f8c8-a6bc-4497-950e-26153fc1958b historical manifest retained",
+      "passed": true
+    },
+    {
+      "name": "a371f8c8-a6bc-4497-950e-26153fc1958b historical raw retained",
+      "passed": true
+    },
+    {
+      "name": "PAM4-ERROR-v3-legacy.pybert_run original raw exact",
+      "passed": true
+    },
+    {
+      "name": "PAM4-ERROR-v3-legacy.pybert_run original source manifest exact",
+      "passed": true
+    },
+    {
+      "name": "PAM4-ERROR-v3-schema2-derived.pybert_run original raw exact",
+      "passed": true
+    },
+    {
+      "name": "PAM4-ERROR-v3-schema2-derived.pybert_run original source manifest exact",
+      "passed": true
+    },
+    {
+      "name": "Chrome only defaults normalization request",
+      "passed": true
+    },
+    {
+      "name": "check-old-v2.log no Run posts",
+      "passed": true
+    },
+    {
+      "name": "check-new.log no Run posts",
+      "passed": true
+    },
+    {
+      "name": "check-reload.log no Run posts",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3-service-error.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3-service.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "cli-entry-source.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "cli-misentry-first-tool-output.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "cli-misentry.md no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "cli-version-corrected-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "cli-version.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "contracts-v1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "contracts-v1.xml no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "contracts-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "contracts-v2.xml no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "contracts-v3.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "contracts-v3.xml no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-console-v1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "git-byte-check-v1.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-console-v1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-console-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-console-v1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-console-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-console-v3.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "pm-p2-contracts-v1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "pm-p2-contracts-v1.xml no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "pm-p2-red-v1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "pm-p2-regression-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "pm-p2-regression-v2.xml no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "pm-p2-runtime-red-v1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "pm-p2-seal.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "regression-preliminary-v1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "saved-audit-console-v1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "static-corrected-v2.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "static-final.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\01-pam4-no-errors-trellis.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\02-same-run-dfe-jitter.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\03-pam4-error1-trellis.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\04-two-run-trellis.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\05-opened-archive-trellis.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\06-reload-original-archive.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\07-disabled-current-dfe596.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\08-cancel-requested-worker-occupied.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\09-cancelled-old-result-retained.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\10-default-N4-budget-refusal.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\after-errors-snapshot.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\archive-picker.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\archive-upload.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\before-execution.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\budget-picker.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\budget-upload.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\cancel-picker.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\cancel-upload.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\disabled-picker.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\disabled-upload.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\environment.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\error-upload.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\final-state.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase1-file-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase1.cjs no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase1.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase1b.cjs no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase1b.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase2-recovery-snapshot.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase2.cjs no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase2b.cjs no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase2b.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase3.cjs no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase3.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase4.cjs no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase4.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase5.cjs no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase5.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase6-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase6.cjs no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\phase6.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\recovery-snapshot.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\11-final-log-colorbar-trellis.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\12-final-raw-probability-log-table.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\archive-picker.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\archive-upload.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\before-execution.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\final-state.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\final-view.cjs no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\final-view.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\initial-snapshot.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\serve_web_viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\13-legacy-metadata-erratum.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\14-schema2-derived-record.jpg no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\before-execution.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\check-new.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\check-new.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\check-old-v1.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\check-old-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\check-old.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\check-old.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\check-reload.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\check-reload.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\closed.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\new-picker.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\new-upload.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\old-picker-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\old-picker.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\old-upload-v2.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\old-upload.log no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\serve_web_viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\report.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\verifier.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\before-execution.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\verifier.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\before-execution.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\report.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\verifier.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\verifier.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\verifier.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\report.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\verifier.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\before-execution.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\report.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\verify_web_viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\before-execution.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\report.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\verify_web_viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "saved-audit-20261024-141440\\report.json no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "source-supplement-v1\\index-reconstructed.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "source-supplement-v1\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "source-supplement-v1\\README.md no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "source-supplement-v1\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "source-supplement-v1\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "source-supplement-v1\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "source-supplement-v1\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140200\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "numerics-20261024-140115\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150741\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150701\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "metadata-audit-20261024-150609\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141052\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "lifecycle-20261024-141030\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "delivery-audit-20261024-143549\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v3\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v2\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\configuration.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\pybert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\models\\bert.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\models\\dfe.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\models\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\threads\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\utility\\sparam.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\analysis.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\archive.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\com.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\config.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\legacy_results.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\optimization.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\records.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\resources.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\resource_data.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\server.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\tasks.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\viterbi.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\worker.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\__init__.py no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\app.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\catalog.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\draft.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\gui-map.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\index.html no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\optimization.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\resources.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\results.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\settings.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\styles.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\viterbi.js no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\workbench.css no UTF8 BOM",
+      "passed": true
+    },
+    {
+      "name": "chrome-v1\\source\\web\\static\\workbench.js no UTF8 BOM",
+      "passed": true
+    }
+  ],
+  "check_count": 677,
+  "failed": 0,
+  "metadata_audit_sha256": "57505a2d89295c5f7715f899a51ef1af2e67ba94419cf833f6cb8175c770b835",
+  "source_applicability": "Audit/Chrome captured actual source bytes equal final product. Audit Git HEAD was 1b711cf with the later e812f4a Tasks change already on disk; no new execution claimed."
+}

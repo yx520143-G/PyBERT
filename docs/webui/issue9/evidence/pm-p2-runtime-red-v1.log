@@ -1,0 +1,51 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 1 item
+
+tests/test_web_viterbi.py::test_http_cached_defaults_reject_fec_without_worker_or_losing_success FAILED [100%]
+
+================================== FAILURES ===================================
+____ test_http_cached_defaults_reject_fec_without_worker_or_losing_success ____
+
+tmp_path = WindowsPath('C:/Users/yx/AppData/Local/Temp/pytest-of-yx/pytest-684/test_http_cached_defaults_reje0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000203BC1E1BA0>
+
+    def test_http_cached_defaults_reject_fec_without_worker_or_losing_success(tmp_path, monkeypatch):
+        manager = Tasks(tmp_path)
+        client = TestClient(create_app(manager))
+        warm = client.post("/api/normalize", json={"mode": "defaults"})
+        assert warm.status_code == 200 and manager.defaults == warm.json()
+        existing_tasks = set(manager.tasks)
+        manager.runs = ["old-success"]
+        retained = tmp_path / "old-success"
+        retained.mkdir()
+        (retained / "manifest.json").write_text('{"status":"succeeded"}', encoding="utf-8")
+        (retained / "arrays.npz").write_bytes(b"old raw bytes")
+        before = {path.name: path.read_bytes() for path in retained.iterdir()}
+    
+        def no_worker(*_args, **_kwargs):
+            pytest.fail("cached defaults must not start any worker")
+    
+        monkeypatch.setattr(manager.context, "Process", no_worker)
+        assert client.post("/api/normalize", json={"mode": "defaults"}).json() == manager.defaults
+        for request in ({"mode": "defaults", "rx_viterbi_fec": True},
+                        {"mode": "defaults", "config": {"rx_viterbi_fec": True}},
+                        {"mode": "defaults", "runtime_extensions": {"version": 1, "values": {"rx_viterbi_fec": True}}}):
+            response = client.post("/api/normalize", json=request)
+>           assert response.status_code == 422 and "unsupported_native_fec" in response.json()["detail"]
+E           assert (200 == 422)
+E            +  where 200 = <Response [200 OK]>.status_code
+
+tests\test_web_viterbi.py:236: AssertionError
+============================= slowest 3 durations =============================
+3.98s call     tests/test_web_viterbi.py::test_http_cached_defaults_reject_fec_without_worker_or_losing_success
+0.01s setup    tests/test_web_viterbi.py::test_http_cached_defaults_reject_fec_without_worker_or_losing_success
+
+(1 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ===========================
+FAILED tests/test_web_viterbi.py::test_http_cached_defaults_reject_fec_without_worker_or_losing_success
+======================= 1 failed, 35 warnings in 6.03s ========================

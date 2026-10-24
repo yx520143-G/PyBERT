@@ -26,3 +26,9 @@
 - 两次 GUI 误入口已计入总 Main **21**；其数值终态、raw、peak、elapsed 保持 unknown，不计成功。原生重复 symbol／零概率未观测、NRZ Viterbi 含错定位缺真实证据、Duo 74/5120 均已披露，受控测试未代替原生覆盖。
 
 两轴分别计数：Standards 0 / Spec 初审2、已闭环2、最终新增0。[Git 字节检查](evidence/git-byte-check-v1.json) 对固定交付前 HEAD 的335份证据逐字节匹配，0 BOM、0新增 Main/COM。此后只补本审查收口和该检查记录，不改变产品。
+
+## PM fresh 终审与再次修复
+
+上述是首轮审查的历史结论。PM固定d33b58b的fresh终审（PR19 review5637253982）另发现两项P2：defaults缓存FEC请求被丢弃，完整symbols_dfe误标decoder窗口。PM未验收，原owner接回同一PR；详见[修订适用性](metadata-correction-v2.md)。
+
+固定1b711cf的独立Standards hard0/heuristic0；Spec发现runtime FEC暖缓存仍可旁路（1项P2），红灯复现后在e812f4a闭环。固定产品e812f4ab1ea150e7e6b65918852195cfbb48f273独立delta：Standards hard0/heuristic0、Spec新增0，复用原校验与原数组；只读核对9份存量4434/0失败及Chrome v3，未运行数值/浏览器。最后文档/证据封存另做固定HEAD复核，不将首次0新增冒称PM两项不存在。

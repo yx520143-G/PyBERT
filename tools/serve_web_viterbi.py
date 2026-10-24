@@ -13,7 +13,7 @@ from pybert.web.tasks import Tasks
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = int(sys.argv[1]) if len(sys.argv) > 1 else 1
-assert VERSION in (1, 2)
+assert VERSION in (1, 2, 3)
 OUT = ROOT / f"docs/webui/issue9/evidence/chrome-v{VERSION}"
 
 

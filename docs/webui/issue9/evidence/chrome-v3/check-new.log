@@ -1,0 +1,30 @@
+### Result
+{"source_run":"a371f8c8-a6bc-4497-950e-26153fc1958b","record_id":"ref-2ae1f5f1-388c-4a26-9042-e786e0feaf85","decoding_schema":2,"full_dfe":{"field":"viterbi.symbols_dfe","producer":"native dbg_dict_viterbi[symbols_dfe]","point":"viterbi","kind":"raw","dtype":"float64","shape":[7500],"unit":"1","axis":"viterbi.dfe_symbol_index","window":{"kind":"full native DFE decision sequence","symbol_start":0,"symbol_stop_exclusive":7500},"clock_basis":"native DFE decisions in returned order; decoder uses the tail independently of sample clocks","display_noise":false,"availability":"available"},"mapping":{"symbol_count":7500,"decoder_start_symbol":2420,"decoder_stop_symbol_exclusive":7500,"decoder_axis":"viterbi.symbol_index","selection":"symbols_dfe[-len(sig_samps):] * decision_scaler"},"derivation":{"kind":"derived metadata from saved primitive capture; not a new execution","source_manifest_sha256":"c4723ab4340682ea3201bd3040a52948108f3d3c710d3c97a1c3cd6bb66c56f0","source_arrays_sha256":"49754d222376492d31ccffcf3bc01eb39378595eda7f5f67a18fb0226371b2a0","metadata_adapter_source_sha256":"a1a39baf2a3236c3ea5e3508b039b56a76f695bf151d4ff94a368231ef852d1a","original_execution_source_preserved":true},"runPosts":0,"warning_absent":true,"saved":true}
+### Ran Playwright code
+```js
+await (async page => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue9-viterbi/serial-bus-simulator';
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+  let runPosts=0;page.on('request',r=>{if(r.method()==='POST'&&r.url().endsWith('/api/runs'))runPosts++;});
+  const run=await page.evaluate(()=>window.PYBERT_RUNS.selected());
+  assert(run?.decoding.schema_version===2&&run.metadata_derivation,'derived schema2 selected');
+  assert(run.datasets['viterbi.symbols_dfe'].axis==='viterbi.dfe_symbol_index','full DFE axis');
+  assert(run.datasets['viterbi.symbols_dfe'].window.symbol_stop_exclusive===7500,'full DFE window');
+  assert(run.decoding.symbol_count===5080&&run.decoding.dfe_decisions.decoder_start_symbol===2420,'actual decoder tail mapping');
+  await page.locator('#analysis-kind').selectOption('viterbi');
+  await page.waitForFunction(()=>!document.getElementById('analysis-info').textContent.includes('该字段元数据不可用于窗口对齐'));
+  await page.locator('#trellis-error').fill('1');await page.locator('#trellis-error').press('Tab');
+  await page.locator('#analysis-info').scrollIntoViewIfNeeded();
+  await page.screenshot({path:root+'/docs/webui/issue9/evidence/chrome-v3/14-schema2-derived-record.jpg'});
+  const download=page.waitForEvent('download');await page.locator('#save-results').click();
+  await(await download).saveAs(root+'/output/playwright/issue9/PAM4-ERROR-v3-schema2-derived.pybert_run');
+  assert(runPosts===0,'schema2 view started Run');
+  return {source_run:run.run_id,record_id:run.record_id,decoding_schema:run.decoding.schema_version,
+    full_dfe:run.datasets['viterbi.symbols_dfe'],mapping:run.decoding.dfe_decisions,
+    derivation:run.metadata_derivation,runPosts,warning_absent:true,saved:true};
+}
+)(page);
+```
+### Events
+- Downloading file ref-2ae1f5f1-388c-4a26-9042-e786e0feaf85.pybert_run ...
+- Downloaded file ref-2ae1f5f1-388c-4a26-9042-e786e0feaf85.pybert_run to ".playwright-cli\ref-2ae1f5f1-388c-4a26-9042-e786e0feaf85.pybert-run"

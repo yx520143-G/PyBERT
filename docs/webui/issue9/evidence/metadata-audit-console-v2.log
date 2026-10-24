@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\tools\audit_web_viterbi_metadata.py", line 141, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\tools\audit_web_viterbi_metadata.py", line 91, in main
+    check(f"{index} schema2 HTTP open", opened.status_code == 200)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yx\.codex\worktrees\pybert-issue9-viterbi\serial-bus-simulator\tools\audit_web_viterbi_metadata.py", line 43, in check
+    raise AssertionError(name)
+AssertionError: 0 schema2 HTTP open
