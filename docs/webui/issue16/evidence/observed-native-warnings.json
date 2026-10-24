@@ -1,0 +1,22 @@
+{
+  "capture": "verbatim warning text from exec/write_stdin tool output; native console logs are separately retained beside each run",
+  "before_capture_fix": {
+    "run": "local/results/pre-direct-20261024-175842",
+    "case": "D-SI12-PAM4",
+    "warning": "OptimizeWarning: Covariance of the parameters could not be estimated",
+    "source": "local/sources/pre/src/pybert/utility/jitter.py",
+    "source_lines": [514, 526],
+    "native_statements": ["popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],", "popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],"],
+    "associated_capture_error": "AttributeError: 'PyBERT' object has no attribute 'tx_out'"
+  },
+  "post_direct": {
+    "run": "local/results/post-direct-20261024-180115",
+    "case": "D-LL8-NRZ",
+    "warning": "OptimizeWarning: Covariance of the parameters could not be estimated",
+    "source": "local/sources/post/src/pybert/utility/jitter.py",
+    "source_lines": [514, 526],
+    "native_statements": ["popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],", "popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],"],
+    "capture_completed": true
+  },
+  "interpretation": "Warnings preserved; they do not qualify jitter-fit tails. Issue16 physical mapping comparisons use raw complex S/channel/FEXT, with unchanged frozen thresholds. No warning suppression or product modification."
+}

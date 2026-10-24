@@ -1,0 +1,30 @@
+{
+  "status": "PM_APPROVED; frozen before additional Main calls",
+  "capture_amendment_sha256": "f4bf8da6898e738d999585e45b44c97858cc777dc4255b4f62a0088d340e3e9f",
+  "parent_freeze_sha256": "a2b85d54e603571a613999bb7f72f86771eb493ceb94b63c0049aa94c7a5ea70",
+  "authorizer_thread": "01a16a69-8a11-71a0-8620-5d157b897926",
+  "authorization": "PM explicitly approved only D-LL8-NRZ and D-SI12-PAM4 pre each +1 Main after capture failures; total cap8 to10, original scope otherwise unchanged",
+  "retry_case_ids": [
+    "D-LL8-NRZ",
+    "D-SI12-PAM4"
+  ],
+  "additional_Main_cap": 2,
+  "total_Main_cap": 10,
+  "original_failed_attempts": "pre-direct-20261024-175842; preserved report/raw/ledger, no success relabeling",
+  "purpose": "complete 61 native raw fields, axes and windows that were not saved after native Ready due to observer AttributeError",
+  "no_engine_field_check": {
+    "path": "evidence/no-engine-capture-fields.json",
+    "sha256": "a6c10fbbb4c740ab352ca412d0bc6ceb7e6a29ea3e3b747072fa39d878cc189b",
+    "all_versions_fields": 61,
+    "missing": 0
+  },
+  "files_override": {
+    "tools\\verify_external_lanes.py": "58f5fd5b21b052e92bb590a7ff55743eb8a2eb77bab3e040b675d02f247f4085"
+  },
+  "unchanged": "all resource/source bytes, input/seed/noise, reference, grid/window/tolerance, algorithms; original post/final direct4 and worker2",
+  "COM": 0,
+  "coopt": 0,
+  "AMI_Init": 0,
+  "AMI_GetWave": 0,
+  "binary_loads": 0
+}

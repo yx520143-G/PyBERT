@@ -48,6 +48,11 @@ def guard():
         assert sha(ISSUE / "freeze-v1.json") == updated["parent_freeze_sha256"]
         assert sha(ISSUE / "evidence/capture-v1.py.txt") == freeze["files"]["tools\\verify_external_lanes.py"]
         files.update(updated["files_override"])
+    budget_amendment = ISSUE / "budget-amendment-v3.json"
+    if budget_amendment.exists():
+        updated = json.loads(budget_amendment.read_text(encoding="utf-8"))
+        assert sha(ISSUE / "capture-amendment-v2.json") == updated["capture_amendment_sha256"]
+        files.update(updated["files_override"])
     for name, digest in files.items():
         assert sha(ROOT / name) == digest, f"Changed frozen file: {name}"
     for name, digest in freeze["local_source_files"].items():
@@ -65,8 +70,14 @@ def reserve(mode, label, selected):
     assert ids and (not selected or set(selected) == set(ids))
     assert label in REFS and (mode != "worker" or label == "final")
     old = {(e["mode"], e["label"], name) for e in entries for name in e["case_ids"]}
-    assert not any((mode, label, name) in old for name in ids), "Attempt already consumed; report before new budget"
-    entries.append({"mode": mode, "label": label, "case_ids": ids, "reserved_before_call": True,
+    repeated = any((mode, label, name) in old for name in ids)
+    attempt_id = "v1"
+    if repeated:
+        approval = json.loads((ISSUE / "budget-amendment-v3.json").read_text(encoding="utf-8"))
+        assert mode == "direct" and label == "pre" and set(ids) == set(approval["retry_case_ids"])
+        assert not any(e.get("attempt_id") == "pre-capture-retry-v3" for e in entries)
+        attempt_id = "pre-capture-retry-v3"
+    entries.append({"mode": mode, "label": label, "case_ids": ids, "attempt_id": attempt_id, "reserved_before_call": True,
                     "reserved_utc": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat()})
     write(ledger, entries)
 
