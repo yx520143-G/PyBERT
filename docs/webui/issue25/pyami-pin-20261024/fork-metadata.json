@@ -1,0 +1,34 @@
+{
+  "id": "1432213331",
+  "name": "PyAMI",
+  "owner": {
+    "login": "yx520143-G",
+    "id": 269540313,
+    "type": "User",
+    "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+    "url": "https://api.github.com/users/yx520143-G"
+  },
+  "repository_full_name": "yx520143-G/PyAMI",
+  "permissions": {
+    "admin": true,
+    "maintain": true,
+    "pull": true,
+    "push": true,
+    "triage": true
+  },
+  "allow_auto_merge": false,
+  "allow_merge_commit": true,
+  "allow_rebase_merge": true,
+  "allow_squash_merge": true,
+  "allow_update_branch": false,
+  "clone_url": "https://github.com/yx520143-G/PyAMI.git",
+  "size": 5125,
+  "default_branch": "master",
+  "git_commits_url": "https://api.github.com/repos/yx520143-G/PyAMI/git/commits{/sha}",
+  "git_refs_url": "https://api.github.com/repos/yx520143-G/PyAMI/git/refs{/sha}",
+  "git_url": "git://github.com/yx520143-G/PyAMI.git",
+  "master_branch": null,
+  "visibility": "public",
+  "archived": false,
+  "is_code_search_indexed": null
+}

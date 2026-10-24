@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "url": "https://github.com/yx520143-G/PyBERT/issues/25",
+    "title": "[Dependency integration] 将 PyAMI fork 固定 SHA 接入 uv 与 pip 安装",
+    "issue_number": 25,
+    "body": "父票 #10 的 S1 依赖来源接入。用户已在PM chat明确授权：在不改动上游 PyAMI/PyBERT 的前提下，创建本人名下 PyAMI fork 并按完整SHA接入；接受 direct URL 路线对本 fork 暂不能发布 PyPI 的限制。此授权覆盖本票常规源码/依赖元数据/隔离安装验证，不授权真实模型执行。\n\n已完成前置：\n- #24本地候选验收关闭：PM fresh Standards hard0/smell0、Spec0，373/373材料检查，37项guarded生产Python/fake测试日志；所有真实C/模型调用0，旧失败与费用保留。\n- 新fork [yx520143-G/PyAMI](https://github.com/yx520143-G/PyAMI) 的 [PR #1](https://github.com/yx520143-G/PyAMI/pull/1) 已普通merge。\n- **唯一固定依赖F = `e222e4094629e1ce9a2f8058ab42439fc21fadd8`，tree `b9bd99398a8893f0c3d301e7758eec8f9d3858d0`**。PM fetch确认F的tree与已审查HEAD `41d08c85bfc017978b31bae0ef76c6ee9641ec39`相同且后者为祖先；上游capn-freako/PyAMI master仍5270d713。F含B1/生命周期，**不含可选rng、probe隔离或D**。\n\n唯一owner沿用 chat `01a16ccd-6cf3-79d1-bfc3-7d77aa7f7b61`（local，6.1-sol/xhigh）。PyBERT基线 `35a71a6b79a00693a2f2862184552894752899c0` / tree `d8334daffacbc19cc638b03bbdc2dc3f9736be7e`。新独立workspace/分支 `codex/pybert-issue25-pyami-pin`；建议managed worktree `pybert-issue25-pyami-pin`。先inspect已有artifacts并创建独立工作区；如实际submodule元数据不能隔离，可改用新独立clone（不得hardlink/alternates），startup明确方式/路径/HEAD/tree/clean。旧主checkout、#24独立clone、设计和历史raw工作区不得写入/清理。\n\n范围：\n1. `.gitmodules` PyAMI URL改为本人fork，gitlink固定F；标准 `project.dependencies` 将 `pyibis-ami[gui]` 指向 `git+https://github.com/yx520143-G/PyAMI.git@e222e4094629e1ce9a2f8058ab42439fc21fadd8`。保留既有extras、版本与项目结构；uv workspace也必须实际使用F，不仅改gitlink而让普通pip仍从PyPI获取旧版。\n2. 根据实际元数据重新生成uv.lock，审查必要变动；不手编伪造lock来源，不把全量无关升级混入。允许在本票两个新隔离环境安装所需普通Python依赖/构建Python package；不得改共享venv/global/site-packages，不在旧PyAMI子模块打patch，不升级PyChOpMarg。\n3. 两种安装方式分别验证：A新workspace的uv标准安装/同步路径；B独立新venv中的普通pip安装PyBERT及其声明依赖（不通过uv workspace override）。记录完整实际命令、Python/工具版本、实际module路径、distribution metadata/direct_url（适用时）、F/gitlink/checkout commit及源码hash。A的editable路径和B的VCS安装来源语义分开，证明两者实际加载同一F内容。不能只证明pip resolve或gitlink值。若安装受外部依赖/网络阻塞，保留失败与精确缺口，不把单路通过冒充双路。\n4. 最小必要来源断言/文档：独立目录、固定40位SHA、extras保持、PyChOpMarg与原生src不变；先guards再做必要safe import/读取module.__file__与API存在性，不构造任何模型或PyBERT引擎。测试/验证不调用get_responses、initialize/getWave/close、run_ami_model、AMI grammar parser或任何DSP helper。不要运行通用pytest/full suite、现有DLL test_init、`python -m pybert --version`（已知会启动GUI/仿真）；不要启动服务/浏览器。\n5. 说明默认strict会影响所有GW调用（含Tx/probes/Init内探测），容量B+8边界、此F尚缺rng/probe隔离/D/E及PyPI直接URL限制。来源迁移成功不等于NRZ/PAM4模型资格。记录所有安装/构建失败、耗时及未知，不将旧模型预算重新开放。\n\n不包含：PyAMI新代码（rng等另票）、PyBERT算法/输入默认/seed/采样/metadata/archive、真实库/模型/引擎/DSP/parser、额外模型包下载或模型编译。依赖repo传输可能包含其既有example文件，不得加载这些二进制；普通Python包安装/构建与模型编译分账。禁止向capn-freako上游写入。\n\n交付同owner自主实现/定向来源验证/自审 → 唯一Draft PR到yx520143-G/PyBERT master，固定HEAD/tree、原source/env/receipt/hash/cost、clean且停写返权 → PM fresh双轴review。不得自行merge/关闭票。当前无Main/COM/coopt/真实C InitGWClose/CDLL/engine/原生helper/AMI parser额度，全部0；不因安装失败自行运行模型验证。\n\n验收清单：\n- [ ] 新独立workspace基线与F来源/许可确认；旧工作区与原件保持。\n- [ ] .gitmodules/gitlink/标准dependency/uv.lock一致固定F，未夹带无关依赖升级。\n- [ ] uv workspace与普通pip两条隔离安装实际module来源/commit/hash分别核验。\n- [ ] 全部失败/安装成本/限制与0模型调用账保存，不夸大PyPI或模型资格。\n- [ ] 固定Draft PR并停写返权后PM fresh review通过；#10/#4/#1剩余gate保留。\n",
+    "state": "open",
+    "user": {
+      "login": "yx520143-G",
+      "name": "yx520143-G",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+      "id": 269540313
+    },
+    "assignees": null,
+    "labels": null,
+    "milestone": null,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-10-24T13:36:27Z",
+    "updated_at": "2026-10-24T13:36:27Z",
+    "closed_at": null,
+    "display_url": "https://github.com/yx520143-G/PyBERT/issues/25",
+    "display_title": "[Dependency integration] 将 PyAMI fork 固定 SHA 接入 uv 与 pip 安装"
+  },
+  "url": "https://github.com/yx520143-G/PyBERT/issues/25",
+  "title": "[Dependency integration] 将 PyAMI fork 固定 SHA 接入 uv 与 pip 安装",
+  "display_url": "https://github.com/yx520143-G/PyBERT/issues/25",
+  "display_title": "[Dependency integration] 将 PyAMI fork 固定 SHA 接入 uv 与 pip 安装"
+}

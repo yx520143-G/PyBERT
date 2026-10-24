@@ -1,0 +1,73 @@
+{
+  "scope": "fresh environment registry resolution differs; identical F source does not mean identical full environments",
+  "differences": {
+    "alembic": {
+      "A": "1.18.5",
+      "B": "1.20.1"
+    },
+    "fonttools": {
+      "A": "4.63.0",
+      "B": "4.67.0"
+    },
+    "greenlet": {
+      "A": "3.5.4",
+      "B": null
+    },
+    "mako": {
+      "A": "1.4.2",
+      "B": "1.4.3"
+    },
+    "markupsafe": {
+      "A": "3.0.3",
+      "B": "3.0.4"
+    },
+    "numpy": {
+      "A": "2.5.1",
+      "B": "2.5.4"
+    },
+    "packaging": {
+      "A": "26.2",
+      "B": "26.3"
+    },
+    "pandas": {
+      "A": "3.0.3",
+      "B": "3.1.0"
+    },
+    "pillow": {
+      "A": "12.3.0",
+      "B": "13.0.0"
+    },
+    "pip": {
+      "A": null,
+      "B": "26.2.2"
+    },
+    "pyparsing": {
+      "A": "3.3.2",
+      "B": "3.3.3"
+    },
+    "python-dateutil": {
+      "A": "2.9.0.post0",
+      "B": "3.0.0"
+    },
+    "scipy": {
+      "A": "1.18.0",
+      "B": "1.18.1"
+    },
+    "setuptools": {
+      "A": "83.0.0",
+      "B": "84.2.1"
+    },
+    "sqlalchemy": {
+      "A": "2.0.51",
+      "B": "2.1.6"
+    },
+    "tqdm": {
+      "A": "4.69.0",
+      "B": "4.70.1"
+    },
+    "tzdata": {
+      "A": "2026.3",
+      "B": "2026.5"
+    }
+  }
+}

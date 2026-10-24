@@ -1,0 +1,156 @@
+[build-system]
+requires = ["setuptools>=77.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyibis-ami"
+description = "Facilitates working directly with IBIS-AMI DLLs from the Python command prompt."
+version = "10.0.0"
+authors = [ {name = "David Banas",     email = "capn.freako@gmail.com"}
+          ]
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "click>=8.4.2,<9",
+    "empy==4.2.1",
+    "numpy>=1.26",
+    "parsec==3.17",
+    "traits>=7.1,<8",
+]
+keywords=["ibis-ami"]
+classifiers=[
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: System :: Emulators",
+    "Topic :: Utilities",
+]
+
+[project.optional-dependencies]
+gui = [
+    "chaco==6.1.1",
+    "enable==6.1.0",
+    "traitsui==8.0.0",
+]
+report = [
+    "matplotlib>=3.6.1",
+    "reportlab==5.0.1",
+    "scipy>=1.15",
+]
+notebook = [
+    "pyibis-ami[report]",  # The Tester notebook plots with `pyibisami.report.plot`.
+    "jupyter==1.1.1",
+    "papermill==2.7.0",
+]
+all = [
+    "pyibis-ami[gui,report,notebook]",
+]
+
+[project.urls]
+Documentation = "https://pyibis-ami.readthedocs.io/en/latest/"
+Wiki = "https://github.com/capn-freako/PyAMI/wiki"
+GitHub = "https://github.com/capn-freako/PyAMI"
+PyPi = "https://pypi.org/project/PyIBIS-AMI/"
+
+[project.scripts]
+ami-config = "pyibisami.ami.config:main"
+run-tests = "pyibisami.tools.run_tests:main"
+run-notebook = "pyibisami.tools.run_notebook:main"
+test-model = "pyibisami.report.test_models:main"
+check-ami = "pyibisami.testing.ami_test_config:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"pyibisami" = ['*.ipynb']
+
+[tool.black]
+line-length = 119
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-vv"
+xfail_strict=true
+
+[tool.pylint.master]
+fail-under = 9.0
+
+[tool.pylint.messages_control]
+disable = [
+    "invalid-name",
+    "line-too-long",
+]
+
+[tool.pylint.format]
+max-line-length = 119
+
+[tool.pydocstyle]
+ignore = [
+    "D105", # Missing docstring in magic method
+    "D107", # Missing docstring in __init__
+]
+
+[tool.ruff]
+exclude = [
+    "*.ipynb"
+]
+lint.ignore = [
+    "UP045",    # "Optional[X] -> "X | None"
+    "I001",     # import formatting
+    "BLE001",   # blind exceptions
+    "UP031",    # format specifiers instead of '%'
+    "RUF022",   # unsorted all
+]
+
+[[tool.mypy.overrides]]
+module = [
+    "chaco.*",
+    "click.*",
+    "em.*",
+    "enable.*",
+    "numpy.*",
+    "parsec.*",
+    "pyface.*",
+    "scipy.*",
+    "skrf.*",
+    "traits.*",
+    "traitsui.*"
+]
+ignore_missing_imports = true
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+publish-url = "https://upload.pypi.org/legacy/"
+
+[[tool.uv.index]]
+name = "test"
+url = "https://test.pypi.org/simple"
+publish-url = "https://test.pypi.org/legacy/"
+
+[dependency-groups]
+dev = [
+    "pyibis-ami[all]",
+    "myst-parser>=4.0.0",
+    "mypy>=1.19.1",
+    "pyside6==6.10.2",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "pytest-xdist>=3.8.0",
+    "sphinx>=8.1.3",
+    "sphinx-rtd-theme>=3.1.0",
+    "types-reportlab==5.0.0.20261008",
+    "typing-extensions>=4.15.0",
+]

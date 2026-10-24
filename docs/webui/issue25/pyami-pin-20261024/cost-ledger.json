@@ -1,0 +1,269 @@
+{
+  "kind": "ordinary dependency source/install/build evidence; no model qualification",
+  "commands": [
+    {
+      "run": "01-uv-version",
+      "command": [
+        "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.0470766999933403,
+      "receipt_sha256": "efe6318c08014077001a8c8a66740cc44a2cdf2d87971e10773065078da62226"
+    },
+    {
+      "run": "02-git-version",
+      "command": [
+        "git",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.0428193999978248,
+      "receipt_sha256": "d5cfb4a7d10fc792681dcc46f5d746b0c234405bfed1d7a2261953560a6ef463"
+    },
+    {
+      "run": "03-bootstrap-python",
+      "command": [
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-c",
+        "import sys,json,importlib.metadata as m; print(json.dumps({\"executable\":sys.executable,\"version\":sys.version,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix,\"pip\":m.version(\"pip\")}))"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.24042990000452846,
+      "receipt_sha256": "796b5b306d92729663964323cb860127466c4f71cfe4b78df07eb3446cd7a77e"
+    },
+    {
+      "run": "04-origin-fork",
+      "command": [
+        "git",
+        "remote",
+        "set-url",
+        "origin",
+        "https://github.com/yx520143-G/PyBERT.git"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.04709170000569429,
+      "receipt_sha256": "ff54352e8117ec37aedb7827bf7f6802828c360b9977b2def900433e48515891"
+    },
+    {
+      "run": "05-chopmarg-https",
+      "command": [
+        "git",
+        "config",
+        "--local",
+        "submodule.PyChOpMarg.url",
+        "https://github.com/capn-freako/PyChOpMarg.git"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.045707400000537746,
+      "receipt_sha256": "54ff594a075f7781d7ae7fd2d227e0b378364d8bb0b07610f735a65056ee380f"
+    },
+    {
+      "run": "06-init-submodules",
+      "command": [
+        "git",
+        "submodule",
+        "update",
+        "--init",
+        "--",
+        "PyAMI",
+        "PyChOpMarg"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 20.73020190000534,
+      "receipt_sha256": "42b970f08246040b88d18c79ea91362bfb2e36379e3dcda169a3ceb337352bb7"
+    },
+    {
+      "run": "07-pyami-fixed-checkout",
+      "command": [
+        "git",
+        "-C",
+        "PyAMI",
+        "checkout",
+        "--detach",
+        "e222e4094629e1ce9a2f8058ab42439fc21fadd8"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.15137990000948776,
+      "receipt_sha256": "78bb9cfb1c67abde83348004fe89d45e3cda10d11d357124b4543513bf7d49de"
+    },
+    {
+      "run": "08-uv-lock",
+      "command": [
+        "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+        "lock",
+        "--python",
+        "C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/.venv/Scripts/python.exe"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.06554380001034588,
+      "receipt_sha256": "7a999dfe50f605167fbdf638bedafb3f054cbed9f7ec2ccac92a1e06d8f091f0"
+    },
+    {
+      "run": "09-uv-sync",
+      "command": [
+        "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+        "sync",
+        "--locked",
+        "--no-dev",
+        "--python",
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 46.84127889999945,
+      "receipt_sha256": "c8867bb953fdf24ebe0cf9a52f9349a35a6f3022a2f0200f7fd17fc8b27f8c2b"
+    },
+    {
+      "run": "10-pip-venv",
+      "command": [
+        "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+        "venv",
+        "--seed",
+        "--python",
+        "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 4.458691000007093,
+      "receipt_sha256": "3c271b3dedc1abf90745aede8321f4837e4e598357802f372e04cb3d12266eff"
+    },
+    {
+      "run": "11-pip-version",
+      "command": [
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Scripts\\python.exe",
+        "-I",
+        "-m",
+        "pip",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 1.3526719999936176,
+      "receipt_sha256": "935b2e9c1cc4974c36e01f06a6ddfa251f166f386f33b5896843cef06e76e383"
+    },
+    {
+      "run": "12-pip-install",
+      "command": [
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Scripts\\python.exe",
+        "-I",
+        "-m",
+        "pip",
+        "--isolated",
+        "install",
+        "--no-input",
+        "--disable-pip-version-check",
+        "--progress-bar",
+        "off",
+        "--index-url",
+        "https://pypi.org/simple",
+        "--cache-dir",
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.pip-cache",
+        "--constraint",
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\pip-constraints.txt",
+        "--report",
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\commands\\12-pip-install\\pip-report.json",
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 154.26222759998927,
+      "receipt_sha256": "1e43b3324133384a866a213acdddd0c3dd4666b00e516fd8868e50006af54092"
+    },
+    {
+      "run": "13-source-A",
+      "command": [
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\verify_source.py",
+        "A",
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\commands\\13-source-A\\source-receipt.json"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.32899080000061076,
+      "receipt_sha256": "512eca2381f29c99d1dbcca6df470fc91f5352ad7708c56a9754be6487444164"
+    },
+    {
+      "run": "14-source-B",
+      "command": [
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\verify_source.py",
+        "B",
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\docs\\webui\\issue25\\pyami-pin-20261024\\commands\\14-source-B\\source-receipt.json"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.2881963999971049,
+      "receipt_sha256": "807fb9513550731462977a0a9d28ced1f624c7634110cf85da775e6fdaada346"
+    },
+    {
+      "run": "15-environment-A",
+      "command": [
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json,importlib.metadata as m; print(json.dumps({\"executable\":sys.executable,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix,\"python\":sys.version,\"distributions\":{d.metadata[\"Name\"]:d.version for d in m.distributions()}},sort_keys=True))"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.23057889999472536,
+      "receipt_sha256": "3de528e4134995c67525cb879d4fd91d162e04805a2ee2dc8b42c2c6d5caaa53"
+    },
+    {
+      "run": "16-environment-B",
+      "command": [
+        "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json,importlib.metadata as m; print(json.dumps({\"executable\":sys.executable,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix,\"python\":sys.version,\"distributions\":{d.metadata[\"Name\"]:d.version for d in m.distributions()}},sort_keys=True))"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.20883920000051148,
+      "receipt_sha256": "ebfffd68fad4f5c8d7a301fa96d579d560ef04cc382ca2b38d6d6318436e6a49"
+    },
+    {
+      "run": "17-origin-master",
+      "command": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "origin",
+        "master"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 2.030913700000383,
+      "receipt_sha256": "6bf225c6cb205c70c597b5e6871e03b13fd83d7a96b9cea987b837e9c7d9f4fe"
+    }
+  ],
+  "failed_commands": 0,
+  "captured_command_elapsed_sum_s": 231.37263920000987,
+  "clone_elapsed_s": 5.021198800008278,
+  "task_wall_and_peak_RSS": "UNKNOWN",
+  "ordinary_builds": {
+    "A": "editable pipbert/pyibis-ami/pychopmarg (see09 log)",
+    "B": "pipbert/pyibis-ami/empy/parsec wheels (see12 log)",
+    "not_model_compilation": true
+  },
+  "restricted_entrypoints_invoked_by_owner": {
+    "Main": 0,
+    "COM": 0,
+    "coopt": 0,
+    "AMIModel_or_initializer_construction": 0,
+    "get_responses": 0,
+    "Python_initialize_getWave_close": 0,
+    "fake_callbacks": 0,
+    "C_Init": 0,
+    "C_GetWave": 0,
+    "C_Close": 0,
+    "model_CDLL_or_engine": 0,
+    "native_DSP_helper": 0,
+    "AMI_grammar_parser": 0,
+    "extra_model_download": 0,
+    "model_compile": 0
+  },
+  "source_check_guard_blocked_attempts": 0,
+  "package_build_internals": "ordinary Python installer/build backend activities allowed separately; their general platform/system-library internals were not traced as model calls",
+  "existing_example_files": "Git dependency transport may include upstream example binary files; never loaded, not an extra model package download",
+  "old24_model_test_costs": "No rerun or reset; preserved read-only under old sealed clone"
+}
