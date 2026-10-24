@@ -14,6 +14,7 @@
   let replayGuard=null;
   let pendingRecordId=null;
   let constructedConfig=null,constructedRuntime=null;
+  let taskEpoch=0;
   const recordId = row => row.record_id || row.run_id;
   const allRecords = () => [...runs,...references];
   const resourceBindings = () => window.PYBERT_RESOURCES?.bindings() || {};
@@ -285,8 +286,10 @@
   }
   async function poll(once=false) {
     if (disconnected) return;
+    const epoch=taskEpoch;
     try {
       const state = await api('state');
+      if(epoch!==taskEpoch) {if(!once)setTimeout(()=>poll(),1000);return;}
       activeTask = state.active_task_id;
       currentTask = state.current_task_id;
       comTasks = state.com_tasks || [];
@@ -322,6 +325,7 @@
     try {
       const input = await normalizeDraft();
       const task = await api('runs',{config:input.config,input_hash:input.input_hash,input_identity_hash:input.input_identity_hash,draft_revision:revision,source_record_id:sourceRecordId,replay_guard:replayGuard,...extraInput()});
+      taskEpoch++;
       activeTask = currentTask = task.task_id; controls();
       $('task-state').textContent = `Run ${task.task_id} · validating`;
     } catch (error) { inputError(error); }
@@ -390,6 +394,7 @@
     optimizerAction:async(action,record_id)=>{const input=await normalizeDraft();return api(`optimizer-actions/${action}`,{config:input.config,...extraInput(),record_id,draft_revision:revision});},
     applyOptimizer:result=>{applyLoadedInput(result,sourceRecordId,logicalName,replayGuard);controls();},
     revision:()=>revision,
+    adoptTask:task=>{taskEpoch++;activeTask=currentTask=task.task_id;controls();},
     select:async id=>{$('selected-run').value=id;await chooseRun(id);},
     restore:async id=>{
       if (activeTask || normalizing) throw new Error('Native slot busy; restore input after worker exit.');

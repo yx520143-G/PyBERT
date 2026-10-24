@@ -217,6 +217,7 @@
 
   function renderSettings() {
     const stage = stageById(state.stageId);
+    const optimizerLink=['source','tx','ctle','rxffe','dfe','optimizer'].includes(stage.id) ? '<button type="button" data-optimizer-open>查看优化候选 / Tune / Use / Reset EQ →</button>' : '';
     const tables = new Set();
     let referenceCount = 0;
     const groups = stage.groups.map((group, gi) => {
@@ -230,6 +231,7 @@
       return cards ? `<section class="settings-group"><div class="settings-group-heading"><h3>${group.title}</h3><span>本地草稿</span></div><div class="settings-grid">${cards}</div></section>` : '';
     }).join('');
     $('settings-panel').innerHTML = `${loadMessage ? `<p class="editor-notice">${escape(loadMessage)}</p><details><summary>迁移来源与未应用字段（保留原值）</summary><pre>${escape(JSON.stringify({migrationSource,retainedFields},null,2))}</pre></details>` : ''}${stage.id === 'ami' ? '<p class="editor-notice">这里只记录模型文件名与调用方案。尚未解析模型、确认能力或运行动态库；Model_Specific 示例与只读解析状态可在“参数说明”中查看。</p>' : ''}${groups}${[...tables].map(tapTable).join('')}${!groups && !tables.size ? '<div class="empty-state">此模块显示分析结果，当前没有仿真数据。<br>可以在“参数说明”中查看支持的输出与入口。</div>' : ''}${referenceCount ? `<div class="reference-shortcut"><span>还有 ${referenceCount} 个结果、内部状态或参考条目。</span><button type="button" data-tab="parameters">查看参数说明 →</button></div>` : ''}`;
+    if(optimizerLink) $('settings-panel').insertAdjacentHTML('beforeend',optimizerLink);
     updateFieldFeedback();
   }
 
@@ -549,7 +551,7 @@
       const field = settings.fields[item.key];
       const status = item.analysis ? '真实分析 · 所选 run' : field?.readonly ? '能力限制 / 只读' : settings.fields[item.key] || settings.tableInfo[item.key] || item.key.startsWith('btn_') ? '输入 · Run 前校验' : '参考 · 后续票';
       return `<div class="gui-row"><div><strong>${escape(item.label)}</strong><code>${item.key}</code></div><span class="gui-status">${status}</span>${item.analysis || entry ? `<button type="button" class="text-button" data-gui-key="${item.key}">${item.analysis ? '查看分析' : entry.stage.name} →</button>` : '<span>未接入</span>'}<a class="source-link" href="${window.PYBERT_CATALOG.root}src/pybert/gui/view.py#L${item.line}" target="_blank" rel="noopener noreferrer">源码 ↗</a></div>`;
-    }).join('')}</div></details>`).join('')}<details class="gui-section"><summary>菜单与状态栏<span>操作范围</span></summary><div class="gui-menu-list">${window.PYBERT_GUI.menus.map(menu => `<p><strong>${menu.name}</strong> · ${menu.items.join(' / ')}</p>`).join('')}<p>Debug Mode uses the native debug field. Run / Abort, native YAML Load / Save, logs and help are connected. 完整 Web archive、可信 legacy index诊断、加载/保存/清除参考已接入。 Tune / Use / Reset EQ: #8. Restore defaults is a separate draft action.</p><p>Current task state and selected successful run are separate. Run overview reports native performance, delay, DFE bit errors, power and jitter. Independent COM and resource binding are available through 资源 / COM; core and COM child states remain separate.</p></div></details>`;
+    }).join('')}</div></details>`).join('')}<details class="gui-section"><summary>菜单与状态栏<span>操作范围</span></summary><div class="gui-menu-list">${window.PYBERT_GUI.menus.map(menu => `<p><strong>${menu.name}</strong> · ${menu.items.join(' / ')}</p>`).join('')}<p>Debug Mode uses the native debug field. Run / Abort, native YAML Load / Save, logs and help are connected. 完整 Web archive、可信 legacy index诊断、加载/保存/清除参考已接入。 Tune / Use / Reset EQ 已接 Native EQ 优化工作区；AMI 优化留待 #10。 Restore defaults is a separate draft action.</p><p>Current task state and selected successful run are separate. Run overview reports native performance, delay, DFE bit errors, power and jitter. Independent COM and resource binding are available through 资源 / COM; core and COM child states remain separate.</p></div></details>`;
   }
   window.PYBERT_WORKBENCH = {
     getDraft: () => settings.clone(draft),

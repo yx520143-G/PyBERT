@@ -47,7 +47,7 @@ def array_identity(array):
             "sha256": sha256(array.tobytes(order="C"))}
 
 
-def read_arrays(content):
+def read_arrays(content, *, require_finite=True):
     """Check NPY headers and byte bounds before NumPy can allocate any arrays."""
     arrays = {}
     total = 0
@@ -69,7 +69,7 @@ def read_arrays(content):
                 if total > MAX_ARRAY_BYTES or stream.tell() + size != entry.file_size:
                     raise ValueError("Array byte budget or NPY shape/body mismatch.")
             array = np.lib.format.read_array(io.BytesIO(archive.read(entry)), allow_pickle=False)
-            if not np.isfinite(array).all():
+            if require_finite and not np.isfinite(array).all():
                 raise ValueError(f"Nonfinite array: {entry.filename}")
             arrays[entry.filename[:-4]] = array
     if not arrays:

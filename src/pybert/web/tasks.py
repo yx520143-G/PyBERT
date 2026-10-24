@@ -47,6 +47,10 @@ class Tasks:
         with self.lock:
             if self.active is not None:
                 raise BusyError("The native engine slot is busy; normalization is pending until the worker exits.")
+            if operation == "optimization" and len(self.optimizations) >= 16:
+                raise ValueError("Optimization record budget (16) reached; save records and restart the service before another optimization. Existing records retained.")
+            if operation == "optimization" and self.optimization_bytes() > 1024**3 - MAX_ARRAY_BYTES:
+                raise ValueError("Optimization storage budget reserves at most 768 MiB for the next job within 1 GiB; existing records retained.")
             request = copy.deepcopy(request)
             task_id = task_id or str(uuid.uuid4())
             if operation in ("run", "optimization"):
@@ -161,6 +165,9 @@ class Tasks:
                     "error": f"Worker exited {p.exitcode} without a valid terminal envelope.",
                     "cancel_observed": task["cancel_observed"],
                 }
+            if terminal["status"] == "cancelled" and not terminal.get("cancel_observed"):
+                terminal = {"status": "failed", "error": "Cancellation terminal lacked an observed native checkpoint acknowledgement.",
+                            "cancel_observed": False}
             task.update(
                 state=terminal["status"],
                 phase=terminal["status"],
@@ -196,6 +203,16 @@ class Tasks:
             self.active = None
             if task["operation"] == "optimization":
                 path = entry["directory"] / "optimization.json"
+                if not path.exists() and task["state"] != "succeeded":
+                    request = entry["request"]
+                    record = {"schema_version": 1, "opt_id": task_id, "status": task["state"],
+                              "requested_input": request["config"], "runtime_extensions": request.get("runtime_extensions", {}),
+                              "resource_bindings": request.get("resource_bindings", {}), "input_hash": request["input_hash"],
+                              "input_identity_hash": request.get("input_identity_hash"), "resource_hash": request.get("resource_hash"),
+                              "resources": request.get("frozen_resources", []), "arrays": {}, "candidates": [],
+                              "error": task.get("error", "Worker did not produce a complete record.")}
+                    np.savez_compressed(entry["directory"] / "arrays.npz")
+                    path.write_text(json.dumps(record, indent=2, allow_nan=False), encoding="utf-8")
                 if path.exists():
                     record = json.loads(path.read_text(encoding="utf-8"))
                     record["status"] = task["state"]
@@ -308,11 +325,18 @@ class Tasks:
             directory.mkdir()
             try:
                 record = load_optimization(content, directory)
+                size = sum(row["nbytes"] for row in record["arrays"].values())
+                if self.optimization_bytes() + size > 1024**3:
+                    raise ValueError("Optimization records exceed the shared 1 GiB raw-array budget; existing records retained.")
             except Exception:
                 self._remove_directory(directory)
                 raise
             self.optimization_references[record_id] = directory
             return {"record_id": record_id, "opt_id": record["opt_id"], "status": record["status"]}
+
+    def optimization_bytes(self):
+        return sum(row["nbytes"] for rid in [*self.optimizations, *self.optimization_references]
+                   for row in self.optimization(rid)["arrays"].values())
 
     def manifest(self, record_id):
         with self.lock:

@@ -199,6 +199,9 @@ def yaml_text(config, runtime_extensions=None, resource_bindings=None):
         extra = {"runtime_extensions": runtime_extensions or {}, "resource_bindings": resource_bindings or {}}
         header += "# pybert-web-runtime-v1: " + json.dumps(extra, ensure_ascii=False, allow_nan=False) + "\n"
         header += "# Runtime extensions above cannot be expressed by native PyBertCfg.\n"
+        if runtime_extensions:
+            header += "# Native PyBertCfg loss list (desktop ignores): " + ", ".join(sorted(runtime_extensions.get("values", {}))) + "\n"
+            header += "# Candidate pulse/FOM/history require a .pybert_opt record; YAML stores draft/initial values only.\n"
     return header + yaml.dump(cfg, sort_keys=False, allow_unicode=True)
 
 

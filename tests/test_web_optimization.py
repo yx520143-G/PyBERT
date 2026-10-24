@@ -117,3 +117,70 @@ def test_RLM_does_not_change_native_PAM4_source():
     assert a.rlm != b.rlm
     np.testing.assert_array_equal(a.bits, b.bits)
     np.testing.assert_array_equal(a.symbols, b.symbols)
+
+
+@pytest.mark.parametrize("score", [-1000., float("nan"), float("inf")])
+def test_native_true_sentinel_is_not_success(tmp_path, monkeypatch, score):
+    import pybert.web.optimization as module
+
+    monkeypatch.setattr(module, "coopt", lambda *_args, **_kwargs: ([0.]*6, 0., [0.]*100, score, True, [], []))
+    request = fixture() | {"resource_hash": input_hash([]), "frozen_resources": []}
+    with pytest.raises(ValueError, match="winner"):
+        module.run_optimization("sentinel", request, tmp_path, lambda: False, lambda *args, **kwargs: None)
+    record = json.loads((tmp_path / "optimization.json").read_text(encoding="utf-8"))
+    assert record["status"] == "failed" and "selected_candidate_id" not in record
+
+
+def test_unrelated_runtime_error_is_failure_even_when_event_requested(tmp_path, monkeypatch):
+    import pybert.web.optimization as module
+    from pybert.web.worker import run_worker
+
+    context = multiprocessing.get_context("spawn")
+    event = context.Event()
+    def fail(*_args, **_kwargs):
+        event.set()
+        raise RuntimeError("native unrelated failure")
+    monkeypatch.setattr(module, "coopt", fail)
+    class Connection:
+        def send(self, message):
+            pass
+        def close(self):
+            pass
+    run_worker("fault", "optimization", fixture() | {"resource_hash": input_hash([]), "frozen_resources": []}, str(tmp_path), event, Connection())
+    terminal = json.loads((tmp_path / "terminal.json").read_text(encoding="utf-8"))
+    assert terminal["status"] == "failed" and terminal["cancel_requested"] and not terminal["cancel_observed"]
+
+
+@pytest.mark.parametrize("mmse", [False, True])
+def test_optimizer_archive_shapes_integrity_and_no_native_load(tmp_path, monkeypatch, mmse):
+    from pybert.web.archive import array_identity, json_bytes
+    import pybert.web.optimization as module
+
+    request = fixture("O-PAM4-MMSE" if mmse else "O-NRZ-grid")
+    count = 3 if mmse else 100
+    prefix = "candidate_000000"
+    arrays = {"t_ns_opt": np.array([0., 1.]), "ctle_out_h_tune": np.array([1., 0.]), "clocks_tune": np.array([0., 1.]),
+              "p_chnl": np.array([.1, .2, .1]), "channel_t_ns": np.array([0., 1., 2.]),
+              prefix+"_pulse": np.array([1., 0.]), prefix+"_t_ns": np.array([0., 1.]),
+              prefix+"_tx_weights": np.zeros(6), prefix+"_rx_weights": np.ones(count)}
+    record = {"schema_version": 1, "opt_id": "inert-container-test", "status": "succeeded", "requested_input": request["config"],
+              "effective_input": request["config"], "input_hash": request["input_hash"], "input_identity_hash": request["input_identity_hash"],
+              "runtime_extensions": request["runtime_extensions"], "resource_bindings": {}, "source_identity": {}, "packages": {},
+              "plan": {}, "model": {}, "adapter_sha": "a"*40, "arrays": {k: array_identity(v) for k,v in arrays.items()},
+              "selected_candidate_id": "candidate-000000", "fom": 2.,
+              "candidates": [{"candidate_id": "candidate-000000", "arrays_prefix": prefix, "availability": "available", "fom": 2., "ctle_db": 0.}],
+              "selected_values": {"tx": [0.]*6, "ffe": [1.]*count, "ctle_db": 0.}}
+    (tmp_path / "optimization.json").write_bytes(json_bytes(record))
+    np.savez_compressed(tmp_path / "arrays.npz", **arrays)
+    module.save_optimization(tmp_path, tmp_path / "test.pybert_opt")
+    destination = tmp_path / "opened"
+    destination.mkdir()
+    monkeypatch.setattr(module, "prepare", lambda *_: pytest.fail("Archive read must not load native observers"))
+    loaded = module.load_optimization((tmp_path / "test.pybert_opt").read_bytes(), destination)
+    assert loaded == record
+    assert (destination / "arrays.npz").read_bytes() == (tmp_path / "arrays.npz").read_bytes()
+    record["selected_values"]["ffe"] = [1.]
+    with pytest.raises(ValueError, match="disagree"):
+        module.validate_record(record, arrays)
+    with pytest.raises(ValueError, match="Invalid optimization archive"):
+        module.load_optimization(b"broken zip", destination)

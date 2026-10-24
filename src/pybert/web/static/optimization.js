@@ -1,7 +1,7 @@
 /* Optimization UI owns candidate selection; the existing workbench owns editable inputs and Run. */
 (() => {
   const $=id=>document.getElementById(id), runs=window.PYBERT_RUNS;
-  let busy=true, active=null, rows=[], selected=null, pending=null, token=0;
+  let busy=true, active=null, rows=[], selected=null, pending=null, token=0, plotting=Promise.resolve();
   const eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const status=text=>{$('optimizer-status').textContent=text;};
   function controls() {
@@ -34,18 +34,21 @@
     const payload=await runs.api(`optimizations/${id}/pulse?candidate=${encodeURIComponent($('selected-candidate').value)}`);
     if(own!==token || $('selected-opt').value!==id) return;
     const traces=[{x:payload.channel_x_ns,y:payload.channel_pulse,name:'同输入 Channel pulse'},{x:payload.x_ns,y:payload.pulse,name:`${payload.candidate.candidate_id} · ${payload.selected?'获选':'其他候选'}`}];
-    if(payload.selected) traces.push({x:payload.cursor_ns,y:payload.cursor_V,name:'Cursor 时间标记'},{x:payload.x_ns,y:payload.clocks,name:'优化采样辅助线（非 CDR）'});
+    if(payload.selected) traces.push({x:payload.cursor_ns,y:payload.cursor_V,name:'Cursor 时间标记'},{x:payload.x_ns,y:payload.clocks,name:'优化采样辅助线（非 CDR）',visible:'legendonly'});
     $('optimizer-provenance').textContent=`opt ${selected.opt_id} · ${payload.candidate.candidate_id} · ${selected.score_mode} · FOM ${payload.candidate.fom} · input ${selected.input_hash} · resource ${selected.resource_hash}。当前 Run 未改变；仅获选候选可 Use EQ。`;
-    await Plotly.newPlot('optimizer-plot',traces,{title:'优化模型 pulse / bounded ideal DFE',xaxis:{title:'ns',range:[0,30]},yaxis:{title:'原生 pulse V / MMSE cursor=1'},margin:{l:60,r:20,t:40,b:90},legend:{orientation:'h'}},{responsive:true,displaylogo:false});
+    plotting=plotting.catch(()=>{}).then(()=>own===token ? Plotly.newPlot('optimizer-plot',traces,{title:{text:'优化模型 pulse / bounded ideal DFE',font:{size:13}},xaxis:{title:{text:'ns'},range:[0,30]},yaxis:{title:{text:'原生 pulse V / MMSE cursor=1'}},margin:{l:65,r:25,t:45,b:90},font:{family:'Arial',size:11},legend:{orientation:'h',font:{size:10},y:-.25}},{responsive:true,displaylogo:false}) : undefined);
+    await plotting;
   }
-  $('optimizer-open').addEventListener('click',()=>{$('optimizer-workspace').open=true;$('optimizer-workspace').scrollIntoView({block:'start'});});
+  function open() {$('optimizer-workspace').open=true;$('optimizer-workspace').scrollIntoView({block:'start'});}
+  $('optimizer-open').addEventListener('click',open);
+  document.addEventListener('click',event=>{if(event.target.closest('[data-optimizer-open]'))open();});
   async function action(fn) {try{await fn();}catch(error){status(error.message);}finally{controls();}}
   $('optimizer-plan').addEventListener('click',()=>action(async()=>{const result=await runs.optimizerAction('optimizer_plan');status(JSON.stringify(result.import_report.optimization_plan));}));
   $('tune-eq').addEventListener('click',()=>action(async()=>{
-    await runs.optimizerAction('optimizer_plan');
     const input=await runs.optimizationInput();
-    const task=await runs.api('optimizations',input);active=task.task_id;busy=true;controls();
-    status(`opt ${task.task_id} · validating；不自动 Use EQ。`);await runs.refresh();
+    await runs.api('optimizer-actions/optimizer_plan',input);
+    const task=await runs.api('optimizations',input);active=task.task_id;busy=true;runs.adoptTask(task);controls();
+    status(`opt ${task.task_id} · validating；不自动 Use EQ。`);
   }));
   $('abort-eq').addEventListener('click',()=>action(async()=>{if(active) {const task=await runs.api(`tasks/${active}/cancel`,{});status(`${task.task_id} · ${task.state}；等待原生检查点与进程实际退出。`);}}));
   $('reset-eq').addEventListener('click',()=>action(async()=>{const result=await runs.optimizerAction('reset_eq');runs.applyOptimizer(result);status('已按原 Reset EQ 同步当前实际 EQ 的初值/enable；搜索 min/max/step、DFE 与旧 Run 保留。');}));
@@ -53,7 +56,7 @@
   $('selected-candidate').addEventListener('change',()=>action(plot));
   $('use-eq').addEventListener('click',()=>action(async()=>{
     const current=await runs.optimizationInput();
-    const result=await runs.optimizerAction('use_eq',$('selected-opt').value);
+    const result=await runs.api('optimizer-actions/use_eq',{...current,record_id:$('selected-opt').value});
     const changed=Object.keys(current.config).filter(key=>!eq(current.config[key],selected.requested_input[key]));
     const runtimeConflict=!eq(current.runtime_extensions,selected.runtime_extensions);
     pending={result,revision:runs.revision(),recordId:$('selected-opt').value};
@@ -87,6 +90,7 @@
       const prior=$('selected-opt').value,old=rows;rows=state.optimizations || [];$('selected-opt').replaceChildren(new Option('选择优化记录…',''));
       for(const row of rows) $('selected-opt').add(new Option(`${row.status} · ${row.opt_id.slice(0,8)} · ${row.score_mode || ''}`,row.record_id));
       const latest=rows.findLast(row=>!old.some(r=>r.record_id===row.record_id));$('selected-opt').value=latest?.record_id || prior;action(render);
+      if(latest)status(`opt ${latest.opt_id} · ${latest.status}；查看所选记录，成功候选仍需显式 Use EQ。`);
     }
     controls();
   });

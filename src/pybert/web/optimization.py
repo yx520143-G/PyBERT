@@ -2,7 +2,9 @@
 
 import io
 import importlib.metadata
+import os
 import math
+import sys
 import time
 import zipfile
 from pathlib import Path
@@ -60,6 +62,12 @@ def preflight(p):
         raise ValueError("Native optimization supports NRZ/PAM4 in #8; Duo-binary is unavailable here.")
     if c["rx_n_taps"] < 1:
         raise ValueError("rx_n_taps: optimizer requires at least one Rx FFE tap.")
+    # Bound the original producer grids before their cached properties allocate them.
+    time_samples = p.nui * p.nspui
+    frequency_samples = math.ceil((p.f_max * 1e9 + p.f_step * 1e6) / (p.f_step * 1e6))
+    mmse_samples = round((.5 / (p.ui / p.nspui)) / 100e6) + 1
+    if time_samples > 2_000_000 or frequency_samples > 200_001 or mmse_samples > 200_001:
+        raise ValueError(f"Optimization grid budget refused: time={time_samples}/2000000, channel frequency={frequency_samples}/200001, MMSE frequency={mmse_samples}/200001; inputs unchanged.")
     if not 0 < p.rlm <= 1:
         raise ValueError("rlm: optimizer requires 0 < RLM <= 1.")
     for field in ("rx_bw_tune", "peak_freq_tune"):
@@ -86,6 +94,9 @@ def preflight(p):
     upper = peaks * counts["tx_tap_tuners"]
     if upper > MAX_OUTER or inner > MAX_INNER or upper * inner > MAX_EVALUATIONS:
         raise ValueError(f"Optimization budget refused: outer<={upper}/{MAX_OUTER}, inner<={inner}/{MAX_INNER}, total<={upper*inner}/{MAX_EVALUATIONS}; ranges unchanged.")
+    estimated_bytes = upper * (max(time_samples, 2 * mmse_samples, p.nspui * 105) * 16 + 8192)
+    if estimated_bytes > MAX_ARRAY_BYTES:
+        raise ValueError(f"Optimization candidate storage budget refused: conservative estimate {estimated_bytes}/{MAX_ARRAY_BYTES} bytes; ranges unchanged.")
     tx = mk_tap_weight_combs(p.tx_tap_tuners)
     tx = [w for w in tx if 1 - sum(abs(w)) > 0 and 1 - sum(abs(w)) >= max(0, p.tx_c0_min)]
     peak_values = np.arange(c["min_mag_tune"], c["max_mag_tune"] + c["step_mag_tune"], c["step_mag_tune"]) if c["ctle_enable_tune"] else [0.]
@@ -95,7 +106,9 @@ def preflight(p):
     rx = [] if c["use_mmse"] else mk_tap_weight_combs(p.ffe_tap_tuners)
     return {"outer_count": len(order), "rx_inner_count": None if c["use_mmse"] else len(rx) or 1,
             "outer_order": order, "rx_inner_order": [w.tolist() for w in rx], "dfe_prefix": prefix,
-            "limits": {"max_outer": MAX_OUTER, "max_inner": MAX_INNER, "max_evaluations": MAX_EVALUATIONS}}
+            "estimated_candidate_bytes_upper": estimated_bytes,
+            "limits": {"max_outer": MAX_OUTER, "max_inner": MAX_INNER, "max_evaluations": MAX_EVALUATIONS,
+                       "max_time_samples": 2_000_000, "max_frequency_samples": 200_001, "max_array_bytes": MAX_ARRAY_BYTES}}
 
 
 def prepare(request):
@@ -184,6 +197,7 @@ def run_optimization(opt_id, request, directory, check, emit):
               "resources": request.get("frozen_resources", []), "adapter_sha": adapter_sha(),
               "producer": "pybert.threads.optimization.coopt (Native)", "started_at": started,
               "source_identity": source_identity(),
+              "execution_environment": execution_environment(),
               "packages": {d.metadata["Name"]: d.version for d in importlib.metadata.distributions()},
               "model": {"bounded_ideal_DFE": True, "MMSE_TX_LEVEL_V": MMSE_TX_LEVEL_V, "MMSE_TX_SNR_DB": MMSE_TX_SNR_DB,
                         "MMSE_DJ_UI": MMSE_DJ_DUAL_DIRAC_UI, "MMSE_RJ_UI": MMSE_RJ_RMS_UI, "aggressors": [],
@@ -204,7 +218,7 @@ def run_optimization(opt_id, request, directory, check, emit):
         emit("phase", phase=f"native coopt; {plan['outer_count']} outer candidates; inner {plan['rx_inner_count']}")
         result = coopt(p, observations=observations)
         tx, peak, rx, fom, valid, _, _ = result
-        rows = observations["candidates"]
+        rows = observations.get("candidates", [])
         if not valid or not rows or not math.isfinite(fom) or fom <= 0 or fom == -1000:
             raise ValueError("Native coopt returned no finite positive valid winner (including -1000 sentinel).")
         eligible = [row for row in rows if math.isfinite(row["fom"]) and row["fom"] > -1000]
@@ -246,6 +260,7 @@ def run_optimization(opt_id, request, directory, check, emit):
         record["finished_at"] = time.time()
         record["elapsed_s"] = record["finished_at"] - started
         record["arrays"] = {key: array_identity(value) for key, value in arrays.items()}
+        record["nonfinite_arrays"] = {key: int(np.count_nonzero(~np.isfinite(value))) for key, value in arrays.items() if not np.isfinite(value).all()}
         if record["status"] == "succeeded" and (sum(a.nbytes for a in arrays.values()) > MAX_ARRAY_BYTES or any(not np.isfinite(a).all() for a in arrays.values())):
             record.update(status="failed", error="Nonfinite or over-budget native arrays; candidate unavailable.")
         np.savez_compressed(directory / "arrays.npz", **arrays)
@@ -255,11 +270,23 @@ def run_optimization(opt_id, request, directory, check, emit):
     return {"opt_id": opt_id, "selected_candidate_id": record["selected_candidate_id"]}
 
 
+def execution_environment():
+    import pybert
+    import pychopmarg
+    import pyibisami
+
+    packages = (pybert, pychopmarg, pyibisami)
+    modules = {m.__name__: m.__file__ for m in packages}
+    sources = {str(path): sha256(path.read_bytes()) for module in packages for path in Path(module.__file__).parent.rglob("*.py")}
+    return {"python": sys.executable, "PYTHONPATH": os.environ.get("PYTHONPATH"), "modules": modules,
+            "python_source_sha256": sources}
+
+
 def save_optimization(directory, destination):
     directory = Path(directory)
     record = read_json((directory / "optimization.json").read_bytes())
     raw = (directory / "arrays.npz").read_bytes()
-    validate_record(record, read_arrays(raw) if record.get("arrays") else {})
+    validate_record(record, read_arrays(raw, require_finite=record.get("status") == "succeeded") if record.get("arrays") else {})
     envelope = {"format": "pybert-web-optimization", "archive_schema": 1, "record": record, "raw_sha256": sha256(raw)}
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_STORED) as archive:
@@ -271,6 +298,13 @@ def save_optimization(directory, destination):
 
 
 def load_optimization(content, directory):
+    try:
+        return _load_optimization(content, directory)
+    except (zipfile.BadZipFile, KeyError, TypeError, AttributeError, IndexError, EOFError, UnicodeError, OverflowError) as err:
+        raise ValueError(f"Invalid optimization archive: {err}") from err
+
+
+def _load_optimization(content, directory):
     if len(content) > MAX_FILE_BYTES:
         raise ValueError("Optimization archive exceeds 256 MiB.")
     with zipfile.ZipFile(io.BytesIO(content)) as archive:
@@ -279,10 +313,10 @@ def load_optimization(content, directory):
             raise ValueError("Invalid optimization archive members/budget.")
         envelope = read_json(archive.read("manifest.json"))
         raw = archive.read("arrays.npz")
-    if envelope.get("format") != "pybert-web-optimization" or envelope.get("archive_schema") != 1 or sha256(raw) != envelope.get("raw_sha256"):
+    if envelope.get("format") != "pybert-web-optimization" or type(envelope.get("archive_schema")) is not int or envelope["archive_schema"] != 1 or sha256(raw) != envelope.get("raw_sha256"):
         raise ValueError("Unknown optimization archive/checksum mismatch.")
     record = envelope["record"]
-    arrays = read_arrays(raw) if record.get("arrays") else {}
+    arrays = read_arrays(raw, require_finite=record.get("status") == "succeeded") if record.get("arrays") else {}
     validate_record(record, arrays)
     # No observer/native operation during archive read. Use revalidates in the serial worker.
     atomic_write(Path(directory) / "optimization.json", json_bytes(record))
@@ -291,7 +325,7 @@ def load_optimization(content, directory):
 
 
 def validate_record(record, arrays):
-    if (record.get("schema_version") != 1 or record.get("status") not in ("succeeded", "failed", "cancelled") or
+    if (type(record.get("schema_version")) is not int or record["schema_version"] != 1 or record.get("status") not in ("succeeded", "failed", "cancelled") or
             not isinstance(record.get("opt_id"), str) or {k: array_identity(a) for k, a in arrays.items()} != record.get("arrays")):
         raise ValueError("Invalid optimization record/arrays.")
     if input_hash(record["requested_input"]) != record.get("input_hash") or input_hash({
@@ -301,6 +335,11 @@ def validate_record(record, arrays):
     extensions(record["runtime_extensions"])
     if record["status"] != "succeeded":
         return
+    for key in ("effective_input", "source_identity", "packages", "plan", "model"):
+        if not isinstance(record.get(key), dict):
+            raise ValueError(f"Missing optimization metadata: {key}")
+    if record["effective_input"] != record["requested_input"] or not isinstance(record.get("adapter_sha"), str) or len(record["adapter_sha"]) != 40:
+        raise ValueError("Optimization effective input/source version mismatch.")
     rows = record["candidates"]
     if not rows or len({r["candidate_id"] for r in rows}) != len(rows):
         raise ValueError("Missing/duplicate optimization candidates.")
@@ -315,7 +354,8 @@ def validate_record(record, arrays):
         raise ValueError("Selected pulse/channel/clocks axis mismatch.")
     values = record["selected_values"]
     prefix = winner["arrays_prefix"]
-    if (len(values["tx"]) != 6 or len(values["ffe"]) != record["requested_input"]["rx_n_taps"] or
+    expected_rx = record["requested_input"]["rx_n_taps"] if record["requested_input"]["use_mmse"] else 100
+    if (len(values["tx"]) != 6 or len(values["ffe"]) != expected_rx or
             not np.array_equal(values["tx"], arrays[prefix + "_tx_weights"]) or
             not np.array_equal(values["ffe"], arrays[prefix + "_rx_weights"]) or values["ctle_db"] != winner["ctle_db"] or
             not np.array_equal(arrays["ctle_out_h_tune"], arrays[prefix + "_pulse"])):

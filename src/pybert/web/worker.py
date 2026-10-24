@@ -52,6 +52,8 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
             if cancelled():
                 if operation == "com":
                     raise ComCancelled("Cancelled before validation")
+                if operation == "optimization":
+                    raise OptimizationCancelled("Cancelled before optimization validation")
                 raise RuntimeError("Cancelled before validation")
             if operation == "normalize":
                 result = normalize(request)
