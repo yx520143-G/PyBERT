@@ -32,3 +32,5 @@
 上述是首轮审查的历史结论。PM固定d33b58b的fresh终审（PR19 review5637253982）另发现两项P2：defaults缓存FEC请求被丢弃，完整symbols_dfe误标decoder窗口。PM未验收，原owner接回同一PR；详见[修订适用性](metadata-correction-v2.md)。
 
 固定1b711cf的独立Standards hard0/heuristic0；Spec发现runtime FEC暖缓存仍可旁路（1项P2），红灯复现后在e812f4a闭环。固定产品e812f4ab1ea150e7e6b65918852195cfbb48f273独立delta：Standards hard0/heuristic0、Spec新增0，复用原校验与原数组；只读核对9份存量4434/0失败及Chrome v3，未运行数值/浏览器。最后文档/证据封存另做固定HEAD复核，不将首次0新增冒称PM两项不存在。
+
+最终材料固定 `77720c91735b8100f6150bfd3239a726839bd700` / tree `ffd28dc062c8ac305f84e384e83a48fdaacac316` 完成双轴只读复核：Standards hard0/heuristic0；Spec新增0，未见材料性误报。4434/0审计、677/0 seal、513份Git字节检查与Chrome v3的0Run适用性一致；原schema1、schema2衍生、实际执行、source/HEAD差异、红灯和空白检查失败分别披露。两位reviewer没有运行数值或浏览器。本次之后仅补此收口文字，产品仍为e812f4a；最终HEAD/tree由PR与PM交接固定。
