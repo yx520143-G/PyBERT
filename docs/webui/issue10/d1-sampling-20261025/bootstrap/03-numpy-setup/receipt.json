@@ -1,0 +1,22 @@
+{
+  "command": [
+    "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+    "pip",
+    "install",
+    "--python",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Scripts\\python.exe",
+    "--no-deps",
+    "--require-hashes",
+    "--link-mode",
+    "copy",
+    "-r",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\docs\\webui\\issue10\\d1-sampling-20261025\\numpy-requirement.txt"
+  ],
+  "exit_code": 0,
+  "status": "returned",
+  "elapsed_s": 5.7882642000040505,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "191e38f530446140704f8c504e9b7e5b7da98b47f79043d3626401508e2b8f2a",
+  "scope": "minimal environment setup only; no requested package/product module imports",
+  "task_wall_peak_RSS": "UNKNOWN"
+}
