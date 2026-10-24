@@ -1,0 +1,25 @@
+{
+  "command": [
+    "git",
+    "--no-optional-locks",
+    "diff",
+    "--cached",
+    "--check"
+  ],
+  "exit_code": 2,
+  "elapsed_s": 0.05443760001799092,
+  "scope": "new read-only recapture of same staged inputs before attribute repair; not original-output recovery",
+  "output_sha256": {
+    "stdout.txt": "40c92173002e55502fadb2ccc0594be6ae5dc250a2e96142ba7e7320d7e6a728",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "first_wrapper_failure": {
+    "enclosing_exit": 1,
+    "toolwall_s": 0.6266712,
+    "inner_git_exit": 2,
+    "captured_stdout": "only first300 characters in exception; full original stdout not separately persisted",
+    "cause": "launches raw CRLF was not yet in evidence whitespace attributes",
+    "D1_Numpy_product_calls": 0
+  },
+  "task_wall_peak_RSS": "UNKNOWN"
+}

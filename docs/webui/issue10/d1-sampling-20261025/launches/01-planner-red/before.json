@@ -1,0 +1,14 @@
+{
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\docs\\webui\\issue10\\d1-sampling-20261025\\run_guarded.py",
+    "01-planner-red",
+    "PlannerCases.test_zero_edge_and_last_grid_sample_are_planned"
+  ],
+  "timeout_s": 60,
+  "plan_sha256": "d8cea9dd0e955929af83c195462bf8d79704d6ddec22877f974a407a4d92cf6e",
+  "scope": "hard bounded child; no product imports in launcher",
+  "task_wall_peak_RSS": "UNKNOWN"
+}

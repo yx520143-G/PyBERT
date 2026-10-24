@@ -1,6 +1,6 @@
 {
-  "phase": "vertical tracer: zero edge and exact final-grid target; actual production planner not yet present",
-  "run_id": "01-planner-red",
+  "phase": "vertical tracer green: actual production state and planner",
+  "run_id": "02-planner-green",
   "selection": [
     "PlannerCases.test_zero_edge_and_last_grid_sample_are_planned"
   ],
@@ -21,7 +21,7 @@
     "clarification.json": "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/utility/ami_clock.py": "f5f78a0e64952e77ad0d490083d76dcfac30e8aa5ec9e381edfa03c04301b323",
+    "src/pybert/utility/ami_clock.py": "c400a7154d0df3443da5207b5a4671736dca346572a14457984e36fb57e96e42",
     "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
     "src/pybert/utility/sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
     "src/pybert/pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
@@ -35,7 +35,7 @@
     "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b"
   },
   "expected_counts": {
-    "pure": 0,
+    "pure": 2,
     "calc_eye": 0,
     "histogram": 0,
     "rfft": 0,
@@ -43,9 +43,8 @@
   },
   "expected_result": {
     "tests": 1,
-    "failures": 1,
-    "errors": 0,
-    "reason": "actual production state/planner definitions absent; not a guard failure"
+    "failures": 0,
+    "errors": 0
   },
   "case_inputs": {
     "edges_s": [
@@ -109,5 +108,6 @@
   "actual_seams": "actual new planner/consumer/pure projections and actual baseline/candidate calc_eye; no product algorithm copies",
   "future_vertical_slices": "bounded planner formats/window/index cases; actual partial consumer; optional Eye indices/Native exact; masked period/FFT/PlotData projection; AST wiring, one final relevant green; each actual new input/source first frozen and committed",
   "restricted_entries": "full PyBERT/Main/update_results/run_dfe/DFE/decode/run_ami_model/PyAMI/modelmodule/grammar/SciPy/otherDSP/CmodelDLL/COM/coopt/Web/GUI/CLI/service/browser/model resource operations all0",
-  "task_wall_peak_RSS": "UNKNOWN"
+  "task_wall_peak_RSS": "UNKNOWN",
+  "previous_plan": "runs/01-planner-red/plan.json"
 }
