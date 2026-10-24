@@ -248,7 +248,7 @@ class EyeCases(unittest.TestCase):
         # At ts=0.1, canonical grid time 0.3 // ts is 2; the producer's actual index is 3.
         direct = candidate_eye(0.4, 4, 16, values, 2.0, clock_indices=np.array([3, 7]))
         self.assertEqual(float(direct[12, 0]), 2)
-        self.assertEqual(float(direct[4, 0]), 0)
+        self.assertEqual(float(direct[5, 0]), 0)
         self.assertEqual(float(direct.sum()), 16)
         for bad in ([-1], [12], [1.5]):
             with self.subTest(invalid_indices=bad):

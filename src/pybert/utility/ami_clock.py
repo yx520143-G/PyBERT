@@ -153,3 +153,26 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
     if not info["full_analysis_eligible"]:
         raise ValueError("insufficient_coverage")
     return info
+
+
+def ami_eye_data(info, waveform, ignore_samps, height, y_max, calc_eye):
+    """Draw timed traces from producer indices in this exact waveform crop, or report unavailable."""
+    info.update(eye_status="not_attempted", eye_trace_count=0)
+    absolute = np.asarray(info["eye_sample_indices"])
+    relative = absolute - ignore_samps
+    width = 2 * info["nspui"]
+    usable = ((relative >= 0) & (relative + width <= len(waveform))
+              & (absolute + width <= info["analysis"]["stop_index"]))
+    relative = relative[usable]
+    info["eye_relative_indices"] = relative
+    info["eye_eligible_trace_count"] = len(relative)
+    if not info["full_analysis_eligible"] or len(relative) < info["analysis"]["required_eye_traces"]:
+        info.update(eye_status="unavailable", eye_reason="insufficient_timed_traces")
+        return None
+    try:
+        image = calc_eye(info["symbol_ui_s"], info["nspui"], height, waveform, y_max, clock_indices=relative)
+    except BaseException:
+        info.update(eye_status="partial", eye_trace_count=None, eye_reason="eye_calculation_failed")
+        raise
+    info.update(eye_status="completed", eye_trace_count=len(relative), eye_reason=None)
+    return image

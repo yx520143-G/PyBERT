@@ -1,6 +1,6 @@
 {
-  "phase": "Eye index projection red and Native baseline/candidate exact regression",
-  "run_id": "07-eye-red",
+  "phase": "actual producer-index Eye green and exact Native baseline/candidate comparisons",
+  "run_id": "08-eye-green",
   "selection": [
     "EyeCases"
   ],
@@ -21,12 +21,12 @@
     "clarification.json": "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/utility/ami_clock.py": "c9a3077cb58bc03ae24f63b8c27e9ac0a346f2a1f678efd1719bc111bae5afa9",
+    "src/pybert/utility/ami_clock.py": "66da466af5262948057eb1332cd45f04a11b1e3c6d74beca06d255adba0ad8dc",
     "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
-    "src/pybert/utility/sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
+    "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
     "src/pybert/gui/plot.py": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
-    "docs/webui/issue10/d1-sampling-20261025/d1_cases.py": "97c0aad3d844a677e449ec4a6bf0a414236eb1f7df06046b7123b21414231aee",
+    "docs/webui/issue10/d1-sampling-20261025/d1_cases.py": "be5950ebe8b608bfb98c84bbe69a91626cd87a952d7d976f31903f2a5b344350",
     "docs/webui/issue10/d1-sampling-20261025/run_guarded.py": "b41fcbcf3ef2d894b053ea76a4c7986e8da285906fff26891e6857c0af3b090f",
     "docs/webui/issue10/d1-sampling-20261025/run_batch.py": "a59eec98c800000fedaa101ef2f2003b17d984f67fa4f08467fad4447aa04e41",
     "docs/webui/issue10/d1-sampling-20261025/environment.json": "773a699f1944848e4854b34e1940845aaa453e43a80e96b10149a563ae7af689",
@@ -35,17 +35,17 @@
     "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b"
   },
   "expected_counts": {
-    "pure": 0,
-    "calc_eye": 0,
+    "pure": 4,
+    "calc_eye": 15,
     "histogram": 0,
     "rfft": 0,
     "NumPy_imports": 1
   },
   "expected_result": {
     "tests": 1,
-    "failures": 1,
+    "failures": 0,
     "errors": 0,
-    "reason": "actual AMI Eye projection absent, assertion before any actual Eye call"
+    "actual_eye_breakdown": "4 baseline +11 candidate; 4 actual AMI Eye projections, two draw and two unavailable"
   },
   "case_inputs": {
     "source": "literal waveforms/indices/crops in cases.py.txt, height16/nspui2or4/ymax2, lengths<=18"
@@ -56,9 +56,10 @@
       3,
       7
     ],
-    "expected_pixels": "two traces start at +1: image[12,0]=2, image[4,0]=0, total16",
+    "expected_pixels": "two traces start at +1: row12=2, negative row5=0, total16",
     "crop": "absolute minus actual ignore_samps; reject negative/incomplete2UI and frozen stop; no fallback",
-    "no_trace": "None/unavailable and actual trace_count0; do not call auto Eye"
+    "no_trace": "None/unavailable and actual trace_count0; do not call auto Eye",
+    "preexecution_pixel_review": "old red asserted row4=0, which is also zero but is not the legacy negative row; actual int(-4+0.5)+8 maps -1 to row5, strengthened before any Eye execution"
   },
   "expected_basis": "literal pixel rows for +/-1 at height16/ymax2; manual absolute/relative indices; untouched actual baseline function, not copied test raster algorithm",
   "cumulative_limits": {
@@ -77,5 +78,5 @@
   "future_vertical_slices": "bounded planner formats/window/index cases; actual partial consumer; optional Eye indices/Native exact; masked period/FFT/PlotData projection; AST wiring, one final relevant green; each actual new input/source first frozen and committed",
   "restricted_entries": "full PyBERT/Main/update_results/run_dfe/DFE/decode/run_ami_model/PyAMI/modelmodule/grammar/SciPy/otherDSP/CmodelDLL/COM/coopt/Web/GUI/CLI/service/browser/model resource operations all0",
   "task_wall_peak_RSS": "UNKNOWN",
-  "previous_plan": "runs/06-consumer-green/plan.json"
+  "previous_plan": "runs/07-eye-red/plan.json"
 }

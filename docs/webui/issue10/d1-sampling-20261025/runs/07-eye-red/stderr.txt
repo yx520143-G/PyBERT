@@ -1,0 +1,15 @@
+test_producer_indices_and_native_eye_compatibility (d1_cases.EyeCases.test_producer_indices_and_native_eye_compatibility) ... FAIL
+
+======================================================================
+FAIL: test_producer_indices_and_native_eye_compatibility (d1_cases.EyeCases.test_producer_indices_and_native_eye_compatibility)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d1-sampling\docs\webui\issue10\d1-sampling-20261025\d1_cases.py", line 238, in test_producer_indices_and_native_eye_compatibility
+    self.assertTrue(callable(functions.get("ami_eye_data")), "production timed Eye projection is missing")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : production timed Eye projection is missing
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)

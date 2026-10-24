@@ -18,7 +18,7 @@ from collections.abc import Sequence
 
 from numpy import (
     arange, argmax, array, concatenate, convolve, cos, cumsum, diff, maximum,
-    mean, minimum, ones, pad, pi, roll, sign, where, zeros, floating
+    mean, minimum, ones, pad, pi, roll, sign, where, zeros, floating, integer
 )
 from numpy.fft import irfft, rfft
 from numpy.typing import NDArray
@@ -393,7 +393,7 @@ def make_ctle_h(rx_bw: float, peak_freq: float, peak_mag: float, t: Rvec) -> Rve
 
 # pylint: disable=too-many-arguments,too-many-locals,too-many-positional-arguments
 def calc_eye(ui: float, samps_per_ui: int, height: int, ys: Rvec, y_max: floating[Any],
-             clock_times: Optional[Rvec] = None) -> NDArray:
+             clock_times: Optional[Rvec] = None, *, clock_indices: Optional[Sequence[int] | NDArray] = None) -> NDArray:
     """
     Calculates the "eye" diagram of the input signal vector.
 
@@ -410,6 +410,9 @@ def calc_eye(ui: float, samps_per_ui: int, height: int, ys: Rvec, y_max: floatin
             (This allows the same function to be used for eye diagram
             creation, for both pre and post-CDR signals.)
             Default: None
+        clock_indices: Explicit integer trace-start indices in the supplied ``ys`` slice.
+            When provided, use these directly without converting seconds back to indices.
+            Every index must be nonnegative and cover a complete 2 UI trace. Default: None.
 
     Returns:
         The "heat map" representing the eye diagram.
@@ -429,6 +432,14 @@ def calc_eye(ui: float, samps_per_ui: int, height: int, ys: Rvec, y_max: floatin
 
     # Generate the "heat" picture array.
     img_array = zeros([height, width])
+    if clock_indices is not None:
+        for first_ix in clock_indices:
+            if (isinstance(first_ix, bool) or not isinstance(first_ix, (int, integer))
+                    or first_ix < 0 or first_ix + width > len(ys)):
+                raise ValueError("clock_indices require nonnegative integers and complete 2 UI traces")
+            for i, y in enumerate(ys[first_ix: first_ix + width]):
+                img_array[int(y * y_scale + 0.5) + y_offset, i] += 1
+        return img_array
     if clock_times is not None:
         for clock_time in clock_times:
             first_ix = int(clock_time // tsamp)
