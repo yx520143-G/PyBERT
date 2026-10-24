@@ -17,4 +17,12 @@
 
 独立 delta 固定复核 `e4823de24700ad1480bd1a341d054384142e6841`：两项均闭环，**新增 Spec finding 0**；只读核对 63项审计0失败/0main/COM，旧版本兼容明确为受控派生。最终有限数值预检和色标显示增量另随交付复核，不冒称旧数值批次重新执行。
 
-两轴分别计数：Standards 0 / Spec 初审2、已闭环2。最后产品/证据 delta 的独立收口记录由最终交接补充。
+## 最终固定提交复核
+
+两位 reviewer 对固定 `271c7d08332a16eb91aa6c05ab39f2ff732724ec` 完成独立只读 delta 复核，产品代码固定于 `70eeb0d6e25e6834dd75bd305f25154d2f5f67d6`；未运行数值、测试或浏览器。
+
+- Standards：硬规则违规 **0**，启发式 finding **0**；产品、工具、成本记录一致。
+- Spec：新增 finding **0**，两项原 finding 保持闭环；2899 checks / 0失败、2871数组 exact 与最终色标截图的表述一致。
+- 两次 GUI 误入口已计入总 Main **21**；其数值终态、raw、peak、elapsed 保持 unknown，不计成功。原生重复 symbol／零概率未观测、NRZ Viterbi 含错定位缺真实证据、Duo 74/5120 均已披露，受控测试未代替原生覆盖。
+
+两轴分别计数：Standards 0 / Spec 初审2、已闭环2、最终新增0。[Git 字节检查](evidence/git-byte-check-v1.json) 对固定交付前 HEAD 的335份证据逐字节匹配，0 BOM、0新增 Main/COM。此后只补本审查收口和该检查记录，不改变产品。
