@@ -89,7 +89,8 @@ def validate_run(run, arrays):
         raise ValueError("Missing/invalid source run_id identity.")
     if run.get("legacy"):
         raise ValueError("Legacy缺少完整原输入和物理轴，无法保存/打开为完整Web archive；请保留原文件与可用sidecar。")
-    if run.get("status") != "succeeded" or type(run.get("raw_schema_version")) is not int or run["raw_schema_version"] not in (2, 3, 4, 5, 6):
+    if (run.get("status") != "succeeded" or type(run.get("raw_schema_version")) is not int
+            or run["raw_schema_version"] not in (2, 3, 4, 5, 6)):
         raise ValueError("Unsupported run status/raw schema; no executable defaults substituted.")
     if run["raw_schema_version"] < 5 and "decoding" in run:
         raise ValueError("Decoding requires raw schema 5; older schema cannot bypass its validation.")
