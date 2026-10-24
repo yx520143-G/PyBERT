@@ -176,7 +176,7 @@ class Tasks:
                     task.update(state="failed", phase="failed", error="Missing result manifest.")
                 else:
                     manifest = json.loads(path.read_text(encoding="utf-8"))
-                    size = sum(math.prod(row["shape"]) * np.dtype(row["dtype"]).itemsize for row in manifest["datasets"].values())
+                    size = sum(math.prod(row["shape"]) * np.dtype(row["dtype"]).itemsize for row in manifest.get("datasets", {}).values())
                     if size > MAX_ARRAY_BYTES:
                         task.update(state="failed", phase="failed", error="Completed arrays exceed the 768 MiB per-record cache budget; previous successes retained.")
                     manifest["logs"] = list(task["logs"])
