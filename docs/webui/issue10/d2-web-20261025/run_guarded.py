@@ -31,6 +31,8 @@ def main():
     destination.mkdir(parents=True, exist_ok=False)
     arrays_dir = destination / "arrays"
     arrays_dir.mkdir()
+    serialized_dir = destination / "serialized"
+    serialized_dir.mkdir()
     hashes = {}
     for name, relative in plan["snapshot_paths"].items():
         raw = (root / relative).read_bytes()
@@ -64,6 +66,20 @@ def main():
     copies = {}
     serial_calls = {}
 
+    def retain_bytes(content, kind):
+        if not isinstance(content, (bytes, str)):
+            return None
+        raw = content.encode("utf-8") if isinstance(content, str) else content
+        if len(raw) > 16 * 1024**2:
+            block("serialized evidence input exceeds16MiB")
+        digest = hashlib.sha256(raw).hexdigest()
+        path = serialized_dir / (digest + "." + kind)
+        if not path.exists():
+            path.write_bytes(raw)
+            receipt.setdefault("instrumentation_raw_blob_copies", {"calls": 0, "bytes": 0})["calls"] += 1
+            receipt["instrumentation_raw_blob_copies"]["bytes"] += len(raw)
+        return digest
+
     def block(reason):
         receipt["blocked_attempts"].append(reason)
         events.write(json.dumps({"kind": "blocked", "reason": reason}) + "\n")
@@ -82,6 +98,8 @@ def main():
                 and path.name not in ("before.json", "receipt.json")}
             receipt["array_output_sha256"] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
                                                for path in sorted(arrays_dir.iterdir())}
+            receipt["artifact_sha256"] = {str(path.relative_to(destination)): hashlib.sha256(path.read_bytes()).hexdigest()
+                for path in destination.rglob("*") if path.is_file() and path.parent != destination}
             receipt["inputs_unchanged_after"] = all(
                 (root / relative).is_file() and hashlib.sha256((root / relative).read_bytes()).hexdigest() == hashes[name]
                 for name, relative in plan["snapshot_paths"].items())
@@ -137,6 +155,13 @@ def main():
 
     def profile(frame, event, arg):
         filename, name = frame.f_code.co_filename, frame.f_code.co_qualname
+        if event == "call" and filename in paths and paths[filename] == "pybert.web.archive":
+            if name in ("read_arrays", "load_archive", "read_json"):
+                content = frame.f_locals.get("content")
+                digest = retain_bytes(content, "json" if name == "read_json" else
+                                      "npz" if name == "read_arrays" else "pybert_run")
+                events.write(json.dumps({"kind": "serialization_input", "name": name,
+                                         "input_blob_sha256": digest}) + "\n")
         if filename in paths and paths[filename] == "pybert.web.archive" and name in (
                 "sha256", "json_bytes", "read_json", "atomic_write"):
             if event == "call":
@@ -279,10 +304,14 @@ def main():
                                    and Path(stream).is_file() else None)
                     if output_size is not None and output_size > 16 * 1024**2:
                         block("serialized artifact exceeds16MiB")
+                    raw_output = (stream.getvalue() if hasattr(stream, "getvalue") else
+                                  Path(stream).read_bytes() if isinstance(stream, (str, Path))
+                                  and Path(stream).is_file() else None)
+                    digest = retain_bytes(raw_output, "npz") if name.startswith("numpy.savez") else None
                     events.write(json.dumps({"kind": "serialization", "name": name, "input_array_bytes": size,
                         "output_or_stream_bytes": output_size, "consumed_stream_bytes":
                         stream.tell() - position if position is not None else None,
-                        "elapsed_s": elapsed, "returned": returned}) + "\n")
+                        "output_blob_sha256": digest, "elapsed_s": elapsed, "returned": returned}) + "\n")
             return call
 
         for name in ("savez_compressed", "savez", "load"):
@@ -371,6 +400,8 @@ def main():
             if path.is_file() and path.name not in hashes and path.name != "before.json"}
         receipt["array_output_sha256"] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
                                            for path in sorted(arrays_dir.iterdir())}
+        receipt["artifact_sha256"] = {str(path.relative_to(destination)): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in destination.rglob("*") if path.is_file() and path.parent != destination}
         receipt["inputs_unchanged_after"] = all(
             hashlib.sha256((root / relative).read_bytes()).hexdigest() == hashes[name]
             for name, relative in plan["snapshot_paths"].items())

@@ -1,8 +1,8 @@
 {
-  "phase": "archive complete verification after approved budget and irreversible guard proof",
-  "run_id": "10-archive-complete",
+  "phase": "partial lifecycle and actual AMI evidence red",
+  "run_id": "11-lifecycle-red",
   "selection": [
-    "ArchiveCases"
+    "LifecycleCases"
   ],
   "snapshot_paths": {
     "clocks.py.txt": "src/pybert/web/clocks.py",
@@ -25,12 +25,14 @@
     "pybert.web.data.txt": "src/pybert/web/data.py",
     "pybert.web.txt": "src/pybert/web/__init__.py",
     "guard_cases.py.txt": "docs/webui/issue10/d2-web-20261025/guard_cases.py",
-    "budget-supplement.json": "docs/webui/issue10/d2-web-20261025/PM-budget-supplement-6388850218.json"
+    "budget-supplement.json": "docs/webui/issue10/d2-web-20261025/PM-budget-supplement-6388850218.json",
+    "ami.py.txt": "src/pybert/web/ami.py",
+    "worker.py.txt": "src/pybert/web/worker.py"
   },
   "source_test_runner_raw_sha256": {
     "src/pybert/web/clocks.py": "5f9a5d3345a581a6ac9d1cc766825dcded783b5b574b31120451013a1b596222",
-    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "959fe330de282d719535e5abd2bccaf9b30e008a96ea1627e9111f897b6a8d09",
-    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "91ca32b5fe5e612a5bc381c4160366232a5bc6b7c7526429db18227356108701",
+    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "5cc7b132887ea44d785410318919927a1b4143ca59247aaa0ae24f57d7d152dd",
+    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "215643058432e1aa7b9b348e8c42f3fb669fe8b58d69d614a5cc28a38033fb0b",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "f59d58457156fc5cfc4b325fcced0a73750be234cea20b71ce85202199c7835b",
     "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
     "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
@@ -45,7 +47,9 @@
     "src/pybert/web/data.py": "5867f9cade8baf290b4eaec99b6cf90887da66fee1ef2bb8d4764c483452bcbd",
     "src/pybert/web/__init__.py": "3f06f9f54e5a61c3261fb7f5dee91d100b5e1d5b0dc9a69d74735456a5d74b92",
     "docs/webui/issue10/d2-web-20261025/guard_cases.py": "5d9f7bc08ddd227ce7588fe9ce11da135547497fe5473aff48d9655661c4a97e",
-    "docs/webui/issue10/d2-web-20261025/PM-budget-supplement-6388850218.json": "6769dac1b625cbfb47704d5f2d4596f22f52b70eb4f405fce37fefe537b24e59"
+    "docs/webui/issue10/d2-web-20261025/PM-budget-supplement-6388850218.json": "6769dac1b625cbfb47704d5f2d4596f22f52b70eb4f405fce37fefe537b24e59",
+    "src/pybert/web/ami.py": "eeb737efe19e041ff8d4891bb514fc0a7e20d156f1c19565bca33cf2353e05a8",
+    "src/pybert/web/worker.py": "f34e4734639c0a8d3e169a55b35e11a8dc4019fd6d7d5b93ec272871e58b4bf4"
   },
   "modules": {
     "pybert.web.clocks": {
@@ -134,6 +138,14 @@
         "AMI_RAW_SCHEMA_VERSION",
         "AMI_CLOCK_FEATURE"
       ]
+    },
+    "pybert.web.ami": {
+      "path": "src/pybert/web/ami.py",
+      "names": [
+        "AMICancelled",
+        "Execution",
+        "annotate"
+      ]
     }
   },
   "function_kinds": {
@@ -152,16 +164,19 @@
     "pybert.web.archive.save_archive": "save_archive",
     "pybert.web.archive.load_archive": "load_archive",
     "pybert.web.viterbi.extend": "viterbi_extend",
-    "pybert.web.viterbi.validate": "viterbi_validate"
+    "pybert.web.viterbi.validate": "viterbi_validate",
+    "pybert.web.ami.Execution.write": "execution_write",
+    "pybert.web.ami.annotate": "annotate",
+    "pybert.web.clocks.write_partial": "partial_save"
   },
-  "forbidden_definitions": [],
+  "forbidden_definitions": [
+    "pybert.web.ami.Execution.capture"
+  ],
   "observe": [
-    "store_clock_context",
-    "validate_clock_arrays",
-    "read_arrays",
-    "validate_run",
-    "save_archive",
-    "load_archive"
+    "write_partial",
+    "snapshot_producer",
+    "annotate",
+    "write"
   ],
   "limits": {
     "pure": 25000,
@@ -197,7 +212,7 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 9000,
+    "pure": 4,
     "collect": 0,
     "extend_analysis": 0,
     "eye_data": 0,
@@ -207,13 +222,13 @@
     "histogram": 0,
     "rfft": 0,
     "safe_log10": 0,
-    "viterbi_extend": 1,
-    "viterbi_validate": 16,
-    "resize_zero_pad": 16,
-    "read_arrays": 32,
-    "validate_run": 16,
-    "save_archive": 1,
-    "load_archive": 3,
+    "viterbi_extend": 0,
+    "viterbi_validate": 0,
+    "resize_zero_pad": 0,
+    "read_arrays": 0,
+    "validate_run": 0,
+    "save_archive": 0,
+    "load_archive": 0,
     "annotate": 0,
     "execution_write": 0,
     "partial_save": 0,
@@ -221,31 +236,27 @@
   },
   "expected_result": {
     "tests": 1,
-    "failures": 0,
-    "errors": 0
+    "failures": 1,
+    "errors": 0,
+    "reason": "write_partial absent; assertion before actual lifecycle/AMI methods; only selected software class definitions may enter"
   },
-  "case_inputs": "Same literal ArchiveCases frozen before07/08, now full legacyraw2-5 completion required; prior08 remainsfailed. Consumer-evidence container added to producer storage while static consumer wiring was completed; no Eye/FFT numerical calls here.",
+  "case_inputs": "ordinary phase context caller/cancellation exception, partialproducer1sample/3grid and distinctNaNbits42; missingproducer with poisonlazyproperty, duplicatepartialwrite, actualatomicmetadatawrite failure; Execution.write fake arrays only and actual annotate with partial/missing producer. No real Main/model/capture.",
   "expected_values": {
-    "archive": "source manifestUTF8/NPZ byte-exact including raw NaN payloads42/21",
-    "versions": "raw6/contract2/feature paired; missing/unknown/downgrade/Native/ordinaryfinite/object rejected",
-    "legacy": "all raw2-5 rows finish, disabledViterbi=-1 and originalresize validation counted",
-    "guard": "09 actual callback sentinel verified before resuming; all new guards irreversiblyexit86"
+    "partial": "independentpartial NPZ/JSON, exactrawNaNbits, priornormalfiles unchanged, statusfailed/cancelled never succeeded",
+    "missing": "producerNone/raw{} without propertyevaluation",
+    "save_error": "sameOSError raised, NPZretained, no inventedmanifest",
+    "AMI": "producer partialcount1, missingproducer sourceunavailable/countNone, no len/first eligibility or Ignore model-lock claim",
+    "stage": "actualphase helper tracks completed/failed/error/elapsed for ordinarystubcaller; not actualMain invocations"
   },
   "expected_basis": "independent literal bit patterns and index table, actual AST seam only; no product algorithm copies",
   "guards_order": "stdlib/input snapshots => irreversible import/audit/profile guards => installed-file verification => NumPy import/C extensions => selected actual definitions => tests",
   "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
   "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
   "expected_function_entries": {
-    "archive.read_arrays_upper": 32,
-    "archive.validate_run_upper": 16,
-    "archive.save_archive": 1,
-    "archive.load_archive": 3,
-    "viterbi.extend": 1,
-    "viterbi.validate_upper": 16,
-    "resize_zero_pad_upper": 16,
-    "other_actual_necessary_validation_and_serialization_pure_upper": 9000
+    "software_exception_class_definition": 1,
+    "software_Execution_class_definition": 1
   },
-  "previous_plan": "runs/09-guard-abort/plan.json",
+  "previous_plan": "runs/10-archive-complete/plan.json",
   "expected_counts_policy": "conservative upper bounds, actual event counts separately reported; nested JSON pairs/hash/array_identity/atomic_write also conservatively included in pure4000 and serialization ledgers",
   "serialization_policy": "from04 count each ndarray copy/deepcopy C completion incl bytes and elapsed;02 lacked per-copy trace (20 case fixture copies inferable from10 completed rows, elapsed UNKNOWN); preserve02 unchanged, full final matrix will include instrumented rows. No numerical re-run solely for instrumentation.",
   "FFT_uniformity": "original full-grid differences compared to original t[1]-t[0], rtol1e-12/atol0 for floating-grid representation only; no sample-target tolerance, no window change",

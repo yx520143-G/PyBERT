@@ -357,3 +357,100 @@ class ArchiveCases(unittest.TestCase):
             reread = archive.read_arrays(original, run=current)
             archive.validate_run(current, reread)
             self.assertEqual(reread["ui_ests"].tobytes(), values["ui_ests"].tobytes())
+
+
+class LifecycleCases(unittest.TestCase):
+    def test_partial_raw_phase_errors_cancellation_and_actual_annotation(self):
+        import io
+        from types import SimpleNamespace
+        from d2_under_test import destination
+        clocks, ami, archive = (modules[name] for name in
+                               ("pybert.web.clocks", "pybert.web.ami", "pybert.web.archive"))
+        self.assertTrue(callable(getattr(clocks, "write_partial", None)), "partial diagnostic output is missing")
+        execution = ami.Execution()
+        with execution.phase("prepare"):
+            pass  # An ordinary software caller; no engine construction or Main is executed.
+        failure = ami.AMICancelled("software post-Main checkpoint cancellation")
+        with self.assertRaises(ami.AMICancelled):
+            with execution.phase("collect"):
+                raise failure
+        self.assertEqual([row["status"] for row in execution.phases], ["completed", "failed"])
+        self.assertEqual(execution.phases[-1]["error_type"], "AMICancelled")
+        raw = np.array([np.nan, 0.5, np.nan])
+        raw.view(np.uint64)[0] = 0x7FF8000000000042
+        info = dict(producer_contract_version=2, invocation_id="software-partial-main", actual_branch="ami",
+                    consumption_status="partial", run_status="not_completed", consumed_count=1,
+                    sample_indices=np.array([1]), period_known=np.array([False, True, False]),
+                    reason="consumption_failed")
+        engine = SimpleNamespace(ami_clock_info=info, t=np.array([0., 0.25, 0.5]), ui_ests=raw)
+        snapshot = clocks.snapshot_producer(engine, phase="Main_exception")
+        folder = destination / "cancelled-diagnostic"
+        folder.mkdir()
+        (folder / "arrays.npz").write_bytes(b"prior-success-bytes")
+        (folder / "manifest.json").write_bytes(b"prior-success-manifest")
+        record = clocks.write_partial(folder, snapshot, execution.phases,
+                                      {"status": "cancelled", "error": str(failure), "error_type": "AMICancelled"})
+        self.assertEqual(record["status"], "cancelled")
+        self.assertEqual(record["evidence_type"], "diagnostic_partial_only")
+        self.assertEqual(record["producer"]["consumed_count"], 1)
+        self.assertEqual((folder / "arrays.npz").read_bytes(), b"prior-success-bytes")
+        self.assertEqual((folder / "manifest.json").read_bytes(), b"prior-success-manifest")
+        with np.load(folder / "partial-arrays.npz", allow_pickle=False) as values:
+            self.assertEqual(values["raw.ui_ests"].tobytes(), raw.tobytes())
+            self.assertEqual(values["producer.sample_indices"].tolist(), [1])
+        with self.assertRaises(FileExistsError):
+            clocks.write_partial(folder, snapshot, execution.phases, {"status": "failed", "error": "new"})
+
+        class Unstarted:
+            @property
+            def t(self):
+                raise AssertionError("snapshot must not evaluate a missing engine property")
+
+        absent = clocks.snapshot_producer(Unstarted(), phase="prepare_failed")
+        empty = destination / "pre-main-diagnostic"
+        empty.mkdir()
+        record = clocks.write_partial(empty, absent, [], {"status": "failed", "error": "prepare failed"})
+        self.assertIsNone(record["producer"])
+        self.assertEqual(record["raw"], {})
+        self.assertEqual(record["run_qualification"], "not evaluated")
+        # A metadata write failure keeps the already written diagnostic NPZ and the original exception.
+        save_error = OSError("software metadata write failure")
+        original_write = archive.atomic_write
+        def stub_fail_write(path, content):
+            if str(path).endswith(".json"):
+                raise save_error
+            return original_write(path, content)
+        failed = destination / "save-failed-diagnostic"
+        failed.mkdir()
+        archive.atomic_write = stub_fail_write
+        try:
+            with self.assertRaises(OSError) as caught:
+                clocks.write_partial(failed, snapshot, [], {"status": "failed", "error": "original Main failure"})
+            self.assertIs(caught.exception, save_error)
+            self.assertTrue((failed / "partial-arrays.npz").is_file())
+            self.assertFalse((failed / "partial-manifest.json").exists())
+        finally:
+            archive.atomic_write = original_write
+        execution.arrays["ami.call0.clocks"] = np.array([0., 0.5])
+        execution.write(empty)
+        saved = archive.read_json((empty / "ami-execution.json").read_bytes())
+        self.assertEqual(saved["phases"], execution.phases)
+        self.assertEqual(saved["clock_buffer_scope"], "helper valid prefix only; full ABI buffers are separate B diagnostics")
+
+        names = ("ctle_h", "ctle_s", "ctle_p", "ctle_H", "ctle_out_h", "ctle_out_s", "ctle_out_p", "ctle_out_H",
+                 "ffe_out", "rx_in", "ctle_out")
+        p = SimpleNamespace(rx_dll_file="no-model", tx_use_ami=False, tx_use_getwave=False,
+                            rx_use_ami=True, rx_use_getwave=True, rx_use_clocks=True, ami_clock_info=info)
+        def manifest():
+            return {"datasets": {name: {} for name in names}, "plots": {}, "warnings": []}
+        first = manifest()
+        ami.annotate(p, execution, {}, {}, first)
+        branch = first["ami"]["actual_branch"]
+        self.assertEqual(branch["consumption_status"], "partial")
+        self.assertEqual(branch["consumed_count"], 1)
+        self.assertNotIn("Ignore_Bits", branch["native_DFE_CDR_AGC"])
+        p.ami_clock_info = {}
+        second = manifest()
+        ami.annotate(p, execution, {}, {}, second)
+        self.assertEqual(second["ami"]["actual_branch"]["clock_source"], "unavailable")
+        self.assertIsNone(second["ami"]["actual_branch"]["consumed_count"])

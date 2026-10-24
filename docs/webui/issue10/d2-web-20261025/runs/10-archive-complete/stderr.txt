@@ -1,0 +1,6 @@
+test_masked_archive_features_and_lossless_original_files (d2_cases.ArchiveCases.test_masked_archive_features_and_lossless_original_files) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.301s
+
+OK
