@@ -1,0 +1,7 @@
+test_planner_contract_without_claiming_consumption (d1_cases.PlannerCases.test_planner_contract_without_claiming_consumption) ... ok
+test_zero_edge_and_last_grid_sample_are_planned (d1_cases.PlannerCases.test_zero_edge_and_last_grid_sample_are_planned) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.073s
+
+OK

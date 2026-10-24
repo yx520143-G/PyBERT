@@ -1,0 +1,22 @@
+{
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\docs\\webui\\issue10\\d1-sampling-20261025\\run_guarded.py",
+    "04-planner-contract-green",
+    "PlannerCases"
+  ],
+  "timeout_s": 60,
+  "plan_sha256": "2b7e5b63c2db6e49bf0104b420e37699c3eef467ec4033763caac52dbecfb851",
+  "scope": "hard bounded child; no product imports in launcher",
+  "task_wall_peak_RSS": "UNKNOWN",
+  "exit_code": 0,
+  "status": "returned",
+  "elapsed_s": 2.4953329999989364,
+  "output_sha256": {
+    "stdout.txt": "34254cfe567e26c64eddeaf56078dfb140b72117e1b2618cf2cf3b12e7327fc0",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "timeout_note": "events.jsonl and line-buffered child logs retain actual starts; timeout is never pass"
+}

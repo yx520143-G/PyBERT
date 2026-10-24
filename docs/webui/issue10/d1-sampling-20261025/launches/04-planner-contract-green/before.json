@@ -1,0 +1,14 @@
+{
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d1-sampling\\docs\\webui\\issue10\\d1-sampling-20261025\\run_guarded.py",
+    "04-planner-contract-green",
+    "PlannerCases"
+  ],
+  "timeout_s": 60,
+  "plan_sha256": "2b7e5b63c2db6e49bf0104b420e37699c3eef467ec4033763caac52dbecfb851",
+  "scope": "hard bounded child; no product imports in launcher",
+  "task_wall_peak_RSS": "UNKNOWN"
+}

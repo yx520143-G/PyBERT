@@ -1,8 +1,8 @@
 {
-  "phase": "strict planner contract green plus original tracer regression",
-  "run_id": "04-planner-contract-green",
+  "phase": "actual consumer red: partial failures, both window bounds, periods, chunk/full and W+1/float-floor",
+  "run_id": "05-consumer-red",
   "selection": [
-    "PlannerCases"
+    "ConsumerCases"
   ],
   "snapshot_paths": {
     "helpers.py.txt": "src/pybert/utility/ami_clock.py",
@@ -26,7 +26,7 @@
     "src/pybert/utility/sigproc.py": "8bfef834d14732de34efa6af3b470ff6371f691ef22d1fc3e77dcf78be205794",
     "src/pybert/pybert.py": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3",
     "src/pybert/gui/plot.py": "9c86c3201bc97f4d03f0315ee5a875d32a220d099949cda884f8f545673c2224",
-    "docs/webui/issue10/d1-sampling-20261025/d1_cases.py": "7a681b882bb521e988df0f3741064cb5aaf00d79cda12e8b1a0b0c906c2cf26a",
+    "docs/webui/issue10/d1-sampling-20261025/d1_cases.py": "b06552d4e5ed164c23ee647707acca01a8e5a23970c397bac0269dbf5cd22de8",
     "docs/webui/issue10/d1-sampling-20261025/run_guarded.py": "1c495c5bbf6f983293261bdd018758f424de2bde175134cde94eb19700f05b95",
     "docs/webui/issue10/d1-sampling-20261025/run_batch.py": "a59eec98c800000fedaa101ef2f2003b17d984f67fa4f08467fad4447aa04e41",
     "docs/webui/issue10/d1-sampling-20261025/environment.json": "773a699f1944848e4854b34e1940845aaa453e43a80e96b10149a563ae7af689",
@@ -35,30 +35,51 @@
     "docs/webui/issue10/d1-sampling-20261025/PM-clarification-6387622466.json": "ccf7664958ca971775b835dcdf5d1e516264d22549038e6fdd5191954c59fa0b"
   },
   "expected_counts": {
-    "pure": 70,
+    "pure": 0,
     "calc_eye": 0,
     "histogram": 0,
     "rfft": 0,
     "NumPy_imports": 1
   },
   "expected_result": {
-    "methods": 2,
-    "contract_subtests": 25,
-    "failures": 0,
+    "tests": 1,
+    "failures": 1,
     "errors": 0,
-    "pure_breakdown": "26 factory +26 planner +18 reject =70"
+    "reason": "actual production consumer absent; its first assertion prevents all planner/stub calls"
   },
   "case_inputs": {
-    "source": "25 hand-authored literal subcases in frozen cases.py.txt; nonfinite inputs explicitly float(NaN/inf), not invalid JSON numbers"
+    "source": "literal row table and grid/window arrays in cases.py.txt; 10 rows plus tail/fresh/chunk-prefix/full/float cases"
   },
   "expected_independent_values": {
-    "indices": "literal hand-grid positions",
-    "deferred": "future when strictly later than final grid, without epsilon/clamp",
-    "PAM4": "explicit software declaration; no symbol UI doubling",
-    "Ignore": "target0.6 < threshold0.65 despite actualgrid0.75",
-    "delay_tolerance": "14 decimal places for derived delay only; index/format checks exact"
+    "normal_indices": [
+      1,
+      3,
+      5
+    ],
+    "normal_known": [
+      false,
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "normal_edge_period": 0.5,
+    "sparse_edge_period": 1.0,
+    "Viterbi_tail_indices": [
+      6,
+      10
+    ],
+    "float_indices": [
+      3,
+      7,
+      11
+    ],
+    "partial": "first/second decision failure or cancellation never completed; original error identity remains",
+    "windows": "both target and actual time inclusive within frozen bounds; insufficient coverage never fallback/pad",
+    "chunk": "same ticks become available only with actual complete grid"
   },
-  "expected_basis": "PM contract literal fields and manually indexed quarter-UI grid; no implementation algorithm copied",
+  "expected_basis": "manual small-grid indices and original adjacent edge differences, explicit expected bit outputs from ordinary stub mapping; no DFE/decoder/model code",
   "cumulative_limits": {
     "pure": 1000,
     "calc_eye": 128,
@@ -75,5 +96,5 @@
   "future_vertical_slices": "bounded planner formats/window/index cases; actual partial consumer; optional Eye indices/Native exact; masked period/FFT/PlotData projection; AST wiring, one final relevant green; each actual new input/source first frozen and committed",
   "restricted_entries": "full PyBERT/Main/update_results/run_dfe/DFE/decode/run_ami_model/PyAMI/modelmodule/grammar/SciPy/otherDSP/CmodelDLL/COM/coopt/Web/GUI/CLI/service/browser/model resource operations all0",
   "task_wall_peak_RSS": "UNKNOWN",
-  "previous_plan": "runs/03-planner-contract-red/plan.json"
+  "previous_plan": "runs/04-planner-contract-green/plan.json"
 }
