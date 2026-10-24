@@ -107,6 +107,8 @@ def validate(config, defaults, complete=True, execution=False):
     """Reject unsupported active paths before any resource observer can load them."""
     if not isinstance(config, dict):
         raise ValueError("Configuration must be an object.")  # noqa: TRY004 - HTTP input validation contract
+    if "rx_viterbi_fec" in config:
+        raise ValueError("unsupported_native_fec: API-only FEC is not supported or persisted by PyBertCfg.")
     unknown = set(config) - set(defaults)
     if unknown:
         raise ValueError(f"Unsupported configuration fields/runtime extensions: {sorted(unknown)}")
@@ -166,12 +168,14 @@ def validate(config, defaults, complete=True, execution=False):
         if c[key] not in values:
             raise ValueError(f"{key}={c[key]}: active IBIS/AMI is unsupported; see #10.")
     for key in (
-        "rx_use_viterbi",
         "tx_use_ami",
         "rx_use_ami",
     ):
         if c[key]:
             raise ValueError(f"{key}: active capability is unsupported; see #9/#10.")
+    from pybert.web.viterbi import plan
+
+    plan(c, execution=execution)
     if execution and c["impulse_length"] != 0:
         raise ValueError("impulse_length: nonzero ns is blocked by native inconsistent units; use automatic 0.")
     if execution and c["ctle_enable"] and c["ctle_sel"] != "Native":
