@@ -1,0 +1,17 @@
+{
+  "stage": "preparation before acceptance freeze",
+  "command": "uv run --no-project --python E:/serial-bus-simulator/.venv/Scripts/python.exe python tools/freeze_external_lanes.py",
+  "exit_code": 1,
+  "error": "FileNotFoundError: docs/webui/issue3/fixtures/F-NRZ-01.extensions.json",
+  "cause": "owner referred to a non-existent inherited metadata filename; replaced with actual issue3 frozen-manifest.json",
+  "preserved_staging": "local/preparation-attempt-1: both derived resource bytes, both full configs, resources.json, original freeze script",
+  "freeze_created": false,
+  "acceptance_import_freq": 0,
+  "acceptance_import_fext": 0,
+  "Main": 0,
+  "coopt": 0,
+  "COM": 0,
+  "AMI": 0,
+  "elapsed_s": 2.9748464,
+  "peak_rss": "UNKNOWN"
+}

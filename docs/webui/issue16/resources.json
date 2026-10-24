@@ -1,0 +1,236 @@
+[
+  {
+    "id": "LL8",
+    "author": "Rune Bæverrud / SI-Forum (site author; model header credits SI-forum make_samples.mjs)",
+    "url": "https://www.si-forum.no/siforum-static/eye/samples/backplane_25g_xtalk.s8p?v=1791651621",
+    "version": "LinkLab manual v0.17.0; download query v=1791651621, acquired bytes fixed by SHA256",
+    "permission": "Public author-provided sample for local importing/evaluation (manual 11.6); no explicit redistribution license found. Original and derived files local only; no relicensing claimed.",
+    "port_evidence": "Original header lines 1-5 explicitly name victim TX+/TX-/RX+/RX- = 1/2/5/6, aggressor 3/4 -> 7/8; analysis lane1 + at3/7, - at4/8 follows same neighbouring-pair notation.",
+    "lanes": [
+      {
+        "tx": [
+          0,
+          1
+        ],
+        "rx": [
+          4,
+          5
+        ]
+      },
+      {
+        "tx": [
+          2,
+          3
+        ],
+        "rx": [
+          6,
+          7
+        ]
+      }
+    ],
+    "original": "docs\\webui\\issue16\\local\\resources\\LinkLab\\backplane_25g_xtalk.s8p",
+    "original_name": "backplane_25g_xtalk.s8p",
+    "sha256": "454b0a18c6f9c00b37186e3196ff4fd23fef049e1f2a3285b4fa75452f14016a",
+    "bytes": 1439461,
+    "format": {
+      "format": "DB",
+      "unit": "GHZ",
+      "ports": 8
+    },
+    "frequency_hz": {
+      "first": 50000000.0,
+      "last": 50000000000.0,
+      "count": 1000
+    },
+    "z0_single_ended_ohm": 50.0,
+    "classification": "external simulation/model, not measured hardware",
+    "retrieved_utc": "2026-10-24T09:57:48.355487+00:00",
+    "original_plain_lane_input": "UNSUPPORTED_PORT_LAYOUT; requires documented permutation",
+    "variants": [
+      {
+        "numbering": "interleaved",
+        "path": "docs\\webui\\issue16\\local\\resources\\derived\\LL8-interleaved.s8p",
+        "new_to_original_0based": [
+          0,
+          4,
+          1,
+          5,
+          2,
+          6,
+          3,
+          7
+        ],
+        "original_to_new_0based": [
+          0,
+          2,
+          4,
+          6,
+          1,
+          3,
+          5,
+          7
+        ],
+        "sha256": "b28c8d5bd2983a5488b5265b6b635562eb33f557429db65a058b8d111b7a9685",
+        "bytes": 2813246,
+        "operation": "Snew[f,a,b]=Soriginal[f,new_to_original[a],new_to_original[b]]; all ports retained; DB/MA to complex RI 17 digits; frequency and real 50-ohm Z0 retained"
+      },
+      {
+        "numbering": "grouped",
+        "path": "docs\\webui\\issue16\\local\\resources\\derived\\LL8-grouped.s8p",
+        "new_to_original_0based": [
+          0,
+          1,
+          4,
+          5,
+          2,
+          3,
+          6,
+          7
+        ],
+        "original_to_new_0based": [
+          0,
+          1,
+          4,
+          5,
+          2,
+          3,
+          6,
+          7
+        ],
+        "sha256": "c93a8ee73cafc59358b9bbd380ef66f49905d18d513ec0f2177df0c2a882a07c",
+        "bytes": 2813246,
+        "operation": "Snew[f,a,b]=Soriginal[f,new_to_original[a],new_to_original[b]]; all ports retained; DB/MA to complex RI 17 digits; frequency and real 50-ohm Z0 retained"
+      }
+    ]
+  },
+  {
+    "id": "SI12",
+    "author": "SignalIntegrity / Teledyne LeCroy / Nubis Communications; repository maintainer Pete Pupalaikis",
+    "url": "https://github.com/Nubis-Communications/SignalIntegrity/blob/1922a1591100700aa8bd635964cd688012b8668d/Test/TestSignalIntegrity/TestWElement/TestWElementTest_testWElement3Pairs.s12p",
+    "version": "1922a1591100700aa8bd635964cd688012b8668d; file header SignalIntegrity v1.1.13",
+    "permission": "GPL-3.0-or-later, repository LICENSE.txt and file/source copyright headers. Original bytes and source evidence retained locally; no external files added to PyBERT licensing scope.",
+    "port_evidence": "WElement.py circuit declares wire j: port j -> j+6 (1based). WireBond3Pairs.net couples (1,2)/(7,8), (3,4)/(9,10), (5,6)/(11,12) to MixedModeConverter ports1=+,2=-. Tx=left/Rx=right are declared analysis-direction labels, not measurement labels.",
+    "lanes": [
+      {
+        "tx": [
+          0,
+          1
+        ],
+        "rx": [
+          6,
+          7
+        ]
+      },
+      {
+        "tx": [
+          2,
+          3
+        ],
+        "rx": [
+          8,
+          9
+        ]
+      },
+      {
+        "tx": [
+          4,
+          5
+        ],
+        "rx": [
+          10,
+          11
+        ]
+      }
+    ],
+    "original": "docs\\webui\\issue16\\local\\resources\\SignalIntegrity\\Test\\TestSignalIntegrity\\TestWElement\\TestWElementTest_testWElement3Pairs.s12p",
+    "original_name": "TestWElementTest_testWElement3Pairs.s12p",
+    "sha256": "cbf87cf893b869a2eb899e4172e3daec1410829126a49c5d48d3de109bd4483e",
+    "bytes": 279114,
+    "format": {
+      "format": "MA",
+      "unit": "MHZ",
+      "ports": 12
+    },
+    "frequency_hz": {
+      "first": 0.0,
+      "last": 100000000000.0,
+      "count": 101
+    },
+    "z0_single_ended_ohm": 50.0,
+    "classification": "external simulation/model, not measured hardware",
+    "retrieved_utc": "2026-10-24T09:57:48.683607+00:00",
+    "original_plain_lane_input": "UNSUPPORTED_PORT_LAYOUT; requires documented permutation",
+    "variants": [
+      {
+        "numbering": "interleaved",
+        "path": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-interleaved.s12p",
+        "new_to_original_0based": [
+          0,
+          6,
+          1,
+          7,
+          2,
+          8,
+          3,
+          9,
+          4,
+          10,
+          5,
+          11
+        ],
+        "original_to_new_0based": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          1,
+          3,
+          5,
+          7,
+          9,
+          11
+        ],
+        "sha256": "aafe369e4853d369580560081a83b467d913fe913df78c8cbbd7dc4ce21b6198",
+        "bytes": 623019,
+        "operation": "Snew[f,a,b]=Soriginal[f,new_to_original[a],new_to_original[b]]; all ports retained; DB/MA to complex RI 17 digits; frequency and real 50-ohm Z0 retained"
+      },
+      {
+        "numbering": "grouped",
+        "path": "docs\\webui\\issue16\\local\\resources\\derived\\SI12-grouped.s12p",
+        "new_to_original_0based": [
+          0,
+          1,
+          6,
+          7,
+          2,
+          3,
+          8,
+          9,
+          4,
+          5,
+          10,
+          11
+        ],
+        "original_to_new_0based": [
+          0,
+          1,
+          4,
+          5,
+          8,
+          9,
+          2,
+          3,
+          6,
+          7,
+          10,
+          11
+        ],
+        "sha256": "324c09a6ebd061f1fc15ad6921fd86ff84cedae1a8c7171a5c59c864065b5c58",
+        "bytes": 623019,
+        "operation": "Snew[f,a,b]=Soriginal[f,new_to_original[a],new_to_original[b]]; all ports retained; DB/MA to complex RI 17 digits; frequency and real 50-ohm Z0 retained"
+      }
+    ]
+  }
+]
