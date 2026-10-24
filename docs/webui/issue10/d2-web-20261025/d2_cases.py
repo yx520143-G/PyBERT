@@ -361,7 +361,6 @@ class ArchiveCases(unittest.TestCase):
 
 class LifecycleCases(unittest.TestCase):
     def test_partial_raw_phase_errors_cancellation_and_actual_annotation(self):
-        import io
         from types import SimpleNamespace
         from d2_under_test import destination
         clocks, ami, archive = (modules[name] for name in

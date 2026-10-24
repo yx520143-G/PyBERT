@@ -1,6 +1,7 @@
 """Producer-owned AMI clock records shared by Web consumers and archive validation."""
 
 import copy
+import io
 
 import numpy as np
 
@@ -74,6 +75,8 @@ def clock_context(engine, snapshot=None):
             raise ValueError("Host producer snapshot no longer matches " + name)
     t, period, known = raw["t"], raw["ui_ests"], info["period_known"]
     compact = validate_period(t, period, known)
+    if not len(compact[0]):
+        raise ValueError("All-unknown producer period is diagnostic only")
     if (not np.array_equal(raw["ami_period_known"], known) or not np.array_equal(info["grid_s"], t)
             or np.any(np.diff(t) <= 0) or not np.array_equal(period[known], info["period_s"][known] * 1e12)):
         raise ValueError("Producer grid, mask or ps units disagree")
@@ -131,9 +134,9 @@ def eye_selection(context, slice_start, slice_stop):
                       "slice_start": slice_start, "slice_stop": stop, "width": width,
                       "invocation_id": info["invocation_id"], "source_fields": ["ami.clock.sample_indices",
                       "ami.clock.sample_targets_s", "ami.clock.sample_grid_times_s"],
-                      "window": dict(info["analysis"]),
-                      "availability": "available" if len(relative) else "unavailable",
-                      "reason": None if len(relative) else "no_complete_timed_trace"}
+                      "window": dict(info["analysis"]), "trace_status": "not_attempted",
+                      "availability": "unavailable",
+                      "reason": "not_calculated" if len(relative) else "no_complete_timed_trace"}
 
 
 def period_projection(context, t, period_ps, ui):
@@ -244,9 +247,10 @@ def store_clock_context(context, arrays, datasets):
             "snapshot_phase": context["snapshot_phase"], "eye_consumers": context["eye_consumers"]}
 
 
-def clock_features(run, archive_features=None):
+def clock_features(run, archive_features=()):
     """Version, actual branch and required feature are one indivisible stored contract."""
-    contract = run.get("ami", {}).get("clock_contract")
+    ami = run.get("ami")
+    contract = ami.get("clock_contract") if isinstance(ami, dict) else None
     features = run.get("required_features", [])
     masked = run.get("raw_schema_version") == 6
     if masked:
@@ -257,7 +261,7 @@ def clock_features(run, archive_features=None):
             raise ValueError("raw6 requires AMI clock_contract2 and ami-clock-grid-v2 together")
     elif features or contract is not None:
         raise ValueError("AMI clock contract/feature cannot be downgraded or attached to a Native raw version")
-    if archive_features is not None and archive_features != features:
+    if archive_features != () and archive_features != features:
         raise ValueError("Unsupported or mismatched required archive features")
     return list(features)
 
@@ -345,3 +349,50 @@ def stored_clock_context(run, arrays):
     return {"version": 2, "info": info, "raw": {"t": arrays["t"], "ui_ests": arrays["ui_ests"]},
             "window_indices": indices[inside], "snapshot_phase": "stored contract; no new Main invocation",
             "eye_consumers": contract.setdefault("eye_consumers", {})}
+
+
+def write_partial(directory, snapshot, phases, terminal):
+    """Preserve host-owned failure evidence in independent files, never a succeeded run archive."""
+    from pathlib import Path
+    from pybert.web.archive import array_identity, atomic_write, json_bytes
+
+    directory = Path(directory)
+    raw_path, manifest_path = directory / "partial-arrays.npz", directory / "partial-manifest.json"
+    if raw_path.exists() or manifest_path.exists():
+        raise FileExistsError("Existing partial evidence retained; refusing overwrite")
+    if terminal.get("status") not in ("failed", "cancelled"):
+        raise ValueError("Partial evidence requires an actual failed/cancelled terminal state")
+    arrays, unavailable = {}, {}
+
+    def pack(value, field):
+        if isinstance(value, (np.ndarray, np.generic)) or isinstance(value, float) and not np.isfinite(value):
+            value = np.asarray(value)
+            if value.dtype.kind not in "biufc":
+                unavailable[field] = "Object/nonnumeric array cannot be serialized safely without pickle"
+                return {"availability": "unavailable", "reason": unavailable[field]}
+            arrays[field] = value
+            return {"array_field": field}
+        if isinstance(value, dict):
+            return {str(key): pack(item, field + "." + str(key)) for key, item in value.items()}
+        if isinstance(value, (list, tuple)):
+            return [pack(item, field + "." + str(index)) for index, item in enumerate(value)]
+        if value is None or isinstance(value, (bool, int, float, str)):
+            return value
+        unavailable[field] = "Unsupported host value type: " + type(value).__name__
+        return {"availability": "unavailable", "reason": unavailable[field]}
+
+    record = {"format": "pybert-partial-clock-diagnostic", "schema_version": 1,
+              "status": terminal["status"], "evidence_type": "diagnostic_partial_only",
+              "run_qualification": "not evaluated", "phase": snapshot.get("phase"),
+              "fresh": snapshot.get("fresh"), "producer": pack(snapshot.get("info"), "producer"),
+              "raw": pack(snapshot.get("raw", {}), "raw"),
+              "eye_consumers": pack(snapshot.get("eye_consumers", {}), "eye_consumers"),
+              "phases_at_snapshot": pack(phases, "phases"), "terminal_at_snapshot": pack(terminal, "terminal"),
+              "unavailable_fields": unavailable,
+              "buffer_scope": "host producer raw; full ABI buffers remain separate B diagnostics"}
+    buffer = io.BytesIO()
+    np.savez_compressed(buffer, **arrays)
+    record["arrays"] = {key: array_identity(value) for key, value in arrays.items()}
+    atomic_write(raw_path, buffer.getvalue())
+    atomic_write(manifest_path, json_bytes(record))
+    return record

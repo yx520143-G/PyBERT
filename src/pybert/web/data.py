@@ -1,6 +1,7 @@
 """Lossless engine datasets and separate bounded display projections."""
 
 import importlib.metadata
+import contextlib
 import json
 import subprocess
 import hashlib
@@ -84,12 +85,14 @@ def source_identity():
     """Actual on-disk source bytes supplement Git HEAD, which can be dirty."""
     package = Path(__file__).resolve().parents[1]
     paths = [*Path(__file__).parent.glob("*.py"), *Path(__file__).parent.joinpath("static").glob("*")]
-    paths += [package / name for name in ("pybert.py", "models/bert.py", "models/viterbi.py", "models/dfe.py", "utility/sparam.py", "configuration.py", "threads/optimization.py")]
+    paths += [package / name for name in ("pybert.py", "models/bert.py", "models/viterbi.py", "models/dfe.py",
+              "utility/sparam.py", "utility/ami_clock.py", "utility/sigproc.py", "utility/math.py",
+              "configuration.py", "threads/optimization.py")]
     return {str(path.relative_to(package)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths if path.is_file()}
 
 
 def collect(engine, observations, directory, identity, cancelled=lambda: False, *, decoding=None, ami=None,
-            producer_snapshot=None):
+            producer_snapshot=None, phase=None):
     """Publish only complete finite raw data, with independent axes per observation."""
     p = engine
     clock = clock_context(p, producer_snapshot)
@@ -323,8 +326,12 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         actual_clock = point == "dfe" and len(clocks) > 0
         if timed:
             eye_meta.update(availability="unavailable", reason="timed_eye_calculation_pending", trace_count=None)
-            counts = calc_eye(p.ui, p.nspui, 1000, ys, y_max, clock_indices=relative)
-            eye_meta.update(availability="available", reason=None, trace_count=len(relative))
+            try:
+                counts = calc_eye(p.ui, p.nspui, 1000, ys, y_max, clock_indices=relative)
+            except BaseException as error:
+                eye_meta.update(trace_status="partial", reason=f"{type(error).__name__}: {error}")
+                raise
+            eye_meta.update(availability="available", reason=None, trace_count=len(relative), trace_status="completed")
         else:
             counts = calc_eye(p.ui, p.nspui, 1000, ys, y_max, clocks if actual_clock else None)
         xkey = add(f"eye.{point}.x", np.linspace(-p.ui, p.ui, 2 * p.nspui) * 1e12, "ps", kind="axis")
@@ -361,6 +368,8 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         segments, display_meta = period_segments(arrays["t"], arrays["ui_ests"], arrays["ami.cdr.period_known"])
         cdr_indices = np.concatenate(segments) if segments else np.array([], dtype=int)
         add("cdr_indices", cdr_indices, "sample index", kind="display")
+        datasets["cdr_indices"].update(window=display_meta, clock_basis="producer known grid segments",
+                                       source_fields=["t", "ami.cdr.period_known"])
         traces = []
         for index, segment in enumerate(segments):
             traces.append(line(f"cdr.segment{index}", arrays["t"][segment] * 1e9, arrays["ui_ests"][segment],
@@ -422,7 +431,8 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
     directory = Path(directory)
     from pybert.web.analysis import extend_analysis
 
-    extend_analysis(arrays, manifest, cancelled, clock_contract=clock)
+    with phase("analysis") if phase is not None else contextlib.nullcontext():
+        extend_analysis(arrays, manifest, cancelled, clock_contract=clock)
     from pybert.web.resource_data import annotate_interference
 
     annotate_interference(arrays, manifest)
@@ -439,6 +449,15 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         from pybert.web.ami import annotate
 
         annotate(p, ami[0], ami[1], arrays, manifest)
+    if clock is not None:
+        required = clock["info"]["analysis"]["required_eye_traces"]
+        for name in ("collect.eye.dfe", "analysis.eye.dfe"):
+            record = clock["eye_consumers"].get(name, {})
+            if record.get("availability") != "available" or (record.get("trace_count") or 0) < required:
+                raise ValueError("Incomplete required AMI timed Eye: " + name)
+        if any(record["availability"] != "available"
+               for record in manifest["ami"]["clock_contract"]["period_analysis"].values()):
+            raise ValueError("Incomplete required AMI period analysis; raw snapshot retained")
     np.savez_compressed(directory / "arrays.npz", **arrays)
     (directory / "manifest.json").write_text(json.dumps(manifest, indent=2, allow_nan=False), encoding="utf-8")
     return manifest

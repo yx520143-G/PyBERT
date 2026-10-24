@@ -174,11 +174,13 @@ def main():
                 begin, size = serial_calls.pop(id(frame))
                 elapsed = time.perf_counter() - begin
                 output_size = len(arg) if isinstance(arg, (bytes, str)) else None
+                output_digest = retain_bytes(arg, "json") if name == "json_bytes" else None
                 item = receipt["serialization"].setdefault(name, {"calls": 0, "elapsed_s": 0.})
                 item["calls"] += 1
                 item["elapsed_s"] += elapsed
                 events.write(json.dumps({"kind": "serialization", "name": name, "input_bytes": size,
                                          "output_bytes": output_size, "elapsed_s": elapsed,
+                                         "output_blob_sha256": output_digest,
                                          "event": "return_or_exception"}) + "\n")
         if event in ("c_call", "c_return", "c_exception") and receipt["stage"] == "execution":
             owner = getattr(arg, "__self__", None)
@@ -239,7 +241,13 @@ def main():
     guard = ImportGuard()
     sys.meta_path.insert(0, guard)
     sys.addaudithook(audit)
-    sys.setprofile(profile)
+    def profile_guard(frame, event, arg):
+        try:
+            profile(frame, event, arg)
+        except BaseException as error:
+            block("profile instrumentation failure: " + type(error).__name__ + ": " + str(error))
+
+    sys.setprofile(profile_guard)
     try:
         assert Path(sys.prefix).resolve() == root / ".venv"
         assert not any(name.split(".")[0] in {"numpy", "pybert", "pyibisami", "scipy"} for name in sys.modules)
@@ -280,6 +288,26 @@ def main():
         np.convolve = np.correlate = np.fft.fft = np.fft.irfft = forbidden
         np.random = types.SimpleNamespace(default_rng=forbidden, seed=forbidden, normal=forbidden)
         receipt["stage"] = "execution"
+        original_sha256 = hashlib.sha256
+
+        def traced_sha256(content=b"", *args, **kwargs):
+            caller = sys._getframe(1).f_code.co_filename
+            if caller not in paths:
+                return original_sha256(content, *args, **kwargs)
+            begin = time.perf_counter()
+            result = original_sha256(content, *args, **kwargs)
+            elapsed = time.perf_counter() - begin
+            item = receipt["serialization"].setdefault("hashlib.sha256", {"calls": 0, "input_bytes": 0,
+                                                                          "elapsed_s": 0.})
+            item["calls"] += 1
+            item["input_bytes"] += len(content)
+            item["elapsed_s"] += elapsed
+            events.write(json.dumps({"kind": "serialization", "name": "hashlib.sha256",
+                                     "input_bytes": len(content), "digest_capacity_bytes": result.digest_size,
+                                     "elapsed_s": elapsed, "source": caller}) + "\n")
+            return result
+
+        hashlib.sha256 = traced_sha256
 
         def serialization(name, function):
             def call(*args, **kwargs):
@@ -304,10 +332,12 @@ def main():
                                    and Path(stream).is_file() else None)
                     if output_size is not None and output_size > 16 * 1024**2:
                         block("serialized artifact exceeds16MiB")
-                    raw_output = (stream.getvalue() if hasattr(stream, "getvalue") else
-                                  Path(stream).read_bytes() if isinstance(stream, (str, Path))
-                                  and Path(stream).is_file() else None)
-                    digest = retain_bytes(raw_output, "npz") if name.startswith("numpy.savez") else None
+                    digest = None
+                    if name.startswith("numpy.savez"):
+                        raw_output = (stream.getvalue() if hasattr(stream, "getvalue") else
+                                      Path(stream).read_bytes() if isinstance(stream, (str, Path))
+                                      and Path(stream).is_file() else None)
+                        digest = retain_bytes(raw_output, "npz")
                     events.write(json.dumps({"kind": "serialization", "name": name, "input_array_bytes": size,
                         "output_or_stream_bytes": output_size, "consumed_stream_bytes":
                         stream.tell() - position if position is not None else None,
@@ -371,6 +401,10 @@ def main():
                 modules[name].safe_log10 = modules["pybert.utility.math"].safe_log10
                 if hasattr(modules["pybert.web.clocks"], "period_projection"):
                     modules[name].period_projection = modules["pybert.web.clocks"].period_projection
+        for name, links in plan.get("links", {}).items():
+            for target, origin in links.items():
+                source_module, member = origin.split(":", 1)
+                setattr(modules[name], target, getattr(modules[source_module], member))
         seam = types.ModuleType("d2_under_test")
         seam.__dict__.update(modules=modules, np=np, root=root, evidence=evidence, destination=destination)
         sys.modules[seam.__name__] = seam

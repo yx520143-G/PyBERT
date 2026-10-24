@@ -14,6 +14,7 @@ from pybert.web.resources import inspect_resources, projection
 from pybert.web.com import ComCancelled, run_com
 from pybert.web.optimization import OptimizationCancelled, run_optimization
 from pybert.web.ami import AMICancelled, Execution, configure
+from pybert.web.clocks import snapshot_producer, write_partial
 
 
 class Stream:
@@ -51,6 +52,15 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
     execution = Execution(cancelled)
     model_report = {}
     main_invocations = 0
+    p, producer_snapshot = None, None
+    previous_invocation = None
+    evidence_errors = []
+
+    def evidence_failure(stage, error):
+        evidence_errors.append({"stage": stage, "error_type": type(error).__name__, "error": str(error)})
+        if terminal.get("status") == "succeeded":
+            terminal.update(status="failed", error_type="evidence_preservation_failed",
+                            error=f"{stage}: {type(error).__name__}: {error}")
 
     def checkpoint():
         if cancelled():
@@ -82,41 +92,52 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
             elif operation == "optimization":
                 terminal = {"status": "succeeded", "result": run_optimization(task_id, request, directory, cancelled, emit)}
             elif operation == "run":
-                p = new_engine()
-                p.observe(lambda e: emit("phase", phase=str(e.new)), "status")
-                p.observe(lambda e: emit("log", text=e.new[len(e.old) :].rstrip()), "console_log")
-                config = request["config"]
-                if input_hash(config) != request["input_hash"]:
-                    raise ValueError("Input hash does not match complete requested snapshot.")
-                identity_hash = input_hash({"config": config, "runtime_extensions": request.get("runtime_extensions", {}),
-                                            "resource_bindings": request.get("resource_bindings", {})})
-                if request.get("input_identity_hash", identity_hash) != identity_hash:
-                    raise ValueError("Full input identity hash mismatch.")
-                load_config(p, config, snapshot(p))
-                runtime = extensions(request.get("runtime_extensions", {}))
-                frozen_runtime = json.loads(json.dumps(runtime))
-                model_report = configure(p, config, runtime, request.get("frozen_resources", []), check=cancelled, emit=emit)
-                if runtime != frozen_runtime:
-                    raise ValueError("Complete frozen AMI parameter tree required; validate before Run.")
-                effective = snapshot(p)
-                effective.update({key: config[key] for side in ("tx", "rx") for key in (side + "_dll_file", side + "_ami_file", side + "_ibis_file")})
-                if input_hash(effective) != request["input_hash"]:
-                    raise ValueError("Effective input differs from frozen snapshot; normalize before Run.")
-                validate(effective, snapshot(new_engine()), execution=True)
-                resources = inspect_resources(config, request.get("frozen_resources", []))
-                projected = projection(effective, request.get("frozen_resources", []))
-                p.trait_setq(ch_file=projected["ch_file"], ch_files=projected["ch_files"], enable_com=False)
-                if cancelled():
-                    raise AMICancelled("Cancelled before simulation")
+                with execution.phase("prepare"):
+                    p = new_engine()
+                    p.observe(lambda e: emit("phase", phase=str(e.new)), "status")
+                    p.observe(lambda e: emit("log", text=e.new[len(e.old) :].rstrip()), "console_log")
+                    config = request["config"]
+                    if input_hash(config) != request["input_hash"]:
+                        raise ValueError("Input hash does not match complete requested snapshot.")
+                    identity_hash = input_hash({"config": config, "runtime_extensions": request.get("runtime_extensions", {}),
+                                                "resource_bindings": request.get("resource_bindings", {})})
+                    if request.get("input_identity_hash", identity_hash) != identity_hash:
+                        raise ValueError("Full input identity hash mismatch.")
+                    load_config(p, config, snapshot(p))
+                    runtime = extensions(request.get("runtime_extensions", {}))
+                    frozen_runtime = json.loads(json.dumps(runtime))
+                    model_report = configure(p, config, runtime, request.get("frozen_resources", []), check=cancelled, emit=emit)
+                    if runtime != frozen_runtime:
+                        raise ValueError("Complete frozen AMI parameter tree required; validate before Run.")
+                    effective = snapshot(p)
+                    effective.update({key: config[key] for side in ("tx", "rx") for key in (side + "_dll_file", side + "_ami_file", side + "_ibis_file")})
+                    if input_hash(effective) != request["input_hash"]:
+                        raise ValueError("Effective input differs from frozen snapshot; normalize before Run.")
+                    validate(effective, snapshot(new_engine()), execution=True)
+                    resources = inspect_resources(config, request.get("frozen_resources", []))
+                    projected = projection(effective, request.get("frozen_resources", []))
+                    p.trait_setq(ch_file=projected["ch_file"], ch_files=projected["ch_files"], enable_com=False)
+                    if cancelled():
+                        raise AMICancelled("Cancelled before simulation")
                 emit("phase", phase="running")
                 observations = {}
                 decoding = {}
-                with execution.capture():
-                    main_invocations += 1
-                    my_run_simulation(
-                        p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,
-                        decoding=decoding,
-                    )
+                previous_invocation = getattr(p, "ami_clock_info", {}).get("invocation_id")
+                try:
+                    with execution.phase("Main"):
+                        with execution.capture():
+                            main_invocations += 1
+                            my_run_simulation(
+                                p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,
+                                decoding=decoding,
+                            )
+                finally:
+                    try:
+                        producer_snapshot = snapshot_producer(p, previous_invocation, "post_Main")
+                    except Exception as error:
+                        evidence_failure("post_Main snapshot", error)
+                if producer_snapshot is None:
+                    raise RuntimeError("The post-Main producer snapshot was not preserved")
                 # Native early returns and partial producers cannot become successful runs.
                 if p.status != "Ready." or set(observations) != {"source", "chnl", "tx", "ctle", "dfe"}:
                     raise RuntimeError(f"Native producer did not complete: {p.status}")
@@ -151,8 +172,10 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                                            "worker_projection": projected},
                     "warnings": warnings(effective),
                 }
-                collect(p, observations, directory, identity, checkpoint, decoding=decoding,
-                        ami=(execution, model_report) if model_report else None)
+                with execution.phase("collect"):
+                    collect(p, observations, directory, identity, checkpoint, decoding=decoding,
+                            ami=(execution, model_report) if model_report else None,
+                            producer_snapshot=producer_snapshot, phase=execution.phase)
                 if cancelled():
                     raise AMICancelled("Cancelled before publication")
                 terminal = {"status": "succeeded", "result": {"run_id": task_id}}
@@ -174,8 +197,28 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
         }
     finally:
         terminal["main_invocations"] = main_invocations
-        if execution.calls or model_report:
-            execution.write(directory, model_report)
+        with execution.phase("finally"):
+            if operation == "run" and producer_snapshot is None:
+                try:
+                    producer_snapshot = (snapshot_producer(p, previous_invocation, "finally_prepare_failure")
+                                         if p is not None else {"info": None, "raw": {}, "fresh": False,
+                                                                "phase": "pre_engine_failure"})
+                except Exception as error:
+                    evidence_failure("finally snapshot", error)
+            if operation == "run" or execution.calls or model_report:
+                try:
+                    execution.write(directory, model_report)
+                except Exception as error:
+                    evidence_failure("AMI execution write", error)
+            if operation == "run" and terminal.get("status") != "succeeded":
+                try:
+                    snapshot = producer_snapshot or {"info": None, "raw": {}, "fresh": False,
+                                                     "phase": "snapshot_unavailable"}
+                    write_partial(directory, snapshot, execution.phases, terminal)
+                except Exception as error:
+                    evidence_failure("partial evidence write", error)
+        terminal["phase_ledger"] = execution.phases
+        terminal["evidence_errors"] = evidence_errors
         terminal.update(cancel_observed=observed, cancel_requested=cancel_event.is_set())
         Path(directory, "terminal.json").write_text(json.dumps(terminal, indent=2), encoding="utf-8")
         emit("terminal", **terminal)

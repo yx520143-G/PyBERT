@@ -255,7 +255,8 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract
                 if timed:
                     eye_meta.update(availability="unavailable", reason="timed_eye_calculation_pending", trace_count=None)
                     counts, mapping = eye_data(ui, nspui, ys, clock_indices=relative)
-                    eye_meta.update(availability="available", reason=None, trace_count=len(relative))
+                    eye_meta.update(availability="available", reason=None, trace_count=len(relative),
+                                    trace_status="completed")
                 else:
                     counts, mapping = eye_data(ui, nspui, ys, clocks if recovered else None)
                 xkey = add(f"{plot_id}.x", np.linspace(-ui, ui, 2 * nspui) * 1e12, "ps", point, kind="axis")
@@ -273,7 +274,8 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract
                                      metadata=datasets[zkey])
             except (ValueError, IndexError, FloatingPointError, ZeroDivisionError) as err:
                 if timed:
-                    eye_meta.update(availability="unavailable", reason=f"{type(err).__name__}: {err}", trace_count=None)
+                    eye_meta.update(availability="unavailable", reason=f"{type(err).__name__}: {err}",
+                                    trace_count=None, trace_status="partial")
                 unavailable(plot_id, f"{label} eye", str(err))
 
     checkpoint()

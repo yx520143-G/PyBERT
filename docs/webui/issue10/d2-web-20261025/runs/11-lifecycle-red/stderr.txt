@@ -1,0 +1,15 @@
+test_partial_raw_phase_errors_cancellation_and_actual_annotation (d2_cases.LifecycleCases.test_partial_raw_phase_errors_cancellation_and_actual_annotation) ... FAIL
+
+======================================================================
+FAIL: test_partial_raw_phase_errors_cancellation_and_actual_annotation (d2_cases.LifecycleCases.test_partial_raw_phase_errors_cancellation_and_actual_annotation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 369, in test_partial_raw_phase_errors_cancellation_and_actual_annotation
+    self.assertTrue(callable(getattr(clocks, "write_partial", None)), "partial diagnostic output is missing")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : partial diagnostic output is missing
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)

@@ -1,6 +1,6 @@
 {
-  "phase": "partial lifecycle and actual AMI evidence red",
-  "run_id": "11-lifecycle-red",
+  "phase": "partial lifecycle and actual AMI evidence green",
+  "run_id": "12-lifecycle-green",
   "selection": [
     "LifecycleCases"
   ],
@@ -30,26 +30,26 @@
     "worker.py.txt": "src/pybert/web/worker.py"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/web/clocks.py": "5f9a5d3345a581a6ac9d1cc766825dcded783b5b574b31120451013a1b596222",
-    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "5cc7b132887ea44d785410318919927a1b4143ca59247aaa0ae24f57d7d152dd",
-    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "215643058432e1aa7b9b348e8c42f3fb669fe8b58d69d614a5cc28a38033fb0b",
+    "src/pybert/web/clocks.py": "1187677132087c5791c0597997ecde9674d435e943710878506b7d1e6d0ac233",
+    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "2dd67841df72bcd9a72371803b20be15b8b82a972106f06e985c50645e628f35",
+    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "e0f63daba18b997242f25044ddd1ec6d74e871558fa5fffc8e6886fa94dd6952",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "f59d58457156fc5cfc4b325fcced0a73750be234cea20b71ce85202199c7835b",
     "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
     "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
     "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/ami_clock.py": "e0ae4bfc8a0b24d53b55df27c93f93e17370acc08a98f819725de6be2bec6072",
-    "src/pybert/web/analysis.py": "4dc86500a6adb2dd72a11b479f897ef7538d8f768176225f202f2f20db5be6fc",
+    "src/pybert/web/analysis.py": "e4a6ea5a1769e1701700c72812daccabe445e7f8aaa3559bdabf1bfa3d038f4c",
     "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
     "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
     "src/pybert/web/archive.py": "d98d8de807b2c989bca1f49070443d768ddbb5ebc791c501a98bf07b28568b2a",
-    "src/pybert/web/viterbi.py": "8c8768f9b4ada62dd370786a8d4f4129118bc14cc1eb9925012abce445d92a3f",
-    "src/pybert/web/data.py": "5867f9cade8baf290b4eaec99b6cf90887da66fee1ef2bb8d4764c483452bcbd",
+    "src/pybert/web/viterbi.py": "851f15acd46465c37d804945080505a2a52780a34b0c8f1e1a3d3ffbdde25a0c",
+    "src/pybert/web/data.py": "70f016f277605c1b5659732ae832ccb310bbcb6cc34066438422582c0e31182e",
     "src/pybert/web/__init__.py": "3f06f9f54e5a61c3261fb7f5dee91d100b5e1d5b0dc9a69d74735456a5d74b92",
     "docs/webui/issue10/d2-web-20261025/guard_cases.py": "5d9f7bc08ddd227ce7588fe9ce11da135547497fe5473aff48d9655661c4a97e",
     "docs/webui/issue10/d2-web-20261025/PM-budget-supplement-6388850218.json": "6769dac1b625cbfb47704d5f2d4596f22f52b70eb4f405fce37fefe537b24e59",
-    "src/pybert/web/ami.py": "eeb737efe19e041ff8d4891bb514fc0a7e20d156f1c19565bca33cf2353e05a8",
-    "src/pybert/web/worker.py": "f34e4734639c0a8d3e169a55b35e11a8dc4019fd6d7d5b93ec272871e58b4bf4"
+    "src/pybert/web/ami.py": "4b6fb49873f2a060c2e0add0f285832b05fb570e257531c402c94ed1df762387",
+    "src/pybert/web/worker.py": "5e28582ffbc0d2569a032c40d17861364adb2ceb03fc5b578333b4ceac5ce427"
   },
   "modules": {
     "pybert.web.clocks": {
@@ -212,7 +212,7 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 4,
+    "pure": 2998,
     "collect": 0,
     "extend_analysis": 0,
     "eye_data": 0,
@@ -229,18 +229,17 @@
     "validate_run": 0,
     "save_archive": 0,
     "load_archive": 0,
-    "annotate": 0,
-    "execution_write": 0,
-    "partial_save": 0,
+    "annotate": 2,
+    "execution_write": 1,
+    "partial_save": 4,
     "NumPy_imports": 1
   },
   "expected_result": {
     "tests": 1,
-    "failures": 1,
-    "errors": 0,
-    "reason": "write_partial absent; assertion before actual lifecycle/AMI methods; only selected software class definitions may enter"
+    "failures": 0,
+    "errors": 0
   },
-  "case_inputs": "ordinary phase context caller/cancellation exception, partialproducer1sample/3grid and distinctNaNbits42; missingproducer with poisonlazyproperty, duplicatepartialwrite, actualatomicmetadatawrite failure; Execution.write fake arrays only and actual annotate with partial/missing producer. No real Main/model/capture.",
+  "case_inputs": "Literal LifecycleCases frozen11; actual software Execution phase/write/annotate, independentpartial bytes and failure branches, no full worker/Main/capture/model. Static worker finally/context wiring added; actualnumericalcoordinator not invoked here.",
   "expected_values": {
     "partial": "independentpartial NPZ/JSON, exactrawNaNbits, priornormalfiles unchanged, statusfailed/cancelled never succeeded",
     "missing": "producerNone/raw{} without propertyevaluation",
@@ -253,12 +252,19 @@
   "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
   "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
   "expected_function_entries": {
-    "software_exception_class_definition": 1,
-    "software_Execution_class_definition": 1
+    "Execution_class_definition": 1,
+    "AMICancelled_class_definition": 1,
+    "Execution.__init__": 1,
+    "Execution.phase_resume_upper": 6,
+    "snapshot_producer": 2,
+    "write_partial": 4,
+    "Execution.write": 1,
+    "annotate": 2,
+    "all_other_nested_pack_json_hash_upper": 2998
   },
-  "previous_plan": "runs/10-archive-complete/plan.json",
-  "expected_counts_policy": "conservative upper bounds, actual event counts separately reported; nested JSON pairs/hash/array_identity/atomic_write also conservatively included in pure4000 and serialization ledgers",
-  "serialization_policy": "from04 count each ndarray copy/deepcopy C completion incl bytes and elapsed;02 lacked per-copy trace (20 case fixture copies inferable from10 completed rows, elapsed UNKNOWN); preserve02 unchanged, full final matrix will include instrumented rows. No numerical re-run solely for instrumentation.",
+  "previous_plan": "runs/11-lifecycle-red/plan.json",
+  "expected_counts_policy": "upper bounds; B3000 includes red11 class-definition entries; every generator/pairs continuation remains counted",
+  "serialization_policy": "Raw read_arrays/load_archive/read_json inputs and NPZ/JSON outputs now retain content-addressed original bytes, including malformed buffers/failed-save metadata; nested artifacts hash inventory. Prior08/10 did not bind every in-memory malformedbuffer individually; preserve original scope/gaps, no fabricated retro-capture. Original08 conservative pure event definition remains unchanged.",
   "FFT_uniformity": "original full-grid differences compared to original t[1]-t[0], rtol1e-12/atol0 for floating-grid representation only; no sample-target tolerance, no window change",
   "display_policy": "known ordinals evenly including endpoints up to total cap4096; split by original contiguous-known groups; singletons markers; omitted segments/count explicit; no unknown line bridge",
   "guarded_serialization": "from07 real NPZwrite/load/formatheader/read_array wrappers record each call/input array bytes/stream consumption/output bytes/elapsed; archiveJSON/hash/atomic_write actual function trace separately recordsbytes/elapsed. Harness snapshots/log JSON is instrumentation, not a product serialization call.",
@@ -272,5 +278,14 @@
     "C_at_most2_collect_extend_records": 8000,
     "D_review": 999
   },
-  "guard_policy": "Preserve entry then cap-check convention; every guard logs attempted-blocked, disables own profiler, only bounded stdlib closes/hashes/receipt, then os._exit86 in finally. No user case/finally resumes. Launcher verifies absent sentinels and nonzero blocked status. No reinstallation/recovery."
+  "guard_policy": "Preserve entry then cap-check convention; every guard logs attempted-blocked, disables own profiler, only bounded stdlib closes/hashes/receipt, then os._exit86 in finally. No user case/finally resumes. Launcher verifies absent sentinels and nonzero blocked status. No reinstallation/recovery. All unexpected profile instrumentation exceptions also call the same irreversible block path; no callback exception may silently revoke profiling.09 proved the underlying abort/sentinel path; subsequent changes add only guarded raw evidence and outer fail-stop coverage.",
+  "links": {
+    "pybert.web.viterbi": {
+      "stored_clock_context": "pybert.web.clocks:stored_clock_context"
+    },
+    "pybert.web.analysis": {
+      "stored_clock_context": "pybert.web.clocks:stored_clock_context",
+      "eye_selection": "pybert.web.clocks:eye_selection"
+    }
+  }
 }

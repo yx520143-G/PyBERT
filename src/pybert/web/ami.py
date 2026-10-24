@@ -273,6 +273,22 @@ class Execution:
     def __init__(self, check=lambda: False):
         self.check = check
         self.calls, self.arrays, self.library_calls, self.dll_calls = [], {}, [], []
+        self.phases = []
+
+    @contextlib.contextmanager
+    def phase(self, name):
+        """Record an actual caller stage separately from AMI API and numerical helper counts."""
+        row = {"phase": name, "started_at": time.time(), "status": "running", "elapsed_s": None}
+        self.phases.append(row)
+        try:
+            yield
+        except BaseException as error:
+            row.update(status="failed", error_type=type(error).__name__, error=str(error))
+            raise
+        else:
+            row["status"] = "completed"
+        finally:
+            row["elapsed_s"] = time.time() - row["started_at"]
 
     def checkpoint(self):
         if self.check():
@@ -352,30 +368,46 @@ class Execution:
             yield self
 
     def write(self, directory, report=None):
-        Path(directory, "ami-execution.json").write_text(json.dumps({"calls": self.calls, "library_calls": self.library_calls, "dll_calls": self.dll_calls,
-                                                                     "models": report or {}}, indent=2), encoding="utf-8")
+        from pybert.web.archive import json_bytes
+
+        Path(directory, "ami-execution.json").write_bytes(json_bytes({
+            "calls": self.calls, "library_calls": self.library_calls, "dll_calls": self.dll_calls,
+            "models": report or {}, "phases": self.phases,
+            "clock_buffer_scope": "helper valid prefix only; full ABI buffers are separate B diagnostics"}))
         np.savez_compressed(Path(directory, "ami-execution.npz"), **self.arrays)
 
 
 def annotate(p, execution, reports, arrays, manifest):
     """Describe actual native branches and preserve helper data without creating internal state."""
-    rx_calls = [r for r in execution.calls if r["binary"] == p.rx_dll_file]
-    rx_call = rx_calls[-1] if rx_calls else None
-    raw_clocks = execution.arrays.get(f"ami.call{rx_call['index']}.clocks", np.array([])) if rx_call else np.array([])
     tx_gw = p.tx_use_ami and p.tx_use_getwave
-    model_clocks = bool(p.rx_use_ami and p.rx_use_getwave and p.rx_use_clocks and not tx_gw and len(raw_clocks) > 1 and raw_clocks[0] != -1)
+    info = getattr(p, "ami_clock_info", {})
+    observed = bool(info.get("producer_contract_version") == 2 and info.get("invocation_id"))
+    actual = info.get("actual_branch") if observed else None
+    native_returned = actual == "native" and info.get("native_returned") is True
+    model_clocks = actual == "ami"
     modes = {side: "GetWave" if getattr(p, side + "_use_getwave") else "Init" for side in ("tx", "rx") if getattr(p, side + "_use_ami")}
     branch = {"modes": modes, "requested_rx_use_clocks": p.rx_use_clocks,
-              "clock_source": "AMI clocks" if model_clocks else "Native CDR",
-              "clock_reason": "native valid clocks condition met" if model_clocks else
-                  "Tx GetWave branch discards Rx returned clocks" if tx_gw else "no requested/effective valid model clocks; native fallback",
+               "clock_source": "AMI clocks" if model_clocks else "Native CDR" if native_returned else "unavailable",
+               "clock_reason": info.get("reason") if observed else "No current versioned producer evidence",
+               "actual_producer_branch": actual, "producer_invocation_id": info.get("invocation_id") if observed else None,
+               "consumption_status": info.get("consumption_status") if observed else "unknown",
+               "consumed_count": info.get("consumed_count") if observed else None,
+               "producer_run_status": info.get("run_status") if observed else "unknown",
               "rx_ffe": "bypass: Rx AMI replaces Native Rx EQ" if p.rx_use_ami else "Native",
-              "native_DFE_CDR_AGC": "bypass; model clocks plus dummy slicer; lock indication derived from Ignore_Bits" if model_clocks else "executed native run_dfe; tuner enabled prefix determines adaptation",
+               "native_DFE_CDR_AGC": ("bypassed by actual AMI producer; adaptation readiness is not model lock"
+                                      if model_clocks else "executed native run_dfe; tuner enabled prefix determines adaptation"
+                                      if native_returned else "native execution not proven"),
               "rx_in": "diagnostic convolve(tx_out + noise, chnl_h); downstream uses other arrays; explicit noise not guaranteed downstream" if tx_gw else "actual noisy Rx input for Rx GetWave / Native; Rx Init has its own output-noise branch",
               "noise": "Tx GetWave known native limitation" if tx_gw else "Rx Init adds noise at ctle_out" if p.rx_use_ami and not p.rx_use_getwave else "rx_in",
               "model_state": "only raw params_out are model-returned; native zero/empty placeholders are not model taps/lock/UI estimates"}
-    manifest["ami"] = {"schema_version": 1, "models": reports, "execution": execution.calls, "library_calls": execution.library_calls,
-                       "dll_calls": execution.dll_calls, "actual_branch": branch}
+    previous = manifest.get("ami", {})
+    manifest["ami"] = {**previous, "schema_version": 1, "models": reports, "execution": execution.calls,
+                       "library_calls": execution.library_calls, "dll_calls": execution.dll_calls,
+                       "actual_branch": branch, "phases": execution.phases,
+                       "producer": {name: info.get(name) if observed else None for name in
+                           ("producer_contract_version", "invocation_id", "epoch_basis", "requested", "mode", "role",
+                            "main_origin", "format_status", "eligible", "actual_branch", "consumption_status",
+                            "consumed_count", "run_status", "native_returned", "reason", "model_lock_status")}}
     for key, value in execution.arrays.items():
         arrays[key] = value
         field = key.rsplit(".", 1)[1]
