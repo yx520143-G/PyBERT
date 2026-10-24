@@ -30,3 +30,14 @@ PM 终审新增 Spec **2 P2 + 1 P3**；Standards **0 硬违规 + 1 判断性 Dat
 Standards 独立 agent 对 `e75b13d` 静态读取：新增硬违规0、新增实质判断性finding0；Data Clumps在聚合快照结构上收敛。对 `bdcaf50` 两行storage flag增量依据变更描述确认设计一致，未重新读取或运行工具。Spec独立agent对 `e75b13d` 两P2/票号P3闭环，指出上述补充P3；随后固定 `bdcaf50110755e00c9a3064d02081301c4feeb8c` 确认该P3关闭，当前范围0未关闭。两轴未运行主仿真/COM或编辑文件。
 
 本轮当前轴结论：Standards **0 未关闭硬违规/实质finding**；Spec **0 未关闭 finding**。最终仍由PM对新固定交付终审。
+
+## PM 对 9484efac 的增量终审与 v8 修复
+
+PM确认前轮身份校验P2、票号P3及常规reset/undo修复有效；另确认忙碌且未归一化的中间态仍有P2，并指出legacy保存能力P3。以下追加，不覆盖前轮记录或费用。
+
+| finding | 修复/证据 | 结论 |
+| --- | --- | --- |
+| P2：base=A、draft/captured/patches/binding=B时，undo按base恢复resource refs，随后同一事件的真实resources监听器删B绑定 | undo仅按已恢复的 `ui.getDraft()` 重建资源引用；base不替换，captured/patches/guard照原快照保留。真实resources.js回归稳定red→green；Chrome真实normalize gate持槽期间编辑B/FFE→reset/undo→释放，实际请求仍以A为base、按原顺序应用patches，B绑定和guard保留 | 已闭环 |
+| P3：legacy无完整身份却启用full archive，并在推荐/缺项错误/dialog宣称可用 | UI禁用并说明缺完整原输入/物理轴；report能力/推荐、native缺项错误、dialog与full archive API拒绝一致；不造身份，不新增格式；有效native subset/sidecar保留 | 已闭环 |
+
+固定产品 `fb97265b6bb3f13a0bea49980f8da0f506c43168` 的两独立agent复核：Standards新增硬违规0、实质判断性finding0、阻断0；Spec两项闭环、无新增finding。均只读，无编辑/主仿真/COM。证据见 [v8](pm-fixes-v8.md)。当前两轴0未关闭，仍等待PM对新固定交付终审。

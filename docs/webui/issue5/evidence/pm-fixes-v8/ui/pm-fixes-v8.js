@@ -1,0 +1,55 @@
+async (page) => {
+  const root='C:/Users/yx/.codex/worktrees/pybert-issue5-archive/serial-bus-simulator',base='http://127.0.0.1:8772';
+  await page.setViewportSize({width:1280,height:720});
+  await page.waitForFunction(()=>window.PYBERT_RUNS && !document.querySelector('#run').disabled);
+  await page.locator('#results-file').setInputFiles(root+'/output/playwright/NRZ-real.pybert_run');
+  await page.waitForFunction(()=>window.PYBERT_RUNS.selected()?.kind==='archive');
+  await page.locator('#restore-run-input').click();await page.waitForFunction(()=>document.querySelector('#results-status').textContent.includes('已恢复原requested') && !document.querySelector('#run').disabled);
+  const initial=await page.evaluate(()=>JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')));
+  const held=await (await page.request.post(base+'/_fixture/hold-observer')).json();
+  let released=false,before,after,patchRequest,normalized;
+  try {
+    await page.waitForFunction(id=>document.querySelector('#task-state').textContent.includes(id.slice(0,8)) && document.querySelector('#run').disabled && !document.querySelector('#reset-draft').disabled,held.task_id);
+    await page.getByRole('button',{name:'Channel',exact:true}).click();
+    await page.locator('[data-file-key="ch_file"]').setInputFiles(root+'/docs/webui/issue5/evidence/pm-fixes-v8/local/fixtures/channel-B.s4p');
+    await page.waitForFunction(()=>window.PYBERT_WORKBENCH.getDraft().ch_file==='channel-B.s4p' && window.PYBERT_RESOURCES.bindings().ch_file && !window.PYBERT_RESOURCES.pending());
+    await page.getByRole('button',{name:'Rx FFE',exact:true}).click();
+    await page.locator('#control-rx_n_taps').fill('9');await page.locator('#control-rx_n_taps').blur();
+    await page.locator('#control-rx_n_pre').fill('2');await page.locator('#control-rx_n_pre').blur();
+    before=await page.evaluate(()=>({draft:window.PYBERT_WORKBENCH.getDraft(),bindings:window.PYBERT_RESOURCES.bindings(),native:JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')),selected:window.PYBERT_RUNS.selected().record_id}));
+    if(before.native.config.ch_file!=='example2_THRU.s4p' || before.draft.ch_file!=='channel-B.s4p')throw new Error('Did not reach base A / pending draft B state');
+    await page.locator('#reset-draft').click();await page.locator('#undo-reset').click();
+    after=await page.evaluate(()=>({draft:window.PYBERT_WORKBENCH.getDraft(),bindings:window.PYBERT_RESOURCES.bindings(),native:JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')),selected:window.PYBERT_RUNS.selected().record_id}));
+    if(JSON.stringify(before.draft)!==JSON.stringify(after.draft) || JSON.stringify(before.bindings)!==JSON.stringify(after.bindings) || before.selected!==after.selected)throw new Error('Busy undo changed draft/bindings/selection');
+    for(const key of ['config','runtime_extensions','source_record_id','replay_guard'])if(JSON.stringify(initial[key])!==JSON.stringify(after.native[key]))throw new Error('Busy undo replaced original native '+key);
+    const active=await (await page.request.get(base+'/api/state')).json();if(active.active_task_id!==held.task_id)throw new Error('Busy fixture ended before reset/undo completed');
+    await page.locator('#resources-open').click();await page.waitForFunction(()=>document.querySelector('#resource-bindings .resource-row').textContent.includes('channel-B.s4p'));
+    const bindingText=await page.locator('#resource-bindings .resource-row').first().textContent();if(bindingText.includes('UNBOUND'))throw new Error('Busy undo lost B binding');
+    await page.screenshot({path:'output/playwright/pm-v8-01-busy-undo-B-binding.png'});await page.locator('#resources-close').click();
+    const request=page.waitForRequest(r=>r.url().endsWith('/api/normalize') && r.method()==='POST');
+    const response=page.waitForResponse(r=>r.url().endsWith('/api/normalize') && r.request().method()==='POST');
+    await page.request.post(base+'/_fixture/release-observer',{data:{task_id:held.task_id}});released=true;
+    patchRequest=(await request).postDataJSON();normalized=await (await response).json();
+    await page.waitForFunction(()=>!document.querySelector('#run').disabled && JSON.parse(localStorage.getItem('pybert-native-snapshot-v2')).config.ch_file==='channel-B.s4p');
+    const keys=patchRequest.patches.map(row=>row.field);
+    if(patchRequest.mode!=='patch' || patchRequest.config.ch_file!=='example2_THRU.s4p' || patchRequest.resource_bindings.ch_file!==before.bindings.ch_file || keys.indexOf('ch_file')<0 || keys.indexOf('rx_n_taps')>=keys.indexOf('rx_n_pre'))throw new Error('Pending original base/ordered observer patches not preserved');
+    if(normalized.config.ch_file!=='channel-B.s4p' || normalized.config.rx_n_taps!==9 || normalized.config.rx_n_pre!==2)throw new Error('Original observer did not apply pending values');
+  } finally {if(!released)await page.request.post(base+'/_fixture/release-observer',{data:{task_id:held.task_id}});}
+  const runResponse=page.waitForResponse(r=>r.url().endsWith('/api/runs') && r.request().method()==='POST');
+  await page.locator('#run').click();const rejected=await runResponse,guard=await rejected.json();
+  if(rejected.status()!==422 || !String(guard.detail).includes('Saved run resource content changed/missing'))throw new Error('Original replay guard lost after busy undo/observer');
+  await page.locator('#trust-legacy').check();
+  await page.locator('#results-file').setInputFiles('C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/docs/webui/issue4/evidence/light-compat-20261024-091034/native-cli.pybert_data');
+  await page.waitForFunction(()=>window.PYBERT_RUNS.selected()?.kind==='legacy' && document.querySelector('#results-file').value==='');
+  const legacy=await page.evaluate(()=>({id:window.PYBERT_RUNS.selected().record_id,saveDisabled:document.querySelector('#save-results').disabled,title:document.querySelector('#save-results').title,stale:document.querySelector('#stale').textContent,nativeEnabled:!document.querySelector('#legacy-results').disabled}));
+  if(!legacy.saveDisabled || !legacy.nativeEnabled || !legacy.title.includes('物理轴') || !legacy.stale.includes('archive不可用'))throw new Error('Legacy capability controls disagree');
+  const unavailable=await page.request.get(base+`/api/runs/${legacy.id}/archive`);if(unavailable.status()!==422 || !(await unavailable.json()).detail.includes('物理轴'))throw new Error('Legacy direct archive does not explain missing evidence');
+  await page.locator('#legacy-results').click();await page.locator('#legacy-dialog').waitFor({state:'visible'});
+  const report=JSON.parse(await page.locator('#legacy-report').textContent()),guidance=await page.locator('#legacy-save-guidance').textContent();
+  if(report.full_archive_available || !guidance.includes('无法保存完整Web archive') || !await page.locator('#legacy-download').isDisabled() || await page.locator('#legacy-sidecar').isDisabled())throw new Error('Legacy report/dialog subset/sidecar mismatch');
+  const download=page.waitForEvent('download');await page.locator('#legacy-sidecar').click();await (await download).saveAs('output/playwright/pm-v8-legacy-sidecar.json');
+  await page.screenshot({path:'output/playwright/pm-v8-02-legacy-capability.png'});await page.keyboard.press('Escape');
+  await page.waitForFunction(async()=>!(await (await fetch('/api/state')).json()).active_task_id);
+  const final=await (await page.request.get(base+'/api/state')).json();if(final.runs.length!==2 || final.com_tasks.length)throw new Error('New numerical task or original successes lost');
+  return {fixture_mode:'held real normalize worker; all main/COM execution disabled',held,before,after,patchRequest,normalized,guard:{status:rejected.status(),detail:guard},legacy,report,guidance,final,main_calls:0,COM_calls:0};
+}

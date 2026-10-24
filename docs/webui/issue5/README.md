@@ -1,6 +1,6 @@
 # #5 结果存档、参考比较与草稿迁移
 
-本票在独立 `codex/pybert-issue5-archive` worktree 实现完整 Web run archive、可信原生结果兼容、参考管理与 PR7 草稿迁移。当前 PM 返修产品提交为 `bdcaf50110755e00c9a3064d02081301c4feeb8c`，见 [本轮修复与追加证据](pm-fixes-v6.md)。首轮产品 `3ccb88f4e34db2a81a04a6b7a7f198f0c88e367d` 及交付 `246ce486388ac717409aa27adddfa533b21bb7a5` 的记录/证据保留。base 为 `f1d0ea80f9db8ab31e25963496875a44fe4a19d9`，base tree `86fbe940f37d08d5ed13738e263df678561d26fe`。未修改 native/GUI/CLI/MCP 算法、模型公式、依赖或 submodule gitlink。
+本票在独立 `codex/pybert-issue5-archive` worktree 实现完整 Web run archive、可信原生结果兼容、参考管理与 PR7 草稿迁移。当前 PM 返修产品提交为 `fb97265b6bb3f13a0bea49980f8da0f506c43168`，见 [忙碌中间态/legacy能力修复](pm-fixes-v8.md)；前轮 `bdcaf50110755e00c9a3064d02081301c4feeb8c` 见 [v6记录](pm-fixes-v6.md)。首轮产品 `3ccb88f4e34db2a81a04a6b7a7f198f0c88e367d` 及交付 `246ce486388ac717409aa27adddfa533b21bb7a5` 的记录/证据保留。base 为 `f1d0ea80f9db8ab31e25963496875a44fe4a19d9`，base tree `86fbe940f37d08d5ed13738e263df678561d26fe`。未修改 native/GUI/CLI/MCP 算法、模型公式、依赖或 submodule gitlink。
 
 入口为现有 Web 工作台“打开结果 / 加入比较”“保存所选结果”“原生保存 / 损失清单”“恢复所选输入到草稿”“移除/清除参考”。`Save`/`Save As` 继续保存当前配置，与保存所选成功记录分开。
 

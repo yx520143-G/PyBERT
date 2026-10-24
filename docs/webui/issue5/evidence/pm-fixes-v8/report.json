@@ -1,0 +1,5076 @@
+{
+  "product_head": "fb97265b6bb3f13a0bea49980f8da0f506c43168",
+  "main_calls": 0,
+  "COM_calls": 0,
+  "checks": [
+    {
+      "check": "busy state has original base A and pending different reference B",
+      "passed": true
+    },
+    {
+      "check": "busy undo preserves draft and actual resource event binding",
+      "passed": true
+    },
+    {
+      "check": "native base/runtime/source/guard preserved",
+      "passed": true
+    },
+    {
+      "check": "original native base and ordered observer patches applied after release",
+      "passed": true
+    },
+    {
+      "check": "native observer result B/9/2",
+      "passed": true
+    },
+    {
+      "check": "original replay guard still rejects Run after busy undo",
+      "passed": true
+    },
+    {
+      "check": "legacy full archive disabled while subset entry stays enabled",
+      "passed": true
+    },
+    {
+      "check": "legacy report/dialog/downloaded sidecar agree on capability",
+      "passed": true
+    },
+    {
+      "check": "only requested storage/UI product boundaries changed",
+      "passed": true
+    },
+    {
+      "check": "all new workers are exited normalize observers",
+      "passed": true
+    },
+    {
+      "check": "held real observer exited successfully",
+      "passed": true
+    },
+    {
+      "check": "two old successes remain; no COM/active task",
+      "passed": true
+    },
+    {
+      "check": "c4532a94-3702-44e9-9869-106b3198cf79 original manifest/NPZ preserved",
+      "passed": true
+    },
+    {
+      "check": "573aed1e-b3b5-4977-8d6b-a482b94fdd2a original manifest/NPZ preserved",
+      "passed": true
+    }
+  ],
+  "browser_log_sha256": "603a69326daacfbf8a335319e2a35a5426b459bd0c7a48d0ea75ab0a3bbd889e",
+  "source_sha256": {
+    "src\\pybert\\web\\analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "src\\pybert\\web\\archive.py": "2064f606d48bd7ac1e846b45bfa46a7585fd27a85ba2776cfcf0a10c4df282d0",
+    "src\\pybert\\web\\com.py": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f",
+    "src\\pybert\\web\\config.py": "55b25db261e7fe16942e24d03465223633614c4a8e35863789242b38f5e52c48",
+    "src\\pybert\\web\\data.py": "ed3118864ed0cc63a0c134ddb44fe5248d5d639fdca86d9cf1dd1a703a326c2d",
+    "src\\pybert\\web\\legacy_results.py": "0a639e0c4b1510482a47dc4019aa1dce87d572acc66ebab5cb7eb777bcd31f83",
+    "src\\pybert\\web\\records.py": "b11a0753176cdf7cadb4c4113aa250d21c5f04bd53da1e12454f1d556aaed7ec",
+    "src\\pybert\\web\\resources.py": "6def3f648adac590145ce3afef950c6b69c129fbc635ea447cf09b9c4a564009",
+    "src\\pybert\\web\\resource_data.py": "d89054482e91e9c2d089c8590c4c6a3b632eb8ffd101376617ea5615eb18cef3",
+    "src\\pybert\\web\\server.py": "9ad983c7486afec83644b6f315001f1d7722b431f2bf1d7bf954858eb17b6157",
+    "src\\pybert\\web\\tasks.py": "f455c3ee4c81eacd87854e3884fe4b4233520f7f3b87501ac783df0fa7dc6166",
+    "src\\pybert\\web\\worker.py": "9624c77a71345d2a5b6d0fb31c8b89a1606b9aeca80c2934beef9a9678bf9e13",
+    "src\\pybert\\web\\__init__.py": "07511ce2fefebaaeed0cb403bdd7d9c9db335f517422c5892fd485b409708d30",
+    "src\\pybert\\web\\static\\app.js": "2b3a6fcf4c143906b623abb3bf4f28a41a14cc6bb707d2cad3b5b5f8fc143282",
+    "src\\pybert\\web\\static\\catalog.js": "e1e91fad800ad5cf22e00c3d857ce6c5d2bcf020c10084b22ea584db37b10bfa",
+    "src\\pybert\\web\\static\\draft.js": "43cd36b77a3ae982973a9760108cc36f74dc8622fc406c7b140bf44d2ec842d2",
+    "src\\pybert\\web\\static\\gui-map.js": "b6cee01d766cf1f308d16e25812cfe121b8b5bb555a7e75a90550f7540c51b7c",
+    "src\\pybert\\web\\static\\index.html": "f30446a2a4ca0103a17deae9987801a9510c50cb238e20672ca6ce0eb02067fd",
+    "src\\pybert\\web\\static\\resources.js": "786b63c7cff80ecc6dbd0bb3ea21b1e4b523edb29ff8e64ddd48b4832bdf7995",
+    "src\\pybert\\web\\static\\results.js": "b7e3ac7b0b10c87232ba9460fc14f6a178f53a7a76a7f6d005992c628b0cf7ce",
+    "src\\pybert\\web\\static\\settings.js": "af73c80f75d8a194fd0deb3d445fe58c5b81e80367d674801765e399a71e58d6",
+    "src\\pybert\\web\\static\\styles.css": "d03085cdd920e4ee307ea2712d221320ba94f6b9118c8c4a25f4405e343bc002",
+    "src\\pybert\\web\\static\\workbench.css": "bb462eda1b116c813abccde3db999e3e486ca6f5635721ff178db64dfb990526",
+    "src\\pybert\\web\\static\\workbench.js": "12ba0c8fcd92460790cb3a3f479eb79e5e9f9b13832171459bdb206cc6684de8",
+    "tools\\verify_web_pm_busy.py": "947cf6ded111940b38c9173ff339d7fb22e401b6ed9aff960b045aa6db9b0350"
+  },
+  "sidecar_sha256": "579eb0391b709b084587ae25df90dd95eb709437aa3e618cb8ca9799b15b82e1",
+  "changed_since_9484_product": {
+    "src\\pybert\\web\\archive.py": {
+      "previous": "799ea6432a0e28ebbb6383907f1d15f11bdfd6500e57761cb1a5673ac0b95d7e",
+      "current": "2064f606d48bd7ac1e846b45bfa46a7585fd27a85ba2776cfcf0a10c4df282d0"
+    },
+    "src\\pybert\\web\\legacy_results.py": {
+      "previous": "4f294c18a15cb9f3c16fa0b3c4ddd5492d9c58172ee4437aa3136f17c1bb0403",
+      "current": "0a639e0c4b1510482a47dc4019aa1dce87d572acc66ebab5cb7eb777bcd31f83"
+    },
+    "src\\pybert\\web\\static\\index.html": {
+      "previous": "7806a4988cd9f68f9efcdbb5b393583d0c1769e9b4a0ec95966f37ce44049c90",
+      "current": "f30446a2a4ca0103a17deae9987801a9510c50cb238e20672ca6ce0eb02067fd"
+    },
+    "src\\pybert\\web\\static\\results.js": {
+      "previous": "d0b3203be8aa94154c22a3d92751ca47d35fa4b00a8c3b238c79b10851e11c0a",
+      "current": "b7e3ac7b0b10c87232ba9460fc14f6a178f53a7a76a7f6d005992c628b0cf7ce"
+    },
+    "src\\pybert\\web\\static\\workbench.js": {
+      "previous": "07b9b3dfc26309301e84a4807e338098f24f6853cb4d0d82200e80acceeb164d",
+      "current": "12ba0c8fcd92460790cb3a3f479eb79e5e9f9b13832171459bdb206cc6684de8"
+    }
+  },
+  "tasks": {
+    "37a33640-755c-45bc-9646-b8745a2934b4": {
+      "task_id": "37a33640-755c-45bc-9646-b8745a2934b4",
+      "operation": "normalize",
+      "phase": "succeeded",
+      "state": "succeeded",
+      "worker_exited": true,
+      "created_at": 1792814639.8889883,
+      "finished_at": 1792814643.4784698
+    },
+    "6804ea86-3084-4f35-beaa-ab530344047f": {
+      "task_id": "6804ea86-3084-4f35-beaa-ab530344047f",
+      "operation": "normalize",
+      "phase": "succeeded",
+      "state": "succeeded",
+      "worker_exited": true,
+      "created_at": 1792814631.5790389,
+      "finished_at": 1792814635.1515112
+    },
+    "694d82b7-f0d2-4149-a415-e9e7374763f8": {
+      "task_id": "694d82b7-f0d2-4149-a415-e9e7374763f8",
+      "operation": "normalize",
+      "phase": "succeeded",
+      "state": "succeeded",
+      "worker_exited": true,
+      "created_at": 1792814635.8213723,
+      "finished_at": 1792814639.4768922
+    },
+    "6ee65c3b-22c9-4c82-95e6-4633bd1c017d": {
+      "task_id": "6ee65c3b-22c9-4c82-95e6-4633bd1c017d",
+      "operation": "normalize",
+      "phase": "succeeded",
+      "state": "succeeded",
+      "worker_exited": true,
+      "created_at": 1792814626.7556164,
+      "finished_at": 1792814630.645702
+    },
+    "da444537-093b-454e-b4f7-373bef1ed503": {
+      "task_id": "da444537-093b-454e-b4f7-373bef1ed503",
+      "operation": "normalize",
+      "phase": "succeeded",
+      "state": "succeeded",
+      "worker_exited": true,
+      "created_at": 1792814643.991643,
+      "finished_at": 1792814647.5666883
+    }
+  },
+  "task_operations": {
+    "normalize": 5
+  },
+  "held_task": {
+    "task_id": "694d82b7-f0d2-4149-a415-e9e7374763f8",
+    "operation": "normalize",
+    "state": "succeeded",
+    "phase": "succeeded",
+    "cancel_requested": false,
+    "cancel_requested_at": null,
+    "cancel_observed_at": null,
+    "cancel_observed": false,
+    "worker_exited": true,
+    "logs": [],
+    "created_at": 1792814635.8213723,
+    "request_hash": null,
+    "parent_run_id": null,
+    "resource_inputs": [],
+    "parameter_source": null,
+    "worker_exit_confirmed_at": 1792814639.4768913,
+    "exitcode": 0,
+    "finished_at": 1792814639.4768922,
+    "result": {
+      "config": {
+        "bit_rate": 10.0,
+        "nbits": 15000,
+        "pattern": "PRBS-7",
+        "seed": 1,
+        "nspui": 32,
+        "eye_bits": 10160,
+        "mod_type": "NRZ",
+        "debug": false,
+        "f_max": 40.0,
+        "f_step": 10.0,
+        "inter_sel": "single",
+        "ch_file": "example2_THRU.s4p",
+        "ch_files": [],
+        "impulse_length": 0.0,
+        "Rdc": 0.1876,
+        "w0": 10000000.0,
+        "R0": 1.452,
+        "Theta0": 0.02,
+        "Z0": 100.0,
+        "v0": 0.67,
+        "l_ch": 0.5,
+        "renumber": false,
+        "lane_sel": 0,
+        "include_fext": false,
+        "use_window": false,
+        "enable_com": false,
+        "com_cfg_file": "",
+        "vod": 1.0,
+        "rs": 100.0,
+        "cout": 0.5,
+        "pn_mag": 0.01,
+        "pn_freq": 11.0,
+        "rn": 0.01,
+        "tx_taps": [
+          [
+            false,
+            0.0,
+            -0.05,
+            0.05
+          ],
+          [
+            true,
+            -0.02,
+            -0.1,
+            0.1
+          ],
+          [
+            true,
+            -0.05,
+            -0.2,
+            0.2
+          ],
+          [
+            false,
+            0.0,
+            -0.2,
+            0.2
+          ],
+          [
+            false,
+            0.0,
+            -0.1,
+            0.1
+          ],
+          [
+            false,
+            0.0,
+            -0.05,
+            0.05
+          ]
+        ],
+        "tx_tap_tuners": [
+          [
+            false,
+            -3,
+            -0.05,
+            0.05,
+            0.025
+          ],
+          [
+            true,
+            -2,
+            -0.1,
+            0.1,
+            0.05
+          ],
+          [
+            true,
+            -1,
+            -0.2,
+            0.2,
+            0.1
+          ],
+          [
+            false,
+            1,
+            -0.2,
+            0.2,
+            0.1
+          ],
+          [
+            false,
+            2,
+            -0.1,
+            0.1,
+            0.05
+          ],
+          [
+            false,
+            3,
+            -0.05,
+            0.05,
+            0.025
+          ]
+        ],
+        "tx_use_ami": false,
+        "tx_use_ts4": false,
+        "tx_use_getwave": false,
+        "tx_ami_file": "",
+        "tx_dll_file": "",
+        "tx_ibis_file": "",
+        "tx_sel": "native",
+        "tx_eq_sel": "Native",
+        "rin": 100.0,
+        "cin": 0.5,
+        "tx_c0_min": 0.0,
+        "pkg_enable": false,
+        "pkg_group": "KR",
+        "tx_pkg_case": "A1",
+        "rx_pkg_case": "A1",
+        "pkg_include_host": true,
+        "cac": 1.0,
+        "use_ctle_file": false,
+        "ctle_sel": "Native",
+        "ctle_file": "",
+        "rx_bw": 12.0,
+        "peak_freq": 5.0,
+        "peak_mag": 1.7,
+        "ctle_enable": true,
+        "rx_use_ami": false,
+        "rx_use_ts4": false,
+        "rx_use_getwave": false,
+        "rx_ami_file": "",
+        "rx_dll_file": "",
+        "rx_ibis_file": "",
+        "rx_sel": "native",
+        "rx_eq_sel": "Native",
+        "rx_use_viterbi": false,
+        "rx_viterbi_symbols": 4,
+        "rx_n_taps": 15,
+        "rx_n_pre": 5,
+        "rx_taps": [
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            1.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            -0.03,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            true,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          [
+            false,
+            0.0,
+            -1.0,
+            1.0
+          ]
+        ],
+        "ffe_tap_tuners": [
+          [
+            true,
+            -5,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            -4,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            -3,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            -2,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            -1,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            0,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            1,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            2,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            3,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            4,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            5,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            6,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            7,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            8,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            true,
+            9,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            10,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            11,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            12,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            13,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            14,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            15,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            16,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            17,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            18,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            19,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            20,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            21,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            22,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            23,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            24,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            25,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            26,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            27,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            28,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            29,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            30,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            31,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            32,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            33,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            34,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            35,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            36,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            37,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            38,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            39,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            40,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            41,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            42,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            43,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            44,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            45,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            46,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            47,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            48,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            49,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            50,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            51,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            52,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            53,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            54,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            55,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            56,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            57,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            58,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            59,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            60,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            61,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            62,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            63,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            64,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            65,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            66,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            67,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            68,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            69,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            70,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            71,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            72,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            73,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            74,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            75,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            76,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            77,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            78,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            79,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            80,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            81,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            82,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            83,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            84,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            85,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            86,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            87,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            88,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            89,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            90,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            91,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            92,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            93,
+            -1.0,
+            1.0,
+            0.1
+          ],
+          [
+            false,
+            94,
+            -1.0,
+            1.0,
+            0.1
+          ]
+        ],
+        "sum_ideal": true,
+        "decision_scaler": 0.5,
+        "gain": 0.1,
+        "n_ave": 100.0,
+        "sum_bw": 12.0,
+        "use_agc": true,
+        "cdr_type": "Bang-Bang",
+        "delta_t_ui": 0.001,
+        "alpha": 0.01,
+        "n_lock_ave": 500,
+        "rel_lock_tol": 0.1,
+        "lock_sustain": 500,
+        "thresh": 3.0,
+        "rx_bw_tune": 12.0,
+        "peak_freq_tune": 5.0,
+        "peak_mag_tune": 1.7,
+        "min_mag_tune": 2.0,
+        "max_mag_tune": 12.0,
+        "step_mag_tune": 1.0,
+        "ctle_enable_tune": true,
+        "use_mmse": true,
+        "dfe_tap_tuners": [
+          [
+            true,
+            -0.2,
+            0.4
+          ],
+          [
+            true,
+            -0.15,
+            0.15
+          ],
+          [
+            true,
+            -0.05,
+            0.1
+          ],
+          [
+            true,
+            -0.05,
+            0.1
+          ],
+          [
+            true,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ],
+          [
+            false,
+            -0.05,
+            0.1
+          ]
+        ]
+      },
+      "input_hash": "802e0975c5691ff8c91a13ebd97fbc0615220e4da0de2d404c157facd52e44c3",
+      "input_identity_hash": "6207e0e2f6faa9c690dfca3ea76c2e7c02f9b6cc4a9e2c4cd4fc7992ba9ea02b",
+      "input_hash_schema": "native-json-v1-integral-floats",
+      "yaml": "# Resources are referenced only; resource bytes are NOT included. Bind before Run.\n!!python/object:pybert.configuration.PyBertCfg\ndate_created: ''\nversion: 11.1.0\nbit_rate: 10.0\nnbits: 15000\npattern: PRBS-7\nseed: 1\nnspui: 32\neye_bits: 10160\nmod_type: NRZ\ndebug: false\nf_max: 40.0\nf_step: 10.0\ninter_sel: single\nch_file: example2_THRU.s4p\nch_files: []\nimpulse_length: 0.0\nRdc: 0.1876\nw0: 10000000.0\nR0: 1.452\nTheta0: 0.02\nZ0: 100.0\nv0: 0.67\nl_ch: 0.5\nrenumber: false\nlane_sel: 0\ninclude_fext: false\nuse_window: false\nenable_com: false\ncom_cfg_file: ''\nvod: 1.0\nrs: 100.0\ncout: 0.5\npn_mag: 0.01\npn_freq: 11.0\nrn: 0.01\ntx_taps:\n- !!python/tuple\n  - false\n  - 0.0\n  - -0.05\n  - 0.05\n- !!python/tuple\n  - true\n  - -0.02\n  - -0.1\n  - 0.1\n- !!python/tuple\n  - true\n  - -0.05\n  - -0.2\n  - 0.2\n- !!python/tuple\n  - false\n  - 0.0\n  - -0.2\n  - 0.2\n- !!python/tuple\n  - false\n  - 0.0\n  - -0.1\n  - 0.1\n- !!python/tuple\n  - false\n  - 0.0\n  - -0.05\n  - 0.05\ntx_tap_tuners:\n- !!python/tuple\n  - false\n  - -3\n  - -0.05\n  - 0.05\n  - 0.025\n- !!python/tuple\n  - true\n  - -2\n  - -0.1\n  - 0.1\n  - 0.05\n- !!python/tuple\n  - true\n  - -1\n  - -0.2\n  - 0.2\n  - 0.1\n- !!python/tuple\n  - false\n  - 1\n  - -0.2\n  - 0.2\n  - 0.1\n- !!python/tuple\n  - false\n  - 2\n  - -0.1\n  - 0.1\n  - 0.05\n- !!python/tuple\n  - false\n  - 3\n  - -0.05\n  - 0.05\n  - 0.025\ntx_use_ami: false\ntx_use_ts4: false\ntx_use_getwave: false\ntx_ami_file: ''\ntx_dll_file: ''\ntx_ibis_file: ''\ntx_sel: native\ntx_eq_sel: Native\nrin: 100.0\ncin: 0.5\ntx_c0_min: 0.0\npkg_enable: false\npkg_group: KR\ntx_pkg_case: A1\nrx_pkg_case: A1\npkg_include_host: true\ncac: 1.0\nuse_ctle_file: false\nctle_sel: Native\nctle_file: ''\nrx_bw: 12.0\npeak_freq: 5.0\npeak_mag: 1.7\nctle_enable: true\nrx_use_ami: false\nrx_use_ts4: false\nrx_use_getwave: false\nrx_ami_file: ''\nrx_dll_file: ''\nrx_ibis_file: ''\nrx_sel: native\nrx_eq_sel: Native\nrx_use_viterbi: false\nrx_viterbi_symbols: 4\nrx_n_taps: 15\nrx_n_pre: 5\nrx_taps:\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 1.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - -0.03\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - true\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\n- !!python/tuple\n  - false\n  - 0.0\n  - -1.0\n  - 1.0\nffe_tap_tuners:\n- !!python/tuple\n  - true\n  - -5\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - -4\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - -3\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - -2\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - -1\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 0\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 1\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 2\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 3\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 4\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 5\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 6\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 7\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 8\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - true\n  - 9\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 10\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 11\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 12\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 13\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 14\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 15\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 16\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 17\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 18\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 19\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 20\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 21\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 22\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 23\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 24\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 25\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 26\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 27\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 28\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 29\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 30\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 31\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 32\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 33\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 34\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 35\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 36\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 37\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 38\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 39\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 40\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 41\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 42\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 43\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 44\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 45\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 46\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 47\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 48\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 49\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 50\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 51\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 52\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 53\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 54\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 55\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 56\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 57\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 58\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 59\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 60\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 61\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 62\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 63\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 64\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 65\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 66\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 67\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 68\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 69\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 70\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 71\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 72\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 73\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 74\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 75\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 76\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 77\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 78\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 79\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 80\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 81\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 82\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 83\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 84\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 85\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 86\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 87\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 88\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 89\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 90\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 91\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 92\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 93\n  - -1.0\n  - 1.0\n  - 0.1\n- !!python/tuple\n  - false\n  - 94\n  - -1.0\n  - 1.0\n  - 0.1\nsum_ideal: true\ndecision_scaler: 0.5\ngain: 0.1\nn_ave: 100.0\nsum_bw: 12.0\nuse_agc: true\ncdr_type: Bang-Bang\ndelta_t_ui: 0.001\nalpha: 0.01\nn_lock_ave: 500\nrel_lock_tol: 0.1\nlock_sustain: 500\nthresh: 3.0\nrx_bw_tune: 12.0\npeak_freq_tune: 5.0\npeak_mag_tune: 1.7\nmin_mag_tune: 2.0\nmax_mag_tune: 12.0\nstep_mag_tune: 1.0\nctle_enable_tune: true\nuse_mmse: true\ndfe_tap_tuners:\n- !!python/tuple\n  - true\n  - -0.2\n  - 0.4\n- !!python/tuple\n  - true\n  - -0.15\n  - 0.15\n- !!python/tuple\n  - true\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - true\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - true\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n- !!python/tuple\n  - false\n  - -0.05\n  - 0.1\n",
+      "runtime_extensions": {},
+      "runtime_defaults": {
+        "rlm": 0.95,
+        "rx_use_clocks": false,
+        "ami_opt_trials": 100
+      },
+      "resource_bindings": {},
+      "import_report": {
+        "defaulted_fields": [],
+        "default_source": "fresh native constructor at recorded adapter/native version",
+        "compatibility": []
+      },
+      "unresolved_references": {
+        "ch_file": "example2_THRU.s4p"
+      },
+      "warnings": [
+        "DFE consumes the continuous enabled prefix: 5 taps.",
+        "Rx Cac is retained; the native producer does not consume it.",
+        "RLM belongs to optimization; ordinary Run does not consume it."
+      ],
+      "runtime_status": {}
+    }
+  },
+  "state": {
+    "active_task_id": null,
+    "current_task_id": "da444537-093b-454e-b4f7-373bef1ed503",
+    "runs": [
+      {
+        "run_id": "c4532a94-3702-44e9-9869-106b3198cf79",
+        "input_hash": "27da78135f879f5c67800cad0a1b3e8ff4538fc1e5c26cf8e65a8c02681f4677",
+        "effective_input": {
+          "bit_rate": 10.0,
+          "nbits": 15000,
+          "pattern": "PRBS-7",
+          "seed": 1,
+          "nspui": 32,
+          "eye_bits": 10160,
+          "mod_type": "PAM-4",
+          "debug": false,
+          "f_max": 40.0,
+          "f_step": 10.0,
+          "inter_sel": "single",
+          "ch_file": "example2_THRU.s4p",
+          "ch_files": [],
+          "impulse_length": 0.0,
+          "Rdc": 0.1876,
+          "w0": 10000000.0,
+          "R0": 1.452,
+          "Theta0": 0.02,
+          "Z0": 100.0,
+          "v0": 0.67,
+          "l_ch": 0.5,
+          "renumber": false,
+          "lane_sel": 0,
+          "include_fext": false,
+          "use_window": false,
+          "enable_com": false,
+          "com_cfg_file": "",
+          "vod": 1.0,
+          "rs": 100.0,
+          "cout": 0.5,
+          "pn_mag": 0.01,
+          "pn_freq": 11.0,
+          "rn": 0.01,
+          "tx_taps": [
+            [
+              false,
+              0.0,
+              -0.05,
+              0.05
+            ],
+            [
+              true,
+              -0.02,
+              -0.1,
+              0.1
+            ],
+            [
+              true,
+              -0.05,
+              -0.2,
+              0.2
+            ],
+            [
+              false,
+              0.0,
+              -0.2,
+              0.2
+            ],
+            [
+              false,
+              0.0,
+              -0.1,
+              0.1
+            ],
+            [
+              false,
+              0.0,
+              -0.05,
+              0.05
+            ]
+          ],
+          "tx_tap_tuners": [
+            [
+              false,
+              -3,
+              -0.05,
+              0.05,
+              0.025
+            ],
+            [
+              true,
+              -2,
+              -0.1,
+              0.1,
+              0.05
+            ],
+            [
+              true,
+              -1,
+              -0.2,
+              0.2,
+              0.1
+            ],
+            [
+              false,
+              1,
+              -0.2,
+              0.2,
+              0.1
+            ],
+            [
+              false,
+              2,
+              -0.1,
+              0.1,
+              0.05
+            ],
+            [
+              false,
+              3,
+              -0.05,
+              0.05,
+              0.025
+            ]
+          ],
+          "tx_use_ami": false,
+          "tx_use_ts4": false,
+          "tx_use_getwave": false,
+          "tx_ami_file": "",
+          "tx_dll_file": "",
+          "tx_ibis_file": "",
+          "tx_sel": "native",
+          "tx_eq_sel": "Native",
+          "rin": 100.0,
+          "cin": 0.5,
+          "tx_c0_min": 0.0,
+          "pkg_enable": false,
+          "pkg_group": "KR",
+          "tx_pkg_case": "A1",
+          "rx_pkg_case": "A1",
+          "pkg_include_host": true,
+          "cac": 1.0,
+          "use_ctle_file": false,
+          "ctle_sel": "Native",
+          "ctle_file": "",
+          "rx_bw": 12.0,
+          "peak_freq": 5.0,
+          "peak_mag": 1.7,
+          "ctle_enable": true,
+          "rx_use_ami": false,
+          "rx_use_ts4": false,
+          "rx_use_getwave": false,
+          "rx_ami_file": "",
+          "rx_dll_file": "",
+          "rx_ibis_file": "",
+          "rx_sel": "native",
+          "rx_eq_sel": "Native",
+          "rx_use_viterbi": false,
+          "rx_viterbi_symbols": 4,
+          "rx_n_taps": 15,
+          "rx_n_pre": 5,
+          "rx_taps": [
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              1.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              -0.03,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ]
+          ],
+          "ffe_tap_tuners": [
+            [
+              true,
+              -5,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              -4,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              -3,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              -2,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              -1,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              0,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              1,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              2,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              3,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              4,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              5,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              6,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              7,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              8,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              9,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              10,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              11,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              12,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              13,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              14,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              15,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              16,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              17,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              18,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              19,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              20,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              21,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              22,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              23,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              24,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              25,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              26,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              27,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              28,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              29,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              30,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              31,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              32,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              33,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              34,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              35,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              36,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              37,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              38,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              39,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              40,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              41,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              42,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              43,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              44,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              45,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              46,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              47,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              48,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              49,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              50,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              51,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              52,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              53,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              54,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              55,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              56,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              57,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              58,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              59,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              60,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              61,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              62,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              63,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              64,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              65,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              66,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              67,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              68,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              69,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              70,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              71,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              72,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              73,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              74,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              75,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              76,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              77,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              78,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              79,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              80,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              81,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              82,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              83,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              84,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              85,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              86,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              87,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              88,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              89,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              90,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              91,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              92,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              93,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              94,
+              -1.0,
+              1.0,
+              0.1
+            ]
+          ],
+          "sum_ideal": true,
+          "decision_scaler": 0.5,
+          "gain": 0.1,
+          "n_ave": 100.0,
+          "sum_bw": 12.0,
+          "use_agc": true,
+          "cdr_type": "Bang-Bang",
+          "delta_t_ui": 0.001,
+          "alpha": 0.01,
+          "n_lock_ave": 500,
+          "rel_lock_tol": 0.1,
+          "lock_sustain": 500,
+          "thresh": 3.0,
+          "rx_bw_tune": 12.0,
+          "peak_freq_tune": 5.0,
+          "peak_mag_tune": 1.7,
+          "min_mag_tune": 2.0,
+          "max_mag_tune": 12.0,
+          "step_mag_tune": 1.0,
+          "ctle_enable_tune": true,
+          "use_mmse": true,
+          "dfe_tap_tuners": [
+            [
+              true,
+              -0.2,
+              0.4
+            ],
+            [
+              true,
+              -0.15,
+              0.15
+            ],
+            [
+              true,
+              -0.05,
+              0.1
+            ],
+            [
+              true,
+              -0.05,
+              0.1
+            ],
+            [
+              true,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ]
+          ]
+        },
+        "summary": {
+          "n_errs_dfe": 20,
+          "n_errs_viterbi": null,
+          "viterbi_availability": "not run",
+          "chnl_dly_s": 4.83125e-09,
+          "rel_power": 0.004799993259259258,
+          "dfe_jitter_s": {
+            "isi": 7.772346889356863e-11,
+            "dcd": 3.0428717037209307e-12,
+            "pj": 1.284011557609319e-11,
+            "rj": 3.3293156743863836e-12,
+            "pjDD": 4.0404040404040425e-11,
+            "rjDD": 1.6850331343432093e-11,
+            "mu_pos": 7.183968432584111e-12,
+            "mu_neg": 4.6747457228206275e-12,
+            "dj_pos": 5.284967294329924e-11,
+            "dj_neg": -3.50094086909748e-11
+          },
+          "initial_level_v": 0.5,
+          "final_level_v": 0.27334370514437656,
+          "performance_Msamples_per_min": {
+            "channel": 85.03024774250659,
+            "tx": 393.6157708659602,
+            "ctle": 94.04843233634746,
+            "ffe": 671.3724903845574,
+            "dfe": 16.204123341948375,
+            "jitter": 67.27186429380482,
+            "total": 9.70602800284886
+          }
+        },
+        "resource_hash": "338258f8936e8bd94c9369785afa83eb25db2ef8ca9529c6b379a657efdbd763"
+      },
+      {
+        "run_id": "573aed1e-b3b5-4977-8d6b-a482b94fdd2a",
+        "input_hash": "802e0975c5691ff8c91a13ebd97fbc0615220e4da0de2d404c157facd52e44c3",
+        "effective_input": {
+          "bit_rate": 10.0,
+          "nbits": 15000,
+          "pattern": "PRBS-7",
+          "seed": 1,
+          "nspui": 32,
+          "eye_bits": 10160,
+          "mod_type": "NRZ",
+          "debug": false,
+          "f_max": 40.0,
+          "f_step": 10.0,
+          "inter_sel": "single",
+          "ch_file": "example2_THRU.s4p",
+          "ch_files": [],
+          "impulse_length": 0.0,
+          "Rdc": 0.1876,
+          "w0": 10000000.0,
+          "R0": 1.452,
+          "Theta0": 0.02,
+          "Z0": 100.0,
+          "v0": 0.67,
+          "l_ch": 0.5,
+          "renumber": false,
+          "lane_sel": 0,
+          "include_fext": false,
+          "use_window": false,
+          "enable_com": false,
+          "com_cfg_file": "",
+          "vod": 1.0,
+          "rs": 100.0,
+          "cout": 0.5,
+          "pn_mag": 0.01,
+          "pn_freq": 11.0,
+          "rn": 0.01,
+          "tx_taps": [
+            [
+              false,
+              0.0,
+              -0.05,
+              0.05
+            ],
+            [
+              true,
+              -0.02,
+              -0.1,
+              0.1
+            ],
+            [
+              true,
+              -0.05,
+              -0.2,
+              0.2
+            ],
+            [
+              false,
+              0.0,
+              -0.2,
+              0.2
+            ],
+            [
+              false,
+              0.0,
+              -0.1,
+              0.1
+            ],
+            [
+              false,
+              0.0,
+              -0.05,
+              0.05
+            ]
+          ],
+          "tx_tap_tuners": [
+            [
+              false,
+              -3,
+              -0.05,
+              0.05,
+              0.025
+            ],
+            [
+              true,
+              -2,
+              -0.1,
+              0.1,
+              0.05
+            ],
+            [
+              true,
+              -1,
+              -0.2,
+              0.2,
+              0.1
+            ],
+            [
+              false,
+              1,
+              -0.2,
+              0.2,
+              0.1
+            ],
+            [
+              false,
+              2,
+              -0.1,
+              0.1,
+              0.05
+            ],
+            [
+              false,
+              3,
+              -0.05,
+              0.05,
+              0.025
+            ]
+          ],
+          "tx_use_ami": false,
+          "tx_use_ts4": false,
+          "tx_use_getwave": false,
+          "tx_ami_file": "",
+          "tx_dll_file": "",
+          "tx_ibis_file": "",
+          "tx_sel": "native",
+          "tx_eq_sel": "Native",
+          "rin": 100.0,
+          "cin": 0.5,
+          "tx_c0_min": 0.0,
+          "pkg_enable": false,
+          "pkg_group": "KR",
+          "tx_pkg_case": "A1",
+          "rx_pkg_case": "A1",
+          "pkg_include_host": true,
+          "cac": 1.0,
+          "use_ctle_file": false,
+          "ctle_sel": "Native",
+          "ctle_file": "",
+          "rx_bw": 12.0,
+          "peak_freq": 5.0,
+          "peak_mag": 1.7,
+          "ctle_enable": true,
+          "rx_use_ami": false,
+          "rx_use_ts4": false,
+          "rx_use_getwave": false,
+          "rx_ami_file": "",
+          "rx_dll_file": "",
+          "rx_ibis_file": "",
+          "rx_sel": "native",
+          "rx_eq_sel": "Native",
+          "rx_use_viterbi": false,
+          "rx_viterbi_symbols": 4,
+          "rx_n_taps": 15,
+          "rx_n_pre": 5,
+          "rx_taps": [
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              1.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              -0.03,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              true,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ],
+            [
+              false,
+              0.0,
+              -1.0,
+              1.0
+            ]
+          ],
+          "ffe_tap_tuners": [
+            [
+              true,
+              -5,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              -4,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              -3,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              -2,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              -1,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              0,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              1,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              2,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              3,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              4,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              5,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              6,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              7,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              8,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              true,
+              9,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              10,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              11,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              12,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              13,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              14,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              15,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              16,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              17,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              18,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              19,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              20,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              21,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              22,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              23,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              24,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              25,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              26,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              27,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              28,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              29,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              30,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              31,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              32,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              33,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              34,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              35,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              36,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              37,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              38,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              39,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              40,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              41,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              42,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              43,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              44,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              45,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              46,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              47,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              48,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              49,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              50,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              51,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              52,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              53,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              54,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              55,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              56,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              57,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              58,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              59,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              60,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              61,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              62,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              63,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              64,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              65,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              66,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              67,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              68,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              69,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              70,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              71,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              72,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              73,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              74,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              75,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              76,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              77,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              78,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              79,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              80,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              81,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              82,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              83,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              84,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              85,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              86,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              87,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              88,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              89,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              90,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              91,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              92,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              93,
+              -1.0,
+              1.0,
+              0.1
+            ],
+            [
+              false,
+              94,
+              -1.0,
+              1.0,
+              0.1
+            ]
+          ],
+          "sum_ideal": true,
+          "decision_scaler": 0.5,
+          "gain": 0.1,
+          "n_ave": 100.0,
+          "sum_bw": 12.0,
+          "use_agc": true,
+          "cdr_type": "Bang-Bang",
+          "delta_t_ui": 0.001,
+          "alpha": 0.01,
+          "n_lock_ave": 500,
+          "rel_lock_tol": 0.1,
+          "lock_sustain": 500,
+          "thresh": 3.0,
+          "rx_bw_tune": 12.0,
+          "peak_freq_tune": 5.0,
+          "peak_mag_tune": 1.7,
+          "min_mag_tune": 2.0,
+          "max_mag_tune": 12.0,
+          "step_mag_tune": 1.0,
+          "ctle_enable_tune": true,
+          "use_mmse": true,
+          "dfe_tap_tuners": [
+            [
+              true,
+              -0.2,
+              0.4
+            ],
+            [
+              true,
+              -0.15,
+              0.15
+            ],
+            [
+              true,
+              -0.05,
+              0.1
+            ],
+            [
+              true,
+              -0.05,
+              0.1
+            ],
+            [
+              true,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ],
+            [
+              false,
+              -0.05,
+              0.1
+            ]
+          ]
+        },
+        "summary": {
+          "n_errs_dfe": 0,
+          "n_errs_viterbi": null,
+          "viterbi_availability": "not run",
+          "chnl_dly_s": 4.83125e-09,
+          "rel_power": 0.008686022199999999,
+          "dfe_jitter_s": {
+            "isi": 2.914917369535712e-11,
+            "dcd": 3.1930703588835216e-15,
+            "pj": 8.101932788290165e-12,
+            "rj": 1.4675964552966246e-12,
+            "pjDD": 0.0,
+            "rjDD": 6.259856259680111e-12,
+            "mu_pos": -3.2311742677852644e-27,
+            "mu_neg": -3.2311742677852644e-27,
+            "dj_pos": 1.8343774700544478e-11,
+            "dj_neg": -1.7270989115522204e-11
+          },
+          "initial_level_v": 0.5,
+          "final_level_v": 0.20005517977451184,
+          "performance_Msamples_per_min": {
+            "channel": 127.21797695926035,
+            "tx": 537.5611522436335,
+            "ctle": 203.03351817131463,
+            "ffe": 717.0993331389859,
+            "dfe": 17.50891434751326,
+            "jitter": 77.3247359670436,
+            "total": 11.614530665090898
+          }
+        },
+        "resource_hash": "338258f8936e8bd94c9369785afa83eb25db2ef8ca9529c6b379a657efdbd763"
+      }
+    ],
+    "com_tasks": [],
+    "resources": [
+      {
+        "resource_id": "8ca809092bb0b6444beb64fd0a2c367384fc336f98236cce2167f5cf1cead069.s4p",
+        "original_name": "channel-B.s4p",
+        "format": ".s4p",
+        "bytes": 2454099,
+        "sha256": "8ca809092bb0b6444beb64fd0a2c367384fc336f98236cce2167f5cf1cead069",
+        "source": {
+          "kind": "browser_upload"
+        },
+        "permission": "explicitly supplied for this local session",
+        "parse_status": "pending task validation",
+        "intended_uses": [
+          "channel",
+          "COM THRU"
+        ]
+      }
+    ],
+    "references": [
+      {
+        "record_id": "ref-2a9b1d1c-162b-4c48-944f-70fd94ebbf44",
+        "run_id": "573aed1e-b3b5-4977-8d6b-a482b94fdd2a",
+        "kind": "archive",
+        "name": "NRZ-real.pybert_run",
+        "source_sha256": "4d25f353778083cc7c231a013ddb64dfd98f7136576e1725b62c09c4bd68dd39",
+        "array_bytes": 77768588,
+        "file_bytes": 46045505
+      },
+      {
+        "record_id": "ref-fef52781-7805-4bd8-9ce6-68d8b3b6006d",
+        "run_id": "legacy-f3596c488e18a8d3c6e1a8a689718e46566ba5133c21cf741d0e7cdf06c14956",
+        "kind": "legacy",
+        "name": "native-cli.pybert_data",
+        "source_sha256": "f3596c488e18a8d3c6e1a8a689718e46566ba5133c21cf741d0e7cdf06c14956",
+        "array_bytes": 606720,
+        "file_bytes": 304981
+      }
+    ],
+    "result_budget": {
+      "temporary_runs": 2,
+      "temporary_policy": "oldest temporary success evicted; save archive to retain",
+      "temporary_array_bytes_per_record": 805306368,
+      "reference_records": 4,
+      "reference_array_bytes": 1073741824,
+      "reference_used_bytes": 78375308,
+      "temporary_file_bytes": 68038109
+    }
+  },
+  "passed": true
+}
