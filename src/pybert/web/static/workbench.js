@@ -12,6 +12,7 @@
   let sourceVersion=null;
   let snapshotRecoveryRequired=false;
   let replayGuard=null;
+  let pendingRecordId=null;
   let constructedConfig=null,constructedRuntime=null;
   const recordId = row => row.record_id || row.run_id;
   const allRecords = () => [...runs,...references];
@@ -261,6 +262,8 @@
     const result = id ? await api(`runs/${id}`) : null;
     if ($('selected-run').value !== (id || '')) return;
     selected = result;
+    if(result && $('results-status').textContent.startsWith('正在查询原记录')) $('results-status').textContent=`已恢复所选记录 ${id}。`;
+    if(result) pendingRecordId=null;
     try { if(id) localStorage.setItem('pybert-result-selection-v1',JSON.stringify({record_id:id})); } catch { $('results-status').textContent='结果选择仅当前页面保留；本地存储失败。'; }
     controls(); await renderAnalysis();
   }
@@ -272,6 +275,7 @@
       currentTask = state.current_task_id;
       comTasks = state.com_tasks || [];
       window.PYBERT_RESOURCES?.state(state,selected);
+      if(pendingRecordId && ![...state.runs,...(state.references || [])].some(row=>recordId(row)===pendingRecordId)) $('results-status').textContent=`原记录 ${pendingRecordId} 当前不可用（服务重启、缓存淘汰或参考移除）；请重新打开已保存archive。`;
       if (currentTask) {
         const task = await api(`tasks/${currentTask}`);
         $('task-state').textContent = `${task.operation} ${task.task_id.slice(0,8)} · ${task.state} · ${task.phase}${task.error ? ` · ${task.error}`:''}`;
@@ -288,7 +292,7 @@
         $('comparison-run').innerHTML='<option value="">自动选择另一条</option>'+options;
         if (allRecords().some(r=>recordId(r)===comparison)) $('comparison-run').value=comparison;
         const latest = runs.findLast(r => !previous.includes(r.run_id));
-        const id = latest?.run_id || (selected && allRecords().some(r => recordId(r) === recordId(selected)) ? recordId(selected) : recordId(allRecords().at(-1) || {}));
+        const id = (pendingRecordId && allRecords().some(r=>recordId(r)===pendingRecordId) ? pendingRecordId : null) || latest?.run_id || (selected && allRecords().some(r => recordId(r) === recordId(selected)) ? recordId(selected) : recordId(allRecords().at(-1) || {}));
         $('selected-run').value = id || ''; await chooseRun(id);
       }
       controls();
@@ -392,7 +396,7 @@
     captured = clone(base); record();
     if (saved && patches.length) { revision++; normalizedRevision=-1; pendingValidation=true; }
     $('input-status').textContent = ui.migrationError() || defaults.warnings.join(' '); controls();
-    try {const selection=JSON.parse(localStorage.getItem('pybert-result-selection-v1') || 'null');if(selection?.record_id) $('results-status').textContent=`正在查询原记录 ${selection.record_id}；服务重启后临时结果未保存/当前不可用，请重新打开archive。`;} catch { $('results-status').textContent='结果选择状态读取失败；不会据本地存储伪造成功。'; }
+    try {const selection=JSON.parse(localStorage.getItem('pybert-result-selection-v1') || 'null');if(selection?.record_id) {pendingRecordId=selection.record_id;$('results-status').textContent=`正在查询原记录 ${pendingRecordId}；状态待确认。`;}} catch { $('results-status').textContent='结果选择状态读取失败；不会据本地存储伪造成功。'; }
     await poll();
   }
   init().catch(inputError);
