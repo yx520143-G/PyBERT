@@ -1,0 +1,15 @@
+test_dense_bytes_and_exact_known_compact (d2_cases.MaskCases.test_dense_bytes_and_exact_known_compact) ... FAIL
+
+======================================================================
+FAIL: test_dense_bytes_and_exact_known_compact (d2_cases.MaskCases.test_dense_bytes_and_exact_known_compact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 11, in test_dense_bytes_and_exact_known_compact
+    self.assertTrue(callable(validate), "production masked-period validation is missing")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : production masked-period validation is missing
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)

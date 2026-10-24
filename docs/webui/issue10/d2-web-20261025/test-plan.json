@@ -1,6 +1,6 @@
 {
-  "phase": "masked-period contract red",
-  "run_id": "01-mask-red",
+  "phase": "masked-period contract green",
+  "run_id": "02-mask-green",
   "selection": [
     "MaskCases"
   ],
@@ -16,7 +16,7 @@
     "baseline_eye.py.txt": "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/web/clocks.py": "1026dc9f7b565ed2dc084153ebf76ba216cb2e938d85a69c23bbbeba61f7c43e",
+    "src/pybert/web/clocks.py": "9bc0a5f315300f47fc0adb41a3dd8b486653b9e4e1c7e2895e65c18ecbb0dc10",
     "docs/webui/issue10/d2-web-20261025/d2_cases.py": "994207db29a070bf8e8400f4d67c15b3e372cd6a834a7dabc75d16eff25ab735",
     "docs/webui/issue10/d2-web-20261025/run_guarded.py": "c88449bcb1de1cebd26bf52eb799f1e24ed7d195244c94dcea029acf318cb77f",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "0363ea36878cef57f1ed281d0f9d193cd3384c243314a0d7717e15e1c3203762",
@@ -69,7 +69,7 @@
     "all_test_data_bytes": 536870912
   },
   "expected_counts": {
-    "pure": 0,
+    "pure": 12,
     "collect": 0,
     "extend_analysis": 0,
     "eye_data": 0,
@@ -93,9 +93,8 @@
   },
   "expected_result": {
     "tests": 1,
-    "failures": 1,
-    "errors": 0,
-    "reason": "missing actual production mask validation; assertion before fixture arrays or helper call"
+    "failures": 0,
+    "errors": 0
   },
   "case_inputs": "literal nine-element t/period raw uint64 NaN payloads and bool mask in cases.py.txt; ten invalid type/shape/known/unknown rows and all-unknown; every literal frozen before call",
   "expected_values": {
@@ -124,5 +123,9 @@
   "expected_basis": "independent literal bit patterns and index table, actual AST seam only; no product algorithm copies",
   "guards_order": "stdlib/input snapshots => import/audit/profile guards => installed-file verification => NumPy import/C extensions => selected actual definitions => tests",
   "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
-  "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0"
+  "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
+  "expected_function_entries": {
+    "pybert.web.clocks.validate_period": 12
+  },
+  "previous_plan": "runs/01-mask-red/plan.json"
 }
