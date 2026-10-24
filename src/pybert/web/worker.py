@@ -3,6 +3,8 @@
 import contextlib
 import json
 import traceback
+import time
+import logging
 from pathlib import Path
 
 from pybert.models.bert import my_run_simulation
@@ -39,7 +41,7 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
         if cancel_event.is_set():
             if not observed:
                 observed = True
-                emit("cancel_observed")
+                emit("cancel_observed", observed_at=time.time())
             return True
         return False
 
@@ -47,6 +49,8 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
     try:
         with contextlib.redirect_stdout(Stream(emit)), contextlib.redirect_stderr(Stream(emit)):
             if cancelled():
+                if operation == "com":
+                    raise ComCancelled("Cancelled before validation")
                 raise RuntimeError("Cancelled before validation")
             if operation == "normalize":
                 result = normalize(request)
@@ -54,7 +58,15 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                     raise RuntimeError("Cancelled after normalization")
                 terminal = {"status": "succeeded", "result": result}
             elif operation == "com":
-                terminal = {"status": "succeeded", "result": run_com(task_id, request, directory, cancelled, emit, lambda: native_errors)}
+                handler = logging.StreamHandler(Stream(emit))
+                handler.setLevel(logging.ERROR)
+                handler.setFormatter(logging.Formatter("ERROR: %(message)s"))
+                logging.getLogger().addHandler(handler)
+                try:
+                    terminal = {"status": "succeeded", "result": run_com(task_id, request, directory, cancelled, emit, lambda: native_errors)}
+                finally:
+                    logging.getLogger().removeHandler(handler)
+                    handler.close()
             elif operation == "run":
                 p = new_engine()
                 p.observe(lambda e: emit("phase", phase=str(e.new)), "status")
@@ -101,6 +113,7 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                     "resources": resources,
                     "resource_bindings": request.get("resource_bindings", {}),
                     "runtime_extensions": runtime,
+                    "runtime_extension_status": {key: "inactive in Native Run; retained for #8/#10" for key in runtime.get("values", {})},
                     "execution_strategy": {"deferred_com": request.get("deferred_com"),
                                            "inactive_model_paths": "retained without loading observers",
                                            "worker_projection": projected},

@@ -12,7 +12,7 @@ from pathlib import Path
 
 from pybert.web.worker import run_worker
 from pybert.web.resources import Resources
-from pybert.web.config import input_hash, parse_yaml
+from pybert.web.config import input_hash, yaml_text, unresolved_references
 
 
 class BusyError(RuntimeError):
@@ -34,7 +34,7 @@ class Tasks:
         self.resources = Resources(self.root / "resources")
         self.coms = []
 
-    def start(self, operation, request, task_id=None):
+    def start(self, operation, request, task_id=None, cancel_requested=False):
         with self.lock:
             if self.active is not None:
                 raise BusyError("The native engine slot is busy; normalization is pending until the worker exits.")
@@ -55,6 +55,8 @@ class Tasks:
             directory.mkdir()
             (directory / "request.json").write_text(request_text, encoding="utf-8")
             cancel = self.context.Event()
+            if cancel_requested:
+                cancel.set()
             receive, send = self.context.Pipe(duplex=False)
             process = self.context.Process(
                 target=self.worker, args=(task_id, operation, request, str(directory), cancel, send)
@@ -62,15 +64,19 @@ class Tasks:
             task = {
                 "task_id": task_id,
                 "operation": operation,
-                "state": "validating",
+                "state": "cancel_requested" if cancel_requested else "validating",
                 "phase": "validating",
-                "cancel_requested": False,
+                "cancel_requested": cancel_requested,
+                "cancel_requested_at": time.time() if cancel_requested else None,
+                "cancel_observed_at": None,
                 "cancel_observed": False,
                 "worker_exited": False,
                 "logs": [],
                 "created_at": time.time(),
                 "request_hash": request.get("input_hash"),
                 "parent_run_id": request.get("parent_run_id"),
+                "resource_inputs": copy.deepcopy(request.get("frozen_resources", [])),
+                "parameter_source": request.get("parameter_source"),
             }
             event = threading.Event()
             self.tasks[task_id] = {
@@ -119,6 +125,7 @@ class Tasks:
                         task["logs"] = task["logs"][-1000:]
                     elif message["kind"] == "cancel_observed":
                         task["cancel_observed"] = True
+                        task["cancel_observed_at"] = message.get("observed_at", time.time())
             elif not p.is_alive():
                 # The child has exited; drain messages already flushed to the pipe.
                 if not open_pipe:
@@ -138,6 +145,7 @@ class Tasks:
                 state=terminal["status"],
                 phase=terminal["status"],
                 worker_exited=True,
+                worker_exit_confirmed_at=time.time(),
                 exitcode=p.exitcode,
                 finished_at=time.time(),
                 cancel_observed=terminal.get("cancel_observed", False),
@@ -153,7 +161,7 @@ class Tasks:
                     manifest = json.loads(path.read_text(encoding="utf-8"))
                     manifest["logs"] = list(task["logs"])
                     manifest["cancellation"] = {
-                        k: task[k] for k in ("cancel_requested", "cancel_observed", "worker_exited")
+                        k: task[k] for k in ("cancel_requested", "cancel_observed", "worker_exited", "cancel_requested_at", "cancel_observed_at", "worker_exit_confirmed_at")
                     }
                     path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
                     self.runs.append(task_id)
@@ -164,7 +172,16 @@ class Tasks:
             entry["done"].set()
             p.close()
             if task["state"] == "succeeded" and task["operation"] == "com":
-                self.coms.append(task_id)
+                path = entry["directory"] / "com.json"
+                if not path.exists():
+                    task.update(state="failed", phase="failed", error="Missing COM result manifest.")
+                else:
+                    manifest = json.loads(path.read_text(encoding="utf-8"))
+                    manifest["logs"] = list(task["logs"])
+                    manifest["cancellation"] = {key: task[key] for key in ("cancel_requested", "cancel_observed", "worker_exited", "cancel_requested_at", "cancel_observed_at", "worker_exit_confirmed_at")}
+                    manifest["exitcode"] = task["exitcode"]
+                    path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+                    self.coms.append(task_id)
             plan = entry["request"].get("deferred_com")
             if task["state"] == "succeeded" and task["operation"] == "run" and plan:
                 rows = copy.deepcopy(entry["request"]["frozen_resources"])
@@ -174,7 +191,7 @@ class Tasks:
                 # Parent process is already joined/closed, core manifest published once.
                 self.start("com", {"parent_run_id": task_id, "frozen_resources": rows,
                                    "parameter_source": "spreadsheet" if any(r["field"] == "com_cfg_file" for r in rows) else "IEEE_8023dj defaults"},
-                           task_id=plan["com_id"])
+                           task_id=plan["com_id"], cancel_requested=task["cancel_requested"])
             # Keep the current task and both successful results, plus bounded recent logs.
             for old in list(self.tasks):
                 if len(self.tasks) <= 32:
@@ -196,6 +213,8 @@ class Tasks:
             entry = self.tasks[task_id]
             if self.active == task_id:
                 entry["cancel"].set()
+                if not entry["data"]["cancel_requested"]:
+                    entry["data"]["cancel_requested_at"] = time.time()
                 entry["data"].update(cancel_requested=True, state="cancel_requested")
             return copy.deepcopy(entry["data"])
 
@@ -209,9 +228,6 @@ class Tasks:
             if request.get("mode") == "defaults" and self.defaults is not None:
                 return copy.deepcopy(self.defaults)
         request = copy.deepcopy(request)
-        if request.get("base_directory"):
-            config = parse_yaml(request["yaml"]) if "yaml" in request else request["config"]
-            request["resource_bindings"] = self.resources.bind_base(config, request["base_directory"])
         task = self.start("normalize", request)
         self.tasks[task["task_id"]]["done"].wait()
         result = self.get(task["task_id"])
@@ -220,7 +236,14 @@ class Tasks:
         if request.get("mode") == "defaults":
             with self.lock:
                 self.defaults = copy.deepcopy(result["result"])
-        return result["result"]
+        normalized = result["result"]
+        if request.get("base_directory"):
+            with self.lock:
+                normalized["resource_bindings"] = self.resources.bind_base(normalized["config"], request["base_directory"])
+            normalized["unresolved_references"] = unresolved_references(normalized["config"], normalized["resource_bindings"])
+            normalized["input_identity_hash"] = input_hash({"config": normalized["config"], "runtime_extensions": normalized["runtime_extensions"], "resource_bindings": normalized["resource_bindings"]})
+            normalized["yaml"] = yaml_text(normalized["config"], normalized["runtime_extensions"], normalized["resource_bindings"])
+        return normalized
 
     def directory(self, run_id):
         with self.lock:

@@ -20,7 +20,9 @@ class Resources:
         name = Path(name.replace("\\", "/")).name
         suffix = Path(name).suffix.lower()
         if not re.fullmatch(r"\.s(?:1|2|4|8|12)p|\.(?:csv|txt|xls|xlsx)", suffix):
-            raise ValueError("Resource format must be Touchstone, csv/txt, or COM xls/xlsx.")
+            raise ValueError(
+                "Resource format must be Touchstone, csv/txt, or COM xls/xlsx."
+            )
         if not content:
             raise ValueError("Empty resources are not valid inputs.")
         sha = hashlib.sha256(content).hexdigest()
@@ -30,9 +32,21 @@ class Resources:
             path.write_bytes(content)
         if digest(path) != sha:
             raise ValueError("Stored resource content hash mismatch.")
-        row = {"resource_id": resource_id, "original_name": name, "format": suffix,
-               "bytes": len(content), "sha256": sha, "source": source,
-               "permission": "explicitly supplied for this local session", "parse_status": "pending task validation"}
+        row = {
+            "resource_id": resource_id,
+            "original_name": name,
+            "format": suffix,
+            "bytes": len(content),
+            "sha256": sha,
+            "source": source,
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "pending task validation",
+            "intended_uses": ["COM configuration"]
+            if suffix in (".xls", ".xlsx")
+            else ["channel", "COM THRU"]
+            if suffix == ".s4p"
+            else ["channel"],
+        }
         self.items[resource_id] = row
         return copy.deepcopy(row)
 
@@ -41,11 +55,15 @@ class Resources:
         if not path.is_absolute():
             raise ValueError("Local registration requires an explicit absolute path.")
         path = path.resolve(strict=True)
-        return self.add(path.name, path.read_bytes(), {"kind": "local_path", "path": str(path)})
+        return self.add(
+            path.name, path.read_bytes(), {"kind": "local_path", "path": str(path)}
+        )
 
     def freeze(self, resource_id, field, reference, index=None):
         if resource_id not in self.items:
-            raise ValueError(f"{field}: resource is unbound/unavailable; upload or register its path explicitly.")
+            raise ValueError(
+                f"{field}: resource is unbound/unavailable; upload or register its path explicitly."
+            )
         row = copy.deepcopy(self.items[resource_id])
         path = self.root / resource_id
         if digest(path) != row["sha256"]:
@@ -56,27 +74,52 @@ class Resources:
     def for_run(self, config, bindings):
         rows = []
         if config["inter_sel"] == "single":
-            rows.append(self.freeze(bindings.get("ch_file"), "ch_file", config["ch_file"]))
+            rows.append(
+                self.freeze(bindings.get("ch_file"), "ch_file", config["ch_file"])
+            )
         elif config["inter_sel"] == "multiple":
             ids = bindings.get("ch_files", [])
             if not config["ch_files"] or len(ids) != len(config["ch_files"]):
-                raise ValueError("ch_files: bind every ordered element, including duplicates.")
-            rows.extend(self.freeze(rid, "ch_files", ref, i) for i, (rid, ref) in enumerate(zip(ids, config["ch_files"])))
+                raise ValueError(
+                    "ch_files: bind every ordered element, including duplicates."
+                )
+            rows.extend(
+                self.freeze(rid, "ch_files", ref, i)
+                for i, (rid, ref) in enumerate(zip(ids, config["ch_files"]))
+            )
         if config["enable_com"] and config["com_cfg_file"]:
-            rows.append(self.freeze(bindings.get("com_cfg_file"), "com_cfg_file", config["com_cfg_file"]))
+            rows.append(
+                self.freeze(
+                    bindings.get("com_cfg_file"), "com_cfg_file", config["com_cfg_file"]
+                )
+            )
         return rows
 
     def bind_base(self, config, base_directory):
         base = Path(base_directory)
         if not base.is_absolute() or not base.is_dir():
-            raise ValueError("An explicit existing absolute YAML base directory is required.")
+            raise ValueError(
+                "An explicit existing absolute YAML base directory is required."
+            )
         bindings = {}
-        fields = ["ch_file"] if config.get("inter_sel") == "single" else ["ch_files"] if config.get("inter_sel") == "multiple" else []
+        fields = (
+            ["ch_file"]
+            if config.get("inter_sel") == "single"
+            else ["ch_files"]
+            if config.get("inter_sel") == "multiple"
+            else []
+        )
         if config.get("enable_com") and config.get("com_cfg_file"):
             fields.append("com_cfg_file")
         for field in fields:
-            refs = config.get(field, []) if field == "ch_files" else [config.get(field, "")]
-            ids = [self.local(str((base / ref).resolve()))["resource_id"] for ref in refs]
+            refs = (
+                config.get(field, [])
+                if field == "ch_files"
+                else [config.get(field, "")]
+            )
+            ids = [
+                self.local(str((base / ref).resolve()))["resource_id"] for ref in refs
+            ]
             bindings[field] = ids if field == "ch_files" else ids[0]
         return bindings
 
@@ -96,7 +139,7 @@ def inspect_channels(config, rows):
     """Read content/port metadata in the same worker as the consuming engine."""
     import numpy as np
     from skrf import Network
-    from pybert.utility.sparam import thru_is_1to3
+    from pybert.utility.sparam import _lane_through_ports
 
     report = []
     for row in rows:
@@ -106,31 +149,105 @@ def inspect_channels(config, rows):
             continue
         suffix = row["format"]
         if suffix in (".csv", ".txt"):
-            raise ValueError("Time-domain channel import is blocked pending native H_2_s2p/step-impulse semantic validation; resource retained.")
+            raise ValueError(
+                "Time-domain channel import is blocked pending native H_2_s2p/step-impulse semantic validation; resource retained."
+            )
         if row["field"] == "ch_files" and suffix != ".s4p":
-            raise ValueError("Ordered cascade supports native single-ended .s4p segments only.")
+            raise ValueError(
+                "Ordered cascade supports native single-ended .s4p segments only."
+            )
         net = Network(row["worker_path"])
         n = net.nports
-        if suffix != f".s{n}p" or n not in (1, 2, 4, 8, 12) or not np.isfinite(net.s).all():
-            raise ValueError("Touchstone content/port count or finite S data is invalid.")
-        if len(net.f) < 2 or not np.all(np.diff(net.f) > 0) or not np.isfinite(net.z0).all():
-            raise ValueError("Touchstone needs a finite strictly increasing frequency axis and finite z0.")
+        if (
+            suffix != f".s{n}p"
+            or n not in (1, 2, 4, 8, 12)
+            or not np.isfinite(net.s).all()
+        ):
+            raise ValueError(
+                "Touchstone content/port count or finite S data is invalid."
+            )
+        if (
+            len(net.f) < 2
+            or not np.all(np.diff(net.f) > 0)
+            or not np.isfinite(net.z0).all()
+        ):
+            raise ValueError(
+                "Touchstone needs a finite strictly increasing frequency axis and finite z0."
+            )
         lane = config["lane_sel"] if row["field"] == "ch_file" and n >= 8 else 0
         if n >= 8 and not 0 <= lane < n // 4:
             raise ValueError(f"Victim lane {lane} is outside 0..{n // 4 - 1}.")
-        ports = [4 * lane, 4 * lane + 2, 4 * lane + 1, 4 * lane + 3] if n >= 8 else list(range(n))
-        swap = n >= 4 and config["renumber"] and thru_is_1to3(net.subnetwork(ports))
-        actual = list(ports)
-        if swap:
-            actual[1], actual[2] = actual[2], actual[1]
-        report.append({**row, "ports": n, "frequency_hz": [float(net.f[0]), float(net.f[-1])],
-                       "frequency_samples": len(net.f), "s_unit": "dimensionless complex", "z0_unit": "ohm",
-                       "victim_lane": lane, "port_mapping_0based": actual, "renumber_swapped_1_2": bool(swap),
-                       "requested_fmax_hz": config["f_max"] * 1e9,
-                       "coverage": "covered" if net.f[-1] >= config["f_max"] * 1e9 else "native extrapolation above resource fmax",
-                       "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
-                       "aggressors": [{"lane": j, "port_mapping_0based": [4*j, 4*j+2, 4*lane+1, 4*lane+3]}
-                                      for j in range(n // 4) if j != lane] if n >= 8 else []})
-    if config["include_fext"] and (config["inter_sel"] != "single" or not report or report[0]["ports"] not in (8, 12)):
+        ports = list(range(4 * lane, 4 * lane + 4)) if n >= 4 else list(range(n))
+        actual = _lane_through_ports(net, lane, config["renumber"]) if n >= 4 else ports
+        swap = actual != ports
+        lane_ports = (
+            [_lane_through_ports(net, j, config["renumber"]) for j in range(n // 4)]
+            if n >= 8
+            else []
+        )
+        report.append(
+            {
+                **row,
+                "ports": n,
+                "frequency_hz": [float(net.f[0]), float(net.f[-1])],
+                "frequency_samples": len(net.f),
+                "s_unit": "dimensionless complex",
+                "z0_unit": "ohm",
+                "victim_lane": lane,
+                "port_mapping_0based": actual,
+                "renumber_swapped_1_2": bool(swap),
+                "requested_fmax_hz": config["f_max"] * 1e9,
+                "coverage": "covered"
+                if net.f[-1] >= config["f_max"] * 1e9
+                else "native extrapolation above resource fmax",
+                "interpolation": "native interp_s2p: polar interpolation; reflection extrapolation capped to unit magnitude; transmission fill_value=0 outside coverage",
+                "native_mapping": "corrected #13 interleaved caller; source-lane through detection only",
+                "input_pair_0based": [actual[0], actual[2]] if n >= 4 else None,
+                "output_pair_0based": [actual[1], actual[3]] if n >= 4 else None,
+                "parse_status": "validated for this task and frequency grid",
+                "renumber_requested": config["renumber"],
+                "use_window": config["use_window"],
+                "window_policy": "native raised_cosine before irfft when enabled; stored chnl_H remains pre-window",
+                "fext_path_status": "active"
+                if config["include_fext"] and n >= 8
+                else "inactive",
+                "termination_policy": {
+                    "kind": "package" if config["pkg_enable"] else "ordinary lumped",
+                    "rs_ohm": config["rs"],
+                    "cout_pf": config["cout"],
+                    "rin_ohm": config["rin"],
+                    "cin_pf": config["cin"],
+                    "package_group": config["pkg_group"]
+                    if config["pkg_enable"]
+                    else None,
+                    "tx_case": config["tx_pkg_case"] if config["pkg_enable"] else None,
+                    "rx_case": config["rx_pkg_case"] if config["pkg_enable"] else None,
+                    "include_host": config["pkg_include_host"]
+                    if config["pkg_enable"]
+                    else None,
+                    "ordinary_values_active": not config["pkg_enable"],
+                },
+                "aggressors": [
+                    {
+                        "lane": j,
+                        "port_mapping_0based": [
+                            lane_ports[j][0],
+                            actual[1],
+                            lane_ports[j][2],
+                            actual[3],
+                        ],
+                    }
+                    for j in range(n // 4)
+                    if j != lane
+                ]
+                if n >= 8
+                else [],
+            }
+        )
+    if config["include_fext"] and (
+        config["inter_sel"] != "single"
+        or not report
+        or report[0]["ports"] not in (8, 12)
+    ):
         raise ValueError("FEXT requires one actual .s8p/.s12p channel.")
     return report

@@ -1,2 +1,4 @@
 local/
 *.npz
+*.pybert_data
+**/resources/

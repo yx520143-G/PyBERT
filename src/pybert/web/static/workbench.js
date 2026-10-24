@@ -7,6 +7,7 @@
   let base = null, captured = null, patches = [], normalized = null, revision = 0, normalizedRevision = -1;
   let activeTask = null, currentTask = null, runs = [], selected = null, normalizing = null, timer = null, pendingValidation = false, disconnected = false, logicalName = '', renderToken = 0;
   let runtimeExtensions = {};
+  let comTasks = [];
   const resourceBindings = () => window.PYBERT_RESOURCES?.bindings() || {};
   function extraInput() {
     const values = {...runtimeExtensions.values};
@@ -57,10 +58,14 @@
     const locked = !base || !!normalizing || disconnected || window.PYBERT_RESOURCES?.pending();
     for (const id of ['run','save-config','save-as','load-config']) $(id).disabled = locked || !!activeTask;
     $('abort').disabled = !activeTask || disconnected;
+    $('resources-open').disabled = locked;
     $('inspector').inert = !!normalizing;
     for (const id of ['reset-draft','reset-stage','tx-mode','rx-mode','reset-modes','undo-reset']) $(id).disabled = !!normalizing;
     $('stale').textContent = selected ? (normalizedRevision !== revision || selected.input_hash !== normalized?.input_hash || selected.input_identity_hash && selected.input_identity_hash !== normalized?.input_identity_hash ? 'Older input · draft or resource binding changed' : 'Matches validated input') : '';
     if ($('resource-dialog')) $('resource-dialog').inert=!!normalizing;
+    const child = selected && comTasks.findLast(task=>task.parent_run_id===selected.run_id);
+    $('parent-com-state').textContent = selected ? `核心结果成功 · ${selected.run_id.slice(0,8)}${child ? `；COM 子任务 ${child.task_id.slice(0,8)}：${child.state}${child.result?.value_db!==undefined ? ` · ${child.result.value_db.toFixed(9)} dB` : ''}` : selected.execution_strategy?.deferred_com ? '；COM 子任务等待启动' : '；COM 未随此 Run 启用'}` : '';
+    $('parent-com-state').title=selected ? `run_id=${selected.run_id}; com_id=${child?.task_id || selected.execution_strategy?.deferred_com?.com_id || 'none'}` : '';
   }
   async function normalizeDraft() {
     if (normalizing) return normalizing;
@@ -79,6 +84,7 @@
       const result = await normalizing;
       base = result.config; normalized = result; patches = []; runtimeExtensions=result.runtime_extensions;
       window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
+      window.PYBERT_RESOURCES?.importReport(result);
       ui.replaceDraft(toDraft(base)); captured = toNative(ui.getDraft());
       persistNative();
       normalizedRevision = expectedRevision;
@@ -235,7 +241,8 @@
       const state = await api('state');
       activeTask = state.active_task_id;
       currentTask = state.current_task_id;
-      window.PYBERT_RESOURCES?.state(state,selected?.run_id);
+      comTasks = state.com_tasks || [];
+      window.PYBERT_RESOURCES?.state(state,selected);
       if (currentTask) {
         const task = await api(`tasks/${currentTask}`);
         $('task-state').textContent = `${task.operation} ${task.task_id.slice(0,8)} · ${task.state} · ${task.phase}${task.error ? ` · ${task.error}`:''}`;
@@ -280,19 +287,24 @@
     const file = event.target.files[0]; if (!file) return;
     clearTimeout(timer);
     try {
-      const request = {mode:'load'};
-      if (file.name.endsWith('.pybert_cfg')) request.legacy_base64 = await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result.split(',')[1]);reader.onerror=reject;reader.readAsDataURL(file);});
-      else request.yaml = await file.text();
-      if (document.getElementById('yaml-base-directory')?.value) request.base_directory=document.getElementById('yaml-base-directory').value;
-      normalizing = api('normalize',request); controls();
+      const baseDirectory=document.getElementById('yaml-base-directory')?.value;
+      normalizing = (async()=>{
+        const request = {mode:'load'};
+        if (file.name.endsWith('.pybert_cfg')) request.legacy_base64 = await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result.split(',')[1]);reader.onerror=reject;reader.readAsDataURL(file);});
+        else request.yaml = await file.text();
+        if (baseDirectory) request.base_directory=baseDirectory;
+        return api('normalize',request);
+      })(); controls();
       const result = await normalizing;
       base = result.config; normalized = result; patches = []; runtimeExtensions=result.runtime_extensions; revision++; normalizedRevision = revision;
       window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
+      window.PYBERT_RESOURCES?.importReport(result);
       ui.replaceDraft(toDraft(base)); captured = toNative(ui.getDraft());
       logicalName = file.name; $('config-name').textContent = logicalName;
       persistNative();
-      $('input-status').textContent = result.warnings.join(' ') + ' Import: ' + JSON.stringify(result.import_report) + ' Unresolved: ' + JSON.stringify(result.unresolved_references); controls();
-    } catch (error) { inputError(error); }
+      $('config-status').textContent=`已载入 ${logicalName}；未自动 Run。`;
+      $('input-status').textContent = result.warnings.join(' ') + ` 未解析引用 ${Object.keys(result.unresolved_references).length} 类；完整导入/扩展报告见“资源 / COM”。`; controls();
+    } catch (error) { $('config-status').textContent=`Load 失败，原草稿与名称保留：${error.message}`; }
     finally { normalizing = null; controls(); }
     event.target.value = '';
   });
@@ -300,15 +312,16 @@
     const a = document.createElement('a'), url = URL.createObjectURL(new Blob([normalized.yaml],{type:'application/yaml'}));
     a.href = url; a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(url),1000);
     logicalName = name; $('config-name').textContent = name;
+    $('config-status').textContent=`已向浏览器提交 ${name} 下载请求；完成状态见下载面板。资源 bytes 未附带；runtime extensions 保存在版本化注释中。`;
     persistNative();
   }
   async function save(as) {
     clearTimeout(timer);
-    try { await normalizeDraft(); if (as || !logicalName) { $('save-name').value = logicalName || 'pybert.yaml'; $('name-dialog').returnValue = 'cancel'; $('name-dialog').showModal(); } else download(logicalName); }
-    catch (error) { inputError(error); }
+    try { await normalizeDraft(); if (as || !logicalName || !/\.ya?ml$/i.test(logicalName)) { $('save-name').value = logicalName ? logicalName.replace(/\.[^.]+$/,'.yaml') : 'pybert.yaml'; $('name-dialog').returnValue = 'cancel'; $('name-dialog').showModal(); } else download(logicalName); }
+    catch (error) { $('config-status').textContent=`Save 失败，原名称保留：${error.message}`; }
   }
   $('save-config').addEventListener('click',() => save(false)); $('save-as').addEventListener('click',() => save(true));
-  $('name-dialog').addEventListener('close',() => { if ($('name-dialog').returnValue === 'save') download($('save-name').value); });
+  $('name-dialog').addEventListener('close',() => { if ($('name-dialog').returnValue === 'save') { try { download($('save-name').value); } catch(error) { $('config-status').textContent=`Save 失败，原名称保留：${error.message}`; } } });
   $('name-dialog').addEventListener('cancel',() => { $('name-dialog').returnValue = 'cancel'; });
   $('help').addEventListener('click',() => $('help-dialog').showModal()); $('close-help').addEventListener('click',() => $('help-dialog').close());
   $('quit').addEventListener('click',() => { disconnected=true; controls(); $('task-state').textContent='Disconnected. You may close this tab; backend tasks continue.'; });

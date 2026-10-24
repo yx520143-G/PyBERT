@@ -10,7 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from plotly.offline import get_plotlyjs
 
 from pybert import __version__
-from pybert.web import NATIVE_SHA, PROTOTYPE_SHA, SCHEMA_VERSION
+from pybert.web import NATIVE_SHA, NATIVE_IMPORTER_SHA, PROTOTYPE_SHA, SCHEMA_VERSION
 from pybert.web.data import adapter_sha, plot_payload
 from pybert.web.tasks import BusyError, Tasks
 
@@ -38,6 +38,12 @@ def create_app(tasks=None):
 
         return JSONResponse(status_code=404, content={"detail": str(err)})
 
+    @app.exception_handler(OSError)
+    async def resource_access_failed(_request, err):
+        from fastapi.responses import JSONResponse
+
+        return JSONResponse(status_code=422, content={"detail": f"Resource/file access failed: {err}"})
+
     @app.get("/api/version")
     def version():
         return {
@@ -45,6 +51,7 @@ def create_app(tasks=None):
             "version": __version__,
             "adapter_sha": adapter_sha(),
             "native_sha": NATIVE_SHA,
+            "native_importer_sha": NATIVE_IMPORTER_SHA,
             "prototype_sha": PROTOTYPE_SHA,
             "fork": "yx520143-G/PyBERT",
         }
@@ -76,6 +83,10 @@ def create_app(tasks=None):
 
     @app.post("/api/com", status_code=202)
     def compute_com(request: dict):
+        if set(request) - {"thru_resource_id", "config_resource_id", "parameter_source", "parent_run_id", "thru_reference", "config_reference"}:
+            raise ValueError("COM accepts its own THRU/config/default selection only; current time-domain EQ/noise/bitrate fields are not COM inputs.")
+        if request.get("parent_run_id"):
+            manager.directory(request["parent_run_id"])
         return manager.start("com", request)
 
     @app.get("/api/com/{com_id}")

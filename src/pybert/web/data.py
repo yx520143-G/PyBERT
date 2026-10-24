@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 
 from pybert.utility import calc_eye, safe_log10
-from pybert.web import NATIVE_SHA, PROTOTYPE_SHA, RAW_SCHEMA_VERSION, SCHEMA_VERSION
+from pybert.web import NATIVE_SHA, NATIVE_IMPORTER_SHA, PROTOTYPE_SHA, RAW_SCHEMA_VERSION, SCHEMA_VERSION
 
 RESPONSES = ("chnl", "tx", "tx_out", "ctle", "ctle_out", "ffe", "ffe_out", "dfe", "dfe_out")
 WAVEFORMS = ("ideal_signal", "chnl_out", "rx_in", "ctle_out", "ffe_out", "dfe_out")
@@ -350,6 +350,7 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
         raw_schema_version=RAW_SCHEMA_VERSION,
         **{k: v for k, v in identity.items() if k not in ("warnings", "resources")},
         native_sha=NATIVE_SHA,
+        native_importer_sha=NATIVE_IMPORTER_SHA,
         prototype_sha=PROTOTYPE_SHA,
         adapter_sha=adapter_sha(),
         status="succeeded",
@@ -409,6 +410,8 @@ def plot_payload(directory, plot_id):
     first = plot["traces"][0] if plot["traces"] else {"xunit": "ps", "yunit": "V"}
     fields = list(plot.get("heatmap", {}).values()) or [trace[axis] for trace in plot["traces"] for axis in ("x", "y")]
     metadata = dict(plot.get("metadata", {}))
+    if plot_id == "noise":
+        metadata["interference"] = manifest.get("interference", {"availability": plot.get("fext_availability", "unknown")})
     if fields:
         metadata.update(window=manifest["datasets"][fields[0]]["window"],
                         datasets={key:manifest["datasets"][key] for key in fields})
@@ -416,7 +419,7 @@ def plot_payload(directory, plot_id):
         "run_id": manifest["run_id"],
         "plot_id": plot_id,
         "data": traces,
-        "title": plot["title"],
+        "title": plot["title"] + (" · FEXT disabled" if plot_id == "noise" and metadata["interference"]["availability"] == "disabled" else ""),
         "xunit": first["xunit"],
         "yunit": first["yunit"],
         "logx": first.get("logx", False),

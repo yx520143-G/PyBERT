@@ -6,6 +6,7 @@ import math
 import io
 import pickle
 import base64
+import re
 import tempfile
 from pathlib import Path
 
@@ -168,8 +169,6 @@ def validate(config, defaults, complete=True, execution=False):
         "rx_use_viterbi",
         "tx_use_ami",
         "rx_use_ami",
-        "tx_use_ts4",
-        "rx_use_ts4",
     ):
         if c[key]:
             raise ValueError(f"{key}: active capability is unsupported; see #9/#10.")
@@ -181,6 +180,11 @@ def validate(config, defaults, complete=True, execution=False):
         raise ValueError("ctle_sel and use_ctle_file conflict.")
     if execution and c["pkg_enable"] and c["include_fext"]:
         raise ValueError("Package + FEXT is unavailable: victim package and simplified aggressor terminations are not jointly validated.")
+    if execution and c["pkg_enable"]:
+        from pychopmarg.config.ieee_8023dj_d3p3 import device_model
+
+        device_model(c["pkg_group"], c["tx_pkg_case"], False, include_host=c["pkg_include_host"])
+        device_model(c["pkg_group"], c["rx_pkg_case"], True, include_host=c["pkg_include_host"])
     if execution and c["enable_com"] and (c["inter_sel"] != "single" or Path(c["ch_file"]).suffix.lower() != ".s4p"):
         raise ValueError("Run-after COM requires a single .s4p; it uses its own parameters.")
 
@@ -257,6 +261,9 @@ def import_config(supplied, defaults):
             value = supplied.pop(old)
             if type(value) is not bool:
                 raise ValueError(f"{old}: boolean required.")
+            if old == "use_ch_file" and not value:
+                changes.append("use_ch_file=false: native legacy no-op; current inter_sel retained")
+                continue
             mapped = ("single" if value else "native") if old == "use_ch_file" else ("ibis" if value else "native")
             if new in supplied and supplied[new] != mapped:
                 raise ValueError(f"Conflicting legacy {old} and current {new}.")
@@ -289,7 +296,7 @@ def import_config(supplied, defaults):
 def extensions(value):
     if not value:
         return {}
-    if set(value) != {"version", "values"} or value["version"] != 1 or not isinstance(value["values"], dict):
+    if set(value) != {"version", "values"} or type(value["version"]) is not int or value["version"] != 1 or not isinstance(value["values"], dict):
         raise ValueError("runtime_extensions requires version=1 and values object.")
     values = value["values"]
     if set(values) - {"rlm", "rx_use_clocks", "ami_opt_trials", "tx_ami_params", "rx_ami_params"}:
@@ -306,6 +313,32 @@ def extensions(value):
             raise ValueError(f"{key}: dynamic parameter object required.")
     json.dumps(value, allow_nan=False)
     return value
+
+
+def binding_data(value):
+    if not isinstance(value, dict) or set(value) - {"ch_file", "ch_files", "com_cfg_file"}:
+        raise ValueError("resource_bindings: expected known channel/COM field bindings.")
+    for key, item in value.items():
+        if key == "ch_files" and not isinstance(item, list):
+            raise ValueError("ch_files bindings must be an ordered list, including unbound null positions.")
+        ids = item if key == "ch_files" else [item]
+        if any(rid is not None and (not isinstance(rid, str) or not re.fullmatch(r"[a-f0-9]{64}\.(?:s(?:1|2|4|8|12)p|csv|txt|xls|xlsx)", rid)) for rid in ids):
+            raise ValueError(f"{key}: invalid resource identity.")
+    return value
+
+
+def unresolved_references(config, bindings):
+    result = {}
+    for key in ("ch_file", "ch_files", "ctle_file", "com_cfg_file", *RESOURCE_FIELDS):
+        value = config[key]
+        if key == "ch_files":
+            ids = bindings.get(key, [])
+            missing = [{"index": i, "reference": ref} for i, ref in enumerate(value) if i >= len(ids) or not ids[i]]
+            if missing:
+                result[key] = missing
+        elif value and not bindings.get(key):
+            result[key] = value
+    return result
 
 
 def load_config(engine, config, defaults=None):
@@ -343,12 +376,16 @@ def normalize(request):
             for line in request["yaml"].splitlines():
                 if line.startswith("# pybert-web-runtime-v1: "):
                     extra = json.loads(line.split(": ", 1)[1])
+                    if not isinstance(extra, dict) or set(extra) - {"runtime_extensions", "resource_bindings"}:
+                        raise ValueError("Unknown versioned Web configuration metadata.")
                     runtime = extra.get("runtime_extensions", {})
                     bindings = request.get("resource_bindings", extra.get("resource_bindings", {}))
         supplied, report = import_config(supplied, defaults)
+        runtime, bindings = extensions(runtime), binding_data(bindings)
         validate(supplied, defaults, complete=False)
         load_config(engine, defaults | supplied, defaults)
     elif mode == "patch":
+        runtime, bindings = extensions(runtime), binding_data(bindings)
         load_config(engine, request["config"], defaults)
         for edit in request["patches"]:
             key, value = edit["field"], edit["value"]
@@ -383,7 +420,7 @@ def normalize(request):
         "runtime_defaults": {key: getattr(engine, key) for key in ("rlm", "rx_use_clocks", "ami_opt_trials")},
         "resource_bindings": bindings,
         "import_report": report,
-        "unresolved_references": {key: config[key] for key in ("ch_file", "ch_files", "ctle_file", "com_cfg_file", *RESOURCE_FIELDS) if config[key] and key not in bindings},
+        "unresolved_references": unresolved_references(config, bindings),
         "warnings": warnings(config),
         "runtime_status": {key: "inactive in Native Run; retained for #8/#10" for key in runtime.get("values", {})},
     }
@@ -403,4 +440,16 @@ def warnings(config):
         messages.append("CTLE bypassed; File/native preset is inactive.")
     if config["cdr_type"] == "Mueller-Muller":
         messages.append("Mueller-Muller uses a fixed native lock point, not acquisition dynamics.")
+    if config["pkg_enable"]:
+        messages.append("Native package replaces ordinary Rs/Cout/Rin/Cin; those stored presets are inactive.")
+    if config["pkg_enable"] and config["include_fext"]:
+        messages.append("Package + FEXT is unavailable pending joint validation.")
+    if config["ctle_enable"] and config["ctle_sel"] == "File":
+        messages.append("Enabled CTLE File is blocked by the native File path.")
+    if config["impulse_length"] != 0:
+        messages.append("Nonzero impulse_length is saved but blocked at Run due to native inconsistent units.")
+    if config["tx_use_ts4"] or config["rx_use_ts4"]:
+        messages.append("On-die TS4 presets are inactive in Native electrical mode; no IBIS/AMI resources loaded.")
+    if config["enable_com"]:
+        messages.append("COM is deferred to a separate joined child with its own parameters; no current EQ/noise/bitrate injection.")
     return messages
