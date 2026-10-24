@@ -43,7 +43,7 @@ def schema(value):
     if not isinstance(value, dict) or set(value) - {"tx", "rx"}:
         raise ValueError("ami_models: tx/rx objects required.")
     for side, model in value.items():
-        if not isinstance(model, dict) or set(model) - {"model_hash", "selection", "parameters", "search", "sim_corner"}:
+        if not isinstance(model, dict) or set(model) - {"model_hash", "parameter_model_hash", "selection", "parameters", "search", "sim_corner", "rebind"}:
             raise ValueError(f"{side}: unknown AMI model configuration field.")
         if not isinstance(model.get("model_hash"), str) or len(model["model_hash"]) != 64:
             raise ValueError(f"{side}: explicit model content hash required.")
@@ -73,7 +73,7 @@ def bundle_file(bundle, relative):
     return path
 
 
-def configure(p, config, runtime, resources, *, discover=False, check=lambda: False, emit=lambda *a, **k: None):
+def configure(p, config, runtime, resources, *, discover=False, allow_unbound=False, check=lambda: False, emit=lambda *a, **k: None):
     """Reuse native parser/setters/observers, verify postconditions, never default an active model."""
     values = runtime.get("values", {})
     definitions = values.get("ami_models", {})
@@ -85,9 +85,17 @@ def configure(p, config, runtime, resources, *, discover=False, check=lambda: Fa
             continue
         if not bundle:
             if active:
+                if allow_unbound:
+                    reports[side] = {"side": side, "status": "unavailable on this host", "stage": "resource rebind required",
+                                     "reason": "Saved input retained; original model content must be explicitly rebound before execution."}
+                    continue
                 raise ValueError(f"{side}: model resources unbound.")
             continue
         model = copy.deepcopy(definitions.get(side, {}))
+        if model.get("rebind"):
+            if not discover:
+                raise ValueError(f"{side}: explicit rebind must be validated before execution.")
+            model = {"model_hash": model["model_hash"], "selection": model["selection"], "rebind": True}
         if model and model["model_hash"] != bundle["sha256"]:
             raise ValueError(f"{side}: model content changed; explicitly rebind and review parameters.")
         report = {"status": "invalid", "stage": "resource", "model_hash": bundle["sha256"], "side": side,
@@ -95,8 +103,13 @@ def configure(p, config, runtime, resources, *, discover=False, check=lambda: Fa
                   "files": bundle["files"]}
         reports[side] = report
         try:
+            for file in bundle["files"]:
+                bundle_file(bundle, file["relative_path"])
             selection = model.get("selection", {})
             relative = selection.get("ibis_path", config[side + "_ibis_file"].replace("\\", "/"))
+            reference = config[side + "_ibis_file"].replace("\\", "/")
+            if selection and reference != relative and not reference.endswith("/" + relative):
+                raise ValueError(f"{side}: requested IBIS path conflicts with frozen model selection; explicitly rebind.")
             if relative not in [f["relative_path"] for f in bundle["files"]]:
                 candidates = [f["relative_path"] for f in bundle["files"] if Path(f["relative_path"]).name == Path(relative).name]
                 if not discover or len(candidates) != 1:
@@ -124,10 +137,15 @@ def configure(p, config, runtime, resources, *, discover=False, check=lambda: Fa
                 for file in (ami, dll):
                     bundle_file(bundle, Path(file).relative_to(bundle["worker_path"]).as_posix())
                 cfg = AMIParamConfigurator(Path(ami).read_text(encoding="utf-8"))
+                parameter_model_hash = hashlib.sha256(json.dumps({"bundle": bundle["sha256"], "selection": selection,
+                    "ami_sha256": hashlib.sha256(Path(ami).read_bytes()).hexdigest(),
+                    "binary_sha256": hashlib.sha256(Path(dll).read_bytes()).hexdigest()}, sort_keys=True).encode()).hexdigest()
+                if model.get("parameter_model_hash", parameter_model_hash) != parameter_model_hash:
+                    raise ValueError(f"{side}: selected model changed; parameters require explicit rebind and difference review.")
                 cfg.sim_corner = model.get("sim_corner", "typ")
                 rows = parameter_rows(cfg)
                 supplied = model.get("parameters", [])
-                if model and {tuple(r["path"]) for r in supplied} != {tuple(r["path"]) for r in rows}:
+                if model and not model.get("rebind") and {tuple(r["path"]) for r in supplied} != {tuple(r["path"]) for r in rows}:
                     raise ValueError(f"{side}: complete dynamic parameter tree required; no omitted defaults.")
                 for row in supplied:
                     original = next(r for r in rows if r["path"] == row["path"])
@@ -151,6 +169,10 @@ def configure(p, config, runtime, resources, *, discover=False, check=lambda: Fa
                     raise AMICancelled("Cancelled before binary load")
                 emit("phase", phase=side + " AMI binary load (not execution qualification)")
                 library = AMIModel(dll)
+                report["ABI"] = {"loader": "ctypes.CDLL", "pointer_bits": struct.calcsize("P") * 8,
+                                 "exports": {"AMI_Init": True, "AMI_Close": True, "AMI_GetWave": library.has_getwave}}
+                if capabilities["GetWave_Exists"] and not library.has_getwave:
+                    raise ValueError(f"{side}: GetWave_Exists declared but AMI_GetWave export is missing.")
                 if check():
                     raise AMICancelled("Cancelled after binary load")
                 setattr(p, "_" + side + "_model", library)
@@ -185,6 +207,7 @@ def configure(p, config, runtime, resources, *, discover=False, check=lambda: Fa
                 raise ValueError(f"{side}: unknown/unsupported optimizer parameter path.")
             reports[side].update(status="ready", stage="preflight only; no execution", binary_load="loaded" if cfg else "not configured")
             definitions[side] = {"model_hash": bundle["sha256"], "selection": selection, "parameters": report.get("parameters", []),
+                                 **({"parameter_model_hash": parameter_model_hash} if cfg else {}),
                                  "sim_corner": cfg.sim_corner if cfg else "typ", "search": [
                                      {"path": list(t.branch_names), **{key: getattr(t, key) for key in ("enabled", "min_val", "max_val", "step", "value")}}
                                      for t in getattr(p, side + "_ami_tap_tuners")]}
@@ -210,7 +233,7 @@ class Execution:
 
     def __init__(self, check=lambda: False):
         self.check = check
-        self.calls, self.arrays, self.library_calls = [], {}, []
+        self.calls, self.arrays, self.library_calls, self.dll_calls = [], {}, [], []
 
     def checkpoint(self):
         if self.check():
@@ -221,6 +244,27 @@ class Execution:
         from pybert.models import bert
         from pybert.threads import optimization
         original = bert.run_ami_model
+        constructor = AMIModel.__init__
+
+        def load(model, filename):
+            constructor(model, filename)
+            for name, attribute in (("AMI_Init", "_amiInit"), ("AMI_GetWave", "_amiGetWave")):
+                pointer = getattr(model, attribute)
+                if pointer is None:
+                    continue
+
+                def invoke(*args, _pointer=pointer, _name=name):
+                    self.checkpoint()
+                    row = {"method": _name, "started_at": time.time(), "returned": False}
+                    self.dll_calls.append(row)
+                    try:
+                        result = _pointer(*args)
+                        row["returned"] = True
+                        return result
+                    finally:
+                        row["elapsed_s"] = time.time() - row["started_at"]
+
+                setattr(model, attribute, invoke)
 
         def helper(*args, **kwargs):
             self.checkpoint()
@@ -231,10 +275,13 @@ class Execution:
             self.calls.append(row)
             for key, value in (("input_h", args[5]), ("input_x", args[6])):
                 self.arrays[f"ami.call{index}.{key}"] = np.asarray(value).copy()
+                self.arrays[f"ami.call{index}.{key}_t_s"] = np.arange(len(value)) * args[4]
             try:
                 result = original(*args, **kwargs)
                 for key, value in zip(("y", "clocks", "h", "out_h"), result[:4]):
                     self.arrays[f"ami.call{index}.{key}"] = np.asarray(value).copy()
+                    if key != "clocks":
+                        self.arrays[f"ami.call{index}.{key}_t_s"] = np.arange(len(value)) * args[4]
                 if not all(np.isfinite(self.arrays[f"ami.call{index}.{key}"]).all() and self.arrays[f"ami.call{index}.{key}"].size for key in ("y", "h", "out_h")):
                     raise ValueError("AMI helper returned missing/nonfinite response or output.")
                 row.update(message=result[4], params_out=result[5], status="returned; engine postconditions pending")
@@ -249,7 +296,7 @@ class Execution:
         def counted(name, function):
             def call(model, *args, **kwargs):
                 self.checkpoint()
-                row = {"method": name, "started_at": time.time(), "returned": False}
+                row = {"method": name, "level": "Python wrapper; not individual DLL chunks", "started_at": time.time(), "returned": False}
                 self.library_calls.append(row)
                 try:
                     result = function(model, *args, **kwargs)
@@ -260,12 +307,13 @@ class Execution:
             return call
 
         with patch.object(bert, "run_ami_model", helper), patch.object(optimization, "run_ami_model", helper), \
+                patch.object(AMIModel, "__init__", load), \
                 patch.object(AMIModel, "initialize", counted("AMI_Init", AMIModel.initialize)), \
                 patch.object(AMIModel, "getWave", counted("AMI_GetWave", AMIModel.getWave)):
             yield self
 
     def write(self, directory, report=None):
-        Path(directory, "ami-execution.json").write_text(json.dumps({"calls": self.calls, "library_calls": self.library_calls,
+        Path(directory, "ami-execution.json").write_text(json.dumps({"calls": self.calls, "library_calls": self.library_calls, "dll_calls": self.dll_calls,
                                                                      "models": report or {}}, indent=2), encoding="utf-8")
         np.savez_compressed(Path(directory, "ami-execution.npz"), **self.arrays)
 
@@ -287,14 +335,15 @@ def annotate(p, execution, reports, arrays, manifest):
               "rx_in": "diagnostic convolve(tx_out + noise, chnl_h); downstream uses other arrays; explicit noise not guaranteed downstream" if tx_gw else "actual noisy Rx input for Rx GetWave / Native; Rx Init has its own output-noise branch",
               "noise": "Tx GetWave known native limitation" if tx_gw else "Rx Init adds noise at ctle_out" if p.rx_use_ami and not p.rx_use_getwave else "rx_in",
               "model_state": "only raw params_out are model-returned; native zero/empty placeholders are not model taps/lock/UI estimates"}
-    manifest["ami"] = {"schema_version": 1, "models": reports, "execution": execution.calls, "library_calls": execution.library_calls, "actual_branch": branch}
+    manifest["ami"] = {"schema_version": 1, "models": reports, "execution": execution.calls, "library_calls": execution.library_calls,
+                       "dll_calls": execution.dll_calls, "actual_branch": branch}
     for key, value in execution.arrays.items():
         arrays[key] = value
         field = key.rsplit(".", 1)[1]
         manifest["datasets"][key] = {"field": key, "producer": "original run_ami_model", "point": "model helper", "kind": "AMI raw",
-                                    "dtype": str(value.dtype), "shape": list(value.shape), "unit": "s" if field == "clocks" else "V/sample" if field.endswith("h") else "V",
+                                    "dtype": str(value.dtype), "shape": list(value.shape), "unit": "s" if field == "clocks" or field.endswith("_t_s") else "V/sample" if field.endswith("h") else "V",
                                     "window": "entire original helper array", "clock_basis": branch["clock_source"], "availability": "available" if value.size else "unavailable: model returned none",
-                                    "axis": None, "display_noise": False}
+                                    "axis": key + "_t_s" if key + "_t_s" in execution.arrays else None, "display_noise": False}
     labels = {"rx_in": "Tx GetWave diagnostic Rx reference" if tx_gw else "Rx input (+Tx, noise)",
               "ctle_out": "Rx AMI output" if p.rx_use_ami else "Native CTLE output",
               "ffe_out": "Rx AMI output · Native Rx FFE bypass" if p.rx_use_ami else "Native Rx FFE output"}
@@ -302,6 +351,15 @@ def annotate(p, execution, reports, arrays, manifest):
         manifest["datasets"][key]["execution_context"] = branch
         if p.rx_use_ami and key.startswith("ctle"):
             manifest["datasets"][key]["producer"] = "Rx AMI response/output via original engine; not Native CTLE"
+    if p.rx_use_ami:
+        for key, dataset in manifest["datasets"].items():
+            if key.startswith(("ffe_", "context.ffe.", "jitter_ffe", "display.eye.ffe")):
+                dataset["execution_context"] = branch
+                dataset["meaning"] = "Rx AMI output / Native RxFFE bypass; helper observer is equivalent to Rx AMI output, not an additional FFE execution"
+    if manifest.get("observations"):
+        manifest["observations"]["tx"]["label"] = labels["rx_in"]
+        manifest["observations"]["ctle"]["label"] = labels["ctle_out"]
+        manifest["observations"]["ffe"]["label"] = labels["ffe_out"]
     for plot in manifest["plots"].values():
         plot.setdefault("metadata", {})["AMI"] = branch
         if p.rx_use_ami:

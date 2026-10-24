@@ -81,6 +81,10 @@ class CancelBridge(OptThread):
 def ami_plan(p):
     """Bound the existing TPE path before any Init, with the original search semantics."""
     dimensions = []
+    frequency_samples = math.ceil((p.f_max * 1e9 + p.f_step * 1e6) / (p.f_step * 1e6))
+    mmse_samples = math.ceil((.5 / (p.ui / p.nspui)) / 100e6 + .5)
+    if frequency_samples > 200_001 or mmse_samples > 200_001:
+        raise ValueError(f"AMI optimization grid budget refused before allocation: channel={frequency_samples}/200001, optimizer={mmse_samples}/200001.")
     for side in ("tx", "rx"):
         if getattr(p, side + "_use_ami"):
             cfg = getattr(p, "_" + side + "_cfg", None)
@@ -93,9 +97,11 @@ def ami_plan(p):
             for tuner in tuners:
                 if tuner.enabled:
                     _range_count(tuner.min_val, tuner.max_val, tuner.step, f"{side}.{tuner.branch_names}")
-                    parameter = cfg.fetch_param(list(tuner.branch_names))
-                    if tuner.min_val < parameter.pmin or tuner.max_val > parameter.pmax:
+                    original = next(t for t in cfg.mk_tap_tuners() if t.branch_names == tuner.branch_names)
+                    if tuner.min_val < original.min_val or tuner.max_val > original.max_val:
                         raise ValueError(f"{side}: search bounds exceed parser range: {tuner.branch_names}")
+                    if tuner.is_int and any(not float(v).is_integer() for v in (tuner.min_val, tuner.max_val, tuner.step)):
+                        raise ValueError(f"{side}: integer search bounds/step must be integral; no silent rounding.")
                     dimensions.append({"side": side, "path": list(tuner.branch_names), **{k: getattr(tuner, k) for k in ("min_val", "max_val", "step", "value")}})
         elif side == "tx":
             for i, tuner in enumerate(p.tx_tap_tuners):
@@ -399,13 +405,13 @@ def run_optimization(opt_id, request, directory, check, emit):
                       selected_values={"tx": list(map(float, tx)), "ffe": list(map(float, rx)),
                                        "dfe": [float(t.value) for t in p.dfe_tap_tuners], "ctle_db": float(peak)})
     except Exception as err:
-        record.update(status="cancelled" if isinstance(err, OptimizationCancelled) else "failed", error=str(err), error_type=type(err).__name__)
+        record.update(status="cancelled" if isinstance(err, (OptimizationCancelled, AMICancelled)) else "failed", error=str(err), error_type=type(err).__name__)
         raise
     finally:
         if execution.calls or model_report:
             execution.write(directory, model_report)
             if record.get("ami"):
-                record["ami"].update(execution=execution.calls, library_calls=execution.library_calls)
+                record["ami"].update(execution=execution.calls, library_calls=execution.library_calls, dll_calls=execution.dll_calls)
             arrays.update(execution.arrays)
         for row in observations.get("candidates", []):
             prefix = f"candidate_{row['index']:06d}"
@@ -554,7 +560,7 @@ def validate_record(record, arrays):
             not np.array_equal(arrays["curs_ix"], [axis[peak_ix], axis[peak_ix]]) or
             not np.array_equal(arrays["curs_amp"], [0., pulse[peak_ix]])):
         raise ValueError("Optimization cursor/selected pulse/axis disagree with the native marker.")
-    expected_rx = record["requested_input"]["rx_n_taps"] if record["requested_input"]["use_mmse"] else 100
+    expected_rx = record["requested_input"]["rx_n_taps"] if record["requested_input"]["use_mmse"] or record["requested_input"]["rx_use_ami"] else 100
     if (len(values["tx"]) != (0 if record["requested_input"]["tx_use_ami"] else 6) or len(values["ffe"]) != expected_rx or
             not np.array_equal(values["tx"], arrays[prefix + "_tx_weights"]) or
             not np.array_equal(values["ffe"], arrays[prefix + "_rx_weights"]) or values["ctle_db"] != winner["ctle_db"] or

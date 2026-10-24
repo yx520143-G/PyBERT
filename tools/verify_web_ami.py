@@ -21,7 +21,7 @@ from pybert.web.ami import Execution
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from tools.verify_web_optimizer import rss
-FIXTURES = ROOT / "docs/webui/issue10/fixtures/v2-executable"
+FIXTURES = ROOT / os.environ.get("AMI_FIXTURES", "docs/webui/issue10/fixtures/v2-executable")
 
 
 def direct(task_id, operation, request, directory, cancel, pipe):
@@ -36,6 +36,7 @@ def direct(task_id, operation, request, directory, cancel, pipe):
     execution = Execution()
     status = {"status": "failed"}
     started = time.time()
+    main_invocations = 0
     try:
         for side, model in runtime.get("ami_models", {}).items():
             bundle = next(r for r in request["frozen_resources"] if r["field"] == side + "_model_bundle")
@@ -74,6 +75,7 @@ def direct(task_id, operation, request, directory, cancel, pipe):
         observations, decoding = {}, {}
         with execution.capture():
             if operation == "run":
+                main_invocations += 1
                 my_run_simulation(p, initial_run=True, update_plots=False, observations=observations, decoding=decoding)
                 assert p.status == "Ready."
             else:
@@ -84,8 +86,18 @@ def direct(task_id, operation, request, directory, cancel, pipe):
                     for key in ("pulse", "tx_weights", "rx_weights", "dfe_weights"):
                         arrays[f"candidate_{row['index']:06d}_{key}"] = row[key]
                 arrays.update(execution.arrays)
+                for key in ("p_chnl", "ctle_out_h_tune", "t_ns_opt", "curs_ix", "curs_amp", "clocks_tune"):
+                    arrays[key] = np.asarray(p.plotdata.get_data(key))
+                arrays.update(channel_t_ns=p.t_ns[:len(arrays["p_chnl"])], tx_weights=np.asarray(result[0]), rx_weights=np.asarray(result[2]),
+                              dfe_weights=np.asarray([tap.value for tap in p.dfe_tap_tuners]))
+                for row in observations["candidates"]:
+                    arrays[f"candidate_{row['index']:06d}_t_ns"] = p.t_ns[:len(row["pulse"])]
+                for key, value in observations["mmse_context"].items():
+                    if isinstance(value, np.ndarray):
+                        arrays["mmse_" + key] = value
                 np.savez_compressed(Path(directory) / "arrays.npz", **arrays)
-                status["result"] = {"fom": float(result[3]), "trials": len(observations["candidates"])}
+                status["result"] = {"fom": float(result[3]), "trials": len(observations["candidates"]), "candidate_metadata": [
+                    {k: value for k, value in row.items() if not isinstance(value, np.ndarray)} for row in observations["candidates"]]}
         execution.write(directory, model_report)
         if operation == "run":
             identity = {"run_id": task_id, "requested_input": request["config"], "effective_input": effective,
@@ -99,7 +111,7 @@ def direct(task_id, operation, request, directory, cancel, pipe):
         status.update(error=str(error), traceback=traceback.format_exc())
         execution.write(directory, model_report)
     finally:
-        status.update(elapsed_s=time.time() - started, main_calls=1 if operation == "run" else 0,
+        status.update(elapsed_s=time.time() - started, main_calls=main_invocations,
                       helper_calls=len(execution.calls), library_calls=execution.library_calls)
         Path(directory, "direct-report.json").write_bytes(json_bytes(status))
         pipe.send({"task_id": task_id, "kind": "terminal", "cancel_observed": False, **status})
@@ -134,12 +146,21 @@ def main():
                                                    "actual_source": source, "main_budget": 22, "optimization_evaluations_per_path": [1, 4]}))
     models = json.loads((FIXTURES / "model-resources.json").read_text(encoding="utf-8"))
     results = {}
+    reuse = os.environ.get("AMI_REFERENCE_ROOT")
+    shutil.copyfile(__file__, out / "verify_web_ami.py")
     for name in sys.argv[1:] or manifest["cases"]:
         request = json.loads((FIXTURES / f"{name}.json").read_text(encoding="utf-8"))
         assert sha256((FIXTURES / f"{name}.json").read_bytes()) == manifest["cases"][name]["request_sha256"]
         pair = {}
         directories = {}
         for path_name, worker in (("direct", direct), ("worker", None)):
+            if reuse and path_name == "direct":
+                directory = Path(reuse, name, "direct")
+                report = json.loads((directory / "direct-report.json").read_text(encoding="utf-8"))
+                assert report["status"] == "succeeded"
+                pair[path_name] = {"state": "succeeded", "reused_original": str(directory), "new_main_calls": 0}
+                directories[path_name] = directory
+                continue
             manager = Tasks(ROOT / f".pybert-web/issue10-{out.name}-{name}-{path_name}", **({"worker": worker} if worker else {}))
             manager.resources.items.update(copy.deepcopy({r["resource_id"]: r for r in models.values()}))
             # Copy only already-frozen bytes into this service's own content store.

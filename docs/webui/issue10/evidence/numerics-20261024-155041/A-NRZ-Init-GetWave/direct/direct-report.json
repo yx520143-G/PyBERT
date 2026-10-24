@@ -1,0 +1,50 @@
+{
+  "status": "succeeded",
+  "elapsed_s": 8.76082158088684,
+  "main_calls": 1,
+  "helper_calls": 2,
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "started_at": 1792828367.2135296,
+      "returned": true,
+      "elapsed_s": 0.0003261566162109375
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828367.2636976,
+      "returned": true,
+      "elapsed_s": 0.00032448768615722656
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828367.2640908,
+      "returned": true,
+      "elapsed_s": 0.0002810955047607422
+    },
+    {
+      "method": "AMI_Init",
+      "started_at": 1792828367.314254,
+      "returned": true,
+      "elapsed_s": 0.00015306472778320312
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828367.363934,
+      "returned": true,
+      "elapsed_s": 0.00021910667419433594
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828367.3642275,
+      "returned": true,
+      "elapsed_s": 0.00015878677368164062
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828367.3645005,
+      "returned": true,
+      "elapsed_s": 0.1324326992034912
+    }
+  ]
+}

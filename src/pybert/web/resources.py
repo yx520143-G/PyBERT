@@ -61,7 +61,7 @@ class Resources:
         return self.model_bundle([(p.relative_to(base).as_posix(), p.read_bytes()) for p in paths],
                                  {"kind": "local_directory", "path": str(base)})
 
-    def for_models(self, config, bindings):
+    def for_models(self, config, bindings, *, allow_unavailable=False):
         rows = []
         for side in ("tx", "rx"):
             field = side + "_model_bundle"
@@ -73,6 +73,8 @@ class Resources:
                 continue
             row = copy.deepcopy(self.items.get(rid))
             if not row or row["format"] != ".model":
+                if allow_unavailable:
+                    continue
                 raise ValueError(f"{side}: model resource unavailable; rebind original content.")
             directory = self.root / rid
             for file in row["files"]:
@@ -209,6 +211,8 @@ def inspect_channels(config, rows):
 
     report = []
     for row in rows:
+        if row["format"] == ".model":
+            continue  # The model adapter validates every dependency within its directory.
         if digest(Path(row["worker_path"])) != row["sha256"]:
             raise ValueError("Worker resource content hash mismatch.")
         if row["field"] not in ("ch_file", "ch_files"):

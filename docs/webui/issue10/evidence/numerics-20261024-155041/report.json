@@ -1,0 +1,1910 @@
+{
+  "A-NRZ-Native-Native": {
+    "tasks": {
+      "direct": {
+        "task_id": "5ecbf619-9523-4202-b71b-ca3285497dba",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828241.6129441,
+        "request_hash": "6e54735ef018afc6d0a79e61b4995f8c16d5550a9ae17b6be5e97bc98401c5fd",
+        "parent_run_id": null,
+        "resource_inputs": [],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828253.7733123,
+        "exitcode": 0,
+        "finished_at": 1792828253.7733133,
+        "name": "A-NRZ-Native-Native",
+        "peak_rss_bytes": 341368832,
+        "outer_elapsed_s": 12.18139362335205
+      },
+      "worker": {
+        "task_id": "c7628757-8135-422f-b3b2-1e833761c8a3",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],",
+          "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],"
+        ],
+        "created_at": 1792828253.816939,
+        "request_hash": "6e54735ef018afc6d0a79e61b4995f8c16d5550a9ae17b6be5e97bc98401c5fd",
+        "parent_run_id": null,
+        "resource_inputs": [],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828265.8013387,
+        "exitcode": 0,
+        "finished_at": 1792828265.8013394,
+        "result": {
+          "run_id": "c7628757-8135-422f-b3b2-1e833761c8a3"
+        },
+        "name": "A-NRZ-Native-Native",
+        "peak_rss_bytes": 344641536,
+        "outer_elapsed_s": 11.995624542236328
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 444,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  },
+  "A-NRZ-Native-GetWave": {
+    "tasks": {
+      "direct": {
+        "task_id": "380f1cf2-78ae-42cf-bad4-910e2c799b29",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828270.6421704,
+        "request_hash": "42a0e3be19e9f352e2da7e3c6a40d4c3af720207fa76e46e860e3534c42e1a48",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Native-GetWave-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828283.44079,
+        "exitcode": 0,
+        "finished_at": 1792828283.440791,
+        "name": "A-NRZ-Native-GetWave",
+        "peak_rss_bytes": 350212096,
+        "outer_elapsed_s": 12.812504768371582
+      },
+      "worker": {
+        "task_id": "89a50ea2-2b5a-40b6-a6e9-6b76091c02f8",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:51:28.269578+00:00]: PyBERT: Rx IBIS-AMI model initialization results:\nInput parameters: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: not present\n\tDFE: not present"
+        ],
+        "created_at": 1792828283.4943595,
+        "request_hash": "42a0e3be19e9f352e2da7e3c6a40d4c3af720207fa76e46e860e3534c42e1a48",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Native-GetWave-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828296.1230545,
+        "exitcode": 0,
+        "finished_at": 1792828296.1230552,
+        "result": {
+          "run_id": "89a50ea2-2b5a-40b6-a6e9-6b76091c02f8"
+        },
+        "name": "A-NRZ-Native-GetWave",
+        "peak_rss_bytes": 355397632,
+        "outer_elapsed_s": 12.644329309463501
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 440,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  },
+  "A-NRZ-Init-Native": {
+    "tasks": {
+      "direct": {
+        "task_id": "de388980-6bc9-4b34-b871-743ff0127c60",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828301.5232499,
+        "request_hash": "73eafd59f68f2c47e08c018df2103bce4bcca6f493ecb9c8c90634aa58e83e42",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-Native-direct\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828314.0188968,
+        "exitcode": 0,
+        "finished_at": 1792828314.018898,
+        "name": "A-NRZ-Init-Native",
+        "peak_rss_bytes": 350842880,
+        "outer_elapsed_s": 12.509262800216675
+      },
+      "worker": {
+        "task_id": "deeddd83-1b01-40a7-8c7f-95104d400982",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:51:58.785233+00:00]: PyBERT: Tx IBIS-AMI model initialization results:\nInput parameters: (example_tx (tx_tap_units 27)(tx_tap_np1 0)(tx_tap_nm1 0)(tx_tap_nm2 0))\nOutput parameters: \nMessage: Initializing Tx...",
+          "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],",
+          "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],"
+        ],
+        "created_at": 1792828314.0700183,
+        "request_hash": "73eafd59f68f2c47e08c018df2103bce4bcca6f493ecb9c8c90634aa58e83e42",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-Native-worker\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828326.6424608,
+        "exitcode": 0,
+        "finished_at": 1792828326.642462,
+        "result": {
+          "run_id": "deeddd83-1b01-40a7-8c7f-95104d400982"
+        },
+        "name": "A-NRZ-Init-Native",
+        "peak_rss_bytes": 354598912,
+        "outer_elapsed_s": 12.586623430252075
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 450,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  },
+  "A-NRZ-Init-Init": {
+    "tasks": {
+      "direct": {
+        "task_id": "e5bdd5df-d6bf-4fdb-89f9-382f752fa990",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828331.7435668,
+        "request_hash": "1cdbe58ab5ad339bda8205095347399513b26e87dfe6a2908f2becd44a5c5d0f",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-Init-direct\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          },
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-Init-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828344.628536,
+        "exitcode": 0,
+        "finished_at": 1792828344.628537,
+        "name": "A-NRZ-Init-Init",
+        "peak_rss_bytes": 354541568,
+        "outer_elapsed_s": 12.900499105453491
+      },
+      "worker": {
+        "task_id": "db49b773-ba25-4651-bc6c-0a5247ca86cc",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:52:29.266184+00:00]: PyBERT: Tx IBIS-AMI model initialization results:\nInput parameters: (example_tx (tx_tap_units 27)(tx_tap_np1 0)(tx_tap_nm1 0)(tx_tap_nm2 0))\nOutput parameters: \nMessage: Initializing Tx...",
+          "[2026-10-24 07:52:29.367481+00:00]: PyBERT: Rx IBIS-AMI model initialization results:\nInput parameters: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: not present\n\tDFE: not present"
+        ],
+        "created_at": 1792828344.6843321,
+        "request_hash": "1cdbe58ab5ad339bda8205095347399513b26e87dfe6a2908f2becd44a5c5d0f",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-Init-worker\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          },
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-Init-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828357.2909434,
+        "exitcode": 0,
+        "finished_at": 1792828357.290945,
+        "result": {
+          "run_id": "db49b773-ba25-4651-bc6c-0a5247ca86cc"
+        },
+        "name": "A-NRZ-Init-Init",
+        "peak_rss_bytes": 358883328,
+        "outer_elapsed_s": 12.622342824935913
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 446,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  },
+  "A-NRZ-Init-GetWave": {
+    "tasks": {
+      "direct": {
+        "task_id": "d0d5e17d-6485-41dd-83f2-7051e8958bdf",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828362.7461383,
+        "request_hash": "77d56bac3f1c538baeec5eed3b4d1ddde0a3ef374f5ce96f6c1599fba1260446",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-GetWave-direct\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          },
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-GetWave-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828375.9504464,
+        "exitcode": 0,
+        "finished_at": 1792828375.950447,
+        "name": "A-NRZ-Init-GetWave",
+        "peak_rss_bytes": 358297600,
+        "outer_elapsed_s": 13.220415592193604
+      },
+      "worker": {
+        "task_id": "9a7ff701-bf27-4f15-9dda-b49021221b11",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:53:00.712481+00:00]: PyBERT: Tx IBIS-AMI model initialization results:\nInput parameters: (example_tx (tx_tap_units 27)(tx_tap_np1 0)(tx_tap_nm1 0)(tx_tap_nm2 0))\nOutput parameters: \nMessage: Initializing Tx...",
+          "[2026-10-24 07:53:00.919238+00:00]: PyBERT: Rx IBIS-AMI model initialization results:\nInput parameters: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: not present\n\tDFE: not present"
+        ],
+        "created_at": 1792828376.0076578,
+        "request_hash": "77d56bac3f1c538baeec5eed3b4d1ddde0a3ef374f5ce96f6c1599fba1260446",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-GetWave-worker\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          },
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-Init-GetWave-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828389.2017982,
+        "exitcode": 0,
+        "finished_at": 1792828389.201799,
+        "result": {
+          "run_id": "9a7ff701-bf27-4f15-9dda-b49021221b11"
+        },
+        "name": "A-NRZ-Init-GetWave",
+        "peak_rss_bytes": 362708992,
+        "outer_elapsed_s": 13.210876941680908
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 446,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  },
+  "A-NRZ-GetWave-Native": {
+    "tasks": {
+      "direct": {
+        "task_id": "cf4ba5de-3151-4019-8fa1-d58686c7ed0d",
+        "operation": "run",
+        "state": "failed",
+        "phase": "failed",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828395.4949796,
+        "request_hash": "47533edc82fb2de8f08968e8dfea22b3c7bc84a328acfafcf769813a26b3c710",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-Native-direct\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828400.5832167,
+        "exitcode": 0,
+        "finished_at": 1792828400.5832171,
+        "error": "expected: ')' at 1:0",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\tools\\verify_web_ami.py\", line 79, in direct\n    my_run_simulation(p, initial_run=True, update_plots=False, observations=observations, decoding=decoding)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 322, in my_run_simulation\n    tx_getwave_params = list(map(ami_parse, params))\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 143, in parse\n    return self.parse_partial(text)[0]\n           ~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 155, in parse_partial\n    raise ParseError(res.expected, text, res.index)\nparsec.ParseError: expected: ')' at 1:0\n",
+        "name": "A-NRZ-GetWave-Native",
+        "peak_rss_bytes": 267218944,
+        "outer_elapsed_s": 5.094031810760498
+      },
+      "worker": {
+        "task_id": "e9737f9e-5b45-4d9c-9f21-1aa6de073582",
+        "operation": "run",
+        "state": "failed",
+        "phase": "failed",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:53:25.406573+00:00]: PyBERT: Tx IBIS-AMI model initialization results:\nInput parameters: (example_tx (tx_tap_units 27)(tx_tap_np1 0)(tx_tap_nm1 0)(tx_tap_nm2 0))\nOutput parameters: \nMessage: Initializing Tx..."
+        ],
+        "created_at": 1792828400.6096053,
+        "request_hash": "47533edc82fb2de8f08968e8dfea22b3c7bc84a328acfafcf769813a26b3c710",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-Native-worker\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828405.7089658,
+        "exitcode": 0,
+        "finished_at": 1792828405.7089725,
+        "error": "expected: ')' at 1:0",
+        "error_type": "ParseError",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 117, in run_worker\n    my_run_simulation(\n    ~~~~~~~~~~~~~~~~~^\n        p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        decoding=decoding,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 322, in my_run_simulation\n    tx_getwave_params = list(map(ami_parse, params))\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 143, in parse\n    return self.parse_partial(text)[0]\n           ~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 155, in parse_partial\n    raise ParseError(res.expected, text, res.index)\nparsec.ParseError: expected: ')' at 1:0\n",
+        "name": "A-NRZ-GetWave-Native",
+        "peak_rss_bytes": 272179200,
+        "outer_elapsed_s": 5.10298752784729
+      }
+    },
+    "comparison": {
+      "status": "not compared; actual path failed"
+    }
+  },
+  "A-NRZ-GetWave-Init": {
+    "tasks": {
+      "direct": {
+        "task_id": "a04da271-1ae1-4722-90ff-c74fbfe1bd9c",
+        "operation": "run",
+        "state": "failed",
+        "phase": "failed",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828405.7375784,
+        "request_hash": "a2b639ec82ceeb4e318d6f195b0cd90dcaed3bf2acca83b2a34e0a0fd4d1c826",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-Init-direct\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          },
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-Init-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828410.7240577,
+        "exitcode": 0,
+        "finished_at": 1792828410.7240584,
+        "error": "expected: ')' at 1:0",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\tools\\verify_web_ami.py\", line 79, in direct\n    my_run_simulation(p, initial_run=True, update_plots=False, observations=observations, decoding=decoding)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 322, in my_run_simulation\n    tx_getwave_params = list(map(ami_parse, params))\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 143, in parse\n    return self.parse_partial(text)[0]\n           ~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 155, in parse_partial\n    raise ParseError(res.expected, text, res.index)\nparsec.ParseError: expected: ')' at 1:0\n",
+        "name": "A-NRZ-GetWave-Init",
+        "peak_rss_bytes": 267739136,
+        "outer_elapsed_s": 4.991795539855957
+      },
+      "worker": {
+        "task_id": "162f3dca-9dfa-4223-a119-c91a47efbbde",
+        "operation": "run",
+        "state": "failed",
+        "phase": "failed",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:53:35.551692+00:00]: PyBERT: Tx IBIS-AMI model initialization results:\nInput parameters: (example_tx (tx_tap_units 27)(tx_tap_np1 0)(tx_tap_nm1 0)(tx_tap_nm2 0))\nOutput parameters: \nMessage: Initializing Tx..."
+        ],
+        "created_at": 1792828410.754148,
+        "request_hash": "a2b639ec82ceeb4e318d6f195b0cd90dcaed3bf2acca83b2a34e0a0fd4d1c826",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-Init-worker\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          },
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-Init-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828415.861668,
+        "exitcode": 0,
+        "finished_at": 1792828415.8616693,
+        "error": "expected: ')' at 1:0",
+        "error_type": "ParseError",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 117, in run_worker\n    my_run_simulation(\n    ~~~~~~~~~~~~~~~~~^\n        p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        decoding=decoding,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 322, in my_run_simulation\n    tx_getwave_params = list(map(ami_parse, params))\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 143, in parse\n    return self.parse_partial(text)[0]\n           ~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 155, in parse_partial\n    raise ParseError(res.expected, text, res.index)\nparsec.ParseError: expected: ')' at 1:0\n",
+        "name": "A-NRZ-GetWave-Init",
+        "peak_rss_bytes": 271388672,
+        "outer_elapsed_s": 5.112586259841919
+      }
+    },
+    "comparison": {
+      "status": "not compared; actual path failed"
+    }
+  },
+  "A-NRZ-GetWave-GetWave": {
+    "tasks": {
+      "direct": {
+        "task_id": "9dc71285-ef63-4e6a-9450-8725bcf311a0",
+        "operation": "run",
+        "state": "failed",
+        "phase": "failed",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828415.8908892,
+        "request_hash": "55f7621bedbb674acf85e762adc56859187f04f40d474811661b8292766c3483",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-GetWave-direct\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          },
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-GetWave-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828420.9499621,
+        "exitcode": 0,
+        "finished_at": 1792828420.949963,
+        "error": "expected: ')' at 1:0",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\tools\\verify_web_ami.py\", line 79, in direct\n    my_run_simulation(p, initial_run=True, update_plots=False, observations=observations, decoding=decoding)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 322, in my_run_simulation\n    tx_getwave_params = list(map(ami_parse, params))\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 143, in parse\n    return self.parse_partial(text)[0]\n           ~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 155, in parse_partial\n    raise ParseError(res.expected, text, res.index)\nparsec.ParseError: expected: ')' at 1:0\n",
+        "name": "A-NRZ-GetWave-GetWave",
+        "peak_rss_bytes": 267395072,
+        "outer_elapsed_s": 5.064455270767212
+      },
+      "worker": {
+        "task_id": "e8b5c197-c85b-453d-bbd8-82365d8e0f47",
+        "operation": "run",
+        "state": "failed",
+        "phase": "failed",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:53:45.872111+00:00]: PyBERT: Tx IBIS-AMI model initialization results:\nInput parameters: (example_tx (tx_tap_units 27)(tx_tap_np1 0)(tx_tap_nm1 0)(tx_tap_nm2 0))\nOutput parameters: \nMessage: Initializing Tx..."
+        ],
+        "created_at": 1792828420.9785779,
+        "request_hash": "55f7621bedbb674acf85e762adc56859187f04f40d474811661b8292766c3483",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model",
+            "sha256": "f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_tx.ami",
+                "sha256": "90b55af5dba12170e6aed4806087751ed355ad1246998f266de2d1d2b0a4acd2",
+                "bytes": 1461
+              },
+              {
+                "relative_path": "example_tx.cpp",
+                "sha256": "a09150c0ec72cbb0870f6d5d05eb819c9ecd11a09ecc630127add030c9a1eaec",
+                "bytes": 3151
+              },
+              {
+                "relative_path": "example_tx.cpp.em",
+                "sha256": "b3622e41689f6d172771c7c3de859f90d813406da0bbe84d360cedcb11979f05",
+                "bytes": 3212
+              },
+              {
+                "relative_path": "example_tx.ibs",
+                "sha256": "850ef4ab2efceafd00acfdd633919c8993a606bb02453b186027ada053384fb3",
+                "bytes": 3046
+              },
+              {
+                "relative_path": "example_tx_x86_amd64.dll",
+                "sha256": "83447b8066afe3407b54b9918e7a994016756b7587f814ab654165aa703f6362",
+                "bytes": 347136
+              }
+            ],
+            "bytes": 358006,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "tx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-models\\tx\\example_tx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-GetWave-worker\\resources\\f71db465791067327adb524a8b1e1c5d8cabba6e9c0262dfcf5f7776780c7fe2.model"
+          },
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-NRZ-GetWave-GetWave-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828426.1715178,
+        "exitcode": 0,
+        "finished_at": 1792828426.1715186,
+        "error": "expected: ')' at 1:0",
+        "error_type": "ParseError",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 117, in run_worker\n    my_run_simulation(\n    ~~~~~~~~~~~~~~~~~^\n        p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        decoding=decoding,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 322, in my_run_simulation\n    tx_getwave_params = list(map(ami_parse, params))\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 143, in parse\n    return self.parse_partial(text)[0]\n           ~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 155, in parse_partial\n    raise ParseError(res.expected, text, res.index)\nparsec.ParseError: expected: ')' at 1:0\n",
+        "name": "A-NRZ-GetWave-GetWave",
+        "peak_rss_bytes": 271917056,
+        "outer_elapsed_s": 5.198092937469482
+      }
+    },
+    "comparison": {
+      "status": "not compared; actual path failed"
+    }
+  },
+  "A-PAM4-Native-Init": {
+    "tasks": {
+      "direct": {
+        "task_id": "3cb5fd7e-60b9-45b3-a7ae-d80739c2d5cc",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828426.1984804,
+        "request_hash": "2f9d059cbfd5eb32df893319832b17ab905ed9d73d413f005b1fc7c6d58c3a5d",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-PAM4-Native-Init-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828434.7035153,
+        "exitcode": 0,
+        "finished_at": 1792828434.7035162,
+        "name": "A-PAM4-Native-Init",
+        "peak_rss_bytes": 285007872,
+        "outer_elapsed_s": 8.518531799316406
+      },
+      "worker": {
+        "task_id": "593943e4-8dcf-4567-808b-fea313f043c4",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:53:59.294119+00:00]: PyBERT: Rx IBIS-AMI model initialization results:\nInput parameters: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: not present\n\tDFE: not present",
+          "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],"
+        ],
+        "created_at": 1792828434.7486396,
+        "request_hash": "2f9d059cbfd5eb32df893319832b17ab905ed9d73d413f005b1fc7c6d58c3a5d",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-PAM4-Native-Init-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828443.2642002,
+        "exitcode": 0,
+        "finished_at": 1792828443.2642007,
+        "result": {
+          "run_id": "593943e4-8dcf-4567-808b-fea313f043c4"
+        },
+        "name": "A-PAM4-Native-Init",
+        "peak_rss_bytes": 285163520,
+        "outer_elapsed_s": 8.529707431793213
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 441,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  },
+  "A-PAM4-Native-GetWave": {
+    "tasks": {
+      "direct": {
+        "task_id": "36932d8c-f672-4e59-b21b-016bd03ae420",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828447.105999,
+        "request_hash": "b7f7320134c9b04960bf2d493b0bbd9cacefefce60d0967330edfbc204854822",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-PAM4-Native-GetWave-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828456.6559594,
+        "exitcode": 0,
+        "finished_at": 1792828456.65596,
+        "name": "A-PAM4-Native-GetWave",
+        "peak_rss_bytes": 287600640,
+        "outer_elapsed_s": 9.56453537940979
+      },
+      "worker": {
+        "task_id": "f8369b57-d1a0-43ef-affb-c822ae8e868a",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:54:21.801428+00:00]: PyBERT: Rx IBIS-AMI model initialization results:\nInput parameters: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: not present\n\tDFE: not present",
+          "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],"
+        ],
+        "created_at": 1792828456.7158928,
+        "request_hash": "b7f7320134c9b04960bf2d493b0bbd9cacefefce60d0967330edfbc204854822",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-A-PAM4-Native-GetWave-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828466.1976266,
+        "exitcode": 0,
+        "finished_at": 1792828466.1976273,
+        "result": {
+          "run_id": "f8369b57-d1a0-43ef-affb-c822ae8e868a"
+        },
+        "name": "A-PAM4-Native-GetWave",
+        "peak_rss_bytes": 287793152,
+        "outer_elapsed_s": 9.499741077423096
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 441,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  },
+  "OPT-FIXED": {
+    "tasks": {
+      "direct": {
+        "task_id": "d1a6907e-109c-491a-a164-557f562642ee",
+        "operation": "direct_optimization",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828470.2014244,
+        "request_hash": "86f3ba1be599e1d89afdae3897e1dc9de6f3038b390fa21293dd13b419fdd942",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-OPT-FIXED-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828474.735447,
+        "exitcode": 0,
+        "finished_at": 1792828474.7354481,
+        "result": {
+          "fom": 1.7130025427217692,
+          "trials": 1
+        },
+        "name": "OPT-FIXED",
+        "peak_rss_bytes": 240406528,
+        "outer_elapsed_s": 4.536501884460449
+      },
+      "worker": {
+        "task_id": "3f0a6728-15fb-4c32-9a0f-e167b73e2267",
+        "operation": "optimization",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:54:39.386182+00:00]: PyBERT: Optimizing linear EQ...\n\tOversampling factor: 32\n\tTx equalization: native (0 enabled tap(s), cursor at 3)\n\tRx equalization: IBIS-AMI (0 enabled param(s))\n\tSearch: single fixed evaluation (nothing enabled)\n\tRunning 1 trial(s)."
+        ],
+        "created_at": 1792828474.7628033,
+        "request_hash": "86f3ba1be599e1d89afdae3897e1dc9de6f3038b390fa21293dd13b419fdd942",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-OPT-FIXED-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828479.6958344,
+        "exitcode": 0,
+        "finished_at": 1792828479.695835,
+        "result": {
+          "opt_id": "3f0a6728-15fb-4c32-9a0f-e167b73e2267",
+          "selected_candidate_id": "candidate-000000"
+        },
+        "name": "OPT-FIXED",
+        "peak_rss_bytes": 244596736,
+        "outer_elapsed_s": 4.939504861831665
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 10,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  },
+  "OPT-TPE4": {
+    "tasks": {
+      "direct": {
+        "task_id": "0166691d-d3bf-4b80-853e-9a54d2f318ab",
+        "operation": "direct_optimization",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [],
+        "created_at": 1792828479.7358227,
+        "request_hash": "86f3ba1be599e1d89afdae3897e1dc9de6f3038b390fa21293dd13b419fdd942",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-OPT-TPE4-direct\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828484.5232723,
+        "exitcode": 0,
+        "finished_at": 1792828484.523273,
+        "result": {
+          "fom": 4.451971155131284,
+          "trials": 4
+        },
+        "name": "OPT-TPE4",
+        "peak_rss_bytes": 240631808,
+        "outer_elapsed_s": 4.789789199829102
+      },
+      "worker": {
+        "task_id": "1104ac82-0e6f-4f3c-8c37-087bce4d13e7",
+        "operation": "optimization",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:54:49.070368+00:00]: PyBERT: Optimizing linear EQ...\n\tOversampling factor: 32\n\tTx equalization: native (0 enabled tap(s), cursor at 3)\n\tRx equalization: IBIS-AMI (1 enabled param(s))\n\tSearch: TPE (Optuna)\n\tRunning 4 trial(s)."
+        ],
+        "created_at": 1792828484.550729,
+        "request_hash": "86f3ba1be599e1d89afdae3897e1dc9de6f3038b390fa21293dd13b419fdd942",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-155041-OPT-TPE4-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828489.5651586,
+        "exitcode": 0,
+        "finished_at": 1792828489.565159,
+        "result": {
+          "opt_id": "1104ac82-0e6f-4f3c-8c37-087bce4d13e7",
+          "selected_candidate_id": "candidate-000000"
+        },
+        "name": "OPT-TPE4",
+        "peak_rss_bytes": 245612544,
+        "outer_elapsed_s": 5.021143913269043
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 40,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  }
+}

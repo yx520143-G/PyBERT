@@ -1,0 +1,80 @@
+{
+  "A-NRZ-Native-Init": {
+    "tasks": {
+      "direct": {
+        "state": "succeeded",
+        "reused_original": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\docs\\webui\\issue10\\evidence\\numerics-20261024-154831\\A-NRZ-Native-Init\\direct",
+        "new_main_calls": 0
+      },
+      "worker": {
+        "task_id": "275c606b-0976-42aa-be87-7c95e261bde1",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "[2026-10-24 07:49:45.487218+00:00]: PyBERT: Rx IBIS-AMI model initialization results:\nInput parameters: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nOutput parameters: \nMessage: Input parameter string: (example_rx (ctle_mode 0)(ctle_freq 5000000000.0)(ctle_mag 0.0)(ctle_bandwidth 12000000000.0)(ctle_dcgain 0.0)(dfe_mode 0)(dfe_ntaps 5)(dfe_tap1 0.0)(dfe_tap2 0.0)(dfe_tap3 0.0)(dfe_tap4 0.0)(dfe_tap5 0.0)(dfe_vout 1.0)(dfe_gain 0.1)(debug (dbg_enable False) (dump_dfe_adaptation False) (dump_adaptation_input False)))\nDebugging parameters:\n\tenable: 0\n\tsig_tap: 0\n\tinit_adapt_tap: 0\nInitializing Rx...\nibisami example Rx model was configured successfully, as follows:\n\tCTLE: not present\n\tDFE: not present"
+        ],
+        "created_at": 1792828181.003856,
+        "request_hash": "7523dd2eb2434a5c5b4f6e73c8cfd7ae10a1279df7145a144f827a910ef40e32",
+        "parent_run_id": null,
+        "resource_inputs": [
+          {
+            "resource_id": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model",
+            "sha256": "8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1",
+            "format": ".model",
+            "files": [
+              {
+                "relative_path": "example_rx.ami",
+                "sha256": "876c9653d2d038781ece3167646c642623cfa49f8a0aa32edd1f3b10eff21904",
+                "bytes": 4067
+              },
+              {
+                "relative_path": "example_rx.ibs",
+                "sha256": "28156d0a578fda44c02639df90082f457a13a3e7e45114d23f3adaef21c61f7f",
+                "bytes": 2804
+              },
+              {
+                "relative_path": "example_rx_x86_amd64.dll",
+                "sha256": "60e29f16dcfe1a40240956f0591b29f524ccc8844c4959671d0317178c1ff46c",
+                "bytes": 363008
+              }
+            ],
+            "bytes": 369879,
+            "source": {
+              "kind": "local_directory",
+              "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami"
+            },
+            "original_name": "model bundle",
+            "permission": "explicitly supplied for this local session",
+            "parse_status": "not checked; binary loading requires a child task",
+            "field": "rx_model_bundle",
+            "index": null,
+            "reference": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\models\\ibisami\\example_rx.ibs",
+            "worker_path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\.pybert-web\\issue10-numerics-20261024-154940-A-NRZ-Native-Init-worker\\resources\\8ebce8bbc5577eb1f5a721e515c0555080241a6eb27b303ce0e52fff634ffac1.model"
+          }
+        ],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792828192.7850585,
+        "exitcode": 0,
+        "finished_at": 1792828192.7850597,
+        "result": {
+          "run_id": "275c606b-0976-42aa-be87-7c95e261bde1"
+        },
+        "name": "A-NRZ-Native-Init",
+        "peak_rss_bytes": 350294016,
+        "outer_elapsed_s": 11.80620551109314
+      }
+    },
+    "comparison": {
+      "status": "passed",
+      "arrays": 440,
+      "mismatches": [],
+      "max_absolute_difference": 0.0
+    }
+  }
+}

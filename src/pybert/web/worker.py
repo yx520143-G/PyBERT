@@ -50,6 +50,7 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
     terminal = {}
     execution = Execution(cancelled)
     model_report = {}
+    main_invocations = 0
 
     def checkpoint():
         if cancelled():
@@ -112,6 +113,7 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                 observations = {}
                 decoding = {}
                 with execution.capture():
+                    main_invocations += 1
                     my_run_simulation(
                         p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,
                         decoding=decoding,
@@ -165,6 +167,7 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
             "traceback": traceback.format_exc(),
         }
     finally:
+        terminal["main_invocations"] = main_invocations
         if execution.calls or model_report:
             execution.write(directory, model_report)
         terminal.update(cancel_observed=observed, cancel_requested=cancel_event.is_set())

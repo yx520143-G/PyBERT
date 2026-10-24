@@ -1,0 +1,34 @@
+{
+  "status": "failed",
+  "error": "expected: ')' at 1:0",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\tools\\verify_web_ami.py\", line 79, in direct\n    my_run_simulation(p, initial_run=True, update_plots=False, observations=observations, decoding=decoding)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 322, in my_run_simulation\n    tx_getwave_params = list(map(ami_parse, params))\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 143, in parse\n    return self.parse_partial(text)[0]\n           ~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 155, in parse_partial\n    raise ParseError(res.expected, text, res.index)\nparsec.ParseError: expected: ')' at 1:0\n",
+  "elapsed_s": 0.6127057075500488,
+  "main_calls": 1,
+  "helper_calls": 1,
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "started_at": 1792828420.3599296,
+      "returned": true,
+      "elapsed_s": 0.0003058910369873047
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828420.4098954,
+      "returned": true,
+      "elapsed_s": 0.0003199577331542969
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828420.4102807,
+      "returned": true,
+      "elapsed_s": 0.00027489662170410156
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828420.4106688,
+      "returned": true,
+      "elapsed_s": 0.22536969184875488
+    }
+  ]
+}

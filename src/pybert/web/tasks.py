@@ -61,7 +61,7 @@ class Tasks:
             task_id = task_id or str(uuid.uuid4())
             if operation == "normalize" and request.get("resource_bindings"):
                 # Parent copies and verifies bytes only. All parsing/loading remains in the fresh child.
-                request["frozen_resources"] = self.resources.for_models({}, request["resource_bindings"])
+                request["frozen_resources"] = self.resources.for_models({}, request["resource_bindings"], allow_unavailable=True)
             if operation in ("run", "optimization"):
                 rows = self.resources.for_run(request["config"], request.get("resource_bindings", {}))
                 source = request.get("replay_guard")

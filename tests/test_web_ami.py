@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 from pyibisami.ami.parser import AMIParamConfigurator
 
-from pybert.web.ami import parameter_rows, bundle_file, schema
+from pybert.web.ami import parameter_rows, bundle_file, schema, configure
 from pybert.web.config import extensions, normalize, validate
 from pybert.web.resources import Resources
 
@@ -64,3 +64,61 @@ def test_dynamic_schema_and_fec_boundary():
         schema({"rx": {"model_hash": "no"}})
     with pytest.raises(ValueError, match="unsupported_native_fec"):
         extensions({"version": 1, "values": {"rx_viterbi_fec": False}})
+
+
+def test_changed_ibis_reference_cannot_execute_old_selection(tmp_path):
+    from pybert.web.config import new_engine, snapshot
+
+    resources = Resources(tmp_path)
+    row = resources.model_bundle([("a.ibs", b"old"), ("b.ibs", b"new")], {})
+    bundle = resources.for_models({}, {"rx_model_bundle": row["resource_id"]})
+    p = new_engine()
+    c = snapshot(p) | {"rx_ibis_file": "b.ibs", "rx_sel": "ibis"}
+    runtime = {"version": 1, "values": {"ami_models": {"rx": {"model_hash": row["sha256"],
+               "selection": {"comp": "c", "pin": "p", "mod": "m", "ibis_path": "a.ibs"}}}}}
+    with pytest.raises(ValueError, match="conflicts"):
+        configure(p, c, runtime, bundle, discover=True)
+
+
+@pytest.mark.parametrize("field,value", [("nspui", 256), ("f_step", 1e-6)])
+def test_ami_grid_budget_rejected_before_allocation(field, value):
+    from pybert.web.config import new_engine
+    from pybert.web.optimization import ami_plan
+
+    p = new_engine()
+    if field == "nspui":
+        p.bit_rate = 250.0  # Native-valid rate/sample grid; no frequency vector is allocated.
+    setattr(p, field, value)
+    with pytest.raises(ValueError, match="grid budget"):
+        ami_plan(p)
+
+
+def test_missing_models_restore_input_but_cannot_run(tmp_path):
+    from pybert.web.config import new_engine, snapshot
+
+    p = new_engine()
+    c = snapshot(p) | {"rx_sel": "ibis", "rx_eq_sel": "IBIS-AMI", "rx_use_ami": True, "rx_ibis_file": "missing.ibs"}
+    runtime = {"version": 1, "values": {}}
+    reports = configure(p, c, runtime, [], discover=True, allow_unbound=True)
+    assert reports["rx"]["stage"] == "resource rebind required"
+    with pytest.raises(ValueError, match="unbound"):
+        configure(p, c, runtime, [])
+
+
+def test_rx_ami_non_mmse_record_accepts_actual_rx_weight_shape():
+    import json
+    import numpy as np
+    from pybert.web.config import input_hash
+    from pybert.web.optimization import validate_record
+
+    path = Path("docs/webui/issue10/evidence/numerics-20261024-155041/OPT-FIXED/worker")
+    record = json.loads((path / "optimization.json").read_text(encoding="utf-8"))
+    # Rx AMI uses cursor/ISI scoring with either request value, never the native MMSE branch.
+    assert record["requested_input"]["rx_use_ami"]
+    record["requested_input"]["use_mmse"] = False
+    record["effective_input"]["use_mmse"] = False
+    record["input_hash"] = input_hash(record["requested_input"])
+    record["input_identity_hash"] = input_hash({"config": record["requested_input"], "runtime_extensions": record["runtime_extensions"],
+                                                "resource_bindings": record["resource_bindings"]})
+    with np.load(path / "arrays.npz", allow_pickle=False) as saved:
+        validate_record(record, {key: saved[key] for key in saved.files})

@@ -1,0 +1,26 @@
+{
+  "status": "succeeded",
+  "elapsed_s": 8.038854837417603,
+  "main_calls": 1,
+  "helper_calls": 1,
+  "library_calls": [
+    {
+      "method": "AMI_Init",
+      "started_at": 1792828305.9953854,
+      "returned": true,
+      "elapsed_s": 0.00028514862060546875
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828306.0466132,
+      "returned": true,
+      "elapsed_s": 0.00032019615173339844
+    },
+    {
+      "method": "AMI_GetWave",
+      "started_at": 1792828306.0469997,
+      "returned": true,
+      "elapsed_s": 0.0002720355987548828
+    }
+  ]
+}

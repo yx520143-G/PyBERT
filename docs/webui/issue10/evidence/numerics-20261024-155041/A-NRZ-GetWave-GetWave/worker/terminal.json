@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "error": "expected: ')' at 1:0",
+  "error_type": "ParseError",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\web\\worker.py\", line 117, in run_worker\n    my_run_simulation(\n    ~~~~~~~~~~~~~~~~~^\n        p, initial_run=True, update_plots=False, aborted_sim=checkpoint, observations=observations,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        decoding=decoding,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue10-ami\\serial-bus-simulator\\src\\pybert\\models\\bert.py\", line 322, in my_run_simulation\n    tx_getwave_params = list(map(ami_parse, params))\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 143, in parse\n    return self.parse_partial(text)[0]\n           ~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\parsec\\__init__.py\", line 155, in parse_partial\n    raise ParseError(res.expected, text, res.index)\nparsec.ParseError: expected: ')' at 1:0\n",
+  "main_invocations": 1,
+  "cancel_observed": false,
+  "cancel_requested": false
+}

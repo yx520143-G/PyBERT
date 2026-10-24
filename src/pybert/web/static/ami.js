@@ -45,13 +45,18 @@
     const side=$('ami-side').value,input=runs.modelDraft(),models=clone(input.runtime_extensions.values?.ami_models||{});
     input.runtime_extensions={version:1,values:{...input.runtime_extensions.values}};
     if(uploaded){if(current?.model_hash!==uploaded.sha256&&!$('ami-rebind').checked&&current)throw new Error('新内容需要明确重绑与参数差异确认。');input.resource_bindings[`${side}_model_bundle`]=uploaded.resource_id;if($('ami-rebind').checked)delete models[side];}
-    if(!discover&&current){
-      const model=clone(current);for(const control of $('ami-parameters').querySelectorAll('[data-ami-param]')){const row=model.parameters[Number(control.dataset.amiParam)];if(row.editable)row.value=row.type==='Boolean'?control.value.toLowerCase()==='true':['Float','Integer','UI','Tap'].includes(row.type)?Number(control.value):control.value;}
+    if(!discover&&models[side]){
+      const model=clone(models[side]);for(const control of $('ami-parameters').querySelectorAll('[data-ami-param]')){const row=model.parameters[Number(control.dataset.amiParam)];if(row.editable){if(row.type==='Boolean'&&!['true','false'].includes(control.value.toLowerCase()))throw new Error('Boolean 参数必须为 true 或 false。');row.value=row.type==='Boolean'?control.value.toLowerCase()==='true':['Float','Integer','UI','Tap'].includes(row.type)?Number(control.value):control.value;}}
       for(const control of $('ami-search').querySelectorAll('[data-ami-search]')){const row=model.search[Number(control.dataset.amiSearch)],key=control.dataset.property;if(key!=='value')row[key]=key==='enabled'?control.checked:Number(control.value);}
       for(const control of $('ami-selection').querySelectorAll('[data-ami-selection]'))model.selection[control.dataset.amiSelection]=control.value;
       models[side]=model;
     }
     input.config[`${side}_ibis_file`]= $('ami-ibis').value;
+    if(models[side]){
+      models[side].selection.ibis_path=$('ami-ibis').value;
+      for(const control of $('ami-selection').querySelectorAll('[data-ami-selection]'))models[side].selection[control.dataset.amiSelection]=control.value;
+      if($('ami-rebind').checked)models[side]={model_hash:models[side].model_hash,selection:models[side].selection,rebind:true};
+    }
     if(!discover){input.config[`${side}_sel`]=$('ami-electrical').value;input.config[`${side}_eq_sel`]=$('ami-eq').value;input.config[`${side}_use_getwave`]=$('ami-mode').value==='GetWave';input.config[`${side}_use_ts4`]=$('ami-ts4').checked;input.runtime_extensions.values.rx_use_clocks=$('ami-clocks').checked;}
     if(Object.keys(models).length)input.runtime_extensions.values.ami_models=models;else delete input.runtime_extensions.values.ami_models;
     const result=await runs.configureModel(input);reports=result.ami_models||{};uploaded=null;render();

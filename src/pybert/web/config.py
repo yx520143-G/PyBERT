@@ -455,10 +455,10 @@ def normalize(request, check=lambda: False, emit=lambda *a, **k: None):
         config[side + "_use_ami"] = config[side + "_eq_sel"] == "IBIS-AMI"
     engine.trait_setq(**{side + "_use_ami": config[side + "_use_ami"] for side in ("tx", "rx")})
     model_report = {}
-    if request.get("frozen_resources"):
+    if request.get("frozen_resources") or any(config[side + "_sel"] == "ibis" for side in ("tx", "rx")):
         from pybert.web.ami import configure
 
-        model_report = configure(engine, config, runtime, request["frozen_resources"], discover=True, check=check, emit=emit)
+        model_report = configure(engine, config, runtime, request.get("frozen_resources", []), discover=True, allow_unbound=True, check=check, emit=emit)
         # Keep user resource references separate from paths projected into this child's immutable bundle.
         effective = snapshot(engine)
         config.update({k: v for k, v in effective.items() if k not in RESOURCE_FIELDS})
