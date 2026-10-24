@@ -1,6 +1,6 @@
 {
   "phase": "actual AMI collect-analysis software coordinator and static Native/worker boundaries",
-  "run_id": "13-coordinator-check",
+  "run_id": "14-coordinator-check",
   "selection": [
     "CoordinatorCases",
     "BindingCases"
@@ -38,7 +38,6 @@
     "docs/webui/issue10/d2-web-20261025/d2_cases.py": "540b65fa1faef036d08232dcb27c22e1e170e0f23b5d13e33db83eecd7cfd465",
     "docs/webui/issue10/d2-web-20261025/run_guarded.py": "4c780e3ee415f3895f6ce4c445dfc90b36e308d4483416f55e3a260bff5d8966",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "f59d58457156fc5cfc4b325fcced0a73750be234cea20b71ce85202199c7835b",
-    "docs/webui/issue10/d2-web-20261025/test-plan.json": "89b2516d99eb4c0c0e15a3ccc9ab7803ed3874a23c75629272dcd7af1b8fa8fb",
     "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
     "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
     ".venv/pyvenv.cfg": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
@@ -291,7 +290,7 @@
   "expected_function_entries": {
     "all_pure_including_definitions_nested_generators_pairs_upper": 8000
   },
-  "previous_plan": "runs/12-lifecycle-green/plan.json",
+  "previous_plan": "launches/13-coordinator-check/plan.json",
   "expected_counts_policy": "upper bounds; C at most2 actual software records, this batch1; all generator/pairs resumes counted; at most2 remaining follow-up batches if needed",
   "serialization_policy": "Raw read_arrays/load_archive/read_json inputs and NPZ/JSON outputs now retain content-addressed original bytes, including malformed buffers/failed-save metadata; nested artifacts hash inventory. Prior08/10 did not bind every in-memory malformedbuffer individually; preserve original scope/gaps, no fabricated retro-capture. Original08 conservative pure event definition remains unchanged.",
   "FFT_uniformity": "original full-grid differences compared to original t[1]-t[0], rtol1e-12/atol0 for floating-grid representation only; no sample-target tolerance, no window change",
