@@ -1,0 +1,411 @@
+{
+  "guarded_batches": [
+    {
+      "run": "01-tracer-red",
+      "exit_code": 1,
+      "tests_run": 1,
+      "failures": 1,
+      "errors": 0,
+      "pure_calls": {},
+      "stub_calls": {},
+      "elapsed_s": 0.00855779999983497,
+      "receipt_sha256": "63c9e11d7ef3af7af95ab0d7197f0ebd2e7a0d1c1b3db025acf9b11640400f81",
+      "blocked_attempts": []
+    },
+    {
+      "run": "02-tracer-green",
+      "exit_code": 0,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0,
+      "pure_calls": {
+        "_run_probe_main": 1
+      },
+      "stub_calls": {
+        "stub_model_factory": 2,
+        "stub_initializer": 2,
+        "stub_initialize": 2,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 2,
+        "stub_getWave": 1
+      },
+      "elapsed_s": 0.01922329999797512,
+      "receipt_sha256": "5aa116b35afa0df4ce4507caa7b5f4a31ea75fa8291ee34943fa732d4ab45bb0",
+      "blocked_attempts": []
+    },
+    {
+      "run": "03-dual-red",
+      "exit_code": 1,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 1,
+      "pure_calls": {
+        "_run_probe_main": 1
+      },
+      "stub_calls": {
+        "stub_model_factory": 1,
+        "stub_initializer": 1,
+        "stub_initialize": 1,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 1
+      },
+      "elapsed_s": 0.019900500003132038,
+      "receipt_sha256": "c766c824d48580dd6812ba790064ca2b8e3cc5a08c3aacd3407c96e085911f43",
+      "blocked_attempts": []
+    },
+    {
+      "run": "04-dual-green",
+      "exit_code": 0,
+      "tests_run": 2,
+      "failures": 0,
+      "errors": 0,
+      "pure_calls": {
+        "_run_probe_main": 2,
+        "_AMIProbeMainError.__init__": 1
+      },
+      "stub_calls": {
+        "stub_model_factory": 3,
+        "stub_initializer": 3,
+        "stub_initialize": 3,
+        "stub_rng_factory": 2,
+        "stub_get_responses": 2,
+        "stub_close": 3,
+        "stub_getWave": 1
+      },
+      "elapsed_s": 0.027363300003344193,
+      "receipt_sha256": "0e98f5ebc63b8f20fa1835ec75c0cd745e0eb7c12f4746169efcbd63442f91fe",
+      "blocked_attempts": []
+    },
+    {
+      "run": "05-failure-matrix-red",
+      "exit_code": 1,
+      "tests_run": 2,
+      "failures": 8,
+      "errors": 10,
+      "pure_calls": {
+        "_run_probe_main": 27,
+        "_AMIProbeMainError.__init__": 20
+      },
+      "stub_calls": {
+        "stub_input_copy": 99,
+        "stub_buffer_copy": 84,
+        "stub_model_factory": 39,
+        "stub_initializer": 35,
+        "stub_close": 35,
+        "stub_record_copy": 62,
+        "stub_initialize": 33,
+        "stub_rng_factory": 20,
+        "stub_get_responses": 19,
+        "stub_getWave": 7,
+        "stub_message_decode": 1
+      },
+      "elapsed_s": 0.11480359999404754,
+      "receipt_sha256": "f01af849cb5715e9c61f57f0a80b03fb174a1bd8fbd7cfc6a3dbcb342536d9a8",
+      "blocked_attempts": []
+    },
+    {
+      "run": "06-failure-matrix-green",
+      "exit_code": 0,
+      "tests_run": 4,
+      "failures": 0,
+      "errors": 0,
+      "pure_calls": {
+        "_run_probe_main": 29,
+        "_AMIProbeMainError.__init__": 28
+      },
+      "stub_calls": {
+        "stub_input_copy": 64,
+        "stub_buffer_copy": 85,
+        "stub_model_factory": 42,
+        "stub_close": 40,
+        "stub_record_copy": 76,
+        "stub_initializer": 38,
+        "stub_initialize": 36,
+        "stub_rng_factory": 22,
+        "stub_get_responses": 21,
+        "stub_message_decode": 9,
+        "stub_getWave": 7
+      },
+      "elapsed_s": 0.08832989999791607,
+      "receipt_sha256": "3775ac01cbad7d4c373a8a464150c169bc467227fdd2447ca4b2e8bde0ea8920",
+      "blocked_attempts": []
+    },
+    {
+      "run": "07-wiring-red",
+      "exit_code": 1,
+      "tests_run": 1,
+      "failures": 1,
+      "errors": 0,
+      "pure_calls": {},
+      "stub_calls": {},
+      "elapsed_s": 0.040099599995301105,
+      "receipt_sha256": "e12b10ce84602da216d12af31ba5ee9fdaebedf1f15039f83bc8b64b8953c86d",
+      "blocked_attempts": []
+    },
+    {
+      "run": "08-wiring-green",
+      "exit_code": 0,
+      "tests_run": 7,
+      "failures": 0,
+      "errors": 0,
+      "pure_calls": {
+        "_run_probe_main": 34,
+        "_AMIProbeMainError.__init__": 28
+      },
+      "stub_calls": {
+        "stub_input_copy": 117,
+        "stub_buffer_copy": 118,
+        "stub_model_factory": 52,
+        "stub_close": 50,
+        "stub_record_copy": 96,
+        "stub_initializer": 48,
+        "stub_initialize": 46,
+        "stub_rng_factory": 27,
+        "stub_get_responses": 26,
+        "stub_message_decode": 14,
+        "stub_getWave": 12
+      },
+      "elapsed_s": 1.0679113999940455,
+      "receipt_sha256": "fb78fc79423c1fb6b50098da0e2d3c7a33f098bce71b127d65fc91f84d7b5dc5",
+      "blocked_attempts": []
+    },
+    {
+      "run": "09-interrupt-red",
+      "exit_code": 1,
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 1,
+      "pure_calls": {
+        "_run_probe_main": 1
+      },
+      "stub_calls": {
+        "stub_input_copy": 3,
+        "stub_buffer_copy": 1,
+        "stub_model_factory": 1,
+        "stub_initializer": 1,
+        "stub_initialize": 1,
+        "stub_record_copy": 2,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 1
+      },
+      "elapsed_s": 0.038236599997617304,
+      "receipt_sha256": "80eef3a4bf486ca45e5c8dc18b23f8e0465f82712fff0a571dea6b2969bfbd0d",
+      "blocked_attempts": []
+    },
+    {
+      "run": "10-contract-green",
+      "exit_code": 0,
+      "tests_run": 9,
+      "failures": 0,
+      "errors": 0,
+      "pure_calls": {
+        "_run_probe_main": 35,
+        "_AMIProbeMainError.__init__": 29
+      },
+      "stub_calls": {
+        "stub_input_copy": 120,
+        "stub_buffer_copy": 119,
+        "stub_model_factory": 53,
+        "stub_close": 51,
+        "stub_record_copy": 98,
+        "stub_initializer": 49,
+        "stub_initialize": 47,
+        "stub_rng_factory": 28,
+        "stub_get_responses": 27,
+        "stub_message_decode": 14,
+        "stub_getWave": 12
+      },
+      "elapsed_s": 1.200022799996077,
+      "receipt_sha256": "581f08f3f6908eb5eb3ebd59b72c60cd41b196941914569c3022e22318454ce6",
+      "blocked_attempts": []
+    },
+    {
+      "run": "11-entry-green",
+      "exit_code": 0,
+      "tests_run": 9,
+      "failures": 0,
+      "errors": 0,
+      "pure_calls": {
+        "_run_probe_main": 35,
+        "_AMIProbeMainError.__init__": 29
+      },
+      "stub_calls": {
+        "stub_input_copy": 120,
+        "stub_buffer_copy": 119,
+        "stub_model_factory": 53,
+        "stub_close": 51,
+        "stub_record_copy": 98,
+        "stub_initializer": 49,
+        "stub_initialize": 47,
+        "stub_rng_factory": 28,
+        "stub_get_responses": 27,
+        "stub_message_decode": 14,
+        "stub_getWave": 12
+      },
+      "elapsed_s": 1.528305999992881,
+      "receipt_sha256": "e19f13053f3e199e1fd8d981a2d2a75a9527e01ca0b25b6b8857d989552f0a94",
+      "blocked_attempts": []
+    }
+  ],
+  "all_guarded_internal_elapsed_sum_s": 4.152754799972172,
+  "pure_production_calls_sum": {
+    "_run_probe_main": 165,
+    "_AMIProbeMainError.__init__": 135
+  },
+  "selected_stub_entry_calls_sum": {
+    "stub_model_factory": 246,
+    "stub_initializer": 226,
+    "stub_initialize": 216,
+    "stub_rng_factory": 130,
+    "stub_get_responses": 125,
+    "stub_close": 234,
+    "stub_getWave": 52,
+    "stub_input_copy": 523,
+    "stub_buffer_copy": 526,
+    "stub_record_copy": 432,
+    "stub_message_decode": 52
+  },
+  "test_python_entry_histograms": "runs06 onward include all observed test-file Python entries, including support constructors; earlier selected stub counters are retained, not relabelled exhaustive",
+  "last_current_batch": "11-entry-green",
+  "last_current_tests_methods": 9,
+  "last_current_coordinator_invocations": 35,
+  "last_current_error_constructors": 29,
+  "last_current_submatrix": "26failure points+4seed/B+5other dynamic cases, plus2static test methods; not 35 complete numeric helpers",
+  "bootstrap": [
+    {
+      "run": "01-chop-https",
+      "exit_code": 0,
+      "elapsed_s": 0.05622220000077505,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "receipt_sha256": "3522d0a786d1ad9d679c19800facd5b092854b49a8731d2cdb537db4b6349986"
+    },
+    {
+      "run": "02-submodules",
+      "exit_code": 0,
+      "elapsed_s": 18.23741020000307,
+      "stdout_sha256": "790cc3008e11e1a19b3204213311457963a5c904f3092fc597bdd927e8dd901f",
+      "stderr_sha256": "379329eaf2b64c92ccf7a8bdae18fe548cc2bb45aaf9520b3c956218a6144da9",
+      "receipt_sha256": "8a322e04927a34df8502f3fba02116d7315ba32214e3b0410d103832969b1978"
+    },
+    {
+      "run": "03-stdlib-venv",
+      "exit_code": 0,
+      "elapsed_s": 0.09761029999936,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "41c8b40fd0c7030285116feff6927f9646fea6ee92cc63651fc593232ca980e0",
+      "receipt_sha256": "7b4559a832210b591ab35803af2c8615906ada1841b5a934f55c24ee3b88fe7b"
+    }
+  ],
+  "bootstrap_internal_elapsed_sum_s": 18.391242700003204,
+  "clone_switch_elapsed_s": 51.39330739999423,
+  "preflight_static_failure": "preflight-static.json,exit1 before tests; internalelapsed UNKNOWN,toolwall0.7100291",
+  "restricted_actual_calls": {
+    "run_ami_model_full": 0,
+    "PyAMI_production_methods": 0,
+    "AMIModel_Initializer_instances": 0,
+    "model_module_body_response_keys": 0,
+    "NumPy_SciPy_DSP": 0,
+    "grammar_engine_Main_COM_coopt": 0,
+    "C_model_DLL": 0,
+    "model_download_compile": 0,
+    "CLI_GUI_service_browser": 0
+  },
+  "platform_activity": "stdlib preload and generic Git/uv/platform dynamic-library internals not fully traced; zero only for listed product/model/numeric entries",
+  "test_dependencies": "new bare stdlib venv, no package/test dependency installation or installation matrix",
+  "old24_old27_fullsuite_CLI_GUI_services_browser": "not run",
+  "model_download_compile": "no model-resource acquisition or compilation; Git dependency source transport may contain existing tracked example binaries, never loaded",
+  "wall_and_peak_RSS": "UNKNOWN",
+  "read_only_review_entry_failures": {
+    "record": "review-entry-failures.json",
+    "count": 2,
+    "functions_display_wall_sum_s": 1.3,
+    "exact_exit_stdout_stderr_and_internal_elapsed": "UNKNOWN; original wrappers retained only combined output",
+    "not_in_guarded_batch_elapsed": true,
+    "product_test_runner_entries": 0
+  },
+  "final_seal_static_failure": {
+    "record": "seal-preflight-failure.json",
+    "exit_code": 1,
+    "exec_command_wall_s": 1.105302,
+    "internal_elapsed_s": "UNKNOWN",
+    "cause": "status comparison options mismatch; corrected to original default untracked grouping",
+    "not_in_guarded_batch_elapsed": true,
+    "product_test_runner_entries": 0
+  },
+  "P2_static_checks": [
+    {
+      "run": "pytest-entry-fix/runs/01-static-red",
+      "exit_code": 1,
+      "elapsed_s": 0.09999210000387393,
+      "receipt_sha256": "60da0a576f04642c3717f0a9d77f57a6c2ab49073448d9b16f909b99acf79a92",
+      "pure_coordinator_and_stubs": 0,
+      "pytest_collection_calls": 0,
+      "restricted_actual_calls": {
+        "run_ami_model_full": 0,
+        "PyAMI_production_methods": 0,
+        "AMIModel_Initializer_instances": 0,
+        "model_module_body_response_keys": 0,
+        "NumPy_SciPy_DSP": 0,
+        "grammar_engine_Main_COM_coopt": 0,
+        "C_model_DLL": 0,
+        "model_download_compile": 0,
+        "CLI_GUI_service_browser": 0
+      }
+    },
+    {
+      "run": "pytest-entry-fix/runs/02-static-green",
+      "exit_code": 0,
+      "elapsed_s": 0.10217580001335591,
+      "receipt_sha256": "e013b4384fafbecda1b9ec140ea2193d4c43d84e7cf2ff6db97486920d796c69",
+      "pure_coordinator_and_stubs": 0,
+      "pytest_collection_calls": 0,
+      "restricted_actual_calls": {
+        "run_ami_model_full": 0,
+        "PyAMI_production_methods": 0,
+        "AMIModel_Initializer_instances": 0,
+        "model_module_body_response_keys": 0,
+        "NumPy_SciPy_DSP": 0,
+        "grammar_engine_Main_COM_coopt": 0,
+        "C_model_DLL": 0,
+        "model_download_compile": 0,
+        "CLI_GUI_service_browser": 0
+      }
+    }
+  ],
+  "P2_static_internal_elapsed_sum_s": 0.20216790001722984,
+  "P2_read_only_lookup_failure": "pytest-entry-fix/startup.json initial_read_only_lookup_failure: rg exit2 for nonexistent root conftest; no product/test/runner execution, internal elapsed UNKNOWN",
+  "initial_10_batch_ledger": "pytest-entry-fix/inputs/cost-ledger.json byte-exact historical original; initial totals 130 seam/106 errors/2.624448799979291s preserved",
+  "P2_staged_whitespace_failures": {
+    "first": "pytest-entry-fix/staged-check-first-failure.json: enclosing exit1, toolwall1.0853659, exact inner exit/internalelapsed UNKNOWN, tool output truncated",
+    "recapture": "pytest-entry-fix/runs/03-staged-check-recapture/receipt.json",
+    "recapture_exit_code": 2,
+    "recapture_elapsed_s": 0.08657980000134557,
+    "lossless_storage": "pytest-entry-fix/runs/03-staged-check-recapture/storage.json",
+    "scope": "pure Git read; no test/product calls; new raw-only whitespace path attribute, hooks config unchanged"
+  },
+  "P2_staging_path_failure": {
+    "record": "pytest-entry-fix/staging-path-failure.json",
+    "enclosing_exit1_toolwall_s": 0.8751112,
+    "internal_elapsed_s": "UNKNOWN",
+    "product_test_entries": 0
+  },
+  "P2_hook_simulation_first_failure": {
+    "record": "pytest-entry-fix/hook-simulation-first-failure.json",
+    "enclosing_exit_code": 1,
+    "enclosing_exec_wall_s": 1.0314798,
+    "internal_elapsed_s": "UNKNOWN",
+    "actual_hooks_product_tests": 0
+  },
+  "P2_independent_read_only_review": {
+    "record": "pytest-entry-fix/review-read-costs.json",
+    "Standards_known_exec_command_wall_s": 4.3701611,
+    "Spec_wall_s": "UNKNOWN",
+    "internal_elapsed_s": "UNKNOWN",
+    "not_in_guarded_or_entry_static_elapsed": true,
+    "product_test_runner_checker_entries": 0
+  }
+}

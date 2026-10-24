@@ -1,0 +1,15 @@
+{
+  "command": [
+    "git",
+    "--no-optional-locks",
+    "diff",
+    "--cached",
+    "--check"
+  ],
+  "input_sha256": {
+    "staged-index.txt": "583682849d26beb08a6bc583cc490b6319270c8487c69981b6615bb0c9cfc273",
+    "attributes.txt": "ba095dc5110b38c2bbbf71657f8d660632ac28119441c1cc31ad3ae33fb3faa3"
+  },
+  "scope": "recapture of unchanged staged snapshot; original tool truncation remains a gap",
+  "expected": "nonzero because raw CRLF/Makefile whitespace; no product/test execution"
+}

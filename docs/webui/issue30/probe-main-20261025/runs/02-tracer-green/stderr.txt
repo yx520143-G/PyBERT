@@ -1,0 +1,6 @@
+test_roles_are_sequential_and_results_survive_close (c1_tests.ProbeMainTests.test_roles_are_sequential_and_results_survive_close) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK

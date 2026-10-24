@@ -1,0 +1,18 @@
+{
+  "scope": "first staged diff whitespace check before repair candidate commit; no commit occurred",
+  "enclosing_exit_code": 1,
+  "enclosing_exec_wall_s": 1.0853659,
+  "output_original_token_count": 155415,
+  "output_retention": "tool output truncated; complete original stdout not separately persisted; subsequent unchanged-index recapture stored as a new observation",
+  "failed_command": [
+    "git",
+    "diff",
+    "--cached",
+    "--check"
+  ],
+  "git_exact_exit_code": "UNKNOWN (wrapper exception omitted inner returncode)",
+  "internal_elapsed_s": "UNKNOWN",
+  "cause": "new raw snapshots preserve existing CRLF and Makefile trailing spaces under a new path not yet covered by raw-only whitespace attributes",
+  "production_and_test_executions": 0,
+  "old_raw_changes": 0
+}

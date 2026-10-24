@@ -1,0 +1,26 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "reviews": [
+      {
+        "id": "PRR_kwDOVUuY-s8AAAABUB3mbw",
+        "state": "COMMENTED",
+        "body": "PM fresh review of fixed HEAD `2f0a60104551410041f00e03750a6de5a13bc0bb` (tree `9b9c36f9aee05ab4cf60c155344ae92dbb536d4d`), against base `3d942f30d892e038a2b52b5e876d11d94c511820`.\n\n## Standards\n\n**1 documented-workflow finding (P2), 0 actionable heuristic smells.** The new `tests/test_ami_probe_main.py:9` unconditionally imports `c1_under_test`. That module exists only as a dynamic injection performed by the dedicated `docs/webui/issue30/probe-main-20261025/run_guarded.py:105–111` entry point. There is no real module, pytest bootstrap, or collection exclusion. Consequently the documented `uv run pytest tests/` / `make test` path (CLAUDE.md:47–54) collects a file whose import cannot resolve, blocking the regular suite before tests run. Provide a safe guarded entry point or relocate this runner-only module outside default test discovery. Do not broadly exclude unrelated tests or discard the guarded coverage.\n\n## Spec\n\n**Missing/partial 0; scope creep 0; implemented-wrong C1 requirements 0.** Independent review found the requested selector, P→Close→W order, input separation and host-owned copies, failure accounting, B/seed behavior and main-wave origin consistent with #30. Of six callers, only the intended caller adds the selector. The six frozen final execution inputs match the saved final-green receipt. The two-axis reviewers independently identified the same test-entry regression; it is recorded above as one Standards finding, not a second C1 defect.\n\n## Disposition and evidence boundary\n\n**Changes required before merge.** Keep #30 and this PR open/draft; repair in this PR with the same owner. The saved nine-method guarded green remains valid within its stated pure-coordinator scope, but does not establish compatibility with the normal test entry. This review used Git/text/stdlib AST and hashes only: no pytest/runner/product/model/NumPy execution. The collection failure is a statically established import-path defect, not a newly executed failure log. Full preservation/seal acceptance is deferred until the repaired fixed candidate, avoiding duplicate audits of a known-failing candidate. Preserve all historical runs, failures and costs.\n\nSummary: Standards **1 P2**; Spec **0**. Real ABI, model numerics, clocks qualification, D1/D2/E and the COM budget gate remain outside this review. Known follow-up phases stay within existing #10; no new issue is needed for this repair.",
+        "submitted_at": "2026-10-24T17:14:06Z",
+        "author": {
+          "login": "yx520143-G",
+          "name": "yx520143-G",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+          "id": null
+        }
+      }
+    ]
+  },
+  "isError": false
+}

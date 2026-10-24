@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "no_injected_module_import_in_default_tests": false,
+    "runner_only_file_removed_from_tests": false,
+    "relocated_cases_byte_exact": false,
+    "relocated_name_outside_default_patterns": true,
+    "runner_points_to_relocated_cases": false,
+    "runner_AST_only_path_changed_guards_identical": true,
+    "other_tests_and_conftest_unchanged": false,
+    "pytest_config_Makefile_and_product_bytes_unchanged": true,
+    "new_bare_environment": true
+  },
+  "injected_imports_in_collected_paths": [
+    {
+      "path": "tests/test_ami_probe_main.py",
+      "line": 9
+    }
+  ]
+}

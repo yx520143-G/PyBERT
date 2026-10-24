@@ -1,0 +1,14 @@
+{
+  "scope": "lossless storage of 617339-byte Git whitespace diagnostic; original raw remains at the same local path",
+  "local_raw": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\docs\\webui\\issue30\\probe-main-20261025\\pytest-entry-fix\\runs\\03-staged-check-recapture\\stdout.txt",
+  "local_raw_ignored_exact_path": "/docs/webui/issue30/probe-main-20261025/pytest-entry-fix/runs/03-staged-check-recapture/stdout.txt",
+  "raw_sha256": "c482f76750660e98d2ed9fbc679767a0de6457d4f801cb1b5461322fcc6669c3",
+  "raw_bytes": 617339,
+  "tracked_lossless_copy": "stdout.txt.gz",
+  "gzip_sha256": "aaf7e746722b4114f19bbff6cac4dd7e6a473f0af314b91ff0096b7611e1c2a2",
+  "gzip_bytes": 62867,
+  "gzip_mtime": 0,
+  "decompressed_byte_exact": true,
+  "reason": "preserve original without modifying the 500KiB added-file hook or normalizing raw mixed-EOL diagnostics; only this new raw log excluded locally, no test exclusion",
+  "no_product_test_runner_calls": 0
+}

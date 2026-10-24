@@ -1,0 +1,15 @@
+test_primary_and_cleanup_errors_are_both_preserved (c1_tests.ProbeMainTests.test_primary_and_cleanup_errors_are_both_preserved) ... ERROR
+
+======================================================================
+ERROR: test_primary_and_cleanup_errors_are_both_preserved (c1_tests.ProbeMainTests.test_primary_and_cleanup_errors_are_both_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 95, in test_primary_and_cleanup_errors_are_both_preserved
+    self.assertIs(caught.exception.primary_error, primary)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OSError' object has no attribute 'primary_error'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (errors=1)

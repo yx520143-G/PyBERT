@@ -1,0 +1,10 @@
+{
+  "command": [
+    "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+    "venv",
+    "--python",
+    "C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/.venv/Scripts/python.exe",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv"
+  ],
+  "cwd": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main"
+}

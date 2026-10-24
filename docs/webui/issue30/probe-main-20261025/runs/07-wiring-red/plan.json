@@ -1,0 +1,34 @@
+{
+  "phase": "target adapter/caller static red",
+  "previous_plan": "runs/06-failure-matrix-green/plan.json",
+  "environment": {
+    "executable": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+    "version": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+    "prefix": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+    "base_prefix": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none"
+  },
+  "guards": "stdlib preload, import/audit/profile before production AST definitions/test; no helper/model module import; platform system activity not fully traced",
+  "restricted_budget": 0,
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\docs\\webui\\issue30\\probe-main-20261025\\run_guarded.py",
+    "07-wiring-red",
+    "ProbeMainTests.test_only_target_caller_selects_the_real_coordinator"
+  ],
+  "expected_counts": {
+    "coordinator": 0,
+    "model_and_initializer_stubs": 0,
+    "actual_helpers_models_DSP": 0
+  },
+  "source_test_runner_sha256": {
+    "src/pybert/utility/ibisami.py": "913f3d252c93e344bfeeb08948feb8749c8b005def68bd5a9e1bc2775c9bd4fd",
+    "src/pybert/models/bert.py": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "tests/test_ami_probe_main.py": "3b81c99043c35c6bd382d91693461fcccf6ec061b866f103b79e7f567ba0a402",
+    "docs/webui/issue30/probe-main-20261025/run_guarded.py": "57f7a7c5ee52e76468935cf73ce87c0de89a6bdba7a3dfe80c0e8313a8de5251"
+  },
+  "expected_failure": "legacy helper has no internal _probe_seed selector/caller wiring; actual production AST only, no complete helper execution",
+  "next_matrix": "4 seed/B literal cases plus mutable channel/FEXT/params/info/ts/UI and original-x alias case",
+  "wall_RSS": "UNKNOWN"
+}

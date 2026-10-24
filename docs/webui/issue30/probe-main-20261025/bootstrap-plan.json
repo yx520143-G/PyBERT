@@ -1,0 +1,31 @@
+{
+  "commands": {
+    "01-chop-https": [
+      "git",
+      "config",
+      "submodule.PyChOpMarg.url",
+      "https://github.com/capn-freako/PyChOpMarg.git"
+    ],
+    "02-submodules": [
+      "git",
+      "submodule",
+      "update",
+      "--init",
+      "--",
+      "PyAMI",
+      "PyChOpMarg"
+    ],
+    "03-stdlib-venv": [
+      "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+      "venv",
+      "--python",
+      "C:/Users/yx/.codex/worktrees/pybert-issue4-resources/serial-bus-simulator/.venv/Scripts/python.exe",
+      "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv"
+    ]
+  },
+  "environment": "new bare stdlib venv, no pip/test packages or install matrix",
+  "cache": "E:/serial-bus-simulator-dependencies/pybert-issue30-bootstrap-cache",
+  "model_product_budget": 0,
+  "clone_metadata": "new .git/modules only, remote clones no old Git sharing",
+  "task_wall_peak_RSS": "UNKNOWN"
+}

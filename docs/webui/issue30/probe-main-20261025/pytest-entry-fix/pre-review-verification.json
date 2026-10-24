@@ -1,0 +1,33 @@
+{
+  "scope": "read-only pre-review checks of P2 repair; no tests/product imports rerun",
+  "original_delivery_127_files_retained_current_or_byte_exact_archive": 127,
+  "original_01_10_runs_unchanged": true,
+  "source_caller_dependencies_config_unchanged": true,
+  "last_11_six_inputs_byte_exact": {
+    "src/pybert/utility/ibisami.py": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2",
+    "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs/webui/issue30/probe-main-20261025/guarded_probe_main_cases.py": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
+    "docs/webui/issue30/probe-main-20261025/run_guarded.py": "a4a3d1475af4dbacd045384ec64c8483b19d7604b9692578076e412ce459026e",
+    "docs/webui/issue30/probe-main-20261025/test-plan.json": "2fa65b6c8097b9c69719d4d7c595dd10749d5caea1d281568f6b2c37761e5507",
+    ".venv/pyvenv.cfg": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5"
+  },
+  "batch_input_output_relationships": 107,
+  "old_repository_states_match": 12,
+  "old_metadata_hashes_match": 169,
+  "old_raw_hashes_match": 4874,
+  "old_materials_installed_sources_match": 784,
+  "old_env_cache_directories_preserved": 12,
+  "old28_seal_match": true,
+  "UTF8_no_BOM_JSON_AST310_pass": true,
+  "git_diff_check": {
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "2f0a60104551410041f00e03750a6de5a13bc0bb"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

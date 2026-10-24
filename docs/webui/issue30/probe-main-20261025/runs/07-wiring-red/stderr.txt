@@ -1,0 +1,22 @@
+test_only_target_caller_selects_the_real_coordinator (c1_tests.ProbeMainTests.test_only_target_caller_selects_the_real_coordinator) ... FAIL
+
+======================================================================
+FAIL: test_only_target_caller_selects_the_real_coordinator (c1_tests.ProbeMainTests.test_only_target_caller_selects_the_real_coordinator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 286, in test_only_target_caller_selects_the_real_coordinator
+    self.assertEqual([arg.arg for arg in helper.args.kwonlyargs], ["_probe_seed"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['_probe_seed']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'_probe_seed'
+
+- []
++ ['_probe_seed']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)

@@ -1,0 +1,219 @@
+{
+  "run_id": "04-dual-green",
+  "selection": [],
+  "input_sha256": {
+    "source.py.txt": "2d3536226ea661c2ef3f7c5fa5eb78e1337cc5b347fb32f103a7f2bf4d8d47d1",
+    "bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "test.py.txt": "bc77c8afe9c05c1396023b39c5259801993d0b6dc3341626d1038e3b8ede27be",
+    "runner.py.txt": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1",
+    "plan.json": "b00fbc56c6afc87155e31d86fcbb9e65f9edd869096d43784c78edcefb022776"
+  },
+  "executable": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+  "python": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+  "prefix": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+  "sys_path": [
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\python313.zip",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\DLLs",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Lib\\site-packages"
+  ],
+  "blocked_attempts": [],
+  "pure_production_calls": {
+    "_run_probe_main": 2,
+    "_AMIProbeMainError.__init__": 1
+  },
+  "stub_calls": {
+    "stub_model_factory": 3,
+    "stub_initializer": 3,
+    "stub_initialize": 3,
+    "stub_rng_factory": 2,
+    "stub_get_responses": 2,
+    "stub_close": 3,
+    "stub_getWave": 1
+  },
+  "scope": "AST-extracted actual production coordinator; plain Python stubs; no full helper",
+  "preload": "stdlib only; platform/system library internals not fully traced",
+  "task_wall_peak_RSS": "UNKNOWN",
+  "tests_run": 2,
+  "failures": 0,
+  "errors": 0,
+  "final_test_stub_counts": {
+    "stub_model_factory": 2,
+    "stub_initializer": 2,
+    "stub_initialize": 2,
+    "stub_rng_factory": 1,
+    "stub_get_responses": 1,
+    "stub_close": 2,
+    "stub_getWave": 1
+  },
+  "final_test_events": [
+    [
+      "probe",
+      "construct"
+    ],
+    [
+      "prepare",
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      "probe",
+      "initialize"
+    ],
+    [
+      "probe",
+      "responses"
+    ],
+    [
+      "probe",
+      "close"
+    ],
+    [
+      "main",
+      "construct"
+    ],
+    [
+      "prepare",
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      "main",
+      "initialize"
+    ],
+    [
+      "main",
+      "main",
+      [
+        7,
+        8,
+        9
+      ],
+      40
+    ],
+    [
+      "main",
+      "close"
+    ]
+  ],
+  "case_events": [
+    {
+      "test": "c1_tests.ProbeMainTests.test_primary_and_cleanup_errors_are_both_preserved",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_model_factory": 1,
+        "stub_initializer": 1,
+        "stub_initialize": 1,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 1
+      }
+    },
+    {
+      "test": "c1_tests.ProbeMainTests.test_roles_are_sequential_and_results_survive_close",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ],
+        [
+          "main",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "main",
+          "initialize"
+        ],
+        [
+          "main",
+          "main",
+          [
+            7,
+            8,
+            9
+          ],
+          40
+        ],
+        [
+          "main",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_model_factory": 2,
+        "stub_initializer": 2,
+        "stub_initialize": 2,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 2,
+        "stub_getWave": 1
+      }
+    }
+  ],
+  "exit_code": 0,
+  "elapsed_s": 0.027363300003344193,
+  "restricted_actual_calls": {
+    "run_ami_model_full": 0,
+    "PyAMI_production_methods": 0,
+    "AMIModel_Initializer_instances": 0,
+    "model_module_body_response_keys": 0,
+    "NumPy_SciPy_DSP": 0,
+    "grammar_engine_Main_COM_coopt": 0,
+    "C_model_DLL": 0,
+    "model_download_compile": 0,
+    "CLI_GUI_service_browser": 0
+  },
+  "output_sha256": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "a02da59b6289049f2467edf37b31b90088ff46a8a3d65514d3d5af40a73cbecf"
+  }
+}

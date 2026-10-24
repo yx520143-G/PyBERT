@@ -1,0 +1,87 @@
+{
+  "contract": "issue-30.json and e0e6424 README4/6",
+  "seam": "Actual _run_probe_main + _AMIProbeMainError production AST, standard deepcopy and two placeholder keys only",
+  "adapter": "NumPy/initializer preparation static only, complete helper not executed",
+  "first_test": "ProbeMainTests.test_roles_are_sequential_and_results_survive_close",
+  "manual_input": {
+    "channel": [
+      1,
+      2
+    ],
+    "parameters": {
+      "tap": [
+        3
+      ]
+    },
+    "x": [
+      7,
+      8,
+      9
+    ],
+    "B": 0,
+    "effective_B": 40,
+    "seed": 123,
+    "h": [
+      21,
+      22
+    ],
+    "out_h": [
+      31,
+      32
+    ],
+    "y": [
+      41,
+      42,
+      43
+    ],
+    "clocks": [
+      0,
+      2
+    ],
+    "params": [
+      "main-params"
+    ]
+  },
+  "red_expected": "baseline coordinator absent, assertion before any coordinator/stub call",
+  "green_expected_stub_calls": {
+    "stub_model_factory": 2,
+    "stub_initializer": 2,
+    "stub_initialize": 2,
+    "stub_get_responses": 1,
+    "stub_getWave": 1,
+    "stub_close": 2,
+    "stub_rng_factory": 1
+  },
+  "green_expected_coordinator_calls": 1,
+  "next_slices": [
+    "failures and dual errors, no retries",
+    "mutable Init isolation and Close alias corruption",
+    "B/seed/fresh x/roles",
+    "static wiring/legacy API/non-target"
+  ],
+  "environment": {
+    "executable": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+    "version": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+    "prefix": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+    "base_prefix": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none"
+  },
+  "dependencies": "stdlib only, bare new .venv no pip",
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\docs\\webui\\issue30\\probe-main-20261025\\run_guarded.py",
+    "01-tracer-red",
+    "ProbeMainTests.test_roles_are_sequential_and_results_survive_close"
+  ],
+  "guards": "stdlib preload, import/audit/profile before production AST definitions/test; no helper/model module import; platform system activity not fully traced",
+  "restricted_budget": 0,
+  "frozen_source_test_runner_sha256": {
+    "src/pybert/utility/ibisami.py": "24b0d5d30f13838fd7b65489e1c96f4ea33fdd8743708fecef19fd576d01aecc",
+    "src/pybert/models/bert.py": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "tests/test_ami_probe_main.py": "cbf31e6bfeccbbd557c429c4821d20d566bf3b1f74d7dc82a930f5d11e4c72a6",
+    "docs/webui/issue30/probe-main-20261025/run_guarded.py": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1"
+  },
+  "preflight_failure": "preflight-static.json, no tests/product executed",
+  "wall_peak_RSS": "UNKNOWN"
+}

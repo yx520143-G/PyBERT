@@ -1,0 +1,15 @@
+test_interrupt_and_cleanup_are_both_preserved (c1_tests.ProbeMainTests.test_interrupt_and_cleanup_are_both_preserved) ... ERROR
+
+======================================================================
+ERROR: test_interrupt_and_cleanup_are_both_preserved (c1_tests.ProbeMainTests.test_interrupt_and_cleanup_are_both_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 374, in test_interrupt_and_cleanup_are_both_preserved
+    self.assertIs(caught.exception.primary_error, primary)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'KeyboardInterrupt' object has no attribute 'primary_error'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+FAILED (errors=1)

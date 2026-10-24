@@ -1,0 +1,33 @@
+{
+  "baseline_HEAD": "3d942f30d892e038a2b52b5e876d11d94c511820",
+  "PyAMI_F2_HEAD_tree": [
+    "d6d1f7fe7e58536546a1cfb9430c750cc2cb103e",
+    "1a74ae9844f657e5567c435345fdd561a1f747fe"
+  ],
+  "PyAMI_model_raw_sha256": "0e5a18c6d3402f10e2fb85af147f6ee961e5c67ae21fec555b1842f51a870442",
+  "PyAMI_get_responses_GetWave_call_sites": 2,
+  "PyAMI_rng_keyword": true,
+  "dependency_gitlinks_metadata_lock_LICENSE_and_hooks_diff_empty": true,
+  "other_existing_ibisami_functions_AST_unchanged": true,
+  "last_current_batch_static_proofs": [
+    "actual initializer matrix preparation equals original after field substitution",
+    "legacy helper AST equals original after inlining original preparation/removing selector and two doc lines",
+    "full caller AST equals original after removing target single kwarg, includes main RNG/A parameter handling unchanged",
+    "6caller sites,only Native/InitTx+RxGW selected,both rx_use_clocks values,TxGW excluded",
+    "old positional/default/6return AST unchanged"
+  ],
+  "new_private_functions_AST3_10_line119": true,
+  "legacy_long_lines": "two original capability error strings >119 retained unchanged",
+  "raw_inputs": {
+    "src\\pybert\\utility\\ibisami.py": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2",
+    "src\\pybert\\models\\bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "docs\\webui\\issue30\\probe-main-20261025\\run_guarded.py": "a4a3d1475af4dbacd045384ec64c8483b19d7604b9692578076e412ce459026e",
+    "docs\\webui\\issue30\\probe-main-20261025\\inputs\\fixed-contract-README.txt": "991e85d26399362392862a4f849bde1652d38125ccbb2d5c6cbb877ed26baa10",
+    "pyproject.toml": "8703f9d4381f4bfe0b4f504e0a854129a1c7eb8677ac2d679739e49481d65e66",
+    "uv.lock": "cc21cb7dd84c9729a6a2fedfda297af9fb195c0dd7e05a24f89fb7db87be4b12",
+    "docs\\webui\\issue30\\probe-main-20261025\\guarded_probe_main_cases.py": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624"
+  },
+  "full_helper_adapter_model_execution": 0,
+  "last_current_batch": "11-entry-green",
+  "P2_entry_fix": "byte-exact case relocation outside tests/default filename discovery; runner AST only path changed; original source-boundary saved in pytest-entry-fix/inputs"
+}

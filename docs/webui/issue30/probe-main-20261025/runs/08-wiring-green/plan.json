@@ -1,0 +1,42 @@
+{
+  "phase": "production wiring and complete current pure matrix green",
+  "previous_plan": "runs/07-wiring-red/plan.json",
+  "environment": {
+    "executable": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+    "version": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+    "prefix": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+    "base_prefix": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none"
+  },
+  "guards": "stdlib preload, import/audit/profile before production AST definitions/test; no helper/model module import; platform system activity not fully traced",
+  "restricted_budget": 0,
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\docs\\webui\\issue30\\probe-main-20261025\\run_guarded.py",
+    "08-wiring-green"
+  ],
+  "expected_counts": {
+    "coordinator": 34,
+    "error_objects": 28,
+    "stub_model_factory": 52,
+    "stub_close": 50,
+    "stub_initializer": 48,
+    "stub_initialize": 46,
+    "stub_rng_factory": 27,
+    "stub_get_responses": 26,
+    "stub_getWave": 12
+  },
+  "support_cost_bounds": {
+    "host_copy_callbacks": 500,
+    "all_other_stub_helpers": "observed test Python entry histogram; no hidden model calls"
+  },
+  "matrix": "26 failure points+dual errors/triple diagnostic;4seedB;mutable Init/FEXT/params/info/x alias;success;static actual caller only target and both use_clocks flags",
+  "source_test_runner_sha256": {
+    "src/pybert/utility/ibisami.py": "7ccd280d746347a55220d9dec1b61f7441cb1e16a38d0fa2578121273ff33c50",
+    "src/pybert/models/bert.py": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "tests/test_ami_probe_main.py": "3b81c99043c35c6bd382d91693461fcccf6ec061b866f103b79e7f567ba0a402",
+    "docs/webui/issue30/probe-main-20261025/run_guarded.py": "57f7a7c5ee52e76468935cf73ce87c0de89a6bdba7a3dfe80c0e8313a8de5251"
+  },
+  "wall_RSS": "UNKNOWN"
+}

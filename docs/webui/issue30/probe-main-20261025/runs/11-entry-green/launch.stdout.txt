@@ -1,0 +1,1 @@
+{"run": "11-entry-green", "exit_code": 0, "pure_calls": {"_run_probe_main": 35, "_AMIProbeMainError.__init__": 29}, "elapsed_s": 1.528305999992881}

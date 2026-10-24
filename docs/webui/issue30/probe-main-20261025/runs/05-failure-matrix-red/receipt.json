@@ -1,0 +1,643 @@
+{
+  "run_id": "05-failure-matrix-red",
+  "selection": [
+    "ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence",
+    "ProbeMainTests.test_primary_close_and_diagnostic_errors_remain_separate"
+  ],
+  "input_sha256": {
+    "source.py.txt": "2d3536226ea661c2ef3f7c5fa5eb78e1337cc5b347fb32f103a7f2bf4d8d47d1",
+    "bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "test.py.txt": "5fd6fa5645a9499d92111db314729dc126e94b5185331ff4fe169bbfbdff4663",
+    "runner.py.txt": "5e1111a67bff4fd2e9e02642424950409bb21e4d6d3c61186e8ed59d08e4abb1",
+    "plan.json": "dfdd5b1128a348dc7c740b11c4b78d0cb3a2d7f852875fcc63f0a3d848f16cd0"
+  },
+  "executable": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+  "python": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+  "prefix": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+  "sys_path": [
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\python313.zip",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\DLLs",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Lib\\site-packages"
+  ],
+  "blocked_attempts": [],
+  "pure_production_calls": {
+    "_run_probe_main": 27,
+    "_AMIProbeMainError.__init__": 20
+  },
+  "stub_calls": {
+    "stub_input_copy": 99,
+    "stub_buffer_copy": 84,
+    "stub_model_factory": 39,
+    "stub_initializer": 35,
+    "stub_close": 35,
+    "stub_record_copy": 62,
+    "stub_initialize": 33,
+    "stub_rng_factory": 20,
+    "stub_get_responses": 19,
+    "stub_getWave": 7,
+    "stub_message_decode": 1
+  },
+  "scope": "AST-extracted actual production coordinator; plain Python stubs; no full helper",
+  "preload": "stdlib only; platform/system library internals not fully traced",
+  "task_wall_peak_RSS": "UNKNOWN",
+  "tests_run": 2,
+  "failures": 8,
+  "errors": 10,
+  "final_test_stub_counts": {
+    "stub_input_copy": 5,
+    "stub_buffer_copy": 3,
+    "stub_model_factory": 2,
+    "stub_initializer": 2,
+    "stub_initialize": 2,
+    "stub_record_copy": 2,
+    "stub_rng_factory": 1,
+    "stub_get_responses": 1,
+    "stub_close": 2
+  },
+  "final_test_events": [
+    [
+      "probe",
+      "construct"
+    ],
+    [
+      "prepare",
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      "probe",
+      "initialize"
+    ],
+    [
+      "probe",
+      "responses"
+    ],
+    [
+      "probe",
+      "close"
+    ],
+    [
+      "main",
+      "construct"
+    ],
+    [
+      "prepare",
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      "main",
+      "initialize"
+    ],
+    [
+      "main",
+      "close"
+    ]
+  ],
+  "case_events": [
+    {
+      "matrix_point": "probe.prepare",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 3,
+        "stub_buffer_copy": 1,
+        "stub_model_factory": 1,
+        "stub_initializer": 1,
+        "stub_close": 1,
+        "stub_record_copy": 1
+      }
+    },
+    {
+      "matrix_point": "probe.init_copy",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 3,
+        "stub_buffer_copy": 1,
+        "stub_model_factory": 1,
+        "stub_initializer": 1,
+        "stub_initialize": 1,
+        "stub_record_copy": 2,
+        "stub_close": 1
+      }
+    },
+    {
+      "matrix_point": "probe.rng",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 3,
+        "stub_buffer_copy": 1,
+        "stub_model_factory": 1,
+        "stub_initializer": 1,
+        "stub_initialize": 1,
+        "stub_record_copy": 2,
+        "stub_rng_factory": 1,
+        "stub_close": 1
+      }
+    },
+    {
+      "matrix_point": "probe.responses",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 3,
+        "stub_buffer_copy": 1,
+        "stub_model_factory": 1,
+        "stub_initializer": 1,
+        "stub_initialize": 1,
+        "stub_record_copy": 2,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 1
+      }
+    },
+    {
+      "matrix_point": "probe.h_copy",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 3,
+        "stub_buffer_copy": 2,
+        "stub_model_factory": 1,
+        "stub_initializer": 1,
+        "stub_initialize": 1,
+        "stub_record_copy": 2,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 1
+      }
+    },
+    {
+      "matrix_point": "probe.out_h_copy",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 3,
+        "stub_buffer_copy": 3,
+        "stub_model_factory": 1,
+        "stub_initializer": 1,
+        "stub_initialize": 1,
+        "stub_record_copy": 2,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 1
+      }
+    },
+    {
+      "matrix_point": "main.prepare",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ],
+        [
+          "main",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "main",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 5,
+        "stub_buffer_copy": 3,
+        "stub_model_factory": 2,
+        "stub_initializer": 2,
+        "stub_initialize": 1,
+        "stub_record_copy": 3,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 2
+      }
+    },
+    {
+      "matrix_point": "main.init_copy",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ],
+        [
+          "main",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "main",
+          "initialize"
+        ],
+        [
+          "main",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 5,
+        "stub_buffer_copy": 3,
+        "stub_model_factory": 2,
+        "stub_initializer": 2,
+        "stub_initialize": 2,
+        "stub_record_copy": 4,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 2
+      }
+    },
+    {
+      "matrix_point": "main.main",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ],
+        [
+          "main",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "main",
+          "initialize"
+        ],
+        [
+          "main",
+          "main",
+          [
+            7,
+            8,
+            9
+          ],
+          40
+        ],
+        [
+          "main",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 5,
+        "stub_buffer_copy": 4,
+        "stub_model_factory": 2,
+        "stub_initializer": 2,
+        "stub_initialize": 2,
+        "stub_record_copy": 4,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 2,
+        "stub_getWave": 1
+      }
+    },
+    {
+      "test": "c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ],
+        [
+          "main",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "main",
+          "initialize"
+        ],
+        [
+          "main",
+          "main",
+          [
+            7,
+            8,
+            9
+          ],
+          40
+        ],
+        [
+          "main",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 5,
+        "stub_buffer_copy": 7,
+        "stub_model_factory": 2,
+        "stub_initializer": 2,
+        "stub_initialize": 2,
+        "stub_record_copy": 4,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 2,
+        "stub_getWave": 1
+      }
+    },
+    {
+      "test": "c1_tests.ProbeMainTests.test_primary_close_and_diagnostic_errors_remain_separate",
+      "events": [
+        [
+          "probe",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "probe",
+          "initialize"
+        ],
+        [
+          "probe",
+          "responses"
+        ],
+        [
+          "probe",
+          "close"
+        ],
+        [
+          "main",
+          "construct"
+        ],
+        [
+          "prepare",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "main",
+          "initialize"
+        ],
+        [
+          "main",
+          "close"
+        ]
+      ],
+      "stub_counts": {
+        "stub_input_copy": 5,
+        "stub_buffer_copy": 3,
+        "stub_model_factory": 2,
+        "stub_initializer": 2,
+        "stub_initialize": 2,
+        "stub_record_copy": 2,
+        "stub_rng_factory": 1,
+        "stub_get_responses": 1,
+        "stub_close": 2
+      }
+    }
+  ],
+  "exit_code": 1,
+  "elapsed_s": 0.11480359999404754,
+  "restricted_actual_calls": {
+    "run_ami_model_full": 0,
+    "PyAMI_production_methods": 0,
+    "AMIModel_Initializer_instances": 0,
+    "model_module_body_response_keys": 0,
+    "NumPy_SciPy_DSP": 0,
+    "grammar_engine_Main_COM_coopt": 0,
+    "C_model_DLL": 0,
+    "model_download_compile": 0,
+    "CLI_GUI_service_browser": 0
+  },
+  "output_sha256": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "ed6021e2fc4573cfcafe48c6202ad48aa02c03949e0fc85648535596be5232a0"
+  }
+}

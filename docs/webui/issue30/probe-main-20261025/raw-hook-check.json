@@ -1,0 +1,9 @@
+{
+  "static_only_no_actual_hooks": true,
+  "issues": {
+    "large": [],
+    "EOF": [],
+    "mixed": []
+  },
+  "UTF8_no_BOM": true
+}

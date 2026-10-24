@@ -1,0 +1,61 @@
+{
+  "run": "02-static-green",
+  "input_sha256": {
+    "checker.py.txt": "e1820efad077341fb1920cd39f97bff01bd9a78fe6763ba7f723caa716d0c3ae",
+    "plan.json": "8b4c4c4f830e424b74d8f4f588577a4a8d60f199ef15cff8cbba931442f122c8",
+    "startup.json": "a5eb306d6e836e451cfc9f70715551da3dd1fe8d68ae5cd6e1bc7d32addc98e6",
+    "runner.py.txt": "a4a3d1475af4dbacd045384ec64c8483b19d7604b9692578076e412ce459026e",
+    "source.py.txt": "9e28c727023499e500e8e72386629a1aea18e2436dc98a41b9c4392de2ea56d2",
+    "bert.py.txt": "efde5099b2604ecd5003d53c49109f777ab9f8d62858a3286efd879a2d34ee14",
+    "pyproject.toml.txt": "8703f9d4381f4bfe0b4f504e0a854129a1c7eb8677ac2d679739e49481d65e66",
+    "Makefile.txt": "ffdc088b377ef4d1fa78716aab5d5553595a429e23e00101792b08fa04b542a0",
+    "conftest.py.txt": "097143b27641a127fd41e82be2f1936b59d24f6ab13af81379bde863916318a5",
+    "venv.cfg.txt": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
+    "relocated-cases.py.txt": "7cc6febd3fdf4cd26f566246c7a3e914da0ce9abcaa391f195430cbdf1988624",
+    "tests-census.json": "130454ccdc54831399db3f42acd5ca521b783daf7b8700d0750fc55b6f651a57"
+  },
+  "executable": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+  "prefix": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+  "python": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+  "sys_path": [
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\python313.zip",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\DLLs",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Lib\\site-packages"
+  ],
+  "scope": "static AST/path checks only; no pytest collection, imports or test execution",
+  "task_wall_peak_RSS": "UNKNOWN",
+  "checks": {
+    "no_injected_module_import_in_default_tests": true,
+    "runner_only_file_removed_from_tests": true,
+    "relocated_cases_byte_exact": true,
+    "relocated_name_outside_default_patterns": true,
+    "runner_points_to_relocated_cases": true,
+    "runner_AST_only_path_changed_guards_identical": true,
+    "other_tests_and_conftest_unchanged": true,
+    "pytest_config_Makefile_and_product_bytes_unchanged": true,
+    "new_bare_environment": true
+  },
+  "exit_code": 0,
+  "elapsed_s": 0.10217580001335591,
+  "output_sha256": {
+    "stdout.txt": "a7af7d58dfcec7497d5fb671d3043ac098829d1812259a84e4d34aaba005bf45",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "pure_coordinator_and_stubs": 0,
+  "pytest_collection_calls": 0,
+  "restricted_actual_calls": {
+    "run_ami_model_full": 0,
+    "PyAMI_production_methods": 0,
+    "AMIModel_Initializer_instances": 0,
+    "model_module_body_response_keys": 0,
+    "NumPy_SciPy_DSP": 0,
+    "grammar_engine_Main_COM_coopt": 0,
+    "C_model_DLL": 0,
+    "model_download_compile": 0,
+    "CLI_GUI_service_browser": 0
+  },
+  "proof_limit": "path/config/source proof only; full pytest/conftest runtime health is not established"
+}

@@ -1,0 +1,290 @@
+"""
+General IBIS-AMI utilities for PyBERT.
+
+Original author: David Banas <capn.freako@gmail.com>
+
+Original date:   June 16, 2024
+
+Copyright (c) 2024 David Banas; all rights reserved World wide.
+
+A partial extraction of the old `pybert/utility.py`, as part of a refactoring.
+"""
+
+import logging
+from copy import deepcopy
+
+import numpy as np
+from numpy import array, convolve
+
+from pyibisami.ami.model import (
+    AMIModel, AMIModelInitializer,
+    IMP_RESP_GETW, IMP_RESP_INIT, OUT_RESP_GETW, OUT_RESP_INIT,
+)
+from pyibisami.ami.parser import AMIParamConfigurator
+from pyibisami.ibis.file import IBISModel
+
+from ..common import Rvec
+
+# The IBIS `Model_type`s PyBERT can simulate. PyBERT models the Tx as a series resistance (from `zout`)
+# and the Rx as a shunt resistance (from `zin`), which fits push-pull drivers and clamp-terminated receivers.
+# This is PyBERT's capability choice, narrower than the IBIS spec's driver/receiver sets (IBIS 8.0 Table 47).
+PYBERT_TX_MODEL_TYPES = frozenset({"output", "3-state", "i/o"})
+PYBERT_RX_MODEL_TYPES = frozenset({"input", "i/o"})
+
+
+PYIBISAMI_LOGGER = logging.getLogger("pyibisami")
+_pyibisami_handler: logging.Handler | None = None
+
+
+def set_pyibisami_logging(debug: bool) -> None:
+    """
+    Show pyibisami's log messages on the terminal (stderr): warnings always, and debugging details when ``debug``.
+
+    pyibisami, as a library, only logs (its ``NullHandler`` even stops Python's default printing of warnings),
+    so PyBERT attaches the handler. It's attached once per process; the level applies to every ``PyBERT`` instance.
+
+    Notes:
+        1. stderr, never stdout: the MCP server (``pybert mcp``) talks over stdout.
+        2. The root logger is left alone, as PyBERT is also used as a library.
+    """
+    global _pyibisami_handler  # pylint: disable=global-statement
+    if _pyibisami_handler is None:
+        _pyibisami_handler = logging.StreamHandler()  # stderr
+        _pyibisami_handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s"))
+        PYIBISAMI_LOGGER.addHandler(_pyibisami_handler)
+    PYIBISAMI_LOGGER.setLevel(logging.DEBUG if debug else logging.WARNING)
+
+
+def resolve_ami_files(ibis: IBISModel, is_tx: bool) -> tuple[str, str]:
+    """
+    The executable and AMI files of an IBIS model's selected model, for one direction and this platform.
+
+    Args:
+        ibis: The IBIS model, with the wanted model selected.
+        is_tx: ``True`` for the Tx side, ``False`` for the Rx side (matters for ``I/O`` models).
+
+    Returns:
+        The ``(dll, ami)`` file paths, resolved against the IBIS file's directory,
+        or ``("", "")`` unless both exist in the IBIS file.
+    """
+    dll_file, ami_file = ibis.model.get_ami_files(is_tx)
+    dll_path, ami_path = ibis.resolve_file(dll_file), ibis.resolve_file(ami_file)
+    if dll_path and ami_path:
+        return str(dll_path), str(ami_path)
+    return "", ""
+
+
+def _make_ami_initializer(inputs):
+    """Rebuild one initializer using the existing channel/FEXT preparation."""
+    chnl_h, fext_hs = inputs["chnl_h"], inputs["fext_hs"]
+    ui, ts = inputs["ui"], inputs["ts"]
+    row_size = len(chnl_h)
+    if fext_hs:
+        fext_rows = [
+            np.pad(h / ts, (0, max(0, row_size - len(h))))[:row_size]
+            for h in fext_hs
+        ]
+        all_rows = np.concatenate([chnl_h / ts] + fext_rows)
+        model_init = AMIModelInitializer(inputs["ami_params"], info_params=inputs["info_params"])
+        model_init.sample_interval = ts         # Must be set before 'channel_response'!
+        model_init.channel_response = all_rows  # Setter sets row_size = total matrix length.
+        model_init.row_size = row_size          # Restore per-row size after matrix assignment.
+        model_init.num_aggressors = len(fext_hs)
+        model_init.bit_time = ui
+    else:
+        model_init = AMIModelInitializer(inputs["ami_params"], info_params=inputs["info_params"])
+        model_init.sample_interval = ts  # Must be set, before 'channel_response'!
+        model_init.channel_response = chnl_h / ts
+        model_init.bit_time = ui
+    return model_init
+
+
+class _AMIProbeMainError(RuntimeError):
+    """Keep role execution and cleanup failures separate, with host-owned evidence."""
+
+    def __init__(self, role, phase, primary_error, cleanup_error, diagnostics, diagnostic_errors=()):
+        self.role, self.phase = role, phase
+        self.primary_error, self.cleanup_error = primary_error, cleanup_error
+        self.diagnostics = diagnostics
+        self.diagnostic_errors = list(diagnostic_errors)
+        super().__init__(f"C1 {role}/{phase}: {primary_error!r}; cleanup={cleanup_error!r}")
+
+
+def _run_probe_main(make_model, make_initializer, init_inputs, x, bits_per_call, seed, make_rng):
+    """Run fresh sequential probe/main epochs; retain only host-owned results."""
+    diagnostics = []
+    try:
+        frozen_inputs, main_input = deepcopy(init_inputs), deepcopy(x)
+    except Exception as error:
+        raise _AMIProbeMainError("probe", "freeze", error, None, diagnostics) from error
+    for role in ("probe", "main"):
+        model = None
+        record = {"role": role, "init_input": frozen_inputs,
+                  "close_attempted": False, "close_returned": False, "release_confirmation": "UNKNOWN"}
+        diagnostics.append(record)
+        primary_error = cleanup_error = None
+        diagnostic_errors = []
+        init_copy_attempted = False
+        phase = "construct"
+        try:
+            model = make_model()
+            phase = "prepare"
+            initializer = make_initializer(deepcopy(frozen_inputs))
+            phase = "initialize"
+            model.initialize(initializer)
+            phase = "init_copy"
+            init_copy_attempted = True
+            record["init"] = deepcopy(model.last_init_call)
+            if role == "probe":
+                phase = "rng"
+                record["probe_rng"] = {"requested_seed": seed, "factory_seed": seed if seed else None,
+                                       "replayability": "seeded" if seed else "UNKNOWN"}
+                rng = make_rng(seed if seed else None)
+                phase = "probe"
+                responses = model.get_responses(bits_per_call=40, max_run_length=10, nbits=20, rng=rng)
+                phase = "probe_copy"
+                h, out_h = deepcopy((responses[IMP_RESP_GETW], responses[OUT_RESP_GETW][1]))
+            else:
+                phase = "message"
+                init = record["init"]
+                try:
+                    params_out = init["params_raw"].decode("utf-8")
+                except AttributeError:
+                    params_out = ""
+                msg = "\n".join([
+                    f"Input parameters: {init['params_in'].decode('utf-8')}",
+                    f"Output parameters: {params_out}",
+                    f"Message: {init['message_raw'].decode('utf-8')}",
+                ])
+                phase = "main_input"
+                main_wave = deepcopy(main_input)
+                phase = "main"
+                outputs = model.getWave(main_wave, bits_per_call=bits_per_call or 40)
+                phase = "main_copy"
+                y, clocks, params = deepcopy(outputs)
+        except Exception as error:
+            primary_error = error
+        finally:
+            if model is not None:
+                if not init_copy_attempted:
+                    try:
+                        record["init"] = deepcopy(model.last_init_call)
+                    except Exception as error:
+                        diagnostic_errors.append(error)
+                record["close_attempted"] = True
+                try:
+                    model.close()
+                    record["close_returned"] = True
+                except Exception as error:
+                    cleanup_error = error
+                try:
+                    record["close"] = deepcopy(model.last_close_call)
+                except Exception as error:
+                    if primary_error is None and cleanup_error is None:
+                        primary_error, phase = error, "close_copy"
+                    else:
+                        diagnostic_errors.append(error)
+        if primary_error is not None or cleanup_error is not None:
+            if primary_error is None:
+                phase = "cleanup"
+            raise _AMIProbeMainError(role, phase, primary_error, cleanup_error, diagnostics, diagnostic_errors) from (
+                primary_error if primary_error is not None else cleanup_error)
+    msg += f"\nC1 probe/main Init diagnostics (no DLL-global reset guarantee): {diagnostics!r}"
+    return y, clocks, h, out_h, msg, params
+
+
+# pylint: disable=too-many-arguments,too-many-locals,too-many-positional-arguments
+def run_ami_model(dll_fname: str, param_cfg: AMIParamConfigurator, use_getwave: bool,
+                  ui: float, ts: float, chnl_h: Rvec, x: Rvec, bits_per_call: int = 0,
+                  fext_hs: list[Rvec] | None = None, *, _probe_seed: int | None = None
+                  ) -> tuple[Rvec, Rvec, Rvec, Rvec, str, list[str]]:
+    """
+    Run a simulation of an IBIS-AMI model.
+
+    Args:
+        dll_fname: Filename of DLL/SO.
+        param_cfg: A pre-configured ``AMIParamConfigurator`` instance.
+        use_getwave: Use ``AMI_GetWave()`` when True, ``AMI_Init()`` when False.
+        ui: Unit interval (s).
+        ts: Sample interval (s).
+        chnl_h: Impulse response input to model (V/sample).
+        x: Input waveform.
+
+    Keyword Args:
+        bits_per_call: Number of bits per call of ``GetWave()``.
+            Default: 0 (Means "Use existing value.")
+        fext_hs: List of FEXT channel impulse responses (V/sample), one per aggressor lane.
+            When provided, the full impulse response matrix (thru + FEXT rows) is passed to
+            ``AMI_Init()``, enabling cross-talk modeling in the AMI model.
+            Default: None (no aggressors; only the thru channel is passed)
+        _probe_seed: Internal Rx GetWave selector: isolate probe/main with this private RNG seed.
+            None retains the legacy path; 0 requests fresh entropy with unknown replayability.
+
+    Returns:
+        A tuple consisting of
+
+            - the model output convolved w/ any channel impulse response given in ``chnl_h``,
+            - the model determined sampling instants (a.k.a. - "clock times"), if appropriate,
+            - the model's impulse response (V/sample),
+            - the impulse response of the model concatenated w/ the given channel (V/sample),
+            - input parameters, and any message returned by the model's ``AMI_Init()`` function, and
+            - any output parameters from ``GetWave()`` if apropos.
+
+    Raises:
+        IOError: if the given file name cannot be found/opened.
+        RuntimeError: if the given model doesn't support the requested mode.
+    """
+
+    # Validate the model against the requested use mode.
+    if use_getwave:
+        if not param_cfg.fetch_param_val(["Reserved_Parameters", "GetWave_Exists"]):
+            raise RuntimeError(
+                "You've requested to use the `AMI_GetWave()` function of an IBIS-AMI model, which doesn't provide one!")
+    else:
+        if not param_cfg.fetch_param_val(["Reserved_Parameters", "Init_Returns_Impulse"]):
+            raise RuntimeError(
+                "You've requested to use the `AMI_Init()` function of an IBIS-AMI model, which doesn't return an impulse response!")
+
+    # Load and initialize the model.
+    init_inputs = {"ami_params": param_cfg.input_ami_params, "info_params": param_cfg.info_ami_params,
+                   "ui": ui, "ts": ts, "chnl_h": chnl_h, "fext_hs": fext_hs}
+    if use_getwave and _probe_seed is not None:
+        return _run_probe_main(lambda: AMIModel(dll_fname), _make_ami_initializer,
+                               init_inputs, x, bits_per_call, _probe_seed, np.random.default_rng)
+    model_init = _make_ami_initializer(init_inputs)
+    model = AMIModel(dll_fname)
+    model.initialize(model_init)
+
+    # Required when DLL returns a null pointer, instead of an empty string, in `ami_params_out`.
+    # Note: Having `AmiModel` trap this case doesn't work, since Python strings don't offer `decode()`.
+    try:
+        params_out_str = model.ami_params_out.decode('utf-8')
+    except AttributeError:
+        params_out_str = ""
+
+    msg = "\n".join([  # Python equivalent of Haskell's `unlines()`.
+        f"Input parameters: {model.ami_params_in.decode('utf-8')}",
+        f"Output parameters: {params_out_str}",
+        f"Message: {model.msg.decode('utf-8')}"])
+
+    # Capture model's responses.
+    resps = model.get_responses(bits_per_call=40)
+    if use_getwave:
+        h: Rvec = resps[IMP_RESP_GETW]  # type: ignore
+        out_h = resps[OUT_RESP_GETW][1]
+    else:
+        h = resps[IMP_RESP_INIT]  # type: ignore
+        out_h = resps[OUT_RESP_INIT][1]
+
+    # Generate model's output.
+    if use_getwave:
+        y, clks, params_out = model.getWave(x, bits_per_call=bits_per_call)
+        return (y, clks, h, out_h, msg, params_out)
+    try:
+        y = convolve(x, out_h)[:len(x)]
+    except Exception:
+        print(f"x.shape: {x.shape}")
+        print(f"out_h shapes: {[h.shape for h in out_h]}")
+        raise
+    clks = array([])
+    return (y, clks, h, out_h, msg, [])

@@ -1,0 +1,7 @@
+test_primary_and_cleanup_errors_are_both_preserved (c1_tests.ProbeMainTests.test_primary_and_cleanup_errors_are_both_preserved) ... ok
+test_roles_are_sequential_and_results_survive_close (c1_tests.ProbeMainTests.test_roles_are_sequential_and_results_survive_close) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.005s
+
+OK
