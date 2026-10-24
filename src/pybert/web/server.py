@@ -62,7 +62,7 @@ def create_app(tasks=None):
 
     @app.post("/api/normalize")
     def normalize(request: dict):
-        if request.get("mode", "load") not in ("defaults", "load", "patch"):
+        if request.get("mode", "load") not in ("defaults", "load", "patch", "ami_configure"):
             raise ValueError("Optimizer actions require their dedicated endpoint and a registered record ID.")
         return manager.normalize(request)
 

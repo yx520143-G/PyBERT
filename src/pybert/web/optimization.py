@@ -24,7 +24,7 @@ from pybert.web.archive import (
 )
 from pybert.web.config import extensions, input_hash, load_config, new_engine, snapshot, validate
 from pybert.web.data import adapter_sha, source_identity
-from pybert.web.resources import inspect_channels, projection
+from pybert.web.resources import inspect_resources, projection
 from pybert.web.ami import Execution, configure, AMICancelled
 
 MAX_OUTER = 256
@@ -288,6 +288,9 @@ def optimizer_action(p, runtime, mode, candidate=None):
         p.rlm = runtime.get("values", {}).get("rlm", p.rlm)
         return runtime, {"optimization_plan": preflight(p)}
     if mode == "reset_eq":
+        if p.tx_use_ami and p.rx_use_ami:
+            return runtime, {"action": "Native Reset: no applicable Native side; AMI state unchanged"}
+        previous_initial = runtime.get("values", {}).get("optimizer_values", {})
         before = snapshot(p)
         handler_patch(p)
         if p.tx_use_ami or p.rx_use_ami:
@@ -298,7 +301,8 @@ def optimizer_action(p, runtime, mode, candidate=None):
             load_config(p, after)
         runtime.setdefault("version", 1)
         runtime.setdefault("values", {})["optimizer_values"] = {
-            "tx": [t.value for t in p.tx_tap_tuners], "ffe": [t.value for t in p.ffe_tap_tuners]}
+            "tx": previous_initial.get("tx", [t.value for t in p.tx_tap_tuners]) if p.tx_use_ami else [t.value for t in p.tx_tap_tuners],
+            "ffe": previous_initial.get("ffe", [t.value for t in p.ffe_tap_tuners]) if p.rx_use_ami else [t.value for t in p.ffe_tap_tuners]}
         return runtime, {"action": "native MyHandler.do_reset_eq", "DFE_weights_applied": False}
     if not candidate or candidate.get("status") != "succeeded":
         raise ValueError("Use EQ requires a completed successful optimization record.")
@@ -365,7 +369,7 @@ def run_optimization(opt_id, request, directory, check, emit):
         if model_report:
             record["ami"] = {"models": model_report, "scope": "real AMI Init / coopt TPE; not GetWave BER/COM qualification"}
             record["producer"] = "pybert.threads.optimization.coopt (AMI TPE)"
-        record["resources"] = inspect_channels(request["config"], request.get("frozen_resources", []))
+        record["resources"] = inspect_resources(request["config"], request.get("frozen_resources", []))
         projected = projection(request["config"], request.get("frozen_resources", []))
         p.trait_setq(ch_file=projected["ch_file"], ch_files=projected["ch_files"], enable_com=False)
         p.opt_thread = CancelBridge(check)  # Instance(OptThread), never start a second numerical thread.
@@ -451,6 +455,12 @@ def run_optimization(opt_id, request, directory, check, emit):
             "Hz" if key == "mmse_f_hz" else "s" if key == "mmse_t_s" else
             "V (native model; MMSE cursor normalized)" if key in ("ctle_out_h_tune", "p_chnl", "curs_amp", "clocks_tune") or key.endswith(("_pulse", "_p_tx")) else "1"),
             "clock_basis": "optimizer sampling / equivalent pulse; not recovered CDR", "window": "entire producer array"} for key in arrays}
+        for key in execution.arrays:
+            field = key.rsplit(".", 1)[1]
+            record["array_contracts"][key].update(producer="original run_ami_model", unit=(
+                "s" if field == "clocks" or field.endswith("_t_s") else "V/sample" if field.endswith("h") else "V"),
+                axis=key + "_t_s" if key + "_t_s" in arrays else None,
+                clock_basis="raw model clock output, not optimizer recovered clocks" if field == "clocks" else "original helper sample interval")
         record["nonfinite_arrays"] = {key: int(np.count_nonzero(~np.isfinite(value))) for key, value in arrays.items() if not np.isfinite(value).all()}
         if record["status"] == "succeeded" and (sum(a.nbytes for a in arrays.values()) > MAX_ARRAY_BYTES or any(not np.isfinite(a).all() for a in arrays.values())):
             record.update(status="failed", error="Nonfinite or over-budget native arrays; candidate unavailable.")

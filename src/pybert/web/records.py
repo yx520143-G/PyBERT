@@ -74,6 +74,9 @@ class References:
 
 def verify_replay_resources(run, rows):
     expected = [{key: row.get(key) for key in ("field", "index", "sha256")} for row in run.get("resources", [])]
-    actual = [{key: row.get(key) for key in ("field", "index", "sha256")} for row in rows if row["field"] in ("ch_file", "ch_files")]
-    if expected != actual:
+    actual = [{key: row.get(key) for key in ("field", "index", "sha256")} for row in rows
+              if row["field"] in ("ch_file", "ch_files", "tx_model_bundle", "rx_model_bundle")]
+    # Field/index encode consumption order; model and channel sections may be stored in either order.
+    order = lambda row: (row["field"], -1 if row["index"] is None else row["index"])
+    if sorted(expected, key=order) != sorted(actual, key=order):
         raise ValueError(f"Saved run resource content changed/missing; rebind matching field/index/hash. Expected {expected}; supplied {actual}.")

@@ -37,6 +37,15 @@
     controls();
   }
   function open(side){if(side)$('ami-side').value=side;render();dialog.showModal();}
+  $('ami-selection').onchange=event=>{
+    const key=event.target.dataset.amiSelection,map=reports[$('ami-side').value]?.selection_map;
+    if(!map)return;
+    const control=name=>$('ami-selection').querySelector(`[data-ami-selection="${name}"]`);
+    const options=(element,values)=>{element.replaceChildren(...values.map(value=>new Option(value,value)));};
+    if(key==='comp')options(control('pin'),Object.keys(map[control('comp').value]));
+    if(key==='comp'||key==='pin')options(control('mod'),map[control('comp').value][control('pin').value]);
+    $('ami-status').textContent='内部选择已改变；请明确重绑并检查新模型参数树后再 Apply。';
+  };
   button.onclick=()=>open();$('ami-close').onclick=()=>dialog.close();$('ami-side').onchange=()=>{uploaded=null;render();};
   async function action(fn){try{await fn();}catch(error){$('ami-status').textContent=`失败，原参数草稿保留：${error.message}`;}}
   $('ami-register').onclick=()=>action(async()=>{uploaded=await runs.api('models',{directory:$('ami-directory').value});render();});
@@ -51,7 +60,8 @@
       for(const control of $('ami-selection').querySelectorAll('[data-ami-selection]'))model.selection[control.dataset.amiSelection]=control.value;
       models[side]=model;
     }
-    input.config[`${side}_ibis_file`]= $('ami-ibis').value;
+    const relative=$('ami-ibis').value;
+    if(!current || current.selection.ibis_path!==relative)input.config[`${side}_ibis_file`]=relative;
     if(models[side]){
       models[side].selection.ibis_path=$('ami-ibis').value;
       for(const control of $('ami-selection').querySelectorAll('[data-ami-selection]'))models[side].selection[control.dataset.amiSelection]=control.value;

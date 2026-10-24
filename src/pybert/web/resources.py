@@ -203,6 +203,13 @@ def projection(config, rows):
     return result
 
 
+def inspect_resources(config, rows):
+    """Keep frozen input order while enriching channel rows and retaining model manifests."""
+    channels = {(r["field"], r["index"]): r for r in inspect_channels(config, rows)}
+    return [channels[(r["field"], r["index"])] if r["field"] in ("ch_file", "ch_files") else r
+            for r in rows if r["field"] in ("ch_file", "ch_files", "tx_model_bundle", "rx_model_bundle")]
+
+
 def inspect_channels(config, rows):
     """Read content/port metadata in the same worker as the consuming engine."""
     import numpy as np

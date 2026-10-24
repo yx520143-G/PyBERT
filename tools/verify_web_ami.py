@@ -147,6 +147,7 @@ def main():
     models = json.loads((FIXTURES / "model-resources.json").read_text(encoding="utf-8"))
     results = {}
     reuse = os.environ.get("AMI_REFERENCE_ROOT")
+    reuse_worker = os.environ.get("AMI_WORKER_ROOT")
     shutil.copyfile(__file__, out / "verify_web_ami.py")
     for name in sys.argv[1:] or manifest["cases"]:
         request = json.loads((FIXTURES / f"{name}.json").read_text(encoding="utf-8"))
@@ -154,6 +155,13 @@ def main():
         pair = {}
         directories = {}
         for path_name, worker in (("direct", direct), ("worker", None)):
+            if reuse_worker and path_name == "worker":
+                directory = Path(reuse_worker, name, "worker")
+                record = json.loads((directory / "optimization.json").read_text(encoding="utf-8"))
+                assert record["status"] == "succeeded"
+                pair[path_name] = {"state": "succeeded", "reused_original": str(directory), "new_coopt_calls": 0}
+                directories[path_name] = directory
+                continue
             if reuse and path_name == "direct":
                 directory = Path(reuse, name, "direct")
                 report = json.loads((directory / "direct-report.json").read_text(encoding="utf-8"))
@@ -183,7 +191,15 @@ def main():
                 keys = set(a.files) if name.startswith("OPT") else set(a.files) - {"display.run_id"}
                 mismatches = []
                 maxabs = 0.0
+                derived_axes = 0
                 for key in keys:
+                    if reuse_worker and key.startswith("ami.") and key.endswith("_t_s") and key not in b:
+                        field = key.removesuffix("_t_s")
+                        call_ix = int(key.split(".")[1].removeprefix("call"))
+                        execution = json.loads((directories["direct"] / "ami-execution.json").read_text(encoding="utf-8"))
+                        assert np.array_equal(a[key], np.arange(len(a[field])) * execution["calls"][call_ix]["ts_s"])
+                        derived_axes += 1
+                        continue
                     if key not in b or a[key].shape != b[key].shape:
                         mismatches.append(key + ": missing/shape")
                         continue
@@ -199,7 +215,15 @@ def main():
                         mismatches.append(key)
                     if a[key].size and a[key].dtype.kind != "b":
                         maxabs = max(maxabs, float(np.max(np.abs(a[key] - b[key]))))
-                compare = {"status": "passed" if not mismatches else "failed", "arrays": len(keys), "mismatches": mismatches, "max_absolute_difference": maxabs}
+                compare = {"status": "passed" if not mismatches else "failed", "arrays": len(keys) - derived_axes,
+                           "new_helper_axes_checked_against_original_ts": derived_axes, "mismatches": mismatches, "max_absolute_difference": maxabs}
+            if name.startswith("OPT"):
+                native = json.loads((directories["direct"] / "direct-report.json").read_text(encoding="utf-8"))["result"]
+                worker = json.loads((directories["worker"] / "optimization.json").read_text(encoding="utf-8"))
+                assert native["fom"] == worker["fom"] and native["trials"] == len(worker["candidates"])
+                for actual, row in zip(native["candidate_metadata"], worker["candidates"]):
+                    assert actual["fom"] == row["fom"] and actual["peak_mag"] == row["ctle_db"] and actual["ami_values"] == row["ami_values"]
+                compare["candidate_metadata"] = "all trial FOM/peak/AMI-values exact"
             if not name.startswith("OPT"):
                 save_archive(directories["worker"], out / name / "saved.pybert_run")
         results[name] = {"tasks": pair, "comparison": compare}

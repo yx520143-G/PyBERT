@@ -33,7 +33,9 @@ def parameter_rows(cfg, branch=None, prefix=()):
             editable = path[0] == "Model_Specific" and parameter.pusage in ("In", "InOut") and parameter.pformat not in FIXED_FORMATS
             rows.append({"path": path, "value": cfg.fetch_param_val(list(path)), "editable": editable,
                          "type": parameter.ptype, "usage": parameter.pusage, "format": parameter.pformat,
-                         "min": parameter.pmin, "max": parameter.pmax, "values": parameter.pvalues,
+                         "min": parameter.pmin, "max": parameter.pmax,
+                         "values": parameter.pvalue if parameter.pformat == "List" else parameter.pvalues,
+                         "list_tips": parameter.plist_tip, "corners": parameter.pcorners, "labels": parameter.plabels,
                          "description": getattr(parameter, "pdescription", None),
                          "unit": "UI" if parameter.ptype == "UI" else "not declared; see original description"})
     return rows
@@ -71,6 +73,20 @@ def bundle_file(bundle, relative):
     if hashlib.sha256(path.read_bytes()).hexdigest() != row["sha256"]:
         raise ValueError(f"Model dependency modified: {relative}")
     return path
+
+
+def ibis_selections(ibis):
+    """Ask the native selection observers for the actual dependent option tree."""
+    selected = (ibis.comp, ibis.pin, ibis.mod)
+    options = {}
+    for component in list(ibis.comps):
+        ibis.comp = component
+        options[component] = {}
+        for pin in list(ibis.pins):
+            ibis.pin = pin
+            options[component][pin] = list(ibis.models)
+    ibis.comp, ibis.pin, ibis.mod = selected
+    return options
 
 
 def configure(p, config, runtime, resources, *, discover=False, allow_unbound=False, check=lambda: False, emit=lambda *a, **k: None):
@@ -125,6 +141,7 @@ def configure(p, config, runtime, resources, *, discover=False, allow_unbound=Fa
                         raise ValueError(f"{side}: IBIS selection not retained: {key}")
             selection = {key: getattr(ibis, key) for key in ("comp", "pin", "mod")} | {"ibis_path": relative}
             report.update(selection=selection, components=ibis.comps, pins=ibis.pins, models=ibis.models,
+                          selection_map=ibis_selections(ibis),
                           ibis_warnings=ibis.ibis_parsing_errors, model_type=ibis.model.model_type,
                           view={"IBIS_source": path.read_text(encoding="utf-8"), "zout": ibis.model.zout,
                                 "zin": ibis.model.zin, "ccomp": ibis.model.ccomp})
@@ -137,6 +154,7 @@ def configure(p, config, runtime, resources, *, discover=False, allow_unbound=Fa
                 for file in (ami, dll):
                     bundle_file(bundle, Path(file).relative_to(bundle["worker_path"]).as_posix())
                 cfg = AMIParamConfigurator(Path(ami).read_text(encoding="utf-8"))
+                report["view"]["AMI_source"] = Path(ami).read_text(encoding="utf-8")
                 parameter_model_hash = hashlib.sha256(json.dumps({"bundle": bundle["sha256"], "selection": selection,
                     "ami_sha256": hashlib.sha256(Path(ami).read_bytes()).hexdigest(),
                     "binary_sha256": hashlib.sha256(Path(dll).read_bytes()).hexdigest()}, sort_keys=True).encode()).hexdigest()

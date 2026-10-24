@@ -10,7 +10,7 @@ from pathlib import Path
 from pybert.models.bert import my_run_simulation
 from pybert.web.config import input_hash, load_config, new_engine, normalize, snapshot, validate, warnings, extensions
 from pybert.web.data import collect
-from pybert.web.resources import inspect_channels, projection
+from pybert.web.resources import inspect_resources, projection
 from pybert.web.com import ComCancelled, run_com
 from pybert.web.optimization import OptimizationCancelled, run_optimization
 from pybert.web.ami import AMICancelled, Execution, configure
@@ -103,8 +103,7 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                 if input_hash(effective) != request["input_hash"]:
                     raise ValueError("Effective input differs from frozen snapshot; normalize before Run.")
                 validate(effective, snapshot(new_engine()), execution=True)
-                resources = inspect_channels(config, request.get("frozen_resources", []))
-                resources += [r for r in request.get("frozen_resources", []) if r["field"].endswith("_model_bundle")]
+                resources = inspect_resources(config, request.get("frozen_resources", []))
                 projected = projection(effective, request.get("frozen_resources", []))
                 p.trait_setq(ch_file=projected["ch_file"], ch_files=projected["ch_files"], enable_com=False)
                 if cancelled():

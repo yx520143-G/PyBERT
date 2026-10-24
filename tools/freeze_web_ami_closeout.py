@@ -2,6 +2,7 @@
 
 import copy
 import json
+import os
 from pathlib import Path
 
 from pybert.web.archive import json_bytes, sha256
@@ -11,7 +12,7 @@ from pybert.web.tasks import Tasks
 
 ROOT = Path(__file__).resolve().parents[1]
 PREVIOUS = ROOT / "docs/webui/issue10/fixtures/v2-executable"
-OUT = ROOT / "docs/webui/issue10/fixtures/v3-closeout"
+OUT = ROOT / os.environ.get("AMI_FREEZE_OUT", "docs/webui/issue10/fixtures/v3-closeout")
 
 
 if __name__ == "__main__":
@@ -36,7 +37,7 @@ if __name__ == "__main__":
         (OUT / f"{name}.yaml").write_text(yaml_text(frozen["config"], frozen["runtime_extensions"], frozen["resource_bindings"]), encoding="utf-8")
         cases[name] = {"request_sha256": sha256(json_bytes(frozen)), "source_case": source,
                        "model_check": result["ami_models"], "library_checks": len(result["ami_models"])}
-    manifest = {"version": 3, "cases": cases, "before_first_closeout_call": True,
+    manifest = {"version": int(os.environ.get("AMI_FREEZE_VERSION", "3")), "cases": cases, "before_first_closeout_call": True,
                 "previous_manifest_sha256": sha256((PREVIOUS / "manifest.json").read_bytes()), "source": source_identity(),
                 "tolerances": json.loads((PREVIOUS / "manifest.json").read_text(encoding="utf-8"))["tolerances"],
                 "identity_change": "parameter_model_hash now binds complete IBIS selection + AMI/binary bytes, besides complete directory hash; default physical parameters unchanged",

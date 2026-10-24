@@ -21,6 +21,8 @@ def test_hierarchical_parser_metadata_and_setter():
     assert not info["editable"] and info["usage"] == "Info"
     cfg.set_param_val(["Model_Specific", "ctle_mode"], 1)
     assert cfg.fetch_param_val(["Model_Specific", "ctle_mode"]) == 1
+    mode = next(r for r in rows if r["path"][-1] == "ctle_mode")
+    assert mode["values"] == [0, 1] and mode["list_tips"] == ["Off", "Manual"]
     with pytest.raises(Exception):
         cfg.set_param_val(["Model_Specific", "ctle_mag"], 13)
 
@@ -122,3 +124,40 @@ def test_rx_ami_non_mmse_record_accepts_actual_rx_weight_shape():
                                                 "resource_bindings": record["resource_bindings"]})
     with np.load(path / "arrays.npz", allow_pickle=False) as saved:
         validate_record(record, {key: saved[key] for key in saved.files})
+
+
+def test_native_reset_preserves_inactive_ami_side_initial_values():
+    from pybert.web.config import new_engine
+    from pybert.web.optimization import optimizer_action
+
+    p = new_engine()
+    p.trait_setq(rx_use_ami=True)
+    runtime = {"version": 1, "values": {"ami_opt_trials": 4, "optimizer_values": {"tx": [0.] * 6, "ffe": [.25] * 100}}}
+    result, _ = optimizer_action(p, runtime, "reset_eq")
+    assert result["values"]["optimizer_values"]["ffe"] == [.25] * 100
+    assert result["values"]["ami_opt_trials"] == 4
+
+
+def test_ami_configure_endpoint_uses_single_slot_manager():
+    from fastapi.testclient import TestClient
+    from pybert.web.server import create_app
+
+    class Manager:
+        def normalize(self, request):
+            return {"seen": request["mode"]}
+
+    client = TestClient(create_app(Manager()))
+    assert client.post("/api/normalize", json={"mode": "ami_configure"}).json() == {"seen": "ami_configure"}
+    assert client.post("/api/normalize", json={"mode": "use_eq"}).status_code == 422
+
+
+def test_replay_resource_models_and_channel_order_are_verified():
+    from pybert.web.records import verify_replay_resources
+
+    channel = {"field": "ch_files", "index": 0, "sha256": "a" * 64}
+    model = {"field": "rx_model_bundle", "index": None, "sha256": "b" * 64}
+    verify_replay_resources({"resources": [channel, model]}, [model, channel])
+    with pytest.raises(ValueError, match="changed/missing"):
+        verify_replay_resources({"resources": [channel, model]}, [channel])
+    with pytest.raises(ValueError, match="changed/missing"):
+        verify_replay_resources({"resources": [channel, model]}, [model, channel | {"index": 1}])
