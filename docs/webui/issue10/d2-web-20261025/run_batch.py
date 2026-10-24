@@ -15,7 +15,7 @@ def main():
     run_id = plan["run_id"]
     launches = evidence / "launches"
     previous = list(launches.iterdir()) if launches.exists() else []
-    if len(previous) >= 16:
+    if len(previous) >= 18:
         raise RuntimeError("D2 dynamic batch budget exhausted")
     destination = launches / run_id
     destination.mkdir(parents=True, exist_ok=False)
