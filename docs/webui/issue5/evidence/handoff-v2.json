@@ -1,0 +1,85 @@
+{
+  "at": "2026-10-24T03:27:11.390673+00:00",
+  "product_head": "3ccb88f4e34db2a81a04a6b7a7f198f0c88e367d",
+  "worktree": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue5-archive\\serial-bus-simulator",
+  "branch": "codex/pybert-issue5-archive",
+  "services_stopped": [
+    {
+      "port": 8770,
+      "pid": 21784
+    },
+    {
+      "port": 8771,
+      "pid": 13892
+    }
+  ],
+  "chrome_sessions_closed": [
+    "pybert-issue5",
+    "pybert-issue5-storage",
+    "pybert-issue5-com-snapshot"
+  ],
+  "main_calls": 3,
+  "main_successes": 2,
+  "main_cancelled": 1,
+  "preflight_failed_tasks": 1,
+  "COM_calls": 0,
+  "default_COM_gate": "BLOCKED_BUDGET / NOT_EXECUTED",
+  "default_COM_outer_candidates": 139756144,
+  "owner_status": "implementation stopped; returned to PM for fixed delivery review",
+  "PM_thread": "01a16a69-8a11-71a0-8620-5d157b897926",
+  "main_workspace_head": "b9c56fe76bafb901d58dd53cda54e2ad5093fe6c",
+  "main_workspace_untracked_preserved": [
+    "docs/research/",
+    "source/"
+  ],
+  "raw_downloads": {
+    "output\\playwright\\corrupt.pybert_run": {
+      "bytes": 30,
+      "sha256": "892eb9dfc038686c0b45b9fb6b9ca46c8237f7be332df47bba290c0073055c1a"
+    },
+    "output\\playwright\\historical-COM-running-v3-resaved.pybert_run": {
+      "bytes": 45809978,
+      "sha256": "597cf1cef8b8db53233972b7c3fcd043b0ee9b5b046d150536e2b9730ae4cf16"
+    },
+    "output\\playwright\\historical-COM-running-v3.pybert_run": {
+      "bytes": 45809978,
+      "sha256": "63a282fe038a25b2290e38fec2c79f3774b1791af2d9a28751f5f306e021b368"
+    },
+    "output\\playwright\\historical-COM-running.pybert_run": {
+      "bytes": 45809978,
+      "sha256": "47acb8f7fb9ef469fe00a49265e093e20238787355bfb399a89a188450d5834e"
+    },
+    "output\\playwright\\loaded-pam4-export.pybert_run": {
+      "bytes": 24568252,
+      "sha256": "1f2ce23982fca5178b3e32ccffe764e9b83e4fcec42cb23855a987963b58b675"
+    },
+    "output\\playwright\\NRZ-real.pybert_run": {
+      "bytes": 46045505,
+      "sha256": "4d25f353778083cc7c231a013ddb64dfd98f7136576e1725b62c09c4bd68dd39"
+    },
+    "output\\playwright\\PAM4-real.pybert_run": {
+      "bytes": 24574311,
+      "sha256": "6b09fd82f760f7233396aa7919e30b6e028d18960fa86748828165bdff36f70a"
+    },
+    "output\\playwright\\PAM4-while-NRZ-draft.pybert_run": {
+      "bytes": 24574311,
+      "sha256": "e373ffedfab908f090246725055b49b23039ee4d8a63a1fe46956406420c4b94"
+    },
+    "output\\playwright\\unknown-version.pybert_run": {
+      "bytes": 45838679,
+      "sha256": "1c017ae8ae972733ec06f2a13e7d1b3e165f45ca53a21ce4968f44bea2236eb0"
+    }
+  },
+  "source_worktrees_preserved": [
+    "pybert-issue2-native",
+    "pybert-issue3-analysis",
+    "pybert-issue4-resources",
+    "pybert-native13-ports"
+  ],
+  "no_cleanup_or_archive_performed": true,
+  "supersedes_metadata": {
+    "file": "handoff.json",
+    "sha256": "ed7332a64ed31466ecfe255222559c5e2a67da38734ff9144779e930e40ff197",
+    "correction": "Preserved #13 worktree name verified from filesystem: pybert-native13-ports; prior label was incorrect. No source/worktree mutation."
+  }
+}

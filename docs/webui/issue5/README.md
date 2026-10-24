@@ -52,4 +52,4 @@ Chrome 控制台保留 favicon404、服务重启连接失败、预期422/503等�
 
 新写源码/文档默认 UTF-8 without BOM。[编码检查](evidence/encoding-audit.json) 中140个文本为UTF-8、无BOM；唯一历史 `core-contracts-v3.log` 含旧控制台非UTF-8原字节，按证据保留，不转码覆盖；同次JUnit XML可机器读取。Git whitespace检查针对源码/工具/新文档通过，原始终端输出的CRLF和空白不改写。
 
-验证使用只读 #4 venv 的依赖、显式 `uv run --no-project --python .../.venv/Scripts/python.exe`，`PYTHONPATH` 指向本 worktree；PyBERT/Web/GUI/MCP 模块路径已检查。本 worktree PyAMI/PyChOpMarg 初始化到既有固定 gitlink，未更新版本。验证服务与 Chrome 会话在交付前停止；状态见 [handoff](evidence/handoff.json)。本票保持 draft，等待 PM 终审，不 merge、不关闭 #1/#4、不派下一票。
+验证使用只读 #4 venv 的依赖、显式 `uv run --no-project --python .../.venv/Scripts/python.exe`，`PYTHONPATH` 指向本 worktree；PyBERT/Web/GUI/MCP 模块路径已检查。本 worktree PyAMI/PyChOpMarg 初始化到既有固定 gitlink，未更新版本。验证服务与 Chrome 会话在交付前停止；状态见 [handoff v2](evidence/handoff-v2.json)，追加更正原handoff中#13目录标签为实际`pybert-native13-ports`，原件保留。本票保持 draft，等待 PM 终审，不 merge、不关闭 #1/#4、不派下一票。
