@@ -381,6 +381,8 @@ def load_config(engine, config, defaults=None):
 
 def normalize(request):
     """A full load or an ordered observer patch; each call owns one fresh engine."""
+    if "rx_viterbi_fec" in request:
+        raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
     engine = new_engine()
     defaults = snapshot(engine)
     runtime = request.get("runtime_extensions", {})
@@ -478,4 +480,9 @@ def warnings(config):
         messages.append("On-die TS4 presets are inactive in Native electrical mode; no IBIS/AMI resources loaded.")
     if config["enable_com"]:
         messages.append("COM is deferred to a separate joined child with its own parameters; no current EQ/noise/bitrate injection.")
+    if config["rx_use_viterbi"]:
+        from pybert.web.viterbi import plan
+
+        budget = plan(config)
+        messages.append(f"Native ISI/MLSD: L={budget['L']}, N={budget['N']}, states={budget['states']}, full samples≤{budget['samples_upper_bound']}; {budget['availability']}: {budget['reason'] or 'bounded native decoder'}. FEC unsupported.")
     return messages

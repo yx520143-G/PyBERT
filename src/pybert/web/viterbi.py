@@ -126,6 +126,11 @@ def validate(run, arrays):
     if not isinstance(record, dict) or type(record.get("schema_version")) is not int or record["schema_version"] != 1:
         raise ValueError("Missing/unknown decoding schema")
     config = run["effective_input"]
+    hashes = run.get("actual_source_sha256", {})
+    for name in ("models/bert.py", "models/viterbi.py", "web/viterbi.py"):
+        value = hashes.get(name)
+        if not isinstance(value, str) or len(value) != 64 or any(c not in "0123456789abcdef" for c in value):
+            raise ValueError(f"Missing actual decoding source identity: {name}")
     if config.get("rx_viterbi_fec"):
         raise ValueError("unsupported_native_fec in archive")
     enabled = config.get("rx_use_viterbi")
@@ -181,6 +186,10 @@ def validate(run, arrays):
                 or not np.array_equal(errors, np.flatnonzero(test != reference))
                 or row["bit_delay"] >= len(corr) or run["summary"].get(f"n_errs_{name}") != row["count"]):
             raise ValueError(f"{name}: inconsistent BER arrays/count")
+        from pybert.utility import resize_zero_pad
+
+        if not np.array_equal(test, resize_zero_pad(output, config["nbits"], pad_front=True)[-length:]):
+            raise ValueError(f"{name}: test window does not belong to native output bits")
         if name == "dfe" and not np.array_equal(errors, arrays["bit_errs_dfe"]):
             raise ValueError("DFE error identity mismatch")
         window = {"kind": "calc_ber tail", **{k: v for k, v in row.items() if k != "availability"},
@@ -210,6 +219,19 @@ def validate(run, arrays):
     get("viterbi.pulse_resp_samps", shape=(n,))
     for key in ("sigma", "decision_scaler", "ui", "ts", "nspui", "N", "L", "clk_phase_ix", "pulse_resp_curs_ix", "pulse_peak_ix"):
         get(f"viterbi.{key}", shape=())
+    for key, expected in (("N", n), ("L", levels), ("nspui", config["nspui"])):
+        if arrays[f"viterbi.{key}"].item() != expected:
+            raise ValueError(f"Inconsistent decoder {key}")
+    for key in ("sigma", "decision_scaler", "ui", "ts"):
+        if arrays[f"viterbi.{key}"].item() <= 0:
+            raise ValueError(f"Invalid decoder {key}")
+    for key in ("sig_samps", "sample_times", "sample_indices", "decided_levels", "probs", "prevs", "path", "symbols_viterbi"):
+        meta = run["datasets"][f"viterbi.{key}"]
+        if meta.get("axis") != "viterbi.symbol_index" or meta["window"].get("symbol_stop_exclusive") != count or meta["window"].get("symbol_start") != 0:
+            raise ValueError(f"viterbi.{key}: missing/inconsistent symbol axis/window")
+    for key in ("states", "trans"):
+        if run["datasets"][f"viterbi.{key}"].get("axis") != "viterbi.state_index":
+            raise ValueError(f"viterbi.{key}: missing state axis")
     for key in ("path", "prevs"):
         if np.any((arrays[f"viterbi.{key}"] < 0) | (arrays[f"viterbi.{key}"] >= states)):
             raise ValueError(f"viterbi.{key}: out of state bounds")
@@ -220,7 +242,11 @@ def validate(run, arrays):
         raise ValueError("Invalid original recovered clock samples/indices")
     if not np.array_equal(get("viterbi.trellis_path_xs", integer=True, shape=(count,)), np.arange(count)):
         raise ValueError("Invalid trellis symbol axis")
-    get("viterbi.trellis_path_ys", integer=True, shape=(count,))
+    chosen = get("viterbi.trellis_path_ys", integer=True, shape=(count,))
+    tx, ty = arrays["viterbi.trellis_x"], arrays["viterbi.trellis_y"]
+    if (tx.ndim != 1 or tx.shape != ty.shape or len(tx) % 2 or np.any(tx < 0) or np.any(tx >= count)
+            or np.any(ty < 0) or np.any(ty >= states) or np.any(chosen < 0) or np.any(chosen >= states)):
+        raise ValueError("Invalid native trellis endpoints/path states")
     probs = arrays["viterbi.probs"]
     if np.any(probs < 0) or np.any(probs > 1):
         raise ValueError("Invalid raw state probabilities")

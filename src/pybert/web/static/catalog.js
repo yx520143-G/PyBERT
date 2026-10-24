@@ -248,9 +248,9 @@
       ])]
     },
     {
-      id: 'viterbi', number: '↗', category: 'control', name: 'Viterbi / FEC', title: '可选序列检测与 FEC', icon: 'trellis',
-      summary: '在 DFE/CDR 之后形成另一条判决结果。ISI 检测读取样本；FEC 解码读取硬判决 bit pairs。',
-      location: 'Config. / Channel / Rx · Results / Viterbi', input: 'DFE samples 或硬判决比特', output: 'bits_out_viterbi · 独立误码计数',
+      id: 'viterbi', number: '↗', category: 'control', name: 'Viterbi / MLSD', title: '可选 Native ISI 序列检测', icon: 'trellis',
+      summary: '读取恢复时钟下的 DFE 输出样本，形成独立 ISI/MLSD 判决。两路 bit errors 和窗口分别保存；FEC 当前明确不支持。',
+      location: 'Config. / Channel / Rx · Results / Viterbi', input: 'DFE recovered samples · V', output: 'decoded bits · 独立误码计数 · 原 trellis',
       mapping: [
         map('ISI sequence detection', '按恢复时钟从 DFE 输出采样，结合该相位的脉冲响应与估计电压噪声进行序列检测。N 个符号组成一个状态，状态数为 Lᴺ。', pipeline(664)),
         map('内置 FEC 的边界', '源码是 rate-1/2 卷积编码：一输入 bit 变成两个编码 bit，再映射一个 PAM-4 符号。不是 Ethernet RS-FEC。', ref('src/pybert/models/fec.py', 24)),
@@ -259,10 +259,10 @@
       groups: [group('解码与可视化', traits(341), [
         p('rx_use_viterbi', 'Use Viterbi · 启用', 'False', 'Boolean', '启用可选后处理判决分支。'),
         p('rx_viterbi_symbols', 'Trellis Depth · 状态符号数', '4', 'Int · ISI 状态数为 Lᴺ', '默认 NRZ 16 states、PAM-4 256 states；增加 N 会增大计算量。'),
-        p('rx_viterbi_fec', 'FEC decoding · 卷积码路径', 'False', 'Boolean；FEC depth ≥ 2', '选择 FEC 并设置 PAM-4；当前主 GUI 无此开关。', { scope: 'api', status: 'limitation' }),
+        p('rx_viterbi_fec', 'FEC decoding · 未支持', 'False', 'API-only；unsupported_native_fec', '原 GUI 与 PyBertCfg 不含此开关；请求或导入明确拒绝，原生变量初始化缺陷未在本票修复。', { scope: 'api', status: 'limitation' }),
         p('trellis_pan_control', 'Position · 图表位置', '0', '0–trellis_max_x', '只移动 trellis 图表，不改变链路。'),
         p('trellis_err_select', 'Error · 定位误码', '0', '0–trellis_max_err', '跳转到指定误码位置。'),
-        p('trellis_max_err', 'of · 误码总数', '0', 'GUI 只读', '原 Results / Viterbi 的误码总数显示；当前没有运行结果。', { scope: 'output', source: ref('src/pybert/gui/view.py', 976) })
+        p('trellis_max_err', 'of · 误 bit 条目数', '0', '所选 Run 只读', '见右侧 Viterbi Trellis；PAM4 bitindex//2，重复 symbol 错误条目保留。旧记录无字段时显示未采集。', { scope: 'output', source: ref('src/pybert/gui/view.py', 976) })
       ])]
     },
     {

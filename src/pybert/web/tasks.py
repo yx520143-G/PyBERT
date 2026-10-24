@@ -54,7 +54,7 @@ class Tasks:
             request = copy.deepcopy(request)
             if "rx_viterbi_fec" in request or "rx_viterbi_fec" in request.get("config", {}):
                 raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
-            if operation == "run":
+            if operation == "run" and request["config"].get("rx_use_viterbi"):
                 from pybert.web.viterbi import plan
 
                 plan(request["config"], execution=True)
