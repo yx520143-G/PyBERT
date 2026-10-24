@@ -36,7 +36,7 @@
       if (tables[key]) draft[key] = value.map(row => Object.fromEntries(tables[key].map((column,i) => [column,row[i]])));
       else if (key in settings.fields) draft[key] = clone(value);
     }
-    Object.assign(draft,runtimeExtensions.values || {});
+    Object.assign(draft,Object.fromEntries(Object.entries(runtimeExtensions.values || {}).filter(([key])=>key in settings.fields)));
     return draft;
   }
   function toNative(draft) {
@@ -83,6 +83,7 @@
     $('parent-com-state').textContent = selected ? `核心结果成功 · ${selected.run_id.slice(0,8)}${child ? `；COM 子任务 ${child.task_id.slice(0,8)}：${child.state}${child.result?.value_db!==undefined ? ` · ${child.result.value_db.toFixed(9)} dB` : ''}` : selected.execution_strategy?.deferred_com ? '；COM 子任务等待启动' : '；COM 未随此 Run 启用'}` : '';
     $('parent-com-state').title=selected ? `run_id=${selected.run_id}; com_id=${child?.task_id || selected.execution_strategy?.deferred_com?.com_id || 'none'}` : '';
     if (selected && selected.kind!=='temporary') $('parent-com-state').textContent=`外部参考 ${recordId(selected)} · 原run ${selected.run_id} · ${selected.legacy?'legacy诊断子集':'完整存档'}；子任务仅显示保存时快照，见概览。`;
+    window.dispatchEvent(new CustomEvent('pybert-worker-state',{detail:{busy:!!activeTask || !!normalizing || locked,activeTask,revision}}));
   }
   async function normalizeDraft() {
     if (normalizing) return normalizing;
@@ -289,6 +290,7 @@
       activeTask = state.active_task_id;
       currentTask = state.current_task_id;
       comTasks = state.com_tasks || [];
+      window.dispatchEvent(new CustomEvent('pybert-optimizer-state',{detail:state}));
       window.PYBERT_RESOURCES?.state(state,selected);
       if(pendingRecordId && ![...state.runs,...(state.references || [])].some(row=>recordId(row)===pendingRecordId)) $('results-status').textContent=`原记录 ${pendingRecordId} 当前不可用（服务重启、缓存淘汰或参考移除）；请重新打开已保存archive。`;
       if (currentTask) {
@@ -384,6 +386,10 @@
   $('help').addEventListener('click',() => $('help-dialog').showModal()); $('close-help').addEventListener('click',() => $('help-dialog').close());
   $('quit').addEventListener('click',() => { disconnected=true; controls(); $('task-state').textContent='Disconnected. You may close this tab; backend tasks continue.'; });
   window.PYBERT_RUNS={api,selected:()=>selected,references:()=>references.slice(),refresh:()=>poll(true),
+    optimizationInput:async()=>{clearTimeout(timer);const input=await normalizeDraft();return {...input,draft_revision:revision,source_record_id:sourceRecordId,replay_guard:replayGuard};},
+    optimizerAction:async(action,record_id)=>{const input=await normalizeDraft();return api(`optimizer-actions/${action}`,{config:input.config,...extraInput(),record_id,draft_revision:revision});},
+    applyOptimizer:result=>{applyLoadedInput(result,sourceRecordId,logicalName,replayGuard);controls();},
+    revision:()=>revision,
     select:async id=>{$('selected-run').value=id;await chooseRun(id);},
     restore:async id=>{
       if (activeTask || normalizing) throw new Error('Native slot busy; restore input after worker exit.');

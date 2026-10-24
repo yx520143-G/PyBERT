@@ -80,9 +80,9 @@
   const tableInfo = {
     tx_taps: { title: 'Native Tx FFE taps', stage: 'tx', columns: ['enabled', 'value'], note: '逐项配置非主游标权重。Cursor 由 PyBERT 在运行时计算；右侧响应属于所选成功 run。' },
     rx_taps: { title: 'Native Rx FFE taps', stage: 'rxffe', columns: ['enabled', 'value'], note: '完整保存 100 槽。Ntaps/Npre 提交由原生 observer 处理；固定 FIR 不参与 DFE 训练。输入值与所选 run 的训练结果分离。' },
-    dfe_tap_tuners: { title: 'DFE taps 与自适应范围', stage: 'dfe', columns: ['enabled', 'min_val', 'max_val', 'value'], readonly: ['value'], note: '原 GUI 的 Enabled 可逐行编辑；引擎只使用从 Tap1 开始到首个禁用 tap 的连续前缀。Value 是只读优化结果，当前未提供。' },
+    dfe_tap_tuners: { title: 'DFE taps 与自适应范围', stage: 'dfe', columns: ['enabled', 'min_val', 'max_val', 'value'], readonly: ['value'], note: 'Enabled/min/max 与普通 Run 共用；优化要求连续前缀。Value 属于所选优化的获选候选，不是时域自适应初值或训练状态。' },
     tx_tap_tuners: { title: 'Tx FFE 搜索空间', stage: 'optimizer', columns: ['enabled', 'min_val', 'max_val', 'step', 'value'], note: '这是 Optimizer 的搜索设置。Value 在原 GUI 可编辑，与 Tx EQ 的实际权重分开保存。' },
-    ffe_tap_tuners: { title: 'Rx FFE 搜索范围', stage: 'rxffe', columns: ['enabled', 'min_val', 'max_val', 'step', 'value'], readonly: ['enabled', 'value'], note: '完整显示 100 个槽位。Enabled 只读并随 Ntaps 更新；Value 是只读优化结果，当前未提供。' }
+    ffe_tap_tuners: { title: 'Rx FFE 搜索范围', stage: 'rxffe', columns: ['enabled', 'min_val', 'max_val', 'step', 'value'], readonly: ['enabled', 'value'], note: '完整显示 100 个槽位。Enabled 只读并随 Ntaps/Npre 更新；Value 属于所选优化的获选候选，与实际 Rx taps 分开。' }
   };
   const txTemplate = [
     { name: 'Pre-tap3', pos: -3, enabled: false, min_val: -0.05, max_val: 0.05, step: 0.025 },
@@ -138,7 +138,7 @@
     if (key === 'rx_use_clocks' && (values.rx_eq_sel === 'Native' || !values.rx_use_getwave)) return '仅 Rx AMI GetWave 支持时钟请求。';
     if (['peak_freq_tune', 'rx_bw_tune', 'min_mag_tune', 'max_mag_tune', 'step_mag_tune'].includes(key) && !values.ctle_enable_tune) return '启用 CTLE 搜索后可设置。';
     if (key === 'use_mmse' && values.rx_eq_sel !== 'Native') return '仅 Native Rx 使用 MMSE。';
-    if (key === 'rlm' && values.mod_type !== 'PAM-4') return '原 GUI 仅在 PAM-4 时允许编辑；计算用途仍是 MMSE 优化。';
+    if (key === 'rlm' && (values.mod_type !== 'PAM-4' || !values.use_mmse)) return '仅 PAM-4 的 Native MMSE 优化读取 RLM；普通 Run 和非 MMSE 网格不读取。';
     if (key === 'ami_opt_trials' && values.tx_eq_sel === 'Native' && values.rx_eq_sel === 'Native') return 'Tx 或 Rx 使用 AMI 时设置搜索预算。';
     if (key === 'enable_com' && !(values.inter_sel === 'single' && /\.s4p$/i.test(values.ch_file.trim()))) return '选择 Single .s4p 通道后可启用。';
     if (key === 'com_cfg_file' && (!values.enable_com || disabledReason('enable_com', values))) return '启用独立 COM 评估后可设置。';

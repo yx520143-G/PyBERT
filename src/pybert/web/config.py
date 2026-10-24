@@ -299,7 +299,7 @@ def extensions(value):
     if set(value) != {"version", "values"} or type(value["version"]) is not int or value["version"] != 1 or not isinstance(value["values"], dict):
         raise ValueError("runtime_extensions requires version=1 and values object.")
     values = value["values"]
-    if set(values) - {"rlm", "rx_use_clocks", "ami_opt_trials", "tx_ami_params", "rx_ami_params"}:
+    if set(values) - {"rlm", "rx_use_clocks", "ami_opt_trials", "tx_ami_params", "rx_ami_params", "optimizer_values", "eq_application"}:
         raise ValueError("Unknown runtime extension.")
     for key in ("rx_use_clocks",):
         if key in values and type(values[key]) is not bool:
@@ -311,6 +311,17 @@ def extensions(value):
     for key in ("tx_ami_params", "rx_ami_params"):
         if key in values and not isinstance(values[key], dict):
             raise ValueError(f"{key}: dynamic parameter object required.")
+    if "optimizer_values" in values:
+        rows = values["optimizer_values"]
+        if not isinstance(rows, dict) or set(rows) != {"tx", "ffe"}:
+            raise ValueError("optimizer_values: tx and ffe initial-value arrays required.")
+        for key, length in (("tx", 6), ("ffe", 100)):
+            if not isinstance(rows[key], list) or len(rows[key]) != length or any(type(v) not in (int, float) or not math.isfinite(v) for v in rows[key]):
+                raise ValueError(f"optimizer_values.{key}: {length} finite values required.")
+    if "eq_application" in values:
+        row = values["eq_application"]
+        if not isinstance(row, dict) or row.get("version") != 1 or not all(isinstance(row.get(k), str) for k in ("opt_id", "candidate_id", "before_input_hash", "after_input_hash")):
+            raise ValueError("eq_application: versioned opt/candidate/input provenance required.")
     json.dumps(value, allow_nan=False)
     return value
 
@@ -406,6 +417,12 @@ def normalize(request):
                 if key == "use_ctle_file":
                     engine.ctle_sel = proposed["ctle_sel"]
             validate(snapshot(engine), defaults)
+    elif mode in ("optimizer_plan", "use_eq", "reset_eq"):
+        from pybert.web.optimization import optimizer_action
+
+        runtime, bindings = extensions(runtime), binding_data(bindings)
+        load_config(engine, request["config"], defaults)
+        runtime, report = optimizer_action(engine, runtime, mode, request.get("optimization"))
     else:
         raise ValueError(f"Unknown normalize mode {mode}.")
     config = snapshot(engine)

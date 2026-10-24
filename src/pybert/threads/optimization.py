@@ -157,7 +157,7 @@ def _mk_tap_weight_combs(weightss: list[Rvec], enumerated_tuners: list[tuple[int
     return _mk_tap_weight_combs(new_weightss, tail)
 
 
-def coopt(pybert) -> tuple[list[float], float, list[float], float, bool, Rvec, Rvec]:  # pylint: disable=too-many-locals,too-many-statements,too-many-branches
+def coopt(pybert, observations=None) -> tuple[list[float], float, list[float], float, bool, Rvec, Rvec]:  # pylint: disable=too-many-locals,too-many-statements,too-many-branches
     """
     Co-optimize the Tx/Rx linear equalization, assuming ideal bounded DFE.
 
@@ -173,6 +173,7 @@ def coopt(pybert) -> tuple[list[float], float, list[float], float, bool, Rvec, R
 
     Args:
         pybert(PyBERT): The PyBERT instance on which to perform co-optimization.
+        observations: Optional private collector for native candidate inputs/outputs. No scoring changes.
 
     Returns:
         A tuple containing
@@ -242,6 +243,10 @@ def coopt(pybert) -> tuple[list[float], float, list[float], float, bool, Rvec, R
     # The simulation adds white Gaussian noise (std. dev. `rn`, sampled every `dt`) at the Rx input,
     # i.e. - one-sided density `rn**2 / fN` over [0, fN]; `NoiseCalc` wants it in V^2/GHz.
     eta0 = pybert.rn**2 / fN * 1e9
+    if observations is not None:
+        observations.update(candidates=[], mmse_context=dict(f_hz=f_t.copy(), t_s=_t.copy(), eta0=eta0,
+                            num_levels=num_levels, rlm=pybert.rlm, rx_n_taps=rx_n_taps, rx_n_pre=rx_n_pre,
+                            n_dfe_taps=n_dfe_taps, dfe_min=dfe_tap_mins.copy(), dfe_max=dfe_tap_maxs.copy()))
 
     # An AMI model's own Init()-returned impulse response slots directly into the same
     # convolution cascade used for native EQ (both are just LTI impulse responses), so a
@@ -413,6 +418,10 @@ def coopt(pybert) -> tuple[list[float], float, list[float], float, bool, Rvec, R
         for peak_mag, p_ctle_out, ctle_H in rx_candidates:
             for tx_weights, h_tx in tx_candidates:
                 fom, rx_weights, dfe_weights_c, p_tot = score_candidate(p_ctle_out, ctle_H, h_tx)
+                if observations is not None:
+                    observations["candidates"].append(dict(index=trials_run, peak_mag=float(peak_mag),
+                        tx_weights=delete(tx_weights, tx_curs_pos).copy(), rx_weights=rx_weights.copy(),
+                        dfe_weights=dfe_weights_c.copy(), fom=float(fom), pulse=p_tot.copy()))
                 trials_run += 1
                 _report_progress(pybert, trials_run, n_trials, trials_run_inc)
                 if fom > fom_max:

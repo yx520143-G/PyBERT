@@ -159,7 +159,10 @@
 
   function inputControl(key, label) {
     const field = settings.fields[key];
-    if (field.kind === 'unavailable') return `<output id="control-${key}" class="unavailable-value" aria-label="${escape(label)}">未提供 · ${escape(field.readonly)}</output>`;
+    if (field.kind === 'unavailable') {
+      const result=window.PYBERT_OPTIMIZER?.field(key);
+      return `<output id="control-${key}" class="unavailable-value" aria-label="${escape(label)}">${result ? escape(result) : `未提供 · ${escape(field.readonly)}`}</output>`;
+    }
     if (field.kind === 'action') return `<button id="control-${key}" class="secondary-button" type="button" disabled>${escape(label)}</button>`;
     const value = draft[key];
     const reason = settings.disabledReason(key, draft);
@@ -198,7 +201,10 @@
     const rows = draft[key];
     const bulk = key === 'dfe_tap_tuners' ? `<div class="tap-actions"><button type="button" class="secondary-button" data-dfe-bulk="disable"${reason ? ' disabled' : ''}>Disable All · 全部禁用</button><button type="button" class="secondary-button" data-dfe-bulk="enable"${reason ? ' disabled' : ''}>Enable All · 全部启用</button></div>` : '';
     const table = `<p class="tap-note">${info.note}</p>${bulk}<p class="tap-inactive"${reason ? '' : ' hidden'}>${reason}</p><div class="tap-table-scroll"><table class="tap-editor"><thead><tr><th scope="col">Name / Tap</th>${info.columns.map(column => `<th scope="col">${columns[column]}${info.readonly?.includes(column) ? ' · 只读' : ''}</th>`).join('')}</tr></thead><tbody>${rows.map((row, i) => `<tr${row.enabled === false ? ' class="tap-off"' : ''}><th scope="row">${tapLabel(key, i)}<small>${key.startsWith('tx_') ? `${settings.txTemplate[i].pos > 0 ? '+' : ''}${settings.txTemplate[i].pos} UI` : `index ${i}`}</small></th>${info.columns.map(column => {
-      if (info.readonly?.includes(column)) return column === 'enabled' ? `<td><span aria-label="${escape(info.title + ' ' + tapLabel(key, i) + ' 启用状态只读')}">${row.enabled ? 'True' : 'False'}</span></td>` : '<td><span class="unavailable-value" title="未执行优化，当前没有结果">未提供</span></td>';
+      if (info.readonly?.includes(column)) {
+        const result=window.PYBERT_OPTIMIZER?.value(key,i);
+        return column === 'enabled' ? `<td><span aria-label="${escape(info.title + ' ' + tapLabel(key, i) + ' 启用状态只读')}">${row.enabled ? 'True' : 'False'}</span></td>` : `<td><span class="unavailable-value" title="${escape(result?.source || '未选成功优化记录')}">${result ? escape(result.value) : '未提供'}</span></td>`;
+      }
       const isChanged = row[column] !== settings.defaults[key][i][column];
       const label = `${info.title} ${tapLabel(key, i)} ${columns[column]}`;
       const attrs = `data-tap-table="${key}" data-tap-index="${i}" data-tap-column="${column}" aria-label="${escape(label)}"${reason ? ' disabled' : ''}`;
