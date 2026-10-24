@@ -52,6 +52,12 @@ class Tasks:
             if operation == "optimization" and self.optimization_bytes() > 1024**3 - MAX_ARRAY_BYTES:
                 raise ValueError("Optimization storage budget reserves at most 768 MiB for the next job within 1 GiB; existing records retained.")
             request = copy.deepcopy(request)
+            if "rx_viterbi_fec" in request or "rx_viterbi_fec" in request.get("config", {}):
+                raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
+            if operation == "run":
+                from pybert.web.viterbi import plan
+
+                plan(request["config"], execution=True)
             task_id = task_id or str(uuid.uuid4())
             if operation in ("run", "optimization"):
                 rows = self.resources.for_run(request["config"], request.get("resource_bindings", {}))

@@ -193,6 +193,12 @@ def create_app(tasks=None):
     def manifest(run_id: str):
         return manager.manifest(run_id)
 
+    @app.get("/api/runs/{run_id}/trellis")
+    def trellis(run_id: str, position: int = 0, error: int = 0):
+        from pybert.web.viterbi import payload
+
+        return payload(manager.directory(run_id), position, error)
+
     @app.post("/api/references", status_code=201)
     async def open_reference(request: Request, name: str, trusted: bool = False):
         content = bytearray()

@@ -82,11 +82,11 @@ def source_identity():
     """Actual on-disk source bytes supplement Git HEAD, which can be dirty."""
     package = Path(__file__).resolve().parents[1]
     paths = [*Path(__file__).parent.glob("*.py"), *Path(__file__).parent.joinpath("static").glob("*")]
-    paths += [package / name for name in ("pybert.py", "models/bert.py", "utility/sparam.py", "configuration.py", "threads/optimization.py")]
+    paths += [package / name for name in ("pybert.py", "models/bert.py", "models/viterbi.py", "models/dfe.py", "utility/sparam.py", "configuration.py", "threads/optimization.py")]
     return {str(path.relative_to(package)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths if path.is_file()}
 
 
-def collect(engine, observations, directory, identity, cancelled=lambda: False):
+def collect(engine, observations, directory, identity, cancelled=lambda: False, *, decoding=None):
     """Publish only complete finite raw data, with independent axes per observation."""
     p = engine
     arrays, datasets, plots = {}, {}, {}
@@ -382,6 +382,13 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False):
     from pybert.web.resource_data import annotate_interference
 
     annotate_interference(arrays, manifest)
+    if decoding is not None:
+        from pybert.web.viterbi import extend
+
+        extend(p, decoding, arrays, manifest)
+    else:
+        # Historical helper callers did not request the new local capture.
+        manifest["raw_schema_version"] = 4
     np.savez_compressed(directory / "arrays.npz", **arrays)
     (directory / "manifest.json").write_text(json.dumps(manifest, indent=2, allow_nan=False), encoding="utf-8")
     return manifest

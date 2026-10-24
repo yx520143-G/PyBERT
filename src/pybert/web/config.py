@@ -306,6 +306,8 @@ def extensions(value):
     if set(value) != {"version", "values"} or type(value["version"]) is not int or value["version"] != 1 or not isinstance(value["values"], dict):
         raise ValueError("runtime_extensions requires version=1 and values object.")
     values = value["values"]
+    if "rx_viterbi_fec" in values:
+        raise ValueError("unsupported_native_fec: API-only FEC is unsupported.")
     if set(values) - {"rlm", "rx_use_clocks", "ami_opt_trials", "tx_ami_params", "rx_ami_params", "optimizer_values", "eq_application"}:
         raise ValueError("Unknown runtime extension.")
     for key in ("rx_use_clocks",):
