@@ -280,6 +280,7 @@
       }
       $('result-budget').textContent=`临时成功缓存 ${state.runs.length}/2 · ${state.result_budget?.temporary_file_bytes || 0} bytes（第三次成功淘汰最旧临时记录）；参考 ${(state.references || []).length}/4 · ${state.result_budget?.reference_used_bytes || 0}/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。`;
       if (!equal([...state.runs,...(state.references || [])].map(recordId),allRecords().map(recordId))) {
+        if(selected && ![...state.runs,...(state.references || [])].some(row=>recordId(row)===recordId(selected))) $('results-status').textContent=`原记录 ${recordId(selected)} 当前不可用（服务重启、缓存淘汰或参考移除）；未保存的临时结果无法恢复，请重新打开已保存archive。`;
         const previous = runs.map(r => r.run_id); runs = state.runs; references=state.references || [];
         const options=allRecords().map(r=>`<option value="${recordId(r)}">${r.kind==='legacy'?'Legacy':r.kind==='archive'?'参考':'Run'} · ${esc(r.effective_input?.mod_type || r.name || '')} · ${recordId(r).slice(0,12)}</option>`).join('');
         $('selected-run').innerHTML = '<option value="">Select record…</option>' + options;
