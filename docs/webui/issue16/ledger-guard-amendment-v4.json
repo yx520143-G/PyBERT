@@ -1,0 +1,14 @@
+{
+  "budget_amendment_sha256": "71c04866f2584d67748818c3115653be8de82e9f31bbcfe430d504ae11fb5e9c",
+  "files_override": {
+    "tools\\verify_external_lanes.py": "ebee526e362501975bb84d065a7bdf088db03cb6383551bed6e932eab48028b9"
+  },
+  "finding": "Importer selector could reserve a subset while executing a full batch; actual existing batches used no selector and match reservations",
+  "fix": "Reject importer case selectors before reservation; no changes to actual numerical execution, input, reference, tolerance, frozen sources, or budget",
+  "prior_executed_driver": "local/driver-sources/capture-v3.py",
+  "prior_driver_sha256": "58f5fd5b21b052e92bb590a7ff55743eb8a2eb77bab3e040b675d02f247f4085",
+  "regression": "evidence/ledger-guard-regression.json",
+  "Main": 0,
+  "importer": 0,
+  "additional_budget": 0
+}

@@ -53,6 +53,11 @@ def guard():
         updated = json.loads(budget_amendment.read_text(encoding="utf-8"))
         assert sha(ISSUE / "capture-amendment-v2.json") == updated["capture_amendment_sha256"]
         files.update(updated["files_override"])
+    ledger_amendment = ISSUE / "ledger-guard-amendment-v4.json"
+    if ledger_amendment.exists():
+        updated = json.loads(ledger_amendment.read_text(encoding="utf-8"))
+        assert sha(budget_amendment) == updated["budget_amendment_sha256"]
+        files.update(updated["files_override"])
     for name, digest in files.items():
         assert sha(ROOT / name) == digest, f"Changed frozen file: {name}"
     for name, digest in freeze["local_source_files"].items():
@@ -62,6 +67,8 @@ def guard():
 
 def reserve(mode, label, selected):
     """Consume the fixed scope once, including failed attempts; no automatic retry."""
+    if mode == "importer" and selected:
+        raise ValueError("Importer scope is a frozen full batch; individual case selectors are unsupported")
     frozen = guard()
     ledger = ISSUE / "local/execution-ledger.json"
     entries = json.loads(ledger.read_text(encoding="utf-8")) if ledger.exists() else []
