@@ -25,9 +25,7 @@ if __name__ == "__main__":
     manager = Tasks(OUT / "local/service")
     # Preserve evidence from every success; the product still keeps exactly two cache entries.
     def preserve(directory):
-        target = OUT / "local/evicted" / directory.name
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copytree(directory, target)
-        shutil.rmtree(directory)
+        assert directory.resolve().is_relative_to((OUT / "local/service").resolve())
+        # The cache index drops its entry; keep its original bytes in this evidence service.
     manager._remove_directory = preserve
     uvicorn.run(create_app(manager), host="127.0.0.1", port=8776)

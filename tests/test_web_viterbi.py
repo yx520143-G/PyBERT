@@ -73,6 +73,8 @@ def test_original_error_mapping_view_clamp_raw_log_and_zero(captured, tmp_path):
     assert np.allclose(result["top3"][0]["display_log10"], np.log10(.6))
     assert result["top3"][2]["raw_probabilities"] == [0.] * 10
     assert result["top3"][2]["display_log10"] == [-20.] * 10
+    colorbar = next(trace["marker"]["colorbar"] for trace in result["data"] if trace.get("marker", {}).get("showscale"))
+    assert colorbar["title"]["text"] == "log10(raw)<br>floor −20"
     assert all(arrays[k].tobytes() == value for k, value in before.items())
     with pytest.raises(ValueError, match="1-based"):
         payload(tmp_path, error=3)
@@ -134,9 +136,11 @@ def test_default_depth_budget_and_no_silent_parameter_change():
     assert plan(defaults | {"rx_use_viterbi": True}, execution=True)["states"] == 16
     with pytest.raises(ValueError, match="budget"):
         plan(defaults | {"rx_use_viterbi": True, "mod_type": "PAM-4"}, execution=True)
-    for n in (0, -1, 1.5, "2", True):
+    for n in (0, -1, 1.5, "2", True, float("inf"), float("nan")):
         with pytest.raises(ValueError):
             validate_config(defaults | {"rx_use_viterbi": True, "rx_viterbi_symbols": n}, defaults, execution=True)
+        with pytest.raises(ValueError):
+            plan(defaults | {"rx_use_viterbi": True, "rx_viterbi_symbols": n}, execution=True)
     with pytest.raises(ValueError, match="budget"):
         plan(defaults | {"rx_use_viterbi": True, "rx_viterbi_symbols": 100000}, execution=True)
 

@@ -1,6 +1,7 @@
 """Bounded Native ISI decoding records and read-only trellis views."""
 
 import json
+import math
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -23,11 +24,19 @@ DEBUG_ARRAYS = ("sig_samps", "pulse_resp_samps", "probs", "prevs", "path", "symb
 
 def plan(config, *, execution=False):
     """Bound the existing dense decoder; never change N or the analysis window."""
-    n = config["rx_viterbi_symbols"]
-    if type(n) not in (int, float) or int(n) != n or n < 1:
-        raise ValueError("rx_viterbi_symbols: positive integer symbol count required.")
-    levels = {"NRZ": 2, "PAM-4": 4, "Duo-binary": 3}[config["mod_type"]]
-    samples = config["eye_bits"] // (2 if config["mod_type"] == "PAM-4" else 1)
+    counts = {}
+    for key in ("rx_viterbi_symbols", "nbits", "eye_bits", "nspui"):
+        value = config.get(key)
+        if (type(value) not in (int, float) or type(value) is float and not math.isfinite(value)
+                or int(value) != value or value < 1):
+            raise ValueError(f"{key}: positive finite integer required.")
+        counts[key] = int(value)
+    n = counts["rx_viterbi_symbols"]
+    alphabets = {"NRZ": 2, "PAM-4": 4, "Duo-binary": 3}
+    if config.get("mod_type") not in alphabets:
+        raise ValueError("Unsupported Native ISI modulation.")
+    levels = alphabets[config["mod_type"]]
+    samples = counts["eye_bits"] // (2 if levels == 4 else 1)
     # Avoid constructing an unbounded integer for an untrusted depth.
     states = levels ** int(n) if n <= 16 else None
     row = {"N": int(n), "L": levels, "states": states, "samples_upper_bound": samples,
@@ -40,7 +49,7 @@ def plan(config, *, execution=False):
         reason = "state count exceeds 256"
     elif samples * states > MAX_STATE_SAMPLES or samples * states * states > MAX_DENSE_WORK:
         reason = "full sample/state dense-work budget exceeded"
-    elif config["nbits"] // (2 if levels == 4 else 1) * config["nspui"] > MAX_TIME_SAMPLES:
+    elif counts["nbits"] // (2 if levels == 4 else 1) * counts["nspui"] > MAX_TIME_SAMPLES:
         reason = "native time grid exceeds 2,000,000 samples"
     elif samples < max(2, n):
         reason = "insufficient full analysis samples for native decoder/trellis"
@@ -297,7 +306,7 @@ def payload(directory, position=0, error=0):
             traces.append({"type": "scatter", "mode": "markers", "name": f"Top {rank} · raw probability",
                            "x": xs.tolist(), "y": ys.tolist(), "customdata": raw.tolist(),
                            "marker": {"size": 9, "color": display_log.tolist(), "colorscale": "Viridis", "cmin": -20, "cmax": 0,
-                                      "showscale": rank == 1, "colorbar": {"title": "log10(raw), floor -20"}},
+                                      "showscale": rank == 1, "colorbar": {"title": {"text": "log10(raw)<br>floor −20", "side": "right", "font": {"size": 9}}}},
                            "hovertemplate": "symbol=%{x}<br>state=%{y}<br>raw probability=%{customdata}<extra></extra>"})
             probabilities.append({"rank": rank, "symbol_indices": xs.tolist(), "state_indices": ys.tolist(),
                                   "raw_probabilities": raw.tolist(), "display_log10": display_log.tolist()})
