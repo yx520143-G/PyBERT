@@ -24,6 +24,7 @@ MMSE 使用原代码固定 Tx level 0.5 V、SNR 25 dB、DJ/RJ=0 与空 aggressor
 | 修复复核 | [双轴审查](review.md)：异步编辑/候选身份及预算问题已闭合；[v5](evidence/contracts-v5.log) 63 passed，[静态与 VM](evidence/static-v2.log) 通过。v4 的新测试 EyeBits 前置设置错误原件独立保留，不能当预算拒绝的成功证据 |
 | 最终恢复 | Chrome 155.0.8059.85 / 1280×720；[分段恢复](evidence/chrome-v3/recovery-v5.log)、[新会话最终检查](evidence/chrome-v3/final-view-v2.log)。PAM4 两份 raw schema 2、NRZ、取消记录、两份 Run archive、YAML RLM/Use 来源恢复，0新增数值调用；图见 [MMSE](evidence/chrome-v3/09-readable-mmse.png)、[grid](evidence/chrome-v3/10-readable-grid.png) |
 | 收尾源码与原件复核 | [132655 audit](evidence/delivery-audit-20261024-132655/report.json) 再次 738 checks / 0失败；[final source](evidence/final-source/report.json) 10 checks / 0失败，保存生产代码 `f64d482` 的源码 bytes/hash，三次浏览器重下载 record/raw exact，YAML config/runtime exact。仅管理/UI/预算增量通过状态测试；历史数值批次各自绑定其执行源码，不冒称重跑 final-source 数值批次 |
+| PM 最终审查后修复 | 固定 `238b1cab` 的 PM 最终审查发现 Spec 2 P2（Standards 0），修复代码 `e55819a`；[独立 delta 复核](evidence/pm-fixes-v1/review.md) 两项闭合。[契约](evidence/pm-fixes-v1/contracts.log) 37 passed，[实际存档 API/observer 核对](evidence/pm-fixes-v1/saved-report.json) 100 checks / 0失败；13 原件、12 topology 冲突与12自洽 cursor 坏副本。新增 coopt/Main/数值 COM 均为0 |
 
 上表中的历史批次各自保留执行源码、失败和成本，不能拼成不存在的同批全套成功。最终恢复脚本有 response inspector cache、错误消息断言、URL query 谓词及旧 CSS 缓存等取证失败，均保留在 `chrome-v3/`，分段恢复未新增 coopt/Main/COM。最后一行 CSS 修复经 Standards 只读确认。
 
@@ -36,6 +37,10 @@ YAML 保存当前草稿；版本化 runtime 注释保留 RLM、Reset 初值和 U
 预算：outer≤256、inner≤256、合计≤4096；Native 时间网格≤2,000,000 点、频率网格≤200,001 点；每记录≤768 MiB 原数组，合计1 GiB；最多16个会话计算记录、4个打开的优化 archive。预算拒绝不缩范围、不回退默认。验收 fixtures 各 outer≤16、非MMSE inner≤16。
 
 存储预检逐类计入实际 MMSE pulse/H/范围和导出数组，观察器保留新数组前再次累计检查。活动优化期间不接受新 archive，保持预留容量。Use/Reset 响应与确认绑定冻结草稿 revision，候选详情加载中禁止 Use/Save，过期响应不改变当前来源。
+
+Use EQ 要求当前 Rx FFE 的 `Ntaps/Npre` 与获选记录相同；不同会在应用前明确拒绝，用户可恢复原 topology 或针对当前 topology 重新优化。成功预览的 `after` 与 `after_input_hash` 来自最终 config。成功 raw schema 1/2 存档必须含真实 `curs_ix` / `curs_amp` 两端点，且与获选 pulse 峰值和时间轴一致；缺项、坏形状或不一致在发布前原子拒绝。失败/取消原件不补造成功 cursor，仍按原诊断边界保留。
+
+本次修复使用现有原件，无需新 Chrome 会话：API 验证禁止启动 worker，仅将原配置观察器 inline 调用；[VM](evidence/pm-fixes-v1/ui.log) 验证拒绝后保留已选来源/草稿、不应用 EQ。[源码适用性](evidence/pm-fixes-v1/source-applicability.json) 记录原30份执行源中的28份不变、2份变化，变化源码和新增测试逐字节另存，旧报告/失败/raw 不回写。数值批次仍绑定原执行源码。
 
 ## 成本与保留限制
 
