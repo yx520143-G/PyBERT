@@ -1,0 +1,44 @@
+{
+  "case_id": "D-SI12-PAM4",
+  "calls": {
+    "Main": 1,
+    "calc_chnl_h": 1,
+    "import_freq": 1,
+    "import_fext": 1,
+    "coopt": 0,
+    "numerical_COM": 0,
+    "compute_com_entries": 1,
+    "compute_com_disabled_entries": 1,
+    "AMI_Init": 0,
+    "AMI_GetWave": 0,
+    "PyBERT_constructors": 0
+  },
+  "constructors": 1,
+  "passed_producers": true,
+  "source_functions": {
+    "Main": {
+      "file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue16-external\\serial-bus-simulator\\docs\\webui\\issue16\\local\\sources\\final\\src\\pybert\\models\\bert.py",
+      "sha256": "5879ea9520feca96d0f366d1283424194d02425806605fb0069ffb1f893ee622"
+    },
+    "calc_chnl_h": {
+      "file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue16-external\\serial-bus-simulator\\docs\\webui\\issue16\\local\\sources\\final\\src\\pybert\\pybert.py",
+      "sha256": "14ffa4df4f035324a3ab07766ab16291b185c6bd38e73bdea4a1075bf02db1f3"
+    }
+  },
+  "status": "Ready.",
+  "summary": {
+    "n_errs_dfe": 0,
+    "n_errs_viterbi": -1
+  },
+  "window": {
+    "ui_s": 2e-10,
+    "nui": 7500,
+    "eye_uis": 5080,
+    "nspui": 32,
+    "ignore_samps": 77440,
+    "full_samples": 240000,
+    "channel_start_index": 0
+  },
+  "elapsed_s": 3.786525100003928,
+  "peak_rss": "UNKNOWN"
+}

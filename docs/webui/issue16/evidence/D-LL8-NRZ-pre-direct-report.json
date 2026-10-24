@@ -1,0 +1,44 @@
+{
+  "case_id": "D-LL8-NRZ",
+  "calls": {
+    "Main": 1,
+    "calc_chnl_h": 1,
+    "import_freq": 1,
+    "import_fext": 1,
+    "coopt": 0,
+    "numerical_COM": 0,
+    "compute_com_entries": 1,
+    "compute_com_disabled_entries": 1,
+    "AMI_Init": 0,
+    "AMI_GetWave": 0,
+    "PyBERT_constructors": 0
+  },
+  "constructors": 1,
+  "passed_producers": true,
+  "source_functions": {
+    "Main": {
+      "file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue16-external\\serial-bus-simulator\\docs\\webui\\issue16\\local\\sources\\pre\\src\\pybert\\models\\bert.py",
+      "sha256": "f2ae1bc19a8056f7e25fb50eab4c97e963c6fe43fd7e6d5df20ba35826be7302"
+    },
+    "calc_chnl_h": {
+      "file": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue16-external\\serial-bus-simulator\\docs\\webui\\issue16\\local\\sources\\pre\\src\\pybert\\pybert.py",
+      "sha256": "2a9401c95d67f35c6e28e6d80fcd852e211776be185957702a958422b46a816a"
+    }
+  },
+  "status": "Ready.",
+  "summary": {
+    "n_errs_dfe": 2439,
+    "n_errs_viterbi": -1
+  },
+  "window": {
+    "ui_s": 1e-10,
+    "nui": 15000,
+    "eye_uis": 10160,
+    "nspui": 32,
+    "ignore_samps": 154880,
+    "full_samples": 480000,
+    "channel_start_index": 0
+  },
+  "elapsed_s": 6.093325499998173,
+  "peak_rss": "UNKNOWN"
+}

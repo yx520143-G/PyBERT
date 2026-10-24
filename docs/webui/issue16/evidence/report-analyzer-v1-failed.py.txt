@@ -1,0 +1,174 @@
+"""Read saved #16 artifacts only; no PyBERT instance, engine or importer call."""
+
+import json
+import shutil
+from pathlib import Path
+
+import numpy as np
+
+from external_lane_reference import ISSUE, ROOT, compare, differential, interpolate, read_touchstone, sha
+from verify_external_lanes import write
+
+
+def read(path):
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def fields_check(x, y):
+    result = []
+    for key in x.files:
+        if key not in y:
+            result.append({"field": key, "passed": False, "error": "missing candidate"})
+            continue
+        rtol, atol, category = 1e-10, 1e-12, "voltage_response_complex"
+        if x[key].dtype.kind in "biu" or key in ("bits", "clocks", "lockeds") or "decisions" in key:
+            rtol, atol, category = 0, 0, "exact"
+        elif key == "f":
+            rtol, atol, category = 1e-12, 1e-6, "frequency_hz"
+        elif key == "t_ns_chnl":
+            atol, category = 1e-9, "time_ns"
+        elif key == "ui_ests":
+            atol, category = 1e-6, "time_ps"
+        elif key in ("t", "t_irfft", "clock_times", "context.source.ui"):
+            atol, category = 1e-18, "time_s"
+        parts = ("real", "imag") if np.iscomplexobj(x[key]) else (None,)
+        for part in parts:
+            a, b = (getattr(x[key], part), getattr(y[key], part)) if part else (x[key], y[key])
+            result.append({"field": key, "component": part, "category": category, **compare(a, b, rtol, atol)})
+    return result
+
+
+def physical_checks(raw, case, resources):
+    resource = next(r for r in resources if r["id"] == case["resource"])
+    f, s, _, _ = read_touchstone(ROOT / resource["original"])
+    victim = resource["lanes"][case["victim"]]
+    grid = raw["f"]
+    checks = []
+    expected = interpolate(f, differential(s, victim["tx"], victim["rx"]), grid)[:, 1, 0]
+    checks.append({"field": "chnl_H_raw", **compare(raw["chnl_H_raw"], expected)})
+    for i, j in enumerate(k for k in range(len(resource["lanes"])) if k != case["victim"]):
+        key = f"context.source.fext_{i}_H"
+        expected = interpolate(f, differential(s, resource["lanes"][j]["tx"], victim["rx"]), grid)[:, 1, 0]
+        # Frozen differential Z0=100, Rs=RL=100, no window/package: native
+        # FEXT termination renormalization is identity and voltage wave factor=1.
+        checks.append({"field": key, "aggressor": j, **compare(raw[key], expected)})
+    return checks
+
+
+def saved_invariants(raw, case):
+    checks = []
+    total = raw["noise"].copy()
+    for i in range(case["fext_count"]):
+        total += raw[f"context.source.fext_{i}_voltage"]
+    checks.append({"field": "native ordered base noise plus each actual FEXT contribution",
+                   **compare(raw["context.source.noise_total"], total)})
+    checks.append({"field": "source/FEXT/time full-record shapes",
+                   "passed": all(len(raw[k]) == len(raw["t"]) for k in
+                       ("context.source.x", "context.source.noise_total", "noise",
+                        *[f"context.source.fext_{i}_voltage" for i in range(case["fext_count"])]))})
+    for i in range(case["fext_count"]):
+        start = int(raw[f"context.source.fext_{i}_start_ix"])
+        h = raw[f"context.source.fext_{i}_h"]
+        checks.append({"field": f"fext_{i} trimmed axis exists", "start_index": start,
+                       "sample_count": len(h), "start_s": float(raw["t"][start]),
+                       "stop_s_exclusive": float(raw["t"][start + len(h) - 1] + raw["t"][1]),
+                       "passed": start >= 0 and start + len(h) <= len(raw["t"])})
+    return checks
+
+
+def main():
+    frozen = read(ISSUE / "freeze-v1.json")
+    resources = read(ISSUE / "resources.json")
+    output = ISSUE / "evidence"
+    output.mkdir(exist_ok=True)
+    runs = {}
+    for directory in sorted((ISSUE / "local/results").iterdir()):
+        if (directory / "report.json").exists():
+            key = directory.name.split("-2026")[0]
+            runs.setdefault(key, []).append(directory)
+    summary = {"freeze_actual_sha256": sha(ISSUE / "freeze-v1.json"),
+               "analysis_source_sha256": sha(__file__), "analysis_Main": 0, "analysis_importer": 0,
+               "importer": [], "downstream": [], "runs": {}, "raw_index": []}
+    for label in ("pre", "post", "final"):
+        directory = runs[label + "-importer"][0]
+        report = read(directory / "report.json")
+        shutil.copyfile(directory / "report.json", output / (label + "-importer-report.json"))
+        rows = []
+        for case in report["cases"]:
+            groups = {}
+            for check in case["checks"]:
+                groups.setdefault(check["path"], []).append(check)
+            rows.append({"id": case["case_id"], "case_passed": case["passed"], "paths": [
+                {"path": path, "passed": all(r["passed"] for r in checks),
+                 "max_real_error": max((r["max_abs_error"] for r in checks if r["component"] == "real"), default=0),
+                 "max_imag_error": max((r["max_abs_error"] for r in checks if r["component"] == "imag"), default=0)}
+                for path, checks in groups.items()]})
+        summary["importer"].append({"version": label, "case_passed": sum(r["case_passed"] for r in rows),
+            "case_total": len(rows), "through_passed": sum(p["passed"] for r in rows for p in r["paths"] if p["path"] == "through"),
+            "through_total": len(rows), "fext_passed": sum(p["passed"] for r in rows for p in r["paths"] if p["path"] != "through"),
+            "fext_total": sum(p["path"] != "through" for r in rows for p in r["paths"]), "cases": rows,
+            "costs": report["calls"] | {"elapsed_s": sum(c["elapsed_s"] for c in report["cases"]), "peak_rss": "UNKNOWN"}})
+    for case in frozen["downstream_cases"]:
+        directories = {label: runs[label + "-direct"][-1] / case["id"] for label in ("pre", "post", "final")}
+        worker_row = next(r for r in read(runs["final-worker"][0] / "report.json")["cases"] if r["case_id"] == case["id"])
+        directories["worker"] = Path(worker_row["directory"])
+        manifest = read(directories["worker"] / "manifest.json")
+        row = {"case_id": case["id"], "directories": {k: str(p) for k, p in directories.items()},
+               "direct": {}, "comparisons": {}, "worker_lifecycle": worker_row["task"],
+               "worker_costs": read(directories["worker"] / "actual-costs.json")}
+        loaded = {k: np.load(p / "arrays.npz") for k, p in directories.items()}
+        try:
+            for label in ("pre", "post", "final"):
+                direct_report = read(directories[label] / "report.json")
+                row["direct"][label] = {"producer": direct_report, "physical_response": physical_checks(loaded[label], case, resources),
+                                        "invariants": saved_invariants(loaded[label], case)}
+                shutil.copyfile(directories[label] / "report.json", output / f"{case['id']}-{label}-direct-report.json")
+            for a, b in (("pre", "post"), ("post", "final"), ("final", "worker")):
+                row["comparisons"][a + "_vs_" + b] = fields_check(loaded[a], loaded[b])
+            row["worker_physical_response"] = physical_checks(loaded["worker"], case, resources)
+            row["worker_invariants"] = saved_invariants(loaded["worker"], case)
+            row["worker_window_checks"] = {k: manifest["window"][k] == row["direct"]["final"]["producer"]["window"][k]
+                                             for k in ("nui", "eye_uis", "ignore_samps")}
+            row["worker_fext_metadata"] = {k: v for k, v in manifest["datasets"].items() if k.startswith("context.source.fext_") or k.startswith("axis.fext_")}
+            row["worker_fext_metadata_checks"] = []
+            for i in range(case["fext_count"]):
+                key = f"context.source.fext_{i}_h"
+                actual_axis = loaded["worker"][f"axis.fext_{i}_h"]
+                start = int(loaded["worker"][f"context.source.fext_{i}_start_ix"])
+                expected_axis = loaded["worker"]["t"][start:start + len(loaded["worker"][key])] * 1e9
+                row["worker_fext_metadata_checks"].append({"field": "axis.fext_" + str(i) + "_h", **compare(actual_axis, expected_axis, 1e-10, 1e-9)})
+            row["passed_corrected_scope"] = (
+                all(row["direct"][k]["producer"]["passed_producers"] for k in ("pre", "post", "final"))
+                and all(r["passed"] for k in ("post", "final") for r in row["direct"][k]["physical_response"])
+                and all(r["passed"] for r in row["worker_physical_response"])
+                and all(r["passed"] for k in ("post_vs_final", "final_vs_worker") for r in row["comparisons"][k])
+                and all(r["passed"] for k in ("pre", "post", "final") for r in row["direct"][k]["invariants"])
+                and all(r["passed"] for r in row["worker_invariants"] + row["worker_fext_metadata_checks"])
+                and all(row["worker_window_checks"].values())
+                and worker_row["task"]["state"] == "succeeded" and worker_row["task"]["worker_exited"] and worker_row["task"]["exitcode"] == 0)
+            shutil.copyfile(directories["worker"] / "manifest.json", output / f"{case['id']}-worker-manifest.json")
+        finally:
+            for raw in loaded.values():
+                raw.close()
+        summary["downstream"].append(row)
+    for key, directories in runs.items():
+        summary["runs"][key] = []
+        for directory in directories:
+            original = read(directory / "report.json")
+            summary["runs"][key].append({"directory": str(directory), "report_sha256": sha(directory / "report.json"),
+                                          "cases": [{k: r[k] for k in ("case_id", "calls", "elapsed_s", "passed_producers", "error") if k in r} for r in original["cases"]]})
+    for path in sorted((ISSUE / "local").rglob("*")):
+        if path.is_file():
+            summary["raw_index"].append({"path": str(path.relative_to(ISSUE)), "bytes": path.stat().st_size, "sha256": sha(path)})
+    summary["preserved_capture_failures"] = [str(p) for p in runs["pre-direct"][:-1]]
+    summary["all_corrected_scope_passed"] = all(r["passed_corrected_scope"] for r in summary["downstream"])
+    write(output / "saved-data-report.json", summary)
+    print(json.dumps({"importer": [{k: r[k] for k in ("version", "case_passed", "through_passed", "fext_passed")} for r in summary["importer"]],
+                      "downstream": [{"case": r["case_id"], "passed": r["passed_corrected_scope"],
+                                       "comparison_failures": {k: sum(not c["passed"] for c in v) for k, v in r["comparisons"].items()}}
+                                      for r in summary["downstream"]],
+                      "raw_file_count": len(summary["raw_index"]), "raw_bytes": sum(r["bytes"] for r in summary["raw_index"])}, indent=2))
+
+
+if __name__ == "__main__":
+    main()
