@@ -1,6 +1,6 @@
 {
-  "phase": "PM review fixes minimal red; worker symtable + actual period seam",
-  "run_id": "15-review-red",
+  "phase": "PM review fixes minimal green; actual period seam + worker AST/symtable",
+  "run_id": "16-review-green",
   "selection": [
     "ReviewFixCases"
   ],
@@ -36,8 +36,8 @@
     "review-broken.worker.txt": "docs/webui/issue10/d2-web-20261025/inputs/worker.review-broken.py.txt"
   },
   "source_test_runner_raw_sha256": {
-    "src/pybert/web/clocks.py": "e70cdb84ca43a052dfd23d7c1ccc3d181d6fd4572923b80eadcbf362ea124dce",
-    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "0c4168bb179ea2484582422bc94100935da4d0d5a046a87de21348d0573225a8",
+    "src/pybert/web/clocks.py": "154ef99d4d61681edf057a54ca1807d16d20dbe70d884594022a453d35ffc4e9",
+    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "385f93639653abf6bb66ac32cd77b455cf0ffa18e8fe400ca0e41a97983b9857",
     "docs/webui/issue10/d2-web-20261025/run_guarded.py": "22111c85d46b7ab2826b7eced06ea7f63028faf37c5de199ab64b3678afdf0f1",
     "docs/webui/issue10/d2-web-20261025/run_batch.py": "f59d58457156fc5cfc4b325fcced0a73750be234cea20b71ce85202199c7835b",
     "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
@@ -45,7 +45,7 @@
     ".venv/pyvenv.cfg": "ec8a365f082b53681def4d7ea4302c3f2f3c42924ef06684f260b27986f666b5",
     "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/ami_clock.py": "e0ae4bfc8a0b24d53b55df27c93f93e17370acc08a98f819725de6be2bec6072",
-    "src/pybert/web/analysis.py": "e9d9f4557db0627fda4208f329e9dec8e0d6bb082498107b983c3ba0c598a426",
+    "src/pybert/web/analysis.py": "cc3373165021f88c40292605c9a971e82afdc1811fd6338d3852901ed3bebf29",
     "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
     "src/pybert/utility/math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
     "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
@@ -56,7 +56,7 @@
     "docs/webui/issue10/d2-web-20261025/guard_cases.py": "5d9f7bc08ddd227ce7588fe9ce11da135547497fe5473aff48d9655661c4a97e",
     "docs/webui/issue10/d2-web-20261025/PM-budget-supplement-6388850218.json": "6769dac1b625cbfb47704d5f2d4596f22f52b70eb4f405fce37fefe537b24e59",
     "src/pybert/web/ami.py": "7bd1fd59a0f149bffb185596093938557385f01822f660b26da76f676903424f",
-    "src/pybert/web/worker.py": "efaa716fd64b971175950c5126ec6ffa7149fad19b89dbf743b60a0661dd875e",
+    "src/pybert/web/worker.py": "73f315c83e08cf6f3fb2883e8f60d7ad995beb3047fbc7f244a71845704aa9f8",
     "src/pybert/models/bert.py": "6a0ed7ef34507eea07cf2d566671c9516a2e85c357034874f87aa7434affb2f5",
     "docs\\webui\\issue10\\d2-web-20261025\\inputs\\data.baseline.py.txt": "34b317a4c512c5cf17f05ec60e66bb567059cbf02dfa34e97dd7406702326e35",
     "docs\\webui\\issue10\\d2-web-20261025\\inputs\\worker.baseline.py.txt": "f34e4734639c0a8d3e169a55b35e11a8dc4019fd6d7d5b93ec272871e58b4bf4",
@@ -160,9 +160,8 @@
   },
   "expected_result": {
     "tests": 2,
-    "failures": 2,
-    "errors": 0,
-    "reason": "Actual current worker scope local and legal high-origin grid rejected before fix; remaining period checks only run after first success in green"
+    "failures": 0,
+    "errors": 0
   },
   "case_inputs": "ReviewFixCases only: base/reviewed/current actual worker AST+symtable no execution;16-point high-origin grid i32764..32779*3.125e-12, constant5ps, frozenFFT[2:10]; perturbed/duplicate/reversed/initialzero/nonfinite and exactzeroorigin control. No fullcoordinator or previousmatrices.",
   "expected_values": {
@@ -180,7 +179,7 @@
     "validate_period_upper": 8,
     "all_pure_upper_per_batch": 32
   },
-  "previous_plan": "runs/14-coordinator-check/plan.json",
+  "previous_plan": "runs/15-review-red/plan.json",
   "expected_counts_policy": "D minimal review red/green: total <=64 pure forecast, hard D999 global17273 baseline; wrappers hist<=6/rfft<=2 each. No C budget use. Last2 slots15/16 only.",
   "serialization_policy": "Raw read_arrays/load_archive/read_json inputs and NPZ/JSON outputs now retain content-addressed original bytes, including malformed buffers/failed-save metadata; nested artifacts hash inventory. Prior08/10 did not bind every in-memory malformedbuffer individually; preserve original scope/gaps, no fabricated retro-capture. Original08 conservative pure event definition remains unchanged.",
   "FFT_uniformity": "Replacement rule predeclared in expected_values before red; no arbitrary relative constant, compare each original interval vs original first with timestamp-scaledULP roundoff bound, finite/strictly increasing gates. Metadata rule,dtype,maxerror,maxbound + staticactualanalysis carry-through. No resample/shrink/window/index/ts change.",

@@ -296,7 +296,7 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract
                           "relative_frequency": product["relative_frequency"]}
             period_meta[kind] = {name: product[name] for name in
                 ("availability", "reason", "window")
-                + (("sample_interval_s", "origin_s") if kind == "spectrum" else ())}
+                + (("sample_interval_s", "origin_s", "uniform_grid_validation") if kind == "spectrum" else ())}
             for name, value in values.items():
                 axis = prefix + ".centers" if name == "counts" else prefix + ".frequency_Hz" if name == "raw" else None
                 unit = ("sample index" if name == "grid_indices" else "count" if name == "counts" else

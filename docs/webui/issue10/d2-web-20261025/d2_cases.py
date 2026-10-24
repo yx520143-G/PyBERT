@@ -688,7 +688,7 @@ class BindingCases(unittest.TestCase):
         self.assertLess(worker.index("snapshot_producer(p, previous_invocation, 'post_Main')"),
                         worker.index("if p.status != 'Ready.'"))
         self.assertIn("producer_snapshot=producer_snapshot, phase=execution.phase", worker)
-        self.assertIn("write_partial(directory, snapshot, execution.phases, terminal)", worker)
+        self.assertIn("write_partial(directory, partial_snapshot, execution.phases, terminal)", worker)
         self.assertIn("evidence_errors", worker)
         old_worker = function((evidence / "inputs/worker.baseline.py.txt").read_text(encoding="utf-8"), "run_worker")
         calls = lambda node: [dump(item) for item in ast.walk(node) if isinstance(item, ast.Call)

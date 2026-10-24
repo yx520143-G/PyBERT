@@ -216,9 +216,9 @@ def run_worker(task_id, operation, request, directory, cancel_event, connection)
                     evidence_failure("AMI execution write", error)
             if operation == "run" and terminal.get("status") != "succeeded":
                 try:
-                    snapshot = producer_snapshot or {"info": None, "raw": {}, "fresh": False,
+                    partial_snapshot = producer_snapshot or {"info": None, "raw": {}, "fresh": False,
                                                      "phase": "snapshot_unavailable"}
-                    write_partial(directory, snapshot, execution.phases, terminal)
+                    write_partial(directory, partial_snapshot, execution.phases, terminal)
                 except Exception as error:
                     evidence_failure("partial evidence write", error)
         terminal["phase_ledger"] = execution.phases

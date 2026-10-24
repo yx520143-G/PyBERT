@@ -167,7 +167,7 @@ def period_projection(context, t, period_ps, ui):
                 "indices": np.array([], dtype=int), "input_period_ps": np.array([]),
                 "sample_interval_s": None, "origin_s": None,
                 "window": {"start_index": fft_first, "stop_index": fft_stop},
-                "uniform_grid_relative_tolerance": 1e-12}
+                "uniform_grid_validation": None}
     if type(fft_first) is not int or type(fft_stop) is not int or not 0 <= fft_first <= fft_stop <= len(t):
         spectrum["reason"] = "invalid_fft_bounds"
     elif fft_stop - fft_first < 2:
@@ -180,15 +180,32 @@ def period_projection(context, t, period_ps, ui):
         ts = float(t[1] - t[0]) if len(t) >= 2 else None
         if ts is None or not np.isfinite(ts) or ts <= 0:
             spectrum["reason"] = "unknown_or_nonpositive_sample_interval"
-        elif not np.allclose(np.diff(t), ts, rtol=1e-12, atol=0.):
-            spectrum["reason"] = "nonuniform_grid"
         else:
-            values = period_ps[fft_first:fft_stop]
-            raw = np.fft.rfft(values)
-            frequency = np.arange(len(raw)) / (len(values) * ts)
-            spectrum.update(availability="available", reason=None, raw=raw, frequency_hz=frequency,
-                            relative_frequency=frequency[1:] * ui, sample_interval_s=ts,
-                            origin_s=float(t[fft_first]), indices=indices[fft_first:fft_stop], input_period_ps=values)
+            steps = np.diff(t)
+            # Each rounded timestamp and subtraction contributes at most one conservative ULP.
+            # Compare both intervals' endpoint/subtraction uncertainty; never change t or the reference ts.
+            timestamp_ulps = np.spacing(np.abs(t))
+            step_ulps = np.spacing(np.abs(steps))
+            bounds = (timestamp_ulps[:-1] + timestamp_ulps[1:] + timestamp_ulps[0] + timestamp_ulps[1]
+                      + step_ulps + step_ulps[0])
+            errors = np.abs(steps - ts)
+            increasing = bool(np.all(steps > 0))
+            finite = bool(np.isfinite(bounds).all() and np.isfinite(errors).all() and np.isfinite(steps).all())
+            spectrum["uniform_grid_validation"] = {
+                "rule": "one ULP per endpoint and subtraction for tested and reference intervals",
+                "reference": "original t[1]-t[0]; every interval in the original full grid",
+                "timestamp_dtype": t.dtype.str, "strictly_increasing": increasing,
+                "max_interval_error_s": float(np.max(errors)) if np.isfinite(errors).all() else None,
+                "max_bound_s": float(np.max(bounds)) if np.isfinite(bounds).all() else None}
+            if not finite or not increasing or np.any(errors > bounds):
+                spectrum["reason"] = "nonuniform_grid"
+            else:
+                values = period_ps[fft_first:fft_stop]
+                raw = np.fft.rfft(values)
+                frequency = np.arange(len(raw)) / (len(values) * ts)
+                spectrum.update(availability="available", reason=None, raw=raw, frequency_hz=frequency,
+                                relative_frequency=frequency[1:] * ui, sample_interval_s=ts,
+                                origin_s=float(t[fft_first]), indices=indices[fft_first:fft_stop], input_period_ps=values)
     return {"histogram": hist, "spectrum": spectrum}
 
 
