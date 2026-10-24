@@ -2,7 +2,7 @@
 
 import unittest
 
-from d1_under_test import functions, np
+from d1_under_test import functions, np, baseline_eye, candidate_eye
 
 
 STUB_COUNTS = {}
@@ -231,3 +231,49 @@ class ConsumerCases(unittest.TestCase):
         self.assertEqual(info["sample_indices"].tolist(), [3, 7, 11])
         self.assertEqual(info["sample_grid_times_s"].tolist(), [0.3, 0.7, 1.1])
         self.assertEqual(int(info["sample_grid_times_s"][0] // 0.1), 2)  # Never round-trip this way in consumers.
+
+
+class EyeCases(unittest.TestCase):
+    def test_producer_indices_and_native_eye_compatibility(self):
+        self.assertTrue(callable(functions.get("ami_eye_data")), "production timed Eye projection is missing")
+        waveforms = [[-1, -1, 1, 1] * 4, [-0.5, 0.5] * 8]
+        for values in waveforms:
+            for clocks in (None, np.array([0, 0.25, 0.75, 1])):
+                with self.subTest(native=values[:4], clocks=None if clocks is None else clocks.tolist()):
+                    old = baseline_eye(0.5, 2, 16, np.array(values), 2.0, clocks)
+                    current = candidate_eye(0.5, 2, 16, np.array(values), 2.0, clocks)
+                    self.assertEqual(current.tolist(), old.tolist())
+
+        values = np.array([-1, 1] * 9)
+        # At ts=0.1, canonical grid time 0.3 // ts is 2; the producer's actual index is 3.
+        direct = candidate_eye(0.4, 4, 16, values, 2.0, clock_indices=np.array([3, 7]))
+        self.assertEqual(float(direct[12, 0]), 2)
+        self.assertEqual(float(direct[4, 0]), 0)
+        self.assertEqual(float(direct.sum()), 16)
+        for bad in ([-1], [12], [1.5]):
+            with self.subTest(invalid_indices=bad):
+                with self.assertRaisesRegex(ValueError, "clock_indices"):
+                    candidate_eye(0.4, 4, 16, values, 2.0, clock_indices=bad)
+        empty = candidate_eye(0.4, 4, 16, values, 2.0, clock_indices=[])
+        self.assertEqual(float(empty.sum()), 0)
+
+        rows = [
+            {"indices": [5, 9], "stop": 20, "length": 18, "relative": [3, 7], "traces": 2},
+            {"indices": [1, 5, 9, 15], "stop": 20, "length": 18, "relative": [3, 7], "traces": 2},
+            {"indices": [0, 15], "stop": 20, "length": 10, "relative": [], "traces": 0},
+            {"indices": [5, 9], "stop": 14, "length": 18, "relative": [3], "traces": 0},
+        ]
+        for row in rows:
+            with self.subTest(crop=row):
+                info = {"full_analysis_eligible": True, "symbol_ui_s": 0.4, "nspui": 4,
+                        "eye_sample_indices": np.array(row["indices"]),
+                        "analysis": {"stop_index": row["stop"], "required_eye_traces": 2}}
+                image = functions["ami_eye_data"](info, values[:row["length"]], 2, 16, 2.0, candidate_eye)
+                self.assertEqual(info["eye_relative_indices"].tolist(), row["relative"])
+                self.assertEqual(info["eye_trace_count"], row["traces"])
+                if row["traces"]:
+                    self.assertEqual(info["eye_status"], "completed")
+                    self.assertEqual(float(image.sum()), 16)
+                else:
+                    self.assertIsNone(image)
+                    self.assertEqual(info["eye_status"], "unavailable")

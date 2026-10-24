@@ -161,7 +161,8 @@ def main():
             wrapped = ast.Module(body=[ast.ImportFrom(module="__future__", names=[ast.alias(name="annotations")],
                                                      level=0), *definitions], type_ignores=[])
             ast.fix_missing_locations(wrapped)
-            scope = {"np": np, **{name: getattr(np, name) for name in ("array", "zeros", "where", "diff", "sign")}}
+            aliases = ("array", "zeros", "where", "diff", "sign", "integer")
+            scope = {"np": np, **{name: getattr(np, name) for name in aliases}}
             exec(compile(wrapped, str(path), "exec"), scope)  # noqa: S102 -- actual frozen pure definitions
             return {node.name: scope[node.name] for node in definitions}
 
