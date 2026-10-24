@@ -1,0 +1,11 @@
+{
+  "status": "FAILED_PREFLIGHT",
+  "exception": "AssertionError: docs/webui/issue10/d2-web-20261025/test-plan.json",
+  "reason": "Plan was erroneously included in its own raw hash map due to Windows slash comparison; launcher rejected before child launch.",
+  "launcher_exit_code": 1,
+  "guarded_child_started": false,
+  "product_calls": 0,
+  "NumPy_imports": 0,
+  "elapsed_s": "UNKNOWN",
+  "counts_as_launch_slot": true
+}

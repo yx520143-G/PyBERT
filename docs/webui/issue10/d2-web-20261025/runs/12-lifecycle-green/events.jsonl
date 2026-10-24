@@ -1,0 +1,142 @@
+{"kind": "pure", "name": "pybert.web.ami.AMICancelled"}
+{"kind": "pure", "name": "pybert.web.ami.Execution"}
+{"kind": "pure", "name": "pybert.web.ami.Execution.__init__"}
+{"kind": "pure", "name": "pybert.web.ami.Execution.phase"}
+{"kind": "pure", "name": "pybert.web.ami.Execution.phase"}
+{"kind": "pure", "name": "pybert.web.ami.Execution.phase"}
+{"kind": "pure", "name": "pybert.web.ami.Execution.phase"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 8, "elapsed_s": 9.99998883344233e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 3, "elapsed_s": 6.599992047995329e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 24, "elapsed_s": 1.200000406242907e-05, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 24, "elapsed_s": 4.699977580457926e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "partial_save", "name": "pybert.web.clocks.write_partial"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "serialization", "name": "numpy.savez_compressed", "input_array_bytes": 59, "output_or_stream_bytes": 859, "consumed_stream_bytes": 859, "output_blob_sha256": "9fe5c48908077d7ac66a4bf8e9d65ce6bb59aaac844844556da43c50a45af4a2", "elapsed_s": 0.0013371999957598746, "returned": true}
+{"kind": "pure", "name": "pybert.web.archive.array_identity"}
+{"kind": "pure", "name": "pybert.web.archive.sha256"}
+{"kind": "serialization", "name": "hashlib.sha256", "input_bytes": 8, "digest_capacity_bytes": 32, "elapsed_s": 7.399998139590025e-06, "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\archive.py"}
+{"kind": "serialization", "name": "sha256", "input_bytes": 8, "output_bytes": 64, "elapsed_s": 9.99000039882958e-05, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.array_identity"}
+{"kind": "pure", "name": "pybert.web.archive.sha256"}
+{"kind": "serialization", "name": "hashlib.sha256", "input_bytes": 3, "digest_capacity_bytes": 32, "elapsed_s": 5.4000120144337416e-06, "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\archive.py"}
+{"kind": "serialization", "name": "sha256", "input_bytes": 3, "output_bytes": 64, "elapsed_s": 6.389999180100858e-05, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.array_identity"}
+{"kind": "pure", "name": "pybert.web.archive.sha256"}
+{"kind": "serialization", "name": "hashlib.sha256", "input_bytes": 24, "digest_capacity_bytes": 32, "elapsed_s": 5.1000097300857306e-06, "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\archive.py"}
+{"kind": "serialization", "name": "sha256", "input_bytes": 24, "output_bytes": 64, "elapsed_s": 5.8900011936202645e-05, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.array_identity"}
+{"kind": "pure", "name": "pybert.web.archive.sha256"}
+{"kind": "serialization", "name": "hashlib.sha256", "input_bytes": 24, "digest_capacity_bytes": 32, "elapsed_s": 4.8000074457377195e-06, "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\archive.py"}
+{"kind": "serialization", "name": "sha256", "input_bytes": 24, "output_bytes": 64, "elapsed_s": 5.4899981478229165e-05, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.atomic_write"}
+{"kind": "serialization", "name": "atomic_write", "input_bytes": 859, "output_bytes": null, "elapsed_s": 0.0027802000113297254, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.json_bytes"}
+{"kind": "serialization", "name": "json_bytes", "input_bytes": null, "output_bytes": 2265, "elapsed_s": 9.220000356435776e-05, "output_blob_sha256": "63094ea76918cb9a512560e875ebc04b9e696f1a7bed4bbf543bee50649001ba", "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.atomic_write"}
+{"kind": "serialization", "name": "atomic_write", "input_bytes": 2265, "output_bytes": null, "elapsed_s": 0.002137200004654005, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "serialization", "name": "numpy.load", "input_array_bytes": 0, "output_or_stream_bytes": 859, "consumed_stream_bytes": null, "output_blob_sha256": null, "elapsed_s": 0.0023515999782830477, "returned": true}
+{"kind": "serialization", "name": "numpy.format.read_array", "input_array_bytes": 0, "output_or_stream_bytes": null, "consumed_stream_bytes": 152, "output_blob_sha256": null, "elapsed_s": 0.0003183000080753118, "returned": true}
+{"kind": "serialization", "name": "numpy.format.read_array", "input_array_bytes": 0, "output_or_stream_bytes": null, "consumed_stream_bytes": 136, "output_blob_sha256": null, "elapsed_s": 0.00024170000688172877, "returned": true}
+{"kind": "partial_save", "name": "pybert.web.clocks.write_partial"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "partial_save", "name": "pybert.web.clocks.write_partial"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "serialization", "name": "numpy.savez_compressed", "input_array_bytes": 0, "output_or_stream_bytes": 22, "consumed_stream_bytes": 22, "output_blob_sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85", "elapsed_s": 0.00010420000762678683, "returned": true}
+{"kind": "pure", "name": "pybert.web.archive.atomic_write"}
+{"kind": "serialization", "name": "atomic_write", "input_bytes": 22, "output_bytes": null, "elapsed_s": 0.002281199995195493, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.json_bytes"}
+{"kind": "serialization", "name": "json_bytes", "input_bytes": null, "output_bytes": 529, "elapsed_s": 5.0499977078288794e-05, "output_blob_sha256": "875734f562c63e104d5ca857d4d491fb7642dae40d7109af747dfee590a5b403", "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.atomic_write"}
+{"kind": "serialization", "name": "atomic_write", "input_bytes": 529, "output_bytes": null, "elapsed_s": 0.0021038999839220196, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "partial_save", "name": "pybert.web.clocks.write_partial"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "pure", "name": "pybert.web.clocks.write_partial.<locals>.pack"}
+{"kind": "serialization", "name": "numpy.savez_compressed", "input_array_bytes": 59, "output_or_stream_bytes": 859, "consumed_stream_bytes": 859, "output_blob_sha256": "9fe5c48908077d7ac66a4bf8e9d65ce6bb59aaac844844556da43c50a45af4a2", "elapsed_s": 0.0011661000025924295, "returned": true}
+{"kind": "pure", "name": "pybert.web.archive.array_identity"}
+{"kind": "pure", "name": "pybert.web.archive.sha256"}
+{"kind": "serialization", "name": "hashlib.sha256", "input_bytes": 8, "digest_capacity_bytes": 32, "elapsed_s": 7.099995855242014e-06, "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\archive.py"}
+{"kind": "serialization", "name": "sha256", "input_bytes": 8, "output_bytes": 64, "elapsed_s": 6.900000153109431e-05, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.array_identity"}
+{"kind": "pure", "name": "pybert.web.archive.sha256"}
+{"kind": "serialization", "name": "hashlib.sha256", "input_bytes": 3, "digest_capacity_bytes": 32, "elapsed_s": 5.2000104915350676e-06, "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\archive.py"}
+{"kind": "serialization", "name": "sha256", "input_bytes": 3, "output_bytes": 64, "elapsed_s": 5.9299985878169537e-05, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.array_identity"}
+{"kind": "pure", "name": "pybert.web.archive.sha256"}
+{"kind": "serialization", "name": "hashlib.sha256", "input_bytes": 24, "digest_capacity_bytes": 32, "elapsed_s": 5.0000089686363935e-06, "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\archive.py"}
+{"kind": "serialization", "name": "sha256", "input_bytes": 24, "output_bytes": 64, "elapsed_s": 6.059999577701092e-05, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.array_identity"}
+{"kind": "pure", "name": "pybert.web.archive.sha256"}
+{"kind": "serialization", "name": "hashlib.sha256", "input_bytes": 24, "digest_capacity_bytes": 32, "elapsed_s": 5.0000089686363935e-06, "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\archive.py"}
+{"kind": "serialization", "name": "sha256", "input_bytes": 24, "output_bytes": 64, "elapsed_s": 5.5599986808374524e-05, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.atomic_write"}
+{"kind": "serialization", "name": "atomic_write", "input_bytes": 859, "output_bytes": null, "elapsed_s": 0.0017051000031642616, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "pure", "name": "pybert.web.archive.json_bytes"}
+{"kind": "serialization", "name": "json_bytes", "input_bytes": null, "output_bytes": 1810, "elapsed_s": 6.160000339150429e-05, "output_blob_sha256": "114fe4315a72f7c17c3f94bf418916a62eef19b18143db2556338fbb1ae3f366", "event": "return_or_exception"}
+{"kind": "execution_write", "name": "pybert.web.ami.Execution.write"}
+{"kind": "pure", "name": "pybert.web.archive.json_bytes"}
+{"kind": "serialization", "name": "json_bytes", "input_bytes": null, "output_bytes": 582, "elapsed_s": 5.390000296756625e-05, "output_blob_sha256": "3ffe2d3b26b3c99076ccde6bb5a6c7a1825bb5bf819d4e144427ac196f7919ee", "event": "return_or_exception"}
+{"kind": "serialization", "name": "numpy.savez_compressed", "input_array_bytes": 16, "output_or_stream_bytes": 231, "consumed_stream_bytes": null, "output_blob_sha256": "45672f54b63c9e27af80722875c1afed980da37d5beac6afb20f52e6385d34ca", "elapsed_s": 0.0008710999973118305, "returned": true}
+{"kind": "serialization_input", "name": "read_json", "input_blob_sha256": "3ffe2d3b26b3c99076ccde6bb5a6c7a1825bb5bf819d4e144427ac196f7919ee"}
+{"kind": "pure", "name": "pybert.web.archive.read_json"}
+{"kind": "pure", "name": "pybert.web.archive.read_json.<locals>.pairs"}
+{"kind": "pure", "name": "pybert.web.archive.read_json.<locals>.pairs"}
+{"kind": "pure", "name": "pybert.web.archive.read_json.<locals>.pairs"}
+{"kind": "pure", "name": "pybert.web.archive.read_json.<locals>.pairs"}
+{"kind": "pure", "name": "pybert.web.archive.json_bytes"}
+{"kind": "serialization", "name": "json_bytes", "input_bytes": null, "output_bytes": 582, "elapsed_s": 4.800001624971628e-05, "output_blob_sha256": "3ffe2d3b26b3c99076ccde6bb5a6c7a1825bb5bf819d4e144427ac196f7919ee", "event": "return_or_exception"}
+{"kind": "serialization", "name": "read_json", "input_bytes": 582, "output_bytes": null, "elapsed_s": 0.00034749999758787453, "output_blob_sha256": null, "event": "return_or_exception"}
+{"kind": "annotate", "name": "pybert.web.ami.annotate"}
+{"kind": "annotate", "name": "pybert.web.ami.annotate"}

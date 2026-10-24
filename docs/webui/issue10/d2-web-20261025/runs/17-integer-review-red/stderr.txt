@@ -1,0 +1,91 @@
+test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) ... 
+  test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) (name='signed_nonuniform') ... FAIL
+  test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) (name='unsigned_nonuniform') ... FAIL
+E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\src\pybert\web\clocks.py:180: RuntimeWarning: overflow encountered in scalar subtract
+  ts = float(t[1] - t[0]) if len(t) >= 2 else None
+  test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) (name='unsigned_reverse') ... FAIL
+  test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) (name='integer_steps_differ_beyond_float_precision') ... FAIL
+test_exact_integer_uniform_preserves_original_bytes_and_frequency (d2_cases.IntegerReviewCases.test_exact_integer_uniform_preserves_original_bytes_and_frequency) ... 
+  test_exact_integer_uniform_preserves_original_bytes_and_frequency (d2_cases.IntegerReviewCases.test_exact_integer_uniform_preserves_original_bytes_and_frequency) (name='signed_uniform') ... FAIL
+  test_exact_integer_uniform_preserves_original_bytes_and_frequency (d2_cases.IntegerReviewCases.test_exact_integer_uniform_preserves_original_bytes_and_frequency) (name='unsigned_uniform') ... FAIL
+
+======================================================================
+FAIL: test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) (name='signed_nonuniform')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 838, in test_exact_integer_nonuniform_and_unsigned_reverse_rejected
+    self.assertEqual(spectrum["availability"], "unavailable", item["name"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'available' != 'unavailable'
+- available
++ unavailable
+? ++
+ : signed_nonuniform
+
+======================================================================
+FAIL: test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) (name='unsigned_nonuniform')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 838, in test_exact_integer_nonuniform_and_unsigned_reverse_rejected
+    self.assertEqual(spectrum["availability"], "unavailable", item["name"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'available' != 'unavailable'
+- available
++ unavailable
+? ++
+ : unsigned_nonuniform
+
+======================================================================
+FAIL: test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) (name='unsigned_reverse')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 838, in test_exact_integer_nonuniform_and_unsigned_reverse_rejected
+    self.assertEqual(spectrum["availability"], "unavailable", item["name"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'available' != 'unavailable'
+- available
++ unavailable
+? ++
+ : unsigned_reverse
+
+======================================================================
+FAIL: test_exact_integer_nonuniform_and_unsigned_reverse_rejected (d2_cases.IntegerReviewCases.test_exact_integer_nonuniform_and_unsigned_reverse_rejected) (name='integer_steps_differ_beyond_float_precision')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 838, in test_exact_integer_nonuniform_and_unsigned_reverse_rejected
+    self.assertEqual(spectrum["availability"], "unavailable", item["name"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'available' != 'unavailable'
+- available
++ unavailable
+? ++
+ : integer_steps_differ_beyond_float_precision
+
+======================================================================
+FAIL: test_exact_integer_uniform_preserves_original_bytes_and_frequency (d2_cases.IntegerReviewCases.test_exact_integer_uniform_preserves_original_bytes_and_frequency) (name='signed_uniform')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 863, in test_exact_integer_uniform_preserves_original_bytes_and_frequency
+    self.assertEqual(metadata["rule"], "exact integer intervals; zero floating timestamp tolerance")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'one ULP per endpoint and subtraction for tested and reference intervals' != 'exact integer intervals; zero floating timestamp tolerance'
+- one ULP per endpoint and subtraction for tested and reference intervals
++ exact integer intervals; zero floating timestamp tolerance
+
+
+======================================================================
+FAIL: test_exact_integer_uniform_preserves_original_bytes_and_frequency (d2_cases.IntegerReviewCases.test_exact_integer_uniform_preserves_original_bytes_and_frequency) (name='unsigned_uniform')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 863, in test_exact_integer_uniform_preserves_original_bytes_and_frequency
+    self.assertEqual(metadata["rule"], "exact integer intervals; zero floating timestamp tolerance")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'one ULP per endpoint and subtraction for tested and reference intervals' != 'exact integer intervals; zero floating timestamp tolerance'
+- one ULP per endpoint and subtraction for tested and reference intervals
++ exact integer intervals; zero floating timestamp tolerance
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.040s
+
+FAILED (failures=6)

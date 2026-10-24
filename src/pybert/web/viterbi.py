@@ -7,6 +7,8 @@ from types import SimpleNamespace
 
 import numpy as np
 
+from pybert.web.clocks import stored_clock_context
+
 MAX_STATES = 256
 MAX_STATE_SAMPLES = 2_000_000
 MAX_DENSE_WORK = 25_000_000
@@ -66,12 +68,16 @@ def extend(engine, captured, arrays, manifest):
     from pybert.models.bert import update_trellis
 
     config = manifest["effective_input"]
+    clock = stored_clock_context(manifest, arrays)
     enabled = config["rx_use_viterbi"]
     record = {"schema_version": 2, "availability": "available" if enabled else "disabled",
               "reason": None if enabled else "Use Viterbi was disabled for this run; -1 means not calculated",
               "plan": plan(config, execution=True), "ber": {}, "producer": "models.bert / models.viterbi",
               "probability": "native raw state probability, dimensionless; not BER",
               "display": {"initial_symbols": 10, "log10_floor": -20, "raw_unchanged": True}}
+    if clock is not None:
+        record["clock_source"] = {"version": 2, "invocation_id": clock["info"]["invocation_id"],
+                                  "sample_selection": "last W producer indices within the frozen target/grid window"}
     datasets = manifest["datasets"]
 
     def add(key, value, unit="1", axis=None, window=None, producer="my_run_simulation decoding locals"):
@@ -83,6 +89,10 @@ def extend(engine, captured, arrays, manifest):
                              shape=list(arr.shape), unit=unit, axis=axis, window=window or manifest["window"],
                              clock_basis="recovered clock_times / original calc_ber", display_noise=False,
                              availability="available")
+        if clock is not None:
+            datasets[key].update(clock_basis="AMI producer grid indices / original calc_ber",
+                                 source_fields=["ami.clock.sample_indices", "ami.clock.analysis_sample_indices",
+                                                "ami.clock.sample_grid_times_s"])
 
     for name in ("dfe", "viterbi"):
         if name not in captured:
@@ -106,6 +116,12 @@ def extend(engine, captured, arrays, manifest):
         window = {"kind": "native decoder symbol window", "symbol_start": 0, "symbol_stop_exclusive": count,
                   "sample_selection": "last eye_uis+1 recovered clocks <= t[-1], then first eye_uis",
                   "voltage_selection": "first t sample >= each actual recovered clock"}
+        if clock is not None:
+            window.update(kind="AMI decoder symbol window",
+                          sample_selection=record["clock_source"]["sample_selection"],
+                          voltage_selection="dfe_out at the saved producer absolute indices",
+                          producer_invocation_id=clock["info"]["invocation_id"],
+                          producer_analysis_window=clock["info"]["analysis"])
         add("viterbi.symbol_index", np.arange(count), "symbol index", window=window, producer="array axis identity")
         add("viterbi.state_index", np.arange(record["state_count"]), "state index", producer="decoder state identity")
         for key in ISI_ARRAYS:
@@ -121,6 +137,8 @@ def extend(engine, captured, arrays, manifest):
         full_count = len(debug["symbols_dfe"])
         full_window = {"kind": "full native DFE decision sequence", "symbol_start": 0,
                        "symbol_stop_exclusive": full_count}
+        if clock is not None:
+            full_window["kind"] = "full AMI timed slicer decision sequence"
         record["dfe_decisions"] = {"symbol_count": full_count, "decoder_start_symbol": full_count - count,
                                    "decoder_stop_symbol_exclusive": full_count, "decoder_axis": "viterbi.symbol_index",
                                    "selection": "symbols_dfe[-len(sig_samps):] * decision_scaler"}
@@ -129,7 +147,10 @@ def extend(engine, captured, arrays, manifest):
             ("symbols_dfe", debug["symbols_dfe"], "native dbg_dict_viterbi[symbols_dfe]", "viterbi.dfe_symbol_index"),
         ):
             add(f"viterbi.{key}", value, axis=axis, window=full_window, producer=producer)
-            datasets[f"viterbi.{key}"]["clock_basis"] = "native DFE decisions in returned order; decoder uses the tail independently of sample clocks"
+            datasets[f"viterbi.{key}"]["clock_basis"] = (
+                "AMI producer decisions in returned order; decoder uses the final W producer indices"
+                if clock is not None
+                else "native DFE decisions in returned order; decoder uses the tail independently of sample clocks")
         add("viterbi.states", debug["decoder"].states, axis="viterbi.state_index", producer="original ISI decoder.states")
         add("viterbi.trans", debug["decoder"].trans, axis="viterbi.state_index", producer="original ISI decoder.trans")
         sink = SimpleNamespace(rx_use_viterbi=True, dbg_dict_viterbi=debug, mod_type=engine.mod_type,
@@ -146,6 +167,7 @@ def extend(engine, captured, arrays, manifest):
 def validate(run, arrays):
     """Validate the complete primitive decoding contract before archive publication."""
     record = run.get("decoding")
+    clock = stored_clock_context(run, arrays)
     if not isinstance(record, dict) or type(record.get("schema_version")) is not int or record["schema_version"] not in (1, 2):
         raise ValueError("Missing/unknown decoding schema")
     config = run["effective_input"]
@@ -164,6 +186,10 @@ def validate(run, arrays):
         raise ValueError("Missing/inconsistent decoding plan/producer")
     if record.get("display") != {"initial_symbols": 10, "log10_floor": -20, "raw_unchanged": True}:
         raise ValueError("Missing/unknown decoding display contract")
+    if clock is not None and record.get("clock_source") != {
+            "version": 2, "invocation_id": clock["info"]["invocation_id"],
+            "sample_selection": "last W producer indices within the frozen target/grid window"}:
+        raise ValueError("Missing/inconsistent AMI decoding producer clock source")
 
     def get(key, *, integer=False, shape=None):
         if key not in arrays:
@@ -262,10 +288,15 @@ def validate(run, arrays):
             raise ValueError("Invalid full DFE decision axis")
         full_window = {"kind": "full native DFE decision sequence", "symbol_start": 0,
                        "symbol_stop_exclusive": full_count}
+        if clock is not None:
+            full_window["kind"] = "full AMI timed slicer decision sequence"
         for key, axis in (("symbols_dfe", "viterbi.dfe_symbol_index"), ("dfe_symbol_index", None)):
             meta = run["datasets"][f"viterbi.{key}"]
+            basis = ("AMI producer decisions in returned order; decoder uses the final W producer indices"
+                     if clock is not None else
+                     "native DFE decisions in returned order; decoder uses the tail independently of sample clocks")
             if (meta.get("axis") != axis or meta["window"] != full_window
-                    or meta.get("clock_basis") != "native DFE decisions in returned order; decoder uses the tail independently of sample clocks"):
+                    or meta.get("clock_basis") != basis):
                 raise ValueError("Invalid full DFE decision axis/window/clock basis")
     elif ("dfe_decisions" in record or "viterbi.dfe_symbol_index" in arrays
           or run["datasets"]["viterbi.symbols_dfe"].get("axis") is not None
@@ -282,9 +313,21 @@ def validate(run, arrays):
         if np.any((arrays[f"viterbi.{key}"] < 0) | (arrays[f"viterbi.{key}"] >= states)):
             raise ValueError(f"viterbi.{key}: out of state bounds")
     indices, times = arrays["viterbi.sample_indices"], arrays["viterbi.sample_times"]
-    if (np.any(indices < 1) or np.any(indices >= len(arrays["t"])) or np.any(np.diff(times) <= 0)
-            or np.any(arrays["t"][indices] < times) or np.any(arrays["t"][indices - 1] >= times)
-            or not np.array_equal(arrays["viterbi.sig_samps"], arrays["dfe_out"][indices])):
+    if clock is not None:
+        if (indices.dtype.kind not in "iu" or not np.array_equal(indices, clock["info"]["analysis_sample_indices"])
+                or not np.array_equal(times, arrays["t"][indices])
+                or not np.array_equal(arrays["viterbi.sig_samps"], arrays["dfe_out"][indices])):
+            raise ValueError("AMI decoder must reuse the final W saved producer indices/grid times")
+        for key in ("sig_samps", "sample_times", "sample_indices", "decided_levels",
+                    "probs", "prevs", "path", "symbols_viterbi"):
+            window = run["datasets"][f"viterbi.{key}"]["window"]
+            if (window.get("sample_selection") != record["clock_source"]["sample_selection"]
+                    or window.get("producer_invocation_id") != clock["info"]["invocation_id"]
+                    or window.get("producer_analysis_window") != clock["info"]["analysis"]):
+                raise ValueError("AMI decoding window lost its producer provenance")
+    elif (np.any(indices < 1) or np.any(indices >= len(arrays["t"])) or np.any(np.diff(times) <= 0)
+          or np.any(arrays["t"][indices] < times) or np.any(arrays["t"][indices - 1] >= times)
+          or not np.array_equal(arrays["viterbi.sig_samps"], arrays["dfe_out"][indices])):
         raise ValueError("Invalid original recovered clock samples/indices")
     if not np.array_equal(get("viterbi.trellis_path_xs", integer=True, shape=(count,)), np.arange(count)):
         raise ValueError("Invalid trellis symbol axis")

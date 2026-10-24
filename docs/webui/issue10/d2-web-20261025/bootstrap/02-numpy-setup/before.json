@@ -1,0 +1,10 @@
+{
+  "command": [
+    "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+    "venv",
+    "--python",
+    "C:/Users/yx/AppData/Roaming/uv/python/cpython-3.13-windows-x86_64-none/python.exe",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv"
+  ],
+  "scope": "new env/cache only, minimum locked NumPy, no product import"
+}

@@ -1,0 +1,118 @@
+{
+  "status": "PENDING_PM_EXTRA_BATCH_AUTHORIZATION; do not execute or modify launcher cap yet",
+  "fixed_candidate": "479b88590ef6613fef0c4e29a85bfde4fe2c1e3d",
+  "new_review_finding": {
+    "severity": "P2",
+    "basis": "read-only independent Spec analysis; no new NumPy/product execution",
+    "counterexample_dtype": "int64",
+    "counterexample_t": [
+      1152921504606846976,
+      1152921504606848000,
+      1152921504606850048
+    ],
+    "actual_integer_steps": [
+      1024,
+      2048
+    ],
+    "current_float_timestamp_spacing": 256,
+    "current_bound_at_least": 1024,
+    "current_abs_step_error": 1024,
+    "failure": "Integer intervals exact yet floating timestamp bound can permit2x interval; violates real nonuniform rejection."
+  },
+  "proposed_product_fix": {
+    "files": [
+      "src/pybert/web/clocks.py"
+    ],
+    "rule": "Keep existing fiu accepted types. Float timestamps retain reviewed conservative ULP rule. Integer timestamps compare exact stored intervals for equality, with zero floating tolerance; require raw adjacent timestamp ordering and positive actual diff, preventing unsigned wrap. Preserve original dtype/raw/first-interval ts and FFT/window/indices. Diagnostic metadata distinguishes exact integer validation from floating roundoff. No new helper or DSP algorithm."
+  },
+  "fixtures": [
+    {
+      "name": "signed_uniform",
+      "dtype": "int64",
+      "t": [
+        1152921504606846976,
+        1152921504606848000,
+        1152921504606849024
+      ],
+      "expected": "available"
+    },
+    {
+      "name": "signed_nonuniform",
+      "dtype": "int64",
+      "t": [
+        1152921504606846976,
+        1152921504606848000,
+        1152921504606850048
+      ],
+      "expected": "nonuniform_grid/noFFT"
+    },
+    {
+      "name": "unsigned_uniform",
+      "dtype": "uint64",
+      "t": [
+        9223372036854775808,
+        9223372036854776832,
+        9223372036854777856
+      ],
+      "expected": "available"
+    },
+    {
+      "name": "unsigned_nonuniform",
+      "dtype": "uint64",
+      "t": [
+        9223372036854775808,
+        9223372036854776832,
+        9223372036854778880
+      ],
+      "expected": "nonuniform_grid/noFFT"
+    },
+    {
+      "name": "unsigned_reverse",
+      "dtype": "uint64",
+      "t": [
+        9223372036854779904,
+        9223372036854778880,
+        9223372036854777856
+      ],
+      "expected": "nonuniform_grid/noFFT"
+    },
+    {
+      "name": "integer_steps_differ_beyond_float_precision",
+      "dtype": "int64",
+      "t": [
+        0,
+        4611686018427387904,
+        9223372036854775807
+      ],
+      "expected": "nonuniform_grid/noFFT"
+    }
+  ],
+  "fixture_common": "3 values each, period ps=[5,5,5], mask alltrue, FFT[0:3], analysis bounds exact integer min/max. No 4096+ vector, no model/worker/coordinator. Tests remain outside defaultpytest.",
+  "requested_increment": {
+    "batch_cap_from": 16,
+    "batch_cap_to": 18,
+    "additional_batches": 2,
+    "planned_ids": [
+      "17-integer-review-red",
+      "18-integer-review-green"
+    ],
+    "per_batch_timeout_s": 60,
+    "D_additional_pure_upper": 24,
+    "D_actual_before": 18,
+    "D_forecast_after": 42,
+    "D_cap_unchanged": 999,
+    "pure_actual_before": 17291,
+    "pure_forecast_after": 17315,
+    "global_pure_cap_unchanged": 25000,
+    "histogram_additional_upper": 12,
+    "rfft_additional_upper": 8,
+    "NumPy_imports_additional": 2,
+    "other_product_wrapper_increments": 0,
+    "data_bytes_upper_additional": 2097152,
+    "per_artifact_cap_unchanged": 16777216,
+    "cumulative_data_cap_unchanged": 536870912
+  },
+  "guard_plan": "No additional execution before authorization. If granted, freeze case/source/runner/plan/environment/expected limits before each run; only parameterize launcher batchcap to newly approved18 while preserving original logs/count semantics and failclosed os._exit86; D cap check remains999 baseline17273.",
+  "old_evidence": "01-16/seal1/JSON14partial/old failures preserved; no C usage or A/B reallocation.",
+  "static_elapsed_s": 3.5999983083456755e-06
+}

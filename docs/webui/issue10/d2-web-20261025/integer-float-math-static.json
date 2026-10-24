@@ -1,0 +1,17 @@
+{
+  "scope": "AST-only compare actualpassed16 ->pendingfixed18; no function execution",
+  "assignments": {
+    "ts": true,
+    "steps": true,
+    "timestamp_ulps": true,
+    "step_ulps": true,
+    "bounds": true,
+    "errors": true,
+    "values": true,
+    "raw": true,
+    "frequency": true
+  },
+  "floating_acceptance": "same finite and increasing and errors<=bounds condition, changed only equivalent boolean expression/control sharing",
+  "integer": "original adjacentorder earlyreject + positiveactualsteps + exactintegerstepsequal; nofloatcomparison",
+  "product_NumPy_calls": 0
+}

@@ -1,0 +1,29 @@
+test_high_origin_roundoff_and_real_nonuniform_period_inputs (d2_cases.ReviewFixCases.test_high_origin_roundoff_and_real_nonuniform_period_inputs) ... FAIL
+test_worker_imported_config_snapshot_keeps_global_scope (d2_cases.ReviewFixCases.test_worker_imported_config_snapshot_keeps_global_scope) ... FAIL
+
+======================================================================
+FAIL: test_high_origin_roundoff_and_real_nonuniform_period_inputs (d2_cases.ReviewFixCases.test_high_origin_roundoff_and_real_nonuniform_period_inputs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 768, in test_high_origin_roundoff_and_real_nonuniform_period_inputs
+    self.assertEqual(spectrum["availability"], "available", spectrum["reason"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'unavailable' != 'available'
+- unavailable
+? --
++ available
+ : nonuniform_grid
+
+======================================================================
+FAIL: test_worker_imported_config_snapshot_keeps_global_scope (d2_cases.ReviewFixCases.test_worker_imported_config_snapshot_keeps_global_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 741, in test_worker_imported_config_snapshot_keeps_global_scope
+    self.assertTrue(report["current"]["global"], "config snapshot was shadowed by a worker local")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : config snapshot was shadowed by a worker local
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.030s
+
+FAILED (failures=2)

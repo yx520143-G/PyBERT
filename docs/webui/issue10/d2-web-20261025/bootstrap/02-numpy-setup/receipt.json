@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+    "venv",
+    "--python",
+    "C:/Users/yx/AppData/Roaming/uv/python/cpython-3.13-windows-x86_64-none/python.exe",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv"
+  ],
+  "exit_code": 0,
+  "elapsed_s": 0.08324109998648055,
+  "output_sha256": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "5b2a01f07bfd59572da5863b2f914ee9bc32647db6eb7dcf74f18c35b28417da"
+  }
+}

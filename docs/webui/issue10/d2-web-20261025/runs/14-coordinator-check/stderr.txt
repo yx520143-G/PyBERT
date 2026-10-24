@@ -1,0 +1,7 @@
+test_actual_collect_analysis_masked_bytes_and_decoder_provenance (d2_cases.CoordinatorCases.test_actual_collect_analysis_masked_bytes_and_decoder_provenance) ... ok
+test_real_wiring_native_math_discovery_and_failure_boundaries (d2_cases.BindingCases.test_real_wiring_native_math_discovery_and_failure_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.305s
+
+OK

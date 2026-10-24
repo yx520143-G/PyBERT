@@ -1,0 +1,141 @@
+{
+  "review_url": "https://github.com/yx520143-G/PyBERT/pull/33#pullrequestreview-5640070393",
+  "comments": {
+    "comments": [
+      {
+        "url": "https://github.com/yx520143-G/PyBERT/pull/33#discussion_r4368556338",
+        "body": "[P1] 此处的局部 `snapshot` 会遮蔽 line 11 导入的配置函数。Python 将整个 run_worker 内的这个名称视为局部变量，因此正常请求先到 line 107 的 `snapshot(p)` 时必然 UnboundLocalError，Native/AMI Run 都在 Main 前失败。请重命名这个收尾局部变量，并用实际源码 AST/symtable 检查导入函数仍作为 global 引用；无需执行完整 worker。",
+        "user": {
+          "login": "yx520143-G",
+          "name": "yx520143-G",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+          "id": 269540313
+        },
+        "id": 4368556338,
+        "pull_request_review_id": 5640070393,
+        "in_reply_to_id": null,
+        "created_at": "2026-10-24T21:18:32Z",
+        "updated_at": "2026-10-24T21:18:32Z",
+        "review": null,
+        "side": "RIGHT",
+        "line": 219,
+        "start_line": null,
+        "path": "src/pybert/web/worker.py",
+        "body_html": "<p dir=\"auto\">[P1] 此处的局部 <code class=\"notranslate\">snapshot</code> 会遮蔽 line 11 导入的配置函数。Python 将整个 run_worker 内的这个名称视为局部变量，因此正常请求先到 line 107 的 <code class=\"notranslate\">snapshot(p)</code> 时必然 UnboundLocalError，Native/AMI Run 都在 Main 前失败。请重命名这个收尾局部变量，并用实际源码 AST/symtable 检查导入函数仍作为 global 引用；无需执行完整 worker。</p>"
+      },
+      {
+        "url": "https://github.com/yx520143-G/PyBERT/pull/33#discussion_r4368556343",
+        "body": "[P2] 固定相对容差 1e-12、绝对容差 0 会拒绝 _get_t 正常生成的长网格。10 Gbps / 32 sps 下 t[i]=i*3.125e-12，在 i=32768 的实际相邻差为 3.1249999999936173e-12，相对舍入误差约 2.04249e-12；默认 480000 点包含它。随后 nonuniform_grid 会使 data.collect:458–460 拒绝整条 AMI 记录。请按 timestamp 的浮点舍入尺度判定均匀性，保留真实非均匀/非正/非有限拒绝，并以 ≤4096 点的高时间原点 fixture 检查实际 period seam，不能仅任意放宽常数。",
+        "user": {
+          "login": "yx520143-G",
+          "name": "yx520143-G",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+          "id": 269540313
+        },
+        "id": 4368556343,
+        "pull_request_review_id": 5640070393,
+        "in_reply_to_id": null,
+        "created_at": "2026-10-24T21:18:32Z",
+        "updated_at": "2026-10-24T21:18:32Z",
+        "review": null,
+        "side": "RIGHT",
+        "line": 183,
+        "start_line": null,
+        "path": "src/pybert/web/clocks.py",
+        "body_html": "<p dir=\"auto\">[P2] 固定相对容差 1e-12、绝对容差 0 会拒绝 _get_t 正常生成的长网格。10 Gbps / 32 sps 下 t[i]=i*3.125e-12，在 i=32768 的实际相邻差为 3.1249999999936173e-12，相对舍入误差约 2.04249e-12；默认 480000 点包含它。随后 nonuniform_grid 会使 data.collect:458–460 拒绝整条 AMI 记录。请按 timestamp 的浮点舍入尺度判定均匀性，保留真实非均匀/非正/非有限拒绝，并以 ≤4096 点的高时间原点 fixture 检查实际 period seam，不能仅任意放宽常数。</p>"
+      },
+      {
+        "url": "https://github.com/yx520143-G/PyBERT/pull/33#pullrequestreview-5640070393",
+        "body": "## Standards\n\n固定审查 HEAD `9331c38e4393868d69d2bbc4dbd22565c0612324` / tree `70db8a76d96208b53d081e6a52a3132760ef3fc2`，基线 `0f04562c50a12fae637fece04da100c44c86617e`。documented 违例 **0**，actionable heuristic **0**。已检查全部 9 个产品文件 diff、仓库规则及默认测试入口；tests 树与基线一致。下面的功能问题属于 Spec 轴。\n\n## Spec\n\n**missing/partial 1；scope creep 0；implemented wrong 2。当前候选暂不验收或合并。**\n\n1. **[P1 · wrong] worker 局部变量遮蔽使正常 Run 在 Main 前失败。** `worker.py:219` 新增赋值 `snapshot = producer_snapshot or {...}` 使该名称成为整个 `run_worker` 的局部变量，遮蔽 line 11 导入的配置函数。因此通过输入校验后的 line 107 `snapshot(p)` 在赋值前访问，必然触发 `UnboundLocalError`，Native/AMI 均受影响。PM 以固定源码、AST/symtable 独立确认；无需执行完整 worker。改收尾局部变量名并补真实源码作用域回归即可。\n2. **[P2 · wrong] 浮点时间轴的合法舍入误差被判为非均匀。** `clocks.py:183` 对 `diff(t)` 采用固定 `rtol=1e-12, atol=0`。实际 `PyBERT._get_t` 构造 `t[i]=i*ts`；10 Gbps / 32 sps 下 `ts=3.125e-12`，i=32768 的相邻差为 `3.1249999999936173e-12`，相对误差 `2.0424898781524213e-12`。这是正常浮点舍入，默认 NRZ 15000 bits / 480000 点涵盖该位置，但被标记 `nonuniform_grid`，进而在 `data.collect:458–460` 拒绝整条 AMI 记录。应采用有依据、考虑 timestamp 舍入误差的均匀性判定，同时保留有限、严格递增和真实非均匀拒绝；不改原时间轴、窗口或生产者 indices。\n3. **[P2 · partial] 序列化逐项计时证据不完整。** 第 14 批 `data.py:462,469` 直接 JSON 写/读各 1 次可由固定路径和产物定位，但各自 elapsed 未测，仍为 **UNKNOWN**，不能用 child elapsed 或 JSON payload 大小代替。原 02 host-copy、08–10 malformed-buffer 等已披露缺口亦保留。按 [PM 证据边界](https://github.com/yx520143-G/PyBERT/issues/10#issuecomment-6389554270) 保留原件及勘误，无须重跑补造历史。\n\n## 验证与返工边界\n\n两条独立 review 均只读 Git/源码/stdlib；PM 还用独立 double 算术确认 P2，没有运行 NumPy、产品、模型、测试或 owner checker。本次未对候选的完整保护 seal 作最终验收；现有第 14 批 coordinator 通过不能证明完整 worker 可运行。先前 269 项 accounting/hash 核对仍仅覆盖所声明的固定阶段证据。\n\n原 owner 在同一 PR #33 最小修复两个产品问题并补必要回归，保留当前交付与全部失败、UNKNOWN 和成本。D2 总预算与 [v2 补充](https://github.com/yx520143-G/PyBERT/issues/10#issuecomment-6388850218) 不变：当前 pure 17273/25000，D review reserve 至多 999，14/16 批已用；新 source/test/runner/plan 在执行前冻结，使用剩余至多 2 个批次且每批 ≤60s、向量/FFT ≤4096、各入口 caps 不变。用有界实际 period seam 验证正常高时间原点浮点网格与真实非均匀拒绝；worker 用实际源码 AST/symtable 作用域检查。不得为此运行完整 Main/run_worker、增加无关 coordinator 重跑、模型/GUI 或 E。若现有剩余预算不足，先报告具体计划与费用。\n\n修复后双轴自审、更新精确 source/receipt/seal 绑定，在原 PR 提交固定新 HEAD/tree 与 clean 状态并停写停测返权；PM 再 fresh review。#10 保持 open，不新建 issue。\n\nStandards：0；Spec：3（2 wrong、1 partial），最严重 P1。",
+        "user": {
+          "login": "yx520143-G",
+          "name": "yx520143-G",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+          "id": 269540313
+        },
+        "id": 5640070393,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": "2026-10-24T21:18:32Z",
+        "updated_at": null,
+        "review": "COMMENTED",
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<h2 dir=\"auto\">Standards</h2>\n<p dir=\"auto\">固定审查 HEAD <code class=\"notranslate\">9331c38e4393868d69d2bbc4dbd22565c0612324</code> / tree <code class=\"notranslate\">70db8a76d96208b53d081e6a52a3132760ef3fc2</code>，基线 <code class=\"notranslate\">0f04562c50a12fae637fece04da100c44c86617e</code>。documented 违例 <strong>0</strong>，actionable heuristic <strong>0</strong>。已检查全部 9 个产品文件 diff、仓库规则及默认测试入口；tests 树与基线一致。下面的功能问题属于 Spec 轴。</p>\n<h2 dir=\"auto\">Spec</h2>\n<p dir=\"auto\"><strong>missing/partial 1；scope creep 0；implemented wrong 2。当前候选暂不验收或合并。</strong></p>\n<ol dir=\"auto\">\n<li><strong>[P1 · wrong] worker 局部变量遮蔽使正常 Run 在 Main 前失败。</strong> <code class=\"notranslate\">worker.py:219</code> 新增赋值 <code class=\"notranslate\">snapshot = producer_snapshot or {...}</code> 使该名称成为整个 <code class=\"notranslate\">run_worker</code> 的局部变量，遮蔽 line 11 导入的配置函数。因此通过输入校验后的 line 107 <code class=\"notranslate\">snapshot(p)</code> 在赋值前访问，必然触发 <code class=\"notranslate\">UnboundLocalError</code>，Native/AMI 均受影响。PM 以固定源码、AST/symtable 独立确认；无需执行完整 worker。改收尾局部变量名并补真实源码作用域回归即可。</li>\n<li><strong>[P2 · wrong] 浮点时间轴的合法舍入误差被判为非均匀。</strong> <code class=\"notranslate\">clocks.py:183</code> 对 <code class=\"notranslate\">diff(t)</code> 采用固定 <code class=\"notranslate\">rtol=1e-12, atol=0</code>。实际 <code class=\"notranslate\">PyBERT._get_t</code> 构造 <code class=\"notranslate\">t[i]=i*ts</code>；10 Gbps / 32 sps 下 <code class=\"notranslate\">ts=3.125e-12</code>，i=32768 的相邻差为 <code class=\"notranslate\">3.1249999999936173e-12</code>，相对误差 <code class=\"notranslate\">2.0424898781524213e-12</code>。这是正常浮点舍入，默认 NRZ 15000 bits / 480000 点涵盖该位置，但被标记 <code class=\"notranslate\">nonuniform_grid</code>，进而在 <code class=\"notranslate\">data.collect:458–460</code> 拒绝整条 AMI 记录。应采用有依据、考虑 timestamp 舍入误差的均匀性判定，同时保留有限、严格递增和真实非均匀拒绝；不改原时间轴、窗口或生产者 indices。</li>\n<li><strong>[P2 · partial] 序列化逐项计时证据不完整。</strong> 第 14 批 <code class=\"notranslate\">data.py:462,469</code> 直接 JSON 写/读各 1 次可由固定路径和产物定位，但各自 elapsed 未测，仍为 <strong>UNKNOWN</strong>，不能用 child elapsed 或 JSON payload 大小代替。原 02 host-copy、08–10 malformed-buffer 等已披露缺口亦保留。按 <a href=\"https://github.com/yx520143-G/PyBERT/issues/10#issuecomment-6389554270\" data-hovercard-type=\"issue\" data-hovercard-url=\"/yx520143-G/PyBERT/issues/10/hovercard\">PM 证据边界</a> 保留原件及勘误，无须重跑补造历史。</li>\n</ol>\n<h2 dir=\"auto\">验证与返工边界</h2>\n<p dir=\"auto\">两条独立 review 均只读 Git/源码/stdlib；PM 还用独立 double 算术确认 P2，没有运行 NumPy、产品、模型、测试或 owner checker。本次未对候选的完整保护 seal 作最终验收；现有第 14 批 coordinator 通过不能证明完整 worker 可运行。先前 269 项 accounting/hash 核对仍仅覆盖所声明的固定阶段证据。</p>\n<p dir=\"auto\">原 owner 在同一 PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6017665769\" data-permission-text=\"Title is private\" data-url=\"https://github.com/yx520143-G/PyBERT/issues/33\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/yx520143-G/PyBERT/pull/33/hovercard\" href=\"https://github.com/yx520143-G/PyBERT/pull/33\">#33</a> 最小修复两个产品问题并补必要回归，保留当前交付与全部失败、UNKNOWN 和成本。D2 总预算与 <a href=\"https://github.com/yx520143-G/PyBERT/issues/10#issuecomment-6388850218\" data-hovercard-type=\"issue\" data-hovercard-url=\"/yx520143-G/PyBERT/issues/10/hovercard\">v2 补充</a> 不变：当前 pure 17273/25000，D review reserve 至多 999，14/16 批已用；新 source/test/runner/plan 在执行前冻结，使用剩余至多 2 个批次且每批 ≤60s、向量/FFT ≤4096、各入口 caps 不变。用有界实际 period seam 验证正常高时间原点浮点网格与真实非均匀拒绝；worker 用实际源码 AST/symtable 作用域检查。不得为此运行完整 Main/run_worker、增加无关 coordinator 重跑、模型/GUI 或 E。若现有剩余预算不足，先报告具体计划与费用。</p>\n<p dir=\"auto\">修复后双轴自审、更新精确 source/receipt/seal 绑定，在原 PR 提交固定新 HEAD/tree 与 clean 状态并停写停测返权；PM 再 fresh review。<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6004437512\" data-permission-text=\"Title is private\" data-url=\"https://github.com/yx520143-G/PyBERT/issues/10\" data-hovercard-type=\"issue\" data-hovercard-url=\"/yx520143-G/PyBERT/issues/10/hovercard\" href=\"https://github.com/yx520143-G/PyBERT/issues/10\">#10</a> 保持 open，不新建 issue。</p>\n<p dir=\"auto\">Standards：0；Spec：3（2 wrong、1 partial），最严重 P1。</p>"
+      }
+    ],
+    "url": "https://github.com/yx520143-G/PyBERT/pull/33",
+    "title": "yx520143-G/PyBERT PR #33 comments",
+    "display_url": "https://github.com/yx520143-G/PyBERT/pull/33",
+    "display_title": "yx520143-G/PyBERT PR #33 comments"
+  },
+  "threads": {
+    "review_threads": [
+      {
+        "id": "PRRT_kwDOVUuY-s6v7yEU",
+        "is_resolved": false,
+        "is_outdated": false,
+        "path": "src/pybert/web/worker.py",
+        "line": 219,
+        "diff_side": "RIGHT",
+        "start_line": 219,
+        "start_diff_side": null,
+        "original_line": 219,
+        "original_start_line": null,
+        "resolved_by": null,
+        "comments": [
+          {
+            "id": "PRRC_kwDOVUuY-s8AAAABBGLhMg",
+            "database_id": 4368556338,
+            "body": "[P1] 此处的局部 `snapshot` 会遮蔽 line 11 导入的配置函数。Python 将整个 run_worker 内的这个名称视为局部变量，因此正常请求先到 line 107 的 `snapshot(p)` 时必然 UnboundLocalError，Native/AMI Run 都在 Main 前失败。请重命名这个收尾局部变量，并用实际源码 AST/symtable 检查导入函数仍作为 global 引用；无需执行完整 worker。",
+            "created_at": "2026-10-24T21:18:32Z",
+            "updated_at": "2026-10-24T21:18:32Z",
+            "author": {
+              "login": "yx520143-G",
+              "name": "yx520143-G",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+              "id": null
+            },
+            "viewer_did_author": true
+          }
+        ]
+      },
+      {
+        "id": "PRRT_kwDOVUuY-s6v7yEW",
+        "is_resolved": false,
+        "is_outdated": false,
+        "path": "src/pybert/web/clocks.py",
+        "line": 183,
+        "diff_side": "RIGHT",
+        "start_line": 183,
+        "start_diff_side": null,
+        "original_line": 183,
+        "original_start_line": null,
+        "resolved_by": null,
+        "comments": [
+          {
+            "id": "PRRC_kwDOVUuY-s8AAAABBGLhNw",
+            "database_id": 4368556343,
+            "body": "[P2] 固定相对容差 1e-12、绝对容差 0 会拒绝 _get_t 正常生成的长网格。10 Gbps / 32 sps 下 t[i]=i*3.125e-12，在 i=32768 的实际相邻差为 3.1249999999936173e-12，相对舍入误差约 2.04249e-12；默认 480000 点包含它。随后 nonuniform_grid 会使 data.collect:458–460 拒绝整条 AMI 记录。请按 timestamp 的浮点舍入尺度判定均匀性，保留真实非均匀/非正/非有限拒绝，并以 ≤4096 点的高时间原点 fixture 检查实际 period seam，不能仅任意放宽常数。",
+            "created_at": "2026-10-24T21:18:32Z",
+            "updated_at": "2026-10-24T21:18:32Z",
+            "author": {
+              "login": "yx520143-G",
+              "name": "yx520143-G",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/u/269540313?v=4",
+              "id": null
+            },
+            "viewer_did_author": true
+          }
+        ]
+      }
+    ]
+  }
+}

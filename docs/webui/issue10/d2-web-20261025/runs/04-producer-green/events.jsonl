@@ -1,0 +1,155 @@
+{"kind": "pure", "name": "pybert.utility.ami_clock.new_clock_info"}
+{"kind": "pure", "name": "pybert.utility.ami_clock.new_clock_info"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 1.3599987141788006e-05, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 4.6000059228390455e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 3.9000005926936865e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 5.699985194951296e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 3.5999983083456755e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 3.00002284348011e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.500019036233425e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.2999884095042944e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.400018274784088e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.500019036233425e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 6.400019628927112e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.6999914553016424e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.500019036233425e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.2999884095042944e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.3999891709536314e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context.<locals>.<genexpr>"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context.<locals>.<genexpr>"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context.<locals>.<genexpr>"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context.<locals>.<genexpr>"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context.<locals>.<genexpr>"}
+{"kind": "pure", "name": "pybert.web.clocks.eye_selection"}
+{"kind": "pure", "name": "pybert.web.clocks.eye_selection"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 6.099988240748644e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 3.1999952625483274e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.8999929782003164e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.8999929782003164e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.3999891709536314e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.400018274784088e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.2999884095042944e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.700020559132099e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 8.499977411702275e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 4.5000051613897085e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 3.6999990697950125e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 3.6999990697950125e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 5.2000104915350676e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 3.0999945010989904e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.600019797682762e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.3999891709536314e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.300017513334751e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.300017513334751e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.300017513334751e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.2999884095042944e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 3.4999975468963385e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.6999914553016424e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.300017513334751e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 6.099988240748644e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 4.2000028770416975e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.9999937396496534e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.600019797682762e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.2999884095042944e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.400018274784088e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.7999922167509794e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.3999891709536314e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 3.3999967854470015e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.6999914553016424e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.3999891709536314e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.400018274784088e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.300017513334751e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 5.599984433501959e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 3.3999967854470015e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.700020559132099e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.300017513334751e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.600019797682762e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.8999929782003164e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.500019036233425e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 3.3999967854470015e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.6999914553016424e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.3999891709536314e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.1999876480549574e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 5.5000127758830786e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 3.1999952625483274e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.700020559132099e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.600019797682762e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.800021320581436e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.2999884095042944e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.600019797682762e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.500019036233425e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.3999891709536314e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 3.6999990697950125e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.600019797682762e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 5.5000127758830786e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 3.1999952625483274e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.800021320581436e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.600019797682762e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.6999914553016424e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.500019036233425e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.3999891709536314e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.5999906938523054e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.500019036233425e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.6999914553016424e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.600019797682762e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 3.3999967854470015e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 4.3000036384910345e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 4.7000066842883825e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 5.700014298781753e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 3.600027412176132e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}
+{"kind": "pure", "name": "pybert.web.clocks.validate_period"}
+{"kind": "pure", "name": "pybert.utility.ami_clock.new_clock_info"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 0, "elapsed_s": 5.700014298781753e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 3.5999983083456755e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.6999914553016424e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.800021320581436e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.2999884095042944e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.2999884095042944e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}
+{"kind": "pure", "name": "pybert.web.clocks.snapshot_producer"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 0, "elapsed_s": 4.7000066842883825e-06, "event": "c_return", "source": "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\copy.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 3.4999975468963385e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 3.1999952625483274e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 16, "elapsed_s": 2.600019797682762e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 32, "elapsed_s": 2.4999899324029684e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "serialization", "name": "host_copy", "input_bytes": 128, "elapsed_s": 2.1999876480549574e-06, "event": "c_return", "source": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\web\\clocks.py"}
+{"kind": "pure", "name": "pybert.web.clocks.clock_context"}

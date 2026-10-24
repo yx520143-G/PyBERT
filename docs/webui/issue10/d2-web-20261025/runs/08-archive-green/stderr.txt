@@ -1,0 +1,29 @@
+test_masked_archive_features_and_lossless_original_files (d2_cases.ArchiveCases.test_masked_archive_features_and_lossless_original_files) ... ERROR
+
+======================================================================
+ERROR: test_masked_archive_features_and_lossless_original_files (d2_cases.ArchiveCases.test_masked_archive_features_and_lossless_original_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\d2_cases.py", line 358, in test_masked_archive_features_and_lossless_original_files
+    archive.validate_run(current, reread)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\src\pybert\web\archive.py", line 101, in validate_run
+    if not isinstance(value, str) or len(value) != length or any(char not in "0123456789abcdefABCDEF" for char in value):
+                                                             ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\src\pybert\web\archive.py", line 101, in <genexpr>
+    if not isinstance(value, str) or len(value) != length or any(char not in "0123456789abcdefABCDEF" for char in value):
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\run_guarded.py", line 162, in profile
+    entry(plan.get("function_kinds", {}).get(full_name, "pure"), full_name)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\run_guarded.py", line 77, in entry
+    block("cumulative " + kind)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\docs\webui\issue10\d2-web-20261025\run_guarded.py", line 70, in block
+    raise RuntimeError("D2 guard: " + reason)
+RuntimeError: D2 guard: cumulative pure
+
+----------------------------------------------------------------------
+Ran 1 test in 0.275s
+
+FAILED (errors=1)

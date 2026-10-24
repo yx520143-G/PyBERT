@@ -1,0 +1,18 @@
+{
+  "mismatches": [],
+  "counts": {
+    "old_metadata_sha256": 271,
+    "old_materials_and_installed_source_sha256": 2394,
+    "old_raw_sha256": 4874,
+    "old30_v2_seal": 1,
+    "old_D1_seal": 1,
+    "old_repository_states": 16,
+    "old_env_cache_dirs": 16,
+    "new_installed_files": 952,
+    "D2_original01_14_run_launch_files": 561
+  },
+  "all_matched": true,
+  "elapsed_s": 11.69075719997636,
+  "scope": "stdlib/Git readonly only; no product/env/test execution",
+  "prior_seal_sha256": "5d2bcf6ca2d162943553dd6d8f8135bb100c2e8d768455e22f69135bdd114047"
+}

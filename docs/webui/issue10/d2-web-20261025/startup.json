@@ -1,0 +1,30 @@
+{
+  "path": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web",
+  "branch": "codex/pybert-ami-d2-web",
+  "HEAD_tree": [
+    "0f04562c50a12fae637fece04da100c44c86617e",
+    "790d13dc87bf00d2b31f8aaf128157a937fe0c93"
+  ],
+  "clean_before_evidence": true,
+  "origin": "https://github.com/yx520143-G/PyBERT.git",
+  "git_common_dir": "E:/serial-bus-simulator-dependencies/pybert-ami-d2-web/.git",
+  "no_alternates": true,
+  "all_objects_link1": true,
+  "submodules_uninitialized": true,
+  "gitlinks": "160000 commit d6d1f7fe7e58536546a1cfb9430c750cc2cb103e\tPyAMI\n160000 commit ca905e793fcf6330929471317ca32e7611578e5d\tPyChOpMarg\n",
+  "protected_startup_path": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-bootstrap-cache\\protected-startup.json",
+  "protected_startup_sha256": "d1e94a32e133a26382e8567f278c64f52fa6ef4f5f1134b743552e6053c1aeeb",
+  "protected_counts": {
+    "old_raw_map_reference": 3,
+    "old_repository_states": 16,
+    "old_metadata_sha256": 271,
+    "old_materials_and_installed_source_sha256": 2394,
+    "old_env_cache_dirs": 16,
+    "old30_v2_seal": 2,
+    "old_D1_seal": 2
+  },
+  "clone_internal_elapsed_s": 65.41002400001162,
+  "task_wall_peak_RSS": "UNKNOWN",
+  "product_NumPy_seams_models_calls": 0,
+  "bootstrap_Python": "standalone3.13 uv runtime; initial read-only contract/startup source inspection used D1 interpreter without product imports or writes, existing installed hashes then verified"
+}

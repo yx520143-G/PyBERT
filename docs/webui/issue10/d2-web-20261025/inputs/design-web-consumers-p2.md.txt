@@ -1,0 +1,119 @@
+# P2 修订：Web 数值消费、masked period 与保存合同
+
+2026-10-24。基于产品源码 `35a71a6b79a00693a2f2862184552894752899c0`，修订设计提交 `ed23bfb6ca0fb8f252849a655c9e8240609e1ff2` 的消费者遗漏。下文均为待 PM 冻结的建议；没有产品实现或真实数值调用。原 ed23 工具、receipts、`verification.json` 保留原 bytes；它们没有证明本页新增合同。
+
+## 1. 固定源码事实与当前调用图
+
+| 源文件/API | 固定行号与现状 | 必要改变 |
+|---|---|---|
+| `worker.py::run_worker` | 114–119：Main `update_plots=False`；154–155：capture 外调用 collect | 不依赖 `bert.update_results` 覆盖 Web；prepare/Main/collect/analysis/finally 分阶段记账 |
+| `data.py::collect.add` | 100–103 全 finite gate；129–148 的 RAW ui_ests 经此入口，151–153 要求完整 t 长度 | AMI masked period 专用入口；普通 add 保持原 finite 检查 |
+| `collect` Eye | 298–322：秒数裁剪后直接 calc_eye；Rx input nominal 与 DFE 共两次 | DFE 使用 producer indices；不能先按秒数算错再被后续 builder 覆盖 |
+| `collect` CDR display | 335–340：完整 ui_ests 的抽样值经 line/add | 只显示 known 连续分段，不发送 NaN，不跨 unknown 连线 |
+| `analysis.py::eye_data` | 50–63：秒数传 calc_eye，零 count 报错 | 增加可选 clock_indices，与 Native seconds 入口区分 |
+| `analysis.py::extend_analysis` | 225–247：五观察点加 channel display-noise，共六个 eye_data；再次生成 eye.dfe | 第二处 DFE 也使用相同 producer indices、实际裁剪 origin、完整 trace 判定 |
+| `analysis.py::clock_data` | 66–71：完整 ui_ests histogram/rfft；频轴用 t[1]×len(t) | AMI 显式 mask 与冻结子窗；Native 默认分支保留 |
+| `extend_analysis` | 95–98 固定 full_record；250–271 计算 CDR；311、316、327–334 又重写来源/窗口 | 保留每个 raw/known/hist/FFT/eye 的真实窗口、mask/indices 来源，不能在结尾统一覆盖 |
+| `archive.py::read_arrays/validate_run` | 50–77 默认拒绝非有限数组；86 只收 raw2–5；save_archive 160 也用默认检查 | 新 masked 原始记录须有精确版本/字段白名单；不能仅让 collect 接受却无法 roundtrip |
+| `web/viterbi.py::extend/validate` | 107–108 固定旧 W+1 说明；保存并校验 sample_times/indices | 新 AMI 描述/校验使用 D1 实际选择；Native/历史记录原规则不重写 |
+
+```mermaid
+flowchart TD
+  W[worker run] --> M[Main update_plots=False]
+  M --> C[collect / RAW add]
+  C --> E1[calc_eye: rx_in nominal + dfe timed / 至多2]
+  E1 --> A[extend_analysis]
+  A --> E2[eye_data: 5 points + channel noise / 至多6]
+  E2 --> CE[calc_eye / 每次至多1]
+  A --> CD[clock_data / 1]
+  CD --> H[histogram / 1]
+  CD --> F[rfft / 1]
+  A --> V[可选Viterbi展示 / update_trellis]
+  V --> S[arrays.npz + finite JSON manifest]
+```
+
+这是静态路径，不是执行 trace。现有两组 Eye 会覆盖同名 DFE 产品，Rx input 则存在 `eye.rx_in` / `eye.tx` 两个别名；推荐本次最小实现保留这些调用和别名并准确计账，两处都修合同。不顺手去重；若以后只算一次再复用，另列产品来源、API 和预算变化。
+
+## 2. masked period 的 raw、派生、显示与 archive
+
+**推荐保留 dense raw，而不是补零或压缩后冒作原数组。** producer 给出全 t 长度、原 ps 单位的 `ui_ests` 与同形 bool `ami.cdr.period_known`；unknown 使用 NaN。period 值仍来自有效 edge 差，在相邻已消费 producer indices 的区间映射。mask 由 producer 产生，不能以 isfinite 自动推断或事后重标。
+
+`collect` 在 RAW_FIELDS 循环之前就须取得并核对 D1 提供的版本、实际执行分支、epoch、mask 和 indices，提前建立供分析使用的 clock context；不能等末尾 ami.annotate（当前395行）才选数值路线，也不能从请求开关或原len/first谓词反推实际消费。缺少该新合同而声称实际 AMI 消费的记录应失败留证，不按旧 Native 默认补全。
+
+`collect` 对该 AMI 分支从 RAW_FIELDS 的通用 add 分派到最小专用 `add_masked_period`，不修改普通 `add` 的全 finite 行为。专用入口只允许精确字段 `ui_ests` 和固定 mask 名，检查：实际 AMI consumer/clock-contract 版本，floating dtype，二者 shape==t.shape，mask dtype 为 bool，mask=true 处全部 finite 且 >0，mask=false 处全部 NaN（Inf 不允许）。索引/epoch/生产者来源也须满足 D1。任何矛盾都失败并留原件，不转换、不推断、不截短。全 unknown 可以作为 raw 保留，但不是完整分析成功。
+
+| 保存数据 | 具体轴、内容与可用性 |
+|---|---|
+| `ui_ests` | 原 dense dtype/shape/bytes 放 NPZ；axis=t；完整记录窗；`availability=available` 仅指原件可读，`numerical_availability=masked`、`mask_field=ami.cdr.period_known`、known/unknown count；不作为普通全有限线图输入 |
+| `ami.cdr.period_known` | bool，同 t；producer/mask语义明确，不从返回数组重算消费事实 |
+| `ami.cdr.known_grid_indices` / `ami.cdr.known_times_s` / `ami.cdr.known_period_ps` | 仅 mask=true 位置的索引、t 和原值；同长度；空向量保留且派生 availability=unavailable / no_known_period；compact 不替代 dense raw |
+| histogram 输入/结果 | 冻结 histogram 窗 `[h_start,h_stop)` 内 known indices/原 ps 值、edges/centers/counts；有实际来源和所选位置，无 known 输入则空结果且 unavailable，不生成虚假默认 bins |
+| FFT 输入/结果 | 冻结连续 `[f_start,f_stop)` 的完整原 grid 输入及 indices、实际 ts/绝对窗；满足第4节时才有 raw complex spectrum 与频轴；不满足时无计算结果，显式 unavailable |
+| `display.cdr.*` | 每个 known 连续区间分别产生 finite x/y trace，有限抽样上限沿用4096但在冻结投影策略中说明分配；不跨 unknown 连接。没有 known 点则空 traces+unavailable；不把 NaN 经 tolist 送入 plot_payload JSON |
+
+manifest 中不写 NaN/Inf 数字，保留 `allow_nan=False`；mask/count/window/reason 等是有限 primitive。NPZ 原值和 mask 独立做 dtype/shape/hash，未知 NaN 的 payload bits 不通过 JSON 或重建丢失。`collect` 的 length 校验、`extend_analysis.add` 的 nonfinite→unavailable 默认处理、末尾 window/source 覆盖均须为这个**精确 AMI masked 字段**走显式分支；不能把合法 unknown 当计算失败，也不能因此允许任何其他非有限 raw/派生值。
+
+显示分段手例：known indices `[3,4,6,7]` 必须产生 `[3,4]` 与 `[6,7]` 两条finite trace，不连接4→6；未知原位置5和其NaN仍在dense raw/mask里。本页ui_ests例外不扩展到B的per-C-call ABI buffer；带sentinel/padding的完整ABI原件继续按B独立诊断sidecar保存原bytes/hash，不送入普通有限显示或伪装valid_edges。当前两文件Web archive不自动包含这类独立sidecar；若后续要求打包，应另列格式/原件清单，不能宣称仅保存valid prefix就保留了完整C buffer。
+
+**版本建议**：AMI clock contract v2 不等于 Web 的 SCHEMA_VERSION 或 raw_schema_version。当前 Web manifest schema=1、raw=5。建议仅新 AMI masked-clock 记录使用新 raw6、标记 required feature `ami-clock-grid-v2`；Native/实际 Native fallback 继续原 finite/raw5 路径，历史 raw2–5 不改 bytes/语义。具体版本分配仍由 PM 冻结，旧 reader 必须拒绝不支持的新合同，不能忽略 mask 当 Native 重放。
+
+因此 D2 的最小必要范围还包含 `web/__init__.py` 的新版本能力声明，以及 `archive.py::read_arrays/validate_run/save_archive/load_archive` 的新合同门禁：只有新版本+精确 ui_ests/mask 白名单可含 unknown NaN；其余数组（包括 known compact、显示、波形）仍必须 finite。raw6、AMI clock_contract2 与 archive 外层 required_features=`ami-clock-grid-v2` 必须匹配；缺失、降级或 Native 伪标拒绝。先做现有 NPY header/dtype/字节预算检查；仅该字段可延后到 mask 读取后做配对校验，不能全局使用 `require_finite=False` 绕过检查。known compact 与producer mask真位置、t[indices]、ui_ests[indices]逐项核对恒等，而非重算分析。object/pickle、shape、资源上限、inventory/hash、JSON finite 与旧版本规则保持。
+
+新记录 save/open 不重跑 engine/Eye/FFT/clock 分析，但保留当前数值数组校验：archive.validate_run 对 raw>=5 调用 web/viterbi.validate，后者212–215对每个available BER row调用原 `resize_zero_pad` 验证已有test window。必须将这些入口及resize成本另列，不能称所有数值helper为0；本阶段并未调用它们。
+
+`collect` 当前在末尾才写数组，worker finally 只保存 AMI execution；这并不保留完整失败 engine raw。建议 D2 增加最小失败证据出口：Main离开后、post-Main取消checkpoint及成功分析/发布之前取得 producer raw+mask+indices 的 host-owned 快照；Main中失败时finally只取得当时真实存在且标明partial阶段的内容。发生失败/取消时由 finally 存入**该失败 run 的独立 partial raw/manifest**，保留原 bytes 与阶段/错误；不覆盖任何以前成功数据，不把它作为 succeeded archive。非法 mask 或 partial producer 同样只作诊断原件，不经正规 available 派生路线洗成有效输入。完整分析 profile 要求的 FFT/Eye 不可用时，资格失败；诊断 raw 可保存，不自动 fallback。
+
+## 3. 两处 Web Eye 的同索引合同
+
+接口建议：`eye_data(..., clocks=None, *, clock_indices=None)`，再传给 D1 的 `calc_eye(..., clock_indices=...)`；只在实际 AMI timed DFE 分支使用。Native seconds 入口、其他观察点的 nominal fold、单独 channel display noise 保持原行为。两种 clock 输入不能同时生效。
+
+`eye_data` 当前的 nominal crossing 预检仅在 clocks 与 clock_indices **都为None** 时适用；提供indices时不能因clocks=None进入nominal预检。空indices表示timed输入没有完整trace，不等于None，不触发自动找crossing。
+
+`collect` 的 DFE Eye 和 `extend_analysis` 的 DFE Eye 都读取同一 producer 绝对 `sample_indices`、关联的 edge/target/actual-grid-time，遵守同一冻结分析窗。两者分别从**实际使用的** waveform slice 获得 `slice_start=ignore_samps`、`slice_stop`，计算 `relative_index=absolute_index-slice_start`。先核对整数、严格递增、无重复、全记录 bounds 与生产者关联；然后只让目标/actual time 落在冻结窗且 `0<=relative_index`、`relative_index+2*nspui<=len(ys)` 的项进入计数。若冻结窗有更早 stop，`slice_stop` 同时受它约束；不能用整条波形尾部越过冻结窗补 trace。最终每个 trace 都位于实际 slice 内，不再对 seconds 做 floor/round。
+
+保存全记录 consumed count、分析窗选中 sample count、各 Eye 实际 trace count、absolute/relative trace indices、slice_start/stop、width、clock basis、来源字段和 unavailable reason。前两种计数不能替代 trace count；尾部被消费的有效 sample 可能不足2UI trace。
+
+非空 AMI clocks 但零完整 trace：两处都跳过 calc_eye，结果 `unavailable=no_complete_timed_trace`，不调用 `eye_data(..., clocks=None)` 或 nominal auto Eye；derived counts 若没有生成应不写数值结果，plot 保留空 traces 且无 heatmap。有效 timed trace 执行后 helper 失败/零计数也 unavailable并保留原件，不能换模式重试。只有实际 producer 已执行合法 no-clocks Native fallback 时，才能沿原 Native 路径并标明实际来源；不能从缺 indices 推断 fallback。
+
+`extend_analysis` 后续 `source_fields`/window 重写不得退回仅 clock_times；两处 Eye 的最终元数据及 Web Viterbi 说明/校验都指向实际 producer indices 和对应 D1 选择。显示不可用不改写 consumed 状态；完整资格 profile 另决定该 run 是否失败。
+
+## 4. histogram、连续 FFT 窗及各自的窗口
+
+`clock_data` 建议增加可选 AMI period-contract 输入（mask、已冻结的 histogram/FFT index windows、ts），Native 原三参默认分支保持原数值合同。AMI 分支返回 histogram 与 spectrum 两个独立 availability/result record，不能继续用一个无状态五元组把一方失败等同另一方成功。
+
+histogram 用 `[h_start,h_stop)` 中 mask=true 的原 ps 值，不用整个 dense array。保留100-bin算法和单位；此为 grid samples 的时间加权分布，长 interval 对应更多 grid 位置，**不是每个 edge interval 只计一次**。保存实际 selected indices/输入、known/unknown数量及 histogram 窗；空 known 输入不调用 histogram，unavailable；known值非有限/非正或 mask矛盾属于合同失败，不当作空输入过滤。
+
+FFT 必须使用预先冻结、不可事后缩短的连续 `[f_start,f_stop)`：bounds 合法，`n_fft=f_stop-f_start>=2`，该窗全部 known，原 grid 均匀且 ts>0。不得拼接 `ui_ests[mask]`、补零、插值、挑最长段或自动缩窗。空/单点/越界、mask中洞、非均匀grid/未知ts，分别记录 unavailable 原因并且**不调用 FFT**；profile 要求它时则资格失败，保留 raw。
+
+满足后才对原 ps 值做一次 rfft。频轴为 `f[k]=k/(n_fft*ts)`，`k=0..floor(n_fft/2)`，ts 来自原 grid `t[1]-t[0]`/冻结值，绝对子窗 origin 另列。不能将裁剪后 t[1]（绝对时间）当间隔。保存 raw complex ps FFT amplitude、完整 Hz 轴和 `frequency[1:]*symbol_UI` 相对频轴；不把 DC removal/PSD/windowing/detrend 悄悄加到原算法。
+
+legacy `clock_display` 只对有效 spectrum 做原 log10 ratio。零 fundamental 或非有限归一化仅使 display unavailable；raw spectrum/频轴和 histogram 仍独立保留。例子的频轴只做普通算术，不计算 FFT，也不预测 FFT 数值。
+
+`extend_analysis` 的 95–98 和 327–334 必须区分 raw完整记录窗、histogram选择窗、FFT连续窗、显示投影窗及 event/sample轴，不能在结尾统一赋 full_record；311的projection来源必须含mask/indices，316的DFE Eye来源包含producer indices。空/不可用数据不因元数据后处理变 available。`plot_payload` 只读现存有限显示/heatmap，不补算缺失产品。
+
+## 5. 串行票依赖与零模型验收矩阵
+
+D1 先给出可信 producer raw period/mask、绝对 indices、actual clock branch/epoch和最小 calc_eye 索引入口；D2 必须在它之上同时完成以下 Web 数值路径、保存和 metadata，才能称 D 完整。不得先以旧 Web 算法成功发布，再只补标签。此前 S0/B1/C0/S1/C1 顺序不变；严格性、close/rng、发行路线仍未获产品批准。
+
+| D2 必须的文件/API | 零模型可审查证据／边界 |
+|---|---|
+| `data.py::collect/add`、专用 masked-period 入口、335–340 投影 | 普通 dense NaN+producer bool mask、原 bytes hash、known compact与分段finite显示；非法known/unknown、shape/type拒绝；普通finite gate不变 |
+| `data.py::collect` Eye、`analysis.py::eye_data/extend_analysis` Eye、`sigproc.py::calc_eye`索引入口 | off-grid、浮点floor、非零slice origin、末尾exact2UI、有效sample无trace、零trace不走auto；两处消费同一indices |
+| `analysis.py::clock_data/clock_display/extend_analysis`及末尾window/source处理 | histogram known inputs/重复值含义；连续已知窗、空/单点/洞/非均匀窗拒绝；非零origin频轴；零fundamental display与raw可用性分开 |
+| `web/__init__.py`、`archive.py::read_arrays/validate_run/save_archive/load_archive` | 版本/feature/精确字段mask白名单配对、dense原件可重读、known compact恒等、全finite默认/旧schema不变、JSON无NaN、普通raw中的NaN仍拒绝；未来save/open保留原数组校验并另记resize成本，本阶段仅静态/普通数据示意 |
+| `web/viterbi.py::extend/validate` | 新AMI sample indices来源/选择说明与D1相符，不沿用旧W+1文案；Native及历史样本校验保持 |
+| `worker.py`、`ami.py::Execution.capture/write/annotate`及失败raw出口 | 阶段账覆盖prepare/Main/collect/analysis/finally；failed/partial保留而不发布成功；数值helper和AMI API分账；不从metadata反造producer事实 |
+
+本阶段仅提供普通数据/AST示意，不调用上述实际入口。未来实现时的零模型软件验收应提取最小纯选择/验证seam并覆盖矩阵，不能借“raw-only”启动实际calc_eye/FFT/分析helper充当本阶段验证。Native/旧schema兼容对照保留原bytes/规则，不重跑历史引擎。
+
+## 6. E2 数值调用预算必须另 freeze
+
+当前完整 worker、每次 collect 的静态成功路线：直接 calc_eye 至多2；extend_analysis 一次，eye_data 至多6、其内部 calc_eye 至多6；**calc_eye 叶调用合计至多8，不再把eye_data与其内部calc_eye相加成14**。clock_data一次，histogram/rfft各至多1，clock_display至多1；guard/可用性失败可以减少调用。推荐最小修订保留重复调用，因此资格完整的两处DFE必须同索引，不因后一次覆盖就漏计前一次。
+
+另计 ffe_jitter/correlate/find_crossings/calc_jitter、至多5个观察点的make_bathtub、safe_log10、display RNG和可选Viterbi update_trellis；其内部FFT等由最终source/path进一步展开，不把本表当全部DSP总数。Main自身DSP另账；update_plots=False只省去update_results，不能把Main或Web数值helper称0。capture当前不覆盖collect，必须有独立阶段ledger。
+
+若E2 direct明确复用同样prepare、Main(update_plots=False)、一次collect，无额外replay，则可用同一Web上界；两fixtures四条run仅Web段上界为collect4、extend_analysis4、eye_data24、calc_eye32、clock_data4、histogram4、rfft4、clock_display4，条件与叶/包装器分别列账。它们**尚未冻结或获运行授权**，不是已发生的成本；任一额外extend_analysis重放增加自身六Eye和一组clock计算，direct不同路径/开启plots/归档后重算/失败重试均另列。plot_payload浏览只读已存结果。
+
+save/open若包含在未来E2步骤，每次成功archive操作另计 `validate_run=1`、其内部`web.viterbi.validate=1`（raw>=5），以及其内部`resize_zero_pad`：DFE available row一次、Viterbi available row再一次，合计1或2；校验早失败可能更少。普通finite/header/hash校验和副本字节/RSS另记；不因“不重跑engine”将它们漏账。未包含save/open的四run表不能冒充归档验收预算，次数和路径须事先freeze。
+
+此前AMI load/Init/GW/Close/engine/Main预算仍是单Rx草案，不能覆盖或替代这些Web成本。本阶段所有真实collect/eye_data/clock_data/extend_analysis/calc_eye/histogram/rfft/clock_display及其他产品helper仍0；只有新普通数据/AST工具的内部elapsed单独记账。

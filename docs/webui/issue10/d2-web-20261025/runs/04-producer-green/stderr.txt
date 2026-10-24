@@ -1,0 +1,6 @@
+test_fresh_host_producer_and_each_actual_eye_crop (d2_cases.ProducerCases.test_fresh_host_producer_and_each_actual_eye_crop) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.062s
+
+OK

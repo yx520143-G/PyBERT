@@ -1,0 +1,20 @@
+{
+  "base": {
+    "global": true,
+    "local": false,
+    "referenced": true,
+    "assigned": false
+  },
+  "reviewed": {
+    "global": false,
+    "local": true,
+    "referenced": true,
+    "assigned": true
+  },
+  "current": {
+    "global": true,
+    "local": false,
+    "referenced": true,
+    "assigned": false
+  }
+}

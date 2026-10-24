@@ -1,0 +1,875 @@
+{
+  "format": "pybert-web-run",
+  "archive_schema": 1,
+  "required_features": [
+    "ami-clock-grid-v2"
+  ],
+  "saved_at": "2026-10-24T19:53:25.247537+00:00",
+  "saved_by_adapter_sha": "62cb5b3fbc7a706a0fe32f2c103dedf4f353c72f",
+  "source_files": {
+    "manifest.json": "20af117b437e184cd4d24427208f5d2612fea0ebcfcae91bc840812437087bdf",
+    "arrays.npz": "48b920fed55385222ca726ed9d39aeef1497281938af61c70e3e58d2ec000c1c"
+  },
+  "source_manifest_utf8": "{\n  \"run_id\": \"manual-masked-record\",\n  \"schema_version\": 1,\n  \"raw_schema_version\": 6,\n  \"draft_revision\": 0,\n  \"status\": \"succeeded\",\n  \"input_hash\": \"1111111111111111111111111111111111111111111111111111111111111111\",\n  \"native_sha\": \"2222222222222222222222222222222222222222\",\n  \"prototype_sha\": \"3333333333333333333333333333333333333333\",\n  \"adapter_sha\": \"4444444444444444444444444444444444444444\",\n  \"requested_input\": {\n    \"nbits\": 4,\n    \"eye_bits\": 2,\n    \"nspui\": 4,\n    \"rx_use_viterbi\": false,\n    \"rx_viterbi_fec\": false,\n    \"rx_viterbi_symbols\": 2,\n    \"mod_type\": \"NRZ\"\n  },\n  \"effective_input\": {\n    \"nbits\": 4,\n    \"eye_bits\": 2,\n    \"nspui\": 4,\n    \"rx_use_viterbi\": false,\n    \"rx_viterbi_fec\": false,\n    \"rx_viterbi_symbols\": 2,\n    \"mod_type\": \"NRZ\"\n  },\n  \"datasets\": {\n    \"ui_ests\": {\n      \"field\": \"ui_ests\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"float64\",\n      \"shape\": [\n        16\n      ],\n      \"unit\": \"ps\",\n      \"axis\": \"t\",\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ui_ests\"\n      ],\n      \"invocation_id\": \"141248861382800\",\n      \"numerical_availability\": \"masked\",\n      \"mask_field\": \"ami.cdr.period_known\",\n      \"known_count\": 12,\n      \"unknown_count\": 4\n    },\n    \"ami.cdr.period_known\": {\n      \"field\": \"ami.cdr.period_known\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"bool\",\n      \"shape\": [\n        16\n      ],\n      \"unit\": \"bool\",\n      \"axis\": \"t\",\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ami.cdr.period_known\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.clock.edges_s\": {\n      \"field\": \"ami.clock.edges_s\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"float64\",\n      \"shape\": [\n        4\n      ],\n      \"unit\": \"s\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ami.clock.edges_s\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.clock.targets_s\": {\n      \"field\": \"ami.clock.targets_s\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"float64\",\n      \"shape\": [\n        4\n      ],\n      \"unit\": \"s\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ami.clock.targets_s\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.clock.sample_indices\": {\n      \"field\": \"ami.clock.sample_indices\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"int64\",\n      \"shape\": [\n        4\n      ],\n      \"unit\": \"sample index\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ami.clock.sample_indices\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.clock.consumed_tick_positions\": {\n      \"field\": \"ami.clock.consumed_tick_positions\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"int64\",\n      \"shape\": [\n        4\n      ],\n      \"unit\": \"sample index\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ami.clock.consumed_tick_positions\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.clock.sample_targets_s\": {\n      \"field\": \"ami.clock.sample_targets_s\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"float64\",\n      \"shape\": [\n        4\n      ],\n      \"unit\": \"s\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ami.clock.sample_targets_s\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.clock.sample_grid_times_s\": {\n      \"field\": \"ami.clock.sample_grid_times_s\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"float64\",\n      \"shape\": [\n        4\n      ],\n      \"unit\": \"s\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ami.clock.sample_grid_times_s\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.clock.sample_quantization_delay_s\": {\n      \"field\": \"ami.clock.sample_quantization_delay_s\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"float64\",\n      \"shape\": [\n        4\n      ],\n      \"unit\": \"s\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ami.clock.sample_quantization_delay_s\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.clock.analysis_sample_indices\": {\n      \"field\": \"ami.clock.analysis_sample_indices\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"raw\",\n      \"dtype\": \"int64\",\n      \"shape\": [\n        2\n      ],\n      \"unit\": \"sample index\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"ami.clock.analysis_sample_indices\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.cdr.known_grid_indices\": {\n      \"field\": \"ami.cdr.known_grid_indices\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"compact reference\",\n      \"dtype\": \"int64\",\n      \"shape\": [\n        12\n      ],\n      \"unit\": \"sample index\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"t\",\n        \"ui_ests\",\n        \"ami.cdr.period_known\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.cdr.known_times_s\": {\n      \"field\": \"ami.cdr.known_times_s\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"compact reference\",\n      \"dtype\": \"float64\",\n      \"shape\": [\n        12\n      ],\n      \"unit\": \"s\",\n      \"axis\": null,\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"t\",\n        \"ui_ests\",\n        \"ami.cdr.period_known\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"ami.cdr.known_period_ps\": {\n      \"field\": \"ami.cdr.known_period_ps\",\n      \"producer\": \"fresh Main ami_clock_info host snapshot\",\n      \"point\": \"cdr\",\n      \"kind\": \"compact reference\",\n      \"dtype\": \"float64\",\n      \"shape\": [\n        12\n      ],\n      \"unit\": \"ps\",\n      \"axis\": \"ami.cdr.known_times_s\",\n      \"window\": {\n        \"scope\": \"full_record\",\n        \"time_axis\": \"t\",\n        \"start_index\": 0,\n        \"stop_index\": 16,\n        \"start_s\": 0.0,\n        \"stop_s_inclusive\": 3.75\n      },\n      \"clock_basis\": \"producer absolute grid indices\",\n      \"display_noise\": false,\n      \"availability\": \"available\",\n      \"source_fields\": [\n        \"t\",\n        \"ui_ests\",\n        \"ami.cdr.period_known\"\n      ],\n      \"invocation_id\": \"141248861382800\"\n    },\n    \"t\": {\n      \"dtype\": \"float64\",\n      \"shape\": [\n        16\n      ],\n      \"producer\": \"manual frozen input\",\n      \"unit\": \"1\",\n      \"window\": {},\n      \"clock_basis\": \"manual\",\n      \"availability\": \"available\"\n    },\n    \"clock_times\": {\n      \"dtype\": \"float64\",\n      \"shape\": [\n        4\n      ],\n      \"producer\": \"manual frozen input\",\n      \"unit\": \"1\",\n      \"window\": {},\n      \"clock_basis\": \"manual\",\n      \"availability\": \"available\"\n    },\n    \"bits\": {\n      \"dtype\": \"int64\",\n      \"shape\": [\n        4\n      ],\n      \"producer\": \"manual frozen input\",\n      \"unit\": \"1\",\n      \"window\": {},\n      \"clock_basis\": \"manual\",\n      \"availability\": \"available\"\n    },\n    \"bit_errs_dfe\": {\n      \"dtype\": \"int64\",\n      \"shape\": [\n        0\n      ],\n      \"producer\": \"manual frozen input\",\n      \"unit\": \"1\",\n      \"window\": {},\n      \"clock_basis\": \"manual\",\n      \"availability\": \"available\"\n    },\n    \"ber.dfe.bits_out\": {\n      \"field\": \"ber.dfe.bits_out\",\n      \"producer\": \"my_run_simulation.calc_ber(dfe) at original call\",\n      \"point\": \"viterbi\",\n      \"kind\": \"raw\",\n      \"dtype\": \"int64\",\n      \"shape\": [\n        4\n      ],\n      \"unit\": \"1\",\n      \"axis\": null,\n      \"window\": {\n        \"kind\": \"calc_ber tail\",\n        \"count\": 0,\n        \"bit_delay\": 0,\n        \"test_start_bit\": 2,\n        \"test_stop_bit\": 4,\n        \"reference_start_bit\": 2,\n        \"reference_stop_bit\": 4,\n        \"indices\": \"errors relative to test bit window\"\n      },\n      \"clock_basis\": \"recovered clock_times / original calc_ber\",\n      \"display_noise\": false,\n      \"availability\": \"available\"\n    },\n    \"ber.dfe.bits_test\": {\n      \"field\": \"ber.dfe.bits_test\",\n      \"producer\": \"my_run_simulation.calc_ber(dfe) at original call\",\n      \"point\": \"viterbi\",\n      \"kind\": \"raw\",\n      \"dtype\": \"int64\",\n      \"shape\": [\n        2\n      ],\n      \"unit\": \"1\",\n      \"axis\": null,\n      \"window\": {\n        \"kind\": \"calc_ber tail\",\n        \"count\": 0,\n        \"bit_delay\": 0,\n        \"test_start_bit\": 2,\n        \"test_stop_bit\": 4,\n        \"reference_start_bit\": 2,\n        \"reference_stop_bit\": 4,\n        \"indices\": \"errors relative to test bit window\"\n      },\n      \"clock_basis\": \"recovered clock_times / original calc_ber\",\n      \"display_noise\": false,\n      \"availability\": \"available\"\n    },\n    \"ber.dfe.bits_reference\": {\n      \"field\": \"ber.dfe.bits_reference\",\n      \"producer\": \"my_run_simulation.calc_ber(dfe) at original call\",\n      \"point\": \"viterbi\",\n      \"kind\": \"raw\",\n      \"dtype\": \"int64\",\n      \"shape\": [\n        2\n      ],\n      \"unit\": \"1\",\n      \"axis\": null,\n      \"window\": {\n        \"kind\": \"calc_ber tail\",\n        \"count\": 0,\n        \"bit_delay\": 0,\n        \"test_start_bit\": 2,\n        \"test_stop_bit\": 4,\n        \"reference_start_bit\": 2,\n        \"reference_stop_bit\": 4,\n        \"indices\": \"errors relative to test bit window\"\n      },\n      \"clock_basis\": \"recovered clock_times / original calc_ber\",\n      \"display_noise\": false,\n      \"availability\": \"available\"\n    },\n    \"ber.dfe.auto_corr\": {\n      \"field\": \"ber.dfe.auto_corr\",\n      \"producer\": \"my_run_simulation.calc_ber(dfe) at original call\",\n      \"point\": \"viterbi\",\n      \"kind\": \"raw\",\n      \"dtype\": \"float64\",\n      \"shape\": [\n        1\n      ],\n      \"unit\": \"1\",\n      \"axis\": null,\n      \"window\": {\n        \"kind\": \"calc_ber tail\",\n        \"count\": 0,\n        \"bit_delay\": 0,\n        \"test_start_bit\": 2,\n        \"test_stop_bit\": 4,\n        \"reference_start_bit\": 2,\n        \"reference_stop_bit\": 4,\n        \"indices\": \"errors relative to test bit window\"\n      },\n      \"clock_basis\": \"recovered clock_times / original calc_ber\",\n      \"display_noise\": false,\n      \"availability\": \"available\"\n    },\n    \"ber.dfe.errors\": {\n      \"field\": \"ber.dfe.errors\",\n      \"producer\": \"my_run_simulation.calc_ber(dfe) at original call\",\n      \"point\": \"viterbi\",\n      \"kind\": \"raw\",\n      \"dtype\": \"int64\",\n      \"shape\": [\n        0\n      ],\n      \"unit\": \"bit index\",\n      \"axis\": null,\n      \"window\": {\n        \"kind\": \"calc_ber tail\",\n        \"count\": 0,\n        \"bit_delay\": 0,\n        \"test_start_bit\": 2,\n        \"test_stop_bit\": 4,\n        \"reference_start_bit\": 2,\n        \"reference_stop_bit\": 4,\n        \"indices\": \"errors relative to test bit window\"\n      },\n      \"clock_basis\": \"recovered clock_times / original calc_ber\",\n      \"display_noise\": false,\n      \"availability\": \"available\"\n    }\n  },\n  \"plots\": {},\n  \"summary\": {\n    \"n_errs_dfe\": 0,\n    \"n_errs_viterbi\": -1,\n    \"viterbi_availability\": \"disabled\"\n  },\n  \"window\": {},\n  \"packages\": {},\n  \"resources\": [],\n  \"warnings\": [],\n  \"input_identity_hash\": \"5555555555555555555555555555555555555555555555555555555555555555\",\n  \"resource_hash\": \"6666666666666666666666666666666666666666666666666666666666666666\",\n  \"resource_bindings\": {},\n  \"runtime_extensions\": {},\n  \"execution_strategy\": {},\n  \"ami\": {\n    \"schema_version\": 1,\n    \"clock_contract\": {\n      \"version\": 2,\n      \"requested\": true,\n      \"mode\": \"rx_getwave\",\n      \"role\": \"main\",\n      \"main_origin\": \"c1_fresh_main\",\n      \"format_status\": \"valid\",\n      \"eligible\": true,\n      \"actual_branch\": \"ami\",\n      \"consumption_status\": \"completed\",\n      \"consumed_count\": 4,\n      \"run_status\": \"completed\",\n      \"full_analysis_eligible\": true,\n      \"reason\": null,\n      \"last_tick_status\": null,\n      \"deferred_reasons\": null,\n      \"ignore_ui\": 0.0,\n      \"symbol_ui_s\": 1.0,\n      \"nspui\": 4,\n      \"analysis\": {\n        \"start_index\": 4,\n        \"stop_index\": 16,\n        \"start_s\": 1.0,\n        \"stop_s\": 3.75,\n        \"fft_slice\": [\n          6,\n          10\n        ],\n        \"required_decisions\": 2,\n        \"required_eye_traces\": 1\n      },\n      \"profile\": {\n        \"ignore_ui_units\": \"symbol_ui\",\n        \"nominal_eye_offset_ui\": 0,\n        \"mapping\": \"native_nrz\"\n      },\n      \"profile_source\": \"nrz_ui_contract\",\n      \"model_qualification\": \"UNKNOWN\",\n      \"epoch_basis\": \"fresh Main invocation; not the model Init epoch\",\n      \"producer_contract_version\": 2,\n      \"invocation_id\": \"141248861382800\",\n      \"array_fields\": {\n        \"edges_s\": \"ami.clock.edges_s\",\n        \"targets_s\": \"ami.clock.targets_s\",\n        \"sample_indices\": \"ami.clock.sample_indices\",\n        \"consumed_tick_positions\": \"ami.clock.consumed_tick_positions\",\n        \"sample_targets_s\": \"ami.clock.sample_targets_s\",\n        \"sample_grid_times_s\": \"ami.clock.sample_grid_times_s\",\n        \"sample_quantization_delay_s\": \"ami.clock.sample_quantization_delay_s\",\n        \"analysis_sample_indices\": \"ami.clock.analysis_sample_indices\"\n      },\n      \"period_field\": \"ui_ests\",\n      \"mask_field\": \"ami.cdr.period_known\",\n      \"grid_field\": \"t\",\n      \"snapshot_phase\": \"unknown\"\n    }\n  },\n  \"required_features\": [\n    \"ami-clock-grid-v2\"\n  ],\n  \"actual_source_sha256\": {\n    \"models/bert.py\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"models/viterbi.py\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\n    \"web/viterbi.py\": \"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\"\n  },\n  \"decoding\": {\n    \"schema_version\": 2,\n    \"availability\": \"disabled\",\n    \"reason\": \"Use Viterbi was disabled for this run; -1 means not calculated\",\n    \"plan\": {\n      \"N\": 2,\n      \"L\": 2,\n      \"states\": 4,\n      \"samples_upper_bound\": 2,\n      \"max_states\": 256,\n      \"max_state_samples\": 2000000,\n      \"max_dense_work\": 25000000,\n      \"max_time_samples\": 2000000,\n      \"availability\": \"disabled\"\n    },\n    \"ber\": {\n      \"dfe\": {\n        \"availability\": \"available\",\n        \"count\": 0,\n        \"bit_delay\": 0,\n        \"test_start_bit\": 2,\n        \"test_stop_bit\": 4,\n        \"reference_start_bit\": 2,\n        \"reference_stop_bit\": 4\n      },\n      \"viterbi\": {\n        \"availability\": \"disabled\",\n        \"count\": -1\n      }\n    },\n    \"producer\": \"models.bert / models.viterbi\",\n    \"probability\": \"native raw state probability, dimensionless; not BER\",\n    \"display\": {\n      \"initial_symbols\": 10,\n      \"log10_floor\": -20,\n      \"raw_unchanged\": true\n    }\n  }\n}",
+  "arrays": {
+    "ui_ests": {
+      "dtype": "<f8",
+      "shape": [
+        16
+      ],
+      "nbytes": 128,
+      "sha256": "e6778c1a8cea8af530dbaef3e461f8f25ae466509d3e544886ba0555883e3a93"
+    },
+    "ami.cdr.period_known": {
+      "dtype": "|b1",
+      "shape": [
+        16
+      ],
+      "nbytes": 16,
+      "sha256": "aeb29a0553db2244e8f4db687d6dce126a2ecdada55cbd322f721087e32500f0"
+    },
+    "ami.clock.edges_s": {
+      "dtype": "<f8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "9392b85eaba90b4aa6f39e1f269927b4bd6bec47cd2e34a80cf3ed914c26dc7e"
+    },
+    "ami.clock.targets_s": {
+      "dtype": "<f8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "982954a1c5a253c6d2d13289cb3f40aabfe7c7af476ccac76d78b50d20e31d74"
+    },
+    "ami.clock.sample_indices": {
+      "dtype": "<i8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "6c55fd553dc12076aa05370b5ecedcfba3799fac990e338ce987fc5b4f7fb606"
+    },
+    "ami.clock.consumed_tick_positions": {
+      "dtype": "<i8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "a1e03200f1f82ad2c1cec8795c271aaecf98f5aa2d151d2229ec5fa0c177cf77"
+    },
+    "ami.clock.sample_targets_s": {
+      "dtype": "<f8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "982954a1c5a253c6d2d13289cb3f40aabfe7c7af476ccac76d78b50d20e31d74"
+    },
+    "ami.clock.sample_grid_times_s": {
+      "dtype": "<f8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "982954a1c5a253c6d2d13289cb3f40aabfe7c7af476ccac76d78b50d20e31d74"
+    },
+    "ami.clock.sample_quantization_delay_s": {
+      "dtype": "<f8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+    },
+    "ami.clock.analysis_sample_indices": {
+      "dtype": "<i8",
+      "shape": [
+        2
+      ],
+      "nbytes": 16,
+      "sha256": "8ef2b8d7e620d80d6e92caf075d15b7ab06ede08a54a45774c67aa8bc8a8ef04"
+    },
+    "ami.cdr.known_grid_indices": {
+      "dtype": "<i8",
+      "shape": [
+        12
+      ],
+      "nbytes": 96,
+      "sha256": "65092e846aee01c39adda9df76dccbed574359ab0bc5fc3118aae3b20488e238"
+    },
+    "ami.cdr.known_times_s": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "nbytes": 96,
+      "sha256": "79fa7f98249c87e55f2f3bfb11492662444ba4f5b9d442da259d57f79cd46279"
+    },
+    "ami.cdr.known_period_ps": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "nbytes": 96,
+      "sha256": "3588cd57d290f9cec624df55263f74d5cc1610aaf3eb9188e2aa8ac4485b371a"
+    },
+    "t": {
+      "dtype": "<f8",
+      "shape": [
+        16
+      ],
+      "nbytes": 128,
+      "sha256": "c76df1f5e4b3c6150ab8780cd506c7cd8a8fa3c8313449114a80d28ebb45aa65"
+    },
+    "clock_times": {
+      "dtype": "<f8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "982954a1c5a253c6d2d13289cb3f40aabfe7c7af476ccac76d78b50d20e31d74"
+    },
+    "bits": {
+      "dtype": "<i8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "01c84f606ffe38ee77bd47a06e5aaca8182c5ba6a3d4e6084c2ea05a0d7d4892"
+    },
+    "bit_errs_dfe": {
+      "dtype": "<i8",
+      "shape": [
+        0
+      ],
+      "nbytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ber.dfe.bits_out": {
+      "dtype": "<i8",
+      "shape": [
+        4
+      ],
+      "nbytes": 32,
+      "sha256": "01c84f606ffe38ee77bd47a06e5aaca8182c5ba6a3d4e6084c2ea05a0d7d4892"
+    },
+    "ber.dfe.bits_test": {
+      "dtype": "<i8",
+      "shape": [
+        2
+      ],
+      "nbytes": 16,
+      "sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+    },
+    "ber.dfe.bits_reference": {
+      "dtype": "<i8",
+      "shape": [
+        2
+      ],
+      "nbytes": 16,
+      "sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+    },
+    "ber.dfe.auto_corr": {
+      "dtype": "<f8",
+      "shape": [
+        1
+      ],
+      "nbytes": 8,
+      "sha256": "6c3c396ed6b5c36dcae172271f462051b1266b851e92df3deea8ac65478fd712"
+    },
+    "ber.dfe.errors": {
+      "dtype": "<i8",
+      "shape": [
+        0
+      ],
+      "nbytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "run": {
+    "run_id": "manual-masked-record",
+    "schema_version": 1,
+    "raw_schema_version": 6,
+    "draft_revision": 0,
+    "status": "succeeded",
+    "input_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "native_sha": "2222222222222222222222222222222222222222",
+    "prototype_sha": "3333333333333333333333333333333333333333",
+    "adapter_sha": "4444444444444444444444444444444444444444",
+    "requested_input": {
+      "nbits": 4,
+      "eye_bits": 2,
+      "nspui": 4,
+      "rx_use_viterbi": false,
+      "rx_viterbi_fec": false,
+      "rx_viterbi_symbols": 2,
+      "mod_type": "NRZ"
+    },
+    "effective_input": {
+      "nbits": 4,
+      "eye_bits": 2,
+      "nspui": 4,
+      "rx_use_viterbi": false,
+      "rx_viterbi_fec": false,
+      "rx_viterbi_symbols": 2,
+      "mod_type": "NRZ"
+    },
+    "datasets": {
+      "ui_ests": {
+        "field": "ui_ests",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "float64",
+        "shape": [
+          16
+        ],
+        "unit": "ps",
+        "axis": "t",
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ui_ests"
+        ],
+        "invocation_id": "141248861382800",
+        "numerical_availability": "masked",
+        "mask_field": "ami.cdr.period_known",
+        "known_count": 12,
+        "unknown_count": 4
+      },
+      "ami.cdr.period_known": {
+        "field": "ami.cdr.period_known",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "bool",
+        "shape": [
+          16
+        ],
+        "unit": "bool",
+        "axis": "t",
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ami.cdr.period_known"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.clock.edges_s": {
+        "field": "ami.clock.edges_s",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "float64",
+        "shape": [
+          4
+        ],
+        "unit": "s",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ami.clock.edges_s"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.clock.targets_s": {
+        "field": "ami.clock.targets_s",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "float64",
+        "shape": [
+          4
+        ],
+        "unit": "s",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ami.clock.targets_s"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.clock.sample_indices": {
+        "field": "ami.clock.sample_indices",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "int64",
+        "shape": [
+          4
+        ],
+        "unit": "sample index",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ami.clock.sample_indices"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.clock.consumed_tick_positions": {
+        "field": "ami.clock.consumed_tick_positions",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "int64",
+        "shape": [
+          4
+        ],
+        "unit": "sample index",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ami.clock.consumed_tick_positions"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.clock.sample_targets_s": {
+        "field": "ami.clock.sample_targets_s",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "float64",
+        "shape": [
+          4
+        ],
+        "unit": "s",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ami.clock.sample_targets_s"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.clock.sample_grid_times_s": {
+        "field": "ami.clock.sample_grid_times_s",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "float64",
+        "shape": [
+          4
+        ],
+        "unit": "s",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ami.clock.sample_grid_times_s"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.clock.sample_quantization_delay_s": {
+        "field": "ami.clock.sample_quantization_delay_s",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "float64",
+        "shape": [
+          4
+        ],
+        "unit": "s",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ami.clock.sample_quantization_delay_s"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.clock.analysis_sample_indices": {
+        "field": "ami.clock.analysis_sample_indices",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "raw",
+        "dtype": "int64",
+        "shape": [
+          2
+        ],
+        "unit": "sample index",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "ami.clock.analysis_sample_indices"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.cdr.known_grid_indices": {
+        "field": "ami.cdr.known_grid_indices",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "compact reference",
+        "dtype": "int64",
+        "shape": [
+          12
+        ],
+        "unit": "sample index",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "t",
+          "ui_ests",
+          "ami.cdr.period_known"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.cdr.known_times_s": {
+        "field": "ami.cdr.known_times_s",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "compact reference",
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "unit": "s",
+        "axis": null,
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "t",
+          "ui_ests",
+          "ami.cdr.period_known"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "ami.cdr.known_period_ps": {
+        "field": "ami.cdr.known_period_ps",
+        "producer": "fresh Main ami_clock_info host snapshot",
+        "point": "cdr",
+        "kind": "compact reference",
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "unit": "ps",
+        "axis": "ami.cdr.known_times_s",
+        "window": {
+          "scope": "full_record",
+          "time_axis": "t",
+          "start_index": 0,
+          "stop_index": 16,
+          "start_s": 0.0,
+          "stop_s_inclusive": 3.75
+        },
+        "clock_basis": "producer absolute grid indices",
+        "display_noise": false,
+        "availability": "available",
+        "source_fields": [
+          "t",
+          "ui_ests",
+          "ami.cdr.period_known"
+        ],
+        "invocation_id": "141248861382800"
+      },
+      "t": {
+        "dtype": "float64",
+        "shape": [
+          16
+        ],
+        "producer": "manual frozen input",
+        "unit": "1",
+        "window": {},
+        "clock_basis": "manual",
+        "availability": "available"
+      },
+      "clock_times": {
+        "dtype": "float64",
+        "shape": [
+          4
+        ],
+        "producer": "manual frozen input",
+        "unit": "1",
+        "window": {},
+        "clock_basis": "manual",
+        "availability": "available"
+      },
+      "bits": {
+        "dtype": "int64",
+        "shape": [
+          4
+        ],
+        "producer": "manual frozen input",
+        "unit": "1",
+        "window": {},
+        "clock_basis": "manual",
+        "availability": "available"
+      },
+      "bit_errs_dfe": {
+        "dtype": "int64",
+        "shape": [
+          0
+        ],
+        "producer": "manual frozen input",
+        "unit": "1",
+        "window": {},
+        "clock_basis": "manual",
+        "availability": "available"
+      },
+      "ber.dfe.bits_out": {
+        "field": "ber.dfe.bits_out",
+        "producer": "my_run_simulation.calc_ber(dfe) at original call",
+        "point": "viterbi",
+        "kind": "raw",
+        "dtype": "int64",
+        "shape": [
+          4
+        ],
+        "unit": "1",
+        "axis": null,
+        "window": {
+          "kind": "calc_ber tail",
+          "count": 0,
+          "bit_delay": 0,
+          "test_start_bit": 2,
+          "test_stop_bit": 4,
+          "reference_start_bit": 2,
+          "reference_stop_bit": 4,
+          "indices": "errors relative to test bit window"
+        },
+        "clock_basis": "recovered clock_times / original calc_ber",
+        "display_noise": false,
+        "availability": "available"
+      },
+      "ber.dfe.bits_test": {
+        "field": "ber.dfe.bits_test",
+        "producer": "my_run_simulation.calc_ber(dfe) at original call",
+        "point": "viterbi",
+        "kind": "raw",
+        "dtype": "int64",
+        "shape": [
+          2
+        ],
+        "unit": "1",
+        "axis": null,
+        "window": {
+          "kind": "calc_ber tail",
+          "count": 0,
+          "bit_delay": 0,
+          "test_start_bit": 2,
+          "test_stop_bit": 4,
+          "reference_start_bit": 2,
+          "reference_stop_bit": 4,
+          "indices": "errors relative to test bit window"
+        },
+        "clock_basis": "recovered clock_times / original calc_ber",
+        "display_noise": false,
+        "availability": "available"
+      },
+      "ber.dfe.bits_reference": {
+        "field": "ber.dfe.bits_reference",
+        "producer": "my_run_simulation.calc_ber(dfe) at original call",
+        "point": "viterbi",
+        "kind": "raw",
+        "dtype": "int64",
+        "shape": [
+          2
+        ],
+        "unit": "1",
+        "axis": null,
+        "window": {
+          "kind": "calc_ber tail",
+          "count": 0,
+          "bit_delay": 0,
+          "test_start_bit": 2,
+          "test_stop_bit": 4,
+          "reference_start_bit": 2,
+          "reference_stop_bit": 4,
+          "indices": "errors relative to test bit window"
+        },
+        "clock_basis": "recovered clock_times / original calc_ber",
+        "display_noise": false,
+        "availability": "available"
+      },
+      "ber.dfe.auto_corr": {
+        "field": "ber.dfe.auto_corr",
+        "producer": "my_run_simulation.calc_ber(dfe) at original call",
+        "point": "viterbi",
+        "kind": "raw",
+        "dtype": "float64",
+        "shape": [
+          1
+        ],
+        "unit": "1",
+        "axis": null,
+        "window": {
+          "kind": "calc_ber tail",
+          "count": 0,
+          "bit_delay": 0,
+          "test_start_bit": 2,
+          "test_stop_bit": 4,
+          "reference_start_bit": 2,
+          "reference_stop_bit": 4,
+          "indices": "errors relative to test bit window"
+        },
+        "clock_basis": "recovered clock_times / original calc_ber",
+        "display_noise": false,
+        "availability": "available"
+      },
+      "ber.dfe.errors": {
+        "field": "ber.dfe.errors",
+        "producer": "my_run_simulation.calc_ber(dfe) at original call",
+        "point": "viterbi",
+        "kind": "raw",
+        "dtype": "int64",
+        "shape": [
+          0
+        ],
+        "unit": "bit index",
+        "axis": null,
+        "window": {
+          "kind": "calc_ber tail",
+          "count": 0,
+          "bit_delay": 0,
+          "test_start_bit": 2,
+          "test_stop_bit": 4,
+          "reference_start_bit": 2,
+          "reference_stop_bit": 4,
+          "indices": "errors relative to test bit window"
+        },
+        "clock_basis": "recovered clock_times / original calc_ber",
+        "display_noise": false,
+        "availability": "available"
+      }
+    },
+    "plots": {},
+    "summary": {
+      "n_errs_dfe": 0,
+      "n_errs_viterbi": -1,
+      "viterbi_availability": "disabled"
+    },
+    "window": {},
+    "packages": {},
+    "resources": [],
+    "warnings": [],
+    "input_identity_hash": "5555555555555555555555555555555555555555555555555555555555555555",
+    "resource_hash": "6666666666666666666666666666666666666666666666666666666666666666",
+    "resource_bindings": {},
+    "runtime_extensions": {},
+    "execution_strategy": {},
+    "ami": {
+      "schema_version": 1,
+      "clock_contract": {
+        "version": 2,
+        "requested": true,
+        "mode": "rx_getwave",
+        "role": "main",
+        "main_origin": "c1_fresh_main",
+        "format_status": "valid",
+        "eligible": true,
+        "actual_branch": "ami",
+        "consumption_status": "completed",
+        "consumed_count": 4,
+        "run_status": "completed",
+        "full_analysis_eligible": true,
+        "reason": null,
+        "last_tick_status": null,
+        "deferred_reasons": null,
+        "ignore_ui": 0.0,
+        "symbol_ui_s": 1.0,
+        "nspui": 4,
+        "analysis": {
+          "start_index": 4,
+          "stop_index": 16,
+          "start_s": 1.0,
+          "stop_s": 3.75,
+          "fft_slice": [
+            6,
+            10
+          ],
+          "required_decisions": 2,
+          "required_eye_traces": 1
+        },
+        "profile": {
+          "ignore_ui_units": "symbol_ui",
+          "nominal_eye_offset_ui": 0,
+          "mapping": "native_nrz"
+        },
+        "profile_source": "nrz_ui_contract",
+        "model_qualification": "UNKNOWN",
+        "epoch_basis": "fresh Main invocation; not the model Init epoch",
+        "producer_contract_version": 2,
+        "invocation_id": "141248861382800",
+        "array_fields": {
+          "edges_s": "ami.clock.edges_s",
+          "targets_s": "ami.clock.targets_s",
+          "sample_indices": "ami.clock.sample_indices",
+          "consumed_tick_positions": "ami.clock.consumed_tick_positions",
+          "sample_targets_s": "ami.clock.sample_targets_s",
+          "sample_grid_times_s": "ami.clock.sample_grid_times_s",
+          "sample_quantization_delay_s": "ami.clock.sample_quantization_delay_s",
+          "analysis_sample_indices": "ami.clock.analysis_sample_indices"
+        },
+        "period_field": "ui_ests",
+        "mask_field": "ami.cdr.period_known",
+        "grid_field": "t",
+        "snapshot_phase": "unknown"
+      }
+    },
+    "required_features": [
+      "ami-clock-grid-v2"
+    ],
+    "actual_source_sha256": {
+      "models/bert.py": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "models/viterbi.py": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "web/viterbi.py": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "decoding": {
+      "schema_version": 2,
+      "availability": "disabled",
+      "reason": "Use Viterbi was disabled for this run; -1 means not calculated",
+      "plan": {
+        "N": 2,
+        "L": 2,
+        "states": 4,
+        "samples_upper_bound": 2,
+        "max_states": 256,
+        "max_state_samples": 2000000,
+        "max_dense_work": 25000000,
+        "max_time_samples": 2000000,
+        "availability": "disabled"
+      },
+      "ber": {
+        "dfe": {
+          "availability": "available",
+          "count": 0,
+          "bit_delay": 0,
+          "test_start_bit": 2,
+          "test_stop_bit": 4,
+          "reference_start_bit": 2,
+          "reference_stop_bit": 4
+        },
+        "viterbi": {
+          "availability": "disabled",
+          "count": -1
+        }
+      },
+      "producer": "models.bert / models.viterbi",
+      "probability": "native raw state probability, dimensionless; not BER",
+      "display": {
+        "initial_symbols": 10,
+        "log10_floor": -20,
+        "raw_unchanged": true
+      }
+    }
+  },
+  "subfunctions": {},
+  "resource_policy": "references and content hashes only; bytes not embedded; paths are hints"
+}

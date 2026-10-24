@@ -1,0 +1,14 @@
+{
+  "command": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\run_guarded.py",
+    "08-archive-green",
+    "ArchiveCases"
+  ],
+  "timeout_s": 60,
+  "plan_sha256": "13befb4f3e5a0179430cd7b8872d91089891ef6b60dd8c24fa2a4b4ee756bb30",
+  "scope": "hard bounded child; no product imports in launcher",
+  "task_wall_peak_RSS": "UNKNOWN"
+}

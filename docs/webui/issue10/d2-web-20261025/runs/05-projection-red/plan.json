@@ -1,0 +1,208 @@
+{
+  "phase": "actual Eye and period projections red",
+  "run_id": "05-projection-red",
+  "selection": [
+    "ProjectionCases"
+  ],
+  "snapshot_paths": {
+    "clocks.py.txt": "src/pybert/web/clocks.py",
+    "cases.py.txt": "docs/webui/issue10/d2-web-20261025/d2_cases.py",
+    "runner.py.txt": "docs/webui/issue10/d2-web-20261025/run_guarded.py",
+    "launcher.py.txt": "docs/webui/issue10/d2-web-20261025/run_batch.py",
+    "plan.json": "docs/webui/issue10/d2-web-20261025/test-plan.json",
+    "environment.json": "docs/webui/issue10/d2-web-20261025/environment.json",
+    "contract.json": "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json",
+    "venv.cfg.txt": ".venv/pyvenv.cfg",
+    "baseline_eye.py.txt": "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt",
+    "producer.py.txt": "src/pybert/utility/ami_clock.py",
+    "pybert.web.analysis.txt": "src/pybert/web/analysis.py",
+    "pybert.utility.sigproc.txt": "src/pybert/utility/sigproc.py",
+    "pybert.utility.math.txt": "src/pybert/utility/math.py",
+    "baseline.analysis.txt": "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt",
+    "baseline.sigproc.txt": "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt"
+  },
+  "source_test_runner_raw_sha256": {
+    "src/pybert/web/clocks.py": "586f651d7f8e1a2deb2472c5dc0dddbb2d01cfa3ade2416c2cdbe7805e851d8d",
+    "docs/webui/issue10/d2-web-20261025/d2_cases.py": "c35d39fe194fee781294e9c6ce18fce40398065840fee8a005825d0ceb06fb32",
+    "docs/webui/issue10/d2-web-20261025/run_guarded.py": "4446186dfcb524f2fb11aaa4f1668141b44ff7adc66cafe3dee9b4e8bdb77b66",
+    "docs/webui/issue10/d2-web-20261025/run_batch.py": "0363ea36878cef57f1ed281d0f9d193cd3384c243314a0d7717e15e1c3203762",
+    "docs/webui/issue10/d2-web-20261025/environment.json": "388aab84aca492a564e3f79c42b10f2c83e07a31e826df0bfb9193b3ff496d55",
+    "docs/webui/issue10/d2-web-20261025/D2-contract-comment.json": "ffa551b9af100019d63211cfba94bbcfb3a03d8c2f0d6cfcd285ec812870514e",
+    "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
+    "src/pybert/utility/ami_clock.py": "e0ae4bfc8a0b24d53b55df27c93f93e17370acc08a98f819725de6be2bec6072",
+    "src/pybert/web/analysis.py": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2",
+    "src/pybert/utility/sigproc.py": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d",
+    "src/pybert/utility/math.py": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352",
+    "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt": "12806250fc03c8ffbbd77842970640296c53f843d9de56642cc1bcd99639e7d2"
+  },
+  "modules": {
+    "pybert.web.clocks": {
+      "path": "src/pybert/web/clocks.py",
+      "names": null
+    },
+    "pybert.utility.ami_clock": {
+      "path": "src/pybert/utility/ami_clock.py",
+      "names": [
+        "new_clock_info"
+      ]
+    },
+    "pybert.web.analysis": {
+      "path": "src/pybert/web/analysis.py",
+      "names": [
+        "eye_data",
+        "clock_data",
+        "clock_display"
+      ]
+    },
+    "pybert.utility.sigproc": {
+      "path": "src/pybert/utility/sigproc.py",
+      "names": [
+        "calc_eye"
+      ]
+    },
+    "pybert.utility.math": {
+      "path": "src/pybert/utility/math.py",
+      "names": [
+        "safe_log10"
+      ]
+    },
+    "baseline.analysis": {
+      "path": "docs/webui/issue10/d2-web-20261025/inputs/analysis.baseline.py.txt",
+      "names": [
+        "eye_data"
+      ]
+    },
+    "baseline.sigproc": {
+      "path": "docs/webui/issue10/d2-web-20261025/inputs/sigproc.baseline.py.txt",
+      "names": [
+        "calc_eye"
+      ]
+    }
+  },
+  "function_kinds": {
+    "pybert.web.analysis.eye_data": "eye_data",
+    "pybert.web.analysis.clock_data": "clock_data",
+    "pybert.web.analysis.clock_display": "clock_display",
+    "baseline.analysis.eye_data": "eye_data",
+    "baseline.analysis.clock_data": "clock_data",
+    "baseline.analysis.clock_display": "clock_display",
+    "pybert.utility.sigproc.calc_eye": "calc_eye",
+    "baseline.sigproc.calc_eye": "calc_eye",
+    "pybert.utility.math.safe_log10": "safe_log10"
+  },
+  "forbidden_definitions": [],
+  "observe": [
+    "period_projection",
+    "period_segments",
+    "eye_data",
+    "calc_eye",
+    "clock_data",
+    "clock_display"
+  ],
+  "limits": {
+    "pure": 4000,
+    "collect": 32,
+    "extend_analysis": 32,
+    "eye_data": 128,
+    "calc_eye": 128,
+    "clock_data": 128,
+    "clock_display": 128,
+    "histogram": 128,
+    "rfft": 128,
+    "safe_log10": 256,
+    "viterbi_extend": 64,
+    "viterbi_validate": 256,
+    "resize_zero_pad": 256,
+    "read_arrays": 256,
+    "validate_run": 256,
+    "save_archive": 64,
+    "load_archive": 64,
+    "annotate": 128,
+    "execution_write": 128,
+    "partial_save": 128
+  },
+  "max_dynamic_batches": 16,
+  "timeout_s": 60,
+  "input_limits": {
+    "vector": 4096,
+    "Eye_height": 1000,
+    "Eye_columns": 64,
+    "nspui": 32,
+    "NPZ_uncompressed_bytes": 16777216,
+    "artifact_bytes": 16777216,
+    "all_test_data_bytes": 536870912
+  },
+  "expected_counts": {
+    "pure": 0,
+    "collect": 0,
+    "extend_analysis": 0,
+    "eye_data": 0,
+    "calc_eye": 0,
+    "clock_data": 0,
+    "clock_display": 0,
+    "histogram": 0,
+    "rfft": 0,
+    "safe_log10": 0,
+    "viterbi_extend": 0,
+    "viterbi_validate": 0,
+    "resize_zero_pad": 0,
+    "read_arrays": 0,
+    "validate_run": 0,
+    "save_archive": 0,
+    "load_archive": 0,
+    "annotate": 0,
+    "execution_write": 0,
+    "partial_save": 0,
+    "NumPy_imports": 1
+  },
+  "expected_result": {
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "reason": "masked projection absent before any product helper call"
+  },
+  "case_inputs": "literal4-point DFT1,2,3,4ps at grid10+index*.25; six unavailableFFT cases, constant raw spectrum, oldNative nonzero-origin basis; segments3,4/6,7 cap3; Native eye exact, constant timed indices0/8 at exacttail and empty/conflicting/nominal boundaries.",
+  "expected_values": {
+    "DFT": [
+      "10+0j",
+      "-2+2j",
+      "-2+0j"
+    ],
+    "frequency_Hz": [
+      0,
+      1,
+      2
+    ],
+    "relative_frequency": [
+      0.5,
+      1
+    ],
+    "origin_s": 10.25,
+    "histogram": "100bins with1at0/33/66/99; grid-sample weighted",
+    "segments": [
+      [
+        3,
+        4
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "timed_eye": "8 counts total, pixel954 each column2; zero indices no actual calc_eye; Native baseline exact"
+  },
+  "expected_basis": "independent literal bit patterns and index table, actual AST seam only; no product algorithm copies",
+  "guards_order": "stdlib/input snapshots => import/audit/profile guards => installed-file verification => NumPy import/C extensions => selected actual definitions => tests",
+  "observation_policy": "selected real return-or-exception events, raw dtype/shape/C-order byte blobs; event alone not normal-completion evidence",
+  "restricted": "full Main/DFE/decode/capture/run_worker/run_ami_model/PyAMI/grammar/SciPy/otherDSP/model DLL/COM/coopt/RNG/GUI/browser/CLI services/fullsuite/rootcollect all0",
+  "expected_function_entries": {
+    "new_clock_info": 3,
+    "snapshot_producer": 9,
+    "clock_context": 10,
+    "eye_selection": 2,
+    "validate_period_upper_bound": 4
+  },
+  "previous_plan": "runs/04-producer-green/plan.json",
+  "expected_counts_policy": "upper bounds, actual trace must be reported; do not label them as actual",
+  "serialization_policy": "from04 count each ndarray copy/deepcopy C completion incl bytes and elapsed;02 lacked per-copy trace (20 case fixture copies inferable from10 completed rows, elapsed UNKNOWN); preserve02 unchanged, full final matrix will include instrumented rows. No numerical re-run solely for instrumentation."
+}

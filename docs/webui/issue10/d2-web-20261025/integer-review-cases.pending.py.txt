@@ -1,0 +1,54 @@
+class IntegerReviewCases(unittest.TestCase):
+    def fixture(self, item):
+        from d2_under_test import destination
+        grid = np.array(item["t"], dtype=item["dtype"])
+        periods = np.array([5., 5., 5.])
+        (destination / (item["name"] + ".t.bin")).write_bytes(grid.tobytes())
+        (destination / (item["name"] + ".period.bin")).write_bytes(periods.tobytes())
+        context = {"info": {"period_known": np.array([True, True, True]), "analysis": {
+            "start_index": 0, "stop_index": 3, "start_s": int(min(grid)), "stop_s": int(max(grid)),
+            "fft_slice": [0, 3]}}}
+        return grid, periods, context
+
+    def test_exact_integer_nonuniform_and_unsigned_reverse_rejected(self):
+        import json
+        from d2_under_test import evidence
+        cases = json.loads((evidence / "integer-review-followup-plan.json").read_text(encoding="utf-8"))["fixtures"]
+        for item in cases:
+            if item["expected"] == "available":
+                continue
+            with self.subTest(name=item["name"]):
+                grid, periods, context = self.fixture(item)
+                before = grid.tobytes()
+                spectrum = modules["pybert.web.clocks"].period_projection(context, grid, periods, 1.)["spectrum"]
+                self.assertEqual(spectrum["availability"], "unavailable", item["name"])
+                self.assertEqual(spectrum["reason"], "nonuniform_grid")
+                self.assertEqual(spectrum["raw"].size, 0)
+                self.assertEqual(grid.tobytes(), before)
+
+    def test_exact_integer_uniform_preserves_original_bytes_and_frequency(self):
+        import json
+        from d2_under_test import evidence
+        cases = json.loads((evidence / "integer-review-followup-plan.json").read_text(encoding="utf-8"))["fixtures"]
+        for item in cases:
+            if item["expected"] != "available":
+                continue
+            with self.subTest(name=item["name"]):
+                grid, periods, context = self.fixture(item)
+                original_grid, original_periods = grid.tobytes(), periods.tobytes()
+                result = modules["pybert.web.clocks"].period_projection(context, grid, periods, 1.)
+                spectrum = result["spectrum"]
+                self.assertEqual(spectrum["availability"], "available")
+                self.assertEqual(spectrum["sample_interval_s"], 1024.)
+                self.assertEqual(spectrum["window"], {"start_index": 0, "stop_index": 3})
+                self.assertEqual(spectrum["indices"].tolist(), [0, 1, 2])
+                self.assertEqual(spectrum["raw"].tolist(), [15. + 0j, 0j])
+                self.assertEqual(spectrum["frequency_hz"].tolist(), [0., float.fromhex("0x1.5555555555555p-12")])
+                self.assertEqual(int(result["histogram"]["counts"].sum()), 3)
+                metadata = spectrum["uniform_grid_validation"]
+                self.assertEqual(metadata["rule"], "exact integer intervals; zero floating timestamp tolerance")
+                self.assertEqual(metadata["max_bound_s"], 0.)
+                self.assertTrue(metadata["integer_intervals_equal"])
+                self.assertEqual(metadata["timestamp_dtype"], grid.dtype.str)
+                self.assertEqual(grid.tobytes(), original_grid)
+                self.assertEqual(periods.tobytes(), original_periods)

@@ -1,0 +1,6 @@
+Resolved 1 package in 1.72s
+Downloading numpy (11.9MiB)
+ Downloaded numpy
+Prepared 1 package in 1.72s
+Installed 1 package in 1.49s
+ + numpy==2.5.1 (from https://files.pythonhosted.org/packages/10/70/800b3fca480af32df9e8ea9f3d4a0c8feb4b32d7f195d174eabbda4829ad/numpy-2.5.1-cp313-cp313-win_amd64.whl)

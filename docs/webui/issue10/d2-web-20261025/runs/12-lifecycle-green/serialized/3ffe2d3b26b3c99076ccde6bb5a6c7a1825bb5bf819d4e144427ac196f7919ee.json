@@ -1,0 +1,23 @@
+{
+  "calls": [],
+  "library_calls": [],
+  "dll_calls": [],
+  "models": {},
+  "phases": [
+    {
+      "phase": "prepare",
+      "started_at": 1792873909.6957998,
+      "status": "completed",
+      "elapsed_s": 3.123283386230469e-05
+    },
+    {
+      "phase": "collect",
+      "started_at": 1792873909.6959007,
+      "status": "failed",
+      "elapsed_s": 3.504753112792969e-05,
+      "error_type": "AMICancelled",
+      "error": "software post-Main checkpoint cancellation"
+    }
+  ],
+  "clock_buffer_scope": "helper valid prefix only; full ABI buffers are separate B diagnostics"
+}
