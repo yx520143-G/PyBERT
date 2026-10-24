@@ -1,0 +1,3 @@
+Using CPython 3.13.15 interpreter at: C:\Users\yx\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\python.exe
+Creating virtual environment at: .venv
+Activate with: .venv\Scripts\activate

@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:/Users/yx/AppData/Roaming/Python/Python312/Scripts/uv.exe",
+    "pip",
+    "install",
+    "--python",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\.venv\\Scripts\\python.exe",
+    "--no-deps",
+    "--require-hashes",
+    "--link-mode",
+    "copy",
+    "-r",
+    "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\docs\\webui\\issue10\\d2-web-20261025\\numpy-requirement.txt"
+  ],
+  "exit_code": 0,
+  "elapsed_s": 5.302784300001804,
+  "output_sha256": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "1b3e6046f249ec5521f6700fb1873abc683b6cca963ea92c2997fdcd1fa489c6"
+  }
+}
