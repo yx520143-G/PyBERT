@@ -4,6 +4,8 @@
   const clone = value => structuredClone(value);
   const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let bindings = {}, refs = {}, inventory = [], busy = false, uploading = false, comTasks = [], selectedParent = null, selectedResources = [], configReport = {};
+  const comDetails = new Map();
+  let comMarkup = '';
   const dialog = document.createElement('dialog'); dialog.id = 'resource-dialog';
   dialog.innerHTML = `<button id="resources-close">关闭</button><h2>资源内容与独立 COM</h2><p>上传或显式登记路径后冻结 bytes / SHA-256。配置只保存引用和绑定身份，不附带资源；inactive 旧路径可保留。级联顺序和重复元素均保留。</p><label>目标字段 <select id="resource-field"><option>ch_file</option><option>ch_files</option><option>com_cfg_file</option></select></label><label>本机绝对路径 <input id="resource-path" placeholder="C:/.../channel.s4p"></label><button id="resource-register">登记并绑定</button><label>已登记资源 <select id="resource-existing"></select></label><button id="resource-bind">绑定当前引用</button><p id="resource-status" role="status"></p><div id="resource-bindings"></div><details><summary>完整资源清单与内容身份</summary><pre id="resource-inventory"></pre></details><hr><h3>COM · 单 THRU 工具</h3><p>使用原 calc_com；独立参数，不继承当前 EQ、bitrate、noise、FEXT 或 package。默认 IEEE_8023dj 搜索很大；调用内部没有取消检查点，Abort 在返回后观察。</p><label>THRU .s4p <select id="com-thru"></select></label><label>COM 参数 <select id="com-config"><option value="">明确采用 IEEE_8023dj defaults</option></select></label><label><input id="com-parent" type="checkbox">关联当前选中成功 run（可选）</label><button id="compute-com">独立计算 COM</button><div id="com-results"></div>`;
   document.body.append(dialog);
@@ -32,6 +34,32 @@
       replace(field, values, ids);
     } else replace(field, preserveReference ? draft[field] || row.original_name : row.source.path || row.original_name, row.resource_id);
   }
+  function loadComDetails(task) {
+    const id=task.task_id;
+    if (!task.worker_exited || comDetails.has(id)) return;
+    comDetails.set(id,{state:'loading'});
+    (async()=>{
+      try {
+        const response=await fetch(`/api/com/${encodeURIComponent(id)}`), value=await response.json();
+        if (!response.ok) throw new Error(value.detail || response.statusText);
+        if (value.task?.task_id!==id || value.com_id && value.com_id!==id || value.saved_input && value.saved_input.com_id!==id) throw new Error('COM 保存记录身份不匹配。');
+        comDetails.set(id,{state:'ready',value});
+      } catch(error) { comDetails.set(id,{state:'error',error:error.message}); }
+      render();
+    })();
+  }
+  function comSource(task) {
+    if (!task.worker_exited) return '<p>来源记录等待 worker 实际退出；当前任务日志保留如下。</p>';
+    const detail=comDetails.get(task.task_id);
+    if (!detail) return '<p>展开后读取此 COM 已保存的来源记录。</p>';
+    if (detail.state==='loading') return '<p>正在读取此 COM 已保存的来源记录…</p>';
+    if (detail.state==='error') return `<p>来源记录读取失败：${esc(detail.error)} <button data-com-retry="${esc(task.task_id)}">重试读取</button></p>`;
+    const value=detail.value, record=value.com_id===task.task_id ? value : value.saved_input;
+    const labels={available:'已保存',not_produced:'未生成',waiting_for_exit:'等待退出',unreadable:'无法读取',identity_mismatch:'身份不匹配'};
+    const status=value.saved_detail_status || {};
+    const identity=record ? {com_id:record.com_id,parameter_source:record.parameter_source?.kind ?? '未记录',parameters_sha256:record.parameter_source?.parameters_sha256 ?? '未记录',versions:record.versions ?? '未记录',adapter_sha:record.adapter_sha ?? '未记录',source_hashes:record.source_hashes ?? '未记录',helper:record.helper ?? '未记录',parameter_schema:record.parameter_schema ?? '未记录'} : '未生成可用来源记录；请求来源不能替代实际参数/hash/版本。';
+    return `<h4>已保存计算来源</h4><p data-com-source-status>计算前快照：${esc(labels[status.input] || '未记录')}；结果记录：${esc(labels[status.result] || '未记录')}</p><pre data-com-identity>${esc(JSON.stringify(identity,null,2))}</pre><h4>完整实际 COM 参数</h4><pre data-com-parameters>${esc(JSON.stringify(record?.parameter_source?.parameters ?? '未记录；不从当前信号链或请求默认值推定。',null,2))}</pre>`;
+  }
   function render() {
     if (dialog.open) {
       const draft = ui.getDraft();
@@ -46,12 +74,23 @@
     $('compute-com').disabled = busy || uploading;
     $('resource-register').disabled = uploading;
     const openTasks = new Set([...$('com-results').querySelectorAll('details[open]')].map(detail=>detail.dataset.comTask));
-    $('com-results').innerHTML = comTasks.map(task => {
+    for (const task of comTasks) if (openTasks.has(task.task_id)) loadComDetails(task);
+    const markup = comTasks.map(task => {
       const thru=task.resource_inputs?.find(r=>r.field==='com_thru'),cfg=task.resource_inputs?.find(r=>r.field==='com_cfg_file');
       const matches=thru?.resource_id===$('com-thru').value && (cfg?.resource_id || '')===$('com-config').value;
-      return `<details data-com-task="${esc(task.task_id)}"${openTasks.has(task.task_id)?' open':''}><summary>${esc(task.task_id)} · ${esc(task.state)}${task.result?.value_db !== undefined ? ` · ${task.result.value_db.toFixed(9)} dB` : ''} · ${matches?'匹配当前工具选择':'旧输入 / 与当前工具选择不同'}</summary><p>parent ${esc(task.parent_run_id || 'none')} · requested=${task.cancel_requested} / observed=${task.cancel_observed} / exited=${task.worker_exited}${task.error ? ` · ${esc(task.error)}` : ''}</p><pre>${esc(JSON.stringify({parameter_source:task.parameter_source,resource_inputs:task.resource_inputs},null,2))}</pre></details>`;
+      return `<details data-com-task="${esc(task.task_id)}"${openTasks.has(task.task_id)?' open':''}><summary>${esc(task.task_id)} · ${esc(task.state)}${task.result?.value_db !== undefined ? ` · ${task.result.value_db.toFixed(9)} dB` : ''} · ${matches?'匹配当前工具选择':'旧输入 / 与当前工具选择不同'}</summary><p>parent ${esc(task.parent_run_id || 'none')} · requested=${task.cancel_requested} / observed=${task.cancel_observed} / exited=${task.worker_exited}${task.error ? ` · ${esc(task.error)}` : ''}</p>${comSource(task)}<h4>资源与请求来源</h4><pre>${esc(JSON.stringify({requested_parameter_source:task.parameter_source,resource_inputs:task.resource_inputs},null,2))}</pre><h4>该 COM 历史任务日志 · ${esc(task.task_id)}</h4><pre data-com-logs>${esc(task.logs?.join('\n') || '该任务无保存日志。')}</pre>${task.traceback ? `<pre data-com-error>${esc(task.traceback)}</pre>` : ''}</details>`;
     }).join('');
+    if (markup!==comMarkup) { $('com-results').innerHTML=markup; comMarkup=markup; }
   }
+  $('com-results').addEventListener('toggle',event=>{
+    if (!event.target.matches('details[data-com-task]') || !event.target.open) return;
+    const task=comTasks.find(row=>row.task_id===event.target.dataset.comTask);
+    if (task) {loadComDetails(task);render();}
+  },true);
+  $('com-results').addEventListener('click',event=>{
+    const id=event.target.closest('[data-com-retry]')?.dataset.comRetry, task=comTasks.find(row=>row.task_id===id);
+    if (task) {comDetails.delete(id);loadComDetails(task);render();}
+  });
   function options() {
     for (const [id, allowed, first] of [['resource-existing',null,'选择已冻结资源'],['com-thru',['.s4p'],'选择 .s4p'],['com-config',['.xls','.xlsx'],'明确采用 IEEE_8023dj defaults']]) {
       const selected = $(id).value;

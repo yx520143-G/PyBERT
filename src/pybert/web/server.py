@@ -94,8 +94,26 @@ def create_app(tasks=None):
         task = manager.get(com_id)
         if task["operation"] != "com":
             raise KeyError("Not a COM task")
-        path = manager.tasks[com_id]["directory"] / "com.json"
-        return json.loads(path.read_text(encoding="utf-8")) if task["state"] == "succeeded" and task["worker_exited"] and path.exists() else task
+        def saved(name):
+            if not task["worker_exited"]:
+                return None, "waiting_for_exit"
+            path = manager.tasks[com_id]["directory"] / name
+            if not path.exists():
+                return None, "not_produced"
+            try:
+                record = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                return None, "unreadable"
+            if not isinstance(record, dict) or record.get("com_id") != com_id:
+                return None, "identity_mismatch"
+            return record, "available"
+
+        source, source_status = saved("com-input.json")
+        result, result_status = saved("com.json")
+        # Preserve the successful result's existing top-level fields for API callers.
+        payload = dict(result if task["state"] == "succeeded" and result else task)
+        payload.update(task=task, saved_input=source, saved_detail_status={"input": source_status, "result": result_status})
+        return payload
 
     @app.get("/api/tasks/{task_id}")
     def task(task_id: str):
