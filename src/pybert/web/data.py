@@ -10,6 +10,8 @@ import numpy as np
 
 from pybert.utility import calc_eye, safe_log10
 from pybert.web import NATIVE_SHA, NATIVE_IMPORTER_SHA, PROTOTYPE_SHA, RAW_SCHEMA_VERSION, SCHEMA_VERSION
+from pybert.web import AMI_RAW_SCHEMA_VERSION, AMI_CLOCK_FEATURE
+from pybert.web.clocks import clock_context, store_clock_context, eye_selection, period_segments
 
 RESPONSES = ("chnl", "tx", "tx_out", "ctle", "ctle_out", "ffe", "ffe_out", "dfe", "dfe_out")
 WAVEFORMS = ("ideal_signal", "chnl_out", "rx_in", "ctle_out", "ffe_out", "dfe_out")
@@ -86,9 +88,11 @@ def source_identity():
     return {str(path.relative_to(package)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths if path.is_file()}
 
 
-def collect(engine, observations, directory, identity, cancelled=lambda: False, *, decoding=None, ami=None):
+def collect(engine, observations, directory, identity, cancelled=lambda: False, *, decoding=None, ami=None,
+            producer_snapshot=None):
     """Publish only complete finite raw data, with independent axes per observation."""
     p = engine
+    clock = clock_context(p, producer_snapshot)
     arrays, datasets, plots = {}, {}, {}
     window = {
         "nui": p.nui,
@@ -126,7 +130,10 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         add(f"display.{key}.y", y, yunit, axis=f"display.{key}.x", kind="display")
         return dict(x=f"display.{key}.x", y=f"display.{key}.y", name=label, xunit=xunit, yunit=yunit, **extra)
 
+    clock_record = store_clock_context(clock, arrays, datasets) if clock is not None else None
     for key in RAW_FIELDS:
+        if key == "ui_ests" and clock is not None:
+            continue
         unit = (
             "s"
             if key in ("t", "t_irfft", "clock_times")
@@ -296,7 +303,17 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         )["traces"].append(trace)
 
     for point, field in (("rx_in", "rx_in"), ("dfe", "dfe_out")):
-        ys = arrays[field][window["ignore_samps"] :]
+        timed = point == "dfe" and clock is not None
+        eye_meta = None
+        if timed:
+            relative, eye_meta = eye_selection(clock, window["ignore_samps"], len(arrays[field]))
+            clock["eye_consumers"]["collect.eye.dfe"] = eye_meta
+            if not len(relative):
+                plots["eye.dfe"] = dict(title="DFE timed eye", traces=[], availability="unavailable",
+                                        reason=eye_meta["reason"], metadata=eye_meta)
+                continue
+        stop = eye_meta["slice_stop"] if timed else len(arrays[field])
+        ys = arrays[field][window["ignore_samps"]:stop]
         y_max = 1.1 * max(abs(ys))
         y_scale, y_offset = 1000 // (2 * y_max), 500
         if y_scale <= 0:
@@ -304,7 +321,12 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         clocks = np.asarray(p.clock_times)
         clocks = clocks[clocks >= window["ignore_until_s"]] - window["ignore_until_s"]
         actual_clock = point == "dfe" and len(clocks) > 0
-        counts = calc_eye(p.ui, p.nspui, 1000, ys, y_max, clocks if actual_clock else None)
+        if timed:
+            eye_meta.update(availability="unavailable", reason="timed_eye_calculation_pending", trace_count=None)
+            counts = calc_eye(p.ui, p.nspui, 1000, ys, y_max, clock_indices=relative)
+            eye_meta.update(availability="available", reason=None, trace_count=len(relative))
+        else:
+            counts = calc_eye(p.ui, p.nspui, 1000, ys, y_max, clocks if actual_clock else None)
         xkey = add(f"eye.{point}.x", np.linspace(-p.ui, p.ui, 2 * p.nspui) * 1e12, "ps", kind="axis")
         ykey = add(f"eye.{point}.y", (np.arange(1000) - y_offset) / y_scale, "V", kind="axis")
         zkey = add(
@@ -320,6 +342,9 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
             clock_fallback=point == "dfe" and not actual_clock,
         )
         datasets[zkey]["clock_basis"] = "recovered clock_times" if actual_clock else "nominal fold"
+        if timed:
+            for key in (xkey, ykey, zkey):
+                datasets[key].update(eye_meta)
         plots[f"eye.{point}"] = {
             "title": f"{point} eye · {datasets[zkey]['clock_basis']}",
             "heatmap": {"x": xkey, "y": ykey, "z": zkey},
@@ -332,13 +357,27 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         plots["adaptation"]["traces"].append(
             line(f"tap{i + 1}", np.arange(len(values)), values, f"Tap{i + 1}", "record index", "coefficient")
         )
-    cdr_indices = np.unique(np.linspace(0, len(p.t) - 1, min(4096, len(p.t)), dtype=int))
-    add("cdr_indices", cdr_indices, "sample index", kind="display")
-    plots["cdr"] = {
-        "title": "CDR UI estimates",
-        "projection": "cdr_indices",
-        "traces": [line("cdr", p.t[cdr_indices] * 1e9, p.ui_ests[cdr_indices], "Native UI estimates", "ns", "ps")],
-    }
+    if clock is not None:
+        segments, display_meta = period_segments(arrays["t"], arrays["ui_ests"], arrays["ami.cdr.period_known"])
+        cdr_indices = np.concatenate(segments) if segments else np.array([], dtype=int)
+        add("cdr_indices", cdr_indices, "sample index", kind="display")
+        traces = []
+        for index, segment in enumerate(segments):
+            traces.append(line(f"cdr.segment{index}", arrays["t"][segment] * 1e9, arrays["ui_ests"][segment],
+                               "Known AMI period", "ns", "ps", mode="markers" if len(segment) == 1 else "lines"))
+            for suffix in ("x", "y"):
+                datasets[f"display.cdr.segment{index}.{suffix}"].update(
+                    source_fields=["t", "ui_ests", "ami.cdr.period_known", "cdr_indices"],
+                    clock_basis="producer known grid segments", window=display_meta)
+        plots["cdr"] = dict(title="AMI known CDR period", projection="cdr_indices", traces=traces, **display_meta)
+    else:
+        cdr_indices = np.unique(np.linspace(0, len(p.t) - 1, min(4096, len(p.t)), dtype=int))
+        add("cdr_indices", cdr_indices, "sample index", kind="display")
+        plots["cdr"] = {
+            "title": "CDR UI estimates",
+            "projection": "cdr_indices",
+            "traces": [line("cdr", p.t[cdr_indices] * 1e9, p.ui_ests[cdr_indices], "Native UI estimates", "ns", "ps")],
+        }
     stats = {key: float(getattr(p, f"{key}_dfe")) for key in JITTER_STATS}
     summary = {
         "n_errs_dfe": int(p.n_errs_dfe),
@@ -375,10 +414,15 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
             for name in ("pipbert", "numpy", "scipy", "traits", "pyibis-ami", "pychopmarg")
         },
     )
+    if clock is not None:
+        manifest.update(raw_schema_version=AMI_RAW_SCHEMA_VERSION, required_features=[AMI_CLOCK_FEATURE],
+                        ami={"schema_version": 1, "clock_contract": clock_record})
+        datasets["clock_times"].update(clock_basis="producer actual grid times",
+                                      source_fields=["ami.clock.sample_grid_times_s"])
     directory = Path(directory)
     from pybert.web.analysis import extend_analysis
 
-    extend_analysis(arrays, manifest, cancelled)
+    extend_analysis(arrays, manifest, cancelled, clock_contract=clock)
     from pybert.web.resource_data import annotate_interference
 
     annotate_interference(arrays, manifest)
@@ -388,6 +432,8 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         extend(p, decoding, arrays, manifest)
     else:
         # Historical helper callers did not request the new local capture.
+        if clock is not None:
+            raise ValueError("AMI raw6 requires the captured decoding contract; cannot downgrade to raw4")
         manifest["raw_schema_version"] = 4
     if ami is not None:
         from pybert.web.ami import annotate
@@ -409,7 +455,7 @@ def plot_payload(directory, plot_id):
         traces = [
             {
                 "type": "scatter",
-                "mode": "lines",
+                "mode": trace.get("mode", "lines"),
                 "name": trace["name"],
                 "x": arrays[trace["x"]].tolist(),
                 "y": arrays[trace["y"]].tolist(),

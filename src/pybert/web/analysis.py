@@ -10,7 +10,7 @@ from scipy.signal import correlate
 
 from pybert.models.bert import MIN_BATHTUB_VAL
 from pybert.utility import calc_eye, calc_jitter, find_crossings, make_bathtub, safe_log10
-from pybert.web.clocks import period_projection
+from pybert.web.clocks import period_projection, stored_clock_context, eye_selection
 
 ANALYSIS_VERSION = 2
 DISPLAY_NOISE_SEED = 34003
@@ -91,12 +91,14 @@ def clock_display(spectrum):
     return display
 
 
-def extend_analysis(arrays, manifest, cancelled=lambda: False):
+def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract=None):
     """Build all optional datasets before the caller's single atomic publication."""
     datasets, plots = manifest["datasets"], manifest["plots"]
     window = manifest["window"]
     ui = float(arrays["context.source.ui"])
     nspui = int(arrays["context.source.nspui"])
+    if clock_contract is None:
+        clock_contract = stored_clock_context(manifest, arrays)
     manifest["analysis_version"] = ANALYSIS_VERSION
     manifest["analysis_source_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     manifest["observations"] = {}
@@ -235,12 +237,27 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
             eye_variants.append(("chnl.gui_noise", (arrays[waveform] + noise)[window["ignore_samps"]:], True))
         for eye_id, ys, display_noise in eye_variants:
             plot_id = f"eye.{eye_id}"
+            timed = point == "dfe" and clock_contract is not None
+            eye_meta = None
+            if timed:
+                relative, eye_meta = eye_selection(clock_contract, window["ignore_samps"], len(arrays[waveform]))
+                clock_contract["eye_consumers"]["analysis.eye.dfe"] = eye_meta
+                ys = arrays[waveform][eye_meta["slice_start"]:eye_meta["slice_stop"]]
+                if not len(relative):
+                    unavailable(plot_id, f"{label} eye", eye_meta["reason"])
+                    plots[plot_id]["metadata"] = eye_meta
+                    continue
             clocks = arrays["clock_times"]
             clocks = clocks[clocks >= window["ignore_until_s"]] - window["ignore_until_s"]
             recovered = point == "dfe" and len(clocks) > 0
             basis = "recovered clock_times" if recovered else "nominal waveform crossing fold"
             try:
-                counts, mapping = eye_data(ui, nspui, ys, clocks if recovered else None)
+                if timed:
+                    eye_meta.update(availability="unavailable", reason="timed_eye_calculation_pending", trace_count=None)
+                    counts, mapping = eye_data(ui, nspui, ys, clock_indices=relative)
+                    eye_meta.update(availability="available", reason=None, trace_count=len(relative))
+                else:
+                    counts, mapping = eye_data(ui, nspui, ys, clocks if recovered else None)
                 xkey = add(f"{plot_id}.x", np.linspace(-ui, ui, 2 * nspui) * 1e12, "ps", point, kind="axis")
                 ykey = add(f"{plot_id}.y", (np.arange(1000) - mapping["y_offset"]) / mapping["y_scale"], "V", point, kind="axis")
                 zkey = add(f"{plot_id}.counts", counts, "count", point, producer="calc_eye", **mapping)
@@ -248,37 +265,85 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
                                      fallback_reason="No recovered clocks in window" if point == "dfe" and not recovered else None,
                                      display_noise=display_noise, display_noise_dataset=noise_key if display_noise else None,
                                      source_waveform=waveform, x_axis=xkey, y_axis=ykey)
+                if timed:
+                    for key in (xkey, ykey, zkey):
+                        datasets[key].update(eye_meta)
                 plots[plot_id] = dict(title=f"{label} eye · {'GUI-compatible σ=1mV' if display_noise else basis}",
                                      heatmap=dict(x=xkey, y=ykey, z=zkey), traces=[], observation_id=observation,
                                      metadata=datasets[zkey])
             except (ValueError, IndexError, FloatingPointError, ZeroDivisionError) as err:
+                if timed:
+                    eye_meta.update(availability="unavailable", reason=f"{type(err).__name__}: {err}", trace_count=None)
                 unavailable(plot_id, f"{label} eye", str(err))
 
     checkpoint()
-    counts, edges, spectrum, frequency, relative = clock_data(arrays["t"], arrays["ui_ests"], ui)
-    add("cdr.histogram.edges", edges, "ps", "cdr", producer="numpy.histogram(bins=100)",
-        dataset_window=clock_window, source_fields=["ui_ests"])
-    centers = add("cdr.histogram.centers", (edges[:-1] + edges[1:]) / 2, "ps", "cdr",
-                  dataset_window=clock_window, source_fields=["cdr.histogram.edges"])
-    add("cdr.histogram.counts", counts, "count", "cdr", centers,
-        dataset_window=clock_window, source_fields=["ui_ests"])
-    add("cdr.spectrum.raw", spectrum, "ps FFT amplitude", "cdr", "cdr.spectrum.frequency_Hz", producer="rfft(ui_ests)",
-        dataset_window=clock_window, source_fields=["ui_ests"])
-    add("cdr.spectrum.frequency_Hz", frequency, "Hz", "cdr",
-        dataset_window=clock_window, source_fields=["ui_ests", "t"])
-    add("cdr.spectrum.relative_frequency", relative, "f*UI", "cdr",
-        dataset_window=clock_window, source_fields=["cdr.spectrum.frequency_Hz", "context.source.ui"])
-    plots["cdr.histogram"] = dict(title="CDR clock period · 100-bin histogram", traces=[
-        line("cdr.histogram", arrays[centers], counts, "Native UI estimates", "ps", "count", "cdr",
-             [centers], ["cdr.histogram.counts"], dataset_window=clock_window)])
-    try:
-        display = clock_display(spectrum)
-        plots["cdr.spectrum"] = dict(title="CDR clock period · legacy log10 ratio (no ×10/20)", traces=[
-            line("cdr.spectrum", relative, display,
-                 "Relative to fundamental", "f*UI", "legacy log10 ratio", "cdr",
-                 ["cdr.spectrum.relative_frequency"], ["cdr.spectrum.raw"], dataset_window=clock_window, logx=True)])
-    except ValueError as err:
-        unavailable("cdr.spectrum", "CDR clock period · legacy log10 ratio", str(err))
+    if clock_contract is not None:
+        products = clock_data(arrays["t"], arrays["ui_ests"], ui, clock_contract=clock_contract)
+        sources = ["ui_ests", "ami.cdr.period_known", "t"]
+        period_meta = {}
+        for kind, product in products.items():
+            prefix = "cdr." + kind
+            if kind == "histogram":
+                edges, counts = product["edges"], product["counts"]
+                values = {"grid_indices": product["indices"], "input_period_ps": product["values_ps"],
+                          "edges": edges, "centers": (edges[:-1] + edges[1:]) / 2, "counts": counts}
+            else:
+                values = {"grid_indices": product["indices"], "input_period_ps": product["input_period_ps"],
+                          "raw": product["raw"], "frequency_Hz": product["frequency_hz"],
+                          "relative_frequency": product["relative_frequency"]}
+            period_meta[kind] = {name: product[name] for name in
+                ("availability", "reason", "window") + (("sample_interval_s", "origin_s") if kind == "spectrum" else ())}
+            for name, value in values.items():
+                axis = prefix + ".centers" if name == "counts" else prefix + ".frequency_Hz" if name == "raw" else None
+                unit = ("sample index" if name == "grid_indices" else "count" if name == "counts" else
+                        "Hz" if name == "frequency_Hz" else "f*UI" if name == "relative_frequency" else
+                        "ps FFT amplitude" if name == "raw" else "ps")
+                key = add(prefix + "." + name, value, unit, "cdr", axis,
+                          producer="masked original grid period analysis", dataset_window=product["window"],
+                          source_fields=sources)
+                datasets[key].update(availability=product["availability"], reason=product["reason"],
+                                     clock_basis="producer known grid periods")
+            if product["availability"] != "available":
+                unavailable(prefix, "AMI CDR " + kind, product["reason"])
+            elif kind == "histogram":
+                plots[prefix] = dict(title="AMI known grid period · 100-bin time-weighted histogram", traces=[
+                    line("cdr.histogram", arrays[prefix + ".centers"], counts, "Known grid samples", "ps", "count",
+                         "cdr", [prefix + ".centers"], [prefix + ".counts"], dataset_window=product["window"])])
+            else:
+                try:
+                    display = clock_display(product["raw"])
+                    plots[prefix] = dict(title="AMI CDR period · legacy log10 ratio", traces=[
+                        line("cdr.spectrum", product["relative_frequency"], display, "Relative to fundamental",
+                             "f*UI", "legacy log10 ratio", "cdr", [prefix + ".relative_frequency"],
+                             [prefix + ".raw"], dataset_window=product["window"], logx=True)])
+                except ValueError as err:
+                    unavailable(prefix, "AMI CDR period · legacy log10 ratio", str(err))
+        manifest["ami"]["clock_contract"]["period_analysis"] = period_meta
+    else:
+        counts, edges, spectrum, frequency, relative = clock_data(arrays["t"], arrays["ui_ests"], ui)
+        add("cdr.histogram.edges", edges, "ps", "cdr", producer="numpy.histogram(bins=100)",
+            dataset_window=clock_window, source_fields=["ui_ests"])
+        centers = add("cdr.histogram.centers", (edges[:-1] + edges[1:]) / 2, "ps", "cdr",
+                      dataset_window=clock_window, source_fields=["cdr.histogram.edges"])
+        add("cdr.histogram.counts", counts, "count", "cdr", centers,
+            dataset_window=clock_window, source_fields=["ui_ests"])
+        add("cdr.spectrum.raw", spectrum, "ps FFT amplitude", "cdr", "cdr.spectrum.frequency_Hz", producer="rfft(ui_ests)",
+            dataset_window=clock_window, source_fields=["ui_ests"])
+        add("cdr.spectrum.frequency_Hz", frequency, "Hz", "cdr",
+            dataset_window=clock_window, source_fields=["ui_ests", "t"])
+        add("cdr.spectrum.relative_frequency", relative, "f*UI", "cdr",
+            dataset_window=clock_window, source_fields=["cdr.spectrum.frequency_Hz", "context.source.ui"])
+        plots["cdr.histogram"] = dict(title="CDR clock period · 100-bin histogram", traces=[
+            line("cdr.histogram", arrays[centers], counts, "Native UI estimates", "ps", "count", "cdr",
+                 [centers], ["cdr.histogram.counts"], dataset_window=clock_window)])
+        try:
+            display = clock_display(spectrum)
+            plots["cdr.spectrum"] = dict(title="CDR clock period · legacy log10 ratio (no ×10/20)", traces=[
+                line("cdr.spectrum", relative, display,
+                     "Relative to fundamental", "f*UI", "legacy log10 ratio", "cdr",
+                     ["cdr.spectrum.relative_frequency"], ["cdr.spectrum.raw"], dataset_window=clock_window, logx=True)])
+        except ValueError as err:
+            unavailable("cdr.spectrum", "CDR clock period · legacy log10 ratio", str(err))
 
     # Same scalar ratios as _get_jitter_info; source/denominator/sentinel are retained explicitly.
     manifest["jitter_rejection"] = []
@@ -316,11 +381,12 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
         projection_sources(f"wave.{field}", field_points[field], ["t", "waveform_indices"], [field, "waveform_indices"])
     for index in range(arrays.get("adaptation", np.empty((0, 0))).shape[1]):
         projection_sources(f"tap{index + 1}", "dfe", ["adaptation"], ["adaptation"])
-    projection_sources("cdr", "cdr", ["t", "cdr_indices"], ["ui_ests", "cdr_indices"])
+    if clock_contract is None:
+        projection_sources("cdr", "cdr", ["t", "cdr_indices"], ["ui_ests", "cdr_indices"])
     for eye_id, point, waveform in (("rx_in", "tx", "rx_in"), ("dfe", "dfe", "dfe_out")):
         for suffix in ("x", "y", "counts"):
             dataset = datasets.get(f"eye.{eye_id}.{suffix}")
-            if dataset is not None:
+            if dataset is not None and not (clock_contract is not None and point == "dfe"):
                 dataset.update(point=point, source_fields=[waveform] + (["clock_times"] if point == "dfe" else []))
     observation_ids = {point: value[0] for point, value in POINTS.items()}
     observation_ids.update(cdr="cdr_clock", simulation="simulation_record", source="source_reference", noise="additive_noise",
@@ -338,9 +404,10 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False):
                 time_axis=key, start_index=0, stop_index=len(events), sample_count=len(events), event_count=len(events),
                 ignore_samps=0, ignore_until_s=0., start_s=float(events[0]) if len(events) else None,
                 stop_s_inclusive=float(events[-1]) if len(events) else None))
-        if key == "ui_ests" or key == "cdr_indices" or key.startswith(("cdr.", "display.cdr.")):
+        if clock_contract is None and (key == "ui_ests" or key == "cdr_indices"
+                                       or key.startswith(("cdr.", "display.cdr."))):
             dataset.update(point="cdr", window=clock_window)
-        if key == "cdr_indices":
+        if key == "cdr_indices" and clock_contract is None:
             dataset["source_fields"] = ["t"]
         dataset.setdefault("source_fields", [key])
         dataset.update(run_id=manifest["run_id"], input_hash=manifest["input_hash"], engine_sha=manifest["adapter_sha"],

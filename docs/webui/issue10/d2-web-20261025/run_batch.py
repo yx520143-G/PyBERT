@@ -39,7 +39,18 @@ def main():
         code, output, errors, status = None, error.stdout or b"", error.stderr or b"", "timeout"
     (destination / "stdout.txt").write_bytes(output)
     (destination / "stderr.txt").write_bytes(errors)
+    guard_check = None
+    if plan.get("guard_only"):
+        child = evidence / "runs" / run_id
+        child_receipt = json.loads((child / "receipt.json").read_text(encoding="utf-8"))
+        forbidden = ("sentinel-body.txt", "sentinel-caught.txt", "sentinel-after.txt", "sentinel-next-case.txt")
+        guard_check = (code == 86 and child_receipt.get("status") == "blocked"
+                       and child_receipt.get("guard_only_trigger_entries") == 1
+                       and (child / "sentinel-before.txt").read_text(encoding="utf-8") == "started\n"
+                       and not any((child / name).exists() for name in forbidden)
+                       and len(child_receipt.get("test_methods_started", [])) == 1)
     receipt = {**before, "exit_code": code, "status": status, "elapsed_s": time.perf_counter() - started,
+               "guard_only_verification_passed": guard_check,
                "output_sha256": {name: hashlib.sha256((destination / name).read_bytes()).hexdigest()
                                  for name in ("stdout.txt", "stderr.txt")},
                "timeout_note": "events.jsonl and line-buffered child logs retain actual starts; timeout is never pass"}

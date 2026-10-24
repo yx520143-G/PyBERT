@@ -9,3 +9,5 @@
 全部失败、raw与成本保留；新env仅允许锁定最小NumPy，不装GUI/SciPy。启动时实际产品/NumPy/模型调用0。
 
 01功能red/02masked green、03producer red已保留。02在固定10行fixture中实际完成20次数组copy，但原runner没有逐copy事件/elapsed；不能冒称已完整trace。04开始记录ndarray copy/deepcopy事件、bytes与elapsed；最终相关整合矩阵将包含同一mask行的完整instrumentation，02原件不回写。
+
+08-archive-green是原目录名，实际FAILED/BLOCKED_BUDGET：pure事件3934+此前67=4001，第4001入口被拦截，不称其函数体完成或原4000cap合规。原日志/计数不改。PM补充6388850218批准后续累计25000，其余cap不变；A9000/B3000/C8000/review999含既有4001。下一步先09 stdlib guard-only验证不可恢复停止，再恢复实际软件验证。Guard使用受限stdlib写receipt/raw后os._exit86，防止profile异常被unittest捕获后撤销profile导致无计数继续；[Python sys.setprofile](https://docs.python.org/3.13/library/sys.html#sys.setprofile)与[os._exit](https://docs.python.org/3.13/library/os.html#os._exit)仅作语义参考，实际哨兵证据另存。

@@ -60,14 +60,35 @@ def main():
     started, code, np = time.perf_counter(), 1, None
     paths = {str(root / spec["path"]): name for name, spec in plan["modules"].items()}
     paths.update({str(root / spec["path"]): name for name, spec in plan.get("extra_sources", {}).items()})
-    cases = str(evidence / "d2_cases.py")
+    cases = str(evidence / ("guard_cases.py" if plan.get("guard_only") else "d2_cases.py"))
     copies = {}
     serial_calls = {}
 
     def block(reason):
         receipt["blocked_attempts"].append(reason)
         events.write(json.dumps({"kind": "blocked", "reason": reason}) + "\n")
-        raise RuntimeError("D2 guard: " + reason)
+        # A profile exception disables profiling and can be swallowed by a case or unittest.
+        # Only this trusted stdlib receipt path runs after a guard; no test/finally/model code resumes.
+        sys.setprofile(None)
+        try:
+            receipt.update(exit_code=86, status="blocked", elapsed_s=time.perf_counter() - started,
+                           tests_run=None, failures=None, errors=None,
+                           attempted_blocked=reason, product_body_after_block="not executed")
+            for stream in (stdout, stderr, events, observations):
+                stream.flush()
+                stream.close()
+            receipt["output_sha256"] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+                for path in destination.iterdir() if path.is_file() and path.name not in hashes
+                and path.name not in ("before.json", "receipt.json")}
+            receipt["array_output_sha256"] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+                                               for path in sorted(arrays_dir.iterdir())}
+            receipt["inputs_unchanged_after"] = all(
+                (root / relative).is_file() and hashlib.sha256((root / relative).read_bytes()).hexdigest() == hashes[name]
+                for name, relative in plan["snapshot_paths"].items())
+            (destination / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n",
+                                                      encoding="utf-8", newline="\n")
+        finally:
+            os._exit(86)
 
     def entry(kind, name):
         counts[kind] += 1
@@ -153,6 +174,11 @@ def main():
                     events.write(json.dumps({"kind": "serialization", "name": "host_copy", "input_bytes": size,
                                              "elapsed_s": elapsed, "event": event, "source": filename}) + "\n")
         if event == "call":
+            if plan.get("guard_only") and filename == cases and frame.f_code.co_name == "stub_guard_trigger":
+                receipt["guard_only_trigger_entries"] = receipt.get("guard_only_trigger_entries", 0) + 1
+                block("guard-only ordinary stdlib callback sentinel")
+            if filename == cases and frame.f_code.co_name.startswith("test_"):
+                receipt.setdefault("test_methods_started", []).append(name)
             if filename == cases and frame.f_code.co_name.startswith("stub_"):
                 receipt["stub_entries"][name] = receipt["stub_entries"].get(name, 0) + 1
             if filename in paths and frame.f_code.co_name != "<module>":
@@ -192,6 +218,15 @@ def main():
     try:
         assert Path(sys.prefix).resolve() == root / ".venv"
         assert not any(name.split(".")[0] in {"numpy", "pybert", "pyibisami", "scipy"} for name in sys.modules)
+        if plan.get("guard_only"):
+            seam = types.ModuleType("d2_under_test")
+            seam.__dict__.update(modules={}, np=None, destination=destination)
+            sys.modules[seam.__name__] = seam
+            tests = types.ModuleType("d2_cases")
+            exec(compile(Path(cases).read_text(encoding="utf-8"), cases, "exec"), tests.__dict__)
+            suite = unittest.defaultTestLoader.loadTestsFromNames(plan["selection"], tests)
+            unittest.TextTestRunner(stream=stderr, verbosity=2).run(suite)
+            block("guard-only sentinel failed to stop the batch")
         environment = json.loads((evidence / "environment.json").read_text(encoding="utf-8"))
         for path, digest in environment["installed_files_sha256"].items():
             assert hashlib.sha256((root / path).read_bytes()).hexdigest() == digest, path

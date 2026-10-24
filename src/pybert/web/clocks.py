@@ -111,7 +111,8 @@ def clock_context(engine, snapshot=None):
             or profile.get("mapping") not in ("native_nrz", "native_pam4")):
         raise ValueError("Missing declared units, zero eye offset or slicer mapping")
     return {"version": 2, "info": info, "raw": raw, "known_compact": compact,
-            "window_indices": selected, "snapshot_phase": snapshot["phase"]}
+            "window_indices": selected, "snapshot_phase": snapshot["phase"],
+            "eye_consumers": snapshot.setdefault("eye_consumers", {})}
 
 
 def eye_selection(context, slice_start, slice_stop):
@@ -240,7 +241,7 @@ def store_clock_context(context, arrays, datasets):
     return {"version": 2, **{name: copy.deepcopy(info.get(name)) for name in fields},
             "array_fields": {name: "ami.clock." + name for name in CLOCK_FIELDS},
             "period_field": "ui_ests", "mask_field": "ami.cdr.period_known", "grid_field": "t",
-            "snapshot_phase": context["snapshot_phase"]}
+            "snapshot_phase": context["snapshot_phase"], "eye_consumers": context["eye_consumers"]}
 
 
 def clock_features(run, archive_features=None):
@@ -325,3 +326,22 @@ def validate_clock_arrays(run, arrays):
               & (targets >= contract["ignore_ui"] * contract["symbol_ui_s"]))
     if len(indices[inside]) < count or not np.array_equal(values["analysis_sample_indices"], indices[inside][-count:]):
         raise ValueError("Saved final W producer indices disagree")
+
+
+def stored_clock_context(run, arrays):
+    """Read an already saved contract for analysis; never generate a new invocation or execution claim."""
+    if not clock_features(run):
+        return None
+    validate_clock_arrays(run, arrays)
+    contract = run["ami"]["clock_contract"]
+    info = {**contract, **{name: arrays[field] for name, field in contract["array_fields"].items()},
+            "period_known": arrays["ami.cdr.period_known"]}
+    indices, targets, times = (info[name] for name in ("sample_indices", "sample_targets_s", "sample_grid_times_s"))
+    window = info["analysis"]
+    inside = ((indices >= window["start_index"]) & (indices < window["stop_index"])
+              & (targets >= window["start_s"]) & (targets <= window["stop_s"])
+              & (times >= window["start_s"]) & (times <= window["stop_s"])
+              & (targets >= info["ignore_ui"] * info["symbol_ui_s"]))
+    return {"version": 2, "info": info, "raw": {"t": arrays["t"], "ui_ests": arrays["ui_ests"]},
+            "window_indices": indices[inside], "snapshot_phase": "stored contract; no new Main invocation",
+            "eye_consumers": contract.setdefault("eye_consumers", {})}
