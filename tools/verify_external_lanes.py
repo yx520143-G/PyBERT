@@ -41,7 +41,14 @@ def bind(label):
 
 def guard():
     freeze = json.loads((ISSUE / "freeze-v1.json").read_text(encoding="utf-8"))
-    for name, digest in freeze["files"].items():
+    files = dict(freeze["files"])
+    amendment = ISSUE / "capture-amendment-v2.json"
+    if amendment.exists():
+        updated = json.loads(amendment.read_text(encoding="utf-8"))
+        assert sha(ISSUE / "freeze-v1.json") == updated["parent_freeze_sha256"]
+        assert sha(ISSUE / "evidence/capture-v1.py.txt") == freeze["files"]["tools\\verify_external_lanes.py"]
+        files.update(updated["files_override"])
+    for name, digest in files.items():
         assert sha(ROOT / name) == digest, f"Changed frozen file: {name}"
     for name, digest in freeze["local_source_files"].items():
         assert sha(ISSUE / name) == digest, f"Changed source: {name}"
@@ -127,15 +134,23 @@ def importer(label, output, environment):
 
 def counter():
     return {"Main": 0, "calc_chnl_h": 0, "import_freq": 0, "import_fext": 0,
-            "coopt": 0, "COM": 0, "AMI_Init": 0, "AMI_GetWave": 0}
+            "coopt": 0, "numerical_COM": 0, "compute_com_entries": 0,
+            "compute_com_disabled_entries": 0, "AMI_Init": 0, "AMI_GetWave": 0, "PyBERT_constructors": 0}
 
 
 def count_call(frame, event, costs):
     if event != "call":
         return
     name = frame.f_code.co_name
+    owner = frame.f_locals.get("self")
+    if name == "__init__" and owner is not None and type(owner).__name__ == "PyBERT":
+        costs["PyBERT_constructors"] += 1
+    if name == "compute_com" and "pybert" in frame.f_code.co_filename:
+        costs["compute_com_entries"] += 1
+        if owner is not None and not owner.enable_com:
+            costs["compute_com_disabled_entries"] += 1
     field = {"my_run_simulation": "Main", "calc_chnl_h": "calc_chnl_h", "import_freq": "import_freq",
-             "import_fext": "import_fext", "coopt": "coopt", "compute_com": "COM",
+             "import_fext": "import_fext", "coopt": "coopt", "calc_com": "numerical_COM",
              "initialize": "AMI_Init", "getWave": "AMI_GetWave"}.get(name)
     if field and ("pybert" in frame.f_code.co_filename or "pyibisami" in frame.f_code.co_filename):
         costs[field] += 1
@@ -203,9 +218,10 @@ def direct(label, output, environment, selected):
             finally:
                 sys.setprofile(None)
             row["status"] = p.status
-            for field in ("t", "f", "t_irfft", "t_ns_chnl", "chnl_h", "chnl_s", "chnl_p", "chnl_H",
-                          "chnl_H_raw", "chnl_trimmed_H", "chnl_out", "tx_out", "rx_in", "ctle_out", "ffe_out",
-                          "dfe_out", "noise", "bits", "symbols", "clocks", "clock_times", "ui_ests", "lockeds"):
+            from pybert.web.data import RAW_FIELDS, RESPONSES
+
+            fields = RAW_FIELDS + tuple(f"{point}_{suffix}" for point in RESPONSES for suffix in ("h", "s", "p", "H"))
+            for field in fields:
                 raw[field] = np.asarray(getattr(p, field)).copy()
             raw["context.source.fext_count"] = np.asarray(len(p.fext_h))
             raw["start_ix"] = np.asarray(p.start_ix)

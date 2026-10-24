@@ -1,0 +1,81 @@
+[
+  {
+    "mode": "importer",
+    "label": "pre",
+    "case_ids": [
+      "LL8-interleaved-r0-v0",
+      "LL8-interleaved-r0-v1",
+      "LL8-interleaved-r1-v0",
+      "LL8-interleaved-r1-v1",
+      "LL8-grouped-r1-v0",
+      "LL8-grouped-r1-v1",
+      "SI12-interleaved-r0-v0",
+      "SI12-interleaved-r0-v1",
+      "SI12-interleaved-r0-v2",
+      "SI12-interleaved-r1-v0",
+      "SI12-interleaved-r1-v1",
+      "SI12-interleaved-r1-v2",
+      "SI12-grouped-r1-v0",
+      "SI12-grouped-r1-v1",
+      "SI12-grouped-r1-v2"
+    ],
+    "reserved_before_call": true,
+    "reserved_utc": "2026-10-24T09:58:20.690557+00:00"
+  },
+  {
+    "mode": "importer",
+    "label": "post",
+    "case_ids": [
+      "LL8-interleaved-r0-v0",
+      "LL8-interleaved-r0-v1",
+      "LL8-interleaved-r1-v0",
+      "LL8-interleaved-r1-v1",
+      "LL8-grouped-r1-v0",
+      "LL8-grouped-r1-v1",
+      "SI12-interleaved-r0-v0",
+      "SI12-interleaved-r0-v1",
+      "SI12-interleaved-r0-v2",
+      "SI12-interleaved-r1-v0",
+      "SI12-interleaved-r1-v1",
+      "SI12-interleaved-r1-v2",
+      "SI12-grouped-r1-v0",
+      "SI12-grouped-r1-v1",
+      "SI12-grouped-r1-v2"
+    ],
+    "reserved_before_call": true,
+    "reserved_utc": "2026-10-24T09:58:32.713883+00:00"
+  },
+  {
+    "mode": "importer",
+    "label": "final",
+    "case_ids": [
+      "LL8-interleaved-r0-v0",
+      "LL8-interleaved-r0-v1",
+      "LL8-interleaved-r1-v0",
+      "LL8-interleaved-r1-v1",
+      "LL8-grouped-r1-v0",
+      "LL8-grouped-r1-v1",
+      "SI12-interleaved-r0-v0",
+      "SI12-interleaved-r0-v1",
+      "SI12-interleaved-r0-v2",
+      "SI12-interleaved-r1-v0",
+      "SI12-interleaved-r1-v1",
+      "SI12-interleaved-r1-v2",
+      "SI12-grouped-r1-v0",
+      "SI12-grouped-r1-v1",
+      "SI12-grouped-r1-v2"
+    ],
+    "reserved_before_call": true,
+    "reserved_utc": "2026-10-24T09:58:37.855755+00:00"
+  },
+  {
+    "mode": "direct",
+    "label": "pre",
+    "case_ids": [
+      "D-LL8-NRZ",
+      "D-SI12-PAM4"
+    ],
+    "reserved_before_call": true,
+    "reserved_utc": "2026-10-24T09:58:42.981934+00:00"
+  }
+]
