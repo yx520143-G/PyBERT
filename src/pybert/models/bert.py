@@ -432,7 +432,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             if self.rx_use_ami and self.rx_use_getwave:
                 ctle_out, clock_times, ctle_h, ctle_out_h, msg, params = run_ami_model(
                     self.rx_dll_file, self._rx_cfg, True, ui, ts, tx_out_h, rx_in,
-                    fext_hs=getattr(self, "fext_h", []))
+                    fext_hs=getattr(self, "fext_h", []), _probe_seed=self.seed)
                 self.log(f"Rx IBIS-AMI model initialization results:\n{msg}")
                 # Numeric histories retain full paths below the model root.
                 param_vals, tap_weightss = getwave_parameters(params)

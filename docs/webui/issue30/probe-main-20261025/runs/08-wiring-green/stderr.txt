@@ -1,0 +1,12 @@
+test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) ... ok
+test_mutable_init_inputs_cannot_cross_roles_or_change_main_origin (c1_tests.ProbeMainTests.test_mutable_init_inputs_cannot_cross_roles_or_change_main_origin) ... ok
+test_only_target_caller_selects_the_real_coordinator (c1_tests.ProbeMainTests.test_only_target_caller_selects_the_real_coordinator) ... ok
+test_primary_and_cleanup_errors_are_both_preserved (c1_tests.ProbeMainTests.test_primary_and_cleanup_errors_are_both_preserved) ... ok
+test_primary_close_and_diagnostic_errors_remain_separate (c1_tests.ProbeMainTests.test_primary_close_and_diagnostic_errors_remain_separate) ... ok
+test_roles_are_sequential_and_results_survive_close (c1_tests.ProbeMainTests.test_roles_are_sequential_and_results_survive_close) ... ok
+test_seed_zero_and_nonzero_block_policies (c1_tests.ProbeMainTests.test_seed_zero_and_nonzero_block_policies) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.033s
+
+OK

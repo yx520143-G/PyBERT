@@ -1,0 +1,23 @@
+{
+  "old_repository_states_match": 12,
+  "old_metadata_hashes_match": 169,
+  "old_raw_match": 4874,
+  "old_materials_and_sources_match": 784,
+  "old_env_cache_dirs_preserved": [
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.venv",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.uv-cache",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pyami-pin\\.pip-cache",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue25-pip-venv",
+    "E:\\serial-bus-simulator-dependencies\\pyami-response-rng\\.uv-cache",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.venv",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.uv-cache",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.pip-cache",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\.tmp",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-pip-venv",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-bootstrap-cache",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue28-bootstrap-cache-initial"
+  ],
+  "new_root_and_submodules_independent_no_alternates_all_object_links1": true,
+  "active_hooks": [],
+  "scope": "stdlib/Git read only; no test, product import or model method rerun"
+}

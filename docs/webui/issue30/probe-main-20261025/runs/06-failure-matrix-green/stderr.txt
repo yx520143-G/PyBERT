@@ -1,0 +1,9 @@
+test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) ... ok
+test_primary_and_cleanup_errors_are_both_preserved (c1_tests.ProbeMainTests.test_primary_and_cleanup_errors_are_both_preserved) ... ok
+test_primary_close_and_diagnostic_errors_remain_separate (c1_tests.ProbeMainTests.test_primary_close_and_diagnostic_errors_remain_separate) ... ok
+test_roles_are_sequential_and_results_survive_close (c1_tests.ProbeMainTests.test_roles_are_sequential_and_results_survive_close) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.057s
+
+OK

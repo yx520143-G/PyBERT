@@ -1,0 +1,15 @@
+test_roles_are_sequential_and_results_survive_close (c1_tests.ProbeMainTests.test_roles_are_sequential_and_results_survive_close) ... FAIL
+
+======================================================================
+FAIL: test_roles_are_sequential_and_results_survive_close (c1_tests.ProbeMainTests.test_roles_are_sequential_and_results_survive_close)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 68, in test_roles_are_sequential_and_results_survive_close
+    self.assertIsNotNone(coordinator, "production C1 coordinator is not implemented")
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : production C1 coordinator is not implemented
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=1)

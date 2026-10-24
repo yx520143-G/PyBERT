@@ -1,0 +1,132 @@
+"""Exercise the actual C1 coordinator with ordinary Python model stubs only."""
+
+import unittest
+
+from c1_under_test import coordinator
+
+
+EVENTS = []
+COUNTS = {}
+CASES = []
+FAILURES = {}
+
+
+def count(name):
+    COUNTS[name] = COUNTS.get(name, 0) + 1
+
+
+def fail(point):
+    if point in FAILURES:
+        raise FAILURES[point]
+
+
+class FakeModel:
+    def __init__(self, role):
+        count("stub_model_factory")
+        self.role = role
+        self.last_init_call = None
+        self.last_close_call = None
+        self.buffers = []
+        EVENTS.append((role, "construct"))
+        fail(role + ".construct")
+
+    def initialize(self, inputs):
+        count("stub_initialize")
+        EVENTS.append((self.role, "initialize"))
+        self.last_init_call = {
+            "epoch": 1, "input_impulse": inputs["channel"], "init_out": [11, 12],
+            "params_in": b"(original)", "params_raw": self.role.encode(), "message_raw": self.role.encode(),
+        }
+        self.buffers.extend([inputs["channel"], self.last_init_call["init_out"]])
+        fail(self.role + ".initialize")
+
+    def get_responses(self, **kwargs):
+        count("stub_get_responses")
+        EVENTS.append((self.role, "responses"))
+        fail(self.role + ".responses")
+        assert kwargs == {"bits_per_call": 40, "max_run_length": 10, "nbits": 20, "rng": "private-123"}
+        h, out_h = [21, 22], [31, 32]
+        self.buffers.extend([h, out_h])
+        return {"impulse": h, "output": ([], out_h)}
+
+    def getWave(self, wave, *, bits_per_call):
+        count("stub_getWave")
+        EVENTS.append((self.role, "main", list(wave), bits_per_call))
+        fail(self.role + ".main")
+        assert wave == [7, 8, 9]
+        outputs = ([41, 42, 43], [0, 2], ["main-params"])
+        self.buffers.extend(outputs)
+        return outputs
+
+    def close(self):
+        count("stub_close")
+        EVENTS.append((self.role, "close"))
+        for buffer in self.buffers:
+            buffer[:] = ["destroyed"]
+        self.last_close_call = {"method": "close", "returned": True}
+        fail(self.role + ".close")
+
+
+class ProbeMainTests(unittest.TestCase):
+    def setUp(self):
+        EVENTS.clear()
+        COUNTS.clear()
+        FAILURES.clear()
+
+    def tearDown(self):
+        CASES.append({"test": self.id(), "events": list(EVENTS), "stub_counts": dict(COUNTS)})
+
+    def test_primary_and_cleanup_errors_are_both_preserved(self):
+        primary, cleanup = ValueError("probe failed"), OSError("close failed")
+        FAILURES.update({"probe.responses": primary, "probe.close": cleanup})
+        roles = iter(["probe", "main"])
+
+        def make_initializer(inputs):
+            count("stub_initializer")
+            return inputs
+
+        def make_rng(seed):
+            count("stub_rng_factory")
+            return "private-123"
+
+        with self.assertRaises(Exception) as caught:
+            coordinator(lambda: FakeModel(next(roles)), make_initializer,
+                        {"channel": [1, 2]}, [7, 8, 9], 0, 123, make_rng)
+        self.assertIs(caught.exception.primary_error, primary)
+        self.assertIs(caught.exception.cleanup_error, cleanup)
+        self.assertEqual(caught.exception.role, "probe")
+        self.assertFalse(any(event[0] == "main" for event in EVENTS))
+        self.assertEqual(COUNTS["stub_close"], 1)
+
+    def test_roles_are_sequential_and_results_survive_close(self):
+        self.assertIsNotNone(coordinator, "production C1 coordinator is not implemented")
+        roles = iter(["probe", "main"])
+
+        def make_model():
+            return FakeModel(next(roles))
+
+        def make_initializer(inputs):
+            count("stub_initializer")
+            EVENTS.append(("prepare", list(inputs["channel"])))
+            return inputs
+
+        def make_rng(seed):
+            count("stub_rng_factory")
+            self.assertEqual(seed, 123)
+            return "private-123"
+
+        inputs, wave = {"channel": [1, 2], "parameters": {"tap": [3]}}, [7, 8, 9]
+        result = coordinator(make_model, make_initializer, inputs, wave, 0, 123, make_rng)
+        self.assertEqual(result[:4], ([41, 42, 43], [0, 2], [21, 22], [31, 32]))
+        self.assertEqual(result[5], ["main-params"])
+        self.assertIn("Message: main", result[4])
+        self.assertIn("probe", result[4])
+        self.assertIn("main", result[4])
+        self.assertEqual(inputs, {"channel": [1, 2], "parameters": {"tap": [3]}})
+        self.assertEqual(wave, [7, 8, 9])
+        self.assertEqual(EVENTS, [
+            ("probe", "construct"), ("prepare", [1, 2]), ("probe", "initialize"),
+            ("probe", "responses"), ("probe", "close"),
+            ("main", "construct"), ("prepare", [1, 2]), ("main", "initialize"),
+            ("main", "main", [7, 8, 9], 40), ("main", "close"),
+        ])

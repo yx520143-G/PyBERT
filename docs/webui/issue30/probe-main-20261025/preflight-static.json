@@ -1,0 +1,12 @@
+{
+  "failure": "initial AST/line119 preflight assertion: run_guarded.py line102 length123",
+  "stderr": "Traceback (most recent call last):\r\n  File \"<stdin>\", line 6, in <module>\r\nAssertionError: ('docs/webui/issue30/probe-main-20261025/run_guarded.py', 123)\r\n",
+  "exit_code": 1,
+  "internal_elapsed_s": "UNKNOWN",
+  "tool_wall_s": 0.7100291,
+  "runner_before_sha256": "a43a970442d18f3a1f4310fec3718c54b91a1473556e0e3bd6874b65883784b1",
+  "snapshot": "inputs/runner-preflight-v1.py.txt",
+  "tests_executed": 0,
+  "pure_seam_and_stub_and_model_calls": 0,
+  "correction": "split conditional suite selection across lines"
+}

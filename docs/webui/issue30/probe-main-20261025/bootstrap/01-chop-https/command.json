@@ -1,0 +1,9 @@
+{
+  "command": [
+    "git",
+    "config",
+    "submodule.PyChOpMarg.url",
+    "https://github.com/capn-freako/PyChOpMarg.git"
+  ],
+  "cwd": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main"
+}

@@ -1,0 +1,210 @@
+test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) ... 
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='freeze.inputs') ... ERROR
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='freeze.x') ... ERROR
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.construct') ... ERROR
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.input_copy') ... ERROR
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.initialize') ... ERROR
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.close') ... FAIL
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.close_copy') ... FAIL
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.construct') ... ERROR
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.input_copy') ... ERROR
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.initialize') ... ERROR
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.message') ... ERROR
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.x_copy') ... FAIL
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.y_copy') ... FAIL
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.clocks_copy') ... FAIL
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.params_copy') ... FAIL
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.close') ... FAIL
+  test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.close_copy') ... FAIL
+test_primary_close_and_diagnostic_errors_remain_separate (c1_tests.ProbeMainTests.test_primary_close_and_diagnostic_errors_remain_separate) ... ERROR
+
+======================================================================
+ERROR: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='freeze.inputs')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+                     ^^^^^^^^^^^^^
+AttributeError: 'ValueError' object has no attribute 'phase'
+
+======================================================================
+ERROR: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='freeze.x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+                     ^^^^^^^^^^^^^
+AttributeError: 'ValueError' object has no attribute 'phase'
+
+======================================================================
+ERROR: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.construct')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+                     ^^^^^^^^^^^^^
+AttributeError: 'ValueError' object has no attribute 'phase'
+
+======================================================================
+ERROR: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.input_copy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+                     ^^^^^^^^^^^^^
+AttributeError: 'ValueError' object has no attribute 'phase'
+
+======================================================================
+ERROR: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.initialize')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 224, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.diagnostics[-1]["init"]["params_raw"], failure.role.encode())
+                     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'init'
+
+======================================================================
+ERROR: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.construct')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+                     ^^^^^^^^^^^^^
+AttributeError: 'ValueError' object has no attribute 'phase'
+
+======================================================================
+ERROR: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.input_copy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+                     ^^^^^^^^^^^^^
+AttributeError: 'ValueError' object has no attribute 'phase'
+
+======================================================================
+ERROR: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.initialize')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 224, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.diagnostics[-1]["init"]["params_raw"], failure.role.encode())
+                     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'init'
+
+======================================================================
+ERROR: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.message')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+                     ^^^^^^^^^^^^^
+AttributeError: 'ValueError' object has no attribute 'phase'
+
+======================================================================
+ERROR: test_primary_close_and_diagnostic_errors_remain_separate (c1_tests.ProbeMainTests.test_primary_close_and_diagnostic_errors_remain_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 236, in test_primary_close_and_diagnostic_errors_remain_separate
+    self.assertEqual(caught.exception.diagnostic_errors, [init_copy, close_copy])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: '_AMIProbeMainError' object has no attribute 'diagnostic_errors'
+
+======================================================================
+FAIL: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.close')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'probe_copy' != 'cleanup'
+- probe_copy
++ cleanup
+
+
+======================================================================
+FAIL: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='probe.close_copy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'probe_copy' != 'close_copy'
+- probe_copy
++ close_copy
+
+
+======================================================================
+FAIL: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.x_copy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'main' != 'main_input'
+- main
++ main_input
+
+
+======================================================================
+FAIL: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.y_copy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'main' != 'main_copy'
+- main
++ main_copy
+
+
+======================================================================
+FAIL: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.clocks_copy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'main' != 'main_copy'
+- main
++ main_copy
+
+
+======================================================================
+FAIL: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.params_copy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'main' != 'main_copy'
+- main
++ main_copy
+
+
+======================================================================
+FAIL: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.close')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'main' != 'cleanup'
+- main
++ cleanup
+
+
+======================================================================
+FAIL: test_failure_points_stop_without_retries_and_keep_evidence (c1_tests.ProbeMainTests.test_failure_points_stop_without_retries_and_keep_evidence) (point='main.close_copy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator-dependencies\pybert-issue30-probe-main\tests\test_ami_probe_main.py", line 212, in test_failure_points_stop_without_retries_and_keep_evidence
+    self.assertEqual(failure.phase, phase)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'main' != 'close_copy'
+- main
++ close_copy
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.087s
+
+FAILED (failures=8, errors=10)

@@ -1,0 +1,31 @@
+{
+  "run_id": "07-wiring-red",
+  "selection": [
+    "ProbeMainTests.test_only_target_caller_selects_the_real_coordinator"
+  ],
+  "input_sha256": {
+    "source.py.txt": "913f3d252c93e344bfeeb08948feb8749c8b005def68bd5a9e1bc2775c9bd4fd",
+    "bert.py.txt": "8b8d6255aa34445e559077bc9e3bf17e447f391846bdff6077ce3d1b1495f9a6",
+    "test.py.txt": "3b81c99043c35c6bd382d91693461fcccf6ec061b866f103b79e7f567ba0a402",
+    "runner.py.txt": "57f7a7c5ee52e76468935cf73ce87c0de89a6bdba7a3dfe80c0e8313a8de5251",
+    "plan.json": "0e38596201fb479d2dd28881d933978d447e968194e8588021f9ab76daef8b10"
+  },
+  "executable": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Scripts\\python.exe",
+  "python": "3.13.15 (main, Aug 14 2026, 15:36:10) [MSC v.1944 64 bit (AMD64)]",
+  "prefix": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+  "sys_path": [
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\python313.zip",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\DLLs",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib",
+    "C:\\Users\\yx\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv",
+    "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main\\.venv\\Lib\\site-packages"
+  ],
+  "blocked_attempts": [],
+  "pure_production_calls": {},
+  "stub_calls": {},
+  "test_python_calls": {},
+  "scope": "AST-extracted actual production coordinator; plain Python stubs; no full helper",
+  "preload": "stdlib only; platform/system library internals not fully traced",
+  "task_wall_peak_RSS": "UNKNOWN"
+}

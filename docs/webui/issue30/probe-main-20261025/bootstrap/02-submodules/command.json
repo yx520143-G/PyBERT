@@ -1,0 +1,12 @@
+{
+  "command": [
+    "git",
+    "submodule",
+    "update",
+    "--init",
+    "--",
+    "PyAMI",
+    "PyChOpMarg"
+  ],
+  "cwd": "E:\\serial-bus-simulator-dependencies\\pybert-issue30-probe-main"
+}
