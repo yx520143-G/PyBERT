@@ -15,7 +15,6 @@ from time import perf_counter
 from typing import Any, Optional, TypeAlias
 
 import numpy        as np
-import numpy.typing as npt
 import scipy.signal as sig
 from numpy import (
     argmax,
@@ -82,67 +81,127 @@ MIN_BATHTUB_VAL = 1.0e-12
 gFc             = 1.0e6  # Corner frequency of high-pass filter used to model capacitive coupling of periodic noise.
 
 
-def getwave_parameters(params: list[str]) -> tuple[dict[tuple[str, ...], list[float]], list[list[float]]]:
-    """Consume numeric histories by full path below the model root.
+def getwave_parameters(params: list[str], param_cfg=None, *, observations=None
+                       ) -> tuple[dict[tuple[str, ...], list[float]], list[list[float]]]:
+    """Project complete auxiliary histories, retaining raw returns and unavailable paths.
 
-    Blank returns, empty/nonnumeric/mixed-atom leaves and Table rows are unavailable
-    and omitted as whole values. A node mixing named children with atoms/rows is rejected.
-    Numeric paths must persist across calls. Tap columns must align within each
-    call; their common length may change between calls. No history is padded.
+    With declarations, check the root and required Out/InOut leaves independently
+    of numeric projection. Only a single declared Type Tap sibling group can form
+    a matrix. Missing/unaligned auxiliary histories are never padded or truncated.
+    This is not a complete AMI parameter conformance validator.
     """
-    parsed = [ami_parse(text) if text.strip() else None for text in params]
-    if not parsed:
-        return {}, []
-    model_root = next((tree[0] for tree in parsed if tree is not None), None)
+    observation = observations if observations is not None else {}
+    observation.update(parameter_strings=list(params), status="partial", unavailable_paths=[],
+                       tap_status="unavailable", tap_reason="no_declared_group", tap_paths=[])
+    declarations = {}
 
-    def collect_numeric(prefix, node, current, seen):
-        if isinstance(node, list):  # The pinned parser represents Table rows as plain lists.
-            return
-        name, values = node
+    def collect_declarations(prefix, branch):
+        for name, value in branch.items():
+            path = prefix + (name,)
+            if isinstance(value, dict):
+                collect_declarations(path, value)
+            elif hasattr(value, "pusage") and value.pusage in ("Out", "InOut"):
+                declarations[path] = value
+
+    if param_cfg is not None:
+        empty_container = "Skipped parameter Model_Specific: No tags or subparameters."
+        if any("Skipped parameter" in error and error != empty_container for error in param_cfg.ami_parsing_errors):
+            raise ValueError("Incomplete AMI declarations cannot verify required outputs")
+        for branch in param_cfg.ami_param_defs.values():
+            collect_declarations((), branch)
+    parsed = [ami_parse(text) if text.strip() else None for text in params]
+    model_root = (param_cfg.input_ami_params["root_name"] if param_cfg is not None
+                  else next((tree[0] for tree in parsed if tree is not None), None))
+
+    def collect_numeric(prefix, node, current, seen, leaves):
+        if isinstance(node, list):  # Numeric tap names share the parser's Table-row representation.
+            if not node or prefix + (node[0],) not in declarations:
+                return
+            name, values = node[0], node[1:]
+        else:
+            name, values = node
         path = prefix + (name,)
         if path in seen:
             raise ValueError(f"duplicate AMI parameter path {path!r}")
         seen.add(path)
-        if not values or all(isinstance(value, list) for value in values):
+        declaration = declarations.get(path)
+        if any(isinstance(value, (tuple, list)) for value in values) and any(
+                not isinstance(value, (tuple, list)) for value in values):
+            raise ValueError(f"mixed AMI node at {path!r}")
+        if declaration is not None and declaration.pformat == "Table":
+            if not values or any(isinstance(value, (tuple, list)) for value in values):
+                raise ValueError(f"invalid structure for required AMI Table output {path!r}")
+            leaves.add(path)
             return
-        if all(isinstance(value, tuple) for value in values):
+        if declaration is not None and any(isinstance(value, (tuple, list)) for value in values):
+            raise ValueError(f"invalid structure for required AMI output {path!r}")
+        if values and all(isinstance(value, tuple) or (
+                isinstance(value, list) and value and path + (value[0],) in declarations) for value in values):
             for child in values:
-                collect_numeric(path, child, current, seen)
+                collect_numeric(path, child, current, seen, leaves)
+            return
+        if values and all(isinstance(value, list) for value in values):
+            if any(child and path + (child[0],) in declarations for child in values):
+                raise ValueError(f"mixed AMI node at {path!r}")
+            leaves.add(path)  # Table observation, without a numeric history projection.
             return
         if any(isinstance(value, (tuple, list)) for value in values):
             raise ValueError(f"mixed AMI node at {path!r}")
+        leaves.add(path)
+        if not values:
+            if declaration is not None:
+                raise ValueError(f"empty required AMI output {path!r}")
+            return
+        if declaration is not None and declaration.ptype in ("String", "Boolean"):
+            return  # Numeric-looking labels and booleans are not floating-point histories.
         try:
             numbers = [float(value) for value in values]
         except ValueError:
+            if declaration is not None:
+                raise ValueError(f"invalid numeric AMI output {path!r}") from None
             return
         current[path] = numbers
 
-    param_vals: dict[tuple[str, ...], list[float]] = {}
-    tap_paths: list[tuple[str, ...]] = []
-    tap_weightss: list[list[float]] = []
+    calls = []
+    observed_paths = set()
     for call, tree in enumerate(parsed, 1):
         root, nodes = tree if tree is not None else (model_root, [])
         if root != model_root:
-            raise ValueError(f"AMI model root changed at call {call}")
+            raise ValueError(f"AMI model root mismatch at call {call}")
         current: dict[tuple[str, ...], list[float]] = {}
         seen: set[tuple[str, ...]] = set()
+        leaves: set[tuple[str, ...]] = set()
         for node in nodes:
-            collect_numeric((), node, current, seen)
-        if call == 1:
-            param_vals = {path: [] for path in current}
-            tap_paths = sorted(path for path in current if any("tap" in name.lower() for name in path))
-        elif current.keys() != param_vals.keys():
-            missing = sorted(param_vals.keys() - current.keys())
-            added = sorted(current.keys() - param_vals.keys())
-            raise ValueError(f"numeric AMI paths changed at call {call}: missing={missing!r}, added={added!r}")
+            collect_numeric((), node, current, seen, leaves)
+        missing = declarations.keys() - leaves
+        if missing:
+            raise ValueError(f"missing required AMI outputs at call {call}: {sorted(missing)!r}")
+        calls.append(current)
+        observed_paths.update(leaves)
 
-        if tap_paths:
-            columns = [current[path] for path in tap_paths]
-            if len({len(column) for column in columns}) != 1:
-                raise ValueError(f"unaligned AMI tap lengths at call {call}")
-            tap_weightss.extend([list(row) for row in zip(*columns)])
-        for path, values in current.items():
-            param_vals[path].extend(values)
+    all_paths = observed_paths
+    complete = {path for path in all_paths if all(path in current for current in calls)}
+    observation["unavailable_paths"] = [list(path) for path in sorted(all_paths - complete)]
+    param_vals = {path: [value for current in calls for value in current[path]] for path in sorted(complete)}
+    tap_paths = [path for path, declaration in declarations.items()
+                 if declaration.ptype == "Tap" and declaration.pformat != "Table"]
+    tap_weightss: list[list[float]] = []
+    if tap_paths:
+        if len({path[:-1] for path in tap_paths}) != 1:
+            observation["tap_reason"] = "multiple_declared_groups"
+        elif not all(path[-1].lstrip("+-").isdigit() for path in tap_paths):
+            observation["tap_reason"] = "non_integer_tap_names"
+        elif not calls or not set(tap_paths) <= complete:
+            observation["tap_reason"] = "incomplete_history"
+        else:
+            tap_paths.sort(key=lambda path: int(path[-1]))
+            observation["tap_paths"] = [list(path) for path in tap_paths]
+            if any(len({len(current[path]) for path in tap_paths}) != 1 for current in calls):
+                observation["tap_reason"] = "unaligned_columns"
+            else:
+                tap_weightss = [list(row) for current in calls for row in zip(*(current[path] for path in tap_paths))]
+                observation.update(tap_status="available", tap_reason="")
+    observation["status"] = "partial" if all_paths - complete or (tap_paths and not tap_weightss) else "available"
     return param_vals, tap_weightss
 
 
@@ -457,21 +516,10 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
                                        returned_edges_s=np.array(clock_times, copy=True)))
                 self.log(f"Rx IBIS-AMI model initialization results:\n{msg}")
                 # Numeric histories retain full paths below the model root.
-                param_vals, tap_weightss = getwave_parameters(params)
+                param_vals, _ = getwave_parameters(
+                    params, self._rx_cfg, observations=clock_info.setdefault("parameter_history", {}))
                 clock_info["model_lock_status"] = "returned" if ("cdr_locked",) in param_vals else "unavailable"
-                if ("cdr_locked",) in param_vals:
-                    _lockeds: npt.NDArray[np.float64] = array(param_vals[("cdr_locked",)])
-                    _lockeds = _lockeds.repeat(len_t // len(_lockeds))
-                    _lockeds = resize_zero_pad(_lockeds, len_t)
-                else:
-                    _lockeds = zeros(len_t)
-                lockeds = list(map(bool, _lockeds))
-                if ("cdr_ui",) in param_vals:
-                    ui_ests = array(param_vals[("cdr_ui",)])
-                    ui_ests = ui_ests.repeat(len_t // len(ui_ests))
-                    ui_ests = resize_zero_pad(ui_ests, len_t)
-                else:
-                    ui_ests = zeros(len_t)
+                # The selected DFE/clock consumer below supplies these arrays; AMI histories stay observations.
             else:  # Rx is either AMI_Init() or PyBERT native.
                 if self.rx_use_ami:  # Rx Init()
                     ctle_out, _, ctle_h, ctle_out_h, msg, _ = run_ami_model(

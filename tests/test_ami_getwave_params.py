@@ -46,7 +46,7 @@ def load_processor():
 class GetWaveParameterTests(unittest.TestCase):
     """Observe numeric histories and tap rows at the production consumer boundary."""
 
-    def test_saved_750_return_strings_preserve_numeric_tap_histories(self):
+    def test_saved_750_return_strings_preserve_numeric_histories_without_inferred_matrix(self):
         consume = load_processor()
         outputs = []
         for side in ("direct", "worker"):
@@ -57,9 +57,11 @@ class GetWaveParameterTests(unittest.TestCase):
                 values, taps = consume(params)
                 self.assertEqual(sorted(values), [(f"dfe_tap{i}",) for i in range(1, 6)])
                 self.assertEqual([len(v) for v in values.values()], [375] * 5)
-                self.assertEqual(len(taps), 375)
-                self.assertEqual(taps[0], [-0.232317, -0.286812, -0.186812, -0.0610478, 0.0131884])
-                self.assertEqual(taps[-1], [-0.361426, -0.385818, -0.285818, -0.185818, -0.0858182])
+                self.assertEqual(taps, [])  # Names alone do not establish a shared tap group/time axis.
+                self.assertEqual([values[(f"dfe_tap{i}",)][0] for i in range(1, 6)],
+                                 [-0.232317, -0.286812, -0.186812, -0.0610478, 0.0131884])
+                self.assertEqual([values[(f"dfe_tap{i}",)][-1] for i in range(1, 6)],
+                                 [-0.361426, -0.385818, -0.285818, -0.185818, -0.0858182])
                 outputs.append((values, taps))
         if len(outputs) == 2:
             self.assertEqual(outputs[0], outputs[1])
@@ -72,7 +74,7 @@ class GetWaveParameterTests(unittest.TestCase):
             ("a.b", "tap"): [3.0], ("a", "b.tap"): [4.0], ("tapZ",): [5.0], ("TapA",): [6.0],
             ("cdr_locked",): [1.0], ("cdr_ui",): [1e-10],
         })
-        self.assertEqual(taps, [[6.0, 4.0, 3.0, 5.0]])
+        self.assertEqual(taps, [])
         same_names, _ = load_processor()(["(rx (left (gain 1)) (right (gain 2)) (ab (c 3)) (a (bc 4)))"])
         self.assertEqual(same_names, {
             ("left", "gain"): [1.0], ("right", "gain"): [2.0], ("ab", "c"): [3.0], ("a", "bc"): [4.0],
@@ -85,7 +87,7 @@ class GetWaveParameterTests(unittest.TestCase):
             '(cdr_locked 1) (cdr_ui 1e-10) (tap2 -0.2))'
         ])
         self.assertEqual(values, {("cdr_locked",): [1.0], ("cdr_ui",): [1e-10], ("tap2",): [-0.2]})
-        self.assertEqual(taps, [[-0.2]])
+        self.assertEqual(taps, [])
 
     def test_empty_returns_have_no_taps(self):
         consume = load_processor()
@@ -99,8 +101,7 @@ class GetWaveParameterTests(unittest.TestCase):
     def test_blank_return_is_unavailable_without_hiding_syntax_errors(self):
         consume = load_processor()
         self.assertEqual(consume(["", " \n\t", "(rx)"]), ({}, []))
-        with self.assertRaisesRegex(ValueError, "paths changed.*call 2"):
-            consume(["(rx (tap1 1))", ""])
+        self.assertEqual(consume(["(rx (tap1 1))", ""]), ({}, []))
         with self.assertRaises(ParseError):
             consume(["(rx (tap1 1)", ""])
 
@@ -120,20 +121,24 @@ class GetWaveParameterTests(unittest.TestCase):
         self.assertEqual(values, {
             ("tap1",): [1.0, 2.0, 3.0], ("tap2",): [10.0, 20.0, 30.0], ("cdr_ui",): [1e-10, 2e-10],
         })
-        self.assertEqual(taps, [[1.0, 10.0], [2.0, 20.0], [3.0, 30.0]])
+        self.assertEqual(taps, [])
 
-    def test_numeric_paths_cannot_disappear_or_appear_between_calls(self):
+    def test_incomplete_auxiliary_numeric_paths_are_not_published_as_complete(self):
         for later in ("(rx)", "(rx (tap1 Missing))", "(rx (tap2 2))", "(rx (tap1 2) (gain 3))"):
-            with self.subTest(later=later), self.assertRaisesRegex(ValueError, "paths changed.*call 2"):
-                load_processor()(["(rx (tap1 1))", later])
+            with self.subTest(later=later):
+                values, taps = load_processor()(["(rx (tap1 1))", later])
+                self.assertEqual(values, {("tap1",): [1., 2.]} if "gain" in later else {})
+                self.assertEqual(taps, [])
 
-    def test_tap_columns_must_align_within_each_call(self):
+    def test_unrelated_named_taps_are_independent_histories(self):
         for params in (
             ["(rx (tap1 1 2) (tap2 10))"],
             ["(rx (tap1 1 2) (tap2 10))", "(rx (tap1 3) (tap2 20 30))"],
         ):
-            with self.subTest(params=params), self.assertRaisesRegex(ValueError, "tap lengths.*call 1"):
-                load_processor()(params)
+            with self.subTest(params=params):
+                values, taps = load_processor()(params)
+                self.assertEqual(set(values), {("tap1",), ("tap2",)})
+                self.assertEqual(taps, [])
 
     def test_duplicate_paths_are_rejected_without_overwriting(self):
         for text in ("(rx (tap1 1) (tap1 2))", "(rx (left (tap1 1) (tap1 2)))",
