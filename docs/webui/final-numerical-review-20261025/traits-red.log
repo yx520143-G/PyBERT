@@ -1,0 +1,373 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+rootdir: C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 8 items
+
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[dict] PASSED [ 12%]
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[traits-dict] FAILED [ 25%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[dict] PASSED [ 37%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[traits-dict] FAILED [ 50%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[dict] PASSED [ 62%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[traits-dict] FAILED [ 75%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[dict] PASSED [ 87%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[traits-dict] FAILED [100%]
+
+================================== FAILURES ===================================
+______________ test_clock_record_no_clock_fallback[traits-dict] _______________
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090037394700', 'epoch_basis': 'fresh Main invocation; not the mo...', 'reason': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([], dtype=float64)}
+
+    def test_clock_record_no_clock_fallback(info):
+>       plan(info, [])
+
+tests\test_ami_clock_traits.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_ami_clock_traits.py:25: in plan
+    return plan_ami_clocks(info, edges, grid, 1., 0., 4, window)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090037394700', 'epoch_basis': 'fresh Main invocation; not the mo...', 'reason': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([], dtype=float64)}
+edges = array([], dtype=float64)
+t_grid = array([0.  , 0.25, 0.5 , 0.75, 1.  , 1.25, 1.5 , 1.75, 2.  , 2.25, 2.5 ,
+       2.75, 3.  , 3.25, 3.5 , 3.75, 4.  , 4.25, 4.5 , 4.75, 5.  , 5.25,
+       5.5 , 5.75, 6.  , 6.25, 6.5 , 6.75, 7.  , 7.25, 7.5 , 7.75])
+symbol_ui = 1.0, ignore_ui = 0.0, nspui = 4
+window = {'start_index': 0, 'stop_index': 32, 'start_s': 0.0, 'stop_s': np.float64(7.75), ...}
+modulation = 'NRZ', profile = None
+
+    def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *, modulation="NRZ", profile=None):
+        """Map edge plus half a symbol UI to the first available absolute grid index."""
+        def reject(reason, invalid_format=False):
+            info.update(reason=reason, eligible=False)
+            if invalid_format:
+                info["format_status"] = "invalid"
+            raise ValueError(reason)
+    
+        try:
+            edges = np.array(edges, dtype=float, copy=True)
+        except (TypeError, ValueError):
+            reject("malformed_clocks", True)
+        info["edges_s"] = edges
+        if edges.ndim != 1 or not np.all(np.isfinite(edges)) or np.any(edges < 0) or np.any(np.diff(edges) <= 0):
+            reject("malformed_clocks", True)
+        info["format_status"] = "valid"
+        grid = np.array(t_grid, dtype=float, copy=True)
+        if grid.ndim != 1 or not len(grid) or not np.all(np.isfinite(grid)) or np.any(np.diff(grid) <= 0):
+            reject("invalid_grid")
+        ignore_ui = 0.0 if ignore_ui is None else ignore_ui
+        if not np.isfinite(symbol_ui) or symbol_ui <= 0 or not np.isfinite(ignore_ui) or ignore_ui < 0 or nspui <= 0:
+            reject("invalid_timing")
+        if not info["requested"] or info["mode"] != "rx_getwave":
+            reject("unsupported_mode")
+        if info["main_origin"] != "c1_fresh_main":
+            reject("unknown_origin")
+        start, stop = window["start_index"], window["stop_index"]
+        fft_start, fft_stop = window["fft_slice"]
+        if not (0 <= start < stop <= len(grid) and grid[0] <= window["start_s"] <= window["stop_s"] <= grid[-1]
+                and start <= fft_start <= fft_stop <= stop and window["required_decisions"] > 0
+                and window["required_eye_traces"] > 0):
+            reject("invalid_window")
+>       info.update(grid_s=grid, symbol_ui_s=symbol_ui, ignore_ui=ignore_ui, nspui=nspui,
+                    analysis={**window, "fft_slice": tuple(window["fft_slice"])},
+                    sample_indices=np.array([], dtype=int), sample_grid_times_s=np.array([]),
+                    consumed_tick_positions=np.array([], dtype=int), period_s=np.full(len(grid), np.nan),
+                    period_known=np.zeros(len(grid), dtype=bool), use_native=False)
+E       TypeError: TraitDict.update() got an unexpected keyword argument 'grid_s'
+
+src\pybert\utility\ami_clock.py:50: TypeError
+__________ test_clock_record_invalid_input_keeps_reason[traits-dict] __________
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090753775300', 'epoch_basis': 'fresh Main invocation; not the mo...attempted', 'reason': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([1., 0.])}
+
+    def test_clock_record_invalid_input_keeps_reason(info):
+        with pytest.raises(ValueError, match="malformed_clocks"):
+>           plan(info, [1., 0.])
+
+tests\test_ami_clock_traits.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_ami_clock_traits.py:25: in plan
+    return plan_ami_clocks(info, edges, grid, 1., 0., 4, window)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\pybert\utility\ami_clock.py:32: in plan_ami_clocks
+    reject("malformed_clocks", True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+reason = 'malformed_clocks', invalid_format = True
+
+    def reject(reason, invalid_format=False):
+>       info.update(reason=reason, eligible=False)
+E       TypeError: TraitDict.update() got an unexpected keyword argument 'reason'
+
+src\pybert\utility\ami_clock.py:21: TypeError
+_______________ test_clock_record_sampling_and_eye[traits-dict] _______________
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090773141200', 'epoch_basis': 'fresh Main invocation; not the mo...son': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([0., 1., 2., 3., 4., 5.])}
+
+    def test_clock_record_sampling_and_eye(info):
+>       plan(info, np.arange(6))
+
+tests\test_ami_clock_traits.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_ami_clock_traits.py:25: in plan
+    return plan_ami_clocks(info, edges, grid, 1., 0., 4, window)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090773141200', 'epoch_basis': 'fresh Main invocation; not the mo...son': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([0., 1., 2., 3., 4., 5.])}
+edges = array([0., 1., 2., 3., 4., 5.])
+t_grid = array([0.  , 0.25, 0.5 , 0.75, 1.  , 1.25, 1.5 , 1.75, 2.  , 2.25, 2.5 ,
+       2.75, 3.  , 3.25, 3.5 , 3.75, 4.  , 4.25, 4.5 , 4.75, 5.  , 5.25,
+       5.5 , 5.75, 6.  , 6.25, 6.5 , 6.75, 7.  , 7.25, 7.5 , 7.75])
+symbol_ui = 1.0, ignore_ui = 0.0, nspui = 4
+window = {'start_index': 0, 'stop_index': 32, 'start_s': 0.0, 'stop_s': np.float64(7.75), ...}
+modulation = 'NRZ', profile = None
+
+    def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *, modulation="NRZ", profile=None):
+        """Map edge plus half a symbol UI to the first available absolute grid index."""
+        def reject(reason, invalid_format=False):
+            info.update(reason=reason, eligible=False)
+            if invalid_format:
+                info["format_status"] = "invalid"
+            raise ValueError(reason)
+    
+        try:
+            edges = np.array(edges, dtype=float, copy=True)
+        except (TypeError, ValueError):
+            reject("malformed_clocks", True)
+        info["edges_s"] = edges
+        if edges.ndim != 1 or not np.all(np.isfinite(edges)) or np.any(edges < 0) or np.any(np.diff(edges) <= 0):
+            reject("malformed_clocks", True)
+        info["format_status"] = "valid"
+        grid = np.array(t_grid, dtype=float, copy=True)
+        if grid.ndim != 1 or not len(grid) or not np.all(np.isfinite(grid)) or np.any(np.diff(grid) <= 0):
+            reject("invalid_grid")
+        ignore_ui = 0.0 if ignore_ui is None else ignore_ui
+        if not np.isfinite(symbol_ui) or symbol_ui <= 0 or not np.isfinite(ignore_ui) or ignore_ui < 0 or nspui <= 0:
+            reject("invalid_timing")
+        if not info["requested"] or info["mode"] != "rx_getwave":
+            reject("unsupported_mode")
+        if info["main_origin"] != "c1_fresh_main":
+            reject("unknown_origin")
+        start, stop = window["start_index"], window["stop_index"]
+        fft_start, fft_stop = window["fft_slice"]
+        if not (0 <= start < stop <= len(grid) and grid[0] <= window["start_s"] <= window["stop_s"] <= grid[-1]
+                and start <= fft_start <= fft_stop <= stop and window["required_decisions"] > 0
+                and window["required_eye_traces"] > 0):
+            reject("invalid_window")
+>       info.update(grid_s=grid, symbol_ui_s=symbol_ui, ignore_ui=ignore_ui, nspui=nspui,
+                    analysis={**window, "fft_slice": tuple(window["fft_slice"])},
+                    sample_indices=np.array([], dtype=int), sample_grid_times_s=np.array([]),
+                    consumed_tick_positions=np.array([], dtype=int), period_s=np.full(len(grid), np.nan),
+                    period_known=np.zeros(len(grid), dtype=bool), use_native=False)
+E       TypeError: TraitDict.update() got an unexpected keyword argument 'grid_s'
+
+src\pybert\utility\ami_clock.py:50: TypeError
+___ test_clock_record_partial_failure_preserves_first_decision[traits-dict] ___
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090788546600', 'epoch_basis': 'fresh Main invocation; not the mo...son': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([0., 1., 2., 3., 4., 5.])}
+
+    def test_clock_record_partial_failure_preserves_first_decision(info):
+>       plan(info, np.arange(6))
+
+tests\test_ami_clock_traits.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_ami_clock_traits.py:25: in plan
+    return plan_ami_clocks(info, edges, grid, 1., 0., 4, window)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090788546600', 'epoch_basis': 'fresh Main invocation; not the mo...son': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([0., 1., 2., 3., 4., 5.])}
+edges = array([0., 1., 2., 3., 4., 5.])
+t_grid = array([0.  , 0.25, 0.5 , 0.75, 1.  , 1.25, 1.5 , 1.75, 2.  , 2.25, 2.5 ,
+       2.75, 3.  , 3.25, 3.5 , 3.75, 4.  , 4.25, 4.5 , 4.75, 5.  , 5.25,
+       5.5 , 5.75, 6.  , 6.25, 6.5 , 6.75, 7.  , 7.25, 7.5 , 7.75])
+symbol_ui = 1.0, ignore_ui = 0.0, nspui = 4
+window = {'start_index': 0, 'stop_index': 32, 'start_s': 0.0, 'stop_s': np.float64(7.75), ...}
+modulation = 'NRZ', profile = None
+
+    def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *, modulation="NRZ", profile=None):
+        """Map edge plus half a symbol UI to the first available absolute grid index."""
+        def reject(reason, invalid_format=False):
+            info.update(reason=reason, eligible=False)
+            if invalid_format:
+                info["format_status"] = "invalid"
+            raise ValueError(reason)
+    
+        try:
+            edges = np.array(edges, dtype=float, copy=True)
+        except (TypeError, ValueError):
+            reject("malformed_clocks", True)
+        info["edges_s"] = edges
+        if edges.ndim != 1 or not np.all(np.isfinite(edges)) or np.any(edges < 0) or np.any(np.diff(edges) <= 0):
+            reject("malformed_clocks", True)
+        info["format_status"] = "valid"
+        grid = np.array(t_grid, dtype=float, copy=True)
+        if grid.ndim != 1 or not len(grid) or not np.all(np.isfinite(grid)) or np.any(np.diff(grid) <= 0):
+            reject("invalid_grid")
+        ignore_ui = 0.0 if ignore_ui is None else ignore_ui
+        if not np.isfinite(symbol_ui) or symbol_ui <= 0 or not np.isfinite(ignore_ui) or ignore_ui < 0 or nspui <= 0:
+            reject("invalid_timing")
+        if not info["requested"] or info["mode"] != "rx_getwave":
+            reject("unsupported_mode")
+        if info["main_origin"] != "c1_fresh_main":
+            reject("unknown_origin")
+        start, stop = window["start_index"], window["stop_index"]
+        fft_start, fft_stop = window["fft_slice"]
+        if not (0 <= start < stop <= len(grid) and grid[0] <= window["start_s"] <= window["stop_s"] <= grid[-1]
+                and start <= fft_start <= fft_stop <= stop and window["required_decisions"] > 0
+                and window["required_eye_traces"] > 0):
+            reject("invalid_window")
+>       info.update(grid_s=grid, symbol_ui_s=symbol_ui, ignore_ui=ignore_ui, nspui=nspui,
+                    analysis={**window, "fft_slice": tuple(window["fft_slice"])},
+                    sample_indices=np.array([], dtype=int), sample_grid_times_s=np.array([]),
+                    consumed_tick_positions=np.array([], dtype=int), period_s=np.full(len(grid), np.nan),
+                    period_known=np.zeros(len(grid), dtype=bool), use_native=False)
+E       TypeError: TraitDict.update() got an unexpected keyword argument 'grid_s'
+
+src\pybert\utility\ami_clock.py:50: TypeError
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    floatingPointConstant.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    nonnegativeNumber.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    coordinatePair = (coordinate + maybeComma + coordinate).setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    closePath = Group(Command("Z")).setParseAction(lambda t: ("Z", (None,)))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    ).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    arcFlags = (flag + maybeComma + flag).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+    transformList = delimitedList(Group(transform), delim=maybeComma)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integerConstant = Word(nums + "+-").setParseAction(lambda t: int(t[0]))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorByte = Optional(sign) + integerConstant.setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorPerc = number.setParseAction(parseColorPerc) + Literal("%").suppress()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("rgb(").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    doubleHex = Word(hexnums, exact=2).setParseAction(lambda t: int(t[0], 16))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("#").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    | Word(hexnums, exact=3).setParseAction(parseShortHex)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    namedColour = Word(alphas).setParseAction(parseNamedColour)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integer = Word("0123456789").setParseAction(asInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    number.setName("number")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    signedNumber = Combine(Optional(sign) + number).setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    lengthValue = Combine(Optional(sign) + number).setParseAction(asFloatOrInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    lengthValue.setName("lengthValue")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    lengthUnit = oneOf(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55: PyparsingDeprecationWarning: 'leaveWhitespace' deprecated - use 'leave_whitespace'
+    length.leaveWhitespace()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    number.setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    none = CaselessLiteral("none").setParseAction(lambda t: ["NONE", ()])
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    currentColor = CaselessLiteral("currentColor").setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    + Group(SkipTo(urlEnd, include=True).setParseAction(parsePossibleURL))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: E:\serial-bus-simulator\docs\webui\final-numerical-review-20261025\traits-red.xml -
+============================= slowest 3 durations =============================
+
+(3 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ===========================
+FAILED tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[traits-dict]
+FAILED tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[traits-dict]
+FAILED tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[traits-dict]
+FAILED tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[traits-dict]
+================== 4 failed, 4 passed, 35 warnings in 0.83s ===================

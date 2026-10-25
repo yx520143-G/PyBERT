@@ -1,0 +1,12 @@
+C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\src\pybert\utility\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],
+C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\src\pybert\utility\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator\docs\webui\final-numerical-review-20261025\fixed-v2\review_parity.py", line 193, in <module>
+    run()
+    ~~~^^
+  File "E:\serial-bus-simulator\docs\webui\final-numerical-review-20261025\fixed-v2\review_parity.py", line 179, in run
+    assert entry["passed"], "Exact comparison failed; preserve results and stop"
+           ~~~~~^^^^^^^^^^
+AssertionError: Exact comparison failed; preserve results and stop

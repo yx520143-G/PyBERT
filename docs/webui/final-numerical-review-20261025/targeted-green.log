@@ -1,0 +1,350 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+rootdir: C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 195 items
+
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[dict] PASSED [  0%]
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[traits-dict] PASSED [  1%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[dict] PASSED [  1%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[traits-dict] PASSED [  2%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[dict] PASSED [  2%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[traits-dict] PASSED [  3%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[dict] PASSED [  3%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[traits-dict] PASSED [  4%]
+tests/test_web.py::test_native_observer_patch_and_full_load PASSED       [  4%]
+tests/test_web.py::test_tap_count_reduction_uses_native_clamp[3-2] PASSED [  5%]
+tests/test_web.py::test_tap_count_reduction_uses_native_clamp[0-0] PASSED [  5%]
+tests/test_web.py::test_ffe_dimensions[0-0] PASSED                       [  6%]
+tests/test_web.py::test_ffe_dimensions[1-0] PASSED                       [  6%]
+tests/test_web.py::test_ffe_dimensions[100-99] PASSED                    [  7%]
+tests/test_web.py::test_invalid_and_unsupported_inputs[patch0] PASSED    [  7%]
+tests/test_web.py::test_invalid_and_unsupported_inputs[patch1] PASSED    [  8%]
+tests/test_web.py::test_invalid_and_unsupported_inputs[patch2] PASSED    [  8%]
+tests/test_web.py::test_invalid_and_unsupported_inputs[patch3] PASSED    [  9%]
+tests/test_web.py::test_invalid_and_unsupported_inputs[patch4] PASSED    [  9%]
+tests/test_web.py::test_invalid_and_unsupported_inputs[patch5] PASSED    [ 10%]
+tests/test_web.py::test_invalid_and_unsupported_inputs[patch6] PASSED    [ 10%]
+tests/test_web.py::test_invalid_and_unsupported_inputs[patch7] PASSED    [ 11%]
+tests/test_web.py::test_inactive_paths_do_not_load PASSED                [ 11%]
+tests/test_web.py::test_yaml_round_trip_and_reject_object PASSED         [ 12%]
+tests/test_web.py::test_dfe_hole_and_input_level_preserved PASSED        [ 12%]
+tests/test_web.py::test_terminal_envelope_does_not_release_slot PASSED   [ 13%]
+tests/test_web.py::test_cancel_requires_observed_and_join PASSED         [ 13%]
+tests/test_web.py::test_missing_envelope_is_failure_even_if_cancel_requested PASSED [ 14%]
+tests/test_web.py::test_normalize_uses_real_spawn PASSED                 [ 14%]
+tests/test_web.py::test_adapter_identity_is_independent_of_process_cwd PASSED [ 15%]
+tests/test_web.py::test_completed_task_history_is_bounded_and_keeps_successes PASSED [ 15%]
+tests/test_web.py::test_native_preflight_return_cannot_succeed PASSED    [ 16%]
+tests/test_web_analysis.py::test_display_metadata_has_concrete_observation_and_sources PASSED [ 16%]
+tests/test_web_analysis.py::test_cdr_metadata_uses_complete_record_not_eye_window PASSED [ 17%]
+tests/test_web_analysis.py::test_invalid_eye_is_unavailable[ys0-No waveform crossing] PASSED [ 17%]
+tests/test_web_analysis.py::test_invalid_eye_is_unavailable[ys1-Insufficient] PASSED [ 18%]
+tests/test_web_analysis.py::test_invalid_eye_is_unavailable[ys2-nonfinite] PASSED [ 18%]
+tests/test_web_analysis.py::test_invalid_eye_is_unavailable[ys3-voltage scale] PASSED [ 19%]
+tests/test_web_analysis.py::test_nominal_eye_fallback_uses_native_helper PASSED [ 20%]
+tests/test_web_analysis.py::test_no_ffe_crossings_is_explicit PASSED     [ 20%]
+tests/test_web_analysis.py::test_zero_or_nonfinite_clock_normalization[spectrum0] PASSED [ 21%]
+tests/test_web_analysis.py::test_zero_or_nonfinite_clock_normalization[spectrum1] PASSED [ 21%]
+tests/test_web_analysis.py::test_zero_or_nonfinite_clock_normalization[spectrum2] PASSED [ 22%]
+tests/test_web_analysis.py::test_zero_or_nonfinite_clock_normalization[spectrum3] PASSED [ 22%]
+tests/test_web_analysis.py::test_clock_histogram_preserves_complete_record_and_legacy_scale PASSED [ 23%]
+tests/test_web_archive.py::test_roundtrip_preserves_bytes_dtype_shape_manifest_and_extensions PASSED [ 23%]
+tests/test_web_archive.py::test_failed_import_preserves_existing_reference_inventory[<lambda>0] PASSED [ 24%]
+tests/test_web_archive.py::test_failed_import_preserves_existing_reference_inventory[<lambda>1] PASSED [ 24%]
+tests/test_web_archive.py::test_failed_import_preserves_existing_reference_inventory[<lambda>2] PASSED [ 25%]
+tests/test_web_archive.py::test_failed_import_preserves_existing_reference_inventory[<lambda>3] PASSED [ 25%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-None] PASSED [ 26%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-123] PASSED [ 26%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-value2] PASSED [ 27%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-] PASSED [ 27%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_hash-bad] PASSED [ 28%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[native_sha-None] PASSED [ 28%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[prototype_sha-42] PASSED [ 29%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[adapter_sha-] PASSED [ 29%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[run_id-] PASSED [ 30%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[schema_version-None] PASSED [ 30%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[draft_revision-0] PASSED [ 31%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[packages-value11] PASSED [ 31%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[resources-value12] PASSED [ 32%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[warnings-value13] PASSED [ 32%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[input_identity_hash-None] PASSED [ 33%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[resource_hash-123] PASSED [ 33%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[resource_bindings-value16] PASSED [ 34%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[runtime_extensions-value17] PASSED [ 34%]
+tests/test_web_archive.py::test_self_consistent_incomplete_identity_rejected_before_publication[execution_strategy-value18] PASSED [ 35%]
+tests/test_web_archive.py::test_supported_raw_schemas_keep_identity_metadata[2] PASSED [ 35%]
+tests/test_web_archive.py::test_supported_raw_schemas_keep_identity_metadata[3] PASSED [ 36%]
+tests/test_web_archive.py::test_supported_raw_schemas_keep_identity_metadata[4] PASSED [ 36%]
+tests/test_web_archive.py::test_object_array_forbidden_before_load PASSED [ 37%]
+tests/test_web_archive.py::test_reference_budget_rejects_without_eviction_and_ids_stay_distinct PASSED [ 37%]
+tests/test_web_archive.py::test_missing_or_changed_replay_resources_refused PASSED [ 38%]
+tests/test_web_archive.py::test_legacy_trust_missing_none_index_axes_and_no_double_db PASSED [ 38%]
+tests/test_web_archive.py::test_legacy_export_uses_native_constructor_when_all_23_produced PASSED [ 39%]
+tests/test_web_archive.py::test_legacy_api_explains_full_archive_unavailable_but_keeps_subset_and_sidecar PASSED [ 40%]
+tests/test_web_archive.py::test_complete_run_retains_full_archive_recommendation PASSED [ 40%]
+tests/test_web_archive.py::test_open_clear_api_no_worker_draft_or_live_run_mutation PASSED [ 41%]
+tests/test_web_archive.py::test_active_subtask_snapshot_and_reopened_reference_never_join_current_task PASSED [ 41%]
+tests/test_web_archive.py::test_atomic_save_failure_keeps_old_file PASSED [ 42%]
+tests/test_web_archive.py::test_reference_byte_budget_preserves_inventory PASSED [ 42%]
+tests/test_web_archive.py::test_malformed_known_legacy_container_is_controlled_failure PASSED [ 43%]
+tests/test_web_archive.py::test_replay_guard_survives_removed_reference_without_disabling_resource_check PASSED [ 43%]
+tests/test_web_archive.py::test_unknown_legacy_version_is_preserved_on_native_export PASSED [ 44%]
+tests/test_web_optimization.py::test_plan_matches_frozen_order[O-NRZ-grid] PASSED [ 44%]
+tests/test_web_optimization.py::test_plan_matches_frozen_order[O-PAM4-MMSE] PASSED [ 45%]
+tests/test_web_optimization.py::test_plan_matches_frozen_order[O-PAM4-MMSE-RLM080] PASSED [ 45%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[step_mag_tune-0-step] PASSED [ 46%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[min_mag_tune-2-min] PASSED [ 46%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[rx_n_taps-0-at least] PASSED [ 47%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[rx_bw_tune--1-positive] PASSED [ 47%]
+tests/test_web_optimization.py::test_invalid_optimizer_fields[max_mag_tune-1000-budget] PASSED [ 48%]
+tests/test_web_optimization.py::test_dfe_gap_and_ffe_identity_rejected PASSED [ 48%]
+tests/test_web_optimization.py::test_mmse_observation_storage_refused_before_computation PASSED [ 49%]
+tests/test_web_optimization.py::test_observation_collection_retains_only_within_budget PASSED [ 49%]
+tests/test_web_optimization.py::test_archive_open_cannot_consume_active_optimization_reservation PASSED [ 50%]
+tests/test_web_optimization.py::test_native_reset_exact_and_does_not_reset_ranges PASSED [ 50%]
+tests/test_web_optimization.py::test_use_eq_only_native_handler_fields_and_no_dfe_values PASSED [ 51%]
+tests/test_web_optimization.py::test_use_eq_rejects_changed_rx_topology_before_applying[1-0] PASSED [ 51%]
+tests/test_web_optimization.py::test_use_eq_rejects_changed_rx_topology_before_applying[3-0] PASSED [ 52%]
+tests/test_web_optimization.py::test_use_eq_rejects_changed_rx_topology_before_applying[3-2] PASSED [ 52%]
+tests/test_web_optimization.py::test_cancel_bridge_is_original_checkpoint_and_never_started PASSED [ 53%]
+tests/test_web_optimization.py::test_RLM_does_not_change_native_PAM4_source PASSED [ 53%]
+tests/test_web_optimization.py::test_native_true_sentinel_is_not_success[-1000.0] PASSED [ 54%]
+tests/test_web_optimization.py::test_native_true_sentinel_is_not_success[nan] PASSED [ 54%]
+tests/test_web_optimization.py::test_native_true_sentinel_is_not_success[inf] PASSED [ 55%]
+tests/test_web_optimization.py::test_unrelated_runtime_error_is_failure_even_when_event_requested PASSED [ 55%]
+tests/test_web_optimization.py::test_optimizer_archive_shapes_integrity_and_no_native_load[False] PASSED [ 56%]
+tests/test_web_optimization.py::test_optimizer_archive_shapes_integrity_and_no_native_load[True] PASSED [ 56%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_ix-None-1] PASSED [ 57%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_ix-None-2] PASSED [ 57%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_amp-None-1] PASSED [ 58%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_amp-None-2] PASSED [ 58%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_ix-value2-1] PASSED [ 59%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_ix-value2-2] PASSED [ 60%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_amp-value3-1] PASSED [ 60%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_amp-value3-2] PASSED [ 61%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_ix-value4-1] PASSED [ 61%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_ix-value4-2] PASSED [ 62%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_amp-value5-1] PASSED [ 62%]
+tests/test_web_optimization.py::test_cursor_archive_rejected_atomically_before_publication[curs_amp-value5-2] PASSED [ 63%]
+tests/test_web_viterbi.py::test_original_error_mapping_view_clamp_raw_log_and_zero PASSED [ 63%]
+tests/test_web_viterbi.py::test_windows_source_identity_paths_are_portable PASSED [ 64%]
+tests/test_web_viterbi.py::test_full_dfe_decisions_have_own_axis_and_explicit_decoder_tail PASSED [ 64%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[axis] PASSED [ 65%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[window] PASSED [ 65%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[mapping] PASSED [ 66%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[full_index] PASSED [ 66%]
+tests/test_web_viterbi.py::test_dfe_full_sequence_metadata_damage_rejected[schema_downgrade] PASSED [ 67%]
+tests/test_web_viterbi.py::test_legacy_schema1_retained_with_explicit_metadata_erratum PASSED [ 67%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[source] PASSED [ 68%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[missing_bits] PASSED [ 68%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[axis] PASSED [ 69%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[window] PASSED [ 69%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[count] PASSED [ 70%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[error_mapping] PASSED [ 70%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[states] PASSED [ 71%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[sample_time] PASSED [ 71%]
+tests/test_web_viterbi.py::test_incomplete_self_consistent_decoding_rejected[schema] PASSED [ 72%]
+tests/test_web_viterbi.py::test_disabled_retains_actual_dfe_count_and_old_record_not_collected PASSED [ 72%]
+tests/test_web_viterbi.py::test_default_depth_budget_and_no_silent_parameter_change PASSED [ 73%]
+tests/test_web_viterbi.py::test_fec_rejected_in_config_yaml_runtime_and_request PASSED [ 73%]
+tests/test_web_viterbi.py::test_http_cached_defaults_reject_fec_without_worker_or_losing_success PASSED [ 74%]
+tests/test_web_viterbi.py::test_original_trellis_producer_body_is_unchanged PASSED [ 74%]
+tests/test_multilane_physical.py::test_every_victim_complex_s_and_z0[interleaved-False-2] PASSED [ 75%]
+tests/test_multilane_physical.py::test_every_victim_complex_s_and_z0[interleaved-False-3] PASSED [ 75%]
+tests/test_multilane_physical.py::test_every_victim_complex_s_and_z0[interleaved-True-2] PASSED [ 76%]
+tests/test_multilane_physical.py::test_every_victim_complex_s_and_z0[interleaved-True-3] PASSED [ 76%]
+tests/test_multilane_physical.py::test_every_victim_complex_s_and_z0[grouped-True-2] PASSED [ 77%]
+tests/test_multilane_physical.py::test_every_victim_complex_s_and_z0[grouped-True-3] PASSED [ 77%]
+tests/test_multilane_physical.py::test_every_victim_complex_s_and_z0[mixed-True-2] PASSED [ 78%]
+tests/test_multilane_physical.py::test_every_victim_complex_s_and_z0[mixed-True-3] PASSED [ 78%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[False-interleaved-False-2] PASSED [ 79%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[False-interleaved-False-3] PASSED [ 80%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[False-interleaved-True-2] PASSED [ 80%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[False-interleaved-True-3] PASSED [ 81%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[False-grouped-True-2] PASSED [ 81%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[False-grouped-True-3] PASSED [ 82%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[False-mixed-True-2] PASSED [ 82%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[False-mixed-True-3] PASSED [ 83%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[True-interleaved-False-2] PASSED [ 83%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[True-interleaved-False-3] PASSED [ 84%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[True-interleaved-True-2] PASSED [ 84%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[True-interleaved-True-3] PASSED [ 85%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[True-grouped-True-2] PASSED [ 85%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[True-grouped-True-3] PASSED [ 86%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[True-mixed-True-2] PASSED [ 86%]
+tests/test_multilane_physical.py::test_every_fext_complex_s_z0_and_zero_isolation[True-mixed-True-3] PASSED [ 87%]
+tests/test_multilane_physical.py::test_renumber_false_keeps_literal_numbering PASSED [ 87%]
+tests/test_multilane_physical.py::test_fext_renumber_only_inspects_source_lane_throughs PASSED [ 88%]
+tests/test_multilane_sparam.py::TestImportFreqMultilane::test_8port_lane0_s21_matches_reference PASSED [ 88%]
+tests/test_multilane_sparam.py::TestImportFreqMultilane::test_8port_lane1_s21_matches_reference PASSED [ 89%]
+tests/test_multilane_sparam.py::TestImportFreqMultilane::test_12port_lane2_s21_matches_reference PASSED [ 89%]
+tests/test_multilane_sparam.py::TestImportFreqMultilane::test_8port_lane_out_of_range_raises PASSED [ 90%]
+tests/test_multilane_sparam.py::TestImportFreqMultilane::test_unsupported_port_count_raises PASSED [ 90%]
+tests/test_multilane_sparam.py::TestImportFext::test_8port_returns_one_fext_network PASSED [ 91%]
+tests/test_multilane_sparam.py::TestImportFext::test_12port_returns_two_fext_networks PASSED [ 91%]
+tests/test_multilane_sparam.py::TestImportFext::test_fext_s21_matches_reference PASSED [ 92%]
+tests/test_multilane_sparam.py::TestImportFext::test_non_multilane_file_returns_empty PASSED [ 92%]
+tests/test_multilane_sparam.py::TestImportFext::test_victim_lane_out_of_range_raises PASSED [ 93%]
+tests/test_singlelane_physical.py::test_fourport_complex_s_and_z0_unchanged[False-interleaved] PASSED [ 93%]
+tests/test_singlelane_physical.py::test_fourport_complex_s_and_z0_unchanged[False-grouped] PASSED [ 94%]
+tests/test_singlelane_physical.py::test_fourport_complex_s_and_z0_unchanged[True-interleaved] PASSED [ 94%]
+tests/test_singlelane_physical.py::test_fourport_complex_s_and_z0_unchanged[True-grouped] PASSED [ 95%]
+tests/test_vita_sparam.py::TestVitaLaneExtraction::test_single_lane_tx PASSED [ 95%]
+tests/test_vita_sparam.py::TestVitaLaneExtraction::test_single_lane_rx PASSED [ 96%]
+tests/test_vita_sparam.py::TestVitaLaneExtraction::test_tx_and_rx_are_independent_within_one_lane PASSED [ 96%]
+tests/test_vita_sparam.py::TestVitaLaneExtraction::test_multi_lane_isolation PASSED [ 97%]
+tests/test_vita_sparam.py::TestVitaLaneExtraction::test_import_channel_passthrough PASSED [ 97%]
+tests/test_vita_sparam.py::TestVitaValidation::test_rejects_non_multiple_of_8 PASSED [ 98%]
+tests/test_vita_sparam.py::TestVitaValidation::test_rejects_unknown_end PASSED [ 98%]
+tests/test_vita_sparam.py::TestVitaValidation::test_rejects_lane_out_of_range PASSED [ 99%]
+tests/test_vita_sparam.py::TestVitaBackwardCompatibility::test_plain_4port_unaffected PASSED [100%]
+
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    floatingPointConstant.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    nonnegativeNumber.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    coordinatePair = (coordinate + maybeComma + coordinate).setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    closePath = Group(Command("Z")).setParseAction(lambda t: ("Z", (None,)))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    ).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    arcFlags = (flag + maybeComma + flag).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+    transformList = delimitedList(Group(transform), delim=maybeComma)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integerConstant = Word(nums + "+-").setParseAction(lambda t: int(t[0]))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorByte = Optional(sign) + integerConstant.setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorPerc = number.setParseAction(parseColorPerc) + Literal("%").suppress()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("rgb(").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    doubleHex = Word(hexnums, exact=2).setParseAction(lambda t: int(t[0], 16))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("#").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    | Word(hexnums, exact=3).setParseAction(parseShortHex)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    namedColour = Word(alphas).setParseAction(parseNamedColour)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integer = Word("0123456789").setParseAction(asInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    number.setName("number")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    signedNumber = Combine(Optional(sign) + number).setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    lengthValue = Combine(Optional(sign) + number).setParseAction(asFloatOrInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    lengthValue.setName("lengthValue")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    lengthUnit = oneOf(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55: PyparsingDeprecationWarning: 'leaveWhitespace' deprecated - use 'leave_whitespace'
+    length.leaveWhitespace()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    number.setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    none = CaselessLiteral("none").setParseAction(lambda t: ["NONE", ()])
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    currentColor = CaselessLiteral("currentColor").setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    + Group(SkipTo(urlEnd, include=True).setParseAction(parsePossibleURL))
+
+tests/test_multilane_physical.py: 198 warnings
+tests/test_multilane_sparam.py: 12 warnings
+tests/test_vita_sparam.py: 3 warnings
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\skrf\frequency.py:280: DeprecationWarning: 
+                            Frequency unit not passed: uses 'Hz' per default.
+                            
+    temp_freq =  cls(0,0,0,unit=unit)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: E:\serial-bus-simulator\docs\webui\final-numerical-review-20261025\targeted-green.xml -
+============================= slowest 3 durations =============================
+3.60s call     tests/test_web.py::test_terminal_envelope_does_not_release_slot
+3.50s call     tests/test_web_archive.py::test_replay_guard_survives_removed_reference_without_disabling_resource_check
+3.03s call     tests/test_web.py::test_cancel_requires_observed_and_join
+===================== 195 passed, 248 warnings in 38.86s ======================

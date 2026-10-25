@@ -18,7 +18,7 @@ def new_clock_info(requested=False, mode="native", origin=None):
 def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *, modulation="NRZ", profile=None):
     """Map edge plus half a symbol UI to the first available absolute grid index."""
     def reject(reason, invalid_format=False):
-        info.update(reason=reason, eligible=False)
+        info.update(dict(reason=reason, eligible=False))
         if invalid_format:
             info["format_status"] = "invalid"
         raise ValueError(reason)
@@ -47,15 +47,15 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
             and start <= fft_start <= fft_stop <= stop and window["required_decisions"] > 0
             and window["required_eye_traces"] > 0):
         reject("invalid_window")
-    info.update(grid_s=grid, symbol_ui_s=symbol_ui, ignore_ui=ignore_ui, nspui=nspui,
+    info.update(dict(grid_s=grid, symbol_ui_s=symbol_ui, ignore_ui=ignore_ui, nspui=nspui,
                 analysis={**window, "fft_slice": tuple(window["fft_slice"])},
                 sample_indices=np.array([], dtype=int), sample_grid_times_s=np.array([]),
                 consumed_tick_positions=np.array([], dtype=int), period_s=np.full(len(grid), np.nan),
-                period_known=np.zeros(len(grid), dtype=bool), use_native=False)
+                period_known=np.zeros(len(grid), dtype=bool), use_native=False))
     if not len(edges):
-        info.update(format_status="no_clocks", reason="no_clocks", use_native=True, eligible=False,
+        info.update(dict(format_status="no_clocks", reason="no_clocks", use_native=True, eligible=False,
                     targets_s=np.array([]), planned_indices=np.array([], dtype=int),
-                    planned_tick_positions=np.array([], dtype=int), deferred_reasons=[], last_tick_status="none")
+                    planned_tick_positions=np.array([], dtype=int), deferred_reasons=[], last_tick_status="none"))
         return info
     declared = profile
     if modulation == "NRZ" and declared is None:
@@ -69,7 +69,7 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
     in_record = (targets >= grid[0]) & (targets <= grid[-1])
     positions = np.flatnonzero(in_record)
     indices = np.searchsorted(grid, targets[in_record], side="left")
-    info.update(targets_s=targets, planned_tick_positions=positions, planned_indices=indices,
+    info.update(dict(targets_s=targets, planned_tick_positions=positions, planned_indices=indices,
                 deferred_reasons=[None if ok else "before_record" if target < grid[0] else "future"
                                   for target, ok in zip(targets, in_record)],
                 planned_ready=targets[in_record] >= ignore_ui * symbol_ui,
@@ -77,7 +77,7 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
                 profile_source="software_declaration" if profile is not None else "nrz_ui_contract",
                 model_qualification="UNKNOWN", eligible=bool(len(indices)),
                 reason=None if len(indices) else "out_of_record",
-                last_tick_status="planned" if in_record[-1] else "deferred")
+                last_tick_status="planned" if in_record[-1] else "deferred"))
     if np.any(np.diff(indices) <= 0):
         reject("unsupported_resolution")
     return info
@@ -109,7 +109,7 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
             decisions.append(decision)
         loop_finished = True
     except BaseException as error:
-        info.update(reason="consumption_failed", error_type=type(error).__name__, error_message=str(error))
+        info.update(dict(reason="consumption_failed", error_type=type(error).__name__, error_message=str(error)))
         raise
     finally:
         indices = np.asarray(indices, dtype=int)
@@ -136,7 +136,7 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
         period_eligible = fft_stop - fft_start >= 2 and bool(np.all(known[fft_start:fft_stop]))
         full = (loop_finished and len(analysis_indices) >= window["required_decisions"]
                 and len(eye_indices) >= window["required_eye_traces"] and period_eligible)
-        info.update(sample_indices=indices, consumed_tick_positions=positions, consumed_count=len(indices),
+        info.update(dict(sample_indices=indices, consumed_tick_positions=positions, consumed_count=len(indices),
                     sample_grid_times_s=actual_times, sample_targets_s=targets,
                     sample_quantization_delay_s=actual_times - targets, adaptation_ready=ready,
                     sample_values=np.asarray(samples), decisions=np.asarray(decisions), bits=list(bits),
@@ -145,7 +145,7 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
                     eye_sample_indices=eye_indices, eye_eligible_trace_count=len(eye_indices),
                     eye_trace_count=0, eye_status="not_attempted", attempted_count=attempts,
                     period_window_eligible=period_eligible, loop_finished=loop_finished,
-                    full_analysis_eligible=bool(full), consumption_status="completed" if full else "partial")
+                    full_analysis_eligible=bool(full), consumption_status="completed" if full else "partial"))
         info.setdefault("model_lock_status", "unavailable")
         if len(positions) and positions[-1] == len(info["edges_s"]) - 1:
             info["last_tick_status"] = "consumed"
@@ -162,7 +162,7 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
 
 def ami_eye_data(info, waveform, ignore_samps, height, y_max, calc_eye):
     """Draw timed traces from producer indices in this exact waveform crop, or report unavailable."""
-    info.update(eye_status="not_attempted", eye_trace_count=0)
+    info.update(dict(eye_status="not_attempted", eye_trace_count=0))
     absolute = np.asarray(info["eye_sample_indices"])
     relative = absolute - ignore_samps
     width = 2 * info["nspui"]
@@ -172,14 +172,14 @@ def ami_eye_data(info, waveform, ignore_samps, height, y_max, calc_eye):
     info["eye_relative_indices"] = relative
     info["eye_eligible_trace_count"] = len(relative)
     if not info["full_analysis_eligible"] or len(relative) < info["analysis"]["required_eye_traces"]:
-        info.update(eye_status="unavailable", eye_reason="insufficient_timed_traces")
+        info.update(dict(eye_status="unavailable", eye_reason="insufficient_timed_traces"))
         return None
     try:
         image = calc_eye(info["symbol_ui_s"], info["nspui"], height, waveform, y_max, clock_indices=relative)
     except BaseException:
-        info.update(eye_status="partial", eye_trace_count=None, eye_reason="eye_calculation_failed")
+        info.update(dict(eye_status="partial", eye_trace_count=None, eye_reason="eye_calculation_failed"))
         raise
-    info.update(eye_status="completed", eye_trace_count=len(relative), eye_reason=None)
+    info.update(dict(eye_status="completed", eye_trace_count=len(relative), eye_reason=None))
     return image
 
 

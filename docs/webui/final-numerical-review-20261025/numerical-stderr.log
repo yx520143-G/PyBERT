@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "E:\serial-bus-simulator\docs\webui\final-numerical-review-20261025\review_parity.py", line 193, in <module>
+    run()
+    ~~~^^
+  File "E:\serial-bus-simulator\docs\webui\final-numerical-review-20261025\review_parity.py", line 126, in run
+    my_run_simulation(p, initial_run=True, update_plots=True, observations=observations, decoding=decoding)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\serial-bus-simulator-dependencies\pybert-ami-d2-web\src\pybert\models\bert.py", line 392, in my_run_simulation
+    clock_info.update(ignore_ui_requested=ignore_ui, ignore_ui_units="symbol_ui" if mod_type == 0 else "UNKNOWN")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: TraitDict.update() got an unexpected keyword argument 'ignore_ui_requested'

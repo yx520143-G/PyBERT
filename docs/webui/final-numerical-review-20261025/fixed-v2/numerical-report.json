@@ -1,0 +1,4459 @@
+{
+  "freeze_sha256": "2e72e513eb126d4a99664ee835b2d033570d090a3b694b835b17423a6b53e21c",
+  "modules": {
+    "pybert": "C:\\Users\\yx\\.codex\\worktrees\\pybert-final-parity\\serial-bus-simulator\\src\\pybert\\__init__.py",
+    "pyibisami": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\PyAMI\\src\\pyibisami\\__init__.py",
+    "pychopmarg": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\PyChOpMarg\\src\\pychopmarg\\__init__.py",
+    "numpy": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\numpy\\__init__.py"
+  },
+  "fixtures": [
+    {
+      "fixture": "F-NRZ-01",
+      "input_hash": "6e54735ef018afc6d0a79e61b4995f8c16d5550a9ae17b6be5e97bc98401c5fd",
+      "checks": [
+        {
+          "field": "start_ix",
+          "passed": true,
+          "shape": [],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "t",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "f",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "t_ns_chnl",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "t_irfft",
+          "passed": true,
+          "shape": [
+            8000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bits",
+          "passed": true,
+          "shape": [
+            15000
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "symbols",
+          "passed": true,
+          "shape": [
+            15000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "noise",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_slicer_samps",
+          "passed": true,
+          "shape": [
+            10160
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_slicer_decisions",
+          "passed": true,
+          "shape": [
+            10160
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bit_errs_dfe",
+          "passed": true,
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "adaptation",
+          "passed": true,
+          "shape": [
+            15001,
+            5
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ui_ests",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "clocks",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "clock_times",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "lockeds",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "bool",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_scalar_values",
+          "passed": true,
+          "shape": [
+            14803
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_H_raw",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_trimmed_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ideal_signal",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_out",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rx_in",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.chnl_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_h.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_h.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.chnl_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_s.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_s.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.chnl_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_p.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_p.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_h.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_h.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_s.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_s.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_p.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_p.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_h.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_h.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_s.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_s.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_p.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_p.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_h",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_h",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_h.x",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_h.y",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_s",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_s",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_s.x",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_s.y",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_p",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_p",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_p.x",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_p.y",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_h.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_h.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_s.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_s.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_p.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_p.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_h.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_h.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_s.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_s.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_p.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_p.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_h.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_h.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_s.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_s.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_p.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_p.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_h.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_h.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_s.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_s.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_p.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_p.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_h.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_h.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_s.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_s.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_p.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_p.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_H",
+          "passed": true,
+          "shape": [
+            4001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "waveform_indices",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ideal_signal.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ideal_signal.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.chnl_out.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.chnl_out.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.rx_in.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.rx_in.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ctle_out.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ctle_out.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ffe_out.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ffe_out.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.dfe_out.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.dfe_out.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.x",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ideal_signal",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ideal_xings",
+          "passed": true,
+          "shape": [
+            7557
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ideal_xings_jit",
+          "passed": true,
+          "shape": [
+            5119
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ui",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.nspui",
+          "passed": true,
+          "shape": [],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.nui",
+          "passed": true,
+          "shape": [],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.eye_uis",
+          "passed": true,
+          "shape": [],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.pattern_len",
+          "passed": true,
+          "shape": [],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.rel_thresh",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.decision_scaler",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.mod_type",
+          "passed": true,
+          "shape": [],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.xing_min_t",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.noise_total",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.fext_count",
+          "passed": true,
+          "shape": [],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.ofst",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.actual_xings",
+          "passed": true,
+          "shape": [
+            7557
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.actual_xings_jit",
+          "passed": true,
+          "shape": [
+            5119
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.t_jitter",
+          "passed": true,
+          "shape": [
+            5119
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.bin_centers",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.spectrum_freqs",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.tie",
+          "passed": true,
+          "shape": [
+            5119
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.tie_ind",
+          "passed": true,
+          "shape": [
+            5119
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.valid",
+          "passed": true,
+          "shape": [],
+          "dtype": "bool",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.ofst",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.actual_xings",
+          "passed": true,
+          "shape": [
+            8010
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.actual_xings_jit",
+          "passed": true,
+          "shape": [
+            5428
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.t_jitter",
+          "passed": true,
+          "shape": [
+            5116
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.bin_centers",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.spectrum_freqs",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.tie",
+          "passed": true,
+          "shape": [
+            5116
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.tie_ind",
+          "passed": true,
+          "shape": [
+            5116
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.valid",
+          "passed": true,
+          "shape": [],
+          "dtype": "bool",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.ofst",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.actual_xings",
+          "passed": true,
+          "shape": [
+            7554
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.actual_xings_jit",
+          "passed": true,
+          "shape": [
+            5116
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.t_jitter",
+          "passed": true,
+          "shape": [
+            5116
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.bin_centers",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.spectrum_freqs",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.tie",
+          "passed": true,
+          "shape": [
+            5116
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.tie_ind",
+          "passed": true,
+          "shape": [
+            5116
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.valid",
+          "passed": true,
+          "shape": [],
+          "dtype": "bool",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.ofst",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.actual_xings",
+          "passed": true,
+          "shape": [
+            7553
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.actual_xings_jit",
+          "passed": true,
+          "shape": [
+            5115
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.t_jitter",
+          "passed": true,
+          "shape": [
+            5115
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.bin_centers",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.spectrum_freqs",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.tie",
+          "passed": true,
+          "shape": [
+            5115
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.tie_ind",
+          "passed": true,
+          "shape": [
+            5115
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.valid",
+          "passed": true,
+          "shape": [],
+          "dtype": "bool",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.x.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.x.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.noise_total.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.noise_total.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.noise_base.x",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.noise_base.y",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_chnl",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_chnl",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_chnl",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_chnl",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_chnl",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_chnl",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_tx",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_tx",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_tx",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_tx",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_tx",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_tx",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_ctle",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ctle",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_ctle",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_ctle",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_ctle",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_ctle",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_dfe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_dfe",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_dfe",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_dfe",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_dfe",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_dfe",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_dfe.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_dfe.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ext_dfe.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ext_dfe.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_spectrum_dfe.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_spectrum_dfe.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ind_spectrum_dfe.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ind_spectrum_dfe.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.thresh_dfe.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.thresh_dfe.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.rx_in.x",
+          "passed": true,
+          "shape": [
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.rx_in.y",
+          "passed": true,
+          "shape": [
+            1000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.rx_in.counts",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.dfe.x",
+          "passed": true,
+          "shape": [
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.dfe.y",
+          "passed": true,
+          "shape": [
+            1000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.dfe.counts",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap1.x",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap1.y",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap2.x",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap2.y",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap3.x",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap3.y",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap4.x",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap4.y",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap5.x",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap5.y",
+          "passed": true,
+          "shape": [
+            15001
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "cdr_indices",
+          "passed": true,
+          "shape": [
+            4096
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.x",
+          "passed": true,
+          "shape": [
+            4096
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.y",
+          "passed": true,
+          "shape": [
+            4096
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ffe.ofst",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ffe.actual_xings",
+          "passed": true,
+          "shape": [
+            7553
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ffe.actual_xings_jit",
+          "passed": true,
+          "shape": [
+            5115
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ffe.tie",
+          "passed": true,
+          "shape": [
+            5115
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ffe.t_jitter",
+          "passed": true,
+          "shape": [
+            5115
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ffe.tie_ind",
+          "passed": true,
+          "shape": [
+            5115
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_ffe",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_ffe",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_ffe",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ffe.spectrum_freqs",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ffe",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_ffe",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ffe.bin_centers",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_ffe",
+          "passed": true,
+          "shape": [],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.channel.chnl_H_raw.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.channel.chnl_H_raw.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.channel.chnl_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.channel.chnl_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.channel.chnl_trimmed_H.x",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.channel.chnl_trimmed_H.y",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.channel_noise",
+          "passed": true,
+          "shape": [
+            480000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.chnl.jitter.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.chnl.jitter.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.chnl.jitter_ext.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.chnl.jitter_ext.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.chnl.jitter_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.chnl.jitter_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.chnl.jitter_ind_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.chnl.jitter_ind_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.chnl.thresh.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.chnl.thresh.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bathtub.chnl.probability",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.chnl.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.chnl.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.chnl.x",
+          "passed": true,
+          "shape": [
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.chnl.y",
+          "passed": true,
+          "shape": [
+            1000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.chnl.counts",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.chnl.gui_noise.x",
+          "passed": true,
+          "shape": [
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.chnl.gui_noise.y",
+          "passed": true,
+          "shape": [
+            1000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.chnl.gui_noise.counts",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.tx.jitter.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.tx.jitter.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.tx.jitter_ext.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.tx.jitter_ext.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.tx.jitter_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.tx.jitter_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.tx.jitter_ind_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.tx.jitter_ind_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.tx.thresh.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.tx.thresh.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bathtub.tx.probability",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.tx.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.tx.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.tx.x",
+          "passed": true,
+          "shape": [
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.tx.y",
+          "passed": true,
+          "shape": [
+            1000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.tx.counts",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.ctle.jitter.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.ctle.jitter.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.ctle.jitter_ext.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.ctle.jitter_ext.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ctle.jitter_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ctle.jitter_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ctle.jitter_ind_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ctle.jitter_ind_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ctle.thresh.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ctle.thresh.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bathtub.ctle.probability",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.ctle.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.ctle.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.ctle.x",
+          "passed": true,
+          "shape": [
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.ctle.y",
+          "passed": true,
+          "shape": [
+            1000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.ctle.counts",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.ffe.jitter.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.ffe.jitter.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.ffe.jitter_ext.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.ffe.jitter_ext.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ffe.jitter_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ffe.jitter_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ffe.jitter_ind_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ffe.jitter_ind_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ffe.thresh.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.ffe.thresh.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bathtub.ffe.probability",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.ffe.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.ffe.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.ffe.x",
+          "passed": true,
+          "shape": [
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.ffe.y",
+          "passed": true,
+          "shape": [
+            1000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.ffe.counts",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.dfe.jitter.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.dfe.jitter.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.dfe.jitter_ext.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.pdf.dfe.jitter_ext.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.dfe.jitter_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.dfe.jitter_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.dfe.jitter_ind_spectrum.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.dfe.jitter_ind_spectrum.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.dfe.thresh.x",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.spec.dfe.thresh.y",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bathtub.dfe.probability",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.dfe.x",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.bathtub.dfe.y",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "cdr.histogram.edges",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "cdr.histogram.centers",
+          "passed": true,
+          "shape": [
+            100
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "cdr.histogram.counts",
+          "passed": true,
+          "shape": [
+            100
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "cdr.spectrum.raw",
+          "passed": true,
+          "shape": [
+            240001
+          ],
+          "dtype": "complex128",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "cdr.spectrum.frequency_Hz",
+          "passed": true,
+          "shape": [
+            240001
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "cdr.spectrum.relative_frequency",
+          "passed": true,
+          "shape": [
+            240000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.histogram.x",
+          "passed": true,
+          "shape": [
+            100
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.histogram.y",
+          "passed": true,
+          "shape": [
+            100
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.spectrum.x",
+          "passed": true,
+          "shape": [
+            240000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.spectrum.y",
+          "passed": true,
+          "shape": [
+            240000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ber.dfe.bits_out",
+          "passed": true,
+          "shape": [
+            15000
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ber.dfe.bits_test",
+          "passed": true,
+          "shape": [
+            10160
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ber.dfe.bits_reference",
+          "passed": true,
+          "shape": [
+            10160
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ber.dfe.auto_corr",
+          "passed": true,
+          "shape": [
+            5080
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ber.dfe.errors",
+          "passed": true,
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        }
+      ],
+      "display_checks": [
+        {
+          "field": "GUI chnl_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI chnl_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI chnl_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI chnl_H",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI tx_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI tx_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI tx_p",
+          "passed": false,
+          "shape": [],
+          "dtype": "object",
+          "max_absolute_difference": null
+        },
+        {
+          "field": "GUI tx_H",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI tx_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI tx_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI tx_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI tx_out_H",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI ctle_h",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI ctle_s",
+          "passed": true,
+          "shape": [
+            960
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI ctle_p",
+          "passed": false,
+          "shape": [],
+          "dtype": "object",
+          "max_absolute_difference": null
+        },
+        {
+          "field": "GUI ctle_H",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI ctle_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI ctle_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI ctle_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI ctle_out_H",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI dfe_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI dfe_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI dfe_p",
+          "passed": false,
+          "shape": [],
+          "dtype": "object",
+          "max_absolute_difference": null
+        },
+        {
+          "field": "GUI dfe_H",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI dfe_out_h",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI dfe_out_s",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI dfe_out_p",
+          "passed": true,
+          "shape": [
+            640
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI dfe_out_H",
+          "passed": true,
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_chnl",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_ext_chnl",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_spectrum_chnl",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_ind_spectrum_chnl",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI thresh_chnl",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI bathtub_chnl",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_tx",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_ext_tx",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_spectrum_tx",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_ind_spectrum_tx",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI thresh_tx",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI bathtub_tx",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_ctle",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_ext_ctle",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_spectrum_ctle",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_ind_spectrum_ctle",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI thresh_ctle",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI bathtub_ctle",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_dfe",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_ext_dfe",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_spectrum_dfe",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI jitter_ind_spectrum_dfe",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI thresh_dfe",
+          "passed": true,
+          "shape": [
+            5079
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI bathtub_dfe",
+          "passed": true,
+          "shape": [
+            101
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI eye_tx",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI eye_ctle",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI eye_dfe",
+          "passed": true,
+          "shape": [
+            1000,
+            64
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI CDR histogram",
+          "passed": true,
+          "shape": [
+            100
+          ],
+          "dtype": "int64",
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "GUI CDR spectrum",
+          "passed": true,
+          "shape": [
+            240000
+          ],
+          "dtype": "float64",
+          "max_absolute_difference": 0.0
+        }
+      ],
+      "passed": false,
+      "task": {
+        "task_id": "6f127f36-10a0-4bd7-8407-1889cb5d9850",
+        "operation": "run",
+        "state": "succeeded",
+        "phase": "succeeded",
+        "cancel_requested": false,
+        "cancel_requested_at": null,
+        "cancel_observed_at": null,
+        "cancel_observed": false,
+        "worker_exited": true,
+        "logs": [
+          "C:\\Users\\yx\\.codex\\worktrees\\pybert-final-parity\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:514: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[pos_tail_ix:-1], y_ps[pos_tail_ix:-1],",
+          "C:\\Users\\yx\\.codex\\worktrees\\pybert-final-parity\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py:526: OptimizeWarning: Covariance of the parameters could not be estimated\n  popt, pcov = curve_fit(gaus_pdf, x_ps[1: neg_tail_ix + 1], y_ps[1: neg_tail_ix + 1],"
+        ],
+        "created_at": 1792900591.2062798,
+        "request_hash": "6e54735ef018afc6d0a79e61b4995f8c16d5550a9ae17b6be5e97bc98401c5fd",
+        "parent_run_id": null,
+        "resource_inputs": [],
+        "parameter_source": null,
+        "worker_exit_confirmed_at": 1792900600.8497748,
+        "exitcode": 0,
+        "finished_at": 1792900600.8497763,
+        "result": {
+          "run_id": "6f127f36-10a0-4bd7-8407-1889cb5d9850"
+        }
+      },
+      "summary": {
+        "n_errs_dfe": 0,
+        "n_errs_viterbi": -1,
+        "viterbi_availability": "disabled",
+        "chnl_dly_s": 2.3812500000000002e-09,
+        "rel_power": 0.008686022199999999,
+        "dfe_jitter_s": {
+          "isi": 9.26465124647394e-12,
+          "dcd": 1.283573777385215e-13,
+          "pj": 6.5223873059879884e-12,
+          "rj": 1.054910882606979e-12,
+          "pjDD": 0.0,
+          "rjDD": 2.5445218114461024e-12,
+          "mu_pos": -3.2311742677852644e-27,
+          "mu_neg": -3.2311742677852644e-27,
+          "dj_pos": 7.761175137685315e-12,
+          "dj_neg": -7.1094997904348936e-12
+        },
+        "initial_level_v": 0.5,
+        "final_level_v": 0.2744394305781429
+      },
+      "summary_equal_excluding_performance": true,
+      "input_and_window_equal": true,
+      "plot_payloads": {
+        "wave.rx_in": 1,
+        "chnl_H": 1,
+        "jitter.dfe.dist": 2,
+        "jitter.dfe.bathtub": 1,
+        "eye.dfe": 1,
+        "cdr.histogram": 1
+      },
+      "elapsed_seconds": 17.988155400002142
+    }
+  ],
+  "main_attempts": 2,
+  "numerical_com_calls": 0,
+  "coopt_calls": 0,
+  "ami_library_calls": 0,
+  "error": "AssertionError: Exact comparison failed; preserve results and stop",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\serial-bus-simulator\\docs\\webui\\final-numerical-review-20261025\\fixed-v2\\review_parity.py\", line 179, in run\n    assert entry[\"passed\"], \"Exact comparison failed; preserve results and stop\"\n           ~~~~~^^^^^^^^^^\nAssertionError: Exact comparison failed; preserve results and stop\n",
+  "elapsed_seconds": 17.99043159998837
+}
