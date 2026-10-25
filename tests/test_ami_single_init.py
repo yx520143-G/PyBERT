@@ -19,8 +19,11 @@ class FakeDLL:
         self.samples = 0
         self.fail_at = None
         self.close_error = None
+        self.close_status = 1
+        self.AMI_Close = lambda handle: self._close(handle)
 
     def AMI_Init(self, impulse, rows, aggressors, ts, ui, params, out_params, handle, message):
+        assert out_params._obj.value is None
         self.events.append(("init", tuple(impulse._obj), rows, aggressors))
         self.ts = ts.value
         handle._obj.value = b"one-handle"
@@ -30,6 +33,7 @@ class FakeDLL:
 
     def AMI_GetWave(self, wave, size, clocks, out_params, handle):
         assert handle.value == b"one-handle"
+        assert out_params._obj.value is None
         self.events.append(("wave", np.array(wave._obj), self.samples))
         assert np.all(np.isnan(clocks._obj))
         clocks._obj[0] = self.samples * self.ts
@@ -39,12 +43,12 @@ class FakeDLL:
         out_params._obj.value = b"(model (tap 0.25))"
         return 0 if self.fail_at == len([event for event in self.events if event[0] == "wave"]) else 1
 
-    def AMI_Close(self, handle):
+    def _close(self, handle):
         assert handle.value == b"one-handle"
         self.events.append(("close",))
         if self.close_error:
             raise self.close_error
-        return 1
+        return self.close_status
 
 
 @pytest.fixture
@@ -132,23 +136,35 @@ def test_failure_closes_without_retry_or_reinitializing(setup_model, failure):
     assert len(case.python_calls) == (0 if failure == "init" else (failure + 1) // 2)
 
 
-def test_primary_and_cleanup_failures_are_both_retained(setup_model):
+@pytest.mark.parametrize("cleanup", ["exception", "status_zero"])
+def test_primary_and_cleanup_failures_are_both_retained(setup_model, cleanup):
     case = setup_model
     case.dll.fail_at = 5
-    case.dll.close_error = RuntimeError("close failed")
+    if cleanup == "exception":
+        case.dll.close_error = RuntimeError("close failed")
+    else:
+        case.dll.close_status = 0
     with pytest.raises(RuntimeError) as caught:
         run(case)
     assert isinstance(caught.value.primary_error, ami.AMIModelError)
     assert isinstance(caught.value.cleanup_error, ami.AMIModelError)
     assert "Unsuccessful return status" in str(caught.value.primary_error)
-    assert "close failed" in str(caught.value.cleanup_error)
+    message = "close failed" if cleanup == "exception" else "Unsuccessful return status 0"
+    assert message in str(caught.value.cleanup_error)
+    if cleanup == "status_zero":
+        assert caught.value.cleanup_error.diagnostic["status"] == 0
     assert case.dll.events[-1] == ("close",)
 
 
-def test_cleanup_failure_prevents_success(setup_model):
+@pytest.mark.parametrize("cleanup", ["exception", "status_zero"])
+def test_cleanup_failure_prevents_success(setup_model, cleanup):
     case = setup_model
-    case.dll.close_error = RuntimeError("close failed")
-    with pytest.raises(ami.AMIModelError, match="close failed"):
+    if cleanup == "exception":
+        case.dll.close_error = RuntimeError("close failed")
+    else:
+        case.dll.close_status = 0
+    message = "close failed" if cleanup == "exception" else "Unsuccessful return status 0"
+    with pytest.raises(ami.AMIModelError, match=message):
         run(case)
     assert case.dll.events[-1] == ("close",)
 
