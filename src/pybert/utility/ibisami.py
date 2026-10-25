@@ -110,7 +110,7 @@ class _AMICleanupError(RuntimeError):
 # pylint: disable=too-many-arguments,too-many-locals,too-many-positional-arguments
 def run_ami_model(dll_fname: str, param_cfg: AMIParamConfigurator, use_getwave: bool,
                   ui: float, ts: float, chnl_h: Rvec, x: Rvec, bits_per_call: int = 0,
-                  fext_hs: list[Rvec] | None = None
+                  fext_hs: list[Rvec] | None = None, *, clock_observations: dict | None = None
                   ) -> tuple[Rvec, Rvec, Rvec, Rvec, str, list[str]]:
     """
     Run a simulation of an IBIS-AMI model.
@@ -131,6 +131,7 @@ def run_ami_model(dll_fname: str, param_cfg: AMIParamConfigurator, use_getwave: 
             When provided, the full impulse response matrix (thru + FEXT rows) is passed to
             ``AMI_Init()``, enabling cross-talk modeling in the AMI model.
             Default: None (no aggressors; only the thru channel is passed)
+        clock_observations: Optional receipt of actual probe/Main calls; does not qualify timed consumption.
 
     Returns:
         A tuple consisting of
@@ -163,6 +164,9 @@ def run_ami_model(dll_fname: str, param_cfg: AMIParamConfigurator, use_getwave: 
     model_init = _make_ami_initializer(init_inputs)
     model = AMIModel(dll_fname)
     primary_error = None
+    if clock_observations is not None:
+        clock_observations.clear()
+        clock_observations["status"] = "incomplete"
     try:
         model.initialize(model_init)
 
@@ -189,6 +193,13 @@ def run_ami_model(dll_fname: str, param_cfg: AMIParamConfigurator, use_getwave: 
 
         # Generate model's output.
         if use_getwave:
+            if clock_observations is not None:
+                try:
+                    history = model.clock_history
+                    clock_observations["main_entry"] = {
+                        key: history[key] for key in ("epoch_id", "python_calls", "c_calls", "sample_interval_s")}
+                except Exception as observation_error:
+                    clock_observations["capture_error"] = str(observation_error)
             y, clks, params_out = model.getWave(x, bits_per_call=bits_per_call)
             return deepcopy((y, clks, h, out_h, msg, params_out))
         try:
@@ -203,9 +214,16 @@ def run_ami_model(dll_fname: str, param_cfg: AMIParamConfigurator, use_getwave: 
         primary_error = error
         raise
     finally:
+        if clock_observations is not None:
+            try:
+                clock_observations["history"] = model.clock_history
+            except Exception as observation_error:
+                clock_observations["capture_error"] = str(observation_error)
         try:
             model.close()
         except BaseException as cleanup_error:
             if primary_error is None:
                 raise
             raise _AMICleanupError(primary_error, cleanup_error) from primary_error
+        if clock_observations is not None and primary_error is None and "capture_error" not in clock_observations:
+            clock_observations["status"] = "complete"

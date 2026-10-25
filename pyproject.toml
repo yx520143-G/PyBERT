@@ -21,7 +21,7 @@ dependencies = [
     "parsec==3.17",
     "pychopmarg>=3.4.0,<4",
     "pyface==8.0.0",
-    "pyibis-ami[gui] @ git+https://github.com/yx520143-G/PyAMI.git@207bd902ee1e344c9f9053e8150ced8ac143b14d",
+    "pyibis-ami[gui] @ git+https://github.com/yx520143-G/PyAMI.git@dfae46033f490c9d19f2684454b6fe9bd90d9a72",
     "pyside6==6.10.2",
     "pyyaml==6.0.3",
     "scikit-rf==2.0.1",

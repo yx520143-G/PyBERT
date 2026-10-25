@@ -511,7 +511,8 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             if self.rx_use_ami and self.rx_use_getwave:
                 ctle_out, clock_times, ctle_h, ctle_out_h, msg, params = run_ami_model(
                     self.rx_dll_file, self._rx_cfg, True, ui, ts, tx_out_h, rx_in,
-                    fext_hs=getattr(self, "fext_h", []))
+                    fext_hs=getattr(self, "fext_h", []),
+                    clock_observations=clock_info.setdefault("origin_observations", {}))
                 clock_info.update(dict(main_origin="same_init_after_probes",
                                        returned_edges_s=np.array(clock_times, copy=True)))
                 self.log(f"Rx IBIS-AMI model initialization results:\n{msg}")

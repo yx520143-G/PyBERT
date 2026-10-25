@@ -1,0 +1,769 @@
+F5 final bounded validation; software stand-ins only; no native DLL.
+
+--- f5Full0 ---
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 106 items
+
+tests/test_ami_clock_origin.py::test_mapping_matches_independent_epoch_integer_grid PASSED [  0%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>0] PASSED [  1%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>1] PASSED [  2%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>2] PASSED [  3%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>3] PASSED [  4%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>4] PASSED [  5%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>5] PASSED [  6%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>6] PASSED [  7%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>7] PASSED [  8%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>8] PASSED [  9%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>9] PASSED [ 10%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>10] PASSED [ 11%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>11] PASSED [ 12%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>12] PASSED [ 13%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>13] PASSED [ 14%]
+tests/test_ami_clock_origin.py::test_all_empty_clocks_and_probe_only_boundary PASSED [ 15%]
+tests/test_ami_clock_origin.py::test_grid_must_match_actual_main_sample_record[grid0] PASSED [ 16%]
+tests/test_ami_clock_origin.py::test_grid_must_match_actual_main_sample_record[grid1] PASSED [ 16%]
+tests/test_ami_clock_origin.py::test_grid_must_match_actual_main_sample_record[grid2] PASSED [ 17%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[all-dict] PASSED [ 18%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[all-traits] PASSED [ 19%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[empty-dict] PASSED [ 20%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[empty-traits] PASSED [ 21%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[probe_only-dict] PASSED [ 22%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[probe_only-traits] PASSED [ 23%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[mismatch-dict] PASSED [ 24%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[mismatch-traits] PASSED [ 25%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[failed-dict] PASSED [ 26%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[failed-traits] PASSED [ 27%]
+tests/test_ami_clock_origin.py::test_first_grid_not_earlier_than_target_and_no_duplicate_samples PASSED [ 28%]
+tests/test_ami_single_init.py::test_original_probe_then_main_on_one_handle[0-main_chunks0] PASSED [ 29%]
+tests/test_ami_single_init.py::test_original_probe_then_main_on_one_handle[7-main_chunks1] PASSED [ 30%]
+tests/test_ami_single_init.py::test_origin_receipt_uses_actual_probe_and_main_chunks[0] PASSED [ 31%]
+tests/test_ami_single_init.py::test_origin_receipt_uses_actual_probe_and_main_chunks[7] PASSED [ 32%]
+tests/test_ami_single_init.py::test_failed_origin_receipt_keeps_partial_calls[1] PASSED [ 33%]
+tests/test_ami_single_init.py::test_failed_origin_receipt_keeps_partial_calls[3] PASSED [ 33%]
+tests/test_ami_single_init.py::test_failed_origin_receipt_keeps_partial_calls[5] PASSED [ 34%]
+tests/test_ami_single_init.py::test_close_failure_does_not_complete_origin_receipt PASSED [ 35%]
+tests/test_ami_single_init.py::test_origin_observation_failure_does_not_change_model_execution PASSED [ 36%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[init] PASSED [ 37%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[1] PASSED [ 38%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[3] PASSED [ 39%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[5] PASSED [ 40%]
+tests/test_ami_single_init.py::test_primary_and_cleanup_failures_are_both_retained[exception] PASSED [ 41%]
+tests/test_ami_single_init.py::test_primary_and_cleanup_failures_are_both_retained[status_zero] PASSED [ 42%]
+tests/test_ami_single_init.py::test_cleanup_failure_prevents_success[exception] PASSED [ 43%]
+tests/test_ami_single_init.py::test_cleanup_failure_prevents_success[status_zero] PASSED [ 44%]
+tests/test_ami_single_init.py::test_shared_initializer_preserves_fext_rows_and_init_only[False] PASSED [ 45%]
+tests/test_ami_single_init.py::test_shared_initializer_preserves_fext_rows_and_init_only[True] PASSED [ 46%]
+tests/test_ami_single_init.py::test_copy_failure_still_closes PASSED     [ 47%]
+tests/test_ami_single_init.py::test_interruption_still_closes PASSED     [ 48%]
+tests/test_ami_single_init.py::test_returns_are_copied_before_close PASSED [ 49%]
+tests/test_ami_single_init.py::test_rx_caller_does_not_seed_probes_or_claim_fresh_main PASSED [ 50%]
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[dict] PASSED [ 50%]
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[traits-dict] PASSED [ 51%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[dict-same_init_after_probes] PASSED [ 52%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[dict-None] PASSED [ 53%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[traits-dict-same_init_after_probes] PASSED [ 54%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[traits-dict-None] PASSED [ 55%]
+tests/test_ami_clock_traits.py::test_same_epoch_nonempty_clocks_require_explicit_mapping[dict] PASSED [ 56%]
+tests/test_ami_clock_traits.py::test_same_epoch_nonempty_clocks_require_explicit_mapping[traits-dict] PASSED [ 57%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[dict] PASSED [ 58%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[traits-dict] PASSED [ 59%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[dict] PASSED [ 60%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[traits-dict] PASSED [ 61%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[dict] PASSED [ 62%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[traits-dict] PASSED [ 63%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_aligned_vectors_can_change_length_between_calls PASSED [ 64%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_ambiguous_node_is_rejected PASSED [ 65%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_blank_return_is_unavailable_without_hiding_syntax_errors PASSED [ 66%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_duplicate_paths_are_rejected_without_overwriting
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_duplicate_paths_are_rejected_without_overwriting PASSED [ 66%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_empty_returns_have_no_taps
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_empty_returns_have_no_taps PASSED [ 67%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_full_paths_and_case_insensitive_taps PASSED [ 68%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_incomplete_auxiliary_numeric_paths_are_not_published_as_complete
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_incomplete_auxiliary_numeric_paths_are_not_published_as_complete PASSED [ 69%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_invalid_syntax_still_fails PASSED [ 70%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_model_root_cannot_change_between_calls PASSED [ 71%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_non_numeric_mixed_and_table_values_are_unavailable PASSED [ 72%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_saved_750_return_strings_preserve_numeric_histories_without_inferred_matrix
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_saved_750_return_strings_preserve_numeric_histories_without_inferred_matrix PASSED [ 73%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_unrelated_named_taps_are_independent_histories
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_unrelated_named_taps_are_independent_histories PASSED [ 74%]
+tests/test_ami_parameter_projection.py::test_auxiliary_key_changes_keep_complete_independent_histories_and_raw PASSED [ 75%]
+tests/test_ami_parameter_projection.py::test_numeric_looking_strings_and_table_row_counts_do_not_become_tap_columns PASSED [ 76%]
+tests/test_ami_parameter_projection.py::test_required_table_must_return_nonempty_leaf_values[] PASSED [ 77%]
+tests/test_ami_parameter_projection.py::test_required_table_must_return_nonempty_leaf_values[(child 2)] PASSED [ 78%]
+tests/test_ami_parameter_projection.py::test_required_table_must_return_nonempty_leaf_values[(1 2)] PASSED [ 79%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx)-Out] PASSED [ 80%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx)-InOut] PASSED [ 81%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx (gain))-Out] PASSED [ 82%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx (gain))-InOut] PASSED [ 83%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx (gain Missing))-Out] PASSED [ 83%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx (gain Missing))-InOut] PASSED [ 84%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[-Out] PASSED [ 85%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[-InOut] PASSED [ 86%]
+tests/test_ami_parameter_projection.py::test_required_scalar_cannot_be_returned_as_a_row_or_branch[(1 2)] PASSED [ 87%]
+tests/test_ami_parameter_projection.py::test_required_scalar_cannot_be_returned_as_a_row_or_branch[(child 2)] PASSED [ 88%]
+tests/test_ami_parameter_projection.py::test_expected_root_is_checked_even_for_one_call PASSED [ 89%]
+tests/test_ami_parameter_projection.py::test_reserved_required_output_is_checked_too PASSED [ 90%]
+tests/test_ami_parameter_projection.py::test_one_declared_tap_group_is_ordered_by_position_and_keeps_all_rows PASSED [ 91%]
+tests/test_ami_parameter_projection.py::test_declared_numeric_taps_can_share_a_branch_with_named_parameters[] PASSED [ 92%]
+tests/test_ami_parameter_projection.py::test_declared_numeric_taps_can_share_a_branch_with_named_parameters[(99 9)] PASSED [ 93%]
+tests/test_ami_parameter_projection.py::test_misaligned_declared_taps_only_disable_the_matrix PASSED [ 94%]
+tests/test_ami_parameter_projection.py::test_distinct_declared_groups_are_never_zipped_together PASSED [ 95%]
+tests/test_ami_parameter_projection.py::test_unparseable_declarations_do_not_claim_required_outputs_verified PASSED [ 96%]
+tests/test_ami_parameter_projection.py::test_empty_model_specific_branch_does_not_make_valid_wave_observations_fail PASSED [ 97%]
+tests/test_ami_parameter_projection.py::test_actual_rx_consumer_keeps_raw_and_does_not_fabricate_diagnostic_arrays[False] PASSED [ 98%]
+tests/test_ami_parameter_projection.py::test_actual_rx_consumer_keeps_raw_and_does_not_fabricate_diagnostic_arrays[True] PASSED [ 99%]
+tests/test_ami_parameter_projection.py::test_declared_table_does_not_hide_mixed_structure_errors PASSED [100%]
+
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    floatingPointConstant.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    nonnegativeNumber.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    coordinatePair = (coordinate + maybeComma + coordinate).setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    closePath = Group(Command("Z")).setParseAction(lambda t: ("Z", (None,)))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    ).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    arcFlags = (flag + maybeComma + flag).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+    transformList = delimitedList(Group(transform), delim=maybeComma)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integerConstant = Word(nums + "+-").setParseAction(lambda t: int(t[0]))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorByte = Optional(sign) + integerConstant.setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorPerc = number.setParseAction(parseColorPerc) + Literal("%").suppress()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("rgb(").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    doubleHex = Word(hexnums, exact=2).setParseAction(lambda t: int(t[0], 16))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("#").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    | Word(hexnums, exact=3).setParseAction(parseShortHex)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    namedColour = Word(alphas).setParseAction(parseNamedColour)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integer = Word("0123456789").setParseAction(asInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    number.setName("number")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    signedNumber = Combine(Optional(sign) + number).setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    lengthValue = Combine(Optional(sign) + number).setParseAction(asFloatOrInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    lengthValue.setName("lengthValue")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    lengthUnit = oneOf(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55: PyparsingDeprecationWarning: 'leaveWhitespace' deprecated - use 'leave_whitespace'
+    length.leaveWhitespace()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    number.setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    none = CaselessLiteral("none").setParseAction(lambda t: ["NONE", ()])
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    currentColor = CaselessLiteral("currentColor").setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    + Group(SkipTo(urlEnd, include=True).setParseAction(parsePossibleURL))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 3 durations =============================
+0.16s call     tests/test_ami_getwave_params.py::GetWaveParameterTests::test_saved_750_return_strings_preserve_numeric_histories_without_inferred_matrix
+0.07s call     tests/test_ami_getwave_params.py::GetWaveParameterTests::test_incomplete_auxiliary_numeric_paths_are_not_published_as_complete
+0.05s call     tests/test_ami_getwave_params.py::GetWaveParameterTests::test_duplicate_paths_are_rejected_without_overwriting
+============ 106 passed, 35 warnings, 15 subtests passed in 0.88s =============
+
+--- f5Full1 ---
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\PyAMI
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 86 items
+
+tests/ami/test_clock_lifecycle.py::test_clock_history_retains_short_chunks_across_calls_and_close PASSED [  1%]
+tests/ami/test_clock_lifecycle.py::test_new_init_has_new_identity_and_empty_history PASSED [  2%]
+tests/ami/test_clock_lifecycle.py::test_failed_call_and_rejected_retry_cannot_form_complete_history PASSED [  3%]
+tests/ami/test_clock_lifecycle.py::test_failure_phase_does_not_conflate_host_decode_with_model_status[block0-checking_status-model_execution] PASSED [  4%]
+tests/ami/test_clock_lifecycle.py::test_failure_phase_does_not_conflate_host_decode_with_model_status[block1-validating_clocks-clock_interface] PASSED [  5%]
+tests/ami/test_clock_lifecycle.py::test_failure_phase_does_not_conflate_host_decode_with_model_status[block2-decoding_parameters-host_post_return] PASSED [  6%]
+tests/ami/test_clock_lifecycle.py::test_failure_phase_does_not_conflate_host_decode_with_model_status[block3-calling-native_call_unknown] PASSED [  8%]
+tests/ami/test_clock_lifecycle.py::test_pre_call_host_failure_tracks_whether_this_python_call_already_consumed_input[False] PASSED [  9%]
+tests/ami/test_clock_lifecycle.py::test_pre_call_host_failure_tracks_whether_this_python_call_already_consumed_input[True] PASSED [ 10%]
+tests/ami/test_clock_lifecycle.py::test_cancel_during_native_call_is_retained_and_never_retried PASSED [ 11%]
+tests/ami/test_clock_lifecycle.py::test_failed_auxiliary_capture_keeps_wave_and_primary_failure[None] PASSED [ 12%]
+tests/ami/test_clock_lifecycle.py::test_failed_auxiliary_capture_keeps_wave_and_primary_failure[native_error1] PASSED [ 13%]
+tests/ami/test_clock_lifecycle.py::test_failed_auxiliary_capture_keeps_wave_and_primary_failure[0] PASSED [ 15%]
+tests/ami/test_clock_lifecycle.py::test_valid_prefix_keeps_zero_and_all_ticks_with_wave_params_order PASSED [ 16%]
+tests/ami/test_clock_lifecycle.py::test_bad_prefix_poison_preserves_host_owned_raw[clocks0] PASSED [ 17%]
+tests/ami/test_clock_lifecycle.py::test_bad_prefix_poison_preserves_host_owned_raw[clocks1] PASSED [ 18%]
+tests/ami/test_clock_lifecycle.py::test_bad_prefix_poison_preserves_host_owned_raw[clocks2] PASSED [ 19%]
+tests/ami/test_clock_lifecycle.py::test_bad_prefix_poison_preserves_host_owned_raw[clocks3] PASSED [ 20%]
+tests/ami/test_clock_lifecycle.py::test_bad_prefix_poison_preserves_host_owned_raw[clocks4] PASSED [ 22%]
+tests/ami/test_clock_lifecycle.py::test_bad_prefix_poison_preserves_host_owned_raw[clocks5] PASSED [ 23%]
+tests/ami/test_clock_lifecycle.py::test_bad_prefix_poison_preserves_host_owned_raw[clocks6] PASSED [ 24%]
+tests/ami/test_clock_lifecycle.py::test_bad_prefix_poison_preserves_host_owned_raw[clocks7] PASSED [ 25%]
+tests/ami/test_clock_lifecycle.py::test_getwave_status_only_one_succeeds[0] PASSED [ 26%]
+tests/ami/test_clock_lifecycle.py::test_getwave_status_only_one_succeeds[2] PASSED [ 27%]
+tests/ami/test_clock_lifecycle.py::test_getwave_status_only_one_succeeds[-1] PASSED [ 29%]
+tests/ami/test_clock_lifecycle.py::test_getwave_exception_poison_retains_original_cause[error0] PASSED [ 30%]
+tests/ami/test_clock_lifecycle.py::test_getwave_exception_poison_retains_original_cause[error1] PASSED [ 31%]
+tests/ami/test_clock_lifecycle.py::test_cross_wrapper_monotonicity_survives_empty_prefix PASSED [ 32%]
+tests/ami/test_clock_lifecycle.py::test_duplicate_across_wrappers_is_failure PASSED [ 33%]
+tests/ami/test_clock_lifecycle.py::test_every_call_prefills_nan_and_zero_block_inherits PASSED [ 34%]
+tests/ami/test_clock_lifecycle.py::test_failure_does_not_publish_partial_tuple_and_observations_are_copies PASSED [ 36%]
+tests/ami/test_clock_lifecycle.py::test_successful_new_init_recovers_poisoned_epoch PASSED [ 37%]
+tests/ami/test_clock_lifecycle.py::test_close_is_idempotent_and_disowns_before_callback PASSED [ 38%]
+tests/ami/test_clock_lifecycle.py::test_reinit_prepare_failure_then_destructor_never_closes_old_handle_twice PASSED [ 39%]
+tests/ami/test_clock_lifecycle.py::test_reinit_capability_failure_retains_original_and_closed_state PASSED [ 40%]
+tests/ami/test_clock_lifecycle.py::test_failed_init_status_cleans_nonnull_handle_once_and_blocks_wave[0] PASSED [ 41%]
+tests/ami/test_clock_lifecycle.py::test_failed_init_status_cleans_nonnull_handle_once_and_blocks_wave[2] PASSED [ 43%]
+tests/ami/test_clock_lifecycle.py::test_failed_init_status_cleans_nonnull_handle_once_and_blocks_wave[-1] PASSED [ 44%]
+tests/ami/test_clock_lifecycle.py::test_init_exception_cleans_handle_and_retains_original[error0] PASSED [ 45%]
+tests/ami/test_clock_lifecycle.py::test_init_exception_cleans_handle_and_retains_original[error1] PASSED [ 46%]
+tests/ami/test_clock_lifecycle.py::test_init_failure_and_cleanup_failure_preserve_both_and_do_not_retry PASSED [ 47%]
+tests/ami/test_clock_lifecycle.py::test_explicit_close_failure_cannot_be_retried_by_close_or_destructor PASSED [ 48%]
+tests/ami/test_clock_lifecycle.py::test_destructor_failure_is_recorded_and_logged_without_escaping PASSED [ 50%]
+tests/ami/test_clock_lifecycle.py::test_reinit_close_failure_stops_before_new_init PASSED [ 51%]
+tests/ami/test_clock_lifecycle.py::test_uninitialized_destructor_and_stateless_success_are_safe PASSED [ 52%]
+tests/ami/test_clock_lifecycle.py::test_empty_prefix_and_empty_wave_do_not_reset_epoch_history PASSED [ 53%]
+tests/ami/test_clock_lifecycle.py::test_failed_init_with_null_handle_does_not_call_close_for_it PASSED [ 54%]
+tests/ami/test_clock_lifecycle.py::test_observations_copy_init_input_and_raw_parameters_without_parser PASSED [ 55%]
+tests/ami/test_clock_lifecycle.py::test_uninitialized_getwave_is_rejected_before_any_callback PASSED [ 56%]
+tests/ami/test_clock_lifecycle.py::test_default_empty_parameter_string_fallback_is_unchanged PASSED [ 58%]
+tests/ami/test_clock_lifecycle.py::test_close_binding_uses_c_long_return PASSED [ 59%]
+tests/ami/test_clock_lifecycle.py::test_close_success_retains_status_without_claiming_release PASSED [ 60%]
+tests/ami/test_clock_lifecycle.py::test_close_bad_status_is_failure_and_never_retried[0] PASSED [ 61%]
+tests/ami/test_clock_lifecycle.py::test_close_bad_status_is_failure_and_never_retried[-1] PASSED [ 62%]
+tests/ami/test_clock_lifecycle.py::test_close_bad_status_is_failure_and_never_retried[2] PASSED [ 63%]
+tests/ami/test_clock_lifecycle.py::test_close_bad_status_is_failure_and_never_retried[None] PASSED [ 65%]
+tests/ami/test_clock_lifecycle.py::test_close_exception_has_no_return_status PASSED [ 66%]
+tests/ami/test_clock_lifecycle.py::test_reinit_close_zero_stops_before_new_init PASSED [ 67%]
+tests/ami/test_clock_lifecycle.py::test_init_failure_retains_cleanup_zero_separately PASSED [ 68%]
+tests/ami/test_clock_lifecycle.py::test_destructor_logs_close_zero_without_retry PASSED [ 69%]
+tests/ami/test_clock_lifecycle.py::test_init_parameter_pointer_starts_null_and_raw_is_distinct[False-None] PASSED [ 70%]
+tests/ami/test_clock_lifecycle.py::test_init_parameter_pointer_starts_null_and_raw_is_distinct[True-None] PASSED [ 72%]
+tests/ami/test_clock_lifecycle.py::test_init_parameter_pointer_starts_null_and_raw_is_distinct[True-] PASSED [ 73%]
+tests/ami/test_clock_lifecycle.py::test_init_parameter_pointer_starts_null_and_raw_is_distinct[True-(candidate )] PASSED [ 74%]
+tests/ami/test_clock_lifecycle.py::test_init_parameter_pointer_starts_null_and_raw_is_distinct[True-(candidate (value 4))] PASSED [ 75%]
+tests/ami/test_clock_lifecycle.py::test_getwave_clears_parameter_pointer_per_chunk_and_python_call PASSED [ 76%]
+tests/ami/test_clock_lifecycle.py::test_failed_getwave_without_parameter_write_never_reuses_previous_value[failure0] PASSED [ 77%]
+tests/ami/test_clock_lifecycle.py::test_failed_getwave_without_parameter_write_never_reuses_previous_value[failure1] PASSED [ 79%]
+tests/ami/test_clock_lifecycle.py::test_empty_wave_does_not_clear_last_parameter_observation PASSED [ 80%]
+tests/ami/test_response_rng.py::test_seeded_generators_replay_both_probes_and_complete_returns PASSED [ 81%]
+tests/ami/test_response_rng.py::test_different_seed_has_known_different_inputs PASSED [ 82%]
+tests/ami/test_response_rng.py::test_same_generator_advances_once_per_response_request PASSED [ 83%]
+tests/ami/test_response_rng.py::test_omitted_and_none_use_the_default_factory[False] PASSED [ 84%]
+tests/ami/test_response_rng.py::test_omitted_and_none_use_the_default_factory[True] PASSED [ 86%]
+tests/ami/test_response_rng.py::test_unused_getwave_neither_creates_nor_consumes_rng[omitted-calc_disabled] PASSED [ 87%]
+tests/ami/test_response_rng.py::test_unused_getwave_neither_creates_nor_consumes_rng[omitted-getwave_absent] PASSED [ 88%]
+tests/ami/test_response_rng.py::test_unused_getwave_neither_creates_nor_consumes_rng[none-calc_disabled] PASSED [ 89%]
+tests/ami/test_response_rng.py::test_unused_getwave_neither_creates_nor_consumes_rng[none-getwave_absent] PASSED [ 90%]
+tests/ami/test_response_rng.py::test_unused_getwave_neither_creates_nor_consumes_rng[provided-calc_disabled] PASSED [ 91%]
+tests/ami/test_response_rng.py::test_unused_getwave_neither_creates_nor_consumes_rng[provided-getwave_absent] PASSED [ 93%]
+tests/ami/test_response_rng.py::test_ignore_zero_keeps_empty_prefix_and_generator_state[provided] PASSED [ 94%]
+tests/ami/test_response_rng.py::test_ignore_zero_keeps_empty_prefix_and_generator_state[default] PASSED [ 95%]
+tests/ami/test_response_rng.py::test_legacy_global_rng_state_is_unchanged[provided] PASSED [ 96%]
+tests/ami/test_response_rng.py::test_legacy_global_rng_state_is_unchanged[default] PASSED [ 97%]
+tests/ami/test_response_rng.py::test_old_five_positional_arguments_keep_return_api PASSED [ 98%]
+tests/ami/test_response_rng.py::test_rng_is_keyword_only PASSED          [100%]
+
+============================= 86 passed in 0.51s ==============================
+
+--- f5Full2 ---
+Success: no issues found in 1 source file
+
+--- f5Ruff0 ---
+src\pybert\models\bert.py:451:23: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\models\bert.py:516:35: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\models\bert.py:690:31: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\models\bert.py:713:31: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\models\bert.py:720:27: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\models\bert.py:881:35: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\models\bert.py:993:38: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\models\bert.py:1004:39: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\models\bert.py:1244:23: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:87:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:114:17: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:133:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:151:17: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:191:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:218:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:244:17: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:254:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:259:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:261:17: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\test_ami_single_init.py:318:17: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\test_ami_single_init.py:320:5: S102 Use of `exec` detected
+Found 21 errors.
+20 unsafe fixes available with `--fix --unsafe-fixes`.
+
+--- f5Ruff1 ---
+src\pyibisami\ami\model.py:375:72: TRY401 Redundant exception object included in `logging.exception` call
+src\pyibisami\ami\model.py:384:18: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pyibisami\ami\model.py:442:18: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pyibisami\ami\model.py:569:78: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:58:26: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:231:9: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:232:9: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:246:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:262:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:273:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:285:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:285:44: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:285:77: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:294:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:294:44: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:301:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:301:52: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:301:72: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:309:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:309:71: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:320:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:320:44: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:320:68: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:343:10: B017 Do not assert blind exception: `Exception`
+tests\ami\test_clock_lifecycle.py:444:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:451:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:451:53: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:451:77: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests\ami\test_clock_lifecycle.py:492:20: C408 Unnecessary `dict()` call (rewrite as a literal)
+Found 29 errors.
+27 unsafe fixes available with `--fix --unsafe-fixes`.
+
+--- Ruff comparison and actual imports ---
+C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\src\pybert\models\bert.py baseline 9 candidate 9 introduced []
+C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\src\pybert\utility\ami_clock.py baseline 10 candidate 10 introduced []
+C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\src\pybert\utility\ibisami.py baseline 0 candidate 0 introduced []
+C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\tests\test_ami_single_init.py baseline 2 candidate 2 introduced []
+C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\PyAMI\src\pyibisami\ami\model.py baseline 4 candidate 4 introduced []
+C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\PyAMI\tests\ami\test_clock_lifecycle.py baseline 25 candidate 25 introduced []
+IMPORT C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\src\pybert\utility\ami_clock.py C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator\PyAMI\src\pyibisami\ami\model.py
+
+--- Review P2 regression: initial red ---
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 40 items / 30 deselected / 10 selected
+
+tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[0] PASSED [ 10%]
+tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[2] FAILED [ 20%]
+tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[4] FAILED [ 30%]
+tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[8] PASSED [ 40%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[0--1] PASSED [ 50%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[0-1] PASSED [ 60%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[2--1] PASSED [ 70%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[2-1] PASSED [ 80%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[8--1] PASSED [ 90%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[8-1] PASSED [100%]
+
+================================== FAILURES ===================================
+______ test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[2] ______
+tests\test_ami_clock_origin.py:160: in test_picosecond_grid_boundary_is_compared_in_epoch_coordinates
+    np.testing.assert_array_equal(result["planned_indices"], [index])
+E   AssertionError:
+E   Arrays are not equal
+E
+E   Mismatched elements: 1 / 1 (100%)
+E   Mismatch at index:
+E    [0]: 3 (ACTUAL), 2 (DESIRED)
+E   Max absolute difference among violations: 1
+E   Max relative difference among violations: 0.5
+E    ACTUAL: array([3])
+E    DESIRED: array([2])
+______ test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[4] ______
+tests\test_ami_clock_origin.py:160: in test_picosecond_grid_boundary_is_compared_in_epoch_coordinates
+    np.testing.assert_array_equal(result["planned_indices"], [index])
+E   AssertionError:
+E   Arrays are not equal
+E
+E   Mismatched elements: 1 / 1 (100%)
+E   Mismatch at index:
+E    [0]: 5 (ACTUAL), 4 (DESIRED)
+E   Max absolute difference among violations: 1
+E   Max relative difference among violations: 0.25
+E    ACTUAL: array([5])
+E    DESIRED: array([4])
+============================= slowest 3 durations =============================
+
+(3 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ===========================
+FAILED tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[2]
+FAILED tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[4]
+=========== 2 failed, 8 passed, 30 deselected, 35 warnings in 0.76s ===========
+
+--- Final parent validation after coordinate repair ---
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 117 items
+
+tests/test_ami_clock_origin.py::test_mapping_matches_independent_epoch_integer_grid PASSED [  0%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>0] PASSED [  1%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>1] PASSED [  2%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>2] PASSED [  3%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>3] PASSED [  4%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>4] PASSED [  5%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>5] PASSED [  5%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>6] PASSED [  6%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>7] PASSED [  7%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>8] PASSED [  8%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>9] PASSED [  9%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>10] PASSED [ 10%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>11] PASSED [ 11%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>12] PASSED [ 11%]
+tests/test_ami_clock_origin.py::test_missing_or_inconsistent_receipt_is_not_mapped[<lambda>13] PASSED [ 12%]
+tests/test_ami_clock_origin.py::test_all_empty_clocks_and_probe_only_boundary PASSED [ 13%]
+tests/test_ami_clock_origin.py::test_grid_must_match_actual_main_sample_record[grid0] PASSED [ 14%]
+tests/test_ami_clock_origin.py::test_grid_must_match_actual_main_sample_record[grid1] PASSED [ 15%]
+tests/test_ami_clock_origin.py::test_grid_must_match_actual_main_sample_record[grid2] PASSED [ 16%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[all-dict] PASSED [ 17%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[all-traits] PASSED [ 17%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[empty-dict] PASSED [ 18%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[empty-traits] PASSED [ 19%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[probe_only-dict] PASSED [ 20%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[probe_only-traits] PASSED [ 21%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[mismatch-dict] PASSED [ 22%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[mismatch-traits] PASSED [ 23%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[failed-dict] PASSED [ 23%]
+tests/test_ami_clock_origin.py::test_live_plan_observes_mapping_without_enabling_consumption[failed-traits] PASSED [ 24%]
+tests/test_ami_clock_origin.py::test_first_grid_not_earlier_than_target_and_no_duplicate_samples PASSED [ 25%]
+tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[0] PASSED [ 26%]
+tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[2] PASSED [ 27%]
+tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[4] PASSED [ 28%]
+tests/test_ami_clock_origin.py::test_picosecond_grid_boundary_is_compared_in_epoch_coordinates[8] PASSED [ 29%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[0--1] PASSED [ 29%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[0-1] PASSED [ 30%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[2--1] PASSED [ 31%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[2-1] PASSED [ 32%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[8--1] PASSED [ 33%]
+tests/test_ami_clock_origin.py::test_nextafter_true_epoch_crossing_is_not_snapped[8-1] PASSED [ 34%]
+tests/test_ami_clock_origin.py::test_nonbinary_last_sample_and_readiness_keep_exact_epoch_hits PASSED [ 35%]
+tests/test_ami_single_init.py::test_original_probe_then_main_on_one_handle[0-main_chunks0] PASSED [ 35%]
+tests/test_ami_single_init.py::test_original_probe_then_main_on_one_handle[7-main_chunks1] PASSED [ 36%]
+tests/test_ami_single_init.py::test_origin_receipt_uses_actual_probe_and_main_chunks[0] PASSED [ 37%]
+tests/test_ami_single_init.py::test_origin_receipt_uses_actual_probe_and_main_chunks[7] PASSED [ 38%]
+tests/test_ami_single_init.py::test_failed_origin_receipt_keeps_partial_calls[1] PASSED [ 39%]
+tests/test_ami_single_init.py::test_failed_origin_receipt_keeps_partial_calls[3] PASSED [ 40%]
+tests/test_ami_single_init.py::test_failed_origin_receipt_keeps_partial_calls[5] PASSED [ 41%]
+tests/test_ami_single_init.py::test_close_failure_does_not_complete_origin_receipt PASSED [ 41%]
+tests/test_ami_single_init.py::test_origin_observation_failure_does_not_change_model_execution PASSED [ 42%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[init] PASSED [ 43%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[1] PASSED [ 44%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[3] PASSED [ 45%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[5] PASSED [ 46%]
+tests/test_ami_single_init.py::test_primary_and_cleanup_failures_are_both_retained[exception] PASSED [ 47%]
+tests/test_ami_single_init.py::test_primary_and_cleanup_failures_are_both_retained[status_zero] PASSED [ 47%]
+tests/test_ami_single_init.py::test_cleanup_failure_prevents_success[exception] PASSED [ 48%]
+tests/test_ami_single_init.py::test_cleanup_failure_prevents_success[status_zero] PASSED [ 49%]
+tests/test_ami_single_init.py::test_shared_initializer_preserves_fext_rows_and_init_only[False] PASSED [ 50%]
+tests/test_ami_single_init.py::test_shared_initializer_preserves_fext_rows_and_init_only[True] PASSED [ 51%]
+tests/test_ami_single_init.py::test_copy_failure_still_closes PASSED     [ 52%]
+tests/test_ami_single_init.py::test_interruption_still_closes PASSED     [ 52%]
+tests/test_ami_single_init.py::test_returns_are_copied_before_close PASSED [ 53%]
+tests/test_ami_single_init.py::test_rx_caller_does_not_seed_probes_or_claim_fresh_main PASSED [ 54%]
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[dict] PASSED [ 55%]
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[traits-dict] PASSED [ 56%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[dict-same_init_after_probes] PASSED [ 57%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[dict-None] PASSED [ 58%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[traits-dict-same_init_after_probes] PASSED [ 58%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[traits-dict-None] PASSED [ 59%]
+tests/test_ami_clock_traits.py::test_same_epoch_nonempty_clocks_require_explicit_mapping[dict] PASSED [ 60%]
+tests/test_ami_clock_traits.py::test_same_epoch_nonempty_clocks_require_explicit_mapping[traits-dict] PASSED [ 61%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[dict] PASSED [ 62%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[traits-dict] PASSED [ 63%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[dict] PASSED [ 64%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[traits-dict] PASSED [ 64%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[dict] PASSED [ 65%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[traits-dict] PASSED [ 66%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_aligned_vectors_can_change_length_between_calls PASSED [ 67%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_ambiguous_node_is_rejected PASSED [ 68%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_blank_return_is_unavailable_without_hiding_syntax_errors PASSED [ 69%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_duplicate_paths_are_rejected_without_overwriting
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_duplicate_paths_are_rejected_without_overwriting PASSED [ 70%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_empty_returns_have_no_taps
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_empty_returns_have_no_taps PASSED [ 70%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_full_paths_and_case_insensitive_taps PASSED [ 71%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_incomplete_auxiliary_numeric_paths_are_not_published_as_complete
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_incomplete_auxiliary_numeric_paths_are_not_published_as_complete PASSED [ 72%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_invalid_syntax_still_fails PASSED [ 73%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_model_root_cannot_change_between_calls PASSED [ 74%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_non_numeric_mixed_and_table_values_are_unavailable PASSED [ 75%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_saved_750_return_strings_preserve_numeric_histories_without_inferred_matrix
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_saved_750_return_strings_preserve_numeric_histories_without_inferred_matrix PASSED [ 76%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_unrelated_named_taps_are_independent_histories
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_unrelated_named_taps_are_independent_histories PASSED [ 76%]
+tests/test_ami_parameter_projection.py::test_auxiliary_key_changes_keep_complete_independent_histories_and_raw PASSED [ 77%]
+tests/test_ami_parameter_projection.py::test_numeric_looking_strings_and_table_row_counts_do_not_become_tap_columns PASSED [ 78%]
+tests/test_ami_parameter_projection.py::test_required_table_must_return_nonempty_leaf_values[] PASSED [ 79%]
+tests/test_ami_parameter_projection.py::test_required_table_must_return_nonempty_leaf_values[(child 2)] PASSED [ 80%]
+tests/test_ami_parameter_projection.py::test_required_table_must_return_nonempty_leaf_values[(1 2)] PASSED [ 81%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx)-Out] PASSED [ 82%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx)-InOut] PASSED [ 82%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx (gain))-Out] PASSED [ 83%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx (gain))-InOut] PASSED [ 84%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx (gain Missing))-Out] PASSED [ 85%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[(rx (gain Missing))-InOut] PASSED [ 86%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[-Out] PASSED [ 87%]
+tests/test_ami_parameter_projection.py::test_required_numeric_output_cannot_be_downgraded_to_unavailable[-InOut] PASSED [ 88%]
+tests/test_ami_parameter_projection.py::test_required_scalar_cannot_be_returned_as_a_row_or_branch[(1 2)] PASSED [ 88%]
+tests/test_ami_parameter_projection.py::test_required_scalar_cannot_be_returned_as_a_row_or_branch[(child 2)] PASSED [ 89%]
+tests/test_ami_parameter_projection.py::test_expected_root_is_checked_even_for_one_call PASSED [ 90%]
+tests/test_ami_parameter_projection.py::test_reserved_required_output_is_checked_too PASSED [ 91%]
+tests/test_ami_parameter_projection.py::test_one_declared_tap_group_is_ordered_by_position_and_keeps_all_rows PASSED [ 92%]
+tests/test_ami_parameter_projection.py::test_declared_numeric_taps_can_share_a_branch_with_named_parameters[] PASSED [ 93%]
+tests/test_ami_parameter_projection.py::test_declared_numeric_taps_can_share_a_branch_with_named_parameters[(99 9)] PASSED [ 94%]
+tests/test_ami_parameter_projection.py::test_misaligned_declared_taps_only_disable_the_matrix PASSED [ 94%]
+tests/test_ami_parameter_projection.py::test_distinct_declared_groups_are_never_zipped_together PASSED [ 95%]
+tests/test_ami_parameter_projection.py::test_unparseable_declarations_do_not_claim_required_outputs_verified PASSED [ 96%]
+tests/test_ami_parameter_projection.py::test_empty_model_specific_branch_does_not_make_valid_wave_observations_fail PASSED [ 97%]
+tests/test_ami_parameter_projection.py::test_actual_rx_consumer_keeps_raw_and_does_not_fabricate_diagnostic_arrays[False] PASSED [ 98%]
+tests/test_ami_parameter_projection.py::test_actual_rx_consumer_keeps_raw_and_does_not_fabricate_diagnostic_arrays[True] PASSED [ 99%]
+tests/test_ami_parameter_projection.py::test_declared_table_does_not_hide_mixed_structure_errors PASSED [100%]
+
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:66: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:89: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    floatingPointConstant.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:99: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    nonnegativeNumber.setParseAction(convertToFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:108: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    coordinatePair = (coordinate + maybeComma + coordinate).setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:126: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    closePath = Group(Command("Z")).setParseAction(lambda t: ("Z", (None,)))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:128: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    flag = oneOf("1 0").setParseAction(lambda t: bool(int((t[0]))))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:132: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    ).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\pathdata.py:134: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    arcFlags = (flag + maybeComma + flag).setParseAction(lambda t: tuple(t))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\transform.py:60: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+    transformList = delimitedList(Group(transform), delim=maybeComma)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:37: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integerConstant = Word(nums + "+-").setParseAction(lambda t: int(t[0]))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:60: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorByte = Optional(sign) + integerConstant.setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:63: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    colorPerc = number.setParseAction(parseColorPerc) + Literal("%").suppress()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:66: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("rgb(").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:83: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    doubleHex = Word(hexnums, exact=2).setParseAction(lambda t: int(t[0], 16))
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:85: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    Literal("#").setParseAction(lambda t: "RGB")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:88: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    | Word(hexnums, exact=3).setParseAction(parseShortHex)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\colour.py:101: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    namedColour = Word(alphas).setParseAction(parseNamedColour)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:32: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    integer = Word("0123456789").setParseAction(asInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:37: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    number.setName("number")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:40: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    sign = oneOf("+ -")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:42: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    signedNumber = Combine(Optional(sign) + number).setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:44: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    lengthValue = Combine(Optional(sign) + number).setParseAction(asFloatOrInt)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:45: PyparsingDeprecationWarning: 'setName' deprecated - use 'set_name'
+    lengthValue.setName("lengthValue")
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:48: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    lengthUnit = oneOf(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:55: PyparsingDeprecationWarning: 'leaveWhitespace' deprecated - use 'leave_whitespace'
+    length.leaveWhitespace()
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\css\values.py:59: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    number.setParseAction(asFloat)
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:22: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    none = CaselessLiteral("none").setParseAction(lambda t: ["NONE", ()])
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:23: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    currentColor = CaselessLiteral("currentColor").setParseAction(
+
+..\..\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50
+  C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Lib\site-packages\enable\savage\svg\attributes.py:50: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    + Group(SkipTo(urlEnd, include=True).setParseAction(parsePossibleURL))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 3 durations =============================
+0.15s call     tests/test_ami_getwave_params.py::GetWaveParameterTests::test_saved_750_return_strings_preserve_numeric_histories_without_inferred_matrix
+0.06s call     tests/test_ami_getwave_params.py::GetWaveParameterTests::test_incomplete_auxiliary_numeric_paths_are_not_published_as_complete
+0.05s call     tests/test_ami_getwave_params.py::GetWaveParameterTests::test_duplicate_paths_are_rejected_without_overwriting
+============ 117 passed, 35 warnings, 15 subtests passed in 0.85s =============
+
+--- Final changed-file lint ---
+src\pybert\utility\ami_clock.py:100:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:127:17: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:146:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:164:17: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:204:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:231:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:257:17: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:267:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:272:21: C408 Unnecessary `dict()` call (rewrite as a literal)
+src\pybert\utility\ami_clock.py:274:17: C408 Unnecessary `dict()` call (rewrite as a literal)
+Found 10 errors.
+10 unsafe fixes available with `--fix --unsafe-fixes`.

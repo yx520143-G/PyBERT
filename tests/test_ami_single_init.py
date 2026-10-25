@@ -9,6 +9,7 @@ import pytest
 
 from pyibisami.ami import model as ami
 from pybert.utility import ibisami
+from pybert.utility.ami_clock import map_same_epoch_clocks
 
 
 class FakeDLL:
@@ -121,6 +122,65 @@ def test_original_probe_then_main_on_one_handle(setup_model, block, main_chunks)
     assert global_rng_before[2:] == global_rng_after[2:]
     case.models[0].close()
     assert len([event for event in case.dll.events if event[0] == "close"]) == 1
+
+
+@pytest.mark.parametrize("block", [0, 7])
+def test_origin_receipt_uses_actual_probe_and_main_chunks(setup_model, block):
+    case, observations = setup_model, {}
+    result = run(case, block, clock_observations=observations)
+    history = observations["history"]
+    assert observations["status"] == "complete"
+    assert observations["main_entry"] == {"epoch_id": history["epoch_id"], "python_calls": 2,
+                                           "c_calls": 4, "sample_interval_s": .25}
+    assert len(history["invocations"]) == 3
+    assert [call["input_samples"] for call in history["invocations"]] == [172, 172, 166]
+    chunks = [chunk for call in history["invocations"] for chunk in call["chunks"]]
+    assert [chunk["wave_size"] for chunk in chunks] == [len(e[1]) for e in case.dll.events if e[0] == "wave"]
+    assert all(call["completed"] for call in history["invocations"])
+    assert all("wave" not in chunk and "input_wave" not in chunk for chunk in chunks)
+    np.testing.assert_array_equal(result[1], [tick for c in history["invocations"][-1]["chunks"]
+                                            for tick in c["valid_clocks"]])
+    mapping = map_same_epoch_clocks(observations, np.arange(166) * .25, 1., 23.)
+    assert mapping["pre_samples"] == 344 and mapping["pre_time_s"] == 86.
+    np.testing.assert_array_equal(mapping["raw_epoch_edges_s"],
+                                  [event[2] * .25 for event in case.dll.events if event[0] == "wave"])
+    np.testing.assert_array_equal(mapping["planned_indices"], [2, 162] if not block else [2, 30, 58, 86, 114, 142])
+    observations["history"]["invocations"].clear()
+    assert len(case.models[0].clock_history["invocations"]) == 3
+
+
+@pytest.mark.parametrize("failure", [1, 3, 5])
+def test_failed_origin_receipt_keeps_partial_calls(setup_model, failure):
+    observations = {}
+    setup_model.dll.fail_at = failure
+    with pytest.raises(ami.AMIModelError):
+        run(setup_model, clock_observations=observations)
+    assert observations["status"] == "incomplete"
+    calls = observations["history"]["invocations"]
+    assert not calls[-1]["completed"]
+    assert calls[-1]["chunks"][-1]["status"] == 0
+    assert len(setup_model.dll.events) == failure + 2
+
+
+def test_close_failure_does_not_complete_origin_receipt(setup_model):
+    observations = {}
+    setup_model.dll.close_status = 0
+    with pytest.raises(ami.AMIModelError):
+        run(setup_model, clock_observations=observations)
+    assert observations["status"] == "incomplete"
+    assert all(call["completed"] for call in observations["history"]["invocations"])
+
+
+def test_origin_observation_failure_does_not_change_model_execution(setup_model, monkeypatch):
+    def unavailable(_model):
+        raise RuntimeError("observation unavailable")
+
+    monkeypatch.setattr(ami.AMIModel, "clock_history", property(unavailable))
+    observations = {}
+    result = run(setup_model, clock_observations=observations)
+    assert len(result[0]) == 166 and observations["status"] == "incomplete"
+    assert observations["capture_error"] == "observation unavailable"
+    assert [event[0] for event in setup_model.dll.events] == ["init"] + ["wave"] * 6 + ["close"]
 
 
 @pytest.mark.parametrize("failure", ["init", 1, 3, 5])
@@ -258,6 +318,7 @@ def test_rx_caller_does_not_seed_probes_or_claim_fresh_main():
     namespace = dict(self=SimpleNamespace(rx_dll_file="fake", _rx_cfg=None, seed=123),
                      ui=1., ts=.25, tx_out_h=None, rx_in=None, clock_info={}, np=np, run_ami_model=call)
     exec(compile(ast.Module(body=block.body[:2], type_ignores=[]), str(path), "exec"), namespace)
-    assert calls == [{"fext_hs": []}]
+    assert calls == [{"fext_hs": [], "clock_observations": {}}]
+    assert calls[0]["clock_observations"] is namespace["clock_info"]["origin_observations"]
     assert namespace["clock_info"]["main_origin"] == "same_init_after_probes"
     np.testing.assert_array_equal(namespace["clock_info"]["returned_edges_s"], [12.])

@@ -1,5 +1,6 @@
 """Native Rx GetWave sampling and its producer-owned analysis coordinates."""
 
+from fractions import Fraction
 from time import monotonic_ns
 
 import numpy as np
@@ -13,6 +14,84 @@ def new_clock_info(requested=False, mode="native", origin=None):
             "format_status": "not_checked", "consumption_status": "not_attempted", "consumed_count": 0,
             "actual_branch": "not_attempted", "reason": None, "full_analysis_eligible": False,
             "run_status": "not_completed"}
+
+
+def map_same_epoch_clocks(observations, t_grid, symbol_ui, ignore_ui):
+    """Observe probe/Main coordinates from actual calls; this is not a timed-consumption permission."""
+    def require(condition):
+        if not condition:
+            raise ValueError("invalid_origin_evidence")
+
+    try:
+        entry, history = observations["main_entry"], observations["history"]
+        calls = history["invocations"]
+        ts = history["sample_interval_s"]
+        require(observations["status"] == "complete" and history["ready"] is True
+                and bool(history["epoch_id"]) and entry["epoch_id"] == history["epoch_id"]
+                and np.isfinite(ts) and ts > 0 and entry["sample_interval_s"] == ts
+                and entry["python_calls"] == 2 and history["python_calls"] == 3 and len(calls) == 3)
+        raw, sources, sample_counts, c_call = [], [], [], 0
+        for number, invocation in enumerate(calls, 1):
+            require(invocation["completed"] is True and invocation["python_call"] == number
+                    and type(invocation["input_samples"]) is int and invocation["input_samples"] > 0)
+            count = 0
+            for chunk in invocation["chunks"]:
+                c_call += 1
+                require(chunk["epoch"] == history["epoch"] and chunk["python_call"] == number
+                        and chunk["c_call"] == c_call and chunk["returned"] is True
+                        and chunk["status"] == 1 and chunk["phase"] == "complete"
+                        and type(chunk["wave_size"]) is int and chunk["wave_size"] > 0)
+                count += chunk["wave_size"]
+                raw.extend(chunk["valid_clocks"])
+                sources.extend([(number, c_call)] * len(chunk["valid_clocks"]))
+            require(count == invocation["input_samples"])
+            sample_counts.append(count)
+            if number == 2:
+                require(entry["c_calls"] == c_call)
+        require(history["c_calls"] == c_call)
+        edges, grid = np.array(raw, dtype=float), np.array(t_grid, dtype=float, copy=True)
+        require(edges.ndim == 1 and np.all(np.isfinite(edges)) and not np.any(edges < 0)
+                and not np.any(np.diff(edges) <= 0))
+        require(grid.ndim == 1 and len(grid) == sample_counts[2] and np.all(np.isfinite(grid))
+                and np.array_equal(grid, np.arange(len(grid)) * ts) and np.all(np.diff(grid) > 0))
+        ignore_ui = 0.0 if ignore_ui is None else ignore_ui
+        require(np.isfinite(symbol_ui) and symbol_ui > 0 and np.isfinite(ignore_ui) and ignore_ui >= 0)
+        pre_samples = sum(sample_counts[:2])
+        pre_time = pre_samples * ts
+        epoch_targets = edges + symbol_ui / 2
+        epoch_grid = (pre_samples + np.arange(len(grid))) * ts
+        # One scalar, rounded once from the binary inputs: do not round T_pre separately and
+        # accidentally move a Main-local readiness threshold across an adjacent epoch target.
+        readiness_epoch = float(pre_samples * Fraction(float(ts))
+                                + Fraction(float(ignore_ui)) * Fraction(float(symbol_ui)))
+        targets = epoch_targets - pre_time
+        require(np.isfinite(readiness_epoch) and np.all(np.isfinite(epoch_targets))
+                and np.all(np.isfinite(epoch_grid)) and np.all(np.diff(epoch_grid) > 0))
+    except (KeyError, TypeError, OverflowError) as error:
+        raise ValueError("invalid_origin_evidence") from error
+    # Compare one absolute coordinate system. Subtracting T_pre before ceil can move an exact
+    # epoch-grid hit one sample later through cancellation/independent local-grid rounding.
+    in_record = (epoch_targets >= epoch_grid[0]) & (epoch_targets <= epoch_grid[-1])
+    positions = np.flatnonzero(in_record)
+    indices = np.searchsorted(epoch_grid, epoch_targets[in_record], side="left")
+    if np.any(np.diff(indices) <= 0):
+        raise ValueError("unsupported_resolution")
+    return {"status": "mapped", "epoch_id": history["epoch_id"], "sample_interval_s": ts,
+            "pre_samples": pre_samples, "pre_time_s": pre_time, "main_samples": sample_counts[2],
+            "raw_epoch_edges_s": edges, "tick_sources": np.array(sources, dtype=int).reshape(-1, 2),
+            "main_returned_edges_s": np.array([tick for chunk in calls[2]["chunks"]
+                                                for tick in chunk["valid_clocks"]]),
+            "main_local_edges_s": edges - pre_time, "targets_s": targets,
+            "epoch_targets_s": epoch_targets, "sample_epoch_times_s": epoch_grid[indices],
+            "comparison_basis": "epoch target against (pre_samples + sample_index) * Init ts",
+            "readiness_threshold_epoch_s": readiness_epoch,
+            "planned_tick_positions": positions, "planned_indices": indices,
+            "planned_ready": epoch_targets[in_record] >= readiness_epoch,
+            "quantization_delay_s": epoch_grid[indices] - epoch_targets[in_record],
+            "deferred_reasons": [None if ok else "before_record" if target < epoch_grid[0] else "future"
+                                  for target, ok in zip(epoch_targets, in_record)],
+            "readiness_basis": "Main-local Ignore_Bits * symbol_UI threshold, compared in epoch coordinates",
+            "model_qualification": "UNKNOWN", "consumption_permission": "unsupported_pending_contract"}
 
 
 def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *, modulation="NRZ", profile=None):
@@ -50,6 +129,19 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
                 sample_indices=np.array([], dtype=int), sample_grid_times_s=np.array([]),
                 consumed_tick_positions=np.array([], dtype=int), period_s=np.full(len(grid), np.nan),
                 period_known=np.zeros(len(grid), dtype=bool), use_native=False))
+    if info["main_origin"] == "same_init_after_probes" and "origin_observations" in info:
+        try:
+            mapping = map_same_epoch_clocks(info["origin_observations"], grid, symbol_ui, ignore_ui)
+            if not np.array_equal(edges, mapping["main_returned_edges_s"]):
+                raise ValueError("main_clocks_receipt_mismatch")
+            info["origin_mapping"] = mapping
+        except ValueError as error:
+            info["origin_mapping"] = {"status": "unavailable", "reason": str(error)}
+            reject("invalid_origin_evidence")
+        # A probe can supply a Main-boundary tick even when Main itself returned no clocks.
+        # F5 records the mapping; activation and publication require the later consumer contract.
+        if len(mapping["raw_epoch_edges_s"]):
+            reject("unsupported_origin_mapping")
     if not len(edges):
         info.update(dict(format_status="no_clocks", reason="no_clocks", use_native=True, eligible=False,
                     targets_s=np.array([]), planned_indices=np.array([], dtype=int),
