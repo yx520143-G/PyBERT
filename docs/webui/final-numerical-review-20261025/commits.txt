@@ -1,0 +1,169 @@
+0c4424a Merge pull request #33 from yx520143-G/codex/pybert-ami-d2-web
+6e4fcf5 docs(web): finalize reviewed D2 repairs and preserved evidence limits
+3be11a1 docs(web): retain integer exactness red-green and approval costs
+f94a782 test(web): finalize integer green source formatting
+8cec174 fix(web): compare integer clock intervals without float tolerance
+6f10b49 test(web): freeze approved integer dtype red regressions
+479b885 docs(web): retain PM review red-green source and exact costs
+2aa3e7d test(web): finalize fixed source and rounding rule freeze
+8180e00 fix(web): preserve snapshot scope and timestamp rounding bounds
+188dee5 test(web): freeze PM worker scope and high-origin grid regressions
+9331c38 docs(web): retain PM explicit D2 evidence partial boundary
+48cbfbd docs(web): seal D2 costs, protection and independent review limits
+9808277 docs(web): retain D2 coordinator green and complete budget evidence
+75004b3 test(web): exclude plan self hash and preserve rejected preflight
+b5888be test(web): freeze D2 bounded software coordinator checks
+5e85178 Refs #10: preserve partial producer evidence and real worker stage provenance
+86ddc33 Refs #10: freeze partial lifecycle and producer-based AMI evidence cases
+fe7a0bf Refs #10: retain guard abort proof and freeze complete archive verification
+cd5e652 Refs #10: freeze approved budget and irreversible guarded batch shutdown
+62cb5b3 Refs #10: wrap the archive gate before frozen execution
+9bb89d1 Refs #10: validate paired AMI raw6 and lossless masked archive bytes
+efedc2e Refs #10: finish archive input formatting before execution
+16007c6 Refs #10: freeze masked archive gates and real serialization validation
+f14ef52 Refs #10: project timed Eye indices and independent masked CDR products
+006864b Refs #10: freeze both Eye bases and masked CDR software projections
+8c4ee77 Refs #10: finish source freeze formatting before producer batch
+6e99776 Refs #10: bind Web consumers to fresh host-owned producer indices
+a3b894f Refs #10: freeze fresh producer and actual Eye crop selection cases
+1b0877f Refs #10: validate dense masked period without changing NaN payloads
+7120c0d Refs #10: freeze D2 masked-period tracer and guarded software budget
+c4f6071 Refs #10: freeze D2 isolation, contract and minimal NumPy source
+0f04562 Merge pull request #32 from yx520143-G/codex/pybert-ami-d1-sampling
+d61b888 Refs #10: record independent D1 reviews, costs and protected evidence audit
+68bbd56 Refs #10: retain full bounded D1 green and lossless array observations
+418d72b Refs #10: freeze bounded D1 integration and complete consumer wiring
+3494280 test: freeze masked period and paired plot projections
+acdfee7 feat: use producer indices for timed AMI eyes
+9cf9131 test: freeze producer-index Eye and Native compatibility cases
+2a0a265 feat: record actual AMI sample consumption and partial failures
+89d89d0 test: finish the consumer case freeze before execution
+7b96f4e test: freeze actual AMI clock consumption cases
+85dfed8 feat: validate AMI clock format and sampling eligibility
+4a98b14 test: freeze strict AMI clock planning cases
+782c31b feat: plan each Rx clock on the actual waveform grid
+472d64d test: freeze the D1 planner tracer and guarded budget
+addb6ed docs: freeze D1 startup and minimal NumPy source
+9343cdb Merge pull request #31 from yx520143-G/codex/pybert-issue30-probe-main
+bfe575a docs: seal the guarded test entry repair
+5858668 test: move guarded C1 cases out of pytest discovery
+2f0a601 docs: seal C1 probe main review and evidence
+ec72c92 fix: isolate Rx response probes from the main epoch
+3d942f3 Merge pull request #29 from yx520143-G/codex/pybert-issue28-rng-pin
+66f4bc5 docs: seal PyAMI RNG source integration review
+8ad70c4 build: pin PyAMI response RNG API to reviewed SHA
+1fde555 Merge pull request #26 from yx520143-G/codex/pybert-issue25-pyami-pin
+b73645f docs: seal PyAMI source integration evidence
+8ae4bce build: preserve raw dependency evidence in hooks
+fa76df8 build: pin reviewed PyAMI fork for uv and pip
+35a71a6 Merge pull request #23 from yx520143-G/codex/pybert-issue22-ami-params
+9c25d66 docs: record fixed issue22 reviews and handoff
+80100e2 fix: consume Rx AMI GetWave tuple parameters (#22)
+98f30f8 docs(issue10): audit AMI clocks gate without engine calls
+b96977a Merge pull request #21 from yx520143-G/codex/pybert-issue16-external
+17428e8 docs: seal issue16 raw inventory and two-axis self review
+c46cbe9 test: reject importer selector before binding any source
+8c90563 test: reject importer selectors that bypass batch reservation
+e9b19ff test: report external lane before-after and final worker regressions
+5ec0cdd docs: freeze approved two-call pre capture retry budget
+2b829c5 test: correct issue16 raw capture and distinguish disabled COM entry
+f1ddcab docs: freeze issue16 external lane validation inputs and budgets
+153fcd5 Merge pull request #20: WebUI IBIS-AMI integration
+5ad04e9 fix(web): separate AMI clock controls and optional electrical capabilities
+13172a8 docs(web): preserve AMI numerical and Chrome closeout evidence
+130e85c fix(web): import structural snapshot copy before AMI Tune
+80f30a2 fix(web): preserve YAML model binding and Tune structural identity
+7b623f4 fix(web): preserve AMI replay and parsed parameter domains
+8c5e042 fix(web): bind selected AMI identity and close bounded execution gaps
+e0d089e feat(web): add private AMI model configuration and execution evidence
+7d6481a test(web): freeze AMI models and bounded acceptance inputs
+f3e94fa Merge pull request #19 from yx520143-G/codex/pybert-issue9-viterbi
+f10fbca docs(web): close PM correction final review delta
+77720c9 docs(web): record preserved-byte checks and whitespace scope
+78cb01c docs(web): preserve PM metadata correction and targeted evidence
+e812f4a fix(web): validate runtime extensions before defaults cache return
+1b711cf fix(web): reject cached FEC requests and label full DFE decisions
+d33b58b docs(web): close final issue9 independent reviews
+271c7d0 docs(web): preserve CLI entry failures and correct execution costs
+3495fa7 docs(web): deliver issue9 numeric Chrome and lifecycle evidence
+70eeb0d fix(web): label trellis log colors and reject nonfinite budgets
+e4823de fix(web): close decoding archive validation findings and bound evidence jobs
+102a17f feat(web): add immutable trellis navigation and strict decoding archive validation
+d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9
+4a6ce7f docs(web): freeze issue9 native Viterbi inputs before computation
+3807bd2 Merge pull request #18 from yx520143-G/codex/pybert-issue8-optimizer
+837d4f6 docs(web): preserve PM regression fixes and observer-only evidence
+e55819a fix(web): reject incompatible EQ topology and incomplete cursor archives
+238b1ca docs(web): preserve evidence bytes across Git checkouts
+bc4d380 docs(web): preserve issue 8 numerical browser review and cost evidence
+f64d482 fix(web): scope icon strokes away from optimizer plot text
+1bd76f2 fix(web): disable candidate actions while selected record loads
+9f2bb55 fix(web): protect optimizer identity edits and storage reservations
+17f0ead docs(web): record optimizer contracts evidence and truthful costs (#8)
+d838995 feat(web): record exact native MMSE input contexts and hashes (#8)
+d4c5f4b test(web): preregister bounded ordinary-click cancellation case (#8)
+a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)
+e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)
+06dc89f test(web): freeze bounded native optimizer fixtures before computation (#8)
+5fcf828 Merge pull request #17 from yx520143-G/codex/pybert-issue5-archive
+6cb8b8b docs(web): seal busy undo and legacy capability evidence (#5)
+fb97265 fix(web): preserve busy resource undo and report legacy save capability (#5)
+9484efa docs(web): seal PM reset and archive identity regressions (#5)
+bdcaf50 fix(web): restore storage status with reset undo (#5)
+e75b13d fix(web): restore complete reset history and validate archive identity (#5)
+246ce48 docs(web): correct preserved native13 worktree identity (#5)
+5e9f6f2 docs(web): seal issue5 archive Chrome evidence and handoff (#5)
+3ccb88f fix(web): distinguish querying and confirmed unavailable records (#5)
+8e3d9fc fix(web): preserve unavailable result selection across reload (#5)
+0bd84ba fix(web): revalidate retained draft field classifications (#5)
+e59dce9 fix(web): retain native numeric optimizer state in draft migration (#5)
+f6f52d6 docs(web): append pre-run Chrome source adjustments (#5)
+8283fe8 fix(web): migrate native drafts without computed tuner values (#5)
+6abd877 fix(web): report unavailable records after service restart (#5)
+c35d6c8 docs(web): freeze issue #5 Chrome inputs and source bytes
+1943ea8 test(web): seal archive follow-ups and bounded execution plan (#5)
+d0a742b fix(web): preserve replay guards and legacy producer identity (#5)
+9f59c51 feat(web): add exact run archives and independent result references (#5)
+bd83b59 docs(web): freeze linked subtask archive snapshots for #5
+b7e3059 docs(web): freeze issue #5 archive and migration contract
+f1d0ea8 Merge pull request #15: Web channel resources, full config and COM history
+5057011 docs(web): include COM history review screenshot originals
+63292b0 docs(web): append read-only COM history repair verification
+a36bc22 fix(web): expose saved COM provenance and per-task history logs
+f15b27e docs(web): seal resource and COM evidence with explicit remaining budget boundary
+5fff041 fix(web): preserve inactive file names without resource bindings
+6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)
+c89cbd7 Merge accepted native port fix #13 into #4 resource work
+e29f87c Merge pull request #14 from yx520143-G/codex/pybert-native13-ports
+92c3174 docs #13: record preserved raw whitespace boundary
+ad5c68f docs #13: preserve red green diagnostics and source applicability
+b87c80c fix #13: preserve physical lane pairs in multi-port imports
+8a18333 chore #4: preserve frozen audit bytes and ignored raw policy
+086fff2 WIP #4: freeze resources and preserve adapter work before native port fix
+9a33d08 Merge pull request #12 from yx520143-G/codex/pybert-issue3-analysis
+1a6378f Record metadata provenance correction and fixed-source verification
+83b7515 Describe recovered clock timestamps with their event record range
+671c081 Preserve display observation sources and full-record CDR provenance
+7ee0d17 Correct documented execution source count to eight
+b34dc8d Record immutable analysis verification and Chrome delivery evidence
+e9c73c5 Keep legacy frequency limitations visible in chart comparisons
+b2bdb22 Preserve stored schema 2 DFE info and channel frequency views
+7c4cf9f Release plot height when switching to jitter tables
+68c1b4c Keep compared eye panels readable with a shared count scale
+aeb49cc Keep expanded chart axes visible after selecting analyses
+170145b Isolate plot SVG styling and shorten comparison legends
+4fc9629 Preserve issue 3 frozen evidence bytes and local raw exclusions
+e43a0bd Complete native chain analyses and immutable chart comparisons for issue 3
+35a3b60 Merge pull request #11: Native signal-chain Run and analyses
+69f3d30 Merge pull request #7: signal-chain prototype and reviewed fixes
+c3958b1 docs: deliver frozen numerical and verified Chrome evidence for issue 2
+f67f07d fix: retain observer order across intervening field edits
+af20605 fix: close review findings on observer edits cancellation and provenance
+b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows
+5b09e5f fix: gate configuration loading until native defaults are ready
+7b4336b feat: connect native signal-chain runs and analyses to local web workbench
+8542f10 fix: 修复信号链草稿状态并补充桌面 Chrome 验证
+6209ceb docs: 添加信号链配置 WebUI 与 GUI 参数映射
+457f444 Merge pull request #6 from yx520143-G/codex/webui-gui-baseline
+b9c56fe docs: 记录基线验收及用户暂缓 WebUI 02
+c2ad966 docs: 固化真实桌面 GUI 设计基线

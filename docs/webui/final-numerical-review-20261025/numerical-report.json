@@ -1,0 +1,25 @@
+{
+  "freeze_sha256": "f3cac1ebb805379c5ace5c5c1df59dd68bc9388ba7b469009e4642484e283d61",
+  "modules": {
+    "pybert": "E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\__init__.py",
+    "pyibisami": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\PyAMI\\src\\pyibisami\\__init__.py",
+    "pychopmarg": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\PyChOpMarg\\src\\pychopmarg\\__init__.py",
+    "numpy": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Lib\\site-packages\\numpy\\__init__.py"
+  },
+  "fixtures": [
+    {
+      "fixture": "F-NRZ-01",
+      "input_hash": "6e54735ef018afc6d0a79e61b4995f8c16d5550a9ae17b6be5e97bc98401c5fd",
+      "checks": [],
+      "display_checks": [],
+      "passed": false
+    }
+  ],
+  "main_attempts": 1,
+  "numerical_com_calls": 0,
+  "coopt_calls": 0,
+  "ami_library_calls": 0,
+  "error": "TypeError: TraitDict.update() got an unexpected keyword argument 'ignore_ui_requested'",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\serial-bus-simulator\\docs\\webui\\final-numerical-review-20261025\\review_parity.py\", line 126, in run\n    my_run_simulation(p, initial_run=True, update_plots=True, observations=observations, decoding=decoding)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\serial-bus-simulator-dependencies\\pybert-ami-d2-web\\src\\pybert\\models\\bert.py\", line 392, in my_run_simulation\n    clock_info.update(ignore_ui_requested=ignore_ui, ignore_ui_units=\"symbol_ui\" if mod_type == 0 else \"UNKNOWN\")\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: TraitDict.update() got an unexpected keyword argument 'ignore_ui_requested'\n",
+  "elapsed_seconds": 0.30455300002358854
+}

@@ -1,0 +1,32 @@
+{
+  "original_report": "fixed-v2/numerical-report.json",
+  "reason": "The original GUI update_results does not produce tx_p, ctle_p, dfe_p. ArrayPlotData.get_data returns None for these absent fields. These are additional Web views, not mismatching shared plots. No value/tolerance changed; no NRZ Main rerun.",
+  "raw_exact_count": 444,
+  "shared_GUI_display_exact_count": 54,
+  "not_applicable": [
+    {
+      "field": "GUI tx_p",
+      "passed": false,
+      "shape": [],
+      "dtype": "object",
+      "max_absolute_difference": null
+    },
+    {
+      "field": "GUI ctle_p",
+      "passed": false,
+      "shape": [],
+      "dtype": "object",
+      "max_absolute_difference": null
+    },
+    {
+      "field": "GUI dfe_p",
+      "passed": false,
+      "shape": [],
+      "dtype": "object",
+      "max_absolute_difference": null
+    }
+  ],
+  "summary_equal": true,
+  "input_window_equal": true,
+  "passed_with_explicit_not_applicable": true
+}

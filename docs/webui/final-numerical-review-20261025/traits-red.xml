@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="8" time="0.839" timestamp="2026-10-25T11:54:06.271625+08:00" hostname="DESKTOP-CC2I92B"><testcase classname="tests.test_ami_clock_traits" name="test_clock_record_no_clock_fallback[dict]" time="0.001" /><testcase classname="tests.test_ami_clock_traits" name="test_clock_record_no_clock_fallback[traits-dict]" time="0.001"><failure message="TypeError: TraitDict.update() got an unexpected keyword argument 'grid_s'">info = {'producer_contract_version': 2, 'invocation_id': '170090037394700', 'epoch_basis': 'fresh Main invocation; not the mo...', 'reason': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([], dtype=float64)}
+
+    def test_clock_record_no_clock_fallback(info):
+&gt;       plan(info, [])
+
+tests\test_ami_clock_traits.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_ami_clock_traits.py:25: in plan
+    return plan_ami_clocks(info, edges, grid, 1., 0., 4, window)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090037394700', 'epoch_basis': 'fresh Main invocation; not the mo...', 'reason': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([], dtype=float64)}
+edges = array([], dtype=float64)
+t_grid = array([0.  , 0.25, 0.5 , 0.75, 1.  , 1.25, 1.5 , 1.75, 2.  , 2.25, 2.5 ,
+       2.75, 3.  , 3.25, 3.5 , 3.75, 4.  , 4.25, 4.5 , 4.75, 5.  , 5.25,
+       5.5 , 5.75, 6.  , 6.25, 6.5 , 6.75, 7.  , 7.25, 7.5 , 7.75])
+symbol_ui = 1.0, ignore_ui = 0.0, nspui = 4
+window = {'start_index': 0, 'stop_index': 32, 'start_s': 0.0, 'stop_s': np.float64(7.75), ...}
+modulation = 'NRZ', profile = None
+
+    def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *, modulation="NRZ", profile=None):
+        """Map edge plus half a symbol UI to the first available absolute grid index."""
+        def reject(reason, invalid_format=False):
+            info.update(reason=reason, eligible=False)
+            if invalid_format:
+                info["format_status"] = "invalid"
+            raise ValueError(reason)
+    
+        try:
+            edges = np.array(edges, dtype=float, copy=True)
+        except (TypeError, ValueError):
+            reject("malformed_clocks", True)
+        info["edges_s"] = edges
+        if edges.ndim != 1 or not np.all(np.isfinite(edges)) or np.any(edges &lt; 0) or np.any(np.diff(edges) &lt;= 0):
+            reject("malformed_clocks", True)
+        info["format_status"] = "valid"
+        grid = np.array(t_grid, dtype=float, copy=True)
+        if grid.ndim != 1 or not len(grid) or not np.all(np.isfinite(grid)) or np.any(np.diff(grid) &lt;= 0):
+            reject("invalid_grid")
+        ignore_ui = 0.0 if ignore_ui is None else ignore_ui
+        if not np.isfinite(symbol_ui) or symbol_ui &lt;= 0 or not np.isfinite(ignore_ui) or ignore_ui &lt; 0 or nspui &lt;= 0:
+            reject("invalid_timing")
+        if not info["requested"] or info["mode"] != "rx_getwave":
+            reject("unsupported_mode")
+        if info["main_origin"] != "c1_fresh_main":
+            reject("unknown_origin")
+        start, stop = window["start_index"], window["stop_index"]
+        fft_start, fft_stop = window["fft_slice"]
+        if not (0 &lt;= start &lt; stop &lt;= len(grid) and grid[0] &lt;= window["start_s"] &lt;= window["stop_s"] &lt;= grid[-1]
+                and start &lt;= fft_start &lt;= fft_stop &lt;= stop and window["required_decisions"] &gt; 0
+                and window["required_eye_traces"] &gt; 0):
+            reject("invalid_window")
+&gt;       info.update(grid_s=grid, symbol_ui_s=symbol_ui, ignore_ui=ignore_ui, nspui=nspui,
+                    analysis={**window, "fft_slice": tuple(window["fft_slice"])},
+                    sample_indices=np.array([], dtype=int), sample_grid_times_s=np.array([]),
+                    consumed_tick_positions=np.array([], dtype=int), period_s=np.full(len(grid), np.nan),
+                    period_known=np.zeros(len(grid), dtype=bool), use_native=False)
+E       TypeError: TraitDict.update() got an unexpected keyword argument 'grid_s'
+
+src\pybert\utility\ami_clock.py:50: TypeError</failure></testcase><testcase classname="tests.test_ami_clock_traits" name="test_clock_record_invalid_input_keeps_reason[dict]" time="0.001" /><testcase classname="tests.test_ami_clock_traits" name="test_clock_record_invalid_input_keeps_reason[traits-dict]" time="0.001"><failure message="TypeError: TraitDict.update() got an unexpected keyword argument 'reason'">info = {'producer_contract_version': 2, 'invocation_id': '170090753775300', 'epoch_basis': 'fresh Main invocation; not the mo...attempted', 'reason': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([1., 0.])}
+
+    def test_clock_record_invalid_input_keeps_reason(info):
+        with pytest.raises(ValueError, match="malformed_clocks"):
+&gt;           plan(info, [1., 0.])
+
+tests\test_ami_clock_traits.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_ami_clock_traits.py:25: in plan
+    return plan_ami_clocks(info, edges, grid, 1., 0., 4, window)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\pybert\utility\ami_clock.py:32: in plan_ami_clocks
+    reject("malformed_clocks", True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+reason = 'malformed_clocks', invalid_format = True
+
+    def reject(reason, invalid_format=False):
+&gt;       info.update(reason=reason, eligible=False)
+E       TypeError: TraitDict.update() got an unexpected keyword argument 'reason'
+
+src\pybert\utility\ami_clock.py:21: TypeError</failure></testcase><testcase classname="tests.test_ami_clock_traits" name="test_clock_record_sampling_and_eye[dict]" time="0.004" /><testcase classname="tests.test_ami_clock_traits" name="test_clock_record_sampling_and_eye[traits-dict]" time="0.001"><failure message="TypeError: TraitDict.update() got an unexpected keyword argument 'grid_s'">info = {'producer_contract_version': 2, 'invocation_id': '170090773141200', 'epoch_basis': 'fresh Main invocation; not the mo...son': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([0., 1., 2., 3., 4., 5.])}
+
+    def test_clock_record_sampling_and_eye(info):
+&gt;       plan(info, np.arange(6))
+
+tests\test_ami_clock_traits.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_ami_clock_traits.py:25: in plan
+    return plan_ami_clocks(info, edges, grid, 1., 0., 4, window)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090773141200', 'epoch_basis': 'fresh Main invocation; not the mo...son': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([0., 1., 2., 3., 4., 5.])}
+edges = array([0., 1., 2., 3., 4., 5.])
+t_grid = array([0.  , 0.25, 0.5 , 0.75, 1.  , 1.25, 1.5 , 1.75, 2.  , 2.25, 2.5 ,
+       2.75, 3.  , 3.25, 3.5 , 3.75, 4.  , 4.25, 4.5 , 4.75, 5.  , 5.25,
+       5.5 , 5.75, 6.  , 6.25, 6.5 , 6.75, 7.  , 7.25, 7.5 , 7.75])
+symbol_ui = 1.0, ignore_ui = 0.0, nspui = 4
+window = {'start_index': 0, 'stop_index': 32, 'start_s': 0.0, 'stop_s': np.float64(7.75), ...}
+modulation = 'NRZ', profile = None
+
+    def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *, modulation="NRZ", profile=None):
+        """Map edge plus half a symbol UI to the first available absolute grid index."""
+        def reject(reason, invalid_format=False):
+            info.update(reason=reason, eligible=False)
+            if invalid_format:
+                info["format_status"] = "invalid"
+            raise ValueError(reason)
+    
+        try:
+            edges = np.array(edges, dtype=float, copy=True)
+        except (TypeError, ValueError):
+            reject("malformed_clocks", True)
+        info["edges_s"] = edges
+        if edges.ndim != 1 or not np.all(np.isfinite(edges)) or np.any(edges &lt; 0) or np.any(np.diff(edges) &lt;= 0):
+            reject("malformed_clocks", True)
+        info["format_status"] = "valid"
+        grid = np.array(t_grid, dtype=float, copy=True)
+        if grid.ndim != 1 or not len(grid) or not np.all(np.isfinite(grid)) or np.any(np.diff(grid) &lt;= 0):
+            reject("invalid_grid")
+        ignore_ui = 0.0 if ignore_ui is None else ignore_ui
+        if not np.isfinite(symbol_ui) or symbol_ui &lt;= 0 or not np.isfinite(ignore_ui) or ignore_ui &lt; 0 or nspui &lt;= 0:
+            reject("invalid_timing")
+        if not info["requested"] or info["mode"] != "rx_getwave":
+            reject("unsupported_mode")
+        if info["main_origin"] != "c1_fresh_main":
+            reject("unknown_origin")
+        start, stop = window["start_index"], window["stop_index"]
+        fft_start, fft_stop = window["fft_slice"]
+        if not (0 &lt;= start &lt; stop &lt;= len(grid) and grid[0] &lt;= window["start_s"] &lt;= window["stop_s"] &lt;= grid[-1]
+                and start &lt;= fft_start &lt;= fft_stop &lt;= stop and window["required_decisions"] &gt; 0
+                and window["required_eye_traces"] &gt; 0):
+            reject("invalid_window")
+&gt;       info.update(grid_s=grid, symbol_ui_s=symbol_ui, ignore_ui=ignore_ui, nspui=nspui,
+                    analysis={**window, "fft_slice": tuple(window["fft_slice"])},
+                    sample_indices=np.array([], dtype=int), sample_grid_times_s=np.array([]),
+                    consumed_tick_positions=np.array([], dtype=int), period_s=np.full(len(grid), np.nan),
+                    period_known=np.zeros(len(grid), dtype=bool), use_native=False)
+E       TypeError: TraitDict.update() got an unexpected keyword argument 'grid_s'
+
+src\pybert\utility\ami_clock.py:50: TypeError</failure></testcase><testcase classname="tests.test_ami_clock_traits" name="test_clock_record_partial_failure_preserves_first_decision[dict]" time="0.001" /><testcase classname="tests.test_ami_clock_traits" name="test_clock_record_partial_failure_preserves_first_decision[traits-dict]" time="0.001"><failure message="TypeError: TraitDict.update() got an unexpected keyword argument 'grid_s'">info = {'producer_contract_version': 2, 'invocation_id': '170090788546600', 'epoch_basis': 'fresh Main invocation; not the mo...son': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([0., 1., 2., 3., 4., 5.])}
+
+    def test_clock_record_partial_failure_preserves_first_decision(info):
+&gt;       plan(info, np.arange(6))
+
+tests\test_ami_clock_traits.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_ami_clock_traits.py:25: in plan
+    return plan_ami_clocks(info, edges, grid, 1., 0., 4, window)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+info = {'producer_contract_version': 2, 'invocation_id': '170090788546600', 'epoch_basis': 'fresh Main invocation; not the mo...son': None, 'full_analysis_eligible': False, 'run_status': 'not_completed', 'edges_s': array([0., 1., 2., 3., 4., 5.])}
+edges = array([0., 1., 2., 3., 4., 5.])
+t_grid = array([0.  , 0.25, 0.5 , 0.75, 1.  , 1.25, 1.5 , 1.75, 2.  , 2.25, 2.5 ,
+       2.75, 3.  , 3.25, 3.5 , 3.75, 4.  , 4.25, 4.5 , 4.75, 5.  , 5.25,
+       5.5 , 5.75, 6.  , 6.25, 6.5 , 6.75, 7.  , 7.25, 7.5 , 7.75])
+symbol_ui = 1.0, ignore_ui = 0.0, nspui = 4
+window = {'start_index': 0, 'stop_index': 32, 'start_s': 0.0, 'stop_s': np.float64(7.75), ...}
+modulation = 'NRZ', profile = None
+
+    def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *, modulation="NRZ", profile=None):
+        """Map edge plus half a symbol UI to the first available absolute grid index."""
+        def reject(reason, invalid_format=False):
+            info.update(reason=reason, eligible=False)
+            if invalid_format:
+                info["format_status"] = "invalid"
+            raise ValueError(reason)
+    
+        try:
+            edges = np.array(edges, dtype=float, copy=True)
+        except (TypeError, ValueError):
+            reject("malformed_clocks", True)
+        info["edges_s"] = edges
+        if edges.ndim != 1 or not np.all(np.isfinite(edges)) or np.any(edges &lt; 0) or np.any(np.diff(edges) &lt;= 0):
+            reject("malformed_clocks", True)
+        info["format_status"] = "valid"
+        grid = np.array(t_grid, dtype=float, copy=True)
+        if grid.ndim != 1 or not len(grid) or not np.all(np.isfinite(grid)) or np.any(np.diff(grid) &lt;= 0):
+            reject("invalid_grid")
+        ignore_ui = 0.0 if ignore_ui is None else ignore_ui
+        if not np.isfinite(symbol_ui) or symbol_ui &lt;= 0 or not np.isfinite(ignore_ui) or ignore_ui &lt; 0 or nspui &lt;= 0:
+            reject("invalid_timing")
+        if not info["requested"] or info["mode"] != "rx_getwave":
+            reject("unsupported_mode")
+        if info["main_origin"] != "c1_fresh_main":
+            reject("unknown_origin")
+        start, stop = window["start_index"], window["stop_index"]
+        fft_start, fft_stop = window["fft_slice"]
+        if not (0 &lt;= start &lt; stop &lt;= len(grid) and grid[0] &lt;= window["start_s"] &lt;= window["stop_s"] &lt;= grid[-1]
+                and start &lt;= fft_start &lt;= fft_stop &lt;= stop and window["required_decisions"] &gt; 0
+                and window["required_eye_traces"] &gt; 0):
+            reject("invalid_window")
+&gt;       info.update(grid_s=grid, symbol_ui_s=symbol_ui, ignore_ui=ignore_ui, nspui=nspui,
+                    analysis={**window, "fft_slice": tuple(window["fft_slice"])},
+                    sample_indices=np.array([], dtype=int), sample_grid_times_s=np.array([]),
+                    consumed_tick_positions=np.array([], dtype=int), period_s=np.full(len(grid), np.nan),
+                    period_known=np.zeros(len(grid), dtype=bool), use_native=False)
+E       TypeError: TraitDict.update() got an unexpected keyword argument 'grid_s'
+
+src\pybert\utility\ami_clock.py:50: TypeError</failure></testcase></testsuite></testsuites>

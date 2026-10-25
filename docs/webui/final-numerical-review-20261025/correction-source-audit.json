@@ -1,0 +1,16 @@
+[
+  {
+    "path": "src/pybert/models/bert.py",
+    "mapping_updates": 6,
+    "AST_exact_after_only_unwrapping_dict_argument": true,
+    "before_sha256": "9a1bc8c5c7739c950613d6d5f3d7dbc6cb3bc9660f295f0a86db1db50be6bbd3",
+    "after_sha256": "3c0307b83e61dcac248be2ee4508b6de1e5ecb4234dd3c55bfeb86a5b8d92bde"
+  },
+  {
+    "path": "src/pybert/utility/ami_clock.py",
+    "mapping_updates": 10,
+    "AST_exact_after_only_unwrapping_dict_argument": true,
+    "before_sha256": "c55cf87cc4a3b6ae3ae74fd1c6b1761b084b58239777b82cbcba3f66aebeeed6",
+    "after_sha256": "181c9b37952a40d9d1fa365534501a332269f281b63cf642acac3879cbfb204e"
+  }
+]

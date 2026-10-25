@@ -1,0 +1,27 @@
+{
+  "inputs": [
+    {
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\docs\\webui\\issue2\\evidence\\numeric-20261024-050800\\F-NRZ-01\\arrays.npz",
+      "bytes": 28171649,
+      "sha256": "7462b24f5eb3fea06dcdff26978ebd8bd95f26ef6c52f8febe95abf238b1453f"
+    },
+    {
+      "path": "E:\\serial-bus-simulator\\docs\\webui\\final-numerical-review-20261025\\fixed-v2\\local\\F-NRZ-01\\arrays.npz",
+      "bytes": 44700286,
+      "sha256": "3e968fbb614bb697bf212414d8db0dd5c3b0ae2af6a129a00c2338d7e54d57cc"
+    },
+    {
+      "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue2-native\\serial-bus-simulator\\docs\\webui\\issue2\\evidence\\numeric-20261024-050800\\F-PAM4-01\\arrays.npz",
+      "bytes": 14871036,
+      "sha256": "0178164c8cf34691c84235f08f0c6325fc4fcae6ad29c12b5ee18698a7abdaf9"
+    },
+    {
+      "path": "E:\\serial-bus-simulator\\docs\\webui\\final-numerical-review-20261025\\pam4-v3\\local\\F-PAM4-01\\arrays.npz",
+      "bytes": 23261867,
+      "sha256": "66374d80ab38ee1e9466ed16250fe1677a276931a72f921b8fd140a71a8acdc9"
+    }
+  ],
+  "comparison": "all original fields; exact dtype/shape/C-order bytes",
+  "simulation_calls": 0,
+  "source_sha256": "d1df3adbaf14ab39947a8d13b94ab2fd3c31b09e45848fc9d9cb62bc0179df7d"
+}

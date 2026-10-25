@@ -1,0 +1,4029 @@
+{
+  "cases": [
+    {
+      "fixture": "F-NRZ-01",
+      "checks": [
+        {
+          "field": "start_ix",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "t",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "f",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "t_ns_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "t_irfft",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bits",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "symbols",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "noise",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_slicer_samps",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_slicer_decisions",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bit_errs_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": null
+        },
+        {
+          "field": "adaptation",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ui_ests",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "clocks",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "clock_times",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "lockeds",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_scalar_values",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_H_raw",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_trimmed_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ideal_signal",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_out",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rx_in",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.chnl_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.chnl_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.chnl_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "waveform_indices",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ideal_signal.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ideal_signal.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.chnl_out.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.chnl_out.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.rx_in.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.rx_in.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ctle_out.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ctle_out.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ffe_out.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ffe_out.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.dfe_out.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.dfe_out.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ideal_signal",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ideal_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ideal_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ui",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.nspui",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.nui",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.eye_uis",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.pattern_len",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.rel_thresh",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.decision_scaler",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.mod_type",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.xing_min_t",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.ofst",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.actual_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.actual_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.t_jitter",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.bin_centers",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.spectrum_freqs",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.tie",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.tie_ind",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.valid",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.ofst",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.actual_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.actual_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.t_jitter",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.bin_centers",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.spectrum_freqs",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.tie",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.tie_ind",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.valid",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.ofst",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.actual_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.actual_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.t_jitter",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.bin_centers",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.spectrum_freqs",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.tie",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.tie_ind",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.valid",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.ofst",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.actual_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.actual_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.t_jitter",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.bin_centers",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.spectrum_freqs",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.tie",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.tie_ind",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.valid",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ext_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ext_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_spectrum_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_spectrum_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ind_spectrum_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ind_spectrum_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.thresh_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.thresh_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.rx_in.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.rx_in.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.rx_in.counts",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.dfe.counts",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap1.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap1.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap2.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap2.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap3.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap3.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap4.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap4.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap5.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap5.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "cdr_indices",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        }
+      ],
+      "original_fields": 311,
+      "additional_current_fields": [
+        "bathtub.chnl.probability",
+        "bathtub.ctle.probability",
+        "bathtub.dfe.probability",
+        "bathtub.ffe.probability",
+        "bathtub.tx.probability",
+        "ber.dfe.auto_corr",
+        "ber.dfe.bits_out",
+        "ber.dfe.bits_reference",
+        "ber.dfe.bits_test",
+        "ber.dfe.errors",
+        "cdr.histogram.centers",
+        "cdr.histogram.counts",
+        "cdr.histogram.edges",
+        "cdr.spectrum.frequency_Hz",
+        "cdr.spectrum.raw",
+        "cdr.spectrum.relative_frequency",
+        "context.ffe.actual_xings",
+        "context.ffe.actual_xings_jit",
+        "context.ffe.bin_centers",
+        "context.ffe.ofst",
+        "context.ffe.spectrum_freqs",
+        "context.ffe.t_jitter",
+        "context.ffe.tie",
+        "context.ffe.tie_ind",
+        "context.source.fext_count",
+        "context.source.noise_total",
+        "dcd_ffe",
+        "display.bathtub.chnl.x",
+        "display.bathtub.chnl.y",
+        "display.bathtub.ctle.x",
+        "display.bathtub.ctle.y",
+        "display.bathtub.dfe.x",
+        "display.bathtub.dfe.y",
+        "display.bathtub.ffe.x",
+        "display.bathtub.ffe.y",
+        "display.bathtub.tx.x",
+        "display.bathtub.tx.y",
+        "display.cdr.histogram.x",
+        "display.cdr.histogram.y",
+        "display.cdr.spectrum.x",
+        "display.cdr.spectrum.y",
+        "display.channel.chnl_H.x",
+        "display.channel.chnl_H.y",
+        "display.channel.chnl_H_raw.x",
+        "display.channel.chnl_H_raw.y",
+        "display.channel.chnl_trimmed_H.x",
+        "display.channel.chnl_trimmed_H.y",
+        "display.channel_noise",
+        "display.pdf.chnl.jitter.x",
+        "display.pdf.chnl.jitter.y",
+        "display.pdf.chnl.jitter_ext.x",
+        "display.pdf.chnl.jitter_ext.y",
+        "display.pdf.ctle.jitter.x",
+        "display.pdf.ctle.jitter.y",
+        "display.pdf.ctle.jitter_ext.x",
+        "display.pdf.ctle.jitter_ext.y",
+        "display.pdf.dfe.jitter.x",
+        "display.pdf.dfe.jitter.y",
+        "display.pdf.dfe.jitter_ext.x",
+        "display.pdf.dfe.jitter_ext.y",
+        "display.pdf.ffe.jitter.x",
+        "display.pdf.ffe.jitter.y",
+        "display.pdf.ffe.jitter_ext.x",
+        "display.pdf.ffe.jitter_ext.y",
+        "display.pdf.tx.jitter.x",
+        "display.pdf.tx.jitter.y",
+        "display.pdf.tx.jitter_ext.x",
+        "display.pdf.tx.jitter_ext.y",
+        "display.spec.chnl.jitter_ind_spectrum.x",
+        "display.spec.chnl.jitter_ind_spectrum.y",
+        "display.spec.chnl.jitter_spectrum.x",
+        "display.spec.chnl.jitter_spectrum.y",
+        "display.spec.chnl.thresh.x",
+        "display.spec.chnl.thresh.y",
+        "display.spec.ctle.jitter_ind_spectrum.x",
+        "display.spec.ctle.jitter_ind_spectrum.y",
+        "display.spec.ctle.jitter_spectrum.x",
+        "display.spec.ctle.jitter_spectrum.y",
+        "display.spec.ctle.thresh.x",
+        "display.spec.ctle.thresh.y",
+        "display.spec.dfe.jitter_ind_spectrum.x",
+        "display.spec.dfe.jitter_ind_spectrum.y",
+        "display.spec.dfe.jitter_spectrum.x",
+        "display.spec.dfe.jitter_spectrum.y",
+        "display.spec.dfe.thresh.x",
+        "display.spec.dfe.thresh.y",
+        "display.spec.ffe.jitter_ind_spectrum.x",
+        "display.spec.ffe.jitter_ind_spectrum.y",
+        "display.spec.ffe.jitter_spectrum.x",
+        "display.spec.ffe.jitter_spectrum.y",
+        "display.spec.ffe.thresh.x",
+        "display.spec.ffe.thresh.y",
+        "display.spec.tx.jitter_ind_spectrum.x",
+        "display.spec.tx.jitter_ind_spectrum.y",
+        "display.spec.tx.jitter_spectrum.x",
+        "display.spec.tx.jitter_spectrum.y",
+        "display.spec.tx.thresh.x",
+        "display.spec.tx.thresh.y",
+        "display.wave.noise_base.x",
+        "display.wave.noise_base.y",
+        "display.wave.noise_total.x",
+        "display.wave.noise_total.y",
+        "display.wave.x.x",
+        "display.wave.x.y",
+        "dj_neg_ffe",
+        "dj_pos_ffe",
+        "eye.chnl.counts",
+        "eye.chnl.gui_noise.counts",
+        "eye.chnl.gui_noise.x",
+        "eye.chnl.gui_noise.y",
+        "eye.chnl.x",
+        "eye.chnl.y",
+        "eye.ctle.counts",
+        "eye.ctle.x",
+        "eye.ctle.y",
+        "eye.ffe.counts",
+        "eye.ffe.x",
+        "eye.ffe.y",
+        "eye.tx.counts",
+        "eye.tx.x",
+        "eye.tx.y",
+        "isi_ffe",
+        "jitter_ext_ffe",
+        "jitter_ffe",
+        "jitter_ind_spectrum_ffe",
+        "jitter_spectrum_ffe",
+        "mu_neg_ffe",
+        "mu_pos_ffe",
+        "pjDD_ffe",
+        "pj_ffe",
+        "rjDD_ffe",
+        "rj_ffe",
+        "thresh_ffe"
+      ],
+      "passed": true
+    },
+    {
+      "fixture": "F-PAM4-01",
+      "checks": [
+        {
+          "field": "start_ix",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "t",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "f",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "t_ns_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "t_irfft",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bits",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "symbols",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "noise",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_slicer_samps",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_slicer_decisions",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "bit_errs_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": null
+        },
+        {
+          "field": "adaptation",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ui_ests",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "clocks",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "clock_times",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "lockeds",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_scalar_values",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_H_raw",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_trimmed_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ideal_signal",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_out",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rx_in",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.chnl_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.chnl_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.chnl_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "chnl_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.chnl_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.tx_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "tx_out_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tx_out_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ctle_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ctle_out_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ctle_out_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.ffe_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "ffe_out_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.ffe_out_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_h",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_h.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_h.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_s",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_s.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_s.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "axis.dfe_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_p",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_p.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_p.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dfe_out_H",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_H.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.dfe_out_H.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "waveform_indices",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ideal_signal.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ideal_signal.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.chnl_out.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.chnl_out.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.rx_in.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.rx_in.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ctle_out.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ctle_out.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ffe_out.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.ffe_out.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.dfe_out.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.wave.dfe_out.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ideal_signal",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ideal_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ideal_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.xing_mask",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.ui",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.nspui",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.nui",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.eye_uis",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.pattern_len",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.rel_thresh",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.decision_scaler",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.mod_type",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.source.xing_min_t",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.ofst",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.actual_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.actual_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.t_jitter",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.bin_centers",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.spectrum_freqs",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.tie",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.tie_ind",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.chnl.valid",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.ofst",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.actual_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.actual_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.t_jitter",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.bin_centers",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.spectrum_freqs",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.tie",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.tie_ind",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.tx.valid",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.ofst",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.actual_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.actual_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.t_jitter",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.bin_centers",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.spectrum_freqs",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.tie",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.tie_ind",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.ctle.valid",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.ofst",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.actual_xings",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.actual_xings_jit",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.t_jitter",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.bin_centers",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.spectrum_freqs",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.tie",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.tie_ind",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "context.dfe.valid",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_chnl",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_tx",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_ctle",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "isi_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dcd_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pj_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rj_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "pjDD_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "rjDD_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_pos_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "mu_neg_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_pos_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "dj_neg_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ext_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_spectrum_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "jitter_ind_spectrum_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "thresh_dfe",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ext_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ext_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_spectrum_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_spectrum_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ind_spectrum_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.jitter_ind_spectrum_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.thresh_dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.thresh_dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.rx_in.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.rx_in.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.rx_in.counts",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.dfe.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.dfe.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "eye.dfe.counts",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap1.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap1.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap2.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap2.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap3.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap3.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap4.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap4.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap5.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.tap5.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "cdr_indices",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.x",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        },
+        {
+          "field": "display.cdr.y",
+          "passed": true,
+          "missing": false,
+          "max_absolute_difference": 0.0
+        }
+      ],
+      "original_fields": 312,
+      "additional_current_fields": [
+        "bathtub.chnl.probability",
+        "bathtub.ctle.probability",
+        "bathtub.dfe.probability",
+        "bathtub.ffe.probability",
+        "bathtub.tx.probability",
+        "ber.dfe.auto_corr",
+        "ber.dfe.bits_out",
+        "ber.dfe.bits_reference",
+        "ber.dfe.bits_test",
+        "ber.dfe.errors",
+        "cdr.histogram.centers",
+        "cdr.histogram.counts",
+        "cdr.histogram.edges",
+        "cdr.spectrum.frequency_Hz",
+        "cdr.spectrum.raw",
+        "cdr.spectrum.relative_frequency",
+        "context.ffe.actual_xings",
+        "context.ffe.actual_xings_jit",
+        "context.ffe.bin_centers",
+        "context.ffe.ofst",
+        "context.ffe.spectrum_freqs",
+        "context.ffe.t_jitter",
+        "context.ffe.tie",
+        "context.ffe.tie_ind",
+        "context.source.fext_count",
+        "context.source.noise_total",
+        "dcd_ffe",
+        "display.bathtub.chnl.x",
+        "display.bathtub.chnl.y",
+        "display.bathtub.ctle.x",
+        "display.bathtub.ctle.y",
+        "display.bathtub.dfe.x",
+        "display.bathtub.dfe.y",
+        "display.bathtub.ffe.x",
+        "display.bathtub.ffe.y",
+        "display.bathtub.tx.x",
+        "display.bathtub.tx.y",
+        "display.cdr.histogram.x",
+        "display.cdr.histogram.y",
+        "display.cdr.spectrum.x",
+        "display.cdr.spectrum.y",
+        "display.channel.chnl_H.x",
+        "display.channel.chnl_H.y",
+        "display.channel.chnl_H_raw.x",
+        "display.channel.chnl_H_raw.y",
+        "display.channel.chnl_trimmed_H.x",
+        "display.channel.chnl_trimmed_H.y",
+        "display.channel_noise",
+        "display.pdf.chnl.jitter.x",
+        "display.pdf.chnl.jitter.y",
+        "display.pdf.chnl.jitter_ext.x",
+        "display.pdf.chnl.jitter_ext.y",
+        "display.pdf.ctle.jitter.x",
+        "display.pdf.ctle.jitter.y",
+        "display.pdf.ctle.jitter_ext.x",
+        "display.pdf.ctle.jitter_ext.y",
+        "display.pdf.dfe.jitter.x",
+        "display.pdf.dfe.jitter.y",
+        "display.pdf.dfe.jitter_ext.x",
+        "display.pdf.dfe.jitter_ext.y",
+        "display.pdf.ffe.jitter.x",
+        "display.pdf.ffe.jitter.y",
+        "display.pdf.ffe.jitter_ext.x",
+        "display.pdf.ffe.jitter_ext.y",
+        "display.pdf.tx.jitter.x",
+        "display.pdf.tx.jitter.y",
+        "display.pdf.tx.jitter_ext.x",
+        "display.pdf.tx.jitter_ext.y",
+        "display.spec.chnl.jitter_ind_spectrum.x",
+        "display.spec.chnl.jitter_ind_spectrum.y",
+        "display.spec.chnl.jitter_spectrum.x",
+        "display.spec.chnl.jitter_spectrum.y",
+        "display.spec.chnl.thresh.x",
+        "display.spec.chnl.thresh.y",
+        "display.spec.ctle.jitter_ind_spectrum.x",
+        "display.spec.ctle.jitter_ind_spectrum.y",
+        "display.spec.ctle.jitter_spectrum.x",
+        "display.spec.ctle.jitter_spectrum.y",
+        "display.spec.ctle.thresh.x",
+        "display.spec.ctle.thresh.y",
+        "display.spec.dfe.jitter_ind_spectrum.x",
+        "display.spec.dfe.jitter_ind_spectrum.y",
+        "display.spec.dfe.jitter_spectrum.x",
+        "display.spec.dfe.jitter_spectrum.y",
+        "display.spec.dfe.thresh.x",
+        "display.spec.dfe.thresh.y",
+        "display.spec.ffe.jitter_ind_spectrum.x",
+        "display.spec.ffe.jitter_ind_spectrum.y",
+        "display.spec.ffe.jitter_spectrum.x",
+        "display.spec.ffe.jitter_spectrum.y",
+        "display.spec.ffe.thresh.x",
+        "display.spec.ffe.thresh.y",
+        "display.spec.tx.jitter_ind_spectrum.x",
+        "display.spec.tx.jitter_ind_spectrum.y",
+        "display.spec.tx.jitter_spectrum.x",
+        "display.spec.tx.jitter_spectrum.y",
+        "display.spec.tx.thresh.x",
+        "display.spec.tx.thresh.y",
+        "display.wave.noise_base.x",
+        "display.wave.noise_base.y",
+        "display.wave.noise_total.x",
+        "display.wave.noise_total.y",
+        "display.wave.x.x",
+        "display.wave.x.y",
+        "dj_neg_ffe",
+        "dj_pos_ffe",
+        "eye.chnl.counts",
+        "eye.chnl.gui_noise.counts",
+        "eye.chnl.gui_noise.x",
+        "eye.chnl.gui_noise.y",
+        "eye.chnl.x",
+        "eye.chnl.y",
+        "eye.ctle.counts",
+        "eye.ctle.x",
+        "eye.ctle.y",
+        "eye.ffe.counts",
+        "eye.ffe.x",
+        "eye.ffe.y",
+        "eye.tx.counts",
+        "eye.tx.x",
+        "eye.tx.y",
+        "isi_ffe",
+        "jitter_ext_ffe",
+        "jitter_ffe",
+        "jitter_ind_spectrum_ffe",
+        "jitter_spectrum_ffe",
+        "mu_neg_ffe",
+        "mu_pos_ffe",
+        "pjDD_ffe",
+        "pj_ffe",
+        "rjDD_ffe",
+        "rj_ffe",
+        "thresh_ffe"
+      ],
+      "passed": true
+    }
+  ],
+  "input_manifest_sha256": "6f0bf84546c0199e42a1b474d275f1460288d55469e304cc4f1d7c9a871024c2",
+  "main_calls": 0,
+  "COM_calls": 0
+}
