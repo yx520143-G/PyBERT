@@ -389,7 +389,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
     sig_samps: Rvec = array([])
     decisions: Rvec = array([])
     ignore_ui = self._rx_cfg.fetch_param_val(["Reserved_Parameters", "Ignore_Bits"]) if rx_getwave_mode else 0
-    clock_info.update(ignore_ui_requested=ignore_ui, ignore_ui_units="symbol_ui" if mod_type == 0 else "UNKNOWN")
+    clock_info.update(dict(ignore_ui_requested=ignore_ui, ignore_ui_units="symbol_ui" if mod_type == 0 else "UNKNOWN"))
     analysis_start = (nui - eye_uis) * nspui
     clock_info["analysis"] = {
         "start_s": (nui - eye_uis) * ui, "stop_s": float(t[-1]),
@@ -453,7 +453,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
                 ctle_out, clock_times, ctle_h, ctle_out_h, msg, params = run_ami_model(
                     self.rx_dll_file, self._rx_cfg, True, ui, ts, tx_out_h, rx_in,
                     fext_hs=getattr(self, "fext_h", []), _probe_seed=self.seed)
-                clock_info.update(main_origin="c1_fresh_main", returned_edges_s=np.array(clock_times, copy=True))
+                clock_info.update(dict(main_origin="c1_fresh_main", returned_edges_s=np.array(clock_times, copy=True)))
                 self.log(f"Rx IBIS-AMI model initialization results:\n{msg}")
                 # Numeric histories retain full paths below the model root.
                 param_vals, tap_weightss = getwave_parameters(params)
@@ -637,7 +637,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
             clocks, ui_ests = clock_info["clock_mask"], clock_info["period_s"]
             clock_times = clock_info["sample_grid_times_s"]
             bits_out_dfe, sig_samps, decisions = clock_info["bits"], clock_info["sample_values"], clock_info["decisions"]
-            clock_info.update(consumption_status="partial", consumption_reason="main_postconditions_pending")
+            clock_info.update(dict(consumption_status="partial", consumption_reason="main_postconditions_pending"))
         finally:
             self.ami_clock_info = clock_info
             clock_info = self.ami_clock_info
@@ -660,15 +660,15 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
              decisions
              ) = dfe.run_dfe(t, ffe_out, use_agc=self.use_agc, dbg_dict=dbg_dict, clock_phase=clock_phase)
         except BaseException as error:
-            clock_info.update(consumption_status="partial", consumed_count=None, native_returned=False,
-                              reason="native_failed_before_return", error_type=type(error).__name__)
+            clock_info.update(dict(consumption_status="partial", consumed_count=None, native_returned=False,
+                                   reason="native_failed_before_return", error_type=type(error).__name__))
             raise
         finally:
             self.ami_clock_info = clock_info
             clock_info = self.ami_clock_info
         self.ami_period_known = np.array([], dtype=bool)
-        clock_info.update(consumption_status="partial", consumed_count=len(sig_samps), native_returned=True,
-                          consumption_reason="main_postconditions_pending")
+        clock_info.update(dict(consumption_status="partial", consumed_count=len(sig_samps), native_returned=True,
+                               consumption_reason="main_postconditions_pending"))
         self.decision_scaler = dfe.decision_scaler
         self.dfe_scalar_values = dbg_dict["scalar_values"]
 
@@ -1191,7 +1191,7 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
         raise
 
     compute_com(self)
-    clock_info.update(consumption_status="completed", consumption_reason=None, run_status="completed")
+    clock_info.update(dict(consumption_status="completed", consumption_reason=None, run_status="completed"))
 
 
 def compute_com(self) -> None:
