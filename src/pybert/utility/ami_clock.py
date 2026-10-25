@@ -8,7 +8,7 @@ import numpy as np
 def new_clock_info(requested=False, mode="native", origin=None):
     """Start a fresh producer record; no plan is evidence of completed consumption."""
     return {"producer_contract_version": 2, "invocation_id": str(monotonic_ns()),
-            "epoch_basis": "fresh Main invocation; not the model Init epoch",
+            "epoch_basis": "analysis invocation identifier; not the model Init epoch",
             "requested": bool(requested), "mode": mode, "role": "main", "main_origin": origin,
             "format_status": "not_checked", "consumption_status": "not_attempted", "consumed_count": 0,
             "actual_branch": "not_attempted", "reason": None, "full_analysis_eligible": False,
@@ -39,8 +39,6 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
         reject("invalid_timing")
     if not info["requested"] or info["mode"] != "rx_getwave":
         reject("unsupported_mode")
-    if info["main_origin"] != "c1_fresh_main":
-        reject("unknown_origin")
     start, stop = window["start_index"], window["stop_index"]
     fft_start, fft_stop = window["fft_slice"]
     if not (0 <= start < stop <= len(grid) and grid[0] <= window["start_s"] <= window["stop_s"] <= grid[-1]
@@ -57,6 +55,8 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
                     targets_s=np.array([]), planned_indices=np.array([], dtype=int),
                     planned_tick_positions=np.array([], dtype=int), deferred_reasons=[], last_tick_status="none"))
         return info
+    if info["main_origin"] != "c1_fresh_main":
+        reject("unsupported_origin_mapping" if info["main_origin"] == "same_init_after_probes" else "unknown_origin")
     declared = profile
     if modulation == "NRZ" and declared is None:
         declared = {"ignore_ui_units": "symbol_ui", "nominal_eye_offset_ui": 0, "mapping": "native_nrz"}

@@ -31,6 +31,24 @@ def test_clock_record_no_clock_fallback(info):
     assert info["planned_indices"].size == 0
 
 
+@pytest.mark.parametrize("origin", ["same_init_after_probes", None])
+def test_empty_clocks_do_not_require_an_origin_mapping(info, origin):
+    info["main_origin"] = origin
+    plan(info, [])
+    assert info["use_native"] and info["reason"] == "no_clocks"
+
+
+def test_same_epoch_nonempty_clocks_require_explicit_mapping(info):
+    info["main_origin"] = "same_init_after_probes"
+    with pytest.raises(ValueError, match="unsupported_origin_mapping"):
+        plan(info, [12.])
+    assert info["format_status"] == "valid"
+    assert info["consumed_count"] == 0
+    assert not info["use_native"]
+    assert "not the model Init epoch" in info["epoch_basis"]
+    assert "fresh" not in info["epoch_basis"]
+
+
 def test_clock_record_invalid_input_keeps_reason(info):
     with pytest.raises(ValueError, match="malformed_clocks"):
         plan(info, [1., 0.])

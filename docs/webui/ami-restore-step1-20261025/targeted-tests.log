@@ -1,0 +1,58 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\yx\.codex\worktrees\pybert-issue4-resources\serial-bus-simulator\.venv\Scripts\python.exe
+rootdir: C:\Users\yx\.codex\worktrees\pybert-final-parity\serial-bus-simulator
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, xdist-3.8.0
+collecting ... collected 40 items
+
+tests/test_ami_single_init.py::test_original_probe_then_main_on_one_handle[0-main_chunks0] PASSED [  2%]
+tests/test_ami_single_init.py::test_original_probe_then_main_on_one_handle[7-main_chunks1] PASSED [  5%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[init] PASSED [  7%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[1] PASSED [ 10%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[3] PASSED [ 12%]
+tests/test_ami_single_init.py::test_failure_closes_without_retry_or_reinitializing[5] PASSED [ 15%]
+tests/test_ami_single_init.py::test_primary_and_cleanup_failures_are_both_retained PASSED [ 17%]
+tests/test_ami_single_init.py::test_cleanup_failure_prevents_success PASSED [ 20%]
+tests/test_ami_single_init.py::test_shared_initializer_preserves_fext_rows_and_init_only[False] PASSED [ 22%]
+tests/test_ami_single_init.py::test_shared_initializer_preserves_fext_rows_and_init_only[True] PASSED [ 25%]
+tests/test_ami_single_init.py::test_copy_failure_still_closes PASSED     [ 27%]
+tests/test_ami_single_init.py::test_interruption_still_closes PASSED     [ 30%]
+tests/test_ami_single_init.py::test_returns_are_copied_before_close PASSED [ 32%]
+tests/test_ami_single_init.py::test_rx_caller_does_not_seed_probes_or_claim_fresh_main PASSED [ 35%]
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[dict] PASSED [ 37%]
+tests/test_ami_clock_traits.py::test_clock_record_no_clock_fallback[traits-dict] PASSED [ 40%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[dict-same_init_after_probes] PASSED [ 42%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[dict-None] PASSED [ 45%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[traits-dict-same_init_after_probes] PASSED [ 47%]
+tests/test_ami_clock_traits.py::test_empty_clocks_do_not_require_an_origin_mapping[traits-dict-None] PASSED [ 50%]
+tests/test_ami_clock_traits.py::test_same_epoch_nonempty_clocks_require_explicit_mapping[dict] PASSED [ 52%]
+tests/test_ami_clock_traits.py::test_same_epoch_nonempty_clocks_require_explicit_mapping[traits-dict] PASSED [ 55%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[dict] PASSED [ 57%]
+tests/test_ami_clock_traits.py::test_clock_record_invalid_input_keeps_reason[traits-dict] PASSED [ 60%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[dict] PASSED [ 62%]
+tests/test_ami_clock_traits.py::test_clock_record_sampling_and_eye[traits-dict] PASSED [ 65%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[dict] PASSED [ 67%]
+tests/test_ami_clock_traits.py::test_clock_record_partial_failure_preserves_first_decision[traits-dict] PASSED [ 70%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_aligned_vectors_can_change_length_between_calls PASSED [ 72%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_ambiguous_node_is_rejected PASSED [ 75%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_blank_return_is_unavailable_without_hiding_syntax_errors PASSED [ 77%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_duplicate_paths_are_rejected_without_overwriting
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_duplicate_paths_are_rejected_without_overwriting PASSED [ 80%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_empty_returns_have_no_taps
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_empty_returns_have_no_taps PASSED [ 82%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_full_paths_and_case_insensitive_taps PASSED [ 85%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_invalid_syntax_still_fails PASSED [ 87%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_model_root_cannot_change_between_calls PASSED [ 90%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_non_numeric_mixed_and_table_values_are_unavailable PASSED [ 92%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_numeric_paths_cannot_disappear_or_appear_between_calls
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_numeric_paths_cannot_disappear_or_appear_between_calls PASSED [ 95%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_saved_750_return_strings_preserve_numeric_tap_histories
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_saved_750_return_strings_preserve_numeric_tap_histories PASSED [ 97%]
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_tap_columns_must_align_within_each_call
+tests/test_ami_getwave_params.py::GetWaveParameterTests::test_tap_columns_must_align_within_each_call PASSED [100%]
+
+============================= slowest 3 durations =============================
+0.15s call     tests/test_ami_getwave_params.py::GetWaveParameterTests::test_saved_750_return_strings_preserve_numeric_tap_histories
+0.05s call     tests/test_ami_getwave_params.py::GetWaveParameterTests::test_numeric_paths_cannot_disappear_or_appear_between_calls
+0.04s call     tests/test_ami_getwave_params.py::GetWaveParameterTests::test_duplicate_paths_are_rejected_without_overwriting
+============= 40 passed, 35 warnings, 15 subtests passed in 0.58s =============

@@ -99,104 +99,18 @@ def _make_ami_initializer(inputs):
     return model_init
 
 
-class _AMIProbeMainError(RuntimeError):
-    """Keep role execution and cleanup failures separate, with host-owned evidence."""
+class _AMICleanupError(RuntimeError):
+    """Retain both the original failure and a failure during final cleanup."""
 
-    def __init__(self, role, phase, primary_error, cleanup_error, diagnostics, diagnostic_errors=()):
-        self.role, self.phase = role, phase
+    def __init__(self, primary_error, cleanup_error):
         self.primary_error, self.cleanup_error = primary_error, cleanup_error
-        self.diagnostics = diagnostics
-        self.diagnostic_errors = list(diagnostic_errors)
-        super().__init__(f"C1 {role}/{phase}: {primary_error!r}; cleanup={cleanup_error!r}")
-
-
-def _run_probe_main(make_model, make_initializer, init_inputs, x, bits_per_call, seed, make_rng):
-    """Run fresh sequential probe/main epochs; retain only host-owned results."""
-    diagnostics = []
-    try:
-        frozen_inputs, main_input = deepcopy(init_inputs), deepcopy(x)
-    except BaseException as error:
-        raise _AMIProbeMainError("probe", "freeze", error, None, diagnostics) from error
-    for role in ("probe", "main"):
-        model = None
-        record = {"role": role, "init_input": frozen_inputs,
-                  "close_attempted": False, "close_returned": False, "release_confirmation": "UNKNOWN"}
-        diagnostics.append(record)
-        primary_error = cleanup_error = None
-        diagnostic_errors = []
-        init_copy_attempted = False
-        phase = "construct"
-        try:
-            model = make_model()
-            phase = "prepare"
-            initializer = make_initializer(deepcopy(frozen_inputs))
-            phase = "initialize"
-            model.initialize(initializer)
-            phase = "init_copy"
-            init_copy_attempted = True
-            record["init"] = deepcopy(model.last_init_call)
-            if role == "probe":
-                phase = "rng"
-                record["probe_rng"] = {"requested_seed": seed, "factory_seed": seed if seed else None,
-                                       "replayability": "seeded" if seed else "UNKNOWN"}
-                rng = make_rng(seed if seed else None)
-                phase = "probe"
-                responses = model.get_responses(bits_per_call=40, max_run_length=10, nbits=20, rng=rng)
-                phase = "probe_copy"
-                h, out_h = deepcopy((responses[IMP_RESP_GETW], responses[OUT_RESP_GETW][1]))
-            else:
-                phase = "message"
-                init = record["init"]
-                try:
-                    params_out = init["params_raw"].decode("utf-8")
-                except AttributeError:
-                    params_out = ""
-                msg = "\n".join([
-                    f"Input parameters: {init['params_in'].decode('utf-8')}",
-                    f"Output parameters: {params_out}",
-                    f"Message: {init['message_raw'].decode('utf-8')}",
-                ])
-                phase = "main_input"
-                main_wave = deepcopy(main_input)
-                phase = "main"
-                outputs = model.getWave(main_wave, bits_per_call=bits_per_call or 40)
-                phase = "main_copy"
-                y, clocks, params = deepcopy(outputs)
-        except BaseException as error:
-            primary_error = error
-        finally:
-            if model is not None:
-                if not init_copy_attempted:
-                    try:
-                        record["init"] = deepcopy(model.last_init_call)
-                    except BaseException as error:
-                        diagnostic_errors.append(error)
-                record["close_attempted"] = True
-                try:
-                    model.close()
-                    record["close_returned"] = True
-                except BaseException as error:
-                    cleanup_error = error
-                try:
-                    record["close"] = deepcopy(model.last_close_call)
-                except BaseException as error:
-                    if primary_error is None and cleanup_error is None:
-                        primary_error, phase = error, "close_copy"
-                    else:
-                        diagnostic_errors.append(error)
-        if primary_error is not None or cleanup_error is not None:
-            if primary_error is None:
-                phase = "cleanup"
-            raise _AMIProbeMainError(role, phase, primary_error, cleanup_error, diagnostics, diagnostic_errors) from (
-                primary_error if primary_error is not None else cleanup_error)
-    msg += f"\nC1 probe/main Init diagnostics (no DLL-global reset guarantee): {diagnostics!r}"
-    return y, clocks, h, out_h, msg, params
+        super().__init__(f"AMI execution failed: {primary_error!r}; cleanup failed: {cleanup_error!r}")
 
 
 # pylint: disable=too-many-arguments,too-many-locals,too-many-positional-arguments
 def run_ami_model(dll_fname: str, param_cfg: AMIParamConfigurator, use_getwave: bool,
                   ui: float, ts: float, chnl_h: Rvec, x: Rvec, bits_per_call: int = 0,
-                  fext_hs: list[Rvec] | None = None, *, _probe_seed: int | None = None
+                  fext_hs: list[Rvec] | None = None
                   ) -> tuple[Rvec, Rvec, Rvec, Rvec, str, list[str]]:
     """
     Run a simulation of an IBIS-AMI model.
@@ -217,8 +131,6 @@ def run_ami_model(dll_fname: str, param_cfg: AMIParamConfigurator, use_getwave: 
             When provided, the full impulse response matrix (thru + FEXT rows) is passed to
             ``AMI_Init()``, enabling cross-talk modeling in the AMI model.
             Default: None (no aggressors; only the thru channel is passed)
-        _probe_seed: Internal Rx GetWave selector: isolate probe/main with this private RNG seed.
-            None retains the legacy path; 0 requests fresh entropy with unknown replayability.
 
     Returns:
         A tuple consisting of
@@ -248,43 +160,52 @@ def run_ami_model(dll_fname: str, param_cfg: AMIParamConfigurator, use_getwave: 
     # Load and initialize the model.
     init_inputs = {"ami_params": param_cfg.input_ami_params, "info_params": param_cfg.info_ami_params,
                    "ui": ui, "ts": ts, "chnl_h": chnl_h, "fext_hs": fext_hs}
-    if use_getwave and _probe_seed is not None:
-        return _run_probe_main(lambda: AMIModel(dll_fname), _make_ami_initializer,
-                               init_inputs, x, bits_per_call, _probe_seed, np.random.default_rng)
     model_init = _make_ami_initializer(init_inputs)
     model = AMIModel(dll_fname)
-    model.initialize(model_init)
-
-    # Required when DLL returns a null pointer, instead of an empty string, in `ami_params_out`.
-    # Note: Having `AmiModel` trap this case doesn't work, since Python strings don't offer `decode()`.
+    primary_error = None
     try:
-        params_out_str = model.ami_params_out.decode('utf-8')
-    except AttributeError:
-        params_out_str = ""
+        model.initialize(model_init)
 
-    msg = "\n".join([  # Python equivalent of Haskell's `unlines()`.
-        f"Input parameters: {model.ami_params_in.decode('utf-8')}",
-        f"Output parameters: {params_out_str}",
-        f"Message: {model.msg.decode('utf-8')}"])
+        # Required when DLL returns a null pointer, instead of an empty string, in `ami_params_out`.
+        # Note: Having `AmiModel` trap this case doesn't work, since Python strings don't offer `decode()`.
+        try:
+            params_out_str = model.ami_params_out.decode('utf-8')
+        except AttributeError:
+            params_out_str = ""
 
-    # Capture model's responses.
-    resps = model.get_responses(bits_per_call=40)
-    if use_getwave:
-        h: Rvec = resps[IMP_RESP_GETW]  # type: ignore
-        out_h = resps[OUT_RESP_GETW][1]
-    else:
-        h = resps[IMP_RESP_INIT]  # type: ignore
-        out_h = resps[OUT_RESP_INIT][1]
+        msg = "\n".join([  # Python equivalent of Haskell's `unlines()`.
+            f"Input parameters: {model.ami_params_in.decode('utf-8')}",
+            f"Output parameters: {params_out_str}",
+            f"Message: {model.msg.decode('utf-8')}"])
 
-    # Generate model's output.
-    if use_getwave:
-        y, clks, params_out = model.getWave(x, bits_per_call=bits_per_call)
-        return (y, clks, h, out_h, msg, params_out)
-    try:
-        y = convolve(x, out_h)[:len(x)]
-    except Exception:
-        print(f"x.shape: {x.shape}")
-        print(f"out_h shapes: {[h.shape for h in out_h]}")
+        # Capture model's responses.
+        resps = model.get_responses(bits_per_call=40)
+        if use_getwave:
+            h: Rvec = resps[IMP_RESP_GETW]  # type: ignore
+            out_h = resps[OUT_RESP_GETW][1]
+        else:
+            h = resps[IMP_RESP_INIT]  # type: ignore
+            out_h = resps[OUT_RESP_INIT][1]
+
+        # Generate model's output.
+        if use_getwave:
+            y, clks, params_out = model.getWave(x, bits_per_call=bits_per_call)
+            return deepcopy((y, clks, h, out_h, msg, params_out))
+        try:
+            y = convolve(x, out_h)[:len(x)]
+        except Exception:
+            print(f"x.shape: {x.shape}")
+            print(f"out_h shapes: {[h.shape for h in out_h]}")
+            raise
+        clks = array([])
+        return deepcopy((y, clks, h, out_h, msg, []))
+    except BaseException as error:
+        primary_error = error
         raise
-    clks = array([])
-    return (y, clks, h, out_h, msg, [])
+    finally:
+        try:
+            model.close()
+        except BaseException as cleanup_error:
+            if primary_error is None:
+                raise
+            raise _AMICleanupError(primary_error, cleanup_error) from primary_error
