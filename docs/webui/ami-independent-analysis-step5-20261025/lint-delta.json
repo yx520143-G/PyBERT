@@ -1,0 +1,76 @@
+{
+  "files": {
+    "src/pybert/models/bert.py": {
+      "current": 9,
+      "baseline": 9,
+      "added": 0
+    },
+    "src/pybert/pybert.py": {
+      "current": 0,
+      "baseline": 0,
+      "added": 0
+    },
+    "src/pybert/utility/ami_clock.py": {
+      "current": 10,
+      "baseline": 10,
+      "added": 0
+    },
+    "src/pybert/web/ami.py": {
+      "current": 1,
+      "baseline": 1,
+      "added": 0
+    },
+    "src/pybert/web/analysis.py": {
+      "current": 21,
+      "baseline": 21,
+      "added": 0
+    },
+    "src/pybert/web/archive.py": {
+      "current": 3,
+      "baseline": 3,
+      "added": 0
+    },
+    "src/pybert/web/clocks.py": {
+      "current": 2,
+      "baseline": 2,
+      "added": 0
+    },
+    "src/pybert/web/clock_v3.py": {
+      "current": 0,
+      "baseline": 0,
+      "added": 0
+    },
+    "src/pybert/web/data.py": {
+      "current": 1,
+      "baseline": 1,
+      "added": 0
+    },
+    "src/pybert/web/viterbi.py": {
+      "current": 2,
+      "baseline": 2,
+      "added": 0
+    },
+    "tests/test_ami_partial_analysis.py": {
+      "current": 0,
+      "baseline": 0,
+      "added": 0
+    },
+    "tests/test_ami_partial_main.py": {
+      "current": 0,
+      "baseline": 0,
+      "added": 0
+    },
+    "tests/test_ami_partial_legacy.py": {
+      "current": 0,
+      "baseline": 0,
+      "added": 0
+    },
+    "docs/webui/ami-independent-analysis-step5-20261025/software_browser_fixture.py": {
+      "current": 0,
+      "baseline": 0,
+      "added": 0
+    }
+  },
+  "new_diagnostics": [],
+  "method": "Ruff 0.17.2; compare (code, message, stripped source line) against parent 27a75c5; no baseline autofix."
+}

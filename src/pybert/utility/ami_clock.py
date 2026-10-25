@@ -5,10 +5,14 @@ from time import monotonic_ns
 
 import numpy as np
 
+ANALYSIS_BOUNDARY_BASIS = "exact Main grid timestamps use their epoch sample; off-grid bounds use one rounded pre-duration + local time"
 
-def new_clock_info(requested=False, mode="native", origin=None):
+
+def new_clock_info(requested=False, mode="native", origin=None, *, contract_version=2):
     """Start a fresh producer record; no plan is evidence of completed consumption."""
-    return {"producer_contract_version": 2, "invocation_id": str(monotonic_ns()),
+    if type(contract_version) is not int or contract_version not in (2, 3):
+        raise ValueError("unsupported producer contract")
+    return {"producer_contract_version": contract_version, "invocation_id": str(monotonic_ns()),
             "epoch_basis": "analysis invocation identifier; not the model Init epoch",
             "requested": bool(requested), "mode": mode, "role": "main", "main_origin": origin,
             "format_status": "not_checked", "consumption_status": "not_attempted", "consumed_count": 0,
@@ -129,6 +133,9 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
                 sample_indices=np.array([], dtype=int), sample_grid_times_s=np.array([]),
                 consumed_tick_positions=np.array([], dtype=int), period_s=np.full(len(grid), np.nan),
                 period_known=np.zeros(len(grid), dtype=bool), use_native=False))
+    if info["producer_contract_version"] == 3 and (info["main_origin"] != "same_init_after_probes"
+                                                  or "origin_observations" not in info):
+        reject("invalid_origin_evidence")
     if info["main_origin"] == "same_init_after_probes" and "origin_observations" in info:
         try:
             mapping = map_same_epoch_clocks(info["origin_observations"], grid, symbol_ui, ignore_ui)
@@ -139,9 +146,23 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
             info["origin_mapping"] = {"status": "unavailable", "reason": str(error)}
             reject("invalid_origin_evidence")
         # A probe can supply a Main-boundary tick even when Main itself returned no clocks.
-        # F5 records the mapping; activation and publication require the later consumer contract.
         if len(mapping["raw_epoch_edges_s"]):
-            reject("unsupported_origin_mapping")
+            if info["producer_contract_version"] != 3:
+                reject("unsupported_origin_mapping")
+            declared = {"ignore_ui_units": "symbol_ui", "nominal_eye_offset_ui": 0, "mapping": "native_nrz"}
+            if modulation != "NRZ" or profile is not None and profile != declared:
+                reject("unsupported_profile")
+            info.update({"edges_s": mapping["raw_epoch_edges_s"], "targets_s": mapping["targets_s"],
+                         "planned_tick_positions": mapping["planned_tick_positions"],
+                         "planned_indices": mapping["planned_indices"], "planned_ready": mapping["planned_ready"],
+                         "quantization_delay_s": mapping["quantization_delay_s"],
+                         "deferred_reasons": mapping["deferred_reasons"], "profile": declared,
+                         "profile_source": "nrz_ui_contract", "model_qualification": "UNKNOWN", "eligible": True,
+                         "reason": None, "last_tick_status": "planned" if mapping["deferred_reasons"][-1] is None else "deferred"})
+            mapping["consumption_permission"] = "software_nrz_contract_v3; model qualification UNKNOWN"
+            info["analysis_epoch_bounds_s"] = epoch_analysis_bounds(info)
+            info["analysis_boundary_basis"] = ANALYSIS_BOUNDARY_BASIS
+            return info
     if not len(edges):
         info.update(dict(format_status="no_clocks", reason="no_clocks", use_native=True, eligible=False,
                     targets_s=np.array([]), planned_indices=np.array([], dtype=int),
@@ -175,6 +196,33 @@ def plan_ami_clocks(info, edges, t_grid, symbol_ui, ignore_ui, nspui, window, *,
     return info
 
 
+def epoch_analysis_bounds(info):
+    """An exact grid timestamp denotes its epoch sample; other bounds retain their local time."""
+    mapping, window = info["origin_mapping"], info["analysis"]
+    grid, ts = info["grid_s"], mapping["sample_interval_s"]
+    pre = mapping["pre_samples"] * Fraction(float(mapping["sample_interval_s"]))
+    bounds = []
+    for name in ("start_s", "stop_s"):
+        value = window[name]
+        index = int(np.searchsorted(grid, value, side="left"))
+        bounds.append((mapping["pre_samples"] + index) * ts if index < len(grid) and grid[index] == value
+                      else float(pre + Fraction(float(value))))
+    return np.asarray(bounds)
+
+
+def analysis_sample_mask(info, indices, positions):
+    """Select the frozen window in the same epoch coordinates used for F5 ceil/readiness."""
+    mapping, window = info["origin_mapping"], info["analysis"]
+    targets = mapping["epoch_targets_s"][positions]
+    first, stop = epoch_analysis_bounds(info)
+    ready = targets >= mapping["readiness_threshold_epoch_s"]
+    times = info["grid_s"][indices]
+    inside = (ready & (targets >= first) & (targets <= stop)
+              & (times >= window["start_s"]) & (times <= window["stop_s"])
+              & (indices >= window["start_index"]) & (indices < window["stop_index"]))
+    return ready, inside
+
+
 def consume_ami_clocks(info, waveform, decide, check_cancel=None):
     """Consume actual samples, keeping every completed decision even when a later step fails."""
     grid = info["grid_s"]
@@ -183,6 +231,7 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
         info["reason"] = "invalid_consumer_input"
         raise ValueError("invalid_consumer_input")
     info["actual_branch"] = "ami"
+    independent = info["producer_contract_version"] == 3
     indices, positions, samples, decisions, bits = [], [], [], [], []
     attempts = 0
     loop_finished = False
@@ -194,6 +243,9 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
             attempts += 1
             value = waveform[index]
             decision, returned_bits = decide(value)
+            if independent and (not np.isfinite(value) or not np.isfinite(decision)
+                                or len(returned_bits) != 1 or returned_bits[0] not in (0, 1)):
+                raise ValueError("invalid_nrz_decision")
             bits.extend(returned_bits)
             positions.append(int(tick))
             indices.append(int(index))
@@ -222,6 +274,10 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
         inside = (ready & (targets >= window["start_s"]) & (targets <= window["stop_s"])
                   & (actual_times >= window["start_s"]) & (actual_times <= window["stop_s"])
                   & (indices >= window["start_index"]) & (indices < window["stop_index"]))
+        delays = actual_times - targets
+        if independent:
+            ready, inside = analysis_sample_mask(info, indices, positions)
+            delays = info["origin_mapping"]["quantization_delay_s"][:len(indices)]
         analysis_indices = indices[inside]
         eye_indices = analysis_indices[analysis_indices + 2 * info["nspui"] <= window["stop_index"]]
         fft_start, fft_stop = window["fft_slice"]
@@ -230,7 +286,7 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
                 and len(eye_indices) >= window["required_eye_traces"] and period_eligible)
         info.update(dict(sample_indices=indices, consumed_tick_positions=positions, consumed_count=len(indices),
                     sample_grid_times_s=actual_times, sample_targets_s=targets,
-                    sample_quantization_delay_s=actual_times - targets, adaptation_ready=ready,
+                    sample_quantization_delay_s=delays, adaptation_ready=ready,
                     sample_values=np.asarray(samples), decisions=np.asarray(decisions), bits=list(bits),
                     clock_mask=clocks, period_s=period, period_known=known,
                     analysis_sample_indices=analysis_indices[-window["required_decisions"]:],
@@ -238,6 +294,10 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
                     eye_trace_count=0, eye_status="not_attempted", attempted_count=attempts,
                     period_window_eligible=period_eligible, loop_finished=loop_finished,
                     full_analysis_eligible=bool(full), consumption_status="completed" if full else "partial"))
+        if independent:
+            info.update({"window_sample_indices": analysis_indices,
+                         "ber_eligible": bool(loop_finished and len(analysis_indices) >= window["required_decisions"]),
+                         "consumption_status": "completed" if loop_finished else "partial"})
         info.setdefault("model_lock_status", "unavailable")
         if len(positions) and positions[-1] == len(info["edges_s"]) - 1:
             info["last_tick_status"] = "consumed"
@@ -246,8 +306,8 @@ def consume_ami_clocks(info, waveform, decide, check_cancel=None):
         else:
             info["last_tick_status"] = "not_consumed"
         if loop_finished:
-            info["reason"] = None if full else "insufficient_coverage"
-    if not info["full_analysis_eligible"]:
+            info["reason"] = None if independent or full else "insufficient_coverage"
+    if not independent and not info["full_analysis_eligible"]:
         raise ValueError("insufficient_coverage")
     return info
 
@@ -263,7 +323,8 @@ def ami_eye_data(info, waveform, ignore_samps, height, y_max, calc_eye):
     relative = relative[usable]
     info["eye_relative_indices"] = relative
     info["eye_eligible_trace_count"] = len(relative)
-    if not info["full_analysis_eligible"] or len(relative) < info["analysis"]["required_eye_traces"]:
+    complete = info["loop_finished"] if info["producer_contract_version"] == 3 else info["full_analysis_eligible"]
+    if not complete or len(relative) < info["analysis"]["required_eye_traces"]:
         info.update(dict(eye_status="unavailable", eye_reason="insufficient_timed_traces"))
         return None
     try:
@@ -300,7 +361,7 @@ def clock_period_data(info, t_grid, ts):
     inside = ((indices >= window["start_index"]) & (indices < window["stop_index"])
               & (grid >= window["start_s"]) & (grid <= window["stop_s"]))
     input_complete = (info.get("loop_finished", info.get("consumption_status") == "completed")
-                      and info["full_analysis_eligible"])
+                      and (info.get("producer_contract_version") == 3 or info["full_analysis_eligible"]))
     hist_status = fft_status = "sampling_incomplete"
     fft_window = None
     if input_complete:

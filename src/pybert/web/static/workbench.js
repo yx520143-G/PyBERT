@@ -16,6 +16,11 @@
   let constructedConfig=null,constructedRuntime=null;
   let taskEpoch=0;
   const recordId = row => row.record_id || row.run_id;
+  const analysisReason = reason => ({insufficient_frozen_ber_decisions:'Too few actual decisions for this BER window.',
+    insufficient_timed_traces:'Too few complete traces for this Eye window.', no_complete_timed_trace:'No complete trace in this Eye window.',
+    no_in_record_tick:'No returned clock can sample this Main waveform.', no_known_period:'No known clock periods in this window.',
+    unknown_period:'The fixed spectrum window includes unknown clock periods.',
+    unusable_eye_voltage_scale:'The waveform cannot form a valid Eye voltage scale.'}[reason] || reason || '—');
   const allRecords = () => [...runs,...references];
   const resourceBindings = () => window.PYBERT_RESOURCES?.bindings() || {};
   function extraInput() {
@@ -190,7 +195,10 @@
     }
     if (id === 'overview') {
       empty(`Record ${recordId(selected)} · source run ${selected.run_id} · ${selected.effective_input.mod_type || 'legacy input unknown'} · ${selected.input_hash.slice(0,12)}`);
-      $('analysis-info').innerHTML = `<pre>${esc(JSON.stringify({summary:selected.summary,window:selected.window,ami:selected.ami,warnings:selected.warnings,legacy:selected.legacy,lifecycle:selected.lifecycle,native_sha:selected.native_sha,adapter_sha:selected.adapter_sha},null,2))}</pre><details><summary>保存时子功能快照 / 来源</summary><pre>${esc(JSON.stringify({saved_at:selected.archive_saved_at,subfunctions:selected.saved_subfunctions},null,2))}</pre></details>`;
+      const availability=selected.analysis_availability;
+      const labels={main:'Main waveform',sampling:'Actual samples',ber:'BER',eye_collect:'Eye · result view',eye_analysis:'Eye · analysis view',histogram:'Period histogram',spectrum:'Period spectrum'};
+      const outcomes=availability ? `<p>Execution completed. Model qualification: unverified (UNKNOWN).</p><table><tr><th>Analysis</th><th>Availability</th><th>Reason</th></tr>${Object.entries(availability).map(([name,row])=>`<tr><td>${esc(labels[name] || name)}</td><td>${esc(row.availability)}</td><td>${esc(analysisReason(row.reason))}</td></tr>`).join('')}</table>` : '';
+      $('analysis-info').innerHTML = `${outcomes}<pre>${esc(JSON.stringify({summary:selected.summary,window:selected.window,ami:selected.ami,warnings:selected.warnings,legacy:selected.legacy,lifecycle:selected.lifecycle,native_sha:selected.native_sha,adapter_sha:selected.adapter_sha},null,2))}</pre><details><summary>保存时子功能快照 / 来源</summary><pre>${esc(JSON.stringify({saved_at:selected.archive_saved_at,subfunctions:selected.saved_subfunctions},null,2))}</pre></details>`;
       return;
     }
     if (id === 'jitter.info') {
@@ -218,7 +226,8 @@
       if (a.legacy || b.legacy) return empty('Legacy缺少输入/物理轴，无法做物理域比较；可单独查看index诊断。');
       const differences = Object.keys(a.effective_input).filter(key => !equal(a.effective_input[key],b.effective_input[key]));
       empty(`A ${recordId(a)} / source ${a.run_id} · B ${recordId(b)} / source ${b.run_id}`);
-      $('analysis-info').innerHTML = `<table><tr><th></th><th>A ${esc(a.run_id.slice(0,8))}</th><th>B ${esc(b.run_id.slice(0,8))}</th></tr>${['n_errs_dfe','n_errs_viterbi','viterbi_availability','chnl_dly_s','rel_power','initial_level_v','final_level_v'].map(key => `<tr><td>${key}</td><td>${esc(a.summary[key] ?? '该记录未采集')}</td><td>${esc(b.summary[key] ?? '该记录未采集')}</td></tr>`).join('')}</table><p>Input differences: ${esc(differences.join(', ') || 'None')}</p><pre>${esc(JSON.stringify(differences.map(key => ({field:key,A:a.effective_input[key],B:b.effective_input[key]})),null,2))}</pre><p>A window ${esc(JSON.stringify(a.window))}<br>B window ${esc(JSON.stringify(b.window))}</p>`;
+      const summaryValue=(run,key)=>key==='n_errs_dfe' && run.summary.dfe_ber?.availability==='unavailable' ? `Unavailable: ${analysisReason(run.summary.dfe_ber.reason)}` : run.summary[key] ?? '该记录未采集';
+      $('analysis-info').innerHTML = `<table><tr><th></th><th>A ${esc(a.run_id.slice(0,8))}</th><th>B ${esc(b.run_id.slice(0,8))}</th></tr>${['n_errs_dfe','n_errs_viterbi','viterbi_availability','model_qualification','chnl_dly_s','rel_power','initial_level_v','final_level_v'].map(key => `<tr><td>${key}</td><td>${esc(summaryValue(a,key))}</td><td>${esc(summaryValue(b,key))}</td></tr>`).join('')}</table><p>Input differences: ${esc(differences.join(', ') || 'None')}</p><pre>${esc(JSON.stringify(differences.map(key => ({field:key,A:a.effective_input[key],B:b.effective_input[key]})),null,2))}</pre><p>A window ${esc(JSON.stringify(a.window))}<br>B window ${esc(JSON.stringify(b.window))}</p>`;
       $('analysis-info').innerHTML += `<p>Resources/runtime A</p><pre>${esc(JSON.stringify({resources:a.resources,runtime:a.runtime_extensions},null,2))}</pre><p>Resources/runtime B</p><pre>${esc(JSON.stringify({resources:b.resources,runtime:b.runtime_extensions},null,2))}</pre>`;
       return;
     }

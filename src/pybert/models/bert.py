@@ -244,13 +244,16 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
     rx_getwave_mode = self.rx_use_ami and self.rx_use_getwave
     tx_getwave_mode = self.tx_use_ami and self.tx_use_getwave
     clock_mode = ("tx_getwave_rx_getwave" if tx_getwave_mode else "rx_getwave") if rx_getwave_mode else "native"
-    clock_info = new_clock_info(self.rx_use_clocks, clock_mode)
+    independent_ami = rx_getwave_mode and not tx_getwave_mode and self.rx_use_clocks
+    clock_info = new_clock_info(self.rx_use_clocks, clock_mode, contract_version=3 if independent_ami else 2)
     self.ami_clock_info = clock_info
     clock_info = self.ami_clock_info
     self.ami_period_known = np.array([], dtype=bool)
     self.clock_times, self.ui_ests = array([]), array([])
     set_period_plot_data(self.plotdata, [], [])
     clock_info["tx_mode"] = "getwave" if tx_getwave_mode else "init" if self.tx_use_ami else "native"
+    if independent_ami and self.rx_use_viterbi:
+        raise ValueError("unsupported_ami_viterbi: no declared same-Init decoder contract")
 
     def _check_sim_status():
         """Checks the status of the simulation thread and if this simulation needs to stop."""
@@ -784,7 +787,18 @@ def my_run_simulation(self, initial_run: bool = False, update_plots: bool = True
 
         return n_errs, bit_errs
 
-    n_errs_dfe, bit_errs_dfe = calc_ber(bits_out_dfe, "dfe")
+    if ami_getwave_clocks and clock_info["producer_contract_version"] == 3 and not clock_info["ber_eligible"]:
+        n_errs_dfe, bit_errs_dfe = -1, np.array([], dtype=int)
+        self.auto_corr = array([])
+        clock_info["ber_status"] = {"availability": "unavailable", "reason": "insufficient_frozen_ber_decisions"}
+        if decoding is not None:
+            decoding["dfe"] = {"bits_out": np.asarray(bits_out_dfe, dtype=int), **clock_info["ber_status"],
+                               "required_decisions": clock_info["analysis"]["required_decisions"],
+                               "available_decisions": len(clock_info["window_sample_indices"])}
+    else:
+        n_errs_dfe, bit_errs_dfe = calc_ber(bits_out_dfe, "dfe")
+        if ami_getwave_clocks and clock_info["producer_contract_version"] == 3:
+            clock_info["ber_status"] = {"availability": "available", "reason": None}
 
     # Calculate DFE responses.
     # - First, calculate the impulse responses.
@@ -1439,8 +1453,11 @@ def update_results(self) -> None:
         ctle_out_plot = krnl(t_ns_plot)
         krnl = interp1d(t_ns, dfe_out)
         dfe_out_plot = krnl(t_ns_plot)
-        krnl = interp1d(t_ns, lockeds)
-        lockeds_plot = krnl(t_ns_plot)
+        if self.ami_clock_info.get("producer_contract_version") == 3 and self.ami_clock_info.get("actual_branch") == "ami":
+            lockeds_plot = array([])  # Native CDR was bypassed; readiness is not a model lock observation.
+        else:
+            krnl = interp1d(t_ns, lockeds)
+            lockeds_plot = krnl(t_ns_plot)
     else:
         ideal_signal_plot = ideal_signal
         chnl_out_plot = chnl_out

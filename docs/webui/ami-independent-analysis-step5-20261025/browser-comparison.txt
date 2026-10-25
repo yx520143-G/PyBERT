@@ -1,0 +1,261 @@
+Browser tab: 1, Title: "PyBERT · Signal Chain Workbench", URL: "http://127.0.0.1:8769/".
+1 AXWebArea PyBERT · Signal Chain Workbench, URL: 127.0.0.1:8769/
+	2 link Description: 跳到参数详情, Value: 127.0.0.1:8769/#inspector
+	3 container Stage 导航
+		4 link Description: PyBERT 数据源, Value: 127.0.0.1:8769/#source
+		5 text 模块目录
+		6 text 16 MODULES
+		7 container Description: 选择模块, ID: stage-nav
+			8 heading 主信号链, Value: 2
+				9 text 主信号链
+			10 button Source
+			11 button Tx EQ
+			12 button Channel
+			13 button Noise
+			14 button Rx CTLE
+			15 button Rx FFE
+			16 button DFE / Slicer
+			17 button Observe
+			18 heading 控制与判决旁支, Value: 2
+				19 text 控制与判决旁支
+			20 button CDR
+			21 button AGC
+			22 button Viterbi / MLSD
+			23 heading 全局设置与工具, Value: 2
+				24 text 全局设置与工具
+			25 button Simulation
+			26 button Device models
+			27 button IBIS-AMI
+			28 button Optimizer
+			29 button COM
+	30 container
+		31 text LOCAL NATIVE ENGINE
+		32 heading Signal Chain, Value: 1
+			33 text Signal Chain
+		34 search text field (settable) Description: 搜索所有模块和参数, ID: search
+		35 container draft-status
+			36 container
+				37 text 草稿已保留
+			38 text 源码默认配置
+		39 button 恢复全部默认, ID: reset-draft
+	40 container run-toolbar
+		41 button Run, ID: run
+		42 button (disabled) Abort, ID: abort
+		492 text normalize 6ab34b64 · succeeded · succeeded
+		44 text Untitled
+		45 button Load Config, ID: load-config
+		46 button 资源 / COM, ID: resources-open
+		47 button IBIS / AMI, ID: ami-open
+		48 button Native EQ 优化, ID: optimizer-open
+		49 button Save, ID: save-config
+		50 button Save As…, ID: save-as
+		51 button Help / About, ID: help
+		52 button Disconnect, ID: quit
+	53 text DFE consumes the continuous enabled prefix: 5 taps. Rx Cac is retained; the native producer does not consume it. RLM belongs to optimization; ordinary Run does not consume it.
+	280 container Description: run_id=software-ber_short; com_id=none, ID: parent-com-state
+		493 text 外部参考 ref-6352f6dd-a61e-490a-b3a3-5ea1cfc760ee · 原run software-ber_short · 完整存档；子任务仅显示保存时快照，见概览。
+	54 container result-actions
+		55 button 打开结果 / 加入比较, ID: open-results
+		56 checkbox (settable, integer) Description: 我选择的是可信本机 legacy pickle（可执行代码）, Value: 0, ID: trust-legacy
+		57 button 保存所选结果, ID: save-results
+		58 button 原生保存 / 损失清单, ID: legacy-results
+		59 button 恢复所选输入到草稿, ID: restore-run-input
+		60 button 移除所选参考, ID: remove-reference
+		61 button 清除加载的参考, ID: clear-references
+	282 text 已恢复所选记录 ref-6352f6dd-a61e-490a-b3a3-5ea1cfc760ee。
+	494 text 临时成功缓存 0/2 · 0 bytes（第三次成功淘汰最旧临时记录）；参考 4/4 · 21426964/1073741824 数组bytes；参考超预算拒绝，可显式移除。完整raw不存localStorage。
+	64 container
+		65 button (collapsed) 按原 GUI 查找设置 Config. / Equalization / Optimizer / 结果与菜单, Secondary Actions: Expand
+			66 text 按原 GUI 查找设置
+			67 text Config. / Equalization / Optimizer / 结果与菜单
+		68 container 链路总览
+			69 container 切换实现图示
+				70 text 实现方案
+				71 container
+					72 text Tx EQ
+					73 pop up button (collapsed, settable) Tx EQ, Value: Native, ID: tx-mode, Secondary Actions: Expand
+						74 menu
+							75 (selected) Native
+							76 AMI Init
+							77 AMI GetWave
+				78 container
+					79 text Rx EQ
+					80 pop up button (collapsed, settable) Rx EQ, Value: Native, ID: rx-mode, Secondary Actions: Expand
+						81 menu
+							82 (selected) Native
+							83 AMI Init
+							84 AMI GetWave
+				85 checkbox (disabled, settable, integer) Description: 请求模型时钟, Value: 0, ID: ami-clocks
+				86 button 恢复 Native, Help: 将 Tx/Rx 实现方案恢复为 Native, ID: reset-modes
+			87 container 信号链图，可横向滚动
+				88 container chain-map
+					89 button Source：NRZ · PRBS-7，查看设置
+						90 text Source
+						91 text NRZ · PRBS-7
+					92 button Tx EQ：Native FFE，查看设置
+						93 text Tx EQ
+						94 text Native FFE
+					95 button Channel：Native · 两端电气，查看设置
+						96 text Channel
+						97 text Native · 两端电气
+					98 button Noise：加法注入，查看设置
+						99 text Noise
+						100 text 加法注入
+					101 button Rx CTLE：Native · 已启用，查看设置
+						102 text Rx CTLE
+						103 text Native · 已启用
+					104 button Rx FFE：固定 FIR 系数，查看设置
+						105 text Rx FFE
+						106 text 固定 FIR 系数
+					107 button DFE / Slicer：自适应反馈 / 判决，查看设置
+						108 text DFE / Slicer
+						109 text 自适应反馈 / 判决
+					110 button Device models, Help: 器件、封装与 partial host
+					111 button Observe, Help: 误码与链路观察
+					112 button CDR, Help: 时钟恢复与采样时刻
+					113 button AGC, Help: 判决参考电平跟踪
+					114 button ↗ Viterbi, Help: 可选 Native ISI 序列检测
+			115 text Native：噪声在 Channel 后相加；CDR / AGC 控制采样与判决，不作为串行滤波级。
+		284 container Description: Native run analysis, ID: analysis
+			285 container
+				286 text Selected record
+				287 pop up button (collapsed, settable) Selected record, Value: 参考 · SYNTHETIC-ber_short.pybert_run · ref-6352f6dd, ID: selected-run, Secondary Actions: Expand
+					288 menu
+						289 Select record…
+						290 参考 · SYNTHETIC-full.pybert_run · ref-be5263f9
+						291 (selected) 参考 · SYNTHETIC-ber_short.pybert_run · ref-6352f6dd
+						292 参考 · SYNTHETIC-fft_gap.pybert_run · ref-9634ccf1
+						293 参考 · SYNTHETIC-future.pybert_run · ref-8cfc1d75
+			495 text Older input · draft or resource binding changed
+			295 container
+				296 text 比较参考
+				297 pop up button (collapsed, settable) 比较参考, Value: 自动选择另一条, ID: comparison-run, Secondary Actions: Expand
+					298 menu
+						299 (selected) 自动选择另一条
+						300 参考 · SYNTHETIC-full.pybert_run · ref-be5263f9
+						301 参考 · SYNTHETIC-ber_short.pybert_run · ref-6352f6dd
+						302 参考 · SYNTHETIC-fft_gap.pybert_run · ref-9634ccf1
+						303 参考 · SYNTHETIC-future.pybert_run · ref-8cfc1d75
+			304 container
+				305 text Analysis
+				306 pop up button (collapsed, settable) Analysis, Value: Run input comparison, ID: analysis-kind, Secondary Actions: Expand
+					307 menu
+						308 Responses
+						309 Waveform
+						310 Eye
+						311 Jitter Dist.
+						312 Jitter Spec.
+						313 Jitter Bathtub
+						314 Jitter Info
+						315 DFE Adaptation
+						316 CDR Adaptation
+						317 CDR Histogram
+						318 CDR Spectrum
+						319 Viterbi Trellis
+						320 Run overview
+						321 (selected) Run input comparison
+			322 container
+				323 text Point
+				324 pop up button (collapsed, settable) Point, Value: Follow node, ID: analysis-point, Secondary Actions: Expand
+					325 menu
+						326 (selected) Follow node
+						327 Channel-only
+						328 Rx input
+						329 CTLE output
+						330 Rx FFE output
+						331 DFE output
+			332 container
+				333 text Compare
+				334 pop up button (collapsed, settable) Compare, Value: Two successful runs, ID: compare-mode, Secondary Actions: Expand
+					335 menu
+						336 Selected point
+						337 Same run · all points
+						338 (selected) Two successful runs
+			339 button Restore settings, ID: expand-viewer
+			340 container Description: Selected run plot, ID: plot
+				420 text A ref-6352f6dd-a61e-490a-b3a3-5ea1cfc760ee / source software-ber_short · B ref-be5263f9-bd91-455e-b346-3e5070ff69d3 / source software-full
+			415 container analysis-info
+				421 table
+					422 row
+						423 cell
+							424 text A software
+						425 cell
+							426 text B software
+					427 row
+						428 cell
+							429 text n_errs_dfe
+						430 cell
+							431 text Unavailable: Too few actual decisions for this BER window.
+						432 cell
+							433 text 0
+					434 row
+						435 cell
+							436 text n_errs_viterbi
+						437 cell
+							438 text -1
+						439 cell
+							440 text -1
+					441 row
+						442 cell
+							443 text viterbi_availability
+						444 cell
+							445 text disabled
+						446 cell
+							447 text disabled
+					448 row
+						449 cell
+							450 text model_qualification
+						451 cell
+							452 text UNKNOWN
+						453 cell
+							454 text UNKNOWN
+					455 row
+						456 cell
+							457 text chnl_dly_s
+						458 cell
+							459 text 2.3875000000000003e-9
+						460 cell
+							461 text 2.3875000000000003e-9
+					462 row
+						463 cell
+							464 text rel_power
+						465 cell
+							466 text 0.0099853515625
+						467 cell
+							468 text 0.0099853515625
+					469 row
+						470 cell
+							471 text initial_level_v
+						472 cell
+							473 text 0.5
+						474 cell
+							475 text 0.5
+					476 row
+						477 cell
+							478 text final_level_v
+						479 cell
+							480 text 0.5
+						481 cell
+							482 text 0.5
+				483 text Input differences: None
+				484 text []
+				485 container
+					486 text A window {"nui":2048,"eye_uis":1024,"ignore_samps":8192,"ignore_until_s":1.024e-7}
+					487 text B window {"nui":2048,"eye_uis":1024,"ignore_samps":8192,"ignore_until_s":1.024e-7}
+				488 text Resources/runtime A
+				489 text {
+  "resources": [],
+  "runtime": {}
+}
+				490 text Resources/runtime B
+				491 text {
+  "resources": [],
+  "runtime": {}
+}
+		275 button (collapsed) Native EQ 优化 · 候选与真实 Run 独立, Secondary Actions: Expand
+			276 text Native EQ 优化 · 候选与真实 Run 独立
+		277 button (collapsed) Task logs / selected run logs, Secondary Actions: Expand
+			278 text Task logs / selected run logs
+	399 image js-plotly-tester
+
+The focused UI element is 334 pop up button (collapsed, settable) Compare, Value: Two successful runs, ID: compare-mode, Secondary Actions: Expand

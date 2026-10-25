@@ -381,7 +381,7 @@ def annotate(p, execution, reports, arrays, manifest):
     """Describe actual native branches and preserve helper data without creating internal state."""
     tx_gw = p.tx_use_ami and p.tx_use_getwave
     info = getattr(p, "ami_clock_info", {})
-    observed = bool(info.get("producer_contract_version") == 2 and info.get("invocation_id"))
+    observed = bool(info.get("producer_contract_version") in (2, 3) and info.get("invocation_id"))
     actual = info.get("actual_branch") if observed else None
     native_returned = actual == "native" and info.get("native_returned") is True
     model_clocks = actual == "ami"

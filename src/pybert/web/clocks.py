@@ -50,7 +50,7 @@ def clock_context(engine, snapshot=None):
     if snapshot is None and current.get("actual_branch") == "native":
         snapshot = snapshot_producer(engine, phase="native_collect")
     info = snapshot.get("info") if isinstance(snapshot, dict) else None
-    if (not info or info.get("producer_contract_version") != 2 or not snapshot.get("fresh")
+    if (not info or info.get("producer_contract_version") not in (2, 3) or not snapshot.get("fresh")
             or not isinstance(info.get("invocation_id"), str) or not info["invocation_id"]
             or info["invocation_id"] != current.get("invocation_id")):
         raise ValueError("Missing, stale or unsupported producer invocation")
@@ -64,6 +64,10 @@ def clock_context(engine, snapshot=None):
                     or len(info.get("edges_s", [None]))):
                 raise ValueError("Only legal empty clocks permit the Native fallback")
         return None
+    if info["producer_contract_version"] == 3:
+        from pybert.web.clock_v3 import live_context
+
+        return live_context(engine, snapshot)
     if (info.get("actual_branch") != "ami" or info.get("role") != "main"
             or info.get("main_origin") != "c1_fresh_main" or info.get("mode") != "rx_getwave"
             or not info.get("requested") or info.get("format_status") != "valid"
@@ -130,6 +134,7 @@ def eye_selection(context, slice_start, slice_stop):
     selected = context["window_indices"]
     absolute = selected[(selected >= slice_start) & (selected + width <= stop)]
     relative = absolute - slice_start
+    required = info["analysis"]["required_eye_traces"] if context["version"] == 3 else 1
     return relative, {"clock_basis": "producer absolute grid indices", "consumed_count": info["consumed_count"],
                       "window_sample_count": len(selected), "eligible_trace_count": len(relative),
                       "trace_count": 0, "absolute_indices": absolute.tolist(), "relative_indices": relative.tolist(),
@@ -138,7 +143,9 @@ def eye_selection(context, slice_start, slice_stop):
                       "ami.clock.sample_targets_s", "ami.clock.sample_grid_times_s"],
                       "window": dict(info["analysis"]), "trace_status": "not_attempted",
                       "availability": "unavailable",
-                      "reason": "not_calculated" if len(relative) else "no_complete_timed_trace"}
+                      "required_trace_count": required,
+                      "reason": "no_complete_timed_trace" if not len(relative) else
+                                "insufficient_timed_traces" if len(relative) < required else "not_calculated"}
 
 
 def period_projection(context, t, period_ps, ui):
@@ -247,6 +254,10 @@ def period_segments(t, period_ps, known, limit=4096):
 
 def store_clock_context(context, arrays, datasets):
     """Store the exact masked raw exception and its producer-owned coordinate arrays."""
+    if context["version"] == 3:
+        from pybert.web.clock_v3 import store_context
+
+        return store_context(context, arrays, datasets)
     info, raw = context["info"], context["raw"]
     t = raw["t"]
     full = dict(scope="full_record", time_axis="t", start_index=0, stop_index=len(t),
@@ -288,8 +299,20 @@ def clock_features(run, archive_features=()):
     features = run.get("required_features", [])
     if type(features) is not list:
         raise ValueError("required_features must be a list of supported feature names")
-    masked = run.get("raw_schema_version") == 6
+    masked = run.get("raw_schema_version") in (6, 7)
     if masked:
+        if run["raw_schema_version"] == 7:
+            from pybert.web.clock_v3 import FEATURE
+
+            if (type(run["raw_schema_version"]) is not int or features != [FEATURE]
+                    or not isinstance(contract, dict) or type(contract.get("version")) is not int
+                    or contract["version"] != 3 or contract.get("producer_contract_version") != 3
+                    or type(contract.get("producer_contract_version")) is not int
+                    or contract.get("actual_branch") != "ami" or contract.get("main_origin") != "same_init_after_probes"):
+                raise ValueError("raw7 requires AMI same-Init clock contract3 and its feature together")
+            if archive_features != () and archive_features != features:
+                raise ValueError("Unsupported or mismatched required archive features")
+            return list(features)
         if (type(run.get("raw_schema_version")) is not int
                 or features != ["ami-clock-grid-v2"] or not isinstance(contract, dict)
                 or type(contract.get("version")) is not int or contract["version"] != 2
@@ -305,6 +328,11 @@ def clock_features(run, archive_features=()):
 def validate_clock_arrays(run, arrays):
     """Validate stored references without rebuilding decisions, Eye, histogram or FFT."""
     if not clock_features(run):
+        return
+    if run["raw_schema_version"] == 7:
+        from pybert.web.clock_v3 import stored_context
+
+        stored_context(run, arrays)
         return
     contract = run["ami"]["clock_contract"]
     if (contract.get("array_fields") != {name: "ami.clock." + name for name in CLOCK_FIELDS}
@@ -372,6 +400,10 @@ def stored_clock_context(run, arrays):
     """Read an already saved contract for analysis; never generate a new invocation or execution claim."""
     if not clock_features(run):
         return None
+    if run["raw_schema_version"] == 7:
+        from pybert.web.clock_v3 import stored_context
+
+        return stored_context(run, arrays)
     validate_clock_arrays(run, arrays)
     contract = run["ami"]["clock_contract"]
     info = {**contract, **{name: arrays[field] for name, field in contract["array_fields"].items()},

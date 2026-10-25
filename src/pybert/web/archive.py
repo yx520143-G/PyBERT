@@ -90,7 +90,7 @@ def validate_run(run, arrays):
     if run.get("legacy"):
         raise ValueError("Legacy缺少完整原输入和物理轴，无法保存/打开为完整Web archive；请保留原文件与可用sidecar。")
     if (run.get("status") != "succeeded" or type(run.get("raw_schema_version")) is not int
-            or run["raw_schema_version"] not in (2, 3, 4, 5, 6)):
+            or run["raw_schema_version"] not in (2, 3, 4, 5, 6, 7)):
         raise ValueError("Unsupported run status/raw schema; no executable defaults substituted.")
     if run["raw_schema_version"] < 5 and "decoding" in run:
         raise ValueError("Decoding requires raw schema 5; older schema cannot bypass its validation.")
@@ -144,6 +144,10 @@ def validate_run(run, arrays):
         from pybert.web.viterbi import validate
 
         validate(run, arrays)
+    if run["raw_schema_version"] == 7:
+        from pybert.web.clock_v3 import validate_publication
+
+        validate_publication(run, arrays)
     return sum(array.nbytes for array in arrays.values())
 
 

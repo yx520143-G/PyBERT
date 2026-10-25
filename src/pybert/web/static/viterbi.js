@@ -18,7 +18,8 @@
     window.dispatchEvent(new CustomEvent('pybert-trellis-view'));
   });
   function berText(ber) {
-    return ['dfe','viterbi'].map(name=>`${name.toUpperCase()}: ${ber?.[name]?.availability==='available' ? `${ber[name].count} bit errors` : ber?.[name]?.availability==='disabled' ? '未启用（−1，未计算）' : '该记录未采集'}`).join(' · ');
+    const reason=row=>row.reason==='insufficient_frozen_ber_decisions' ? 'Too few actual decisions for this BER window.' : row.reason;
+    return ['dfe','viterbi'].map(name=>`${name.toUpperCase()}: ${ber?.[name]?.availability==='available' ? `${ber[name].count} bit errors` : ber?.[name]?.availability==='disabled' ? '未启用（−1，未计算）' : ber?.[name]?.availability==='unavailable' ? `Unavailable: ${reason(ber[name])}` : '该记录未采集'}`).join(' · ');
   }
   async function render(run,other,isCurrent) {
     const id=run.record_id||run.run_id;

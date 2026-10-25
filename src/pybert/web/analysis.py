@@ -243,10 +243,17 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract
                 relative, eye_meta = eye_selection(clock_contract, window["ignore_samps"], len(arrays[waveform]))
                 clock_contract["eye_consumers"]["analysis.eye.dfe"] = eye_meta
                 ys = arrays[waveform][eye_meta["slice_start"]:eye_meta["slice_stop"]]
-                if not len(relative):
+                if len(relative) < eye_meta["required_trace_count"]:
                     unavailable(plot_id, f"{label} eye", eye_meta["reason"])
                     plots[plot_id]["metadata"] = eye_meta
                     continue
+                if clock_contract["version"] == 3:
+                    y_max = 1.1 * max(abs(ys))
+                    if y_max <= 0 or 1000 // (2 * y_max) <= 0:
+                        eye_meta.update(reason="unusable_eye_voltage_scale")
+                        unavailable(plot_id, f"{label} eye", eye_meta["reason"])
+                        plots[plot_id]["metadata"] = eye_meta
+                        continue
             clocks = arrays["clock_times"]
             clocks = clocks[clocks >= window["ignore_until_s"]] - window["ignore_until_s"]
             recovered = point == "dfe" and len(clocks) > 0
@@ -275,6 +282,9 @@ def extend_analysis(arrays, manifest, cancelled=lambda: False, *, clock_contract
                                      metadata=datasets[zkey])
             except (ValueError, IndexError, FloatingPointError, ZeroDivisionError) as err:
                 if timed:
+                    if clock_contract["version"] == 3:
+                        eye_meta.update(trace_status="partial", reason=f"{type(err).__name__}: {err}")
+                        raise
                     eye_meta.update(availability="unavailable", reason=f"{type(err).__name__}: {err}",
                                     trace_count=None, trace_status="partial")
                 unavailable(plot_id, f"{label} eye", str(err))

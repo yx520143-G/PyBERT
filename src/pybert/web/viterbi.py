@@ -69,14 +69,15 @@ def extend(engine, captured, arrays, manifest):
 
     config = manifest["effective_input"]
     clock = stored_clock_context(manifest, arrays)
+    independent = clock is not None and clock["version"] == 3
     enabled = config["rx_use_viterbi"]
-    record = {"schema_version": 2, "availability": "available" if enabled else "disabled",
+    record = {"schema_version": 3 if independent else 2, "availability": "available" if enabled else "disabled",
               "reason": None if enabled else "Use Viterbi was disabled for this run; -1 means not calculated",
               "plan": plan(config, execution=True), "ber": {}, "producer": "models.bert / models.viterbi",
               "probability": "native raw state probability, dimensionless; not BER",
               "display": {"initial_symbols": 10, "log10_floor": -20, "raw_unchanged": True}}
     if clock is not None:
-        record["clock_source"] = {"version": 2, "invocation_id": clock["info"]["invocation_id"],
+        record["clock_source"] = {"version": clock["version"], "invocation_id": clock["info"]["invocation_id"],
                                   "sample_selection": "last W producer indices within the frozen target/grid window"}
     datasets = manifest["datasets"]
 
@@ -101,6 +102,12 @@ def extend(engine, captured, arrays, manifest):
             record["ber"][name] = {"availability": "disabled", "count": -1}
             continue
         row = captured[name]
+        if independent and name == "dfe" and row.get("availability") == "unavailable":
+            record["ber"][name] = {key: row[key] for key in
+                ("availability", "reason", "required_decisions", "available_decisions")}
+            record["ber"][name]["count"] = None
+            add("ber.dfe.bits_out", row["bits_out"], window={"kind": "actual NRZ decisions; BER unavailable"})
+            continue
         meta = {key: int(value) for key, value in row.items() if key not in BER_ARRAYS}
         window = {"kind": "calc_ber tail", **meta, "indices": "errors relative to test bit window"}
         record["ber"][name] = {"availability": "available", **meta}
@@ -168,7 +175,9 @@ def validate(run, arrays):
     """Validate the complete primitive decoding contract before archive publication."""
     record = run.get("decoding")
     clock = stored_clock_context(run, arrays)
-    if not isinstance(record, dict) or type(record.get("schema_version")) is not int or record["schema_version"] not in (1, 2):
+    independent = clock is not None and clock["version"] == 3
+    if (not isinstance(record, dict) or type(record.get("schema_version")) is not int
+            or record["schema_version"] not in ((3,) if independent else (1, 2))):
         raise ValueError("Missing/unknown decoding schema")
     config = run["effective_input"]
     hashes = {key.replace("\\", "/"): value for key, value in run.get("actual_source_sha256", {}).items()}
@@ -179,6 +188,8 @@ def validate(run, arrays):
     if config.get("rx_viterbi_fec"):
         raise ValueError("unsupported_native_fec in archive")
     enabled = config.get("rx_use_viterbi")
+    if independent and enabled:
+        raise ValueError("unsupported_ami_viterbi in archive")
     if type(enabled) is not bool or record.get("availability") != ("available" if enabled else "disabled"):
         raise ValueError("Decoding availability/input mismatch")
     expected_plan = plan(config, execution=True)
@@ -187,7 +198,7 @@ def validate(run, arrays):
     if record.get("display") != {"initial_symbols": 10, "log10_floor": -20, "raw_unchanged": True}:
         raise ValueError("Missing/unknown decoding display contract")
     if clock is not None and record.get("clock_source") != {
-            "version": 2, "invocation_id": clock["info"]["invocation_id"],
+            "version": clock["version"], "invocation_id": clock["info"]["invocation_id"],
             "sample_selection": "last W producer indices within the frozen target/grid window"}:
         raise ValueError("Missing/inconsistent AMI decoding producer clock source")
 
@@ -216,6 +227,22 @@ def validate(run, arrays):
             if any(key.startswith(("viterbi.", "ber.viterbi.")) for key in arrays):
                 raise ValueError("Disabled Viterbi contains stale decoder data")
             continue
+        if independent and name == "dfe":
+            info = clock["info"]
+            if config["mod_type"] != "NRZ" or info["analysis"]["required_decisions"] != config["eye_bits"]:
+                raise ValueError("AMI v3 BER must retain the declared NRZ window")
+            if not np.array_equal(get("ber.dfe.bits_out", integer=True), np.asarray(info["bits"], dtype=int)):
+                raise ValueError("AMI v3 BER lost original output bits")
+            if not info["ber_eligible"]:
+                expected = {"availability": "unavailable", "reason": "insufficient_frozen_ber_decisions",
+                            "required_decisions": config["eye_bits"],
+                            "available_decisions": len(info["window_sample_indices"]), "count": None}
+                if (row != expected or run["summary"].get("n_errs_dfe") is not None
+                        or run["summary"].get("dfe_ber") != info["ber_status"]
+                        or any("ber.dfe." + key in arrays for key in BER_ARRAYS if key != "bits_out")
+                        or arrays["bit_errs_dfe"].size):
+                    raise ValueError("Unavailable AMI BER cannot contain a count or fabricated alignment")
+                continue
         for field in ("count", "bit_delay", "test_start_bit", "test_stop_bit", "reference_start_bit", "reference_stop_bit"):
             if type(row.get(field)) is not int or row[field] < 0:
                 raise ValueError(f"{name}: invalid BER window {field}")

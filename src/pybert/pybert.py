@@ -1057,7 +1057,9 @@ class PyBERT(HasTraits):  # pylint: disable=too-many-instance-attributes
     def _get_status_str(self):
         status_str = f"{self.status:30} | Perf. (Msmpls./min.): {self.total_perf * 60.0e-6:4.1f}"
         dly_str = f"    | ChnlDly (ns): {self.chnl_dly * 1000000000.0:5.3f}"
-        err_str = f"    | BitErrs: {int(self.n_errs_dfe)} ({int(self.n_errs_viterbi)})"
+        dfe_errors = ("unavailable" if self.ami_clock_info.get("ber_status", {}).get("availability") == "unavailable"
+                      else str(int(self.n_errs_dfe)))
+        err_str = f"    | BitErrs: {dfe_errors} ({int(self.n_errs_viterbi)})"
         pwr_str = f"    | TxPwr (mW): {self.rel_power * 1e3:3.0f}"
         status_str += dly_str + err_str + pwr_str
         jit_str = "    | Jitter (ps):  ISI=%6.1f  DCD=%6.1f  Pj=%6.1f (%6.1f)  Rj=%6.1f (%6.1f)" % (

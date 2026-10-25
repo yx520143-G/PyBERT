@@ -159,6 +159,9 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
     datasets["start_ix"].update(unit="sample index", producer="PyBERT.calc_chnl_h.start_ix", point="chnl")
     datasets["noise"].update(producer="my_run_simulation.noise before FEXT addition", point="noise")
     for key in WAVEFORMS + ("noise", "ui_ests", "clocks", "lockeds"):
+        if key == "lockeds" and clock is not None and clock["version"] == 3 and not arrays[key].size:
+            datasets[key].update(axis=None, availability="unavailable", reason="native_cdr_bypassed; model lock unknown")
+            continue
         if arrays[key].shape != arrays["t"].shape:
             raise ValueError(f"{key}: incomplete time record")
     for point in RESPONSES:
@@ -311,13 +314,18 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         if timed:
             relative, eye_meta = eye_selection(clock, window["ignore_samps"], len(arrays[field]))
             clock["eye_consumers"]["collect.eye.dfe"] = eye_meta
-            if not len(relative):
+            if len(relative) < eye_meta["required_trace_count"]:
                 plots["eye.dfe"] = dict(title="DFE timed eye", traces=[], availability="unavailable",
                                         reason=eye_meta["reason"], metadata=eye_meta)
                 continue
         stop = eye_meta["slice_stop"] if timed else len(arrays[field])
         ys = arrays[field][window["ignore_samps"]:stop]
         y_max = 1.1 * max(abs(ys))
+        if timed and clock["version"] == 3 and (y_max <= 0 or 1000 // (2 * y_max) <= 0):
+            eye_meta.update(reason="unusable_eye_voltage_scale")
+            plots["eye.dfe"] = {"title": "DFE timed eye", "traces": [], "availability": "unavailable",
+                                "reason": eye_meta["reason"], "metadata": eye_meta}
+            continue
         y_scale, y_offset = 1000 // (2 * y_max), 500
         if y_scale <= 0:
             raise ValueError(f"{point}: native eye mapping has zero scale")
@@ -402,6 +410,17 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
             for k in ("channel", "tx", "ctle", "ffe", "dfe", "jitter", "total")
         },
     }
+    if clock is not None and clock["version"] == 3:
+        summary.update(dfe_ber=dict(clock["info"]["ber_status"]), model_qualification="UNKNOWN")
+        for name in ("dfe_slicer_samps", "dfe_slicer_decisions"):
+            datasets[name].update(window=dict(clock["info"]["analysis"]),
+                                  clock_basis="available final W producer samples; may be fewer than W",
+                                  ber_availability=summary["dfe_ber"]["availability"],
+                                  source_fields=["ami.clock.analysis_sample_indices"])
+        datasets["bit_errs_dfe"].update(availability=summary["dfe_ber"]["availability"],
+                                       reason=summary["dfe_ber"]["reason"])
+        if summary["dfe_ber"]["availability"] != "available":
+            summary["n_errs_dfe"] = None
     manifest = dict(
         schema_version=SCHEMA_VERSION,
         raw_schema_version=RAW_SCHEMA_VERSION,
@@ -426,6 +445,10 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
     if clock is not None:
         manifest.update(raw_schema_version=AMI_RAW_SCHEMA_VERSION, required_features=[AMI_CLOCK_FEATURE],
                         ami={"schema_version": 1, "clock_contract": clock_record})
+        if clock["version"] == 3:
+            from pybert.web.clock_v3 import FEATURE
+
+            manifest.update(raw_schema_version=7, required_features=[FEATURE])
         datasets["clock_times"].update(clock_basis="producer actual grid times",
                                       source_fields=["ami.clock.sample_grid_times_s"])
     directory = Path(directory)
@@ -449,7 +472,7 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         from pybert.web.ami import annotate
 
         annotate(p, ami[0], ami[1], arrays, manifest)
-    if clock is not None:
+    if clock is not None and clock["version"] == 2:
         required = clock["info"]["analysis"]["required_eye_traces"]
         for name in ("collect.eye.dfe", "analysis.eye.dfe"):
             record = clock["eye_consumers"].get(name, {})
@@ -458,6 +481,11 @@ def collect(engine, observations, directory, identity, cancelled=lambda: False, 
         if any(record["availability"] != "available"
                for record in manifest["ami"]["clock_contract"]["period_analysis"].values()):
             raise ValueError("Incomplete required AMI period analysis; raw snapshot retained")
+    if clock is not None and clock["version"] == 3:
+        from pybert.web.clock_v3 import analysis_availability, validate_publication
+
+        manifest["analysis_availability"] = analysis_availability(manifest)
+        validate_publication(manifest, arrays)
     np.savez_compressed(directory / "arrays.npz", **arrays)
     (directory / "manifest.json").write_text(json.dumps(manifest, indent=2, allow_nan=False), encoding="utf-8")
     return manifest
