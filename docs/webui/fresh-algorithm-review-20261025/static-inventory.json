@@ -1,0 +1,4199 @@
+{
+  "base": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+  "current": "ab36b656a61cb6866da98105d72f6cacfb118031",
+  "base_tree": "01664af7efc17b52b535e03f93ed093dc9e0584b",
+  "current_tree": "8412b639f4dd6f51c227e19d649a333fbad9d6a2",
+  "scope": "Git blob identity plus unmodified whole-function AST (including docstrings). No observation stripping, no product imports, no numerical execution.",
+  "change_counts": {
+    "src/": 40,
+    "docs/": 4699,
+    "tests/": 15,
+    "tools/": 86
+  },
+  "products": [
+    {
+      "path": ".gitattributes",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "efd5eba1c3dee3edaadb2d8bef40f50dbcc843d2"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "f712b1a1f79b388d744cae655d2b2fa96a0d0412"
+      },
+      "status": "modified",
+      "commits": [
+        "3495fa7 docs(web): deliver issue9 numeric Chrome and lifecycle evidence",
+        "13172a8 docs(web): preserve AMI numerical and Chrome closeout evidence"
+      ]
+    },
+    {
+      "path": ".gitignore",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "cc7b08c845963a922da12ebef8eb69060e0d3f20"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "c18e45c72e85d2cf0be66f6823439ec4dd0aa4be"
+      },
+      "status": "modified",
+      "commits": [
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)"
+      ]
+    },
+    {
+      "path": ".gitmodules",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "05339ce223229db811ad11a3f04a70317176a5c1"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "c9fbb518029b5069e11fd04f740820e25a49f43e"
+      },
+      "status": "modified",
+      "commits": [
+        "fa76df8 build: pin reviewed PyAMI fork for uv and pip"
+      ]
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e39211cbad60a81746557af65f2592fdef3974bb"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "016fc33c3f52d9083ad6566aa50b2defbef7c64d"
+      },
+      "status": "modified",
+      "commits": [
+        "8ae4bce build: preserve raw dependency evidence in hooks",
+        "8ad70c4 build: pin PyAMI response RNG API to reviewed SHA"
+      ]
+    },
+    {
+      "path": "MANIFEST.in",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "a04be5a499637c7d5d0a59415df54c226a684388"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "a04be5a499637c7d5d0a59415df54c226a684388"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "PyAMI",
+      "base": {
+        "mode": "160000",
+        "kind": "commit",
+        "object": "5270d713e40bac2be5747bef09b92df79df9085b"
+      },
+      "current": {
+        "mode": "160000",
+        "kind": "commit",
+        "object": "d6d1f7fe7e58536546a1cfb9430c750cc2cb103e"
+      },
+      "status": "modified",
+      "commits": [
+        "fa76df8 build: pin reviewed PyAMI fork for uv and pip",
+        "8ad70c4 build: pin PyAMI response RNG API to reviewed SHA"
+      ]
+    },
+    {
+      "path": "PyChOpMarg",
+      "base": {
+        "mode": "160000",
+        "kind": "commit",
+        "object": "ca905e793fcf6330929471317ca32e7611578e5d"
+      },
+      "current": {
+        "mode": "160000",
+        "kind": "commit",
+        "object": "ca905e793fcf6330929471317ca32e7611578e5d"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "pyproject.toml",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "a792bdd6c208be036c2bbaa5212cd1a3acdf15fd"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "3de750167c834860c413f63f5519a9393487e6db"
+      },
+      "status": "modified",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "fa76df8 build: pin reviewed PyAMI fork for uv and pip",
+        "8ad70c4 build: pin PyAMI response RNG API to reviewed SHA"
+      ]
+    },
+    {
+      "path": "src/pybert/__init__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "4386836287b5e0e3a1e022046c48ee75fbfe6379"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "4386836287b5e0e3a1e022046c48ee75fbfe6379"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/__main__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "40ac1e54768ab0ff814d3d99c5a09923df268dd4"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "40ac1e54768ab0ff814d3d99c5a09923df268dd4"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/cli.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "62dfd1872b8617583fe0338ddbd5c91551f55523"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e8e42092acc19a9af732c11632092b0f86477e96"
+      },
+      "status": "modified",
+      "symbols": [
+        {
+          "name": "cli",
+          "base": {
+            "line": 16,
+            "end": 29,
+            "ast_sha256": "4f0fdab6ba4b65e208b856d8992e0c9e430fd8f8e9afcca0c3381641e96ae76e"
+          },
+          "current": {
+            "line": 16,
+            "end": 29,
+            "ast_sha256": "4f0fdab6ba4b65e208b856d8992e0c9e430fd8f8e9afcca0c3381641e96ae76e"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "mcp",
+          "base": {
+            "line": 52,
+            "end": 58,
+            "ast_sha256": "59423cef689e280e041379f5b585daa360e8f031fb5ba9cd511dc2389b377d0c"
+          },
+          "current": {
+            "line": 52,
+            "end": 58,
+            "ast_sha256": "59423cef689e280e041379f5b585daa360e8f031fb5ba9cd511dc2389b377d0c"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "sim",
+          "base": {
+            "line": 35,
+            "end": 48,
+            "ast_sha256": "33f240b13fca2e2105b18eba601df967a336ecdd34faf8f7d1cc1dc66b0ed943"
+          },
+          "current": {
+            "line": 35,
+            "end": 48,
+            "ast_sha256": "33f240b13fca2e2105b18eba601df967a336ecdd34faf8f7d1cc1dc66b0ed943"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "web",
+          "base": null,
+          "current": {
+            "line": 63,
+            "end": 70,
+            "ast_sha256": "5b10f635dd5f82b5e1fc2a4d366458d6c794422a9a45bb38d766a22ada87c35f"
+          },
+          "ast_equal": false
+        }
+      ],
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench"
+      ]
+    },
+    {
+      "path": "src/pybert/common.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "a16ef0e05a14b2eb0cbfc1d9f7976bafab518492"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "a16ef0e05a14b2eb0cbfc1d9f7976bafab518492"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/configuration.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "ab8e20cefb1c85a027e2bdb1771f58631add353f"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "ab8e20cefb1c85a027e2bdb1771f58631add353f"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/gui/__init__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/gui/handler.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "d538fadfeb7f3842116848f872f0eea7e95b87d2"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "d538fadfeb7f3842116848f872f0eea7e95b87d2"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/gui/help.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5c6863204dfde00e2ed6976c1b4113e5c96fc4b5"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5c6863204dfde00e2ed6976c1b4113e5c96fc4b5"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/gui/images/icon.png",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "6d497cab3541abdc156e116fa5283fd44b99877f"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "6d497cab3541abdc156e116fa5283fd44b99877f"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/gui/plot.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "c1f533dfd2bc767dcbfa0fc57a2c99c3e38d7c51"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5758449d09e7758c591d08546f65b3732b240a7e"
+      },
+      "status": "modified",
+      "symbols": [
+        {
+          "name": "make_plots",
+          "base": {
+            "line": 74,
+            "end": 675,
+            "ast_sha256": "9cd58535dfae842c02c0f7200b3a873d705ee543fca59e92e24e68a4441259ee"
+          },
+          "current": {
+            "line": 75,
+            "end": 678,
+            "ast_sha256": "8463dae2ea5815a17c28bc744de2c50105d5e681a367e0885754f914d08f3dfb"
+          },
+          "ast_equal": false
+        }
+      ],
+      "commits": [
+        "418d72b Refs #10: freeze bounded D1 integration and complete consumer wiring"
+      ]
+    },
+    {
+      "path": "src/pybert/gui/view.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "af4317322990f6ca1fb9a3431799f58862b51f44"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "af4317322990f6ca1fb9a3431799f58862b51f44"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/mcp/__init__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "abbfa889dc1389d991cb643dd2b3b73fca0d0e81"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "abbfa889dc1389d991cb643dd2b3b73fca0d0e81"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/mcp/server.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "1613bf7413fc9574d29962a8280de1c61a9070b5"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "1613bf7413fc9574d29962a8280de1c61a9070b5"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/models/__init__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "c7fdfdf6bf9b92045eeefb1b97d4d015b4eda77c"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "c7fdfdf6bf9b92045eeefb1b97d4d015b4eda77c"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/models/bert.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "f36e80238c52fd46c2184d6d78b86e05f75ebed2"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "30cd767a2a2345918e3f26c52f90b043d187a854"
+      },
+      "status": "modified",
+      "symbols": [
+        {
+          "name": "compute_com",
+          "base": {
+            "line": 1066,
+            "end": 1103,
+            "ast_sha256": "fec04a4e2d038bb091c846e03a9b3ac1f8be40321ce22fcb8dbbe29fa471f86d"
+          },
+          "current": {
+            "line": 1197,
+            "end": 1234,
+            "ast_sha256": "fec04a4e2d038bb091c846e03a9b3ac1f8be40321ce22fcb8dbbe29fa471f86d"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "getwave_parameters",
+          "base": null,
+          "current": {
+            "line": 85,
+            "end": 146,
+            "ast_sha256": "c51cb1d486e341d69169840eb689e73739acb7b4ea85c5a00b6a522652d5c512"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "getwave_parameters.collect_numeric",
+          "base": null,
+          "current": {
+            "line": 98,
+            "end": 118,
+            "ast_sha256": "26278aa1795dd362b21f609a7231f1a7c818fcc3b71b22760af19b8535ea86c5"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "my_run_simulation",
+          "base": {
+            "line": 84,
+            "end": 1063,
+            "ast_sha256": "0f4c606672ad03ce2c4769c746a73d21b366d65a5b29066659043c5412bddf28"
+          },
+          "current": {
+            "line": 150,
+            "end": 1194,
+            "ast_sha256": "c8997a87fb0a6d30d7a5e9d7e8140a0fd8dddeef215c1f72907672ad68744a8a"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "my_run_simulation._check_sim_status",
+          "base": {
+            "line": 113,
+            "end": 117,
+            "ast_sha256": "24f7b8ec89faefca034b30b240435a61ab409b6f8cc507eabfe2f251ca707804"
+          },
+          "current": {
+            "line": 196,
+            "end": 200,
+            "ast_sha256": "24f7b8ec89faefca034b30b240435a61ab409b6f8cc507eabfe2f251ca707804"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "my_run_simulation.calc_ber",
+          "base": {
+            "line": 604,
+            "end": 640,
+            "ast_sha256": "190e1d97bdf28c426227e75e14d154a43f11bfa41d1c44dfc670e6554003e7f1"
+          },
+          "current": {
+            "line": 685,
+            "end": 735,
+            "ast_sha256": "3cc4b0bc86aaaf9a70364c51fa10f8416dba390b25f46995cf12590eb66e5cbc"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "my_run_simulation.capture_jitter",
+          "base": null,
+          "current": {
+            "line": 952,
+            "end": 957,
+            "ast_sha256": "c4158b561f4897a55fcde30e7b325acb92b3d1e86ee6421a9365724cde7e91a1"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "my_run_simulation.eye_xings",
+          "base": {
+            "line": 800,
+            "end": 814,
+            "ast_sha256": "667627fd06bdb393596c1afa38d2d825396b6d199a216b21565c63eb315e5a54"
+          },
+          "current": {
+            "line": 909,
+            "end": 923,
+            "ast_sha256": "667627fd06bdb393596c1afa38d2d825396b6d199a216b21565c63eb315e5a54"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "my_run_simulation.get_ctle_h",
+          "base": {
+            "line": 275,
+            "end": 291,
+            "ast_sha256": "dd6341b6fcf6f61935b3c9e3d8b0f9f67dab47ab7ef1ff5963e02b08920bd7ee"
+          },
+          "current": {
+            "line": 363,
+            "end": 379,
+            "ast_sha256": "dd6341b6fcf6f61935b3c9e3d8b0f9f67dab47ab7ef1ff5963e02b08920bd7ee"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "my_run_simulation.get_numeric_values",
+          "base": {
+            "line": 367,
+            "end": 378,
+            "ast_sha256": "9b1865d615884cced687267f73b5f84818406ef2202c0c6623dbc74e1cd2c84d"
+          },
+          "current": null,
+          "ast_equal": false
+        },
+        {
+          "name": "update_eyes",
+          "base": {
+            "line": 1446,
+            "end": 1494,
+            "ast_sha256": "610e9a08370064c03a2698219b3196ee78419b9cda1189e2fb4a96e7b600b010"
+          },
+          "current": {
+            "line": 1604,
+            "end": 1652,
+            "ast_sha256": "610e9a08370064c03a2698219b3196ee78419b9cda1189e2fb4a96e7b600b010"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "update_results",
+          "base": {
+            "line": 1108,
+            "end": 1443,
+            "ast_sha256": "b75f53d9faec61460b0d43f06ee07aa1f252b02f81175e6ae47071433e4d92fb"
+          },
+          "current": {
+            "line": 1239,
+            "end": 1499,
+            "ast_sha256": "ee6447ecdf63d3740641c3be89699e29ad52651367adaa5f178d64c8e30e0e67"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "update_trellis",
+          "base": null,
+          "current": {
+            "line": 1502,
+            "end": 1601,
+            "ast_sha256": "223c719341c55b5c80ed2e9e2f785155a7fc531fb1445dc486c946d01d658327"
+          },
+          "ast_equal": false
+        }
+      ],
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9",
+        "80100e2 fix: consume Rx AMI GetWave tuple parameters (#22)",
+        "ec72c92 fix: isolate Rx response probes from the main epoch",
+        "418d72b Refs #10: freeze bounded D1 integration and complete consumer wiring",
+        "0a7a036 fix: preserve clock provenance in Traits dictionary storage"
+      ]
+    },
+    {
+      "path": "src/pybert/models/cdr.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "4315925359285df92741e33fe71a3562f0260def"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "4315925359285df92741e33fe71a3562f0260def"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/models/com.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e50b70897d6504175d28aa1e4dded36dab68aac5"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e50b70897d6504175d28aa1e4dded36dab68aac5"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/models/dfe.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5ef6bce87ff07ecadcbdd9c6fa36614a501a6f2d"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5ef6bce87ff07ecadcbdd9c6fa36614a501a6f2d"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/models/fec.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "7997590e77a88722e278a8c95e9e8cb2f29adb42"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "7997590e77a88722e278a8c95e9e8cb2f29adb42"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/models/tx_tap.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5fe0384712a0128ced0f6860e482aa71beb567e9"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5fe0384712a0128ced0f6860e482aa71beb567e9"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/models/viterbi.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "b757ab4e1ed0acad42861bd330b33c65dd17a4c4"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "b757ab4e1ed0acad42861bd330b33c65dd17a4c4"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/parsers/__init__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "6d7b6625b917d9d23bbcd724aa84b871bb8a185d"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "6d7b6625b917d9d23bbcd724aa84b871bb8a185d"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/parsers/hspice.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "94120b176fad39c68677b4daf8d569f09d96144c"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "94120b176fad39c68677b4daf8d569f09d96144c"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/py.typed",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/pybert.py",
+      "base": {
+        "mode": "100755",
+        "kind": "blob",
+        "object": "f9da94d2eb9e3cdc4d85cd544bb8b2a3c3d793dc"
+      },
+      "current": {
+        "mode": "100755",
+        "kind": "blob",
+        "object": "12dcf5d1a8f82e88e9b2753e39c56c2a41769c82"
+      },
+      "status": "modified",
+      "symbols": [
+        {
+          "name": "PyBERT",
+          "base": {
+            "line": 141,
+            "end": 1767,
+            "ast_sha256": "1f9c4c09f1f5317ecc976cc6f1c0608f63d7e63e9327e4b9f18d18fc77829462"
+          },
+          "current": {
+            "line": 142,
+            "end": 1774,
+            "ast_sha256": "1efe1cd94353e81484002704bd7c11b00cfc2af0273c3a54f2ffb6e46a43acc9"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "PyBERT.__init__",
+          "base": {
+            "line": 482,
+            "end": 527,
+            "ast_sha256": "fef3a6a285cd399c7c3676224ed87748dd397bbcb6eecb4a88d07d2138367951"
+          },
+          "current": {
+            "line": 485,
+            "end": 530,
+            "ast_sha256": "fef3a6a285cd399c7c3676224ed87748dd397bbcb6eecb4a88d07d2138367951"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_cfg_rx_fired",
+          "base": {
+            "line": 560,
+            "end": 563,
+            "ast_sha256": "512b0a194b70b047938c4ab6cca4ce09c3df66ce502e0ed65c6a27556c47b0ff"
+          },
+          "current": {
+            "line": 563,
+            "end": 566,
+            "ast_sha256": "512b0a194b70b047938c4ab6cca4ce09c3df66ce502e0ed65c6a27556c47b0ff"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_cfg_tx_fired",
+          "base": {
+            "line": 557,
+            "end": 558,
+            "ast_sha256": "10d7fee73e88186b1614a9f0b79a1cc2dee95a3d7c11fae17eb8626215462a2d"
+          },
+          "current": {
+            "line": 560,
+            "end": 561,
+            "ast_sha256": "10d7fee73e88186b1614a9f0b79a1cc2dee95a3d7c11fae17eb8626215462a2d"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_disable_ffe_fired",
+          "base": {
+            "line": 543,
+            "end": 548,
+            "ast_sha256": "46c279540bd5bc13a1451ba24594ea8ff7bba12926fa9c2c0b1db36b9ebdae1e"
+          },
+          "current": {
+            "line": 546,
+            "end": 551,
+            "ast_sha256": "46c279540bd5bc13a1451ba24594ea8ff7bba12926fa9c2c0b1db36b9ebdae1e"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_disable_fired",
+          "base": {
+            "line": 529,
+            "end": 534,
+            "ast_sha256": "df54db2b459b20913a1949e2dce7406f0420490d18589ce9a5e88fe16adc0800"
+          },
+          "current": {
+            "line": 532,
+            "end": 537,
+            "ast_sha256": "df54db2b459b20913a1949e2dce7406f0420490d18589ce9a5e88fe16adc0800"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_enable_ffe_fired",
+          "base": {
+            "line": 550,
+            "end": 555,
+            "ast_sha256": "cdc5003d6733229e51bcd10dbaefcb6eead7ec42c1ef29bc1383239aa4b06f66"
+          },
+          "current": {
+            "line": 553,
+            "end": 558,
+            "ast_sha256": "cdc5003d6733229e51bcd10dbaefcb6eead7ec42c1ef29bc1383239aa4b06f66"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_enable_fired",
+          "base": {
+            "line": 536,
+            "end": 541,
+            "ast_sha256": "f69b192e512bd029b1986c11b125ee70f04ffda268c5c12e1ae152f560db7582"
+          },
+          "current": {
+            "line": 539,
+            "end": 544,
+            "ast_sha256": "f69b192e512bd029b1986c11b125ee70f04ffda268c5c12e1ae152f560db7582"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_sel_rx_fired",
+          "base": {
+            "line": 569,
+            "end": 571,
+            "ast_sha256": "c4f11ff73ceac6de20d686f0aa4d3c805d944e179b33e5685e7960ee13da5303"
+          },
+          "current": {
+            "line": 572,
+            "end": 574,
+            "ast_sha256": "c4f11ff73ceac6de20d686f0aa4d3c805d944e179b33e5685e7960ee13da5303"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_sel_tx_fired",
+          "base": {
+            "line": 565,
+            "end": 567,
+            "ast_sha256": "71776396d46fe91db5f2887d44fcdf55eb28b1e94d20a4c1dc6624d328e9a699"
+          },
+          "current": {
+            "line": 568,
+            "end": 570,
+            "ast_sha256": "71776396d46fe91db5f2887d44fcdf55eb28b1e94d20a4c1dc6624d328e9a699"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_view_rx_fired",
+          "base": {
+            "line": 576,
+            "end": 577,
+            "ast_sha256": "07cc4260f7eec3669814d70ee0d09b0d377f456c1b884abc85b61ab46ec6448d"
+          },
+          "current": {
+            "line": 579,
+            "end": 580,
+            "ast_sha256": "07cc4260f7eec3669814d70ee0d09b0d377f456c1b884abc85b61ab46ec6448d"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._btn_view_tx_fired",
+          "base": {
+            "line": 573,
+            "end": 574,
+            "ast_sha256": "e2155d122fa46c398af5e1736b20f1c5364b62c8e711d563ef69828f2f28bfc4"
+          },
+          "current": {
+            "line": 576,
+            "end": 577,
+            "ast_sha256": "e2155d122fa46c398af5e1736b20f1c5364b62c8e711d563ef69828f2f28bfc4"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._ctle_sel_changed",
+          "base": {
+            "line": 1269,
+            "end": 1270,
+            "ast_sha256": "89483b48fb13272b606e27cb8ddc3cec8d03ada159d785b9322e0442f3f0aba3"
+          },
+          "current": {
+            "line": 1272,
+            "end": 1273,
+            "ast_sha256": "89483b48fb13272b606e27cb8ddc3cec8d03ada159d785b9322e0442f3f0aba3"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._debug_changed",
+          "base": {
+            "line": 1162,
+            "end": 1164,
+            "ast_sha256": "129ed2060692ac6c4daf87308051d61615566c6a21e89f58c32e27531e70c392"
+          },
+          "current": {
+            "line": 1165,
+            "end": 1167,
+            "ast_sha256": "129ed2060692ac6c4daf87308051d61615566c6a21e89f58c32e27531e70c392"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._dfe_tap_tuners_changed",
+          "base": {
+            "line": 1086,
+            "end": 1090,
+            "ast_sha256": "a6a15a1ebd371eb4d36a60ca92ad9754e6132f363390eff017cf78316c4525f6"
+          },
+          "current": {
+            "line": 1089,
+            "end": 1093,
+            "ast_sha256": "a6a15a1ebd371eb4d36a60ca92ad9754e6132f363390eff017cf78316c4525f6"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._dfe_tap_tuners_default",
+          "base": {
+            "line": 227,
+            "end": 249,
+            "ast_sha256": "a2a19c1ecabb2e14fa39afd3374896d9b1bdd078aff7fa11b1b327ba0a5f0d17"
+          },
+          "current": {
+            "line": 228,
+            "end": 250,
+            "ast_sha256": "a2a19c1ecabb2e14fa39afd3374896d9b1bdd078aff7fa11b1b327ba0a5f0d17"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._eye_bits_changed",
+          "base": {
+            "line": 1362,
+            "end": 1365,
+            "ast_sha256": "243c50abdb307e871d665b4614dfee59f144a459bbddb1f4a65d3d712614968a"
+          },
+          "current": {
+            "line": 1365,
+            "end": 1368,
+            "ast_sha256": "243c50abdb307e871d665b4614dfee59f144a459bbddb1f4a65d3d712614968a"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._f_max_changed",
+          "base": {
+            "line": 1367,
+            "end": 1371,
+            "ast_sha256": "5f84de4b92891c59964c7ceb04261f947c553bcaa8efbd6a191895c8532f5e9f"
+          },
+          "current": {
+            "line": 1370,
+            "end": 1374,
+            "ast_sha256": "5f84de4b92891c59964c7ceb04261f947c553bcaa8efbd6a191895c8532f5e9f"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._ffe_tap_tuners_default",
+          "base": {
+            "line": 254,
+            "end": 255,
+            "ast_sha256": "30523ae145cc96e3b6d67f5560305ce55dd1cdf6c2984dfe3989701ffeff07c6"
+          },
+          "current": {
+            "line": 255,
+            "end": 256,
+            "ast_sha256": "30523ae145cc96e3b6d67f5560305ce55dd1cdf6c2984dfe3989701ffeff07c6"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_L",
+          "base": {
+            "line": 681,
+            "end": 692,
+            "ast_sha256": "09b026005c359823cf9fc965a21b56c90065ed87f0fdf0c4a79391edd6b2439a"
+          },
+          "current": {
+            "line": 684,
+            "end": 695,
+            "ast_sha256": "09b026005c359823cf9fc965a21b56c90065ed87f0fdf0c4a79391edd6b2439a"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_bits",
+          "base": {
+            "line": 633,
+            "end": 648,
+            "ast_sha256": "f1626291467479e6fda028ad1854a4ae40eec8ab49e3b31c7cbc577ad68227f2"
+          },
+          "current": {
+            "line": 636,
+            "end": 651,
+            "ast_sha256": "f1626291467479e6fda028ad1854a4ae40eec8ab49e3b31c7cbc577ad68227f2"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_com_info",
+          "base": {
+            "line": 1020,
+            "end": 1034,
+            "ast_sha256": "3ba5a89797d7cc58476b7adba98add7d6e8a0792344be819e8340d37d68fc244"
+          },
+          "current": {
+            "line": 1023,
+            "end": 1037,
+            "ast_sha256": "3ba5a89797d7cc58476b7adba98add7d6e8a0792344be819e8340d37d68fc244"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_eye_uis",
+          "base": {
+            "line": 671,
+            "end": 678,
+            "ast_sha256": "4f1ee9bb7d0606268c2fa17d05b88fb70d2028c6f66d7579a2033e242ced7dbd"
+          },
+          "current": {
+            "line": 674,
+            "end": 681,
+            "ast_sha256": "4f1ee9bb7d0606268c2fa17d05b88fb70d2028c6f66d7579a2033e242ced7dbd"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_f",
+          "base": {
+            "line": 607,
+            "end": 613,
+            "ast_sha256": "9908b7a084b15997751c4e2ecfe0df5b7e46d75cce0be9a5b7e602c9646d523c"
+          },
+          "current": {
+            "line": 610,
+            "end": 616,
+            "ast_sha256": "9908b7a084b15997751c4e2ecfe0df5b7e46d75cce0be9a5b7e602c9646d523c"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_ffe",
+          "base": {
+            "line": 734,
+            "end": 752,
+            "ast_sha256": "6501b184ca85c90c97743996c322fb5a5dbee951dcde23335a41242a8971276f"
+          },
+          "current": {
+            "line": 737,
+            "end": 755,
+            "ast_sha256": "6501b184ca85c90c97743996c322fb5a5dbee951dcde23335a41242a8971276f"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_jitter_info",
+          "base": {
+            "line": 776,
+            "end": 981,
+            "ast_sha256": "e7cea890499a54f26800bbfa0125d52c7fecf89db1500ac87e549e62ce10f353"
+          },
+          "current": {
+            "line": 779,
+            "end": 984,
+            "ast_sha256": "e7cea890499a54f26800bbfa0125d52c7fecf89db1500ac87e549e62ce10f353"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_nui",
+          "base": {
+            "line": 661,
+            "end": 668,
+            "ast_sha256": "0cc8cdea8398f243258ee82d0c3e2286cdd420071bf720a55a01b04ee9b96567"
+          },
+          "current": {
+            "line": 664,
+            "end": 671,
+            "ast_sha256": "0cc8cdea8398f243258ee82d0c3e2286cdd420071bf720a55a01b04ee9b96567"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_perf_info",
+          "base": {
+            "line": 983,
+            "end": 1018,
+            "ast_sha256": "bc8b60252209dce2e8bfcd75b69c20a9957b9e67d69d2d4bca49ddd4e5da6f9a"
+          },
+          "current": {
+            "line": 986,
+            "end": 1021,
+            "ast_sha256": "bc8b60252209dce2e8bfcd75b69c20a9957b9e67d69d2d4bca49ddd4e5da6f9a"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_rx_ffe",
+          "base": {
+            "line": 755,
+            "end": 773,
+            "ast_sha256": "ab54c45d3809aa410515ef37072ac8bd1332083ae4f004d495a13779faa0f939"
+          },
+          "current": {
+            "line": 758,
+            "end": 776,
+            "ast_sha256": "ab54c45d3809aa410515ef37072ac8bd1332083ae4f004d495a13779faa0f939"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_status_str",
+          "base": {
+            "line": 1054,
+            "end": 1071,
+            "ast_sha256": "36c35544d933feb6c9560e7a06845c4f500001fb3d47b1e73dbc0fa0fa2358fc"
+          },
+          "current": {
+            "line": 1057,
+            "end": 1074,
+            "ast_sha256": "36c35544d933feb6c9560e7a06845c4f500001fb3d47b1e73dbc0fa0fa2358fc"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_sweep_info",
+          "base": {
+            "line": 1036,
+            "end": 1052,
+            "ast_sha256": "159efd7457a4c581eb0eed87be24b03969eb01a3d198224e5730794c6618369b"
+          },
+          "current": {
+            "line": 1039,
+            "end": 1055,
+            "ast_sha256": "159efd7457a4c581eb0eed87be24b03969eb01a3d198224e5730794c6618369b"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_symbols",
+          "base": {
+            "line": 695,
+            "end": 731,
+            "ast_sha256": "2486d921deb16307ee27e7b3389cf558b1e7d3bbad0277bee9acb00a305cdd8e"
+          },
+          "current": {
+            "line": 698,
+            "end": 734,
+            "ast_sha256": "2486d921deb16307ee27e7b3389cf558b1e7d3bbad0277bee9acb00a305cdd8e"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_t",
+          "base": {
+            "line": 588,
+            "end": 598,
+            "ast_sha256": "bd13ea0e38488376941f20fa094a5f953441535d0f2cca20266379d528bbb8ce"
+          },
+          "current": {
+            "line": 591,
+            "end": 601,
+            "ast_sha256": "bd13ea0e38488376941f20fa094a5f953441535d0f2cca20266379d528bbb8ce"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_t_irfft",
+          "base": {
+            "line": 623,
+            "end": 630,
+            "ast_sha256": "01eb1e337ccc1fd08be2cd940f60cfcc336cfb07c7264a3c2b369868fed777ad"
+          },
+          "current": {
+            "line": 626,
+            "end": 633,
+            "ast_sha256": "01eb1e337ccc1fd08be2cd940f60cfcc336cfb07c7264a3c2b369868fed777ad"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_t_ns",
+          "base": {
+            "line": 601,
+            "end": 604,
+            "ast_sha256": "ed1c58f1856f9161872a7aa736a55a3954eedff3f742d9a3e2ebfe58ebb86d54"
+          },
+          "current": {
+            "line": 604,
+            "end": 607,
+            "ast_sha256": "ed1c58f1856f9161872a7aa736a55a3954eedff3f742d9a3e2ebfe58ebb86d54"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_ui",
+          "base": {
+            "line": 651,
+            "end": 658,
+            "ast_sha256": "36e50eeb8193297c0768d817dce72f06695b9ac0d3a8275bce16623dabafcc4c"
+          },
+          "current": {
+            "line": 654,
+            "end": 661,
+            "ast_sha256": "36e50eeb8193297c0768d817dce72f06695b9ac0d3a8275bce16623dabafcc4c"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._get_w",
+          "base": {
+            "line": 616,
+            "end": 620,
+            "ast_sha256": "d39eec9db740cedc14cfd38aef3bc861c297104901ff8e315b7a99b5ff419df3"
+          },
+          "current": {
+            "line": 619,
+            "end": 623,
+            "ast_sha256": "d39eec9db740cedc14cfd38aef3bc861c297104901ff8e315b7a99b5ff419df3"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._ibis_load_notice",
+          "base": {
+            "line": 1170,
+            "end": 1189,
+            "ast_sha256": "17a2ee3881927a16876d156370bdc0322f036cae2ad1038a86f27d52ee050c4f"
+          },
+          "current": {
+            "line": 1173,
+            "end": 1192,
+            "ast_sha256": "17a2ee3881927a16876d156370bdc0322f036cae2ad1038a86f27d52ee050c4f"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._load_ibis",
+          "base": {
+            "line": 1191,
+            "end": 1215,
+            "ast_sha256": "1e2908300d0612f83d95176e32ae90e00398ddfaba5d9dbdea5bfb2c075445db"
+          },
+          "current": {
+            "line": 1194,
+            "end": 1218,
+            "ast_sha256": "1e2908300d0612f83d95176e32ae90e00398ddfaba5d9dbdea5bfb2c075445db"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._log_ibis_alert",
+          "base": {
+            "line": 1166,
+            "end": 1168,
+            "ast_sha256": "cdca65010654cd9caf9644c58fc579d3d1f52d56d9ba76328cded3f206125dba"
+          },
+          "current": {
+            "line": 1169,
+            "end": 1171,
+            "ast_sha256": "cdca65010654cd9caf9644c58fc579d3d1f52d56d9ba76328cded3f206125dba"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._nbits_changed",
+          "base": {
+            "line": 1359,
+            "end": 1360,
+            "ast_sha256": "42ec259a899a820d62280a5349d711c649209995a451e5c88f507390a37cc0e7"
+          },
+          "current": {
+            "line": 1362,
+            "end": 1363,
+            "ast_sha256": "42ec259a899a820d62280a5349d711c649209995a451e5c88f507390a37cc0e7"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._pattern_changed",
+          "base": {
+            "line": 1356,
+            "end": 1357,
+            "ast_sha256": "3640c681ab5217540ff6cba8e4a4b2ccb29405d1595629db315d683819d39ebb"
+          },
+          "current": {
+            "line": 1359,
+            "end": 1360,
+            "ast_sha256": "3640c681ab5217540ff6cba8e4a4b2ccb29405d1595629db315d683819d39ebb"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._rx_ami_file_changed",
+          "base": {
+            "line": 1297,
+            "end": 1321,
+            "ast_sha256": "54b2e5c9724c15074bf9be72628949e840e6ff2dda1c89974578645254a725a6"
+          },
+          "current": {
+            "line": 1300,
+            "end": 1324,
+            "ast_sha256": "54b2e5c9724c15074bf9be72628949e840e6ff2dda1c89974578645254a725a6"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._rx_dll_file_changed",
+          "base": {
+            "line": 1323,
+            "end": 1332,
+            "ast_sha256": "c96513000c34976700c5650579f861b91f416ba03a37f558a046a6e422f003f5"
+          },
+          "current": {
+            "line": 1326,
+            "end": 1335,
+            "ast_sha256": "c96513000c34976700c5650579f861b91f416ba03a37f558a046a6e422f003f5"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._rx_eq_sel_changed",
+          "base": {
+            "line": 1276,
+            "end": 1280,
+            "ast_sha256": "ae3dce6a5f2e2134eac382289dccd0a509bf6baf81d0ef777ba3eda88810357c"
+          },
+          "current": {
+            "line": 1279,
+            "end": 1283,
+            "ast_sha256": "ae3dce6a5f2e2134eac382289dccd0a509bf6baf81d0ef777ba3eda88810357c"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._rx_ibis_file_changed",
+          "base": {
+            "line": 1282,
+            "end": 1295,
+            "ast_sha256": "6d92152e3e4fd45cac22f87c48418e91e1cd1a0b86b9a2deca2767f7452d3148"
+          },
+          "current": {
+            "line": 1285,
+            "end": 1298,
+            "ast_sha256": "6d92152e3e4fd45cac22f87c48418e91e1cd1a0b86b9a2deca2767f7452d3148"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._rx_n_taps_changed",
+          "base": {
+            "line": 1092,
+            "end": 1107,
+            "ast_sha256": "9b9db76132918e2625977980036534e7fcea7223f3693743ef6ead4180ae2e19"
+          },
+          "current": {
+            "line": 1095,
+            "end": 1110,
+            "ast_sha256": "9b9db76132918e2625977980036534e7fcea7223f3693743ef6ead4180ae2e19"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._rx_sel_changed",
+          "base": {
+            "line": 1272,
+            "end": 1274,
+            "ast_sha256": "3224c43c29fb6137998d4523e672c20b622573cb6ad63fa426086195b58b05f0"
+          },
+          "current": {
+            "line": 1275,
+            "end": 1277,
+            "ast_sha256": "3224c43c29fb6137998d4523e672c20b622573cb6ad63fa426086195b58b05f0"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._rx_taps_default",
+          "base": {
+            "line": 370,
+            "end": 371,
+            "ast_sha256": "48ed3635eff60193fa02788b718fe9729f6adf518a194aed5fc7de45361dc973"
+          },
+          "current": {
+            "line": 371,
+            "end": 372,
+            "ast_sha256": "48ed3635eff60193fa02788b718fe9729f6adf518a194aed5fc7de45361dc973"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._rx_use_ami_changed",
+          "base": {
+            "line": 1334,
+            "end": 1337,
+            "ast_sha256": "ab658e541877155b6c4050b3c2afcfb3e8f21621c44171a0ef4e3fdb20434c33"
+          },
+          "current": {
+            "line": 1337,
+            "end": 1340,
+            "ast_sha256": "ab658e541877155b6c4050b3c2afcfb3e8f21621c44171a0ef4e3fdb20434c33"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._rx_viterbi_fec_changed",
+          "base": {
+            "line": 1380,
+            "end": 1382,
+            "ast_sha256": "21d7dbe570e6605dbfd76a52d9241ff01fd0dd34b7ae8dbaea5fdd0799633cde"
+          },
+          "current": {
+            "line": 1383,
+            "end": 1385,
+            "ast_sha256": "21d7dbe570e6605dbfd76a52d9241ff01fd0dd34b7ae8dbaea5fdd0799633cde"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._set_ctle_peak_mag_tune",
+          "base": {
+            "line": 581,
+            "end": 584,
+            "ast_sha256": "61d87b780146bbb42bc6051d2c236ce8d2e016e3c5789d4e2e1b97e3badbdfa2"
+          },
+          "current": {
+            "line": 584,
+            "end": 587,
+            "ast_sha256": "61d87b780146bbb42bc6051d2c236ce8d2e016e3c5789d4e2e1b97e3badbdfa2"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._status_str_changed",
+          "base": {
+            "line": 1074,
+            "end": 1076,
+            "ast_sha256": "ce632068980bd7f7c0e800c2a5b1f1673cd60fccab9754b95b04b5bb9fb92091"
+          },
+          "current": {
+            "line": 1077,
+            "end": 1079,
+            "ast_sha256": "ce632068980bd7f7c0e800c2a5b1f1673cd60fccab9754b95b04b5bb9fb92091"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._trellis_err_select_changed",
+          "base": {
+            "line": 1376,
+            "end": 1378,
+            "ast_sha256": "c9b2620e93030dd498fa3f3405265f15c56a5a2b7bde7669709a637f6999f726"
+          },
+          "current": {
+            "line": 1379,
+            "end": 1381,
+            "ast_sha256": "c9b2620e93030dd498fa3f3405265f15c56a5a2b7bde7669709a637f6999f726"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._trellis_pan_control_changed",
+          "base": {
+            "line": 1373,
+            "end": 1374,
+            "ast_sha256": "393213ab9bca86daf7cd73ed43d8b94f0b0937d9592749b4434468453c90b894"
+          },
+          "current": {
+            "line": 1376,
+            "end": 1377,
+            "ast_sha256": "393213ab9bca86daf7cd73ed43d8b94f0b0937d9592749b4434468453c90b894"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._tx_ami_file_changed",
+          "base": {
+            "line": 1231,
+            "end": 1256,
+            "ast_sha256": "149244324143b96e1a677ee5e61b4b980192ba80ec5929f37e26b8d249928d57"
+          },
+          "current": {
+            "line": 1234,
+            "end": 1259,
+            "ast_sha256": "149244324143b96e1a677ee5e61b4b980192ba80ec5929f37e26b8d249928d57"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._tx_dll_file_changed",
+          "base": {
+            "line": 1258,
+            "end": 1267,
+            "ast_sha256": "f6cd21e6271bff6fb43f701d4910a30a084bbe73cde837fa6fc90a2c57bb5b9b"
+          },
+          "current": {
+            "line": 1261,
+            "end": 1270,
+            "ast_sha256": "f6cd21e6271bff6fb43f701d4910a30a084bbe73cde837fa6fc90a2c57bb5b9b"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._tx_eq_sel_changed",
+          "base": {
+            "line": 1156,
+            "end": 1160,
+            "ast_sha256": "6a1cccc454ef38ab4ddead70abedbff2c43e1b1a3accc875030f033f6e4b222c"
+          },
+          "current": {
+            "line": 1159,
+            "end": 1163,
+            "ast_sha256": "6a1cccc454ef38ab4ddead70abedbff2c43e1b1a3accc875030f033f6e4b222c"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._tx_ibis_file_changed",
+          "base": {
+            "line": 1217,
+            "end": 1229,
+            "ast_sha256": "f72e51ad99ac81fd3e6fc36ce043b1ab3262cd990b3bba1d7a5f5a4b1d7f8898"
+          },
+          "current": {
+            "line": 1220,
+            "end": 1232,
+            "ast_sha256": "f72e51ad99ac81fd3e6fc36ce043b1ab3262cd990b3bba1d7a5f5a4b1d7f8898"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._tx_sel_changed",
+          "base": {
+            "line": 1152,
+            "end": 1154,
+            "ast_sha256": "370020a1dfd36a1565d9e88ce92fb2efb689d8da1822c5d46696cbcace239a3d"
+          },
+          "current": {
+            "line": 1155,
+            "end": 1157,
+            "ast_sha256": "370020a1dfd36a1565d9e88ce92fb2efb689d8da1822c5d46696cbcace239a3d"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._tx_tap_tuners_default",
+          "base": {
+            "line": 208,
+            "end": 216,
+            "ast_sha256": "e90d7ce94d19f6f653ba30ec21b1c6330eed446bc2225f8816d91053b015874b"
+          },
+          "current": {
+            "line": 209,
+            "end": 217,
+            "ast_sha256": "e90d7ce94d19f6f653ba30ec21b1c6330eed446bc2225f8816d91053b015874b"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._tx_taps_default",
+          "base": {
+            "line": 283,
+            "end": 291,
+            "ast_sha256": "4c4cb00482874a528e1e0dbe14e0e5b63582f53829731ebc498e19c53a8da998"
+          },
+          "current": {
+            "line": 284,
+            "end": 292,
+            "ast_sha256": "4c4cb00482874a528e1e0dbe14e0e5b63582f53829731ebc498e19c53a8da998"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT._use_dfe_changed",
+          "base": {
+            "line": 1078,
+            "end": 1084,
+            "ast_sha256": "f7dc0c731c9b7079da52f6456b45065ac5197f01fa0695fbf5d5e6dead4b1ca4"
+          },
+          "current": {
+            "line": 1081,
+            "end": 1087,
+            "ast_sha256": "f7dc0c731c9b7079da52f6456b45065ac5197f01fa0695fbf5d5e6dead4b1ca4"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.alert",
+          "base": {
+            "line": 474,
+            "end": 479,
+            "ast_sha256": "6887b37ba5b272566b50cd461bb69133bfec7f6071a3965bdf2c8b8f41683053"
+          },
+          "current": {
+            "line": 477,
+            "end": 482,
+            "ast_sha256": "6887b37ba5b272566b50cd461bb69133bfec7f6071a3965bdf2c8b8f41683053"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.calc_chnl_h",
+          "base": {
+            "line": 1413,
+            "end": 1623,
+            "ast_sha256": "298b1544c9623fb38fec9495865367827a23ee846679300a03dce3f42ad89aea"
+          },
+          "current": {
+            "line": 1416,
+            "end": 1630,
+            "ast_sha256": "2226c51ac25959796efa6884b4634a2de33d49ab0e9e1efe09619b3db6c4db70"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "PyBERT.calc_chnl_h.add_ondie_s",
+          "base": {
+            "line": 1492,
+            "end": 1514,
+            "ast_sha256": "42303932705949ac239be9f61b10b7ba3909d819b45f17a0341306365734c35f"
+          },
+          "current": {
+            "line": 1495,
+            "end": 1517,
+            "ast_sha256": "42303932705949ac239be9f61b10b7ba3909d819b45f17a0341306365734c35f"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.calc_chnl_h.ibis_value",
+          "base": {
+            "line": 1516,
+            "end": 1521,
+            "ast_sha256": "0613aed8f3192f5d8843c78b8aaac629480f8b2fc565116497aac77a0979402a"
+          },
+          "current": {
+            "line": 1519,
+            "end": 1524,
+            "ast_sha256": "0613aed8f3192f5d8843c78b8aaac629480f8b2fc565116497aac77a0979402a"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.calc_chnl_h.ts4_file",
+          "base": {
+            "line": 1523,
+            "end": 1529,
+            "ast_sha256": "592be88700946e42fccb35b731c866c47f9e6c73e730f17736fc235f247a3386"
+          },
+          "current": {
+            "line": 1526,
+            "end": 1532,
+            "ast_sha256": "592be88700946e42fccb35b731c866c47f9e6c73e730f17736fc235f247a3386"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.calc_pkg_chnl_H",
+          "base": {
+            "line": 1388,
+            "end": 1411,
+            "ast_sha256": "0ff34c7fcd08f38a8265213be53a4491d0ba78feb36f04be158cac2db0987791"
+          },
+          "current": {
+            "line": 1391,
+            "end": 1414,
+            "ast_sha256": "0ff34c7fcd08f38a8265213be53a4491d0ba78feb36f04be158cac2db0987791"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.check_eye_bits",
+          "base": {
+            "line": 1350,
+            "end": 1354,
+            "ast_sha256": "3a782c78300f70fd326629ce75a5529d18f8000b5f5a54d1f2d1fdee481ac7f0"
+          },
+          "current": {
+            "line": 1353,
+            "end": 1357,
+            "ast_sha256": "3a782c78300f70fd326629ce75a5529d18f8000b5f5a54d1f2d1fdee481ac7f0"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.check_pat_len",
+          "base": {
+            "line": 1339,
+            "end": 1348,
+            "ast_sha256": "eab4107e1e3ac9c03c720e6246f940c88058f16597a7f103bb6c32c225c5a116"
+          },
+          "current": {
+            "line": 1342,
+            "end": 1351,
+            "ast_sha256": "eab4107e1e3ac9c03c720e6246f940c88058f16597a7f103bb6c32c225c5a116"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.clear_reference_from_plots",
+          "base": {
+            "line": 1709,
+            "end": 1725,
+            "ast_sha256": "33aca663a842783c4303d45a5aeb2bd31080c6a0205046147413c1688bf5ea2a"
+          },
+          "current": {
+            "line": 1716,
+            "end": 1732,
+            "ast_sha256": "33aca663a842783c4303d45a5aeb2bd31080c6a0205046147413c1688bf5ea2a"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.load_configuration",
+          "base": {
+            "line": 1648,
+            "end": 1664,
+            "ast_sha256": "47b17e63d5a8aa4425a86c06850ebbeea91d068a868a9f3e373623c724330c95"
+          },
+          "current": {
+            "line": 1655,
+            "end": 1671,
+            "ast_sha256": "47b17e63d5a8aa4425a86c06850ebbeea91d068a868a9f3e373623c724330c95"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.load_results",
+          "base": {
+            "line": 1681,
+            "end": 1693,
+            "ast_sha256": "4368686cb91565c1e77f877aef17ed36bca799da03a95623a2d3067f2c15b3b1"
+          },
+          "current": {
+            "line": 1688,
+            "end": 1700,
+            "ast_sha256": "4368686cb91565c1e77f877aef17ed36bca799da03a95623a2d3067f2c15b3b1"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.log",
+          "base": {
+            "line": 460,
+            "end": 471,
+            "ast_sha256": "79266ff0fbf0e5f476e19a175157b6271a5b7826aa6e49edfeed4f5654df2f0e"
+          },
+          "current": {
+            "line": 463,
+            "end": 474,
+            "ast_sha256": "79266ff0fbf0e5f476e19a175157b6271a5b7826aa6e49edfeed4f5654df2f0e"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.log_information",
+          "base": {
+            "line": 1727,
+            "end": 1735,
+            "ast_sha256": "69a5e7d12a59c87f4a22dc15a0bb28b0000d49c46878a49792b20ef45fa545aa"
+          },
+          "current": {
+            "line": 1734,
+            "end": 1742,
+            "ast_sha256": "69a5e7d12a59c87f4a22dc15a0bb28b0000d49c46878a49792b20ef45fa545aa"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.rx_n_pre_changed",
+          "base": {
+            "line": 1110,
+            "end": 1150,
+            "ast_sha256": "d24413a6a1223a94fbfee3b2f536eaa1fa4600095ee3aedbc3b2e0eddfc44614"
+          },
+          "current": {
+            "line": 1113,
+            "end": 1153,
+            "ast_sha256": "d24413a6a1223a94fbfee3b2f536eaa1fa4600095ee3aedbc3b2e0eddfc44614"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.rx_n_pre_changed.set_tap_attrs",
+          "base": {
+            "line": 1115,
+            "end": 1129,
+            "ast_sha256": "b49b5e4a46c8b175dbd5cde11a3a5840747c3b272d468246a9610f14b5d1a698"
+          },
+          "current": {
+            "line": 1118,
+            "end": 1132,
+            "ast_sha256": "b49b5e4a46c8b175dbd5cde11a3a5840747c3b272d468246a9610f14b5d1a698"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.save_configuration",
+          "base": {
+            "line": 1666,
+            "end": 1679,
+            "ast_sha256": "ad48ffb4ef353c552ca576f68740e4a0829cc18a518c635c599dbf8e75aec8fc"
+          },
+          "current": {
+            "line": 1673,
+            "end": 1686,
+            "ast_sha256": "ad48ffb4ef353c552ca576f68740e4a0829cc18a518c635c599dbf8e75aec8fc"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.save_results",
+          "base": {
+            "line": 1695,
+            "end": 1707,
+            "ast_sha256": "c2dd81bed1ec749c89a4724be83a9589f1964476a857077eadaa279f5af05eb0"
+          },
+          "current": {
+            "line": 1702,
+            "end": 1714,
+            "ast_sha256": "c2dd81bed1ec749c89a4724be83a9589f1964476a857077eadaa279f5af05eb0"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "PyBERT.simulate",
+          "base": {
+            "line": 1625,
+            "end": 1646,
+            "ast_sha256": "ce13de30fef7a7827a09779bbf616f970139b02fac202ae8f6ce0a95354e7265"
+          },
+          "current": {
+            "line": 1632,
+            "end": 1653,
+            "ast_sha256": "ce13de30fef7a7827a09779bbf616f970139b02fac202ae8f6ce0a95354e7265"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "_make_rx_ffe_tap_tuners",
+          "base": {
+            "line": 105,
+            "end": 138,
+            "ast_sha256": "932b29e6a547d680f1b01817cf3fdb4ba7ae9da0e3f787ed1ae1fe0fdd029290"
+          },
+          "current": {
+            "line": 106,
+            "end": 139,
+            "ast_sha256": "932b29e6a547d680f1b01817cf3fdb4ba7ae9da0e3f787ed1ae1fe0fdd029290"
+          },
+          "ast_equal": true
+        }
+      ],
+      "commits": [
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "418d72b Refs #10: freeze bounded D1 integration and complete consumer wiring"
+      ]
+    },
+    {
+      "path": "src/pybert/results.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "8686c4fa2694a14b1471d09e65b685906749654b"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "8686c4fa2694a14b1471d09e65b685906749654b"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/solvers/__init__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "1e0edc72a85b24806492b981d07e91ded6f51c34"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "1e0edc72a85b24806492b981d07e91ded6f51c34"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/solvers/simbeor/__init__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "d227ea921f181a2defeef737c82db36e98c94075"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "d227ea921f181a2defeef737c82db36e98c94075"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/solvers/solver.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "abfc7b0819a7b206402887e2d3c7053779da5d36"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "abfc7b0819a7b206402887e2d3c7053779da5d36"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/threads/__init__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "823659a89e2bdc1cc62e5f8125d823b25727cf9b"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "823659a89e2bdc1cc62e5f8125d823b25727cf9b"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/threads/optimization.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "d66e12c0c22a0bab1295e2bfca482c89c23f8742"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "30ab21c32842cae4f2fbe7ce9036673370beebdc"
+      },
+      "status": "modified",
+      "symbols": [
+        {
+          "name": "OptThread",
+          "base": {
+            "line": 58,
+            "end": 90,
+            "ast_sha256": "32dbbd0b26c3ea3ffe1910929ebdca14698ebcce5f3c6a5f4cdea4f40afec52a"
+          },
+          "current": {
+            "line": 58,
+            "end": 90,
+            "ast_sha256": "32dbbd0b26c3ea3ffe1910929ebdca14698ebcce5f3c6a5f4cdea4f40afec52a"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "OptThread.run",
+          "base": {
+            "line": 61,
+            "end": 90,
+            "ast_sha256": "21105f3d9a4a37893273520a855b3886568c9467918fa69766e2e768200f2879"
+          },
+          "current": {
+            "line": 61,
+            "end": 90,
+            "ast_sha256": "21105f3d9a4a37893273520a855b3886568c9467918fa69766e2e768200f2879"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "_mk_tap_weight_combs",
+          "base": {
+            "line": 125,
+            "end": 157,
+            "ast_sha256": "21912abe70649fcced519369bfe383757e4b65cfb335c4845cb7b539fb9843bc"
+          },
+          "current": {
+            "line": 125,
+            "end": 157,
+            "ast_sha256": "21912abe70649fcced519369bfe383757e4b65cfb335c4845cb7b539fb9843bc"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "_report_progress",
+          "base": {
+            "line": 597,
+            "end": 604,
+            "ast_sha256": "83dfec14c442a4195f8bd102fd9278983fa745d3aa2d5e1a4191b27d9dc19e36"
+          },
+          "current": {
+            "line": 618,
+            "end": 625,
+            "ast_sha256": "83dfec14c442a4195f8bd102fd9278983fa745d3aa2d5e1a4191b27d9dc19e36"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "_suggest",
+          "base": {
+            "line": 48,
+            "end": 54,
+            "ast_sha256": "370ec22d34424ef3f743f12ed800c30d7dfc6a2ed07f8a951cb224c7140748cf"
+          },
+          "current": {
+            "line": 48,
+            "end": 54,
+            "ast_sha256": "370ec22d34424ef3f743f12ed800c30d7dfc6a2ed07f8a951cb224c7140748cf"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "_update_plotdata",
+          "base": {
+            "line": 607,
+            "end": 619,
+            "ast_sha256": "3fb1f25d733b919c51dce2c51393c9a1fb77046081cf4f69df739814a4bcd3e9"
+          },
+          "current": {
+            "line": 628,
+            "end": 640,
+            "ast_sha256": "3fb1f25d733b919c51dce2c51393c9a1fb77046081cf4f69df739814a4bcd3e9"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "coopt",
+          "base": {
+            "line": 160,
+            "end": 594,
+            "ast_sha256": "4664a78b0e288a24131c5ecd131c64adf52bcfad5123444a632b616b3f39e614"
+          },
+          "current": {
+            "line": 160,
+            "end": 615,
+            "ast_sha256": "daca55d045d203443aedf91c056fdf22392163511769b0c8175a942543a0e756"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "coopt.coopt_ami",
+          "base": {
+            "line": 429,
+            "end": 571,
+            "ast_sha256": "76eb3032f5d18ac3b8651806779be4023162ade7218b18ac053d9aac2f54f6bc"
+          },
+          "current": {
+            "line": 445,
+            "end": 592,
+            "ast_sha256": "47623f26802b23789ca6d1cc5d6bc1977cd8ede50b605a5d8987f3133a16a63e"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "coopt.coopt_native",
+          "base": {
+            "line": 365,
+            "end": 427,
+            "ast_sha256": "84217bfa9ee920fcd63a2fc0c38fbd4a05c0c6c2472f517cd495348200d89e38"
+          },
+          "current": {
+            "line": 377,
+            "end": 443,
+            "ast_sha256": "b9076b09a8d933883d531b179b3c7908c9166a8326822e7dd03615ebf05d11a8"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "coopt.native_ctle_candidate",
+          "base": {
+            "line": 354,
+            "end": 363,
+            "ast_sha256": "9e441646ac302bb0b97a978f911a350d1d7261fd0446650e5d528a05b8a8291a"
+          },
+          "current": {
+            "line": 366,
+            "end": 375,
+            "ast_sha256": "9e441646ac302bb0b97a978f911a350d1d7261fd0446650e5d528a05b8a8291a"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "coopt.score_candidate",
+          "base": {
+            "line": 273,
+            "end": 352,
+            "ast_sha256": "bdf1584ae3dca0380dc42cb1a448b342589dfa91179544078a9dd42eeacab9f9"
+          },
+          "current": {
+            "line": 278,
+            "end": 364,
+            "ast_sha256": "2cf846e1a87e5be65022d8870f23cb6becbf0382a837b6a8871d86b7d9e366a4"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "mk_tap_weight_combs",
+          "base": {
+            "line": 93,
+            "end": 122,
+            "ast_sha256": "050d106ec233e50ff81fa8bb9329bcb15baabe7d210944f48d371635c12fff63"
+          },
+          "current": {
+            "line": 93,
+            "end": 122,
+            "ast_sha256": "050d106ec233e50ff81fa8bb9329bcb15baabe7d210944f48d371635c12fff63"
+          },
+          "ast_equal": true
+        }
+      ],
+      "commits": [
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "d838995 feat(web): record exact native MMSE input contexts and hashes (#8)",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence"
+      ]
+    },
+    {
+      "path": "src/pybert/threads/sim.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "ebeb3c95ea922309cd0fec84d8803855c08774ff"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "ebeb3c95ea922309cd0fec84d8803855c08774ff"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/threads/stoppable.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "acf546e4c984928c1878620314084e6526265960"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "acf546e4c984928c1878620314084e6526265960"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/utility/__init__.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "d8337571d0b20d0a200111979fc878f4f048db4a"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "d8337571d0b20d0a200111979fc878f4f048db4a"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/utility/ami_clock.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "85fef6a49804041225ce0842b0cc82e3e0af727b"
+      },
+      "status": "added",
+      "commits": [
+        "472d64d test: freeze the D1 planner tracer and guarded budget",
+        "782c31b feat: plan each Rx clock on the actual waveform grid",
+        "85dfed8 feat: validate AMI clock format and sampling eligibility",
+        "2a0a265 feat: record actual AMI sample consumption and partial failures",
+        "acdfee7 feat: use producer indices for timed AMI eyes",
+        "418d72b Refs #10: freeze bounded D1 integration and complete consumer wiring",
+        "6e99776 Refs #10: bind Web consumers to fresh host-owned producer indices",
+        "8c4ee77 Refs #10: finish source freeze formatting before producer batch",
+        "0a7a036 fix: preserve clock provenance in Traits dictionary storage"
+      ]
+    },
+    {
+      "path": "src/pybert/utility/channel.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5526c1c4d46a98e63e5600c5f5bb90cb96db4f96"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5526c1c4d46a98e63e5600c5f5bb90cb96db4f96"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/utility/functional.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "ffc2e2c0feec9f39d16d17cd4b8bba016a7cc848"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "ffc2e2c0feec9f39d16d17cd4b8bba016a7cc848"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/utility/ibisami.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "7fe715b25f3fddcc28703473d6868bef615092e8"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "36681e006c773682663f588b2b8a9c34ac3f9adb"
+      },
+      "status": "modified",
+      "symbols": [
+        {
+          "name": "_AMIProbeMainError",
+          "base": null,
+          "current": {
+            "line": 102,
+            "end": 110,
+            "ast_sha256": "f25bbfe83630a09590d062c8ba3c49a574cf3771e084d2408bc1ded35902e97b"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "_AMIProbeMainError.__init__",
+          "base": null,
+          "current": {
+            "line": 105,
+            "end": 110,
+            "ast_sha256": "0ff2fee2e45831ad3f5de625309c9054d40a2064e3bbc489273f9b1aae949c78"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "_make_ami_initializer",
+          "base": null,
+          "current": {
+            "line": 77,
+            "end": 99,
+            "ast_sha256": "11acdb0ae3f025d2c880eee7016f98ab7a13fe5497d510edb3dabaae1d5b86ae"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "_run_probe_main",
+          "base": null,
+          "current": {
+            "line": 113,
+            "end": 193,
+            "ast_sha256": "7a0dc308d36a792eb95967d2eb03d43b0d23ac690d0332d6bb7044fb1d8f5425"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "resolve_ami_files",
+          "base": {
+            "line": 57,
+            "end": 73,
+            "ast_sha256": "59b6493fed5adf701b05a9c654dc876a081e1942a627a501a08c111912bbc9ea"
+          },
+          "current": {
+            "line": 58,
+            "end": 74,
+            "ast_sha256": "59b6493fed5adf701b05a9c654dc876a081e1942a627a501a08c111912bbc9ea"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "run_ami_model",
+          "base": {
+            "line": 77,
+            "end": 180,
+            "ast_sha256": "9046445bd61c505674cf80ae25073675f1023d628abb7f2a49ed7c59b04a6d8f"
+          },
+          "current": {
+            "line": 197,
+            "end": 290,
+            "ast_sha256": "f4a8379fadc919a98c43f8b829c2491ab5e38b595956507ec2bbe1d6d4efdc6b"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "set_pyibisami_logging",
+          "base": {
+            "line": 38,
+            "end": 54,
+            "ast_sha256": "28bd0acb9cc5e705510d6669426a2a56d8bc8ca911d7e1f2fdf65340b248d3ce"
+          },
+          "current": {
+            "line": 39,
+            "end": 55,
+            "ast_sha256": "28bd0acb9cc5e705510d6669426a2a56d8bc8ca911d7e1f2fdf65340b248d3ce"
+          },
+          "ast_equal": true
+        }
+      ],
+      "commits": [
+        "ec72c92 fix: isolate Rx response probes from the main epoch"
+      ]
+    },
+    {
+      "path": "src/pybert/utility/jitter.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "05c21f5cbf703e1ed4a23d50e622962bd8ddebcd"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "05c21f5cbf703e1ed4a23d50e622962bd8ddebcd"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/utility/math.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "2846f716905a0d22b37732e363d6704ef9584c43"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "2846f716905a0d22b37732e363d6704ef9584c43"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/utility/python.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "86481f61e8c5d57ff0d33acef5ab465d58a8359e"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "86481f61e8c5d57ff0d33acef5ab465d58a8359e"
+      },
+      "status": "unchanged"
+    },
+    {
+      "path": "src/pybert/utility/sigproc.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e0ddc745c137c38822c5572f2bdd8eab93bbc477"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "80060b6094037de41b8ed18b34f3dc2709197c88"
+      },
+      "status": "modified",
+      "symbols": [
+        {
+          "name": "add_ffe_dfe",
+          "base": {
+            "line": 494,
+            "end": 554,
+            "ast_sha256": "3fda22fc24ad6d4be500e4ca605f3de6d9fa9be0c351c156ac7b1f7de6b15ac7"
+          },
+          "current": {
+            "line": 505,
+            "end": 565,
+            "ast_sha256": "3fda22fc24ad6d4be500e4ca605f3de6d9fa9be0c351c156ac7b1f7de6b15ac7"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "calc_eye",
+          "base": {
+            "line": 395,
+            "end": 446,
+            "ast_sha256": "3c7b7b05b29081cd5f9cad091d32e6fd4bac137c0e485df14e8a800795624621"
+          },
+          "current": {
+            "line": 395,
+            "end": 457,
+            "ast_sha256": "e62fc84a3d97bc645df9f13a7fab9a920e516293df55d8cf41ccfaee657b1216"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "calc_resps",
+          "base": {
+            "line": 184,
+            "end": 242,
+            "ast_sha256": "9f3c2be53e5bdbbccde28abf515c8142e757a2f095ddaac69a918bd44e0fe8ff"
+          },
+          "current": {
+            "line": 184,
+            "end": 242,
+            "ast_sha256": "9f3c2be53e5bdbbccde28abf515c8142e757a2f095ddaac69a918bd44e0fe8ff"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "concat_lists",
+          "base": {
+            "line": 612,
+            "end": 623,
+            "ast_sha256": "f523aaeaabd308b42e22e88fd8105119abd677e1753d09dc4638d6a0c5b3eb60"
+          },
+          "current": {
+            "line": 623,
+            "end": 634,
+            "ast_sha256": "f523aaeaabd308b42e22e88fd8105119abd677e1753d09dc4638d6a0c5b3eb60"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "fir_tap_weights_to_imp_resp",
+          "base": {
+            "line": 626,
+            "end": 646,
+            "ast_sha256": "e34f199b899b63fa4b87ef6179b864fe5b301aca937624c0354d0c54365a5805"
+          },
+          "current": {
+            "line": 637,
+            "end": 657,
+            "ast_sha256": "e34f199b899b63fa4b87ef6179b864fe5b301aca937624c0354d0c54365a5805"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "get_dfe_weights",
+          "base": {
+            "line": 557,
+            "end": 587,
+            "ast_sha256": "6f684eeec93c275ed62be63f0ae07706fde76df5628d220c3fa8055c60c98c1e"
+          },
+          "current": {
+            "line": 568,
+            "end": 598,
+            "ast_sha256": "6f684eeec93c275ed62be63f0ae07706fde76df5628d220c3fa8055c60c98c1e"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "get_peak_info",
+          "base": {
+            "line": 590,
+            "end": 609,
+            "ast_sha256": "bd372c9bb270eaaf3a233b2c872840fe352f02f894c790c4d9d8888b14c3ab64"
+          },
+          "current": {
+            "line": 601,
+            "end": 620,
+            "ast_sha256": "bd372c9bb270eaaf3a233b2c872840fe352f02f894c790c4d9d8888b14c3ab64"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "import_time",
+          "base": {
+            "line": 112,
+            "end": 137,
+            "ast_sha256": "46d0e4dd1da2dff7b19a051166e6fb804276fe73258c0402046fa305a38d1302"
+          },
+          "current": {
+            "line": 112,
+            "end": 137,
+            "ast_sha256": "46d0e4dd1da2dff7b19a051166e6fb804276fe73258c0402046fa305a38d1302"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "interp_time",
+          "base": {
+            "line": 96,
+            "end": 109,
+            "ast_sha256": "a7a1166e726da101311685d767b669e0418fa47ec0bf40d156be9ee25165c83f"
+          },
+          "current": {
+            "line": 96,
+            "end": 109,
+            "ast_sha256": "a7a1166e726da101311685d767b669e0418fa47ec0bf40d156be9ee25165c83f"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "make_ctle",
+          "base": {
+            "line": 313,
+            "end": 364,
+            "ast_sha256": "e4b664c78bdef24e2c60e662478ad82fdf2d2480308cb14eec6b7e94945284e4"
+          },
+          "current": {
+            "line": 313,
+            "end": 364,
+            "ast_sha256": "e4b664c78bdef24e2c60e662478ad82fdf2d2480308cb14eec6b7e94945284e4"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "make_ctle_h",
+          "base": {
+            "line": 367,
+            "end": 391,
+            "ast_sha256": "ab65fe83623de5a8dc544d85be5a2dfdfe1fce0d717dd28c480ff7c1a0871699"
+          },
+          "current": {
+            "line": 367,
+            "end": 391,
+            "ast_sha256": "ab65fe83623de5a8dc544d85be5a2dfdfe1fce0d717dd28c480ff7c1a0871699"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "make_uniform",
+          "base": {
+            "line": 449,
+            "end": 491,
+            "ast_sha256": "3779b5b9cc8ecaef47be986039ae7213004df7c94cc8375f8cc972d08b10749f"
+          },
+          "current": {
+            "line": 460,
+            "end": 502,
+            "ast_sha256": "3779b5b9cc8ecaef47be986039ae7213004df7c94cc8375f8cc972d08b10749f"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "moving_average",
+          "base": {
+            "line": 63,
+            "end": 93,
+            "ast_sha256": "b54a72a7e570ff9b27da2e658a1db0334fdf8fad66853d4ebe26edc45fbf12dd"
+          },
+          "current": {
+            "line": 63,
+            "end": 93,
+            "ast_sha256": "b54a72a7e570ff9b27da2e658a1db0334fdf8fad66853d4ebe26edc45fbf12dd"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "pulse_center",
+          "base": {
+            "line": 140,
+            "end": 173,
+            "ast_sha256": "8c845e0fbf2b86726ab6152b99ffc52ae61f5957911dfd5de1e824414af527ef"
+          },
+          "current": {
+            "line": 140,
+            "end": 173,
+            "ast_sha256": "8c845e0fbf2b86726ab6152b99ffc52ae61f5957911dfd5de1e824414af527ef"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "raised_cosine",
+          "base": {
+            "line": 176,
+            "end": 180,
+            "ast_sha256": "d639439c28a61f22e76a927fc8377846651ed7aee343e1c548e4bf0244eabae8"
+          },
+          "current": {
+            "line": 176,
+            "end": 180,
+            "ast_sha256": "d639439c28a61f22e76a927fc8377846651ed7aee343e1c548e4bf0244eabae8"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "resize_zero_pad",
+          "base": {
+            "line": 32,
+            "end": 60,
+            "ast_sha256": "c25272e224cdf133abb9244726a126cb18ff0dda5768beddc51d2d1a44e4c626"
+          },
+          "current": {
+            "line": 32,
+            "end": 60,
+            "ast_sha256": "c25272e224cdf133abb9244726a126cb18ff0dda5768beddc51d2d1a44e4c626"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "trim_impulse",
+          "base": {
+            "line": 246,
+            "end": 310,
+            "ast_sha256": "4226891a5191be6a9ad18ad9d8bfbdbdb0fb005454de2741af1b2564db5f1e6f"
+          },
+          "current": {
+            "line": 246,
+            "end": 310,
+            "ast_sha256": "4226891a5191be6a9ad18ad9d8bfbdbdb0fb005454de2741af1b2564db5f1e6f"
+          },
+          "ast_equal": true
+        }
+      ],
+      "commits": [
+        "acdfee7 feat: use producer indices for timed AMI eyes"
+      ]
+    },
+    {
+      "path": "src/pybert/utility/sparam.py",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "7ded010a700e460e0106be8f3234c46a1c324443"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "4e142c149cdbdcfbb6e86d99a04cb1ddd06fdcb2"
+      },
+      "status": "modified",
+      "symbols": [
+        {
+          "name": "H_2_s2p",
+          "base": {
+            "line": 212,
+            "end": 244,
+            "ast_sha256": "a93a912ecdc567666736200d8b3145ac6b7570c086e0d8a49b716800d18b916d"
+          },
+          "current": {
+            "line": 212,
+            "end": 244,
+            "ast_sha256": "a93a912ecdc567666736200d8b3145ac6b7570c086e0d8a49b716800d18b916d"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "_lane_through_ports",
+          "base": null,
+          "current": {
+            "line": 265,
+            "end": 270,
+            "ast_sha256": "a2c62111cf9fd8eb298b023ab5b55728a669f7b9e365956fd088bee5aaa8b116"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "cap_mag",
+          "base": {
+            "line": 28,
+            "end": 44,
+            "ast_sha256": "910f54255c6d31e22e144f252f0f3ce18964e6b2e5ef891533eab6d602ebedf9"
+          },
+          "current": {
+            "line": 28,
+            "end": 44,
+            "ast_sha256": "910f54255c6d31e22e144f252f0f3ce18964e6b2e5ef891533eab6d602ebedf9"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "import_channel",
+          "base": {
+            "line": 395,
+            "end": 447,
+            "ast_sha256": "96d76b27e77d20aa9e6db9471c4d4737f578f993fc8692756b6fab78f6e1f1da"
+          },
+          "current": {
+            "line": 408,
+            "end": 460,
+            "ast_sha256": "96d76b27e77d20aa9e6db9471c4d4737f578f993fc8692756b6fab78f6e1f1da"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "import_fext",
+          "base": {
+            "line": 340,
+            "end": 392,
+            "ast_sha256": "5df09e8050611b46c9031ab5447ed5b3e54bad99482edcbcd8bbf0c09c755d84"
+          },
+          "current": {
+            "line": 350,
+            "end": 405,
+            "ast_sha256": "43e85913d116daaf5b5706de8db6ed0adf64bb0b31aa6638b03356614c1342dd"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "import_freq",
+          "base": {
+            "line": 265,
+            "end": 337,
+            "ast_sha256": "e498bba2018014281a8825550543c7d30e597d2844cd44dced5e516f3d020b96"
+          },
+          "current": {
+            "line": 273,
+            "end": 347,
+            "ast_sha256": "f4d3aa6364612531d9c803aaedc6bfc68d1942e52bbd2f83865c6c5b6e72ad54"
+          },
+          "ast_equal": false
+        },
+        {
+          "name": "interp_s2p",
+          "base": {
+            "line": 178,
+            "end": 209,
+            "ast_sha256": "3b414228d6ea8599c94e6ea5f9f1d940dd260eef8d24fbe0c45538bdc689f5d2"
+          },
+          "current": {
+            "line": 178,
+            "end": 209,
+            "ast_sha256": "3b414228d6ea8599c94e6ea5f9f1d940dd260eef8d24fbe0c45538bdc689f5d2"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "mon_mag",
+          "base": {
+            "line": 47,
+            "end": 60,
+            "ast_sha256": "3f1044699424bae9310c48f8cba02fdc00e6903ed276001ff57a032e6fde5757"
+          },
+          "current": {
+            "line": 47,
+            "end": 60,
+            "ast_sha256": "3f1044699424bae9310c48f8cba02fdc00e6903ed276001ff57a032e6fde5757"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "pulse_response",
+          "base": {
+            "line": 450,
+            "end": 478,
+            "ast_sha256": "c803a545c5f54364bc45bde9686b153da7fe04b875908bd9c0d32e37024cb67d"
+          },
+          "current": {
+            "line": 463,
+            "end": 491,
+            "ast_sha256": "c803a545c5f54364bc45bde9686b153da7fe04b875908bd9c0d32e37024cb67d"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "sdd_21",
+          "base": {
+            "line": 70,
+            "end": 85,
+            "ast_sha256": "1478b56c247767ac06cb96bd6cd8edcbaeb929f47c10277f2fa274bd5024e363"
+          },
+          "current": {
+            "line": 70,
+            "end": 85,
+            "ast_sha256": "1478b56c247767ac06cb96bd6cd8edcbaeb929f47c10277f2fa274bd5024e363"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "se2mm",
+          "base": {
+            "line": 111,
+            "end": 175,
+            "ast_sha256": "edec96793bb775c310b66bf6e979bf3f2369425e264dc4ddb450bce437ec6929"
+          },
+          "current": {
+            "line": 111,
+            "end": 175,
+            "ast_sha256": "edec96793bb775c310b66bf6e979bf3f2369425e264dc4ddb450bce437ec6929"
+          },
+          "ast_equal": true
+        },
+        {
+          "name": "thru_is_1to3",
+          "base": {
+            "line": 88,
+            "end": 108,
+            "ast_sha256": "8793c855747093d761ed22d959460836d8cbbfcbaf602311c81b6bded5c01c5c"
+          },
+          "current": {
+            "line": 88,
+            "end": 108,
+            "ast_sha256": "8793c855747093d761ed22d959460836d8cbbfcbaf602311c81b6bded5c01c5c"
+          },
+          "ast_equal": true
+        }
+      ],
+      "commits": [
+        "b87c80c fix #13: preserve physical lane pairs in multi-port imports"
+      ]
+    },
+    {
+      "path": "src/pybert/web/__init__.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "9583907e9c5501eb28a63b242be91671f23adfc6"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "af20605 fix: close review findings on observer edits cancellation and provenance",
+        "e43a0bd Complete native chain analyses and immutable chart comparisons for issue 3",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9",
+        "16007c6 Refs #10: freeze masked archive gates and real serialization validation"
+      ]
+    },
+    {
+      "path": "src/pybert/web/ami.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "5b007dd88279e32856d7fafacc27e0b1e0f05590"
+      },
+      "status": "added",
+      "commits": [
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "8c5e042 fix(web): bind selected AMI identity and close bounded execution gaps",
+        "7b623f4 fix(web): preserve AMI replay and parsed parameter domains",
+        "5ad04e9 fix(web): separate AMI clock controls and optional electrical capabilities",
+        "5e85178 Refs #10: preserve partial producer evidence and real worker stage provenance",
+        "b5888be test(web): freeze D2 bounded software coordinator checks"
+      ]
+    },
+    {
+      "path": "src/pybert/web/analysis.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "860817cdc48fff519b8273d12fedf5a243dac265"
+      },
+      "status": "added",
+      "commits": [
+        "e43a0bd Complete native chain analyses and immutable chart comparisons for issue 3",
+        "671c081 Preserve display observation sources and full-record CDR provenance",
+        "83b7515 Describe recovered clock timestamps with their event record range",
+        "f14ef52 Refs #10: project timed Eye indices and independent masked CDR products",
+        "cd5e652 Refs #10: freeze approved budget and irreversible guarded batch shutdown",
+        "5e85178 Refs #10: preserve partial producer evidence and real worker stage provenance",
+        "b5888be test(web): freeze D2 bounded software coordinator checks",
+        "8180e00 fix(web): preserve snapshot scope and timestamp rounding bounds"
+      ]
+    },
+    {
+      "path": "src/pybert/web/archive.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "f32a8c80e39e32682f36f23765566398efd5c482"
+      },
+      "status": "added",
+      "commits": [
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "d0a742b fix(web): preserve replay guards and legacy producer identity (#5)",
+        "e75b13d fix(web): restore complete reset history and validate archive identity (#5)",
+        "fb97265 fix(web): preserve busy resource undo and report legacy save capability (#5)",
+        "a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)",
+        "d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9",
+        "e4823de fix(web): close decoding archive validation findings and bound evidence jobs",
+        "9bb89d1 Refs #10: validate paired AMI raw6 and lossless masked archive bytes",
+        "62cb5b3 Refs #10: wrap the archive gate before frozen execution"
+      ]
+    },
+    {
+      "path": "src/pybert/web/clocks.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "06d594be6180cf011ad6982b611ba595b5367db8"
+      },
+      "status": "added",
+      "commits": [
+        "7120c0d Refs #10: freeze D2 masked-period tracer and guarded software budget",
+        "1b0877f Refs #10: validate dense masked period without changing NaN payloads",
+        "6e99776 Refs #10: bind Web consumers to fresh host-owned producer indices",
+        "8c4ee77 Refs #10: finish source freeze formatting before producer batch",
+        "f14ef52 Refs #10: project timed Eye indices and independent masked CDR products",
+        "9bb89d1 Refs #10: validate paired AMI raw6 and lossless masked archive bytes",
+        "cd5e652 Refs #10: freeze approved budget and irreversible guarded batch shutdown",
+        "5e85178 Refs #10: preserve partial producer evidence and real worker stage provenance",
+        "b5888be test(web): freeze D2 bounded software coordinator checks",
+        "8180e00 fix(web): preserve snapshot scope and timestamp rounding bounds",
+        "2aa3e7d test(web): finalize fixed source and rounding rule freeze",
+        "8cec174 fix(web): compare integer clock intervals without float tolerance",
+        "f94a782 test(web): finalize integer green source formatting"
+      ]
+    },
+    {
+      "path": "src/pybert/web/com.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "1bb5f643278bef98143c5869c77a164bbeda1fe0"
+      },
+      "status": "added",
+      "commits": [
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)"
+      ]
+    },
+    {
+      "path": "src/pybert/web/config.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "26c66649e969c1e42927c497798f547277323108"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows",
+        "af20605 fix: close review findings on observer edits cancellation and provenance",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)",
+        "4a6ce7f docs(web): freeze issue9 native Viterbi inputs before computation",
+        "d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9",
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "8c5e042 fix(web): bind selected AMI identity and close bounded execution gaps",
+        "80f30a2 fix(web): preserve YAML model binding and Tune structural identity"
+      ]
+    },
+    {
+      "path": "src/pybert/web/data.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "39fca174d8c7c0a36b12efb7701da2567980b421"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows",
+        "af20605 fix: close review findings on observer edits cancellation and provenance",
+        "e43a0bd Complete native chain analyses and immutable chart comparisons for issue 3",
+        "671c081 Preserve display observation sources and full-record CDR provenance",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "cd5e652 Refs #10: freeze approved budget and irreversible guarded batch shutdown",
+        "5e85178 Refs #10: preserve partial producer evidence and real worker stage provenance"
+      ]
+    },
+    {
+      "path": "src/pybert/web/legacy_results.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "aa165ca0ac986be7585ffa7bd3e531266a75fba6"
+      },
+      "status": "added",
+      "commits": [
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "d0a742b fix(web): preserve replay guards and legacy producer identity (#5)",
+        "fb97265 fix(web): preserve busy resource undo and report legacy save capability (#5)"
+      ]
+    },
+    {
+      "path": "src/pybert/web/optimization.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "3403aa59ac4de6dfaadce19c922bf682b137b1ab"
+      },
+      "status": "added",
+      "commits": [
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)",
+        "d838995 feat(web): record exact native MMSE input contexts and hashes (#8)",
+        "17f0ead docs(web): record optimizer contracts evidence and truthful costs (#8)",
+        "9f2bb55 fix(web): protect optimizer identity edits and storage reservations",
+        "e55819a fix(web): reject incompatible EQ topology and incomplete cursor archives",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "8c5e042 fix(web): bind selected AMI identity and close bounded execution gaps",
+        "7b623f4 fix(web): preserve AMI replay and parsed parameter domains",
+        "80f30a2 fix(web): preserve YAML model binding and Tune structural identity",
+        "130e85c fix(web): import structural snapshot copy before AMI Tune",
+        "13172a8 docs(web): preserve AMI numerical and Chrome closeout evidence"
+      ]
+    },
+    {
+      "path": "src/pybert/web/records.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "64a62c1230669366721ed7307653fce6c946c0ea"
+      },
+      "status": "added",
+      "commits": [
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "7b623f4 fix(web): preserve AMI replay and parsed parameter domains",
+        "13172a8 docs(web): preserve AMI numerical and Chrome closeout evidence"
+      ]
+    },
+    {
+      "path": "src/pybert/web/resource_data.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "c89aa479781f820a6e7b09fa54b0f37935e52042"
+      },
+      "status": "added",
+      "commits": [
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)"
+      ]
+    },
+    {
+      "path": "src/pybert/web/resources.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "4adff70a011954155ff7511eaa3020e474f60226"
+      },
+      "status": "added",
+      "commits": [
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "8c5e042 fix(web): bind selected AMI identity and close bounded execution gaps",
+        "7b623f4 fix(web): preserve AMI replay and parsed parameter domains",
+        "13172a8 docs(web): preserve AMI numerical and Chrome closeout evidence"
+      ]
+    },
+    {
+      "path": "src/pybert/web/server.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "ad83e404f1ab2153a8f87676901e2fd993c208b1"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows",
+        "af20605 fix: close review findings on observer edits cancellation and provenance",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "a36bc22 fix(web): expose saved COM provenance and per-task history logs",
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "d0a742b fix(web): preserve replay guards and legacy producer identity (#5)",
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "17f0ead docs(web): record optimizer contracts evidence and truthful costs (#8)",
+        "d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "7b623f4 fix(web): preserve AMI replay and parsed parameter domains",
+        "13172a8 docs(web): preserve AMI numerical and Chrome closeout evidence"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/ami.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "c8e45d7fbfb0c6de9cbb09a7486227d82142473d"
+      },
+      "status": "added",
+      "commits": [
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "8c5e042 fix(web): bind selected AMI identity and close bounded execution gaps",
+        "7b623f4 fix(web): preserve AMI replay and parsed parameter domains",
+        "5ad04e9 fix(web): separate AMI clock controls and optional electrical capabilities"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/app.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e2d70ee34eb1c1c0ba3461a816ad890d70ffbb94"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows",
+        "af20605 fix: close review findings on observer edits cancellation and provenance",
+        "e43a0bd Complete native chain analyses and immutable chart comparisons for issue 3",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "5fff041 fix(web): preserve inactive file names without resource bindings",
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "d0a742b fix(web): preserve replay guards and legacy producer identity (#5)",
+        "8283fe8 fix(web): migrate native drafts without computed tuner values (#5)",
+        "e75b13d fix(web): restore complete reset history and validate archive identity (#5)",
+        "bdcaf50 fix(web): restore storage status with reset undo (#5)",
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/catalog.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "08af3d08ef2462031e7c9c2d8b7ba71be5c12df6"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)",
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/draft.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "c5f49cfd37baa7f4defb997cffbe0cf7de6be0a9"
+      },
+      "status": "added",
+      "commits": [
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "8283fe8 fix(web): migrate native drafts without computed tuner values (#5)",
+        "e59dce9 fix(web): retain native numeric optimizer state in draft migration (#5)",
+        "0bd84ba fix(web): revalidate retained draft field classifications (#5)"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/gui-map.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e5ef684d32a77af21ccd9fc9553663b9e15c553a"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "e43a0bd Complete native chain analyses and immutable chart comparisons for issue 3",
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/index.html",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "15baa0f68e84e43e211b1c41119f39d2991b2976"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "5b09e5f fix: gate configuration loading until native defaults are ready",
+        "e43a0bd Complete native chain analyses and immutable chart comparisons for issue 3",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "fb97265 fix(web): preserve busy resource undo and report legacy save capability (#5)",
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/optimization.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "4c5095a8194fc825fdeaf63fc64f1b7d5cdb3cc8"
+      },
+      "status": "added",
+      "commits": [
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)",
+        "9f2bb55 fix(web): protect optimizer identity edits and storage reservations",
+        "1bd76f2 fix(web): disable candidate actions while selected record loads"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/resources.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "2a2ed48e65145d0bb1c8f1f3f3c1c06c8f07aa4c"
+      },
+      "status": "added",
+      "commits": [
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "a36bc22 fix(web): expose saved COM provenance and per-task history logs",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/results.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "8adf31bb9c9c725adba61f69726c2dda218f9b1f"
+      },
+      "status": "added",
+      "commits": [
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "fb97265 fix(web): preserve busy resource undo and report legacy save capability (#5)"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/settings.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "2a47458282baa822475779e1240abd23df915866"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows",
+        "af20605 fix: close review findings on observer edits cancellation and provenance",
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/styles.css",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "e4c506d2df48bd4a6583d926d62c066c3c496c1f"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/viterbi.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "889b3de1e364ec5aa9bfd227f16b0ce4bb8c555a"
+      },
+      "status": "added",
+      "commits": [
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation",
+        "1b711cf fix(web): reject cached FEC requests and label full DFE decisions"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/workbench.css",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "61592515664803eac26c707dccccdfa13fc44a81"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows",
+        "e43a0bd Complete native chain analyses and immutable chart comparisons for issue 3",
+        "170145b Isolate plot SVG styling and shorten comparison legends",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "f64d482 fix(web): scope icon strokes away from optimizer plot text",
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation"
+      ]
+    },
+    {
+      "path": "src/pybert/web/static/workbench.js",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "a8e4b42c1fe738e6afe24d0224cbe5829299327c"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "5b09e5f fix: gate configuration loading until native defaults are ready",
+        "b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows",
+        "af20605 fix: close review findings on observer edits cancellation and provenance",
+        "f67f07d fix: retain observer order across intervening field edits",
+        "e43a0bd Complete native chain analyses and immutable chart comparisons for issue 3",
+        "170145b Isolate plot SVG styling and shorten comparison legends",
+        "aeb49cc Keep expanded chart axes visible after selecting analyses",
+        "68c1b4c Keep compared eye panels readable with a shared count scale",
+        "7c4cf9f Release plot height when switching to jitter tables",
+        "b2bdb22 Preserve stored schema 2 DFE info and channel frequency views",
+        "e9c73c5 Keep legacy frequency limitations visible in chart comparisons",
+        "671c081 Preserve display observation sources and full-record CDR provenance",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "d0a742b fix(web): preserve replay guards and legacy producer identity (#5)",
+        "6abd877 fix(web): report unavailable records after service restart (#5)",
+        "8283fe8 fix(web): migrate native drafts without computed tuner values (#5)",
+        "8e3d9fc fix(web): preserve unavailable result selection across reload (#5)",
+        "3ccb88f fix(web): distinguish querying and confirmed unavailable records (#5)",
+        "e75b13d fix(web): restore complete reset history and validate archive identity (#5)",
+        "fb97265 fix(web): preserve busy resource undo and report legacy save capability (#5)",
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)",
+        "9f2bb55 fix(web): protect optimizer identity edits and storage reservations",
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "8c5e042 fix(web): bind selected AMI identity and close bounded execution gaps"
+      ]
+    },
+    {
+      "path": "src/pybert/web/tasks.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "551deee0792fc91a252dd06e55efc5c76f7887e2"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows",
+        "af20605 fix: close review findings on observer edits cancellation and provenance",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "9f59c51 feat(web): add exact run archives and independent result references (#5)",
+        "d0a742b fix(web): preserve replay guards and legacy producer identity (#5)",
+        "1943ea8 test(web): seal archive follow-ups and bounded execution plan (#5)",
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)",
+        "9f2bb55 fix(web): protect optimizer identity edits and storage reservations",
+        "d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9",
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation",
+        "1b711cf fix(web): reject cached FEC requests and label full DFE decisions",
+        "e812f4a fix(web): validate runtime extensions before defaults cache return",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "8c5e042 fix(web): bind selected AMI identity and close bounded execution gaps",
+        "80f30a2 fix(web): preserve YAML model binding and Tune structural identity"
+      ]
+    },
+    {
+      "path": "src/pybert/web/viterbi.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "943bc6b91724b4aa10f543a990458ad2c23e0af1"
+      },
+      "status": "added",
+      "commits": [
+        "4a6ce7f docs(web): freeze issue9 native Viterbi inputs before computation",
+        "d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9",
+        "102a17f feat(web): add immutable trellis navigation and strict decoding archive validation",
+        "e4823de fix(web): close decoding archive validation findings and bound evidence jobs",
+        "70eeb0d fix(web): label trellis log colors and reject nonfinite budgets",
+        "1b711cf fix(web): reject cached FEC requests and label full DFE decisions",
+        "5e85178 Refs #10: preserve partial producer evidence and real worker stage provenance",
+        "b5888be test(web): freeze D2 bounded software coordinator checks"
+      ]
+    },
+    {
+      "path": "src/pybert/web/worker.py",
+      "base": null,
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "6374d7622195c5f04cd0dff11a280780cd71e5b3"
+      },
+      "status": "added",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench",
+        "b2d868e fix: preserve immutable native inputs across draft reload and finish validation flows",
+        "af20605 fix: close review findings on observer edits cancellation and provenance",
+        "086fff2 WIP #4: freeze resources and preserve adapter work before native port fix",
+        "6a3a323 feat(web): freeze channel resources and isolate COM tasks (#4)",
+        "d0a742b fix(web): preserve replay guards and legacy producer identity (#5)",
+        "e393c7c feat(web): add serial Native EQ candidates and explicit Use Reset actions (#8)",
+        "a06ef6d fix(web): preserve optimizer identities and complete cancellation archive contracts (#8)",
+        "d1a5979 feat(web): capture native ISI decoding and original trellis outputs for issue9",
+        "e0d089e feat(web): add private AMI model configuration and execution evidence",
+        "8c5e042 fix(web): bind selected AMI identity and close bounded execution gaps",
+        "7b623f4 fix(web): preserve AMI replay and parsed parameter domains",
+        "80f30a2 fix(web): preserve YAML model binding and Tune structural identity",
+        "13172a8 docs(web): preserve AMI numerical and Chrome closeout evidence",
+        "5e85178 Refs #10: preserve partial producer evidence and real worker stage provenance",
+        "b5888be test(web): freeze D2 bounded software coordinator checks",
+        "8180e00 fix(web): preserve snapshot scope and timestamp rounding bounds"
+      ]
+    },
+    {
+      "path": "uv.lock",
+      "base": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "3acd145e38b7c14ff31d15104bd0061eec5f9ee2"
+      },
+      "current": {
+        "mode": "100644",
+        "kind": "blob",
+        "object": "b2f63b1c7b001de77ecc8b6b1ba9d60d8da61adb"
+      },
+      "status": "modified",
+      "commits": [
+        "7b4336b feat: connect native signal-chain runs and analyses to local web workbench"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "PyAMI",
+      "checkout": "E:\\serial-bus-simulator-dependencies\\pyami-response-rng",
+      "base": "5270d713e40bac2be5747bef09b92df79df9085b",
+      "current": "d6d1f7fe7e58536546a1cfb9430c750cc2cb103e",
+      "base_tree": "35b09659b5be907204823a82f95afdc9ec63d0a8",
+      "current_tree": "1a74ae9844f657e5567c435345fdd561a1f747fe",
+      "checkout_head": "3bc5d43f81160bd022624c6c48b4a42651a874b8",
+      "checkout_tree_matches_current": true,
+      "checkout_status": "",
+      "commits": [
+        "2b475fa fix: validate AMI clocks and close Init memory safely",
+        "41d08c8 docs: seal local clock lifecycle candidate evidence",
+        "e222e40 Merge pull request #1 from yx520143-G/codex/pyami-clock-lifecycle",
+        "81c4e5a feat: accept a private RNG for response probes",
+        "3bc5d43 docs: seal response RNG review evidence",
+        "d6d1f7f Merge pull request #2 from yx520143-G/codex/pyami-response-rng"
+      ],
+      "changed_sources": [
+        {
+          "path": "src/pyibisami/ami/model.py",
+          "base_sha256": "da13265b383771600b810a183ddbbe3e2ab2706a33e368d72287e1040e195165",
+          "current_sha256": "e26cbf11ce959bb34cb0e8977cbfe728ebf3a4be8d8e8a2de5754d07236127f8",
+          "symbols": [
+            {
+              "name": "AMIModel",
+              "base": {
+                "line": 301,
+                "end": 728,
+                "ast_sha256": "d56b1d6dd63df19ea7cb05ea94fb3984e07a5ec9104353d0ff9b863bc3682f35"
+              },
+              "current": {
+                "line": 327,
+                "end": 836,
+                "ast_sha256": "c4228207061b7a481d3b4dbe7ea51531439bd5fb00d9d1d0bfc63128bd0c24fd"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.__del__",
+              "base": {
+                "line": 334,
+                "end": 344,
+                "ast_sha256": "5813736f1df082ed8a7517da5c644835cb8e42c59c26a4a971a594a466287938"
+              },
+              "current": {
+                "line": 361,
+                "end": 373,
+                "ast_sha256": "29a4d83899ad10ae025cd6574b01cd521d6d9302bda109540fdcad74e76877fb"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.__init__",
+              "base": {
+                "line": 313,
+                "end": 332,
+                "ast_sha256": "6bcfcf0699d91f68514d7f48392a9d08e7893ba3af637f22e16454ff2c3ba36f"
+              },
+              "current": {
+                "line": 339,
+                "end": 359,
+                "ast_sha256": "8084e817ca4df4a2fd4455d4008c37cdd9f7453e5bc4c79d3e64a87641c33159"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.__str__",
+              "base": {
+                "line": 346,
+                "end": 362,
+                "ast_sha256": "3d46cfd0a738a84a3492a22c7a67a28750c1ef4cff44b5c6111fbb7734a075ba"
+              },
+              "current": {
+                "line": 402,
+                "end": 418,
+                "ast_sha256": "3d46cfd0a738a84a3492a22c7a67a28750c1ef4cff44b5c6111fbb7734a075ba"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getAmiParamsIn",
+              "base": {
+                "line": 696,
+                "end": 697,
+                "ast_sha256": "15cd1eb1e5ed22a4eab91a9a88e85443791c488b0fde55103d238285f8fd2180"
+              },
+              "current": {
+                "line": 804,
+                "end": 805,
+                "ast_sha256": "15cd1eb1e5ed22a4eab91a9a88e85443791c488b0fde55103d238285f8fd2180"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getAmiParamsOut",
+              "base": {
+                "line": 701,
+                "end": 705,
+                "ast_sha256": "829df4728f8b2667fe13d5b3ec3d6e459d66f488ddc057c20342487b74b36d6d"
+              },
+              "current": {
+                "line": 809,
+                "end": 813,
+                "ast_sha256": "829df4728f8b2667fe13d5b3ec3d6e459d66f488ddc057c20342487b74b36d6d"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getBitTime",
+              "base": {
+                "line": 691,
+                "end": 692,
+                "ast_sha256": "78443615a95ff701598a0ad74f74c54dee517f00e9b087d6a1bd0f3845d0afbd"
+              },
+              "current": {
+                "line": 799,
+                "end": 800,
+                "ast_sha256": "78443615a95ff701598a0ad74f74c54dee517f00e9b087d6a1bd0f3845d0afbd"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getChannelResponse",
+              "base": {
+                "line": 669,
+                "end": 670,
+                "ast_sha256": "0f4100dbbb54d3ce9b4e6a94d8a24b4208fed15378ed0582c4e38b5530611a48"
+              },
+              "current": {
+                "line": 777,
+                "end": 778,
+                "ast_sha256": "0f4100dbbb54d3ce9b4e6a94d8a24b4208fed15378ed0582c4e38b5530611a48"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getClockTimes",
+              "base": {
+                "line": 716,
+                "end": 717,
+                "ast_sha256": "6487277d6407d7c5583bc29941403ae02ff856b8d8905ff032e3524be39eaf84"
+              },
+              "current": {
+                "line": 824,
+                "end": 825,
+                "ast_sha256": "6487277d6407d7c5583bc29941403ae02ff856b8d8905ff032e3524be39eaf84"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getInfoParams",
+              "base": {
+                "line": 721,
+                "end": 722,
+                "ast_sha256": "6e307e7c8f195aef890083a276d514f083579978a8f2b22837c9fcc5fb34611f"
+              },
+              "current": {
+                "line": 829,
+                "end": 830,
+                "ast_sha256": "6e307e7c8f195aef890083a276d514f083579978a8f2b22837c9fcc5fb34611f"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getInitOut",
+              "base": {
+                "line": 664,
+                "end": 665,
+                "ast_sha256": "556f99980f40e0bddeb6cf54b6624aad50e70ffd3ffce9731b6ab24ff977e3dc"
+              },
+              "current": {
+                "line": 772,
+                "end": 773,
+                "ast_sha256": "556f99980f40e0bddeb6cf54b6624aad50e70ffd3ffce9731b6ab24ff977e3dc"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getMsg",
+              "base": {
+                "line": 711,
+                "end": 712,
+                "ast_sha256": "0c96df0b28e1c1c5819c9121327775b7cc2b26b0e828ee61f782ce7f6576d2ab"
+              },
+              "current": {
+                "line": 819,
+                "end": 820,
+                "ast_sha256": "0c96df0b28e1c1c5819c9121327775b7cc2b26b0e828ee61f782ce7f6576d2ab"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getNumAggressors",
+              "base": {
+                "line": 679,
+                "end": 680,
+                "ast_sha256": "4b25205d76d8c99560b978ac4767e171b629f49176ea59acde27bf823df387c3"
+              },
+              "current": {
+                "line": 787,
+                "end": 788,
+                "ast_sha256": "4b25205d76d8c99560b978ac4767e171b629f49176ea59acde27bf823df387c3"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getRowSize",
+              "base": {
+                "line": 674,
+                "end": 675,
+                "ast_sha256": "5ebefe1ccdb12fbf65c8ba6022bb46b95952a70ef5dbcbf67cbbc6ea951c0368"
+              },
+              "current": {
+                "line": 782,
+                "end": 783,
+                "ast_sha256": "5ebefe1ccdb12fbf65c8ba6022bb46b95952a70ef5dbcbf67cbbc6ea951c0368"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._getSampleInterval",
+              "base": {
+                "line": 684,
+                "end": 685,
+                "ast_sha256": "ed408695b2a0b5c85c33cefa3d11b5fc2505822fa762d730c9801ba7ef94caf3"
+              },
+              "current": {
+                "line": 792,
+                "end": 793,
+                "ast_sha256": "ed408695b2a0b5c85c33cefa3d11b5fc2505822fa762d730c9801ba7ef94caf3"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel._initialize",
+              "base": null,
+              "current": {
+                "line": 463,
+                "end": 535,
+                "ast_sha256": "e509f2550f500ec365d31795f4d01eb2c2a71e988de24c724e209e299455966d"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.close",
+              "base": null,
+              "current": {
+                "line": 375,
+                "end": 390,
+                "ast_sha256": "0866c8af05f3ae7bfe97059848e42e9a8216cd1579580200e012434f5a99df20"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.getWave",
+              "base": {
+                "line": 458,
+                "end": 523,
+                "ast_sha256": "f24b60e218dabf4bbd9f77bc74ab1bf9ddde354ab57ca6852e2bd8f2cceacc83"
+              },
+              "current": {
+                "line": 537,
+                "end": 621,
+                "ast_sha256": "a60d6cd4bc5bfefbd93adc9d608cac6da0a878b80c8d8055d13b554e79c15215"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.get_responses",
+              "base": {
+                "line": 525,
+                "end": 652,
+                "ast_sha256": "be28e54a823f0edaa1b2956b38cb42764f65ebf6ee4f7098c5c43be9b2d24c25"
+              },
+              "current": {
+                "line": 628,
+                "end": 760,
+                "ast_sha256": "ce276df341909b275864b66e1142812d5f69f7a7d0c64f369bdf9ed88a6211c6"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.getwave_step_response_out_params",
+              "base": {
+                "line": 727,
+                "end": 728,
+                "ast_sha256": "69e2ee78ac065b0b76d80a35997d3e7c065cd7073aa5ad5707bd3993d2de4430"
+              },
+              "current": {
+                "line": 835,
+                "end": 836,
+                "ast_sha256": "69e2ee78ac065b0b76d80a35997d3e7c065cd7073aa5ad5707bd3993d2de4430"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel.has_getwave",
+              "base": {
+                "line": 660,
+                "end": 662,
+                "ast_sha256": "639825cb03d5d1b7a9e7832f4c70238b63d3735e1f0f41bc047da470b2e6c0d6"
+              },
+              "current": {
+                "line": 768,
+                "end": 770,
+                "ast_sha256": "639825cb03d5d1b7a9e7832f4c70238b63d3735e1f0f41bc047da470b2e6c0d6"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModel.initialize",
+              "base": {
+                "line": 364,
+                "end": 456,
+                "ast_sha256": "30c8f9fbb138301bad904a97e25ebbf5a574155b03590e195db1d8c3513467bd"
+              },
+              "current": {
+                "line": 420,
+                "end": 461,
+                "ast_sha256": "345d82aed7a997bba680e9b9918ebb91ae3dcf7e04d8dd5233cfe64479a37be4"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.last_close_call",
+              "base": null,
+              "current": {
+                "line": 393,
+                "end": 395,
+                "ast_sha256": "815c4fdf30a6b7bb44ddbf440e6179a4c712f5d5313a40027bf4f61f64b40652"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.last_getwave_calls",
+              "base": null,
+              "current": {
+                "line": 624,
+                "end": 626,
+                "ast_sha256": "90cae74bd9a77507df38b30130a5488b51ecda1329f5a4f1509073335f0b4d86"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.last_init_call",
+              "base": null,
+              "current": {
+                "line": 398,
+                "end": 400,
+                "ast_sha256": "5561a0610f779c7d9dcf05e3f30438e9a150dd035f2e75c48be6b3a71d4d2b1e"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModel.root_name",
+              "base": {
+                "line": 655,
+                "end": 657,
+                "ast_sha256": "81a722f0793e233d394f3651d169a93c431f1dba1e9f77685406b1394d1e8326"
+              },
+              "current": {
+                "line": 763,
+                "end": 765,
+                "ast_sha256": "81a722f0793e233d394f3651d169a93c431f1dba1e9f77685406b1394d1e8326"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelError",
+              "base": null,
+              "current": {
+                "line": 302,
+                "end": 308,
+                "ast_sha256": "5c74103c365ad40522e0c78fe448ed10ff086ed766699d9ec2b203add437dd4d"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModelError.__init__",
+              "base": null,
+              "current": {
+                "line": 305,
+                "end": 308,
+                "ast_sha256": "4b5de3175b74733522df20e6869c3a3c296e3376e0b4ea1a58d9c9ee82000c7e"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "AMIModelInitializer",
+              "base": {
+                "line": 163,
+                "end": 298,
+                "ast_sha256": "51988582fb6c601ef40e4995f4fc6d623224facd82766882999a1b6afde32ddb"
+              },
+              "current": {
+                "line": 164,
+                "end": 299,
+                "ast_sha256": "51988582fb6c601ef40e4995f4fc6d623224facd82766882999a1b6afde32ddb"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer.__init__",
+              "base": {
+                "line": 179,
+                "end": 238,
+                "ast_sha256": "7ce6a6409d7126aabe1cb0f5f05073a458f5660a23039552ac5ccb5b86c30658"
+              },
+              "current": {
+                "line": 180,
+                "end": 239,
+                "ast_sha256": "7ce6a6409d7126aabe1cb0f5f05073a458f5660a23039552ac5ccb5b86c30658"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer.__str__",
+              "base": {
+                "line": 240,
+                "end": 244,
+                "ast_sha256": "000ac60205af7884504d55a46253260e8261035056a4053ff8cc4954c874ac5a"
+              },
+              "current": {
+                "line": 241,
+                "end": 245,
+                "ast_sha256": "000ac60205af7884504d55a46253260e8261035056a4053ff8cc4954c874ac5a"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._getBitTime",
+              "base": {
+                "line": 292,
+                "end": 293,
+                "ast_sha256": "2ac3b27a7de226980f4cae597fb90ad64cd82442c47d6458f3490bf5f4b2865e"
+              },
+              "current": {
+                "line": 293,
+                "end": 294,
+                "ast_sha256": "2ac3b27a7de226980f4cae597fb90ad64cd82442c47d6458f3490bf5f4b2865e"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._getChannelResponse",
+              "base": {
+                "line": 246,
+                "end": 247,
+                "ast_sha256": "ea4f22e4af13acb5ae98a4a203786699aaa3bef3b89edf7929ddbc5e87b0d107"
+              },
+              "current": {
+                "line": 247,
+                "end": 248,
+                "ast_sha256": "ea4f22e4af13acb5ae98a4a203786699aaa3bef3b89edf7929ddbc5e87b0d107"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._getNumAggressors",
+              "base": {
+                "line": 270,
+                "end": 271,
+                "ast_sha256": "ea9b384a27b22d975a731669e51ba7cf787a57598e4b3d1af3b37cfa0ec39451"
+              },
+              "current": {
+                "line": 271,
+                "end": 272,
+                "ast_sha256": "ea9b384a27b22d975a731669e51ba7cf787a57598e4b3d1af3b37cfa0ec39451"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._getRowSize",
+              "base": {
+                "line": 262,
+                "end": 263,
+                "ast_sha256": "f2c287539e07811fca3ffbbe66441946332b336cf2b3635fbc5841f719ad67b4"
+              },
+              "current": {
+                "line": 263,
+                "end": 264,
+                "ast_sha256": "f2c287539e07811fca3ffbbe66441946332b336cf2b3635fbc5841f719ad67b4"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._getSampleInterval",
+              "base": {
+                "line": 280,
+                "end": 281,
+                "ast_sha256": "f82c0e705910c20aa3476f9fca1891f8fceec1062b0ec09545b201ff31d9915a"
+              },
+              "current": {
+                "line": 281,
+                "end": 282,
+                "ast_sha256": "f82c0e705910c20aa3476f9fca1891f8fceec1062b0ec09545b201ff31d9915a"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._setBitTime",
+              "base": {
+                "line": 295,
+                "end": 296,
+                "ast_sha256": "de86af7e5740654f6f59d37536acce95d871bf21c29a706e66708fab11aac0b8"
+              },
+              "current": {
+                "line": 296,
+                "end": 297,
+                "ast_sha256": "de86af7e5740654f6f59d37536acce95d871bf21c29a706e66708fab11aac0b8"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._setChannelResponse",
+              "base": {
+                "line": 249,
+                "end": 254,
+                "ast_sha256": "c60b562880ad6338b5a450ac54caebef6d0c9037610d92eb6b1568b427066db7"
+              },
+              "current": {
+                "line": 250,
+                "end": 255,
+                "ast_sha256": "c60b562880ad6338b5a450ac54caebef6d0c9037610d92eb6b1568b427066db7"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._setNumAggressors",
+              "base": {
+                "line": 273,
+                "end": 274,
+                "ast_sha256": "21999848e6233235d6a976877b2be2a43ffd25879b75369523df67c43e5dfb9e"
+              },
+              "current": {
+                "line": 274,
+                "end": 275,
+                "ast_sha256": "21999848e6233235d6a976877b2be2a43ffd25879b75369523df67c43e5dfb9e"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._setRowSize",
+              "base": {
+                "line": 265,
+                "end": 266,
+                "ast_sha256": "8af22131a0a1413db140c77713d0bdbe5c35b5bf27a819f89c9bb63256ce7757"
+              },
+              "current": {
+                "line": 266,
+                "end": 267,
+                "ast_sha256": "8af22131a0a1413db140c77713d0bdbe5c35b5bf27a819f89c9bb63256ce7757"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AMIModelInitializer._setSampleInterval",
+              "base": {
+                "line": 283,
+                "end": 284,
+                "ast_sha256": "6420bdc20f14ab8b6da937eddfe17fd4abacecd41bd2bceda2da20f95edede72"
+              },
+              "current": {
+                "line": 284,
+                "end": 285,
+                "ast_sha256": "6420bdc20f14ab8b6da937eddfe17fd4abacecd41bd2bceda2da20f95edede72"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AmiModelResponseKey",
+              "base": {
+                "line": 46,
+                "end": 55,
+                "ast_sha256": "7cd1a509efe965a947843e076182a0dfe1bb9e45bf3717c90cb6f41838f73e38"
+              },
+              "current": {
+                "line": 47,
+                "end": 56,
+                "ast_sha256": "7cd1a509efe965a947843e076182a0dfe1bb9e45bf3717c90cb6f41838f73e38"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "AmiModelResponseKey.__post_init__",
+              "base": {
+                "line": 51,
+                "end": 55,
+                "ast_sha256": "f56c293a3fd4586cc5209ba375e3ac5c1cdba94f308ddc0e72f38392d1c7a70b"
+              },
+              "current": {
+                "line": 52,
+                "end": 56,
+                "ast_sha256": "f56c293a3fd4586cc5209ba375e3ac5c1cdba94f308ddc0e72f38392d1c7a70b"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "_InitData",
+              "base": {
+                "line": 155,
+                "end": 160,
+                "ast_sha256": "db51e27bc5f49932bf82c792e6ffda0dbd5b5c3e508f6a31f7ea018bdffa4aa6"
+              },
+              "current": {
+                "line": 156,
+                "end": 161,
+                "ast_sha256": "db51e27bc5f49932bf82c792e6ffda0dbd5b5c3e508f6a31f7ea018bdffa4aa6"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "_clock_prefix",
+              "base": null,
+              "current": {
+                "line": 311,
+                "end": 324,
+                "ast_sha256": "b6bdefc7e94fc5cd97d11040e435391224133c8a754499a2eb36e704c1c67a87"
+              },
+              "ast_equal": false
+            },
+            {
+              "name": "_debug_plot",
+              "base": {
+                "line": 26,
+                "end": 34,
+                "ast_sha256": "f689ef4db81bf2d89ddb181d5cba7a9c30331ab7d54e88331d5e826080750965"
+              },
+              "current": {
+                "line": 27,
+                "end": 35,
+                "ast_sha256": "f689ef4db81bf2d89ddb181d5cba7a9c30331ab7d54e88331d5e826080750965"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "ami_params_string",
+              "base": {
+                "line": 129,
+                "end": 152,
+                "ast_sha256": "43af549a79415f2a255d95e91528bec5354226c318b722790e2649df25a715a1"
+              },
+              "current": {
+                "line": 130,
+                "end": 153,
+                "ast_sha256": "43af549a79415f2a255d95e91528bec5354226c318b722790e2649df25a715a1"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "ami_params_string.atom",
+              "base": {
+                "line": 141,
+                "end": 142,
+                "ast_sha256": "a14c6dbdde281c15170766875028dd36c62bc5fc3b6d10b05abcd3565cc650f4"
+              },
+              "current": {
+                "line": 142,
+                "end": 143,
+                "ast_sha256": "a14c6dbdde281c15170766875028dd36c62bc5fc3b6d10b05abcd3565cc650f4"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "ami_params_string.sexpr",
+              "base": {
+                "line": 144,
+                "end": 149,
+                "ast_sha256": "37feea59a5dff71b90e04a2be9b20cec8acac8137cb66fb3e092253454bc8132"
+              },
+              "current": {
+                "line": 145,
+                "end": 150,
+                "ast_sha256": "37feea59a5dff71b90e04a2be9b20cec8acac8137cb66fb3e092253454bc8132"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "interpFile",
+              "base": {
+                "line": 96,
+                "end": 123,
+                "ast_sha256": "8d359d522c931c11b988835c1c43bbbec462566cb27ffe22f6756f81c065fb9d"
+              },
+              "current": {
+                "line": 97,
+                "end": 124,
+                "ast_sha256": "8d359d522c931c11b988835c1c43bbbec462566cb27ffe22f6756f81c065fb9d"
+              },
+              "ast_equal": true
+            },
+            {
+              "name": "loadWave",
+              "base": {
+                "line": 67,
+                "end": 93,
+                "ast_sha256": "a8934fa64f22364b895524221b7469294bbf800914546e4a7d292b4b18a7f205"
+              },
+              "current": {
+                "line": 68,
+                "end": 94,
+                "ast_sha256": "a8934fa64f22364b895524221b7469294bbf800914546e4a7d292b4b18a7f205"
+              },
+              "ast_equal": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PyChOpMarg",
+      "checkout": "E:\\serial-bus-simulator-dependencies\\pybert-issue28-rng-pin\\PyChOpMarg",
+      "base": "ca905e793fcf6330929471317ca32e7611578e5d",
+      "current": "ca905e793fcf6330929471317ca32e7611578e5d",
+      "base_tree": "6cc0b78d8fa0c0b4d672cbb52f0ecd2a8a0fba9c",
+      "current_tree": "6cc0b78d8fa0c0b4d672cbb52f0ecd2a8a0fba9c",
+      "checkout_head": "ca905e793fcf6330929471317ca32e7611578e5d",
+      "checkout_tree_matches_current": true,
+      "checkout_status": "",
+      "commits": [],
+      "changed_sources": []
+    }
+  ]
+}
