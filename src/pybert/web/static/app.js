@@ -1,6 +1,10 @@
 /* Local configuration draft only: no model loading or simulation backend. */
 (() => {
-  const { stages } = window.PYBERT_CATALOG;
+  // Defer Viterbi UI while retaining its catalog and configuration for later work.
+  const stages = window.PYBERT_CATALOG.stages.filter(stage => stage.id !== 'viterbi').map(stage => ({
+    ...stage,
+    groups: stage.groups.map(group => ({ ...group, params: group.params.filter(param => !/viterbi|trellis/.test(param.key)) }))
+  }));
   const settings = window.PYBERT_SETTINGS;
   const storageKey = 'pybert-native-draft-v2';
   let draft = settings.clone(settings.defaults);
@@ -57,6 +61,7 @@
     $('tx-mode').value = tx;
     $('rx-mode').value = rx;
     $('ami-clocks').disabled = rx !== 'getwave';
+    $('ami-clocks').parentElement.hidden = rx !== 'getwave';
     $('ami-clocks').checked = rx === 'getwave' && draft.rx_use_clocks;
   }
 
@@ -88,19 +93,33 @@
     return `<button type="button" class="mini-node ${extraClass}${state.stageId === id ? ' selected' : ''}" data-stage="${id}" title="${escape(stage.title)}">${icon(stage.icon)}${title}</button>`;
   }
 
+  function measurement(point, label) {
+    return `<button type="button" class="measurement-marker" data-observation="${point}" aria-label="观察${label}" aria-pressed="false"><span class="marker-dot" aria-hidden="true"></span><span class="marker-name" role="tooltip">${label}</span></button>`;
+  }
+
   function renderMap() {
     const { tx, rx, clocks } = mode();
     const txGetWave = tx === 'getwave';
     const rxAmi = rx !== 'native';
     const clocksConditional = rx === 'getwave' && clocks && !txGetWave;
+    const nativePoints = tx === 'native' && rx === 'native';
     const modeNames = { native: 'Native FFE', init: 'AMI Init', getwave: 'AMI GetWave' };
     const noise = node('noise', 'Noise', txGetWave ? '路径限制' : '加法注入', `noise${txGetWave ? ' limited' : ''}`);
     const receiver = rxAmi ? node('ami', 'Rx AMI', rx === 'init' ? 'AMI Init' : 'AMI GetWave', 'ami') : node('ctle', 'Rx CTLE', !draft.ctle_enable ? '已关闭 · 旁路' : draft.ctle_sel === 'File' ? '文件响应' : 'Native · 已启用', draft.ctle_enable ? '' : 'bypass');
-    const path = [node('source', 'Source', `${escape(draft.mod_type)} · ${escape(draft.pattern)}`), node('tx', 'Tx EQ', modeNames[tx], tx === 'native' ? '' : 'ami'), node('channel', 'Channel', draft.inter_sel === 'native' ? 'Native · 两端电气' : draft.inter_sel === 'single' ? '单文件 · 两端电气' : '文件串接 · 两端电气')];
+    const channel = node('channel', 'Channel', draft.inter_sel === 'native' ? 'Native · 两端电气' : draft.inter_sel === 'single' ? '单文件 · 两端电气' : '文件串接 · 两端电气');
+    const path = [node('source', 'Source', `${escape(draft.mod_type)} · ${escape(draft.pattern)}`), node('tx', 'Tx EQ', modeNames[tx], tx === 'native' ? '' : 'ami'), channel];
     path.push(...(rx === 'init' && !txGetWave ? [receiver, noise] : [noise, receiver]));
     path.push(node('rxffe', 'Rx FFE', rxAmi ? '旁路 · Rx AMI' : '固定 FIR 系数', rxAmi ? 'bypass' : ''));
-    path.push(node('dfe', rxAmi ? 'Slicer' : 'DFE / Slicer', clocksConditional ? '条件采用模型时钟' : rxAmi ? 'Native 采样 / 判决' : '自适应反馈 / 判决'));
-    $('chain-map').innerHTML = `<div class="signal-path">${path.join('<span class="signal-arrow" aria-hidden="true"></span>')}</div><div class="chain-supports"><div class="support-cell"><span class="support-label">并入 Channel ↑</span>${mini('package', 'Device models')}</div><div class="support-cell"><span class="support-label">多节点测量 ↗</span>${mini('analysis', 'Observe')}<span class="support-divider"></span><span class="support-label">响应 · 眼图 · 误码</span></div><div class="support-cell control-cell"><span class="support-label">判决控制 ↑</span>${mini('cdr', 'CDR', clocksConditional ? 'conditional' : '')}${mini('agc', 'AGC', clocksConditional ? 'conditional' : '')}<span class="support-divider"></span>${mini('viterbi', '↗ Viterbi')}</div></div>`;
+    path.push(nativePoints
+      ? `<div class="receiver-stage">${node('dfe', 'DFE', '反馈求和')}<span class="signal-arrow measured-link">${measurement('dfe', '判决前信号')}</span><button type="button" class="slicer-node${state.stageId === 'dfe' ? ' selected' : ''}" data-stage="dfe" aria-label="Slicer 硬判决，查看 DFE / Slicer 设置"><strong>Slicer</strong><small>硬判决</small></button></div>`
+      : node('dfe', rxAmi ? 'Slicer' : 'DFE / Slicer', clocksConditional ? '条件采用模型时钟' : rxAmi ? 'Native 采样 / 判决' : '自适应反馈 / 判决'));
+    const mainPath = path.map((item, index) => {
+      if (index === path.length - 1) return item;
+      const marker = nativePoints && index === 3 ? measurement('tx', '接收端输入') : nativePoints && index === 4 ? measurement('ctle', 'CTLE 输出') : nativePoints && index === 5 ? measurement('ffe', 'FFE 输出') : '';
+      return `${item}<span class="signal-arrow${marker ? ' measured-link' : ''}"${marker ? '' : ' aria-hidden="true"'}>${marker}</span>`;
+    }).join('');
+    const measurementNote = nativePoints ? '' : '<p class="measurement-note">AMI 路径：从结果区选择该 Run 已保存的测点。</p>';
+    $('chain-map').innerHTML = `<div class="signal-path${nativePoints ? ' measured-path' : ''}">${mainPath}</div><div class="chain-secondary">${measurementNote}<div class="chain-supports"><div class="support-cell">${mini('package', 'Device models')}${mini('analysis', 'Observe')}</div><div class="support-cell control-cell">${mini('cdr', 'CDR', clocksConditional ? 'conditional' : '')}${mini('agc', 'AGC', clocksConditional ? 'conditional' : '')}</div></div></div>`;
     const notes = [];
     if (txGetWave) notes.push('Tx GetWave：当前源码未将含显式 noise 的 rx_in 用于下游输出，噪声注入路径存在限制。');
     else if (rx === 'init') notes.push('Rx Init：显式噪声在 Rx AMI 输出后加入。');
@@ -112,6 +131,7 @@
     $('mode-note').className = `mode-note${txGetWave ? ' warning' : ''}`;
     $('mode-note').innerHTML = `<span class="note-mark" aria-hidden="true">${txGetWave ? '!' : 'i'}</span><span>${notes.join(' ')}</span>`;
     syncModes();
+    window.dispatchEvent(new CustomEvent('pybert-chain-rendered'));
   }
 
   function stageContext(stage) {
@@ -129,7 +149,7 @@
   function renderOverview() {
     const stage = stageById(state.stageId);
     const context = stageContext(stage);
-    $('stage-overview').innerHTML = `<div class="stage-overview"><div class="stage-badge">${icon(stage.icon)}</div><div class="stage-intro"><div class="stage-kicker">${stage.category === 'main' ? 'SIGNAL PATH' : stage.category === 'control' ? 'CONTROL & DECISION' : 'CONFIGURATION'} <span> / </span><span class="category-label">${categories[stage.category]}</span></div><h2 id="stage-title">${stage.title}<span>${stage.name}</span></h2><p>${stage.summary}</p><div class="stage-location">${icon('folder')}${stage.location}</div></div><span class="stage-status ${context.kind}">${context.label}</span></div><div class="io-strip"><span><span class="io-label">INPUT</span><strong>${stage.input}</strong></span><span class="io-arrow" aria-hidden="true">→</span><span><span class="io-label">OUTPUT</span><strong>${stage.output}</strong></span></div>${context.text ? `<p class="stage-context">${context.text}</p>` : ''}`;
+    $('stage-overview').innerHTML = `<div class="stage-overview"><div class="stage-badge">${icon(stage.icon)}</div><div class="stage-intro"><div class="stage-kicker">${stage.category === 'main' ? 'SIGNAL PATH' : stage.category === 'control' ? 'CONTROL & DECISION' : 'CONFIGURATION'} <span> / </span><span class="category-label">${categories[stage.category]}</span></div><h2 id="stage-title">${stage.name}<span>${stage.title}</span></h2><p>${stage.summary}</p><div class="stage-location">${icon('folder')}${stage.location}</div></div><span class="stage-status ${context.kind}">${context.label}</span></div><div class="io-strip"><span><span class="io-label">INPUT</span><strong>${stage.input}</strong></span><span class="io-arrow" aria-hidden="true">→</span><span><span class="io-label">OUTPUT</span><strong>${stage.output}</strong></span></div>${context.text ? `<p class="stage-context">${context.text}</p>` : ''}`;
     $('parameter-count').textContent = stage.groups.reduce((sum, group) => sum + group.params.length, 0);
     $('mapping-count').textContent = stage.mapping.length;
   }
@@ -183,7 +203,7 @@
     const reason = settings.disabledReason(key, draft);
     const error = settings.fieldError(key, draft);
     const initial = Array.isArray(field.value) ? '空列表' : typeof field.value === 'boolean' ? field.value ? '开启' : '关闭' : field.value === '' ? '空' : field.value;
-    return `<div class="setting-card${field.kind === 'radio' || field.kind === 'files' ? ' wide' : ''}${reason ? ' inactive' : ''}${changed(key) ? ' modified' : ''}" id="${id}" data-field-card="${key}"><div class="setting-heading"><label for="control-${key}">${escape(label)}</label><button class="field-reset" type="button" data-reset-field="${key}"${changed(key) ? '' : ' hidden'} aria-label="恢复 ${escape(label)} 默认值">恢复</button></div>${inputControl(key, label)}<p class="setting-description" id="help-${key}">${escape(field.hint || param.description)}</p><div class="field-meta"><code>${escape(key)}</code><span>默认 ${escape(initial)}${field.unit ? ` ${field.unit}` : ''}</span></div>${param.status === 'limitation' ? '<span class="setting-caution">此路径有已记录的实现限制，详见参数说明。</span>' : ''}<p class="field-condition" data-field-condition="${key}"${reason ? '' : ' hidden'}>${escape(reason)}</p><p class="field-error" id="error-${key}" role="status"${error ? '' : ' hidden'}>${escape(error)}</p><details class="field-details"><summary>范围与来源</summary><p>${escape(param.range)}</p>${sourceLink(param.source || source)}${badges(param)}</details></div>`;
+    return `<div class="setting-card${field.kind === 'radio' || field.kind === 'files' ? ' wide' : ''}${reason ? ' inactive' : ''}${changed(key) ? ' modified' : ''}" id="${id}" data-field-card="${key}"><div class="setting-heading"><label for="control-${key}">${escape(label)}</label><button class="field-reset" type="button" data-reset-field="${key}"${changed(key) ? '' : ' hidden'} aria-label="恢复 ${escape(label)} 默认值">恢复</button></div>${inputControl(key, label)}${param.status === 'limitation' ? '<span class="setting-caution">此路径有已记录的实现限制，详见参数说明。</span>' : ''}<p class="field-condition" data-field-condition="${key}"${reason ? '' : ' hidden'}>${escape(reason)}</p><p class="field-error" id="error-${key}" role="status"${error ? '' : ' hidden'}>${escape(error)}</p><details class="field-details"><summary>说明与来源</summary><p class="setting-description" id="help-${key}">${escape(field.hint || param.description)}</p><div class="field-meta"><code>${escape(key)}</code><span>默认 ${escape(initial)}${field.unit ? ` ${field.unit}` : ''}</span></div><p>${escape(param.range)}</p>${sourceLink(param.source || source)}${badges(param)}</details></div>`;
   }
 
   function tapLabel(key, i) {
@@ -230,7 +250,8 @@
       }).join('');
       return cards ? `<section class="settings-group"><div class="settings-group-heading"><h3>${group.title}</h3><span>本地草稿</span></div><div class="settings-grid">${cards}</div></section>` : '';
     }).join('');
-    $('settings-panel').innerHTML = `${loadMessage ? `<p class="editor-notice">${escape(loadMessage)}</p><details><summary>迁移来源与未应用字段（保留原值）</summary><pre>${escape(JSON.stringify({migrationSource,retainedFields},null,2))}</pre></details>` : ''}${stage.id === 'ami' ? '<p class="editor-notice">这里只记录模型文件名与调用方案。尚未解析模型、确认能力或运行动态库；Model_Specific 示例与只读解析状态可在“参数说明”中查看。</p>' : ''}${groups}${[...tables].map(tapTable).join('')}${!groups && !tables.size ? '<div class="empty-state">此模块显示分析结果，当前没有仿真数据。<br>可以在“参数说明”中查看支持的输出与入口。</div>' : ''}${referenceCount ? `<div class="reference-shortcut"><span>还有 ${referenceCount} 个结果、内部状态或参考条目。</span><button type="button" data-tab="parameters">查看参数说明 →</button></div>` : ''}`;
+    $('settings-panel').innerHTML = `${loadMessage ? `${Object.keys(retainedFields).length || recoveryRequired ? `<p class="editor-notice">${escape(loadMessage)}</p>` : ''}<details class="draft-info"><summary>草稿恢复与迁移详情</summary><p class="editor-notice">${escape(loadMessage)}</p><pre>${escape(JSON.stringify({migrationSource,retainedFields},null,2))}</pre></details>` : ''}${stage.id === 'ami' ? '<p class="editor-notice">这里只记录模型文件名与调用方案。尚未解析模型、确认能力或运行动态库；Model_Specific 示例与只读解析状态可在“参数说明”中查看。</p>' : ''}${groups}${[...tables].map(tapTable).join('')}${!groups && !tables.size ? '<div class="empty-state">此模块显示分析结果，当前没有仿真数据。<br>可以在“参数说明”中查看支持的输出与入口。</div>' : ''}${referenceCount ? `<div class="reference-shortcut"><span>还有 ${referenceCount} 个结果、内部状态或参考条目。</span><button type="button" data-tab="parameters">查看参数说明 →</button></div>` : ''}`;
+    $('settings-panel').insertAdjacentHTML('beforeend','<p id="conditional-settings-empty" class="editor-notice" hidden>当前配置没有适用的设置。可在“参数说明”查看全部参数及生效条件。</p>');
     if(optimizerLink) $('settings-panel').insertAdjacentHTML('beforeend',optimizerLink);
     updateFieldFeedback();
   }
@@ -240,6 +261,7 @@
       const key = card.dataset.fieldCard;
       const field = settings.fields[key];
       const reason = settings.disabledReason(key, draft);
+      card.hidden = Boolean(reason) && !field.readonly;
       card.classList.toggle('inactive', Boolean(reason));
       const conditionNode = card.querySelector('[data-field-condition]');
       conditionNode.textContent = reason;
@@ -272,6 +294,7 @@
       const table = $(`settings-table-${key}`);
       if (table) {
         const reason = settings.disabledReason(key, draft);
+        table.hidden = Boolean(reason);
         const reasonNode = table.querySelector('.tap-inactive');
         reasonNode.textContent = reason;
         reasonNode.hidden = !reason;
@@ -283,6 +306,11 @@
       const node = $(`table-error-${key}`);
       if (node) { node.textContent = settings.tableError(key, draft); node.hidden = !node.textContent; }
     }
+    for (const group of $('settings-panel').querySelectorAll('.settings-group:not(.tap-group)')) {
+      group.hidden = !group.querySelector('[data-field-card]:not([hidden])');
+    }
+    const editableGroups = [...$('settings-panel').querySelectorAll('[data-field-card], .tap-group')];
+    $('conditional-settings-empty').hidden = !editableGroups.length || editableGroups.some(item => !item.hidden);
     updateDraftStatus();
   }
 
@@ -366,6 +394,7 @@
 
   function selectStage(id, rowId = null) {
     if (!stageById(id)) return;
+    const stageChanged = state.stageId !== id;
     state.stageId = id;
     state.focusRow = rowId;
     state.tab = 'settings';
@@ -379,9 +408,14 @@
       else state.tab = 'parameters';
     }
     renderStage();
+    if (stageChanged && !rowId) for (const panel of ['settings-panel','parameter-panel','mapping-panel']) $(panel).scrollTop = 0;
     if (location.hash !== `#${id}`) location.hash = id;
     if (rowId) {
-      const target = $(targetId);
+      let target = $(targetId);
+      if (target?.hidden) {
+        setTab('parameters');
+        target = $(rowId);
+      }
       if (target?.tagName === 'DETAILS') target.open = true;
       target?.classList.add('focused-setting');
       target?.scrollIntoView({ block: 'center' });
@@ -434,6 +468,8 @@
       const fromNav = stageButton.closest('#stage-nav');
       selectStage(stageButton.dataset.stage, stageButton.dataset.row || null);
       if (fromNav) $('stage-nav').querySelector('[aria-current="true"]').focus({ preventScroll: true });
+      const kind = {source:'wave.source',noise:'wave.noise',channel:'paired'}[stageButton.dataset.stage];
+      if (kind && !stageButton.dataset.row) window.dispatchEvent(new CustomEvent('pybert-analysis-navigation',{detail:{stage:stageButton.dataset.stage,kind}}));
       closeSearch();
     }
     const tabButton = event.target.closest('[data-tab]');
@@ -545,8 +581,9 @@
     return allParams.find(entry => settings.keysFor(entry.param).includes(key) || entry.param.key === key);
   }
   function renderGuiIndex() {
-    const groups = Map.groupBy(window.PYBERT_GUI.items, item => item.path);
-    $('gui-index').innerHTML = `<p class="gui-intro">按原 GUI 的分组定位 ${window.PYBERT_GUI.items.length} 个命名控件。按钮可直达设置或参考说明；“未接入”不代表已经运行或完成迁移。<a href="gui-audit.zh-CN.md">查看本次核对记录 ↗</a></p>${[...groups].map(([path, items]) => `<details class="gui-section"><summary>${escape(path)}<span>${items.length} 项</span></summary><div class="gui-rows">${items.map(item => {
+    const items = window.PYBERT_GUI.items.filter(item => !/viterbi|trellis/.test(item.key));
+    const groups = Map.groupBy(items, item => item.path);
+    $('gui-index').innerHTML = `<p class="gui-intro">按原 GUI 的分组定位当前开放的 ${items.length} 个命名控件。按钮可直达设置或参考说明；“未接入”不代表已经运行或完成迁移。<a href="gui-audit.zh-CN.md">查看本次核对记录 ↗</a></p>${[...groups].map(([path, items]) => `<details class="gui-section"><summary>${escape(path)}<span>${items.length} 项</span></summary><div class="gui-rows">${items.map(item => {
       const entry = guiEntry(item.key);
       const field = settings.fields[item.key];
       const status = item.analysis ? '真实分析 · 所选 run' : field?.readonly ? '能力限制 / 只读' : settings.fields[item.key] || settings.tableInfo[item.key] || item.key.startsWith('btn_') ? '输入 · Run 前校验' : '参考 · 后续票';

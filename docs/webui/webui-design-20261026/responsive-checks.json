@@ -1,0 +1,275 @@
+[
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 760,
+      "dpr": 1
+    },
+    "document": {
+      "width": 1280,
+      "scroll": 1280,
+      "height": 760,
+      "scrollHeight": 760
+    },
+    "chain": {
+      "x": 201,
+      "y": 144,
+      "width": 1066,
+      "height": 108.1875,
+      "bottom": 252.1875,
+      "right": 1267
+    },
+    "plots": {
+      "eye": {
+        "x": 697.1875,
+        "y": 421.875,
+        "width": 560.8125,
+        "height": 109.171875,
+        "bottom": 531.046875,
+        "right": 1258
+      },
+      "impulse": {
+        "x": 697.1875,
+        "y": 571.234375,
+        "width": 560.8125,
+        "height": 109.171875,
+        "bottom": 680.40625,
+        "right": 1258
+      }
+    },
+    "slicer": {
+      "x": 1203,
+      "y": 166,
+      "right": 1255,
+      "bottom": 219.1875
+    },
+    "nodes": [
+      {
+        "name": "Source",
+        "y": 166
+      },
+      {
+        "name": "Tx EQ",
+        "y": 166
+      },
+      {
+        "name": "Channel",
+        "y": 166
+      },
+      {
+        "name": "Noise",
+        "y": 166
+      },
+      {
+        "name": "Rx CTLE",
+        "y": 166
+      },
+      {
+        "name": "Rx FFE",
+        "y": 166
+      },
+      {
+        "name": "DFE",
+        "y": 166
+      },
+      {
+        "name": "Slicer",
+        "y": 166
+      }
+    ],
+    "stage": "#channel",
+    "point": "tx",
+    "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+    "tooltip": {
+      "text": "接收端输入",
+      "box": {
+        "x": 732.78125,
+        "y": 151.296875,
+        "width": 71,
+        "height": 22.296875
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 2545,
+      "height": 1223,
+      "dpr": 1
+    },
+    "document": {
+      "width": 2545,
+      "scroll": 2545,
+      "height": 1223,
+      "scrollHeight": 1223
+    },
+    "chain": {
+      "x": 269,
+      "y": 170,
+      "width": 2247,
+      "height": 115.984375,
+      "bottom": 285.984375,
+      "right": 2516
+    },
+    "plots": {
+      "eye": {
+        "x": 1361.8125,
+        "y": 507.3125,
+        "width": 1141.171875,
+        "height": 281.953125,
+        "bottom": 789.265625,
+        "right": 2502.984375
+      },
+      "impulse": {
+        "x": 1361.8125,
+        "y": 837.453125,
+        "width": 1141.171875,
+        "height": 281.953125,
+        "bottom": 1119.40625,
+        "right": 2502.984375
+      }
+    },
+    "slicer": {
+      "x": 2435,
+      "y": 192,
+      "right": 2500,
+      "bottom": 249.984375
+    },
+    "nodes": [
+      {
+        "name": "Source",
+        "y": 192
+      },
+      {
+        "name": "Tx EQ",
+        "y": 192
+      },
+      {
+        "name": "Channel",
+        "y": 192
+      },
+      {
+        "name": "Noise",
+        "y": 192
+      },
+      {
+        "name": "Rx CTLE",
+        "y": 192
+      },
+      {
+        "name": "Rx FFE",
+        "y": 192
+      },
+      {
+        "name": "DFE",
+        "y": 192
+      },
+      {
+        "name": "Slicer",
+        "y": 192
+      }
+    ],
+    "stage": "#channel",
+    "point": "tx",
+    "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+    "tooltip": {
+      "text": "接收端输入",
+      "box": {
+        "x": 1471.3125,
+        "y": 179.6875,
+        "width": 71,
+        "height": 22.296875
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 2560,
+      "height": 1440,
+      "dpr": 1
+    },
+    "document": {
+      "width": 2560,
+      "scroll": 2560,
+      "height": 1440,
+      "scrollHeight": 1440
+    },
+    "chain": {
+      "x": 269,
+      "y": 170,
+      "width": 2262,
+      "height": 115.984375,
+      "bottom": 285.984375,
+      "right": 2531
+    },
+    "plots": {
+      "eye": {
+        "x": 1368.9375,
+        "y": 507.3125,
+        "width": 1149.046875,
+        "height": 390.453125,
+        "bottom": 897.765625,
+        "right": 2517.984375
+      },
+      "impulse": {
+        "x": 1368.9375,
+        "y": 945.953125,
+        "width": 1149.046875,
+        "height": 390.453125,
+        "bottom": 1336.40625,
+        "right": 2517.984375
+      }
+    },
+    "slicer": {
+      "x": 2450,
+      "y": 192,
+      "right": 2515,
+      "bottom": 249.984375
+    },
+    "nodes": [
+      {
+        "name": "Source",
+        "y": 192
+      },
+      {
+        "name": "Tx EQ",
+        "y": 192
+      },
+      {
+        "name": "Channel",
+        "y": 192
+      },
+      {
+        "name": "Noise",
+        "y": 192
+      },
+      {
+        "name": "Rx CTLE",
+        "y": 192
+      },
+      {
+        "name": "Rx FFE",
+        "y": 192
+      },
+      {
+        "name": "DFE",
+        "y": 192
+      },
+      {
+        "name": "Slicer",
+        "y": 192
+      }
+    ],
+    "stage": "#channel",
+    "point": "tx",
+    "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+    "tooltip": {
+      "text": "接收端输入",
+      "box": {
+        "x": 1479.15625,
+        "y": 179.6875,
+        "width": 71,
+        "height": 22.296875
+      }
+    }
+  }
+]
