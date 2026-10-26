@@ -38,6 +38,8 @@ PR #35 的 `16ee4f406146a2d92fd1190b65913e24a8730b8b` 已具备完整计算与�
 
 [测试记录](test-results.json)：前端 **9 项通过**（原 4 项及新增 5 项），分析 / 归档 **54 项通过**。新增测试覆盖无记录、测点迟到响应、记录与绘图迟到响应、单张 Eye 不可用、当前任务失败时保留已有成功双图。后两类错误场景使用测试替身；这不表示本次又运行了失败仿真。分析 / 归档测试使用保存或合成数组及 `no_engine_terminal`，没有调用真实 Main。
 
+[独立审查](review.md)：Standards 0 findings；Spec 0 个可行动发现，同时保留 A/B 浏览器网络对象未完整落盘的历史限制。审查者直接重读已保存 NPZ 复核了 A/C 的精确比较，未追加 Main。
+
 执行前冻结并在后续调用前复核了 **137 个源码 / 输入文件 hash**。PyBERT 来自本隔离 checkout；PyAMI / PyChOpMarg 从既有干净 checkout 按 Git pin 加载，分别为 `dfae46033f490c9d19f2684454b6fe9bd90d9a72` / `ca905e793fcf6330929471317ca32e7611578e5d`。解释器为既有资源验收环境的 Python 3.13.15。实际模块路径、hash 和依赖版本见 [freeze.json](freeze.json)、[server-provenance.json](server-provenance.json)；每个 Run 的 worker 记录保存在对应 `local/A`、`local/B`、`local/C` 中。
 
 ## 复核与保留文件
@@ -55,6 +57,7 @@ python -m uv run --no-project --python 'C:/Users/yx/.codex/worktrees/pybert-issu
 | --- | --- |
 | `local/A/`、`local/B/`、`local/C/` | manifest、完整 NPZ、`.pybert_run`、replay input、服务端请求、任务与 worker 来源 |
 | `local/direct-A/`、`local/direct-C/` | 两次直接原生调用的完整输出 |
+| `local/final-browser-audit.json` | C 阶段完整被动观察记录：1 次 Run POST、16 份绘图响应、10 项视图检查；[大小与 hash](browser-final-capture.json) |
 | `local/existing-references/` | 原服务两份 reference 的备份 |
 | `output/playwright/real-views/`（仓库根目录下） | 浏览器快照、截图、逐视图核对输出、服务日志、C 的实际浏览器 POST |
 | `verify_native.py` | 固定源码、服务启动、结果保存、直接原生对照；`direct` 会运行 Main，本轮已执行完毕 |
