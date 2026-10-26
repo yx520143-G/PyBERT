@@ -1,0 +1,29 @@
+{
+  "frontend": {
+    "command": "python -m uv run --no-project node --test tests/web_workbench.test.cjs",
+    "exit_code": 0,
+    "passed": 9,
+    "failed": 0,
+    "new_tests": 5,
+    "duration_ms": 115.6113,
+    "main_invocations": 0,
+    "new_coverage": [
+      "empty paired result",
+      "late observation responses",
+      "late record and old plot responses",
+      "unavailable eye preserves available impulse",
+      "failed current task preserves successful selected result"
+    ]
+  },
+  "analysis_and_archive": {
+    "command": "python -B -m pytest tests/test_web_analysis.py tests/test_web_archive.py -q --basetemp docs/webui/real-view-integration-20261026/local/pytest-analysis-archive",
+    "exit_code": 0,
+    "passed": 54,
+    "failed": 0,
+    "warnings": 35,
+    "duration_seconds": 7.70,
+    "main_invocations": 0,
+    "output": "analysis-archive-tests.txt",
+    "scope": "saved or synthetic arrays and a no_engine_terminal worker; no real simulation fixture invoked"
+  }
+}

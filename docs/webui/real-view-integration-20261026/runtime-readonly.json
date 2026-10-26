@@ -1,0 +1,228 @@
+{
+  "kind": "read_only_runtime_inspection",
+  "base_url": "http://127.0.0.1:8797",
+  "version": {
+    "schema_version": 1,
+    "version": "11.1.0",
+    "adapter_sha": "16ee4f406146a2d92fd1190b65913e24a8730b8b",
+    "native_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+    "native_importer_sha": "e29f87c177ac89fabdec2d5a34d8e6ea7e7cce7c",
+    "prototype_sha": "8542f10f4c137f79b3200638f5ee59d36202526a",
+    "fork": "yx520143-G/PyBERT"
+  },
+  "active_task_id": null,
+  "run_count": 0,
+  "reference_count": 2,
+  "current_task": {
+    "task_id": "d2d4ea2b-b8e4-43e8-899f-4232a3e546d7",
+    "operation": "normalize",
+    "state": "succeeded",
+    "phase": "succeeded",
+    "worker_exited": true,
+    "exitcode": 0,
+    "error": null,
+    "main_invocations": null
+  },
+  "references": [
+    {
+      "record_id": "ref-0b8714ae-fc0a-4056-a99c-bc661602487f",
+      "run_id": "6da9e632-90f5-4945-863c-ad64cd1f27fc",
+      "kind": "archive",
+      "input_hash": "f754f338475be34a07243cfa1cad82adbdaf5c908fa42b0580a7c53dfd67e204",
+      "input_identity_hash": "a44a07b1662d76c94dd480543e9faf3a3a02453d66b7f45c4822aec29cfc1958",
+      "adapter_sha": "108b4d5d4fa7f8fad69dbc0d263608011f98b0cf",
+      "native_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+      "analysis_version": 2,
+      "raw_schema_version": 5,
+      "input": {
+        "mod_type": "NRZ",
+        "bit_rate": 10.0,
+        "nbits": 15000,
+        "nspui": 32,
+        "eye_bits": 10160,
+        "seed": 1,
+        "l_ch": 2.0,
+        "peak_mag": 10.7,
+        "tx_use_ami": false,
+        "rx_use_ami": false,
+        "enable_com": false,
+        "rx_use_viterbi": false
+      },
+      "plot_count": 75,
+      "plots": {
+        "chnl_h": {
+          "availability": "available",
+          "xunit": "ns",
+          "yunit": "V/sample",
+          "traces": [
+            {
+              "type": "scatter",
+              "x_count": 640,
+              "y_count": 640,
+              "z_rows": 0,
+              "z_columns": 0
+            }
+          ]
+        },
+        "eye.chnl": {
+          "availability": "available",
+          "xunit": "ps",
+          "yunit": "V",
+          "traces": [
+            {
+              "type": "heatmap",
+              "x_count": 64,
+              "y_count": 1000,
+              "z_rows": 1000,
+              "z_columns": 64
+            }
+          ]
+        },
+        "dfe_out_h": {
+          "availability": "available",
+          "xunit": "ns",
+          "yunit": "V/sample",
+          "traces": [
+            {
+              "type": "scatter",
+              "x_count": 640,
+              "y_count": 640,
+              "z_rows": 0,
+              "z_columns": 0
+            }
+          ]
+        },
+        "eye.dfe": {
+          "availability": "available",
+          "xunit": "ps",
+          "yunit": "V",
+          "traces": [
+            {
+              "type": "heatmap",
+              "x_count": 64,
+              "y_count": 1000,
+              "z_rows": 1000,
+              "z_columns": 64
+            }
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+      "run_id": "b1bcc6af-733b-4225-9b0e-b81e4eead9e9",
+      "kind": "archive",
+      "input_hash": "3f39868b580e8ad6100ab8eff859b339f2bcb1e0c04e7d55f2c977f25d2ce43f",
+      "input_identity_hash": "f51942aeb916fbc99abcf99066741003e3290877b8c4c6984b82d35849c2aeb7",
+      "adapter_sha": "108b4d5d4fa7f8fad69dbc0d263608011f98b0cf",
+      "native_sha": "1bc905d577d2f3bd9471421cfbf3d422d4e6080e",
+      "analysis_version": 2,
+      "raw_schema_version": 5,
+      "input": {
+        "mod_type": "NRZ",
+        "bit_rate": 10.0,
+        "nbits": 15000,
+        "nspui": 32,
+        "eye_bits": 10160,
+        "seed": 1,
+        "l_ch": 1.0,
+        "peak_mag": 10.7,
+        "tx_use_ami": false,
+        "rx_use_ami": false,
+        "enable_com": false,
+        "rx_use_viterbi": false
+      },
+      "plot_count": 75,
+      "plots": {
+        "chnl_h": {
+          "availability": "available",
+          "xunit": "ns",
+          "yunit": "V/sample",
+          "traces": [
+            {
+              "type": "scatter",
+              "x_count": 640,
+              "y_count": 640,
+              "z_rows": 0,
+              "z_columns": 0
+            }
+          ]
+        },
+        "eye.chnl": {
+          "availability": "available",
+          "xunit": "ps",
+          "yunit": "V",
+          "traces": [
+            {
+              "type": "heatmap",
+              "x_count": 64,
+              "y_count": 1000,
+              "z_rows": 1000,
+              "z_columns": 64
+            }
+          ]
+        },
+        "dfe_out_h": {
+          "availability": "available",
+          "xunit": "ns",
+          "yunit": "V/sample",
+          "traces": [
+            {
+              "type": "scatter",
+              "x_count": 640,
+              "y_count": 640,
+              "z_rows": 0,
+              "z_columns": 0
+            }
+          ]
+        },
+        "eye.dfe": {
+          "availability": "available",
+          "xunit": "ps",
+          "yunit": "V",
+          "traces": [
+            {
+              "type": "heatmap",
+              "x_count": 64,
+              "y_count": 1000,
+              "z_rows": 1000,
+              "z_columns": 64
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "static_files": [
+    {
+      "file": "app.js",
+      "served_bytes": 50594,
+      "served_sha256": "0f10c39e846d4c9f07028e659b7f1eea02a83b950c6e49728dafab042db2df2d",
+      "equals_fixed_git_blob_after_lf_normalization": true
+    },
+    {
+      "file": "workbench.js",
+      "served_bytes": 43868,
+      "served_sha256": "e0de30ec8aa4bad9ae415f3037e7c8c2227e72567bd5650fee69a43eff22db18",
+      "equals_fixed_git_blob_after_lf_normalization": true
+    },
+    {
+      "file": "layout.js",
+      "served_bytes": 5405,
+      "served_sha256": "96188d1c74721fbce0c9584578369b56f37ed00335651da329d1a351111f07ed",
+      "equals_fixed_git_blob_after_lf_normalization": true
+    },
+    {
+      "file": "index.html",
+      "served_bytes": 18822,
+      "served_sha256": "41b01bd4972e05e3065c46e2a9debc081f5910d47896107729d590072cedf65e",
+      "equals_fixed_git_blob_after_lf_normalization": true
+    },
+    {
+      "file": "workbench.css",
+      "served_bytes": 24403,
+      "served_sha256": "b9ac73d15a80f8752c2a82f711af882a04527db4731895cfdfa99c536f7bbe8a",
+      "equals_fixed_git_blob_after_lf_normalization": true
+    }
+  ]
+}

@@ -1,0 +1,3739 @@
+{
+  "case": "C",
+  "main_attempts": 1,
+  "passed": true,
+  "provenance": {
+    "pid": 3292,
+    "python": "C:\\Users\\yx\\.codex\\worktrees\\pybert-issue4-resources\\serial-bus-simulator\\.venv\\Scripts\\python.exe",
+    "head": "16ee4f406146a2d92fd1190b65913e24a8730b8b",
+    "dependencies": {
+      "PyAMI": "dfae46033f490c9d19f2684454b6fe9bd90d9a72",
+      "PyChOpMarg": "ca905e793fcf6330929471317ca32e7611578e5d"
+    },
+    "modules": {
+      "pybert": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\__init__.py",
+        "sha256": "e207627394a7bcd5e3c999e1aaee65eeaec1aecb6ae351b5a75029fcb4ff06d2"
+      },
+      "pyibisami": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\__init__.py",
+        "sha256": "fbc42a1fc4b0c2c91f81cff926a0b110e010c84a37aa61c87ddccd2cdf2bcb56"
+      },
+      "pyibisami.ami": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pyibisami.common": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\common.py",
+        "sha256": "29d822c729682cf1fd68829a21ece71324c51c6cde785303cb2165b197d27929"
+      },
+      "pyibisami.ami.model": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\model.py",
+        "sha256": "9afc229c6d4218d8fa5c6699489a1f8947ac3dad62313604744e36d0604ca8c9"
+      },
+      "pyibisami.ami.parameter": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\parameter.py",
+        "sha256": "d0233fd737b85f96e76863f19079eb70f71a7b6da52f28e8c282f339cfc120e7"
+      },
+      "pyibisami.ami.reserved_parameter_names": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\reserved_parameter_names.py",
+        "sha256": "8ae84418fa427239e757044ef475bed39d8b95814c7569ee717982bb237debe6"
+      },
+      "pyibisami.ami.parser": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\parser.py",
+        "sha256": "2c2e688e3257476d38c175bcd37bb8050b253ad822139c55001eff920ba65594"
+      },
+      "pyibisami.ami.configurator": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ami\\configurator.py",
+        "sha256": "a1e1242424fb7951ab3aba0ad717acf3169c8d091fdf33db805d6747fe077874"
+      },
+      "pyibisami.ibis": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pyibisami.ibis.iv": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\iv.py",
+        "sha256": "0eca1c03681d5f6ca5eff7802da0726b104c3b608a2aa40cb59fee836c6ccc03"
+      },
+      "pyibisami.ibis.model": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\model.py",
+        "sha256": "5e136717109a56bd28dd9e14fb9490e80042e18738ec6466a8975fa21bc8c2e2"
+      },
+      "pyibisami.ibis.parser": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\parser.py",
+        "sha256": "579506ce86d347b859d1e9ee8c939dd33068dfc8c3b068ff9d45605732fe26aa"
+      },
+      "pyibisami.ibis.file": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyAMI\\src\\pyibisami\\ibis\\file.py",
+        "sha256": "87d09a048bc77fc1559a3eb8c256b654598bf0ef8574b3819d17f26af497c372"
+      },
+      "pychopmarg": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\__init__.py",
+        "sha256": "9cac78d91bff4690fea7f60b85881fed116e7b09f17615c9821d7dfc372d531d"
+      },
+      "pychopmarg.config": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\__init__.py",
+        "sha256": "4868fe79668025474562148e96ab901a2e056034684519151512a46657c05780"
+      },
+      "pychopmarg.common": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\common.py",
+        "sha256": "08658837f977c06428241522cbaa8221ea9ea3dcc303b1a9c437606e01d0d163"
+      },
+      "pychopmarg.config.template": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\template.py",
+        "sha256": "801119da1f9acfa470e4640e37b281e20cf07cdfb92c82b8ad0ae86e2bf2a2f4"
+      },
+      "pychopmarg.config.ieee_8023dj": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj.py",
+        "sha256": "8915ffff247b2981e6c4b86afd6c7e3c9a5b0c1dcc240bc26058e02585b23e23"
+      },
+      "pychopmarg.utility.filter": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\filter.py",
+        "sha256": "4aaf60d9ba2c03fd867b3753c12c87ad64d0768b9bb3b0dd35876ec28481513c"
+      },
+      "pychopmarg.utility.general": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\general.py",
+        "sha256": "845b78ec063548a38741bf39ebb473216dcf017aa9276331906223c5372ac614"
+      },
+      "pychopmarg.utility.probability": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\probability.py",
+        "sha256": "33fe735736b3477c704e5283d8d0b929092e731e8b8a8bad2f41824364f15d85"
+      },
+      "pychopmarg.utility.sparams": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\sparams.py",
+        "sha256": "59a5e253af93fc894d157c6ec8c445d83bb14c8a5e06282ad93416a47be16595"
+      },
+      "pychopmarg.utility": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\utility\\__init__.py",
+        "sha256": "e0b9fb64bbdf55f4a77acfdc8c70561eb0253f0097a7a05c7423d17e48c08cb1"
+      },
+      "pychopmarg.devmodel": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\devmodel.py",
+        "sha256": "a1504554a943c539e0914a7b4e6b6ae56cbc38c922ce7a783655abe5f427d2d1"
+      },
+      "pychopmarg.config.ieee_8023dj_d3p3": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\config\\ieee_8023dj_d3p3.py",
+        "sha256": "47436b07c0843da6fcba4923fa6dcd16e5e536de06e617d68180107d9f76d1e2"
+      },
+      "pybert.configuration": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\configuration.py",
+        "sha256": "22334ef1c6455ea34e20a7c0a866a2dc3df609fe132e861f356a7f3528e5967a"
+      },
+      "pybert.gui": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\gui\\__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pybert.gui.help": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\gui\\help.py",
+        "sha256": "5266caec69d4741c07099a8e7c298e42ea43fe97d703f40ff0bd6ebb4b500845"
+      },
+      "pybert.models": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\models\\__init__.py",
+        "sha256": "774233731ece82cfee5fa90b133668abbf24a7638538efee86e581cbca6cf239"
+      },
+      "pybert.common": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\common.py",
+        "sha256": "bb86fdcafa3c8e05cc685fff31e288930b5149a2035a3f1ab63e31829c0ecec9"
+      },
+      "pybert.utility.channel": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\channel.py",
+        "sha256": "5f05123bb374561b6486513062f4b3cf75c26ba132c402ad8c415f93752aa898"
+      },
+      "pybert.utility.functional": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\functional.py",
+        "sha256": "9a5e571a001fa232b43a6939d9d6ea7bb19235ced3580ac1123d13f433d1abd3"
+      },
+      "pybert.utility.ibisami": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\ibisami.py",
+        "sha256": "183bc2b49faec2dbe84f714d6e4a23b74dd3971211eb0976cde58002069da99e"
+      },
+      "pybert.models.tx_tap": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\models\\tx_tap.py",
+        "sha256": "ef87dcb6c2c61811b7f3e4498d26b6d0edb64d98722c3c9dde41ba5ec7d4414a"
+      },
+      "pybert.utility.sigproc": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\sigproc.py",
+        "sha256": "727d3805f01278f538a86d2e0efb5e9d2188dfc40d1ce9b8d3ff56c47a54344d"
+      },
+      "pybert.utility.math": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\math.py",
+        "sha256": "d05792add9b161974a290476cf36d1b05487b1bf26a27d1b8354bb05fa0fe352"
+      },
+      "pybert.utility.jitter": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\jitter.py",
+        "sha256": "e18baa78811a61fa7750a6139b5944a7e5ed90f8ba443779dadd832ebcf7ab8a"
+      },
+      "pybert.utility.python": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\python.py",
+        "sha256": "0e760964c6bb147ac2084b804aae6bee7b3980ee7e3ab19b673d1feca3a64b02"
+      },
+      "pybert.utility.sparam": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\sparam.py",
+        "sha256": "aa1dd145b27e326de8add66aed7d268db83a761a33047a2418c85bd432019a10"
+      },
+      "pybert.utility": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\__init__.py",
+        "sha256": "bafbb8fc6d5de1d431c5779b4e02ceaba35b497a3c7ff0b89f4060706ea1f61d"
+      },
+      "pybert.utility.ami_clock": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\utility\\ami_clock.py",
+        "sha256": "327d12a6a9733c1c7ed66fbb20537294b86e4c8779b86ba81d66b6307b7e2bff"
+      },
+      "pychopmarg.mlsd": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\mlsd.py",
+        "sha256": "6961b8ee772dc2e64bb0add34c115e2510afe0972edd4566498d8355b1a54cf5"
+      },
+      "pychopmarg.noise": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\noise.py",
+        "sha256": "e638940f963d8df714686e6e6e9f5efdcfe8cc7e62857b33a09948c4eebf84ef"
+      },
+      "pychopmarg.optimize": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\optimize.py",
+        "sha256": "432bff254c9043e333f99fa1eb26eaa384cdc574dad5f2437efa6a5b3640835d"
+      },
+      "pychopmarg.com": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-design\\serial-bus-simulator\\PyChOpMarg\\src\\pychopmarg\\com.py",
+        "sha256": "04010ac20bf154b91715c34130db531ce0c9f350881973053f2691ccb24680e9"
+      },
+      "pybert.models.com": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\models\\com.py",
+        "sha256": "892e0fdfddd797d4779d39b9b1ea3bceae43d9bc1cad13224e2c8cca7a4cc1bb"
+      },
+      "pybert.models.cdr": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\models\\cdr.py",
+        "sha256": "22a0cf7b9ec5507d5bff3953b3ae2abc1e3aced5c73095d06211c81604f11286"
+      },
+      "pybert.models.dfe": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\models\\dfe.py",
+        "sha256": "ee2cda2eb17bfaa5661510f858798d14d5202c9a060da994a7e21b9a30473966"
+      },
+      "pybert.models.viterbi": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\models\\viterbi.py",
+        "sha256": "35431ebc6b9ab3d8a7174e1ce3bac178fe958be40e930217f51789fd7ea3157e"
+      },
+      "pybert.models.fec": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\models\\fec.py",
+        "sha256": "7812385db30337ffc70a2542acdef06c32386874c89ebc5ef731bb1b9db1edd0"
+      },
+      "pybert.models.bert": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\models\\bert.py",
+        "sha256": "3fc527ea158d9a2967b27eee094b0451f648062d8edc2620fe7b84aeb84249bb"
+      },
+      "pybert.gui.plot": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\gui\\plot.py",
+        "sha256": "102166c16aef7ee6def7b5b4d8b6cb7165211baba1ab8288dec9ddd759bce82b"
+      },
+      "pybert.results": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\results.py",
+        "sha256": "a45bb40561bd8292084c1676b7f3e2fec82a1cc81b0502a09aff688b881bf0dc"
+      },
+      "pybert.threads": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\threads\\__init__.py",
+        "sha256": "9c0b043239b7279c176727b75bc974c780c8223853b8302a35460cae79f89860"
+      },
+      "pybert.threads.stoppable": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\threads\\stoppable.py",
+        "sha256": "860ae9dff558eab0a1713bf874002f23d88162388de82c63e932a1bd1051f8a8"
+      },
+      "pybert.threads.optimization": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\threads\\optimization.py",
+        "sha256": "1e058d9a96c67f29c1e8a432e78c19e5675634028f78871e727796b04e5afea5"
+      },
+      "pybert.pybert": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\pybert.py",
+        "sha256": "33ac17329b7714255c0fd8dfb0b086a0e3a7e02706a3f31d20131fdce4f1d7b7"
+      },
+      "pybert.web": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\__init__.py",
+        "sha256": "3f06f9f54e5a61c3261fb7f5dee91d100b5e1d5b0dc9a69d74735456a5d74b92"
+      },
+      "pybert.web.config": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\config.py",
+        "sha256": "dd12dfcfe48419058c0bd8d4ed68c59979f0918c4c3e97a6f2ec827841e0bb49"
+      },
+      "pybert.web.clocks": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\clocks.py",
+        "sha256": "035d16584382f50bcfbe126722df07909500c4f1e8c2652b5b54c1a85f16e43f"
+      },
+      "pybert.web.data": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\data.py",
+        "sha256": "e94a69624876d81d36730f6cb5e5fa89385e19fcec841d2f00d152335457762d"
+      },
+      "pybert.web.resources": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\resources.py",
+        "sha256": "045b086767e4e20d872aa233b9fbb59e8ae4c74494cfdd649ced82b0ac296c42"
+      },
+      "pybert.web.com": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\com.py",
+        "sha256": "47cdcf820aa20bd0d2d08a35428e921501e6e629d7f9898ad0595b375774d28f"
+      },
+      "pybert.threads.sim": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\threads\\sim.py",
+        "sha256": "687d6fd09e224c1a5939b29c4e7a7e94e46da4655bdedc3343a5f351c4ad9164"
+      },
+      "pybert.gui.handler": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\gui\\handler.py",
+        "sha256": "ed45ee684ea366b5acae08615aea4d87b03e114c30007a729a9162dc071859e7"
+      },
+      "pybert.web.archive": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\archive.py",
+        "sha256": "f4ad3b110ea4e63b8817a75aaa2f23bcf4368913b4fb820e63117867027e72a2"
+      },
+      "pybert.web.ami": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\ami.py",
+        "sha256": "a93e690674218f5c7bd7731ea35320eea71f60ecb8dfdab926623145304a32f2"
+      },
+      "pybert.web.optimization": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\optimization.py",
+        "sha256": "dafd7f2bee5687b6f3732fd4aab6fa5527da480db6c17c306c883d5fd8b7d526"
+      },
+      "pybert.web.worker": {
+        "path": "C:\\Users\\yx\\.codex\\worktrees\\pybert-webui-real-views\\serial-bus-simulator\\src\\pybert\\web\\worker.py",
+        "sha256": "63f15bf14a38ed1bd06b8eb14ec8360fc6b68c6c4c26580f81fe6cdfbe2952e3"
+      }
+    },
+    "packages": {
+      "numpy": "2.5.1",
+      "scipy": "1.18.0",
+      "traits": "7.1.0",
+      "pyibis-ami": "10.0.0",
+      "pychopmarg": "3.4.0",
+      "fastapi": "0.162.0",
+      "uvicorn": "0.52.4",
+      "plotly": "6.9.0"
+    }
+  },
+  "arrays": [
+    {
+      "field": "start_ix",
+      "dtype": "int64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "t",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "f",
+      "dtype": "float64",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "t_ns_chnl",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "t_irfft",
+      "dtype": "float64",
+      "shape": [
+        8000
+      ],
+      "exact": true
+    },
+    {
+      "field": "bits",
+      "dtype": "int64",
+      "shape": [
+        15000
+      ],
+      "exact": true
+    },
+    {
+      "field": "symbols",
+      "dtype": "float64",
+      "shape": [
+        7500
+      ],
+      "exact": true
+    },
+    {
+      "field": "noise",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_slicer_samps",
+      "dtype": "float64",
+      "shape": [
+        5080
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_slicer_decisions",
+      "dtype": "float64",
+      "shape": [
+        5080
+      ],
+      "exact": true
+    },
+    {
+      "field": "bit_errs_dfe",
+      "dtype": "int64",
+      "shape": [
+        0
+      ],
+      "exact": true
+    },
+    {
+      "field": "adaptation",
+      "dtype": "float64",
+      "shape": [
+        7501,
+        5
+      ],
+      "exact": true
+    },
+    {
+      "field": "ui_ests",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "clocks",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "clock_times",
+      "dtype": "float64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "lockeds",
+      "dtype": "bool",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_scalar_values",
+      "dtype": "float64",
+      "shape": [
+        7303
+      ],
+      "exact": true
+    },
+    {
+      "field": "chnl_H_raw",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "chnl_trimmed_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "ideal_signal",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "chnl_out",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "rx_in",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "ctle_out",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "ffe_out",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_out",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.chnl_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "chnl_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.chnl_h.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.chnl_h.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.chnl_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "chnl_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.chnl_s.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.chnl_s.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.chnl_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "chnl_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.chnl_p.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.chnl_p.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "chnl_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.chnl_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.chnl_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.tx_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "tx_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_h.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_h.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.tx_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "tx_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_s.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_s.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.tx_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "tx_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_p.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_p.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "tx_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.tx_out_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "tx_out_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_out_h.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_out_h.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.tx_out_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "tx_out_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_out_s.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_out_s.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.tx_out_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "tx_out_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_out_p.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_out_p.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "tx_out_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_out_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tx_out_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ctle_h",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "ctle_h",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_h.x",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_h.y",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ctle_s",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "ctle_s",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_s.x",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_s.y",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ctle_p",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "ctle_p",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_p.x",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_p.y",
+      "dtype": "float64",
+      "shape": [
+        3200
+      ],
+      "exact": true
+    },
+    {
+      "field": "ctle_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ctle_out_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ctle_out_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_out_h.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_out_h.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ctle_out_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ctle_out_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_out_s.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_out_s.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ctle_out_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ctle_out_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_out_p.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_out_p.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ctle_out_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_out_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ctle_out_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ffe_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ffe_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_h.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_h.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ffe_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ffe_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_s.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_s.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ffe_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ffe_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_p.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_p.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ffe_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ffe_out_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ffe_out_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_out_h.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_out_h.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ffe_out_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ffe_out_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_out_s.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_out_s.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.ffe_out_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ffe_out_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_out_p.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_out_p.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "ffe_out_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_out_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.ffe_out_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.dfe_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_h.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_h.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.dfe_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_s.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_s.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.dfe_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_p.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_p.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.dfe_out_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_out_h",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_out_h.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_out_h.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.dfe_out_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_out_s",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_out_s.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_out_s.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "axis.dfe_out_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_out_p",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_out_p.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_out_p.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "dfe_out_H",
+      "dtype": "complex128",
+      "shape": [
+        4001
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_out_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.dfe_out_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "waveform_indices",
+      "dtype": "int64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.ideal_signal.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.ideal_signal.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.chnl_out.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.chnl_out.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.rx_in.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.rx_in.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.ctle_out.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.ctle_out.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.ffe_out.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.ffe_out.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.dfe_out.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.dfe_out.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.source.x",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.source.ideal_signal",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.source.ideal_xings",
+      "dtype": "float64",
+      "shape": [
+        3778
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.source.ideal_xings_jit",
+      "dtype": "float64",
+      "shape": [
+        2560
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.source.xing_mask",
+      "dtype": "bool",
+      "shape": [
+        2560
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.source.ui",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.source.nspui",
+      "dtype": "int64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.source.nui",
+      "dtype": "int64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.source.eye_uis",
+      "dtype": "int64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.source.pattern_len",
+      "dtype": "int64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.source.rel_thresh",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.source.decision_scaler",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.source.mod_type",
+      "dtype": "int64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.source.xing_min_t",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.source.noise_total",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.source.fext_count",
+      "dtype": "int64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.chnl.ofst",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.chnl.actual_xings",
+      "dtype": "float64",
+      "shape": [
+        3778
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.chnl.actual_xings_jit",
+      "dtype": "float64",
+      "shape": [
+        2560
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.chnl.t_jitter",
+      "dtype": "float64",
+      "shape": [
+        2560
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.chnl.bin_centers",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.chnl.spectrum_freqs",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.chnl.tie",
+      "dtype": "float64",
+      "shape": [
+        2560
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.chnl.tie_ind",
+      "dtype": "float64",
+      "shape": [
+        2560
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.chnl.valid",
+      "dtype": "bool",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.tx.ofst",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.tx.actual_xings",
+      "dtype": "float64",
+      "shape": [
+        4345
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.tx.actual_xings_jit",
+      "dtype": "float64",
+      "shape": [
+        2971
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.tx.t_jitter",
+      "dtype": "float64",
+      "shape": [
+        2559
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.tx.bin_centers",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.tx.spectrum_freqs",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.tx.tie",
+      "dtype": "float64",
+      "shape": [
+        2559
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.tx.tie_ind",
+      "dtype": "float64",
+      "shape": [
+        2559
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.tx.valid",
+      "dtype": "bool",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.ctle.ofst",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.ctle.actual_xings",
+      "dtype": "float64",
+      "shape": [
+        3777
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ctle.actual_xings_jit",
+      "dtype": "float64",
+      "shape": [
+        2559
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ctle.t_jitter",
+      "dtype": "float64",
+      "shape": [
+        2559
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ctle.bin_centers",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ctle.spectrum_freqs",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ctle.tie",
+      "dtype": "float64",
+      "shape": [
+        2559
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ctle.tie_ind",
+      "dtype": "float64",
+      "shape": [
+        2559
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ctle.valid",
+      "dtype": "bool",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.dfe.ofst",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.dfe.actual_xings",
+      "dtype": "float64",
+      "shape": [
+        3776
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.dfe.actual_xings_jit",
+      "dtype": "float64",
+      "shape": [
+        2558
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.dfe.t_jitter",
+      "dtype": "float64",
+      "shape": [
+        2558
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.dfe.bin_centers",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.dfe.spectrum_freqs",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.dfe.tie",
+      "dtype": "float64",
+      "shape": [
+        2558
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.dfe.tie_ind",
+      "dtype": "float64",
+      "shape": [
+        2558
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.dfe.valid",
+      "dtype": "bool",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "display.wave.x.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.x.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.noise_total.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.noise_total.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.noise_base.x",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.wave.noise_base.y",
+      "dtype": "float64",
+      "shape": [
+        640
+      ],
+      "exact": true
+    },
+    {
+      "field": "isi_chnl",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dcd_chnl",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pj_chnl",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rj_chnl",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pjDD_chnl",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rjDD_chnl",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "mu_pos_chnl",
+      "dtype": "int64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "mu_neg_chnl",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_pos_chnl",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_neg_chnl",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "jitter_chnl",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ext_chnl",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_spectrum_chnl",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ind_spectrum_chnl",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "thresh_chnl",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "isi_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dcd_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pj_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rj_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pjDD_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rjDD_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "mu_pos_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "mu_neg_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_pos_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_neg_tx",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "jitter_tx",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ext_tx",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_spectrum_tx",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ind_spectrum_tx",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "thresh_tx",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "isi_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dcd_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pj_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rj_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pjDD_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rjDD_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "mu_pos_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "mu_neg_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_pos_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_neg_ctle",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "jitter_ctle",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ext_ctle",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_spectrum_ctle",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ind_spectrum_ctle",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "thresh_ctle",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "isi_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dcd_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pj_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rj_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pjDD_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rjDD_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "mu_pos_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "mu_neg_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_pos_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_neg_dfe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "jitter_dfe",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ext_dfe",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_spectrum_dfe",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ind_spectrum_dfe",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "thresh_dfe",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.jitter_dfe.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.jitter_dfe.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.jitter_ext_dfe.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.jitter_ext_dfe.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.jitter_spectrum_dfe.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.jitter_spectrum_dfe.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.jitter_ind_spectrum_dfe.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.jitter_ind_spectrum_dfe.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.thresh_dfe.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.thresh_dfe.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.rx_in.x",
+      "dtype": "float64",
+      "shape": [
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.rx_in.y",
+      "dtype": "float64",
+      "shape": [
+        1000
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.rx_in.counts",
+      "dtype": "float64",
+      "shape": [
+        1000,
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.dfe.x",
+      "dtype": "float64",
+      "shape": [
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.dfe.y",
+      "dtype": "float64",
+      "shape": [
+        1000
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.dfe.counts",
+      "dtype": "float64",
+      "shape": [
+        1000,
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap1.x",
+      "dtype": "int64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap1.y",
+      "dtype": "float64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap2.x",
+      "dtype": "int64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap2.y",
+      "dtype": "float64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap3.x",
+      "dtype": "int64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap3.y",
+      "dtype": "float64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap4.x",
+      "dtype": "int64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap4.y",
+      "dtype": "float64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap5.x",
+      "dtype": "int64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.tap5.y",
+      "dtype": "float64",
+      "shape": [
+        7501
+      ],
+      "exact": true
+    },
+    {
+      "field": "cdr_indices",
+      "dtype": "int64",
+      "shape": [
+        4096
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.cdr.x",
+      "dtype": "float64",
+      "shape": [
+        4096
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.cdr.y",
+      "dtype": "float64",
+      "shape": [
+        4096
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ffe.ofst",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.ffe.actual_xings",
+      "dtype": "float64",
+      "shape": [
+        3776
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ffe.actual_xings_jit",
+      "dtype": "float64",
+      "shape": [
+        2558
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ffe.tie",
+      "dtype": "float64",
+      "shape": [
+        2558
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ffe.t_jitter",
+      "dtype": "float64",
+      "shape": [
+        2558
+      ],
+      "exact": true
+    },
+    {
+      "field": "isi_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dcd_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pj_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rj_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "pjDD_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "rjDD_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "context.ffe.tie_ind",
+      "dtype": "float64",
+      "shape": [
+        2558
+      ],
+      "exact": true
+    },
+    {
+      "field": "thresh_ffe",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_spectrum_ffe",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ind_spectrum_ffe",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ffe.spectrum_freqs",
+      "dtype": "float64",
+      "shape": [
+        2540
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ffe",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "jitter_ext_ffe",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "context.ffe.bin_centers",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "mu_pos_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "mu_neg_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_pos_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "dj_neg_ffe",
+      "dtype": "float64",
+      "shape": [],
+      "exact": true
+    },
+    {
+      "field": "display.channel.chnl_H_raw.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.channel.chnl_H_raw.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.channel.chnl_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.channel.chnl_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.channel.chnl_trimmed_H.x",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.channel.chnl_trimmed_H.y",
+      "dtype": "float64",
+      "shape": [
+        4000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.channel_noise",
+      "dtype": "float64",
+      "shape": [
+        240000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.chnl.jitter.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.chnl.jitter.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.chnl.jitter_ext.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.chnl.jitter_ext.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.chnl.jitter_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.chnl.jitter_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.chnl.jitter_ind_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.chnl.jitter_ind_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.chnl.thresh.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.chnl.thresh.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "bathtub.chnl.probability",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.chnl.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.chnl.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.chnl.x",
+      "dtype": "float64",
+      "shape": [
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.chnl.y",
+      "dtype": "float64",
+      "shape": [
+        1000
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.chnl.counts",
+      "dtype": "float64",
+      "shape": [
+        1000,
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.chnl.gui_noise.x",
+      "dtype": "float64",
+      "shape": [
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.chnl.gui_noise.y",
+      "dtype": "float64",
+      "shape": [
+        1000
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.chnl.gui_noise.counts",
+      "dtype": "float64",
+      "shape": [
+        1000,
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.tx.jitter.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.tx.jitter.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.tx.jitter_ext.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.tx.jitter_ext.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.tx.jitter_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.tx.jitter_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.tx.jitter_ind_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.tx.jitter_ind_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.tx.thresh.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.tx.thresh.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "bathtub.tx.probability",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.tx.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.tx.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.tx.x",
+      "dtype": "float64",
+      "shape": [
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.tx.y",
+      "dtype": "float64",
+      "shape": [
+        1000
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.tx.counts",
+      "dtype": "float64",
+      "shape": [
+        1000,
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.ctle.jitter.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.ctle.jitter.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.ctle.jitter_ext.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.ctle.jitter_ext.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ctle.jitter_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ctle.jitter_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ctle.jitter_ind_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ctle.jitter_ind_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ctle.thresh.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ctle.thresh.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "bathtub.ctle.probability",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.ctle.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.ctle.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.ctle.x",
+      "dtype": "float64",
+      "shape": [
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.ctle.y",
+      "dtype": "float64",
+      "shape": [
+        1000
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.ctle.counts",
+      "dtype": "float64",
+      "shape": [
+        1000,
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.ffe.jitter.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.ffe.jitter.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.ffe.jitter_ext.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.ffe.jitter_ext.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ffe.jitter_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ffe.jitter_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ffe.jitter_ind_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ffe.jitter_ind_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ffe.thresh.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.ffe.thresh.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "bathtub.ffe.probability",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.ffe.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.ffe.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.ffe.x",
+      "dtype": "float64",
+      "shape": [
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.ffe.y",
+      "dtype": "float64",
+      "shape": [
+        1000
+      ],
+      "exact": true
+    },
+    {
+      "field": "eye.ffe.counts",
+      "dtype": "float64",
+      "shape": [
+        1000,
+        64
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.dfe.jitter.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.dfe.jitter.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.dfe.jitter_ext.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.pdf.dfe.jitter_ext.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.dfe.jitter_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.dfe.jitter_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.dfe.jitter_ind_spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.dfe.jitter_ind_spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.dfe.thresh.x",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.spec.dfe.thresh.y",
+      "dtype": "float64",
+      "shape": [
+        2539
+      ],
+      "exact": true
+    },
+    {
+      "field": "bathtub.dfe.probability",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.dfe.x",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.bathtub.dfe.y",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "cdr.histogram.edges",
+      "dtype": "float64",
+      "shape": [
+        101
+      ],
+      "exact": true
+    },
+    {
+      "field": "cdr.histogram.centers",
+      "dtype": "float64",
+      "shape": [
+        100
+      ],
+      "exact": true
+    },
+    {
+      "field": "cdr.histogram.counts",
+      "dtype": "int64",
+      "shape": [
+        100
+      ],
+      "exact": true
+    },
+    {
+      "field": "cdr.spectrum.raw",
+      "dtype": "complex128",
+      "shape": [
+        120001
+      ],
+      "exact": true
+    },
+    {
+      "field": "cdr.spectrum.frequency_Hz",
+      "dtype": "float64",
+      "shape": [
+        120001
+      ],
+      "exact": true
+    },
+    {
+      "field": "cdr.spectrum.relative_frequency",
+      "dtype": "float64",
+      "shape": [
+        120000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.cdr.histogram.x",
+      "dtype": "float64",
+      "shape": [
+        100
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.cdr.histogram.y",
+      "dtype": "int64",
+      "shape": [
+        100
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.cdr.spectrum.x",
+      "dtype": "float64",
+      "shape": [
+        120000
+      ],
+      "exact": true
+    },
+    {
+      "field": "display.cdr.spectrum.y",
+      "dtype": "float64",
+      "shape": [
+        120000
+      ],
+      "exact": true
+    },
+    {
+      "field": "ber.dfe.bits_out",
+      "dtype": "int64",
+      "shape": [
+        15000
+      ],
+      "exact": true
+    },
+    {
+      "field": "ber.dfe.bits_test",
+      "dtype": "int64",
+      "shape": [
+        10160
+      ],
+      "exact": true
+    },
+    {
+      "field": "ber.dfe.bits_reference",
+      "dtype": "int64",
+      "shape": [
+        10160
+      ],
+      "exact": true
+    },
+    {
+      "field": "ber.dfe.auto_corr",
+      "dtype": "float64",
+      "shape": [
+        5080
+      ],
+      "exact": true
+    },
+    {
+      "field": "ber.dfe.errors",
+      "dtype": "int64",
+      "shape": [
+        0
+      ],
+      "exact": true
+    }
+  ],
+  "summary_exact_excluding_performance": true,
+  "window_exact": true,
+  "elapsed_seconds": 5.274342100001377
+}

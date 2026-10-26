@@ -1,0 +1,18 @@
+{
+  "active_task_id": null,
+  "runs": [],
+  "references": [
+    {
+      "record_id": "ref-0b8714ae-fc0a-4056-a99c-bc661602487f",
+      "run_id": "6da9e632-90f5-4945-863c-ad64cd1f27fc",
+      "bytes": 45819465,
+      "sha256": "a6dc653b1c79c062c11d514bdcf7278e76ad5ab8b55a8d030900984e4360fc21"
+    },
+    {
+      "record_id": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+      "run_id": "b1bcc6af-733b-4225-9b0e-b81e4eead9e9",
+      "bytes": 46005590,
+      "sha256": "5585c399309c17af811411167989282d05daaa3f26034ee75b284ad9a2566073"
+    }
+  ]
+}
