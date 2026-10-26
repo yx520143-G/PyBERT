@@ -1,0 +1,40 @@
+{
+  "task_id": "57dd7893-89e1-4b6b-a239-a706942ffec2",
+  "input_hash": "dece26bea541d2e3e2dd512c122ba0b913221fa3e1ee1d13788921c0eb2ecd64",
+  "input_identity_hash": "bbdbc99fab14246173eb4c1b22f8cf69d14b03c9da1079ba29a8b4d064132e22",
+  "plot_count": 75,
+  "files": {
+    "arrays.npz": {
+      "bytes": 44670028,
+      "sha256": "e4e7eb981867fef14b09c4489faf0c14f332aeff52d7a3dd2d36fc66dac30a12"
+    },
+    "loaded-modules.json": {
+      "bytes": 18405,
+      "sha256": "df1350a4acf6826cd2b0a5270848a0a470161fc903d5e225017d36dc2e6978a7"
+    },
+    "manifest.json": {
+      "bytes": 359516,
+      "sha256": "e5bd656a5c5cfd8db85408d0171928d225ed5f1496cd7db14ced409543123344"
+    },
+    "replay-input.json": {
+      "bytes": 6020,
+      "sha256": "eabfe89ab11159a89044984f0cc0a2b7405e2b51030dd57ff082427c553fe116"
+    },
+    "request.json": {
+      "bytes": 20747,
+      "sha256": "b9f9384fa1e51fa5802fd4f93378eeb4be1596de20798cd68366a349d9297125"
+    },
+    "result.pybert_run": {
+      "bytes": 45971866,
+      "sha256": "ab57fec5f27587295ba7fedae360b4ec85de82be9370186f6e735f2b92ede465"
+    },
+    "task.json": {
+      "bytes": 1243,
+      "sha256": "ef733a3e54c2a409dd0af6caf7690572cd966700c5ffda5af02a7033e741792b"
+    },
+    "terminal.json": {
+      "bytes": 998,
+      "sha256": "0298d0d29190f3c9a5b8f690fc66b4cc2183c79b19b409c504d1d58c46a31c58"
+    }
+  }
+}

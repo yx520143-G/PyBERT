@@ -1,0 +1,27 @@
+{
+  "requested_changes": [
+    "peak_mag"
+  ],
+  "effective_changes": [
+    "peak_mag"
+  ],
+  "input_hash_changed": true,
+  "input_identity_changed": true,
+  "unchanged": [
+    "t",
+    "f",
+    "context.source.x",
+    "chnl_h",
+    "chnl_out",
+    "rx_in"
+  ],
+  "changed": [
+    "ctle_out_h",
+    "ctle_out",
+    "ffe_out",
+    "dfe_out"
+  ],
+  "total_changed_arrays": 155,
+  "total_arrays": 444,
+  "passed": true
+}

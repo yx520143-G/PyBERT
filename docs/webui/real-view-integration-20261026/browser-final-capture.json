@@ -1,0 +1,9 @@
+{
+  "path": "local/final-browser-audit.json",
+  "bytes": 1664113,
+  "sha256": "4be38b9ed9ac91f1d94e5b7b51dd9af5a9804e40ce2f62f96fd127539b287bcc",
+  "run_posts": 1,
+  "plot_response_objects": 16,
+  "view_checks": 10,
+  "observer_errors": []
+}

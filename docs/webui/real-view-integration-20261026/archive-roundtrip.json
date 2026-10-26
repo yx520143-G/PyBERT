@@ -1,0 +1,9 @@
+{
+  "raw_npz_bytes_exact": true,
+  "record_id": "ref-c39135d8-1653-4227-bb3a-8606f038a61a",
+  "sha256": "3e968fbb614bb697bf212414d8db0dd5c3b0ae2af6a129a00c2338d7e54d57cc",
+  "temporary_runs": 2,
+  "references": 1,
+  "source_run_id": "6cfbc842-2427-4d7f-9fe7-82fc7d4a7288",
+  "active_task_id": null
+}
