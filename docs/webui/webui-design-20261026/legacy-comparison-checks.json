@@ -1,0 +1,37 @@
+{
+  "gui": [
+    {
+      "kind": "adaptation",
+      "point": "dfe",
+      "title": "判决前信号",
+      "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+      "stage": "#dfe",
+      "menuClosed": true
+    },
+    {
+      "kind": "jitter.info",
+      "point": "dfe",
+      "title": "Jitter 汇总",
+      "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+      "stage": "#analysis",
+      "menuClosed": true
+    }
+  ],
+  "comparison": {
+    "title": "信号对比",
+    "annotations": [
+      "通道参考",
+      "接收端输入",
+      "CTLE 输出",
+      "判决前信号"
+    ],
+    "points": [
+      "tx",
+      "ctle",
+      "dfe"
+    ],
+    "reference": "false",
+    "ffe": "false"
+  },
+  "draftUnchanged": true
+}

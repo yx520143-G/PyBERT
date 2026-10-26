@@ -1,0 +1,23 @@
+{
+  "runs": 0,
+  "references": 2,
+  "active_task_id": null,
+  "current_task_id": "f80987f7-3280-450a-b705-1171f09abba3",
+  "recordsUnchanged": true,
+  "records": [
+    {
+      "record_id": "ref-0b8714ae-fc0a-4056-a99c-bc661602487f",
+      "run_id": "6da9e632-90f5-4945-863c-ad64cd1f27fc",
+      "input_hash": "f754f338475be34a07243cfa1cad82adbdaf5c908fa42b0580a7c53dfd67e204",
+      "source_sha256": "705559d9cee68c793c6eee268b6621c620293ba2773d1e37ac93108ee78b618f",
+      "array_bytes": 78067716
+    },
+    {
+      "record_id": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+      "run_id": "b1bcc6af-733b-4225-9b0e-b81e4eead9e9",
+      "input_hash": "3f39868b580e8ad6100ab8eff859b339f2bcb1e0c04e7d55f2c977f25d2ce43f",
+      "source_sha256": "69b9b58e1ba69ac10fcd5c2150bfca36ba3d3ae83fb49af43556ec2b6c377cca",
+      "array_bytes": 78094932
+    }
+  ]
+}

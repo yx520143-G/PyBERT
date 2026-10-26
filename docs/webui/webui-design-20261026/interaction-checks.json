@@ -1,0 +1,218 @@
+{
+  "points": {
+    "checks": [
+      {
+        "point": "tx",
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+        "stage": "#ctle",
+        "selected": [
+          "tx"
+        ],
+        "views": [
+          "paired",
+          "response",
+          "wave",
+          "eye",
+          "jitter.dist",
+          "jitter.spec",
+          "jitter.bathtub"
+        ],
+        "slicer": true
+      },
+      {
+        "point": "ctle",
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+        "stage": "#ctle",
+        "selected": [
+          "ctle"
+        ],
+        "views": [
+          "paired",
+          "response",
+          "wave",
+          "eye",
+          "jitter.dist",
+          "jitter.spec",
+          "jitter.bathtub"
+        ],
+        "slicer": true
+      },
+      {
+        "point": "ffe",
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+        "stage": "#ctle",
+        "selected": [
+          "ffe"
+        ],
+        "views": [
+          "paired",
+          "response",
+          "wave",
+          "eye",
+          "jitter.dist",
+          "jitter.spec",
+          "jitter.bathtub"
+        ],
+        "slicer": true
+      },
+      {
+        "point": "dfe",
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+        "stage": "#ctle",
+        "selected": [
+          "dfe"
+        ],
+        "views": [
+          "paired",
+          "response",
+          "wave",
+          "eye",
+          "jitter.dist",
+          "jitter.spec",
+          "jitter.bathtub",
+          "adaptation",
+          "cdr",
+          "cdr.histogram",
+          "cdr.spectrum"
+        ],
+        "slicer": true
+      }
+    ],
+    "titleToChain": true,
+    "keyboard": true,
+    "draftUnchanged": true,
+    "postRequests": []
+  },
+  "modules": {
+    "checks": [
+      {
+        "stage": "#source",
+        "kind": "wave.source",
+        "title": "Source waveform",
+        "pointHidden": true,
+        "viewHidden": true,
+        "observed": [
+          "source"
+        ],
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce"
+      },
+      {
+        "stage": "#noise",
+        "kind": "wave.noise",
+        "title": "Injected noise",
+        "pointHidden": true,
+        "viewHidden": true,
+        "observed": [
+          "noise"
+        ],
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce"
+      },
+      {
+        "stage": "#channel",
+        "kind": "paired",
+        "title": "通道参考",
+        "pointHidden": false,
+        "viewHidden": false,
+        "observed": [
+          "channel"
+        ],
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce"
+      }
+    ],
+    "slicer": {
+      "stage": "#dfe",
+      "point": "ffe",
+      "level": true,
+      "nodeOrder": [
+        "chain-node  selected",
+        "signal-arrow measured-link",
+        "slicer-node selected"
+      ]
+    },
+    "draftUnchanged": true
+  },
+  "menus": {
+    "checks": [
+      {
+        "kind": "overview",
+        "title": "结果概览",
+        "stage": "#dfe",
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+        "menuClosed": true,
+        "pointHidden": true,
+        "viewHidden": true,
+        "info": "{\n  \"summary\": {\n    \"n_errs_dfe\": 0,\n    \"n_errs_viterbi\": -1,\n    \"viterbi_availability\": \"disabled\",\n    \"chnl_dly_s\": 4.7625000000000005e-9,\n    \"rel_power\""
+      },
+      {
+        "kind": "jitter.info",
+        "title": "Jitter 汇总",
+        "stage": "#dfe",
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+        "menuClosed": true,
+        "pointHidden": true,
+        "viewHidden": true,
+        "info": "Metric (ps)Channel-only diagnosticNative Rx input (+Tx, noise)CTLE outputRx FFE output · new helper observationDFE summing-node outputisi81.89538388.70257719.71"
+      },
+      {
+        "kind": "compare",
+        "title": "Run 输入比较",
+        "stage": "#dfe",
+        "record": "ref-5d22067f-9e72-4520-b108-5f5c4b83ebce",
+        "menuClosed": true,
+        "pointHidden": true,
+        "viewHidden": true,
+        "info": "A b1bcc6afB 6da9e632n_errs_dfe03264model_qualification该记录未采集该记录未采集chnl_dly_s4.7625000000000005e-99.550000000000001e-9rel_power0.0099980.009998initial_level_v0.5"
+      }
+    ],
+    "receivers": [
+      {
+        "kind": "adaptation",
+        "afterSwitch": [
+          "paired",
+          "response",
+          "wave",
+          "eye",
+          "jitter.dist",
+          "jitter.spec",
+          "jitter.bathtub"
+        ]
+      },
+      {
+        "kind": "cdr",
+        "afterSwitch": [
+          "paired",
+          "response",
+          "wave",
+          "eye",
+          "jitter.dist",
+          "jitter.spec",
+          "jitter.bathtub"
+        ]
+      },
+      {
+        "kind": "cdr.histogram",
+        "afterSwitch": [
+          "paired",
+          "response",
+          "wave",
+          "eye",
+          "jitter.dist",
+          "jitter.spec",
+          "jitter.bathtub"
+        ]
+      },
+      {
+        "kind": "cdr.spectrum",
+        "afterSwitch": [
+          "paired",
+          "response",
+          "wave",
+          "eye",
+          "jitter.dist",
+          "jitter.spec",
+          "jitter.bathtub"
+        ]
+      }
+    ]
+  }
+}

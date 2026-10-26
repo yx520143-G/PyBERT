@@ -6,6 +6,7 @@
   const tables = {tx_taps: ['enabled', 'value', 'min_val', 'max_val'], rx_taps: ['enabled', 'value', 'min_val', 'max_val'], tx_tap_tuners: ['enabled', 'pos', 'min_val', 'max_val', 'step'], ffe_tap_tuners: ['enabled', 'pos', 'min_val', 'max_val', 'step'], dfe_tap_tuners: ['enabled', 'min_val', 'max_val']};
   let base = null, captured = null, patches = [], normalized = null, revision = 0, normalizedRevision = -1;
   let activeTask = null, currentTask = null, runs = [], selected = null, normalizing = null, timer = null, pendingValidation = false, disconnected = false, logicalName = '', renderToken = 0;
+  let backgroundNormalization = false;
   let runtimeExtensions = {};
   let comTasks = [];
   let references = [], sourceRecordId = null;
@@ -29,6 +30,7 @@
     return {runtime_extensions:{version:1,values},resource_bindings:resourceBindings()};
   }
   const esc = v => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const signalNames = {chnl:'通道参考',tx:'接收端输入',ctle:'CTLE 输出',ffe:'FFE 输出',dfe:'判决前信号'};
   const equal = (a,b) => JSON.stringify(a) === JSON.stringify(b);
   async function api(path, body) {
     const response = await fetch(`/api/${path}`, body === undefined ? {} : {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
@@ -75,10 +77,12 @@
     for (const id of ['run','save-config','save-as','load-config']) $(id).disabled = locked || !!activeTask;
     $('abort').disabled = !activeTask || disconnected;
     $('resources-open').disabled = locked;
-    $('inspector').inert = !!normalizing;
+    $('inspector').inert = !!normalizing && !backgroundNormalization;
     for (const id of ['reset-draft','reset-stage','tx-mode','rx-mode','reset-modes','undo-reset']) $(id).disabled = !!normalizing;
-    $('stale').textContent = selected ? (normalizedRevision !== revision || selected.input_hash !== normalized?.input_hash || selected.input_identity_hash && selected.input_identity_hash !== normalized?.input_identity_hash ? 'Older input · draft or resource binding changed' : 'Matches validated input') : '';
+    $('stale').textContent = selected ? (normalizedRevision !== revision || selected.input_hash !== normalized?.input_hash || selected.input_identity_hash && selected.input_identity_hash !== normalized?.input_identity_hash ? '输入已变化 · 当前显示旧结果' : '与已验证输入一致') : '';
+    $('stale').classList.toggle('matching',$('stale').textContent === '与已验证输入一致');
     if(selected?.legacy) $('stale').textContent='原输入与物理轴未知；index诊断参考，完整Web archive不可用。';
+    $('stale').title=$('stale').textContent;
     if ($('resource-dialog')) $('resource-dialog').inert=!!normalizing;
     $('legacy-results').disabled=!selected || disconnected;
     $('save-results').disabled=!selected || !!selected.legacy || disconnected;
@@ -91,21 +95,24 @@
     if (selected && selected.kind!=='temporary') $('parent-com-state').textContent=`外部参考 ${recordId(selected)} · 原run ${selected.run_id} · ${selected.legacy?'legacy诊断子集':'完整存档'}；子任务仅显示保存时快照，见概览。`;
     window.dispatchEvent(new CustomEvent('pybert-worker-state',{detail:{busy:!!activeTask || !!normalizing || locked,activeTask,revision}}));
   }
-  async function normalizeDraft() {
+  async function normalizeDraft({background=false}={}) {
     if (normalizing) return normalizing;
     if (activeTask) throw new Error('Native slot busy; input validation is pending.');
     if (window.PYBERT_RESOURCES?.pending()) throw new Error('Resource upload is still in progress.');
-    document.activeElement?.blur();
+    if (!background) document.activeElement?.blur();
     record();
     pendingValidation = false;
     const error = localError();
     if (error) throw new Error(error);
     const expectedRevision = revision;
     const request = patches.length ? {mode:'patch', config:base, patches:clone(patches)} : {mode:'load', config:base};
+    backgroundNormalization = background;
     normalizing = api('normalize', {...request,...extraInput()});
-    $('input-status').textContent = 'Normalizing native observers…'; controls();
+    $('input-status').textContent = background ? '' : 'Normalizing native observers…'; controls();
     try {
       const result = await normalizing;
+      // Keep the original base and ordered patches until the latest draft is validated.
+      if (background && expectedRevision !== revision) return;
       base = result.config; normalized = result; patches = []; runtimeExtensions=result.runtime_extensions;
       window.PYBERT_RESOURCES?.restore(result.resource_bindings,base);
       window.PYBERT_RESOURCES?.importReport(result);
@@ -113,13 +120,22 @@
       ui.replaceDraft(toDraft(base)); captured = toNative(ui.getDraft());
       persistNative();
       normalizedRevision = expectedRevision;
-      $('input-status').textContent = result.warnings.join(' ');
+      $('input-status').textContent = '';
+      $('input-warnings').textContent = result.warnings.join(' ');
       return result;
-    } finally { normalizing = null; controls(); }
+    } catch (error) {
+      if (!background || expectedRevision === revision) throw error;
+    } finally {
+      normalizing = null; backgroundNormalization = false; controls();
+      if (background && pendingValidation) {
+        clearTimeout(timer);
+        timer = setTimeout(validateWhenIdle, 200);
+      }
+    }
   }
   function inputError(error) { $(ui.migrationError() || snapshotRecoveryRequired?'config-status':'input-status').textContent = `${ui.migrationError() || snapshotRecoveryRequired?'草稿恢复':'Input'}: ${error.message}`; controls(); }
   function validateWhenIdle() {
-    if (pendingValidation && !activeTask && !normalizing) normalizeDraft().catch(inputError);
+    if (pendingValidation && !activeTask && !normalizing) normalizeDraft({background:true}).catch(inputError);
   }
   function persistNative() {
     if(snapshotRecoveryRequired) return;
@@ -154,10 +170,10 @@
   window.addEventListener('pybert-resource-change',()=>{revision++;pendingValidation=true;controls();clearTimeout(timer);timer=setTimeout(validateWhenIdle,200);});
   window.addEventListener('pybert-resource-error',event=>inputError(new Error(event.detail)));
   function observation() {
-    return $('analysis-point').value === 'node' ? ({channel:'chnl',tx:'tx',noise:'tx',ctle:'ctle',rxffe:'ffe',dfe:'dfe',cdr:'dfe',agc:'dfe',analysis:'dfe'})[ui.getStage()] : $('analysis-point').value;
+    return $('analysis-point').value;
   }
   function pickPlot(chosenPoint = observation()) {
-    const stage = ui.getStage(), kind = $('analysis-kind').value;
+    const kind = $('analysis-kind').value;
     const point = ({chnl:'chnl_out',tx:'rx_in',ctle:'ctle_out',ffe:'ffe_out',dfe:'dfe_out'})[chosenPoint];
     if (kind === 'response') {
       let response = chosenPoint;
@@ -166,29 +182,67 @@
       if ($('response-scope').value === 'cumulative' && response !== 'chnl') response += '_out';
       return `${response}_${$('response-type').value}`;
     }
-    if (kind === 'wave') return stage === 'noise' ? 'noise' : point ? `wave.${point}` : stage === 'source' ? 'wave.x' : null;
+    if (kind === 'wave') return point ? `wave.${point}` : null;
+    if (kind === 'wave.source') return 'wave.x';
+    if (kind === 'wave.noise') return 'noise';
     if (kind === 'eye') return chosenPoint ? `eye.${chosenPoint}${chosenPoint === 'chnl' && $('channel-noise').checked ? '.gui_noise' : ''}` : null;
     if (kind.startsWith('jitter.') && kind !== 'jitter.info') return chosenPoint ? `jitter.${chosenPoint}.${kind.split('.')[1]}` : null;
     return kind;
   }
-  function empty(message) { Plotly.purge('plot'); $('plot').innerHTML = `<p class="empty-result">${esc(message)}</p>`; }
+  function empty(message, target='plot') { Plotly.purge(target); $(target).innerHTML = `<p class="empty-result">${esc(message)}</p>`; }
+  async function renderPaired(token) {
+    const run=selected, point=observation();
+    const label=signalNames[point];
+    $('eye-point').textContent=label || '请选择测点';
+    $('impulse-point').textContent=point === 'chnl' ? '通道响应' : label ? `${label} · Cumulative` : '请选择测点';
+    for (const target of ['plot','eye-plot']) empty('正在读取所选 Run…',target);
+    const message=!run ? '运行仿真或打开结果存档后查看真实数据。' : !point ? '请从信号链或结果标题选择观察信号。' : run.legacy ? 'Legacy 缺少完整物理轴；请选择单图视图查看原始 index 诊断。' : '';
+    if (message) { for (const target of ['plot','eye-plot']) empty(message,target); return; }
+    const requests=[{target:'plot',id:`${point === 'chnl' ? point : point+'_out'}_h`},{target:'eye-plot',id:`eye.${!run.analysis_version && point === 'tx' ? 'rx_in' : point}`}];
+    const charts=await Promise.all(requests.map(async request => ({...request,chart:run.plots[request.id] ? await api(`runs/${recordId(run)}/plots/${request.id}`) : null})));
+    if (token !== renderToken) return;
+    for (const {target,id,chart} of charts) {
+      if (!chart || chart.availability === 'unavailable') {
+        empty(`此记录的 ${id} 不可用${chart?.reason ? `：${analysisReason(chart.reason)}` : '；切换视图不会补算缺失数据。'}`,target);
+        continue;
+      }
+      $(target).innerHTML='';
+      await Plotly.newPlot(target,chart.data,{autosize:true,margin:{l:58,r:36,t:12,b:38},xaxis:{title:{text:chart.xunit,standoff:6},type:chart.logx?'log':'linear',automargin:true},yaxis:{title:{text:chart.yunit,standoff:6},automargin:true},paper_bgcolor:'#fff',plot_bgcolor:'#fafcfd',font:{family:'Segoe UI, Microsoft YaHei, sans-serif',size:11,color:'#526d7e'},showlegend:chart.data.length>1,legend:{orientation:'h',y:-.22}}, {responsive:true,displaylogo:false});
+      if (token !== renderToken) return;
+    }
+    $('analysis-info').innerHTML=`<p>两图来自同一所选 Run：${esc(run.run_id)}。${point === 'chnl' ? 'Impulse 为通道响应；Eye 为理想激励经过 Channel 的输出，使用已保存的 clean eye。' : 'Impulse 为累计响应；DFE 使用最终权重等效 FIR。Eye 使用该 Run 已保存的原始视图。'}参数修改后须重新 Run 才会产生新结果。</p>${charts.map(({id,chart})=>`<details><summary>${esc(id)} · ${esc(chart?.availability || 'unavailable')}</summary><pre>${esc(JSON.stringify({record_id:recordId(run),run_id:run.run_id,input_hash:run.input_hash,window:chart?.metadata?.window || run.window,metadata:chart?.metadata,native_sha:run.native_sha,adapter_sha:run.adapter_sha},null,2))}</pre></details>`).join('')}`;
+  }
   function comparisonRecord() {
     const chosen=$('comparison-run').value;
     return allRecords().find(row=>recordId(row)!==recordId(selected) && (!chosen || recordId(row)===chosen));
   }
   async function renderAnalysis() {
     const token = ++renderToken;
+    window.dispatchEvent(new CustomEvent('pybert-analysis-view'));
+    const paired=$('analysis-kind').value === 'paired';
+    $('plot-deck').classList.toggle('paired-view',paired);
+    $('plot-deck').classList.remove('facets');
+    $('eye-card').hidden=$('impulse-caption').hidden=!paired;
+    $('comparison-toolbar').hidden=paired || ['overview','jitter.info'].includes($('analysis-kind').value);
+    $('plot').classList.remove('text-mode');
+    $('plot').style.height='100%';
+    $('analysis-details').open=['overview','jitter.info','compare'].includes($('analysis-kind').value);
     $('analysis-info').innerHTML = '';
     $('response-type').hidden = $('response-scope').hidden = $('analysis-kind').value !== 'response';
     $('channel-noise-label').hidden = $('analysis-kind').value !== 'eye';
     $('trellis-toolbar').hidden = $('analysis-kind').value !== 'viterbi';
+    if (selected) {
+      $('run-log-id').textContent=`Selected successful run: ${selected.run_id}`;
+      $('run-log').textContent=(selected.logs || []).join('\n');
+    }
+    if (paired) return renderPaired(token);
     if (!selected) return empty('No successful native run. Run the engine to inspect real data.');
     $('run-log-id').textContent = `Selected successful run: ${selected.run_id}`;
     $('run-log').textContent = (selected.logs || []).join('\n');
     const id = pickPlot();
     $('plot').classList.toggle('text-mode',['overview','jitter.info','compare'].includes(id));
     if (['overview','jitter.info','compare'].includes(id)) $('plot').style.height='auto';
-    if (!id) return empty('No matching observation at this node. Choose an explicit Point.');
+    if (!id) return empty('请选择已有测点。');
     if (id === 'viterbi') {
       const other=$('compare-mode').value==='runs'?comparisonRecord():null;
       return window.PYBERT_VITERBI.render(selected,other,()=>token===renderToken);
@@ -227,13 +281,13 @@
       const differences = Object.keys(a.effective_input).filter(key => !equal(a.effective_input[key],b.effective_input[key]));
       empty(`A ${recordId(a)} / source ${a.run_id} · B ${recordId(b)} / source ${b.run_id}`);
       const summaryValue=(run,key)=>key==='n_errs_dfe' && run.summary.dfe_ber?.availability==='unavailable' ? `Unavailable: ${analysisReason(run.summary.dfe_ber.reason)}` : run.summary[key] ?? '该记录未采集';
-      $('analysis-info').innerHTML = `<table><tr><th></th><th>A ${esc(a.run_id.slice(0,8))}</th><th>B ${esc(b.run_id.slice(0,8))}</th></tr>${['n_errs_dfe','n_errs_viterbi','viterbi_availability','model_qualification','chnl_dly_s','rel_power','initial_level_v','final_level_v'].map(key => `<tr><td>${key}</td><td>${esc(summaryValue(a,key))}</td><td>${esc(summaryValue(b,key))}</td></tr>`).join('')}</table><p>Input differences: ${esc(differences.join(', ') || 'None')}</p><pre>${esc(JSON.stringify(differences.map(key => ({field:key,A:a.effective_input[key],B:b.effective_input[key]})),null,2))}</pre><p>A window ${esc(JSON.stringify(a.window))}<br>B window ${esc(JSON.stringify(b.window))}</p>`;
+      $('analysis-info').innerHTML = `<table><tr><th></th><th>A ${esc(a.run_id.slice(0,8))}</th><th>B ${esc(b.run_id.slice(0,8))}</th></tr>${['n_errs_dfe','model_qualification','chnl_dly_s','rel_power','initial_level_v','final_level_v'].map(key => `<tr><td>${key}</td><td>${esc(summaryValue(a,key))}</td><td>${esc(summaryValue(b,key))}</td></tr>`).join('')}</table><p>Input differences: ${esc(differences.join(', ') || 'None')}</p><pre>${esc(JSON.stringify(differences.map(key => ({field:key,A:a.effective_input[key],B:b.effective_input[key]})),null,2))}</pre><p>A window ${esc(JSON.stringify(a.window))}<br>B window ${esc(JSON.stringify(b.window))}</p>`;
       $('analysis-info').innerHTML += `<p>Resources/runtime A</p><pre>${esc(JSON.stringify({resources:a.resources,runtime:a.runtime_extensions},null,2))}</pre><p>Resources/runtime B</p><pre>${esc(JSON.stringify({resources:b.resources,runtime:b.runtime_extensions},null,2))}</pre>`;
       return;
     }
     const compare = $('compare-mode').value, kind = $('analysis-kind').value;
     const pointKinds = ['response','wave','eye','jitter.dist','jitter.spec','jitter.bathtub'];
-    const points = compare === 'points' && pointKinds.includes(kind) ? ['chnl','tx','ctle','ffe','dfe'] : [observation()];
+    const points = compare === 'points' && pointKinds.includes(kind) ? ['chnl','tx','ctle','dfe'] : [observation()];
     let sources = [selected];
     if (compare === 'runs') {
       const other = comparisonRecord();
@@ -251,7 +305,7 @@
         if (id === 'jitter.dfe.dist') id='jitter.dist';
         if (id === 'jitter.dfe.spec') id='jitter.spec';
       }
-      return {run,id};
+      return {run,id,point};
     }));
     const missing = requests.filter(r => !r.run.plots[r.id]);
     if (missing.length) return empty(`Analysis unavailable for ${missing.map(r => `${r.run.run_id.slice(0,8)} / ${r.id} (raw schema ${r.run.raw_schema_version})`).join(', ')}. Saved runs are immutable; switching views does not calculate missing datasets.`);
@@ -271,18 +325,20 @@
     if (charts.some(p => p.xunit !== first.xunit || p.yunit !== first.yunit || p.logx !== first.logx || (p.data[0]?.type === 'heatmap') !== heatmap)) return empty('Incompatible units, axis scales or dataset types; no index-based overlay is allowed.');
     $('plot').innerHTML = '';
     const facets = heatmap && charts.length > 1, rows = facets ? Math.ceil(charts.length/2) : 1;
-    $('plot').style.height = `${facets ? rows*300+130 : $('work-area').classList.contains('viewer-expanded') ? 430 : 310}px`;
-    const layout = {title:{text:charts.length === 1 ? first.title : `${compare === 'runs' ? 'Two runs' : 'Same run · all points'} · ${kind}`,font:{size:13}},margin:{l:65,r:35,t:60,b:100},xaxis:{title:{text:first.xunit},type:first.logx?'log':'linear'},yaxis:{title:{text:first.yunit}},legend:{orientation:'h',y:-.3,font:{size:10}},paper_bgcolor:'#fff',plot_bgcolor:'#f7f9fc',font:{family:'Arial',size:11},annotations:[]};
+    $('plot-deck').classList.toggle('facets',facets);
+    $('plot').style.height = facets ? `${rows*300+130}px` : '100%';
+    const layout = {autosize:true,title:{text:charts.length === 1 ? first.title : `${compare === 'runs' ? 'Two runs' : '同一 Run · 四信号'} · ${kind}`,font:{size:13}},margin:{l:65,r:35,t:55,b:70},xaxis:{title:{text:first.xunit},type:first.logx?'log':'linear',automargin:true},yaxis:{title:{text:first.yunit},automargin:true},legend:{orientation:'h',y:-.2,font:{size:10}},paper_bgcolor:'#fff',plot_bgcolor:'#f7f9fc',font:{family:'Segoe UI, Microsoft YaHei, sans-serif',size:11},annotations:[]};
     if (facets) { layout.margin.r=70; layout.coloraxis={colorscale:'Viridis',colorbar:{title:{text:'count'}}}; }
     const data = charts.flatMap((p,i) => {
       const suffix = i ? String(i+1) : '', x = `x${suffix}`, y = `y${suffix}`;
+      const pointLabel=signalNames[requests[i].point];
       if (facets) {
         const col = i%2, row = Math.floor(i/2);
         layout[`xaxis${suffix}`] = {domain:[col*.53,col*.53+.43],anchor:y,title:{text:p.xunit}};
         layout[`yaxis${suffix}`] = {domain:[1-(row+1)/rows+.11/rows,1-row/rows-.08/rows],anchor:x,title:{text:p.yunit}};
-        layout.annotations.push({text:`${p.run_id.slice(0,8)} · ${requests[i].id}`,x:col*.53+.22,y:1-row/rows,xref:'paper',yref:'paper',showarrow:false,font:{size:10}});
+        layout.annotations.push({text:compare === 'runs' ? `${pointLabel}<br>${p.run_id.slice(0,8)}` : pointLabel,x:col*.53+.22,y:1-row/rows,xref:'paper',yref:'paper',showarrow:false,font:{size:11}});
       }
-      const label=compare === 'runs' ? recordId(p.run).slice(0,12) : ({chnl:'Channel',tx:'Rx input',ctle:'CTLE',ffe:'Rx FFE',dfe:'DFE'})[requests[i].id.split('.')[1]];
+      const label=compare === 'runs' ? recordId(p.run).slice(0,12) : pointLabel;
       return p.data.map(trace => ({...trace,name:charts.length>1 && label ? `${label} · ${trace.name || requests[i].id}` : trace.name,...(facets ? {xaxis:x,yaxis:y,coloraxis:'coloraxis'} : {})}));
     });
     await Plotly.newPlot('plot',data,layout,{responsive:true,displaylogo:false});
@@ -294,7 +350,7 @@
     const result = id ? await api(`runs/${id}`) : null;
     if ($('selected-run').value !== (id || '')) return;
     selected = result;
-    if(result && $('results-status').textContent.startsWith('正在查询原记录')) $('results-status').textContent=`已恢复所选记录 ${id}。`;
+    if(result && $('results-status').textContent.startsWith('正在查询原记录')) $('results-status').textContent='';
     if(result) pendingRecordId=null;
     try { if(id) localStorage.setItem('pybert-result-selection-v1',JSON.stringify({record_id:id})); } catch { $('results-status').textContent='结果选择仅当前页面保留；本地存储失败。'; }
     controls(); await renderAnalysis();
@@ -349,15 +405,16 @@
   $('selected-run').addEventListener('change',() => chooseRun($('selected-run').value).catch(inputError));
   for (const id of ['analysis-kind','response-type','response-scope','analysis-point','compare-mode','comparison-run','channel-noise']) $(id).addEventListener('change',() => renderAnalysis().catch(inputError));
   window.addEventListener('pybert-trellis-view',()=>renderAnalysis().catch(inputError));
-  $('expand-viewer').addEventListener('click',() => { const expanded=$('work-area').classList.toggle('viewer-expanded'); $('expand-viewer').textContent=expanded?'Restore settings':'Expand viewer'; renderAnalysis().catch(inputError); });
+  $('expand-viewer').addEventListener('click',() => { const expanded=$('work-area').classList.toggle('viewer-expanded'); $('expand-viewer').textContent=expanded?'返回同屏':'放大视图'; renderAnalysis().catch(inputError); });
   window.addEventListener('pybert-analysis-navigation',event => {
-    $('analysis-kind').value=event.detail.kind; $('analysis-point').value='node';
+    const point=event.detail.point || ({channel:'chnl',tx:'tx',noise:'tx',ctle:'ctle',rxffe:'ffe',dfe:'dfe',cdr:'dfe'})[event.detail.stage];
+    if (point) $('analysis-point').value=point;
+    $('analysis-kind').value=event.detail.kind;
     $('compare-mode').value=event.detail.compare || 'none';
     if (event.detail.response) $('response-type').value=event.detail.response;
+    window.dispatchEvent(new CustomEvent('pybert-analysis-view',{detail:{kind:event.detail.kind}}));
     renderAnalysis().catch(inputError);
   });
-  document.addEventListener('click',event => { if (event.target.closest('[data-stage]')) renderAnalysis().catch(inputError); });
-  window.addEventListener('hashchange',() => renderAnalysis().catch(inputError));
   $('load-config').addEventListener('click',() => $('config-file').click());
   function applyLoadedInput(result,sourceId=null,name='',guard=null) {
     base=result.config;normalized=result;patches=[];runtimeExtensions=result.runtime_extensions;revision++;normalizedRevision=revision;
@@ -436,12 +493,14 @@
     constructedConfig=clone(base);constructedRuntime=clone(runtimeExtensions);
     ui.setDefaults(toDraft(base));
     try { const previous=JSON.parse(localStorage.getItem('pybert-native-snapshot-v2') || localStorage.getItem('pybert-native-snapshot-v1') || 'null'); if (previous && (![1,2].includes(previous.schema) || !previous.config || typeof previous.config!=='object')) throw new Error('未知配置快照schema/字段');if(previous) {base=previous.config;logicalName=previous.name || '';runtimeExtensions=previous.runtime_extensions || runtimeExtensions;sourceRecordId=previous.source_record_id || null;replayGuard=previous.replay_guard || null;window.PYBERT_RESOURCES?.restore(previous.resource_bindings,base);revision++;normalizedRevision=-1;pendingValidation=true;} } catch(error) {snapshotRecoveryRequired=true; $('config-status').textContent=`配置快照恢复失败，原存储保留：${error.message}`; }
-    $('config-name').textContent=logicalName || 'Untitled';
+    $('config-name').textContent=logicalName || '未命名配置';
     ui.replaceDraft(saved ? {...toDraft(base),...saved} : toDraft(base));
     captured = clone(base); record();
     if (saved && patches.length) { revision++; normalizedRevision=-1; pendingValidation=true; }
-    $('input-status').textContent = ui.migrationError() || defaults.warnings.join(' '); controls();
+    $('input-status').textContent = ui.migrationError();
+    $('input-warnings').textContent = defaults.warnings.join(' '); controls();
     try {const selection=JSON.parse(localStorage.getItem('pybert-result-selection-v1') || 'null');if(selection?.record_id) {pendingRecordId=selection.record_id;$('results-status').textContent=`正在查询原记录 ${pendingRecordId}；状态待确认。`;}} catch { $('results-status').textContent='结果选择状态读取失败；不会据本地存储伪造成功。'; }
+    await renderAnalysis();
     await poll();
   }
   init().catch(inputError);
